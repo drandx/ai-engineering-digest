@@ -9,32 +9,35 @@ Daily newsletter for AI & Software Engineers. Curated by Pepe, published to GitH
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │  OpenClaw Cron (7:00 AM ET daily)                               │
-│  Triggers isolated agent session: "newsletter-orchestrator"     │
+│  Triggers isolated agent session                                │
 └──────────────────────┬──────────────────────────────────────────┘
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  Phase 1: RESEARCH (parallel sub-agents)                        │
+│  Single Agent Session (reads prompts/orchestrator.md)           │
 │                                                                 │
-│  ┌──────────────┐ ┌──────────────┐ ┌──────────────────────┐     │
-│  │ Agent 1      │ │ Agent 2      │ │ Agent 3              │     │
-│  │ AI/ML Tools  │ │ DevTools &   │ │ Community &          │     │
-│  │ & Models     │ │ Frameworks   │ │ Trending             │     │
-│  └──────┬───────┘ └──────┬───────┘ └──────────┬───────────┘     │
-│         │                │                     │                │
-│         └────────────────┼─────────────────────┘                │
+│  Phase 1: RESEARCH                                              │
+│  11 web searches across 3 domains:                              │
+│  • AI/ML tools & models (4 searches)                            │
+│  • Developer tools & frameworks (4 searches)                    │
+│  • Community & trending (3 searches)                            │
+│                          │                                      │
 │                          ▼                                      │
 │  Phase 2: CURATE                                                │
-│  Orchestrator deduplicates, validates traction, scores,         │
-│  and structures articles into sections                          │
+│  Deduplicate, validate traction, organize into sections,        │
+│  check against previous issues to avoid repeats                 │
 │                          │                                      │
 │                          ▼                                      │
 │  Phase 3: BUILD                                                 │
-│  Generate JSON → Run newsletter_generate.py → HTML              │
+│  Write JSON → Run newsletter_generate.py → HTML                 │
 │                          │                                      │
 │                          ▼                                      │
 │  Phase 4: PUBLISH                                               │
 │  git add → commit → push → GitHub Pages auto-deploys            │
+│                          │                                      │
+│                          ▼                                      │
+│  Phase 5: NOTIFY                                                │
+│  Push notification to Pablo                                     │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
