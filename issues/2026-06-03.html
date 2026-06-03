@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 03, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 03, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="#ai-tools-0">Claude Code now authors 4% of all GitHub commits — Uber burned its entire 2026 AI tools budget in 4 months</a></li>
+      <li><a href="#devtools-0">GitHub Spec-Kit hits 93K stars — spec-driven development becomes the fastest-growing AI coding approach</a></li>
+      <li><a href="#ai-tools-2">Datadog report: 5% of AI requests fail in production, 69% of companies use 3+ models</a></li>
+      <li><a href="#infra-0">Temporal reaches 3,000 paying customers and $5B valuation — durable execution goes mainstream</a></li>
+      <li><a href="#ai-tools-1">Gemma 4 runs natively on phones and edge devices — 4 model sizes from 2B to 31B</a></li>
+      <li><a href="#devtools-1">OpenClaw becomes most-starred GitHub project ever (347K stars) — self-hosted AI agents go enterprise</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.developersdigest.tech/blog/codex-vs-claude-code-april-2026">Claude Code vs Codex: The Two-Agent Stack That's Winning</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Claude Code leads reasoning depth (80.9% SWE-bench) while Codex CLI wins on speed. Most engineers now use both — IDE agent for daily work, terminal agent for hard problems.</p>
+      <div class="article-meta">
+        <span class="tag">AI Coding</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Codex</span>
+        <span class="tag">Productivity</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The AI coding market has consolidated around two dominant tools. Understanding when to use each is now a core engineering skill. Uber's budget crisis shows the cost can be real — plan your team's usage.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use Claude Code for planning, architecture, and interactive problem-solving</li>
+          <li>Use Codex CLI for long-running autonomous refactors and debugging</li>
+          <li>Pair with robust CI/CD — let agents open PRs, tests catch regressions</li>
+          <li>Budget monitoring: track per-engineer token spend to avoid Uber-style blowouts</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Claude Code authors ~135K GitHub commits/day (4% of all public commits)</li>
+          <li>Peaked at 326K commits in a single day (March 2026)</li>
+          <li>Cursor has 360K paying users</li>
+          <li>Uber exhausted entire 2026 AI tools budget by April</li>
+          <li>Microsoft shifting engineers from Claude Code to Copilot to control costs</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.totalum.app/blog/claude-code-vs-codex-2026">Claude Code vs Codex: The Honest Verdict</a></li>
+          <li><a href="https://medium.com/@unicodeveloper/claude-code-vs-codex-vs-opencode-which-ai-coding-agent-is-actually-the-best-in-2026-baa9f6fd5374">Claude Code vs Codex vs OpenCode comparison</a></li>
+          <li><a href="https://spacedaily.com/n-microsoft-is-canceling-claude-code-licenses-across-its-experiences-devices-division-by-june-30-steering-thousands-of-engineers-toward-github-copilot-while-uber-burned-through-its-entire-2026-ai-bu/">Microsoft cancels Claude Code licenses, Uber budget crisis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/">Gemma 4: Google's Open Model Runs on Phones, Beats 400B Rivals</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Gemma 4 ships in 4 sizes (E2B, E4B, 26B MoE, 31B dense) and runs offline on phones, Raspberry Pi, and Jetson Nano. The 31B model outperforms rivals 10x its size.</p>
+      <div class="article-meta">
+        <span class="tag">Gemma</span>
+        <span class="tag">Edge AI</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Google</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Edge AI just became practical for real products. You can ship multimodal AI that runs completely offline with near-zero latency — no API costs, no privacy concerns, no internet dependency.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>On-device AI assistants that work offline</li>
+          <li>Privacy-sensitive applications (medical, legal, enterprise)</li>
+          <li>IoT and embedded systems with local inference</li>
+          <li>Use 26B A4B for local coding without sending code to APIs</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Built in collaboration with Qualcomm, MediaTek, and Google Pixel team</li>
+          <li>Native support on consumer edge devices</li>
+          <li>31B model benchmarks competitive with 400B+ parameter models</li>
+          <li>Released April 2, 2026 with immediate community adoption</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://ai.google.dev/gemma/docs/core/model_card_4">Gemma 4 model card</a></li>
+          <li><a href="https://datature.io/blog/gemma-4-what-computer-vision-engineers-actually-need-to-know">Gemma 4 for computer vision engineers</a></li>
+          <li><a href="https://dev.to/aniruddhaadak/gemma-4-complete-guide-2026-architecture-benchmarks-deployment-3en9">Complete deployment guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog's State of AI Engineering: Operational Complexity Is the Real Bottleneck</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">5% of AI model requests fail in production, with 60% of failures caused by capacity limits. 69% of companies now use 3+ models. Agent framework adoption doubled YoY.</p>
+      <div class="article-meta">
+        <span class="tag">Observability</span>
+        <span class="tag">Production AI</span>
+        <span class="tag">Report</span>
+        <span class="tag">Datadog</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Model intelligence isn't the problem anymore — system design is. If you're building AI products, this report tells you where production systems actually break: rate limits (8.4M errors in March alone), fragmented workflows, and excessive retries.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Implement multi-model fallback strategies to handle rate limits</li>
+          <li>Add observability to your AI pipelines — track latency, errors, token usage</li>
+          <li>Design for graceful degradation when providers hit capacity</li>
+          <li>Use Datadog's findings to benchmark your own AI system reliability</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Based on real telemetry from thousands of organizations</li>
+          <li>Anthropic Claude grew 23 percentage points in adoption</li>
+          <li>Google Gemini grew 20 percentage points</li>
+          <li>Agent framework adoption nearly doubled from 9% to 18%</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.datadoghq.com/about/latest-news/press-releases/datadog-state-of-ai-engineering-report-2026/">Press release with key findings</a></li>
+          <li><a href="https://dev.to/mnemehq/datadogs-state-of-ai-engineering-report-quietly-confirms-the-governance-crisis-10ni">Analysis: The governance crisis it reveals</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://qwen.ai/blog?id=qwen3-coder-next">Qwen3-Coder: The Open-Source Coding Model That Matches Claude Sonnet</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Qwen3-Coder 480B (35B active params) trained on 7.5T tokens matches Claude Sonnet 4 on agentic coding benchmarks. Fully open-source under Apache 2.0, self-hostable.</p>
+      <div class="article-meta">
+        <span class="tag">Open Source</span>
+        <span class="tag">Coding AI</span>
+        <span class="tag">Qwen</span>
+        <span class="tag">Self-Hosted</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>For the first time, an open-source coding model genuinely competes with top closed models. If you want to keep code private or reduce API costs, this is the one to evaluate.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosted coding assistant for teams with code privacy requirements</li>
+          <li>Cost-effective alternative to API-based coding models</li>
+          <li>Run smaller variants on consumer hardware for personal use</li>
+          <li>Fine-tune on your codebase for domain-specific assistance</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Most downloaded model family on Hugging Face</li>
+          <li>Apache 2.0 license enables commercial use</li>
+          <li>Available on Hugging Face, GitHub, ModelScope, and Ollama</li>
+          <li>Qwen3-Coder-Next variant offers 10x higher throughput</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://venturebeat.com/technology/qwen3-coder-next-offers-vibe-coders-a-powerful-open-source-ultra-sparse">VentureBeat: Qwen3-Coder-Next deep dive</a></li>
+          <li><a href="https://huggingface.co/Qwen/Qwen3-Coder-Next">Model on Hugging Face</a></li>
+          <li><a href="https://github.com/QwenLM/Qwen3-Coder">GitHub repository</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/">GitHub Spec-Kit: Spec-Driven Development Is Now the Fastest-Growing AI Coding Pattern</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Write a spec, the agent turns it into a plan, the plan becomes tasks, tasks become code you trust. 93K+ GitHub stars, 70+ community extensions, works with 30+ AI coding agents.</p>
+      <div class="article-meta">
+        <span class="tag">Spec-Driven Dev</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">AI Coding</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This solves the 'vibe coding' trust problem. Instead of hoping the AI gets it right, you define the contract upfront. Your spec becomes the source of truth for generation, testing, and validation.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>/speckit.specify → document requirements as machine-readable specs</li>
+          <li>/speckit.plan → auto-generate implementation plans from specs</li>
+          <li>/speckit.tasks → break plans into trackable tasks</li>
+          <li>/speckit.implement → let agents execute with guardrails</li>
+          <li>Use for any project where you need to trust AI-generated code</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>93,000+ GitHub stars</li>
+          <li>70+ community-contributed extensions</li>
+          <li>Supports 30+ AI coding agents (Copilot, Claude Code, Gemini CLI)</li>
+          <li>Martin Fowler wrote an analysis on spec-driven development tools</li>
+          <li>Latest release v0.8.7 (May 2026)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/github/spec-kit">GitHub repo (93K+ stars)</a></li>
+          <li><a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html">Martin Fowler on SDD tools</a></li>
+          <li><a href="https://www.marktechpost.com/2026/05/08/9-best-ai-tools-for-spec-driven-development-in-2026-kiro-bmad-gsd-and-more-compare/">9 Best SDD Tools compared</a></li>
+          <li><a href="https://developer.microsoft.com/blog/spec-driven-development-spec-kit">Microsoft's deep dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/openclaw/openclaw">OpenClaw: The Most-Starred GitHub Project Is a Self-Hosted AI Agent Framework</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">347K GitHub stars. Run your own AI agent across 20+ messaging platforms (WhatsApp, Telegram, Slack, Discord, Signal, etc.) with native voice, canvas rendering, and full autonomy.</p>
+      <div class="article-meta">
+        <span class="tag">AI Agents</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Self-Hosted</span>
+        <span class="tag">Multi-Platform</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is what Alexa should have been. A local-first AI assistant you actually control, with multi-channel presence and real autonomy. The enterprise migration trend (34% of Armalo AI's new customers) signals a shift from managed to self-hosted agents.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Personal AI assistant across all your messaging apps</li>
+          <li>Enterprise self-hosted alternative to managed agent services</li>
+          <li>Home automation hub with voice, canvas, and multi-device support</li>
+          <li>Build custom agents with SOUL.md personality configuration</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>347,000 GitHub stars — most-starred project in GitHub history</li>
+          <li>34% of Armalo AI enterprise customers migrating to self-hosted OpenClaw</li>
+          <li>v2026415 with native Claude Opus 4.7 and Google Gemini TTS</li>
+          <li>OpenClaw Foundation established for long-term governance</li>
+          <li>MIT license</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openclaw.ai/">OpenClaw website</a></li>
+          <li><a href="https://www.digitalocean.com/resources/articles/what-is-openclaw">DigitalOcean: What is OpenClaw?</a></li>
+          <li><a href="https://github.com/mergisi/awesome-openclaw-agents">162 production-ready agent templates</a></li>
+          <li><a href="https://www.clawbot.blog/blog/openclaw-the-rise-of-an-open-source-ai-agent-framework-april-2026-update/">April 2026 deep dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/">Agentic Frameworks 2026: LangGraph, CrewAI, and Haystack Lead the Pack</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Agent framework adoption nearly doubled (9% → 18% of organizations). LangGraph dominates for complex multi-step workflows, CrewAI for multi-agent collaboration, Haystack for enterprise RAG.</p>
+      <div class="article-meta">
+        <span class="tag">Agentic AI</span>
+        <span class="tag">Frameworks</span>
+        <span class="tag">LangGraph</span>
+        <span class="tag">CrewAI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>If you're building AI-powered products, picking the right framework now matters. The market is consolidating — these three cover most use cases and have the community/ecosystem to survive.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>LangGraph: complex stateful agent workflows with graph-based control flow</li>
+          <li>CrewAI: multi-agent systems where specialized agents collaborate</li>
+          <li>Haystack: production RAG pipelines with enterprise transparency requirements</li>
+          <li>All three integrate with major LLM providers</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Framework adoption doubled YoY per Datadog report</li>
+          <li>JetBrains' 2026 guide features them as top picks</li>
+          <li>LangGraph built on LangChain ecosystem</li>
+          <li>Haystack focused on enterprise production readiness</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.datacamp.com/blog/best-ai-agents">DataCamp: Best AI agents compared</a></li>
+          <li><a href="https://www.aitude.com/ai-engineer-tools-2026/">15 must-know AI engineer tools</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://thenewstack.io/temporal-durable-execution-ai-workflows/">Temporal Hits $5B Valuation — Durable Execution Becomes Critical Infrastructure</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">3,000+ paying customers, 183K+ weekly active OSS developers, $300M Series D. Every Coinbase transaction, Twilio message, and Snap story runs on Temporal. Now targeting AI agent workflows.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Durable Execution</span>
+        <span class="tag">Temporal</span>
+        <span class="tag">Workflows</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Temporal solved the 'what happens when my distributed system crashes mid-operation' problem. With AI agents doing multi-step work, durable execution is no longer optional — it's how you make agent workflows reliable.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Crash-proof AI agent workflows with automatic state recovery</li>
+          <li>Distributed transaction orchestration across microservices</li>
+          <li>Long-running business process automation</li>
+          <li>New: serverless workers for lightweight agent deployments</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>$5B valuation, $300M Series D (Feb 2026)</li>
+          <li>3,000+ paying customers (up from 2,500)</li>
+          <li>183,000+ weekly active open-source developers</li>
+          <li>184% net dollar retention</li>
+          <li>Used by Netflix, Coinbase, Stripe, Snap, Twilio</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://thenewstack.io/temporal-replay-2026-news/">Replay 2026: serverless workers announced</a></li>
+          <li><a href="https://byteiota.com/temporal-workflow-engine-netflixs-10x-speed-secret-2026/">Netflix's 10x speed with Temporal</a></li>
+          <li><a href="https://temporal.io/">Temporal.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://newsletter.pragmaticengineer.com/p/ai-tooling-2026">The Pragmatic Engineer's AI Tooling Survey: 95% Weekly Usage, Budget Crises Emerging</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">95% of surveyed engineers use AI tools weekly. Claude Code rocketed to #1 in 8 months. But the cost story is catching up — enterprises are scrambling to control spend.</p>
+      <div class="article-meta">
+        <span class="tag">Survey</span>
+        <span class="tag">AI Adoption</span>
+        <span class="tag">Engineering Culture</span>
+        <span class="tag">Costs</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>AI tools are no longer optional — they're table stakes. But the enterprise budget stories (Uber, Microsoft) are a warning: uncontrolled adoption gets expensive fast. Plan your tooling budget like you plan compute.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Benchmark your team's AI tool adoption against industry</li>
+          <li>Build an AI tooling budget and governance strategy</li>
+          <li>Evaluate hybrid setups (IDE agent + terminal agent)</li>
+          <li>Monitor token usage per engineer to catch runaway costs</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>95% weekly AI tool usage among survey respondents</li>
+          <li>Claude Code reached #1 in just 8 months</li>
+          <li>Multiple enterprises hitting budget constraints</li>
+          <li>Pragmatic Engineer has 800K+ subscribers</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://addyosmani.com/blog/ai-coding-workflow/">Addy Osmani's LLM coding workflow</a></li>
+          <li><a href="https://www.kellton.com/kellton-tech-blog/ai-tech-stack-2026">AI tech stack guide 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
