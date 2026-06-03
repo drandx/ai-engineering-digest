@@ -17,12 +17,12 @@
   <section class="summary">
     <h2>Today's Highlights</h2>
     <ul>
-      <li><a href="#ai-tools-and-models-0">Microsoft Build 2026: 7 new MAI models launched — MAI-Code-1-Flash beats Claude Haiku with 60% fewer tokens</a></li>
-      <li><a href="#developer-tools-and-frameworks-0">GitHub Copilot App ships as agent-native desktop — commits nearly doubled YoY to 1.4B/month on GitHub</a></li>
-      <li><a href="#ai-tools-and-models-1">Gemma 4 12B released today: encoder-free multimodal that runs on a laptop with 16GB VRAM</a></li>
-      <li><a href="#developer-tools-and-frameworks-2">Codex crosses 5M weekly users — non-developers now 20% of users and growing 3x faster</a></li>
-      <li><a href="#infrastructure-and-production-0">Databricks serves 125T tokens/month — publishes deep dive on making LLM inference reliable at scale</a></li>
-      <li><a href="#developer-tools-and-frameworks-3">Salt Code enforces security policies inside every AI coding assistant — from prompt to production</a></li>
+      <li><a href="#developer-tools-and-frameworks-0">GitHub Copilot switches to token billing — some developers report 10x-50x cost spikes, backlash goes viral</a></li>
+      <li><a href="#ai-tools-and-models-0">Microsoft Build 2026: 7 MAI models launched — MAI-Code-1-Flash beats Claude Haiku on SWE-Bench with 60% fewer tokens</a></li>
+      <li><a href="#ai-tools-and-models-2">Holo3.1 ships local computer-use agents — run GUI automation on-device with quantized models (FP8/GGUF)</a></li>
+      <li><a href="#ai-tools-and-models-1">Gemma 4 12B released: encoder-free multimodal on 16GB VRAM, 150M+ downloads across Gemma 4 family</a></li>
+      <li><a href="#infrastructure-and-production-2">TanStack npm supply chain attack: 42 packages hijacked via GitHub Actions in 6 minutes (CVE-2026-45321)</a></li>
+      <li><a href="#infrastructure-and-production-0">Docker Gordon goes GA — AI agent that understands your containers and proposes fixes across your entire workflow</a></li>
     </ul>
   </section>
 
@@ -33,7 +33,7 @@
         <h3><a href="https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/">Microsoft Build 2026: Seven New MAI Models with Frontier Tuning</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">Microsoft launches 7 in-house MAI models including MAI-Code-1-Flash (coding) and MAI-Thinking-1 (reasoning). MAI-Code-1-Flash outperforms Claude Haiku 4.5 on all 4 SWE-Bench variants with up to 60% fewer tokens. All models built with zero distillation.</p>
+      <p class="tldr">Microsoft launches 7 in-house MAI models including MAI-Code-1-Flash (coding) and MAI-Thinking-1 (reasoning). MAI-Code-1-Flash outperforms Claude Haiku 4.5 on all 4 SWE-Bench variants with up to 60% fewer tokens. Frontier Tuning lets you train custom models on your workflow data.</p>
       <div class="article-meta">
         <span class="tag">Microsoft</span>
         <span class="tag">MAI Models</span>
@@ -49,7 +49,6 @@
           <li>Drop-in replacement for Claude Haiku in coding agent pipelines — faster and cheaper</li>
           <li>Frontier Tuning: train custom MAI models on your org's workflow data</li>
           <li>MAI-Thinking-1 for reasoning-heavy tasks in medium-model budgets</li>
-          <li>Use adaptive solution length control to reduce token costs in interactive workflows</li>
         </ul>
         <h4>Traction</h4>
         <ul>
@@ -57,13 +56,13 @@
           <li>MAI-Code-1-Flash outperforms Claude Haiku 4.5 on SWE-Bench Verified, Pro, Multilingual, and Terminal Bench 2</li>
           <li>+16 point lead on SWE-Bench Pro (51.2% vs 35.2%)</li>
           <li>Tuned MAI model for Excel matches GPT 5.4 at 10x efficiency</li>
-          <li>Available on OpenRouter, Fireworks, Baseten — first time developers can tune weights</li>
+          <li>Available on OpenRouter, Fireworks, Baseten</li>
         </ul>
         <h4>Sources</h4>
         <ul>
           <li><a href="https://microsoft.ai/news/introducingmai-code-1-flash/">MAI-Code-1-Flash deep dive</a></li>
           <li><a href="https://microsoft.ai/news/introducing-mai-thinking-1/">MAI-Thinking-1 announcement</a></li>
-          <li><a href="https://devblogs.microsoft.com/foundry/agent-service-build2026/">Microsoft Foundry: agents at scale</a></li>
+          <li><a href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/new-mai-models-in-microsoft-foundry-across-text-image-voice-and-speech/4524632">MAI models in Microsoft Foundry</a></li>
         </ul>
       </div>
     </div>
@@ -72,7 +71,7 @@
         <h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/">Gemma 4 12B: Encoder-Free Multimodal AI That Runs on Your Laptop</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">Google releases Gemma 4 12B today — a unified model with no multimodal encoders where vision and audio flow directly into the LLM backbone. Runs locally with 16GB VRAM, performance nearing the 26B model at half the memory. First mid-sized Gemma with native audio.</p>
+      <p class="tldr">Google releases Gemma 4 12B — a unified model with no multimodal encoders where vision and audio flow directly into the LLM backbone. Runs locally with 16GB VRAM, performance nearing the 26B model at half the memory.</p>
       <div class="article-meta">
         <span class="tag">Gemma</span>
         <span class="tag">Multimodal</span>
@@ -83,7 +82,7 @@
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>The encoder-free architecture is the real innovation. Instead of bolting on separate vision/audio modules, inputs flow natively through one model. This means simpler deployment, lower latency, and genuine multimodal reasoning — not just image captioning.</p>
+        <p>The encoder-free architecture is the real innovation. Instead of bolting on separate vision/audio modules, inputs flow natively through one model. Simpler deployment, lower latency, and genuine multimodal reasoning — not just image captioning.</p>
         <h4>Use cases</h4>
         <ul>
           <li>Run multimodal AI agents locally on a MacBook (16GB unified memory)</li>
@@ -97,85 +96,83 @@
           <li>Released June 3, 2026 under Apache 2.0</li>
           <li>Performance nearing 26B MoE at less than half the memory</li>
           <li>Ships with Multi-Token Prediction drafters for latency reduction</li>
-          <li>Community already built wearable robotic arms and enterprise security tools on Gemma 4</li>
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://ai.google.dev/gemma/docs/core/model_card_4">Gemma 4 model card</a></li>
           <li><a href="https://huggingface.co/google/gemma-4-12b-it">Gemma 4 12B on Hugging Face</a></li>
         </ul>
       </div>
     </div>
     <div class="article" id="ai-tools-&-models-2">
       <div class="article-header">
-        <h3><a href="https://blog.jetbrains.com/ai/2026/06/mellum2-goes-open-source-a-fast-model-for-ai-workflows/">JetBrains Mellum2: A 12B MoE Coding Model Built for Production Speed</a></h3>
+        <h3><a href="https://huggingface.co/blog/hcompany/holo31">Holo3.1: Fast, Local Computer-Use Agents That Run On-Device</a></h3>
         <span class="traction-badge traction-medium">Growing</span>
       </div>
-      <p class="tldr">JetBrains open-sources Mellum2, a 12B-parameter MoE model where only 2.5B params are active per token. Trained from scratch on code and natural language — purpose-built for routing, sub-agents, summarization, and Q&A in software engineering pipelines.</p>
+      <p class="tldr">H Company releases Holo3.1, an open-source family of computer-use agents optimized for on-device GUI automation. Ships in FP8, NVFP4, and GGUF quantizations — run full desktop automation locally without sending screenshots to the cloud.</p>
       <div class="article-meta">
-        <span class="tag">JetBrains</span>
+        <span class="tag">Computer Use</span>
+        <span class="tag">Local AI</span>
         <span class="tag">Open Source</span>
-        <span class="tag">MoE</span>
-        <span class="tag">Coding AI</span>
+        <span class="tag">GUI Automation</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>At 2.5B active parameters, Mellum2 is designed for the unsexy but critical parts of AI workflows: routing requests, running sub-agents, answering quick questions. It's the model you use 100x/minute inside your system, not the one you show to users.</p>
+        <p>Computer-use agents have been cloud-only until now. Holo3.1 makes GUI automation local and private — critical for enterprise security, regulated industries, and anyone who doesn't want their screen contents streamed to an API. The quantized variants make it practical on consumer hardware.</p>
         <h4>Use cases</h4>
         <ul>
-          <li>Fast routing layer in multi-model AI architectures</li>
-          <li>Sub-agent executor for agentic workflows (low latency, high throughput)</li>
-          <li>Private deployment for code-sensitive environments</li>
-          <li>Fine-tune for your codebase under Apache 2.0</li>
+          <li>Private, on-device GUI automation for sensitive enterprise workflows</li>
+          <li>QA testing: automated UI regression testing without cloud dependencies</li>
+          <li>RPA replacement: local agent handles repetitive desktop tasks</li>
+          <li>Run computer-use in air-gapped or regulated environments</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>Released June 1, 2026 under Apache 2.0</li>
-          <li>Built by JetBrains — makers of IntelliJ, PyCharm, and 35M+ developer tools users</li>
-          <li>MoE architecture: 12B total, 2.5B active per token</li>
-          <li>Available on Hugging Face for immediate use</li>
+          <li>Published June 2, 2026 on Hugging Face</li>
+          <li>Built by H Company (well-funded AI startup focused on computer use)</li>
+          <li>Ships in FP8, NVFP4, and GGUF quantizations for different hardware</li>
+          <li>Multiple deep-dive articles already published on DEV Community</li>
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://huggingface.co/blog/jetbrains/mellum2-launch">Mellum2 launch on Hugging Face</a></li>
-          <li><a href="https://www.jetbrains.com/mellum/">JetBrains Mellum page</a></li>
+          <li><a href="https://dev.to/monuminu/computer-use-agents-go-local-a-deep-technical-dive-into-on-device-gui-automation-quantized-2m3g">Deep technical dive into Holo3.1</a></li>
         </ul>
       </div>
     </div>
     <div class="article" id="ai-tools-&-models-3">
       <div class="article-header">
-        <h3><a href="https://claude.com/blog/introducing-dynamic-workflows-in-claude-code">Claude Code Dynamic Workflows: Multi-Agent Orchestration from Your Terminal</a></h3>
-        <span class="traction-badge traction-high">High Traction</span>
+        <h3><a href="https://www.minimax.io/blog/minimax-m3">MiniMax M3: Frontier Coding + 1M Context + Native Multimodality in One Model</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
       </div>
-      <p class="tldr">Claude Code can now write and orchestrate its own multi-agent workflows on the fly. Define pipelines of parallel agents with fan-out, barriers, and structured output — all from a script inside your terminal session.</p>
+      <p class="tldr">MiniMax releases M3 — a single model that handles frontier-level coding, 1 million token context, and native multimodality (vision, audio). Already available on SiliconFlow and Together AI for inference.</p>
       <div class="article-meta">
-        <span class="tag">Claude Code</span>
-        <span class="tag">Anthropic</span>
-        <span class="tag">Multi-Agent</span>
-        <span class="tag">Orchestration</span>
+        <span class="tag">MiniMax</span>
+        <span class="tag">Long Context</span>
+        <span class="tag">Multimodal</span>
+        <span class="tag">Coding AI</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>This turns Claude Code from a single-agent assistant into a full orchestration platform. Instead of running one task at a time, you can fan out review, analysis, or migration work across multiple agents that run concurrently and synthesize results.</p>
+        <p>Most frontier models force you to choose: coding OR long context OR multimodal. M3 delivers all three in one model with competitive benchmarks. Together AI published a dedicated serving guide, suggesting real production demand.</p>
         <h4>Use cases</h4>
         <ul>
-          <li>Fan out code reviews across dimensions (bugs, perf, security) in parallel</li>
-          <li>Run multi-agent migrations: discover sites, transform each in isolated worktrees, verify</li>
-          <li>Research workflows: parallel search, deep-read, adversarial verify, synthesize</li>
-          <li>Judge panels: N independent approaches scored and synthesized</li>
+          <li>Process entire codebases in a single context window (1M tokens)</li>
+          <li>Multimodal coding: debug from screenshots, diagrams, or screen recordings</li>
+          <li>Replace multi-model pipelines with a single unified model</li>
+          <li>Cost-efficient alternative to GPT/Claude for long-context coding tasks</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>Announced May 28, 2026 by Anthropic</li>
-          <li>Claude Code already authors ~4% of all GitHub commits</li>
-          <li>Built on Claude Opus 4.6/4.7/4.8 model family</li>
-          <li>Integrates with existing Claude Code CLI workflows</li>
+          <li>Released June 2, 2026</li>
+          <li>Available on SiliconFlow and Together AI for immediate inference</li>
+          <li>Together AI published dedicated serving optimization blog</li>
+          <li>1M token context puts it in the longest-context tier alongside Gemini</li>
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code">Patterns and best practices guide</a></li>
+          <li><a href="https://www.siliconflow.com/blog/minimax-m3-now-on-siliconflow-frontier-coding-1m-context-and-native-multimodality">MiniMax M3 on SiliconFlow</a></li>
+          <li><a href="https://www.together.ai/blog/serving-minimax-m3-for-efficient-inference-unlocking-1m-token-context-and-multimodality-without-regrets">Together AI: serving M3 efficiently</a></li>
         </ul>
       </div>
     </div>
@@ -184,10 +181,49 @@
     <h2 class="section-title">Developer Tools & Frameworks</h2>
     <div class="article" id="developer-tools-&-frameworks-0">
       <div class="article-header">
+        <h3><a href="https://dev.to/peremptory/github-copilot-ends-the-flat-rate-era-developers-are-furious-5701">GitHub Copilot Token Billing: Developers Report 10x-50x Cost Spikes</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">On June 1, GitHub Copilot switched from flat-rate subscriptions to token-based 'AI Credits.' Some developers project costs jumping from $29/month to $500-1,500/month. The backlash is viral across Reddit, HN, and DEV Community with developers threatening mass exodus.</p>
+      <div class="article-meta">
+        <span class="tag">GitHub</span>
+        <span class="tag">Copilot</span>
+        <span class="tag">Pricing</span>
+        <span class="tag">Developer Tools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first major pricing shock in the AI coding tools market. It forces every team to audit how many tokens their agents actually consume — and creates an opening for alternatives like Claude Code, Cursor, and Codeium. If you manage a team's Copilot budget, you need to model token costs NOW.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your team's Copilot token consumption before the next billing cycle</li>
+          <li>Evaluate Claude Code, Cursor, or Codeium as Copilot alternatives</li>
+          <li>Set per-user or per-team token budgets to prevent bill shock</li>
+          <li>Monitor agent-mode token usage separately from completions</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Went viral across Reddit, Hacker News, DEV Community, and WebProNews (June 1-3, 2026)</li>
+          <li>Multiple independent reports of 10x-50x projected cost increases</li>
+          <li>Copilot deployed at 90% of Fortune 100 — wide blast radius</li>
+          <li>Developer exodus threats to Claude Code, Cursor, Codeium</li>
+          <li>GitHub has not reversed the change as of June 3</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.webpronews.com/github-copilots-metered-billing-shock-developers-threaten-mass-exodus/">WebProNews: developers threaten mass exodus</a></li>
+          <li><a href="https://aiautomationglobal.com/blog/github-copilot-token-billing-developer-backlash-2026">AI Automation Global: full cost analysis</a></li>
+          <li><a href="https://dev.to/akaranjkar08/github-copilot-token-billing-2026-full-cost-guide-and-alternatives-3bcf">DEV: cost guide and alternatives</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
         <h3><a href="https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience/">GitHub Copilot App: The Agent-Native Desktop Experience</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">GitHub ships a standalone desktop app designed for directing multiple agents in parallel. Commits on GitHub nearly doubled YoY to 1.4 billion/month, with 2B+ Actions minutes per week. The app provides a unified surface for agent-driven development.</p>
+      <p class="tldr">GitHub ships a standalone desktop app designed for directing multiple agents in parallel. Commits on GitHub nearly doubled YoY to 1.4 billion/month. The app provides a unified surface for agent-driven development.</p>
       <div class="article-meta">
         <span class="tag">GitHub</span>
         <span class="tag">Copilot</span>
@@ -197,20 +233,19 @@
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>Most developers are now running multiple agents simultaneously but managing them across scattered windows. GitHub's bet: agents need their own native workspace, not just IDE plugins. This is the first purpose-built desktop surface for multi-agent development.</p>
+        <p>Most developers are now running multiple agents simultaneously but managing them across scattered windows. This is the first purpose-built desktop surface for multi-agent development — agent sessions, review queues, and repo context in one place.</p>
         <h4>Use cases</h4>
         <ul>
           <li>Manage multiple concurrent Copilot agents from a single desktop surface</li>
           <li>Track what agents tried, validated, and where human review is needed</li>
-          <li>Reduce context switching between IDE, terminal, and browser for agent workflows</li>
-          <li>Works alongside existing Copilot IDE extensions</li>
+          <li>Reduce context switching between IDE, terminal, and browser</li>
         </ul>
         <h4>Traction</h4>
         <ul>
           <li>Launched at Microsoft Build 2026 (June 2, 2026)</li>
           <li>GitHub commits nearly doubled YoY, crossing 1.4 billion per month</li>
           <li>Over 2 billion GitHub Actions minutes per week</li>
-          <li>Available with existing Copilot Pro, Pro+, Business, and Enterprise plans</li>
+          <li>Available with existing Copilot plans</li>
         </ul>
         <h4>Sources</h4>
         <ul>
@@ -219,113 +254,71 @@
         </ul>
       </div>
     </div>
-    <div class="article" id="developer-tools-&-frameworks-1">
-      <div class="article-header">
-        <h3><a href="https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/">GitHub Copilot SDK Goes GA: Embed Copilot's Agent Engine in Your Apps</a></h3>
-        <span class="traction-badge traction-high">High Traction</span>
-      </div>
-      <p class="tldr">The Copilot SDK is now generally available in 6 languages (Node.js, Python, Go, .NET, Rust, Java). It gives programmatic access to Copilot's agent runtime — planning, tool invocation, file edits, streaming, and multi-turn sessions.</p>
-      <div class="article-meta">
-        <span class="tag">GitHub</span>
-        <span class="tag">SDK</span>
-        <span class="tag">Agent Runtime</span>
-        <span class="tag">MCP</span>
-        <button class="toggle-btn">More ▼</button>
-      </div>
-      <div class="details">
-        <h4>Why it matters</h4>
-        <p>Instead of building your own agent orchestration from scratch, you can now embed GitHub's production-tested agent runtime directly. The SDK supports custom tools, MCP servers, OpenTelemetry tracing, and BYOK — it's an opinionated but flexible agent framework.</p>
-        <h4>Use cases</h4>
-        <ul>
-          <li>Build custom AI-powered developer tools with Copilot's agent runtime</li>
-          <li>Add agentic coding capabilities to internal platforms and CI/CD pipelines</li>
-          <li>Connect Copilot agents to your MCP servers for domain-specific tools</li>
-          <li>Use OpenTelemetry tracing for end-to-end observability of agent workflows</li>
-        </ul>
-        <h4>Traction</h4>
-        <ul>
-          <li>GA launch at Microsoft Build 2026 (June 2, 2026)</li>
-          <li>6 language SDKs including new Rust and Java support</li>
-          <li>Already used to build CI/CD assistants, internal tools, and customer-facing AI features</li>
-          <li>Supports MCP, OpenTelemetry, and BYOK authentication</li>
-        </ul>
-        <h4>Sources</h4>
-        <ul>
-          <li><a href="https://github.com/github/copilot-sdk">Copilot SDK repository</a></li>
-        </ul>
-      </div>
-    </div>
     <div class="article" id="developer-tools-&-frameworks-2">
       <div class="article-header">
-        <h3><a href="https://openai.com/index/codex-for-every-role-tool-workflow/">Codex Crosses 5M Weekly Users, Expands Beyond Engineering</a></h3>
-        <span class="traction-badge traction-high">High Traction</span>
+        <h3><a href="https://www.sonarsource.com/blog/sonarqube-agent-app-in-github">SonarQube Agent App Goes Live in GitHub</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
       </div>
-      <p class="tldr">OpenAI's Codex now has 5M+ weekly users. Non-developers (analysts, marketers, researchers) make up 20% and are growing 3x faster than developers. New role-specific plugins bundle 62 apps and 110 skills. Sites lets you create shareable interactive apps.</p>
+      <p class="tldr">SonarQube launches as a GitHub Agent App — it runs as an autonomous agent inside your GitHub workflow, reviewing PRs for code quality and security issues without any CI/CD configuration. Part of GitHub's new agentic platform expansion.</p>
       <div class="article-meta">
-        <span class="tag">OpenAI</span>
-        <span class="tag">Codex</span>
-        <span class="tag">Knowledge Work</span>
-        <span class="tag">Plugins</span>
+        <span class="tag">SonarQube</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Code Quality</span>
+        <span class="tag">Agent Platform</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>Codex is no longer just a coding tool — it's becoming a general knowledge-work platform. The role-specific plugins (data analytics, marketing, research) suggest AI coding agents will absorb adjacent workflows, not just write code.</p>
+        <p>GitHub is expanding its agentic platform beyond coding to external quality tools. SonarQube-as-agent means code quality checks run autonomously alongside Copilot agents — no pipeline setup, no YAML. This is the shift from 'tools you configure' to 'agents you enable.'</p>
         <h4>Use cases</h4>
         <ul>
-          <li>Data analytics plugin: Snowflake, Databricks, Hex, Tableau integration</li>
-          <li>Sites: create interactive web apps shareable via URL from natural language</li>
-          <li>Non-technical teams: dashboards, postmortems, feature tickets from chat</li>
-          <li>Annotations: refine agent-generated code in place without re-prompting</li>
+          <li>Zero-config code quality reviews on every PR via GitHub's agent platform</li>
+          <li>Complement Salt Code's generation-time security with post-generation quality checks</li>
+          <li>Replace manual SonarQube CI pipeline setup with agent-based analysis</li>
+          <li>Layer with Copilot: agent writes code, SonarQube agent reviews it automatically</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>5 million weekly active users (June 2, 2026)</li>
-          <li>Non-developers growing 3x faster than developers</li>
-          <li>Used by Zapier, NVIDIA, and OpenAI internal teams</li>
-          <li>62 apps and 110 skills across 6 role-specific plugins</li>
-          <li>GitHub Copilot deployed at 90% of Fortune 100</li>
+          <li>Launched June 2, 2026</li>
+          <li>SonarQube used by 400K+ organizations</li>
+          <li>Part of GitHub's broader agentic platform expansion at Build 2026</li>
+          <li>No CI/CD configuration required — runs as native GitHub agent</li>
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://github.com/openai/role-based-plugins">Role-specific plugins repository</a></li>
+          <li><a href="https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/">Related: Copilot SDK GA — build your own agent apps</a></li>
         </ul>
       </div>
     </div>
     <div class="article" id="developer-tools-&-frameworks-3">
       <div class="article-header">
-        <h3><a href="https://salt.security/press-releases/salt-security-launches-salt-code-the-first-agentic-security-solution-to-enforce-security-policies-inside-ai-coding-assistants">Salt Code: Security Policy Enforcement Inside Every AI Coding Assistant</a></h3>
-        <span class="traction-badge traction-medium">Growing</span>
+        <h3><a href="https://dev.to/adioof/htmx-getting-hired-by-github-doesnt-validate-your-hatred-of-react-4081">HTMX Creator Carson Gross Hired by GitHub's Next R&D Team</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">Salt Code enforces your organization's security policies directly inside Claude, Cursor, Copilot, Windsurf, Codex, and Gemini CLI. AI-generated code is policy-compliant from the first prompt, not caught by SAST/DAST after the fact.</p>
+      <p class="tldr">Carson Gross, creator of HTMX, joins GitHub's Next R&D team. The hire sparked a polarized debate: HTMX fans declared React dead, React fans dismissed it as irrelevant. The reality: GitHub is investing in hypermedia-first architecture research.</p>
       <div class="article-meta">
-        <span class="tag">Security</span>
-        <span class="tag">AI Coding</span>
-        <span class="tag">Compliance</span>
-        <span class="tag">DevSecOps</span>
+        <span class="tag">HTMX</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Web Development</span>
+        <span class="tag">Community</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>Half of AI-generated code introduces known vulnerabilities (per Veracode). SAST/DAST catches problems too late. Salt Code shifts security left to the generation step — your AI assistant knows your security policies before it writes a single line.</p>
+        <p>HTMX went from a niche library to a movement — and now its creator is inside GitHub shaping the future of web development tooling. Whether you use HTMX or not, GitHub hiring hypermedia-first researchers signals a shift in how they think about developer experience.</p>
         <h4>Use cases</h4>
         <ul>
-          <li>Enforce internal security policies in real-time as AI generates code</li>
-          <li>Replace post-hoc SAST/DAST for AI-generated code with shift-left enforcement</li>
-          <li>Compliance automation: regulatory requirements baked into generation step</li>
-          <li>Works across multiple AI assistants without per-tool configuration</li>
+          <li>Watch for GitHub UI/API changes influenced by hypermedia-first thinking</li>
+          <li>Evaluate HTMX for simpler internal tools that don't need SPA complexity</li>
+          <li>Understand the architectural tension between SPA and hypermedia approaches</li>
+          <li>GitHub's R&D direction may influence future Copilot code generation patterns</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>Launched June 1, 2026</li>
-          <li>Supports all major AI coding assistants (Claude, Copilot, Cursor, Codex, Gemini CLI, Windsurf)</li>
-          <li>Copilot deployed at 90% of Fortune 100 — enterprise security is urgent</li>
-          <li>46% of GitHub code now AI-generated (GitHub); 42% per Sonar survey</li>
-        </ul>
-        <h4>Sources</h4>
-        <ul>
-          <li><a href="https://salt.security/">Salt Security platform</a></li>
-          <li><a href="https://www.sonarsource.com/blog/sonarqube-agent-app-in-github">Related: SonarQube Agent App in GitHub</a></li>
+          <li>Viral discussion across DEV Community, HN, and Twitter (June 2-3, 2026)</li>
+          <li>HTMX has 50K+ GitHub stars</li>
+          <li>Carson Gross joining GitHub's Next R&D team — not a random hire</li>
+          <li>Sparked major React vs. HTMX debate across developer communities</li>
         </ul>
       </div>
     </div>
@@ -334,10 +327,42 @@
     <h2 class="section-title">Infrastructure & Production</h2>
     <div class="article" id="infrastructure-&-production-0">
       <div class="article-header">
+        <h3><a href="https://www.docker.com/blog/meet-gordon-dockers-ai-agent-for-your-entire-container-workflow/">Docker Gordon Goes GA: AI Agent for Your Entire Container Workflow</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Docker's AI agent Gordon is now generally available. It understands your Dockerfile, docker-compose, and running containers — proposes fixes, optimizations, and handles debugging across your entire Docker workflow from a conversational interface.</p>
+      <div class="article-meta">
+        <span class="tag">Docker</span>
+        <span class="tag">AI Agent</span>
+        <span class="tag">Containers</span>
+        <span class="tag">DevOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Docker is now an AI-agent company, not just a container runtime. Gordon means your infrastructure speaks back: ask why a container is crashing, get a fix, apply it. For the 20M+ Docker Desktop users, this is the most accessible AI-for-infra tool yet.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Debug crashing containers: Gordon reads logs and proposes fixes</li>
+          <li>Optimize Dockerfiles: reduce image size, improve layer caching</li>
+          <li>docker-compose troubleshooting: fix networking, volume, and dependency issues</li>
+          <li>Onboard new developers: Gordon explains existing container setups</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Generally available as of May 19, 2026</li>
+          <li>Docker Desktop has 20M+ users</li>
+          <li>Integrated directly into Docker Desktop — no separate install</li>
+          <li>Covers Dockerfile optimization, compose debugging, and runtime troubleshooting</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
         <h3><a href="https://www.databricks.com/blog/reliable-llm-inference-scale">Databricks: How to Make LLM Inference Reliable at 125 Trillion Tokens/Month</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">Databricks serves 125T tokens/month across frontier models (open source and proprietary). Their deep dive covers model units for GPU allocation, cost-aware load balancing, and why GPU infrastructure is fundamentally less reliable than CPU systems.</p>
+      <p class="tldr">Databricks serves 125T tokens/month across frontier models. Their deep dive covers model units for GPU allocation, cost-aware load balancing, and why GPU infrastructure is fundamentally less reliable than CPU systems.</p>
       <div class="article-meta">
         <span class="tag">Infrastructure</span>
         <span class="tag">LLM Serving</span>
@@ -347,12 +372,12 @@
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>If you're building AI products, inference reliability is your next scaling problem. Databricks reveals that GPU failures have wide blast radius (NVL72 single-rack failures), demand is extremely spiky, and overprovisioning is cost-prohibitive. Their model units abstraction is worth studying.</p>
+        <p>If you're building AI products, inference reliability is your next scaling problem. GPU failures have wide blast radius (NVL72 single-rack failures), demand is extremely spiky, and overprovisioning is cost-prohibitive. Their model units abstraction is worth studying.</p>
         <h4>Use cases</h4>
         <ul>
           <li>Model units: VM-like abstraction for per-customer GPU resource allocation</li>
           <li>Cost-aware load balancing and autoscaling for multi-tenant LLM serving</li>
-          <li>Design for GPU failure blast radius — single node failures cascade differently than CPU</li>
+          <li>Design for GPU failure blast radius — single node failures cascade differently</li>
           <li>Benchmark your inference platform against Databricks' reliability practices</li>
         </ul>
         <h4>Traction</h4>
@@ -364,82 +389,41 @@
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://www.databricks.com/blog/how-superhuman-and-databricks-built-200k-qps-inference-platform-together">Superhuman + Databricks: 200K QPS inference</a></li>
           <li><a href="https://blog.aks.azure.com/2026/06/02/dynamo-on-aks-part-4">NVIDIA Dynamo multi-node inference on AKS</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="article" id="infrastructure-&-production-1">
-      <div class="article-header">
-        <h3><a href="https://github.com/bytedance/deer-flow">ByteDance Deer-Flow: The 70K-Star SuperAgent Harness for Long-Horizon Tasks</a></h3>
-        <span class="traction-badge traction-high">High Traction</span>
-      </div>
-      <p class="tldr">ByteDance's open-source Deer-Flow is a long-horizon SuperAgent harness that researches, codes, and creates. With sandboxes, memory, tools, skills, sub-agents, and a message gateway, it handles tasks that take minutes to hours autonomously.</p>
-      <div class="article-meta">
-        <span class="tag">Agent Framework</span>
-        <span class="tag">ByteDance</span>
-        <span class="tag">Open Source</span>
-        <span class="tag">Long-Horizon</span>
-        <button class="toggle-btn">More ▼</button>
-      </div>
-      <div class="details">
-        <h4>Why it matters</h4>
-        <p>Most agent frameworks handle single-turn tasks. Deer-Flow tackles the hard problem: autonomous multi-hour workflows with persistent memory, sandboxed execution, and sub-agent delegation. At 70K stars, it's the fastest-growing agent harness on GitHub.</p>
-        <h4>Use cases</h4>
-        <ul>
-          <li>Autonomous research workflows that span minutes to hours</li>
-          <li>Multi-step coding tasks with sandboxed execution and memory</li>
-          <li>Sub-agent delegation for complex task decomposition</li>
-          <li>Message gateway for integrating agents with external systems</li>
-        </ul>
-        <h4>Traction</h4>
-        <ul>
-          <li>70,377 GitHub stars</li>
-          <li>Built by ByteDance (TikTok parent company)</li>
-          <li>Open source with active development</li>
-          <li>Covers sandboxes, memory, tools, skills, sub-agents, and message gateway</li>
-        </ul>
-        <h4>Sources</h4>
-        <ul>
-          <li><a href="https://github.com/openai/symphony">Related: OpenAI Symphony (25K stars) — autonomous implementation runs</a></li>
-          <li><a href="https://github.com/HKUDS/nanobot/releases/tag/v0.2.1">Nanobot v0.2.1: lightweight AI agent (44K stars)</a></li>
+          <li><a href="https://cloud.google.com/blog/topics/developers-practitioners/experimenting-with-tpus-gke-managed-dranet-and-multi-cluster-inference-gateway">Google Cloud: TPUs + DRANET + Multi-cluster Inference Gateway</a></li>
         </ul>
       </div>
     </div>
     <div class="article" id="infrastructure-&-production-2">
       <div class="article-header">
-        <h3><a href="https://www.cncf.io/blog/2026/06/02/cloud-native-is-now-ai-native-engineering-production-ready-ai/">CNCF: Cloud Native Is Now AI-Native — Engineering Production-Ready AI on Kubernetes</a></h3>
+        <h3><a href="https://launchweld.com/blog/2026-06-01/cve-2026-45321-tanstack-npm-supply-chain/">TanStack npm Supply Chain Attack: 42 Packages Hijacked in 6 Minutes (CVE-2026-45321)</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">CNCF roundtable with AWS, Google Cloud, and Microsoft experts declares cloud-native and AI-native have merged. GPU scheduling, elastic serving, and reproducible rollbacks are now the Kubernetes MLOps baseline. The 2026 stack: Kubeflow Pipelines, vLLM, and Ray.</p>
+      <p class="tldr">On May 11, attackers published 84 malicious versions across 42 @tanstack/* npm packages in a six-minute window by chaining three separate GitHub Actions vulnerabilities. The attack weaponized the CI/CD pipeline itself.</p>
       <div class="article-meta">
-        <span class="tag">Kubernetes</span>
-        <span class="tag">CNCF</span>
-        <span class="tag">MLOps</span>
-        <span class="tag">Cloud Native</span>
+        <span class="tag">Security</span>
+        <span class="tag">Supply Chain</span>
+        <span class="tag">npm</span>
+        <span class="tag">GitHub Actions</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>If you're deploying AI in production, Kubernetes is the substrate. This isn't aspirational — it's the current reality. The CNCF consensus stack (Kubeflow + vLLM + Ray) tells you what to standardize on if you haven't already.</p>
+        <p>TanStack (React Query, React Router, etc.) is in millions of projects. This attack didn't target the code — it targeted the build pipeline. If your CI/CD publishes to npm, you need to audit your GitHub Actions workflows for the same three vulnerability classes exploited here.</p>
         <h4>Use cases</h4>
         <ul>
-          <li>GPU scheduling and elastic serving on Kubernetes for AI workloads</li>
-          <li>Reproducible model rollbacks using cloud-native CI/CD patterns</li>
-          <li>vLLM + Ray for multi-node LLM inference orchestration</li>
-          <li>Kubeflow Pipelines for repeatable ML/AI workflow automation</li>
+          <li>Audit your GitHub Actions workflows for the three exploit classes used</li>
+          <li>Pin GitHub Actions by commit SHA, not tags (tags can be moved)</li>
+          <li>Enable npm provenance and require signed attestations</li>
+          <li>Set up Dependabot or Socket.dev alerts for your @tanstack/* dependencies</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>CNCF roundtable at KubeCon Europe 2026 (Amsterdam, March 23-26)</li>
-          <li>Participants from AWS, Google Cloud, Microsoft</li>
-          <li>Anyscale on Azure partnership for enterprise AI at scale</li>
-          <li>Red Hat OpenShift AI publishing production deployment guides</li>
-        </ul>
-        <h4>Sources</h4>
-        <ul>
-          <li><a href="https://kodekloud.com/blog/using-kubernetes-for-mlops/">MLOps on Kubernetes: Complete 2026 Guide</a></li>
-          <li><a href="https://techcommunity.microsoft.com/blog/appsonazureblog/anyscale-on-azure-powering-enterprise-ai-at-massive-scale-on-azure-kubernetes-se/4523806">Anyscale on Azure: enterprise AI at scale</a></li>
+          <li>CVE-2026-45321 assigned</li>
+          <li>42 packages, 84 malicious versions in 6 minutes</li>
+          <li>TanStack packages have millions of weekly npm downloads</li>
+          <li>Chained three separate GitHub Actions vulnerabilities</li>
+          <li>Detailed postmortem published by LaunchWeld (June 1, 2026)</li>
         </ul>
       </div>
     </div>
