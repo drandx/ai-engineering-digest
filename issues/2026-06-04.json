@@ -1,94 +1,93 @@
 {
   "highlights": [
-    {"text": "Microsoft ships MAI-Code-1-Flash and MAI-Thinking-1 — its first in-house coding and reasoning models, trained without OpenAI data, rolling out across all GitHub Copilot tiers", "anchor": "ai-tools-and-models-0"},
-    {"text": "Claude Opus 4.8 introduces Dynamic Workflows — plan work, run hundreds of parallel subagents, and execute codebase-scale migrations from kickoff to merge", "anchor": "ai-tools-and-models-1"},
-    {"text": "Microsoft launches MXC (Execution Containers) — an OS-level, policy-driven sandbox for AI agents with OpenAI, NVIDIA, and OpenClaw already on board", "anchor": "developer-tools-and-frameworks-0"},
-    {"text": "Harness AI DLC Insights tracks every AI-generated line of code, maps token costs per model and developer to actual shipped PRs and deployments", "anchor": "developer-tools-and-frameworks-1"},
-    {"text": "codexui-android npm package with 29K+ weekly downloads caught stealing OpenAI Codex auth tokens — AI tooling is now a high-value supply chain attack surface", "anchor": "infrastructure-and-production-0"},
-    {"text": "Biome hits critical mass as ESLint alternative — 100x faster, zero-config, Rust-powered linting and formatting for the JavaScript ecosystem", "anchor": "developer-tools-and-frameworks-2"}
+    {"text": "Google kills Gemini CLI on June 18, replaces it with Antigravity 2.0 — a full agentic dev platform with desktop app, Go-based CLI, and SDK for custom agent workflows", "anchor": "ai-tools-and-models-0"},
+    {"text": "Kimi K2.6 ships as a 1-trillion-parameter open-weight MoE model (32B active) under MIT license — leading open-weight benchmarks for agentic coding and long-horizon execution", "anchor": "ai-tools-and-models-1"},
+    {"text": "OpenAI Codex powered by GPT-5.5 goes GA on AWS Bedrock — 4M+ weekly developers get enterprise multi-cloud coding agents with IAM, VPC isolation, and AWS pricing", "anchor": "ai-tools-and-models-2"},
+    {"text": "MCP goes stateless: the Agentic AI Foundation drops session IDs from the protocol layer — release candidate available now, final spec July 28", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "NVIDIA OpenShell brings kernel-level sandboxing to AI agents via Landlock LSM and Seccomp BPF — declarative YAML policies, hot-reload, full audit trail, Apache 2.0", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "76% of DevOps teams now use AI-powered CI — platform engineering becomes the default operating model as AI moves from experiment to infrastructure", "anchor": "infrastructure-and-production-0"}
   ],
   "sections": [
     {
       "name": "AI Tools & Models",
       "articles": [
         {
-          "title": "Microsoft Ships MAI-Code-1-Flash and MAI-Thinking-1: First In-House Coding and Reasoning Models",
-          "url": "https://microsoft.ai/news/introducingmai-code-1-flash/",
-          "tldr": "At Build 2026, Microsoft announced MAI-Code-1-Flash (5B-parameter coding model) and MAI-Thinking-1 (reasoning model), both trained entirely in-house without OpenAI data. MAI-Code-1-Flash ships across all GitHub Copilot tiers with a 256K-token context window.",
-          "why_it_matters": "This is Microsoft's clearest step toward AI model independence from OpenAI. MAI-Code-1-Flash outperforms Claude Haiku 4.5 on SWE-Bench Pro by 16 points (51.2% vs 35.2%) at a fraction of the cost. For engineering teams on Copilot, this means faster, cheaper code generation shipping as the default — and signals that first-party coding models from platform companies are the new normal.",
+          "title": "Google Antigravity 2.0: Gemini CLI Dies June 18, Full Agentic Dev Platform Takes Over",
+          "url": "https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/",
+          "tldr": "At Google I/O 2026, Google launched Antigravity 2.0 — upgrading its agentic coding tool into a full developer platform with a redesigned desktop app, a new CLI built in Go, and an SDK for custom agent workflows. Gemini CLI consumer access ends June 18, 2026, forcing migration to the new platform.",
+          "why_it_matters": "This is Google's biggest bet on agentic development. Antigravity 2.0 shares the same agent harness across desktop, CLI, and SDK — meaning improvements to core agents propagate everywhere automatically. Developers can now run parallel agents, design custom subagent workflows, and schedule background tasks. The June 18 Gemini CLI sunset is a hard deadline: if your team uses Gemini CLI, migration planning starts now.",
           "traction": "high",
           "traction_evidence": [
-            "Announced at Microsoft Build 2026 (June 2, 2026)",
-            "Rolling out to all GitHub Copilot tiers immediately",
-            "+16-point lead over Claude Haiku 4.5 on SWE-Bench Pro",
-            "5B parameters with 256K-token context window",
-            "Trained March–May 2026 on clean, licensed data",
-            "Covered by CNBC, Neowin, TechTimes, VentureBeat"
+            "Announced at Google I/O 2026 (May 19, 2026)",
+            "Gemini CLI consumer access ends June 18, 2026 — mandatory migration",
+            "New CLI built in Go for faster performance",
+            "SDK enables custom agent workflows and subagent orchestration",
+            "Covered by TechCrunch, The Next Web, 9to5Google, Google Developers Blog"
           ],
           "use_cases": [
-            "Faster, cheaper inline code completions in VS Code via Copilot",
-            "Lightweight coding model for CI/CD pipelines and automated PR generation",
-            "Self-hosted alternative for teams that need licensed-data-only models",
-            "MAI-Thinking-1 for complex reasoning tasks alongside MAI-Code-1-Flash for fast generation"
+            "Migrate existing Gemini CLI workflows to Antigravity CLI before June 18 deadline",
+            "Build custom multi-agent coding workflows using the Antigravity SDK",
+            "Run parallel agents on different parts of a project simultaneously",
+            "Schedule background development tasks that run automatically"
           ],
-          "tags": ["Microsoft", "GitHub Copilot", "Coding AI", "Build 2026"],
+          "tags": ["Google", "Agentic AI", "CLI", "Developer Platform", "I/O 2026"],
           "links": [
-            {"url": "https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html", "label": "CNBC: Microsoft lessens reliance on OpenAI"},
-            {"url": "https://www.neowin.net/news/microsoft-unveils-mai-thinking-1-reasoning-and-mai-code-1-coding-models/", "label": "Neowin: MAI model details"},
-            {"url": "https://dev.to/akaranjkar08/microsoft-mai-thinking-1-mai-code-1-flash-developer-guide-to-7-new-mai-models-k4m", "label": "Developer guide to MAI models"}
+            {"url": "https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/", "label": "TechCrunch: Antigravity 2.0 launch"},
+            {"url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/", "label": "Google: Gemini CLI → Antigravity transition guide"},
+            {"url": "https://thenextweb.com/news/google-antigravity-2-desktop-cli-sdk-io-2026", "label": "TNW: Antigravity becomes full agentic platform"}
           ]
         },
         {
-          "title": "Claude Opus 4.8: Dynamic Workflows Enable Codebase-Scale Migrations with Parallel Subagents",
-          "url": "https://www.anthropic.com/news/claude-opus-4-8",
-          "tldr": "Anthropic released Claude Opus 4.8 on May 28 with Dynamic Workflows — a feature that lets Claude Code plan work, spawn hundreds of parallel subagents within a single session, verify outputs, and execute codebase-scale migrations from kickoff to merge. Agentic coding scores jumped from 64.3% to 69.2%.",
-          "why_it_matters": "Dynamic Workflows turn Claude Code from a single-file editor into a codebase-scale migration engine. The ability to plan, fan out hundreds of subagents, and verify results before merging means tasks like 'upgrade every API endpoint to v3' or 'migrate 100K lines from React class components to hooks' are now single-session operations. Fast mode is also 3x cheaper than previous models.",
+          "title": "Kimi K2.6: The 1-Trillion-Parameter Open-Weight Model Leading Agentic Coding",
+          "url": "https://www.kimi.com/ai-models/kimi-k2-6",
+          "tldr": "Moonshot AI's Kimi K2.6 is a 1-trillion-parameter Mixture-of-Experts model with 32B active parameters, released under a Modified MIT License. It leads open-weight benchmarks for agentic coding with reliable multi-language support (Rust, Go, Python) and long-horizon execution — 4,000+ tool calls over 12 hours in a single session.",
+          "why_it_matters": "Kimi K2.6 is the model that makes self-hosted agentic coding viable at frontier quality. With 1T total / 32B active parameters, 262K context window, and INT4 quantization out of the box, teams can run a frontier-class coding agent on their own infrastructure. The 12-hour continuous execution capability means it can handle the kind of long-running refactoring and migration tasks that previously required cloud-only models.",
           "traction": "high",
           "traction_evidence": [
-            "Released May 28, 2026 — 41 days after Opus 4.7",
-            "Agentic coding: 64.3% → 69.2%",
-            "Knowledge work score: 1753 → 1890",
-            "Covered by TechCrunch, Axios, Simon Willison, 9to5Mac",
-            "Fast mode 3x cheaper than previous models",
-            "Same price as Opus 4.7"
+            "Leading open-weight model on Artificial Analysis benchmarks",
+            "1T parameters / 32B active with 262K context window",
+            "Ships in INT4 quantization for practical deployment",
+            "Available via Moonshot API plus Novita, Baseten, Fireworks, and Parasail",
+            "Modified MIT License — commercial use allowed",
+            "Covered by Artificial Analysis, Kilo AI, MindStudio, Verdent Guides"
           ],
           "use_cases": [
-            "Codebase-scale migrations across hundreds of thousands of lines of code",
-            "Fan out parallel subagents for multi-file refactoring in a single session",
-            "Use effort controls to balance quality vs speed per task",
-            "Mid-conversation system messages for evolving long-running agent sessions"
+            "Self-host a frontier-class coding agent for privacy-sensitive codebases",
+            "Run long-horizon agentic tasks (12+ hours) without cloud dependency",
+            "Route 60-80% of agent traffic to Kimi K2.6 to cut API costs vs. frontier cloud models",
+            "Multi-language agentic coding across Rust, Go, Python, and frontend work"
           ],
-          "tags": ["Anthropic", "Claude Code", "Agentic AI", "Dynamic Workflows"],
+          "tags": ["Moonshot AI", "Open Weight", "MoE", "Agentic Coding", "Self-Hosted"],
           "links": [
-            {"url": "https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/", "label": "TechCrunch: Opus 4.8 dynamic workflows"},
-            {"url": "https://simonwillison.net/2026/May/28/claude-opus-4-8/", "label": "Simon Willison: 'a modest but tangible improvement'"},
-            {"url": "https://www.anthropic.com/claude/opus", "label": "Anthropic: Claude Opus product page"}
+            {"url": "https://artificialanalysis.ai/articles/kimi-k2-6-the-new-leading-open-weights-model", "label": "Artificial Analysis: Kimi K2.6 benchmarks"},
+            {"url": "https://huggingface.co/moonshotai/Kimi-K2.6", "label": "HuggingFace: Kimi K2.6 weights"},
+            {"url": "https://www.kimi.com/blog/kimi-k2-6", "label": "Kimi K2.6 tech blog"}
           ]
         },
         {
-          "title": "AI Coding Costs in 2026: The $200–$600/Month Reality Check",
-          "url": "https://larridin.com/developer-productivity-hub/developer-productivity-benchmarks-2026",
-          "tldr": "New benchmarks show AI coding tools deliver 1.6x productivity returns — meaningful but far below the 10x vendor claims. Most engineering teams spend $200–$600/month per engineer on agentic tools, with smart teams routing 60–80% of agent traffic to self-hosted models (Qwen 3 Coder, Kimi K2.6) and escalating 20–40% to Claude Opus or Gemini Pro via API.",
-          "why_it_matters": "The hype-to-reality gap is closing. 1.6x is real value but demands smarter model routing, not just throwing tokens at the most expensive model. Teams that build tiered routing — fast local models for autocomplete, frontier models for complex reasoning — are getting the same output quality at a fraction of the cost. This is the engineering discipline that separates productive AI adoption from expensive experiments.",
+          "title": "OpenAI Codex + GPT-5.5 Go GA on AWS Bedrock: Enterprise Multi-Cloud Coding Agents",
+          "url": "https://openai.com/index/openai-on-aws/",
+          "tldr": "OpenAI's Codex coding agent, powered by GPT-5.5, is now generally available on Amazon Bedrock as of June 1, 2026. Over 4 million developers use Codex weekly, and they can now run it through AWS with IAM authentication, VPC isolation, encryption, and pricing that counts toward existing AWS commitments.",
+          "why_it_matters": "This is the first time a frontier coding agent is available as a first-class AWS service. Enterprise teams that couldn't adopt Codex due to security or procurement constraints now get it through their existing AWS stack — same IAM, same VPC, same billing. GPT-5.5 scores 82.7% on Terminal-Bench 2.0 and 58.6% on SWE-Bench Pro. The multi-cloud pattern (Codex on AWS, not just OpenAI's API) signals that coding agents are becoming infrastructure, not features.",
           "traction": "high",
           "traction_evidence": [
-            "95% of respondents use AI tools at least weekly (Pragmatic Engineer survey)",
-            "56% report doing 70%+ of engineering work with AI",
-            "Framework adoption doubled year-over-year: 9% → 18%",
-            "Multiple independent sources confirm $200–$600/month range",
-            "Self-hosted model routing becoming standard practice"
+            "GA on AWS Bedrock as of June 1, 2026",
+            "4M+ weekly active developers on Codex",
+            "GPT-5.5: 82.7% Terminal-Bench 2.0, 58.6% SWE-Bench Pro",
+            "Pricing matches OpenAI first-party rates, counts toward AWS commitments",
+            "Covered by AWS Blog, AboutAmazon, TechGenYZ, HelpNetSecurity"
           ],
           "use_cases": [
-            "Build tiered model routing: local models for fast tasks, API for complex reasoning",
-            "Self-host Qwen 3 Coder or Kimi K2.6 for 60–80% of agent traffic to cut costs",
-            "Measure actual productivity gains vs token spend per developer",
-            "Set realistic expectations for AI coding tool ROI in your organization"
+            "Deploy Codex in regulated environments using existing AWS security controls",
+            "Route Codex inference through VPC-isolated Bedrock endpoints",
+            "Consolidate AI coding tool spend under AWS Enterprise agreements",
+            "Use Codex CLI, desktop app, and VS Code extension with Bedrock backend"
           ],
-          "tags": ["AI Economics", "Developer Productivity", "Model Routing", "Cost Optimization"],
+          "tags": ["OpenAI", "AWS", "Codex", "GPT-5.5", "Enterprise", "Multi-Cloud"],
           "links": [
-            {"url": "https://newsletter.pragmaticengineer.com/p/ai-tooling-2026", "label": "Pragmatic Engineer: AI Tooling 2026"},
-            {"url": "https://www.datadoghq.com/state-of-ai-engineering/", "label": "Datadog: State of AI Engineering"},
-            {"url": "https://addyosmani.com/blog/ai-coding-workflow/", "label": "Addy Osmani: LLM coding workflow in 2026"}
+            {"url": "https://aws.amazon.com/blogs/aws/get-started-with-openai-gpt-5-5-gpt-5-4-models-and-codex-on-amazon-bedrock/", "label": "AWS Blog: Getting started with Codex on Bedrock"},
+            {"url": "https://www.aboutamazon.com/news/aws/bedrock-openai-models", "label": "About Amazon: OpenAI models on Bedrock"},
+            {"url": "https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/", "label": "AWS ML Blog: GA announcement"}
           ]
         }
       ]
@@ -97,81 +96,82 @@
       "name": "Developer Tools & Frameworks",
       "articles": [
         {
-          "title": "Microsoft MXC: OS-Level Sandboxing for AI Agents Ships at Build 2026",
-          "url": "https://venturebeat.com/security/microsoft-launches-mxc-an-os-level-sandbox-for-ai-agents-with-openai-and-nvidia-already-on-board",
-          "tldr": "Microsoft introduced MXC (Execution Containers), a policy-driven execution layer built into Windows that lets developers and IT admins declare exactly what an AI agent can and cannot access — enforced at runtime by the OS kernel. OpenAI, NVIDIA, and OpenClaw are launch partners.",
-          "why_it_matters": "This is the first time an OS vendor has built agent sandboxing directly into the kernel. Every team running AI agents today either trusts them too much or builds bespoke sandboxing. MXC standardizes it: declare file, network, and UI access policies, and the OS enforces them. GitHub Copilot CLI already uses MXC's fast process isolation. This sets the floor for agent security across the industry.",
+          "title": "MCP Goes Stateless: The Protocol Update That Makes Agent Deployment Actually Simple",
+          "url": "https://aaif.io/blog/mcp-is-growing-up/",
+          "tldr": "The Agentic AI Foundation (AAIF) is releasing a major MCP update that makes the protocol stateless at the transport layer. No more session IDs, sticky sessions, or shared session stores — each request is self-contained with version, client info, and capabilities traveling with the payload. Release candidate is available now; final spec ships July 28, 2026.",
+          "why_it_matters": "Sticky sessions were the hidden tax on every MCP deployment. Load balancers needed MCP-aware routing, horizontal scaling required shared session stores, and gateway failures broke agent sessions. Stateless MCP eliminates all of this — standard HTTP load balancers, CDN caching, and serverless functions just work. Application-level state becomes explicit (server returns a handle, model passes it back) instead of hidden in transport metadata. This is MCP growing from a clever demo protocol into production infrastructure.",
           "traction": "high",
           "traction_evidence": [
-            "Announced at Microsoft Build 2026 (June 2, 2026)",
-            "Launch partners: OpenAI, NVIDIA, OpenClaw, Hermes, Manus",
-            "GitHub Copilot CLI already using MXC fast process isolation",
-            "Covered by VentureBeat, Visual Studio Magazine, Windows Developer Blog",
-            "Session isolation prevents UI spoofing, input injection, cross-session data leakage"
+            "Release candidate available now, final spec July 28, 2026",
+            "Governed by AAIF (Linux Foundation) — co-founded by Anthropic, Block, OpenAI",
+            "Supported by Google, Microsoft, AWS, Cloudflare, Bloomberg",
+            "Framework adoption doubled YoY: 9% → 18% of organizations",
+            "Covered by Techstrong.ai, TLDR AI, WorkOS, MCP.Directory"
           ],
           "use_cases": [
-            "Sandbox AI agents with OS-enforced file and network access policies",
-            "Deploy agents in enterprise environments with IT-managed Intune policies",
-            "Prevent agent UI spoofing and cross-session data leakage",
-            "Replace custom agent sandboxing with a standardized OS primitive"
+            "Deploy MCP servers behind standard load balancers without sticky session hacks",
+            "Run MCP tools on serverless platforms (Lambda, Cloud Functions) with zero session state",
+            "Scale agent tool infrastructure horizontally without shared session stores",
+            "Migrate existing MCP integrations to the stateless model before July 28 spec freeze"
           ],
-          "tags": ["Microsoft", "Agent Security", "Sandboxing", "Build 2026", "Windows"],
+          "tags": ["MCP", "AAIF", "Protocol", "Agent Infrastructure", "Standards"],
           "links": [
-            {"url": "https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/", "label": "Windows Developer Blog: Platform security for AI agents"},
-            {"url": "https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/", "label": "Windows as trusted development platform"},
-            {"url": "https://www.microsoft.com/en-us/security/blog/2026/06/02/microsoft-build-2026-securing-code-agents-and-models-across-the-development-lifecycle/", "label": "Microsoft Security Blog: Securing agents"}
+            {"url": "https://mcp.directory/blog/mcp-2026-07-28-release-candidate", "label": "MCP Directory: 2026-07-28 RC explained"},
+            {"url": "https://techstrong.ai/articles/next-major-mcp-update-focuses-on-scaling-agentic-ai/", "label": "Techstrong: MCP update for scaling agentic AI"},
+            {"url": "https://workos.com/blog/everything-your-team-needs-to-know-about-mcp-in-2026", "label": "WorkOS: Everything about MCP in 2026"}
           ]
         },
         {
-          "title": "Harness AI DLC Insights: Map Every AI-Generated Line of Code to Its Token Cost and Shipped PR",
-          "url": "https://www.harness.io/products/ai-dlc-insights",
-          "tldr": "Harness launched AI DLC Insights, an on-machine developer agent that captures every AI-generated line of code, records token costs per model and tool, and maps that spend through the full delivery chain — from prompt to PR to deployment. It surfaces abandoned code, bloated prompts, expensive model choices, and missed cache hits.",
-          "why_it_matters": "Engineering leaders can't manage what they can't measure. With AI agent costs running $200–$2,000+ per engineer per month, knowing which tokens actually produced shipped code vs which were wasted on abandoned branches is the difference between informed investment and burning money. This is the first tool that connects AI spend to business outcomes through the entire delivery pipeline.",
+          "title": "NVIDIA OpenShell: Kernel-Level Agent Sandboxing with Declarative YAML Policies",
+          "url": "https://github.com/NVIDIA/OpenShell",
+          "tldr": "NVIDIA's OpenShell is an open-source, policy-driven sandbox runtime for autonomous AI agents. It enforces security at the kernel level via Landlock LSM and Seccomp BPF — agents run inside individual sandboxes with declarative YAML policies controlling filesystem, network, process execution, and inference calls. Policies hot-reload without restarts and every allow/deny decision gets a full audit trail.",
+          "why_it_matters": "Microsoft's MXC (covered yesterday) sandboxes agents at the OS level on Windows. NVIDIA's OpenShell does the same for Linux — and it's open source. The combination means agent sandboxing is becoming a platform primitive across both operating systems. For teams running agents in production on Linux (which is most of them), OpenShell is the missing security layer: kernel-enforced policies that agents literally cannot bypass, with hot-reload so you can tighten policies on running agents without downtime.",
           "traction": "medium",
           "traction_evidence": [
-            "Announced May 28, 2026",
-            "Covered by PRNewswire, SD Times, Morningstar, TipRanks",
-            "94% of engineering leaders say key metrics are missing (Harness 2026 report)",
-            "Available in beta within the Harness platform",
-            "Complements new Cloud & AI Cost Management product"
+            "Introduced at NVIDIA GTC 2026",
+            "Apache 2.0 license — fully open source",
+            "Kernel-level enforcement via Landlock LSM and Seccomp BPF",
+            "Supports long-running, self-evolving agents with skill development",
+            "Covered by NVIDIA Blog, Dev|Journal, SoloSoft, Spheron, AlphaMatch"
           ],
           "use_cases": [
-            "Attribute AI token spend per developer, team, and business unit",
-            "Detect wasted spend: abandoned code, bloated prompts, missed cache hits",
-            "Map AI-generated code through PR → ticket → deployment pipeline",
-            "Compare ROI across different AI models and tools per team"
+            "Sandbox production AI agents with kernel-enforced filesystem and network policies",
+            "Hot-reload security policies on running agents without downtime",
+            "Audit every tool call and permission decision for compliance",
+            "Isolate agent skill development and verification from production systems"
           ],
-          "tags": ["Harness", "AI Cost Management", "Developer Productivity", "Engineering Metrics"],
+          "tags": ["NVIDIA", "Agent Security", "Linux", "Sandboxing", "Open Source"],
           "links": [
-            {"url": "https://www.prnewswire.com/news-releases/harness-launches-two-new-products-to-give-enterprise-engineering-teams-full-visibility-into-roi-of-ai-spend-302784490.html", "label": "PRNewswire: Harness AI ROI products"},
-            {"url": "https://sdtimes.com/ai-cost-management/harness-launches-two-products-to-give-enterprise-teams-full-visibility-into-roi-of-ai-spend/", "label": "SD Times: AI cost tracking"},
-            {"url": "https://www.harness.io/blog/harness-launches-products-give-visibility-into-roi-of-ai-spend", "label": "Harness blog: AI ROI visibility"}
+            {"url": "https://blogs.nvidia.com/blog/secure-autonomous-ai-agents-openshell/", "label": "NVIDIA Blog: Secure agents with OpenShell"},
+            {"url": "https://earezki.com/ai-news/2026-03-19-nvidia-openshell-and-the-rise-of-agent-sandboxes-in-agentic-devops/", "label": "Dev|Journal: OpenShell and agent sandboxes"},
+            {"url": "https://dev.to/htekdev/nvidia-openshell-and-the-rise-of-agent-sandboxes-in-agentic-devops-1a6o", "label": "DEV: OpenShell in agentic DevOps"}
           ]
         },
         {
-          "title": "Biome Hits Critical Mass: 100x Faster ESLint Replacement Gains Enterprise Adoption",
-          "url": "https://biomejs.dev",
-          "tldr": "Biome, the Rust-powered linter and formatter for JavaScript/TypeScript, is gaining serious traction as the ESLint replacement the ecosystem has been waiting for. It runs 100x faster than ESLint with zero configuration, handling both linting and formatting in a single tool.",
-          "why_it_matters": "The JavaScript tooling layer is being rewritten in Rust, and Biome is leading the linting front. For teams where ESLint configs are a maintenance burden and CI lint steps add minutes to every PR, Biome is a drop-in replacement that runs in milliseconds. Zero config means AI agents can set up and enforce code quality without wrestling with .eslintrc files.",
+          "title": "Claude Agent SDK: Build Production Agents with the Same Engine That Powers Claude Code",
+          "url": "https://code.claude.com/docs/en/agent-sdk/overview",
+          "tldr": "Anthropic's Claude Agent SDK gives developers the same agent loop, tools, and context management infrastructure that powers Claude Code — available in Python and TypeScript with first-class MCP support. Custom tools run as in-process MCP servers, eliminating separate processes. Starting June 15, 2026, Agent SDK usage gets its own billing credit separate from interactive usage.",
+          "why_it_matters": "The Agent SDK is Anthropic's play to make Claude Code's architecture the default for custom agent development. In-process MCP servers mean you can build tool-using agents without the overhead of running separate MCP server processes — tools are just Python/TypeScript functions with MCP semantics. The June 15 billing split signals that Anthropic sees programmatic agent usage as a distinct product category from chat, and wants to price it separately to encourage adoption.",
           "traction": "medium",
           "traction_evidence": [
-            "Consistently cited as top emerging developer tool in 2026 roundups",
-            "Covered by DEV Community, Medium, and multiple 'tools to watch' lists",
-            "Rust-based performance: 100x faster than ESLint",
-            "Zero-config design reduces setup friction",
-            "Part of broader Rust-ification of JavaScript tooling (Biome, Turbopack, Oxc)"
+            "Official Anthropic SDK — same engine as Claude Code",
+            "Available in Python (pip) and TypeScript (npm)",
+            "First-class MCP support with in-process servers",
+            "New billing model starting June 15, 2026",
+            "Claude Managed Agents (hosted REST API) launched April 2026",
+            "Covered by Promptfoo, HatchWorks, AI Wiki, BeginnersInAI"
           ],
           "use_cases": [
-            "Replace ESLint + Prettier with a single, faster tool",
-            "Speed up CI pipelines by cutting lint step from minutes to milliseconds",
-            "Zero-config linting for new projects and AI-generated code",
-            "Standardize code quality across JavaScript/TypeScript monorepos"
+            "Build custom coding agents using the same architecture as Claude Code",
+            "Implement tool-using agents with in-process MCP servers (no separate processes)",
+            "Deploy agents via Claude Managed Agents for fully hosted execution",
+            "Separate agent SDK billing from interactive Claude usage starting June 15"
           ],
-          "tags": ["JavaScript", "Rust", "Linting", "Developer Tooling", "Performance"],
+          "tags": ["Anthropic", "Agent SDK", "MCP", "Python", "TypeScript"],
           "links": [
-            {"url": "https://dev.to/thebitforge/top-5-emerging-developer-tools-to-watch-in-2026-12pl", "label": "DEV: Top 5 emerging developer tools 2026"},
-            {"url": "https://dev.to/glad_labs/2026-developer-tools-whats-new-whats-next-130d", "label": "DEV: Developer tools — what's new, what's next"},
-            {"url": "https://blog.akshaykhale.com/open-source-projects-that-got-me-excited-8360fed0b407", "label": "Open source projects gaining traction in 2026"}
+            {"url": "https://github.com/anthropics/claude-agent-sdk-python", "label": "GitHub: Claude Agent SDK (Python)"},
+            {"url": "https://github.com/anthropics/claude-agent-sdk-typescript", "label": "GitHub: Claude Agent SDK (TypeScript)"},
+            {"url": "https://platform.claude.com/docs/en/agent-sdk/overview", "label": "Anthropic: Agent SDK docs"}
           ]
         }
       ]
@@ -180,80 +180,79 @@
       "name": "Infrastructure & Production",
       "articles": [
         {
-          "title": "codexui-android: AI Tooling Supply Chain Attack Steals 29K+ Developers' Codex Tokens",
-          "url": "https://thehackernews.com/2026/06/openai-codex-authentication-tokens.html",
-          "tldr": "A malicious npm package called codexui-android, advertised as a remote web UI for OpenAI Codex with 29K+ weekly downloads, has been silently exfiltrating authentication tokens to an attacker-controlled server. The attack was embedded in a functional, actively maintained package — not a typosquat — making it harder to detect.",
-          "why_it_matters": "AI developer tooling is now a first-class supply chain attack target. Stolen Codex refresh tokens provide persistent, silent access to everything that account can do — not just chat. This is the wake-up call: AI tool tokens are as sensitive as cloud credentials, and the npm ecosystem's trust model doesn't scale to the value of what these tokens can access.",
+          "title": "AI-Powered CI Hits 76% Adoption: Platform Engineering Becomes the Default Operating Model",
+          "url": "https://spacelift.io/blog/devops-statistics",
+          "tldr": "Industry data shows 76% of DevOps teams now use AI-powered CI to reduce manual work and speed delivery. Platform Engineering has emerged as the dominant approach — building internal developer platforms as products with self-service layers that abstract infrastructure complexity. Framework adoption nearly doubled from 9% to 18% year-over-year.",
+          "why_it_matters": "The shift from 'DevOps team runs CI' to 'platform team ships a self-service product' is now the majority pattern, not an aspiration. AI-powered CI isn't just faster pipelines — it's automated test selection, intelligent flaky test quarantine, and PR risk scoring. Teams still running traditional Jenkins/GitLab CI without AI augmentation are falling behind on both speed and developer experience. The 76% number means this is no longer early adoption; it's table stakes.",
           "traction": "high",
           "traction_evidence": [
-            "29,000+ weekly npm downloads compromised",
-            "60,000+ combined mobile installations",
-            "Covered by The Hacker News, CSO Online, InfoWorld, TechRadar, Aikido",
-            "Domain registered April 12, 2026 — two days after first npm publish",
-            "Functional package with active development (not a typosquat)"
+            "76% of DevOps teams use AI-powered CI (Spacelift 2026 survey)",
+            "Platform Engineering cited as top DevOps trend across multiple reports",
+            "Framework adoption doubled YoY: 9% → 18%",
+            "Covered by Spacelift, Harness, env0, N-iX, Instatus",
+            "95% of engineers use AI tools at least weekly"
           ],
           "use_cases": [
-            "Audit your npm dependencies for AI tool token access patterns",
-            "Rotate Codex/AI tool tokens if you installed codexui-android",
-            "Implement token scoping and short-lived credentials for AI tools",
-            "Add AI tool credential monitoring to your security posture"
+            "Add AI-powered test selection to CI pipelines to cut build times",
+            "Build an internal developer platform with self-service infrastructure provisioning",
+            "Implement intelligent flaky test quarantine and PR risk scoring",
+            "Measure and optimize the 76% benchmark against your own CI automation level"
           ],
-          "tags": ["Security", "Supply Chain", "npm", "OpenAI Codex", "Token Theft"],
+          "tags": ["DevOps", "Platform Engineering", "CI/CD", "AI Automation"],
           "links": [
-            {"url": "https://www.aikido.dev/blog/codex-remote-ui-steals-ai-tokens", "label": "Aikido: Codex Remote UI steals AI tokens"},
-            {"url": "https://www.csoonline.com/article/4179815/attack-targeting-openai-codex-users-exposes-ai-software-supply-chain-risks.html", "label": "CSO Online: AI supply chain risks"},
-            {"url": "https://dataconomy.com/2026/06/02/popular-codex-package-caught-exfiltrating-authentication-credentials/", "label": "Dataconomy: Codex package exfiltrating credentials"}
+            {"url": "https://www.harness.io/harness-devops-academy/top-devops-tools", "label": "Harness: Top DevOps tools 2026"},
+            {"url": "https://www.n-ix.com/devops-trends/", "label": "N-iX: 8 DevOps trends driving industry in 2026"},
+            {"url": "https://instatus.com/blog/devops-trends", "label": "Instatus: 2026 DevOps trends"}
           ]
         },
         {
-          "title": "The Inference Reckoning: Production AI Infrastructure Hits an Inflection Point in 2026",
-          "url": "https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/ai-infrastructure-compute-strategy.html",
-          "tldr": "Inference workloads now rival — and often exceed — training in compute demand. Data center rack density has surged from 10–15 kW in 2024 to 40–250 kW in 2026. NVIDIA's Jensen Huang declared at GTC 2026 that 'the inflection point of inference has arrived.' Most organizations remain stuck in pilot projects while leaders rebuild operations around AI as core infrastructure.",
-          "why_it_matters": "The production AI gap is widening fast. Companies that treated AI inference as an afterthought are hitting walls: power, cooling, cost, and reliability at scale. The shift from 'can we build it?' to 'can we run it?' means MLOps/LLMOps skills, GPU fleet management, and inference optimization are now as critical as the models themselves. If you're not planning your inference infrastructure today, you're already behind.",
-          "traction": "high",
+          "title": "OpenClaw Ships Skill Security: SkillSpector, Pre-Publish Verification, and a Public Safety Dataset",
+          "url": "https://github.com/openclaw/openclaw/releases",
+          "tldr": "OpenClaw's 2026.6.1-alpha.3 release focuses on agent governance: ClawHub skills now require pre-publish verification, NVIDIA Skill Cards provide standardized metadata, and SkillSpector performs automated risk analysis before skills go live. OpenClaw also published a public dataset of scan outcomes on Hugging Face to help the broader community improve agent skill safety.",
+          "why_it_matters": "As agent ecosystems grow, skill/plugin marketplaces become the new npm — and yesterday's codexui-android supply chain attack proves the risk is real. OpenClaw's approach — verification before publish, automated risk scoring, and a public safety dataset — is the kind of proactive governance that prevents agent skill stores from becoming attack vectors. The public dataset on HuggingFace means other platforms can build on this work instead of reinventing trust signals from scratch.",
+          "traction": "medium",
           "traction_evidence": [
-            "Deloitte Tech Trends 2026 report",
-            "Bessemer Venture Partners AI Infrastructure Roadmap",
-            "NVIDIA GTC 2026: Jensen Huang declares inference inflection point",
-            "Rack density 10-15 kW → 40-250 kW in two years",
-            "MLSys 2026 conference focused on production ML infrastructure"
+            "Shipped in OpenClaw 2026.6.1-alpha.3",
+            "Public safety dataset published on Hugging Face",
+            "NVIDIA Skill Cards integration for standardized metadata",
+            "OpenClaw cited as 'breakout open-source project of the year'",
+            "Windows MXC integration announced at Build 2026"
           ],
           "use_cases": [
-            "Plan inference infrastructure capacity before deploying production AI agents",
-            "Optimize model serving with tiered compute: GPU for complex, CPU/edge for simple",
-            "Build observability into inference pipelines from day one",
-            "Evaluate self-hosted vs API-based inference economics for your workload profile"
+            "Audit agent skills before deployment with automated SkillSpector risk analysis",
+            "Require pre-publish verification for skills in your agent marketplace",
+            "Use NVIDIA Skill Cards for standardized skill metadata and trust signals",
+            "Contribute to and build on the public agent skill safety dataset on HuggingFace"
           ],
-          "tags": ["AI Infrastructure", "Inference", "MLOps", "Production AI", "GPU"],
+          "tags": ["OpenClaw", "Agent Security", "Governance", "Open Source", "HuggingFace"],
           "links": [
-            {"url": "https://www.bvp.com/atlas/ai-infrastructure-roadmap-five-frontiers-for-2026", "label": "Bessemer: AI Infrastructure Roadmap 2026"},
-            {"url": "https://medium.com/@sanjeebmeister/the-complete-mlops-llmops-roadmap-for-2026-building-production-grade-ai-systems-bdcca5ed2771", "label": "Complete MLOps/LLMOps Roadmap for 2026"},
-            {"url": "https://www.lightreading.com/ai-machine-learning/five-dynamics-redefining-ai-infrastructure-in-2026-omdia", "label": "Omdia: Five dynamics redefining AI infrastructure"}
+            {"url": "https://releasebot.io/updates/openclaw", "label": "OpenClaw Release Notes — June 2026"},
+            {"url": "https://skywork.ai/skypage/en/openclaw-latest-updates-2026/2037437426655117312", "label": "OpenClaw latest updates 2026"},
+            {"url": "https://www.indiehackers.com/post/top-6-openclaw-tools-developers-are-using-in-2026-f25e9a48ae", "label": "Indie Hackers: Top OpenClaw tools in 2026"}
           ]
         },
         {
-          "title": "WWDC26 Kicks Off June 8: Apple's Play for On-Device AI and Developer Tools",
-          "url": "https://developer.apple.com/wwdc26/",
-          "tldr": "Apple's WWDC26 begins Monday, June 8, with expectations focused on expanded on-device AI capabilities, new developer frameworks, and deeper Siri/intelligence integration. After a relatively quiet 2025 for Apple AI, the developer community is watching for Apple's answer to the agent-powered development tools shipping from Microsoft and Google.",
-          "why_it_matters": "Apple controls the most valuable developer ecosystem (iOS/macOS). How they integrate AI into Xcode, Swift, and on-device inference will shape what millions of mobile developers build next. On-device AI is Apple's competitive moat — if WWDC26 delivers compelling local model support, it could shift the balance between cloud and edge AI for consumer applications.",
+          "title": "O'Reilly Radar June 2026: The Trends That Should Actually Change What You Build",
+          "url": "https://www.oreilly.com/radar/radar-trends-to-watch-june-2026/",
+          "tldr": "O'Reilly's June 2026 Radar highlights the convergence of agentic AI with production infrastructure: agent sandboxing becoming an OS primitive, MCP evolving into a stateless standard, and the gap widening between organizations that treat AI as infrastructure versus those still running pilots. The report flags agent skill marketplaces as the next supply chain attack surface.",
+          "why_it_matters": "O'Reilly's Radar is the canary for what enterprise engineering leadership reads. When they flag agent sandboxing and MCP statelessness in the same issue, it means these aren't niche concerns anymore — they're entering the enterprise planning cycle. The supply chain warning aligns with this week's codexui-android attack. If you're pitching agent infrastructure investments internally, this report is the executive summary your VP of Engineering needs to see.",
           "traction": "high",
           "traction_evidence": [
-            "WWDC26 officially announced for June 8, 2026",
-            "Apple Developer site live with session previews",
-            "Follows Microsoft Build 2026 (June 2-3) and Google I/O 2026",
-            "Developer community anticipation high after Apple's quiet 2025 AI year",
-            "On-device AI and privacy positioning is Apple's key differentiator"
+            "O'Reilly Radar — authoritative industry analysis",
+            "Published June 2026",
+            "Flags agent sandboxing as OS-level primitive trend",
+            "Identifies agent skill marketplaces as supply chain risk",
+            "Aligns with Microsoft MXC, NVIDIA OpenShell, MCP stateless announcements"
           ],
           "use_cases": [
-            "Prepare for new Xcode AI features and Swift framework updates",
-            "Plan mobile AI strategy around Apple's on-device inference capabilities",
-            "Evaluate Apple's developer tool investments vs Microsoft and Google offerings",
-            "Watch for Core ML and on-device model deployment improvements"
+            "Brief engineering leadership on agent infrastructure investment priorities",
+            "Use as evidence for agent sandboxing and governance budget requests",
+            "Align team roadmap with industry consensus on production AI trends",
+            "Assess organizational readiness: infrastructure-first vs. still-in-pilots"
           ],
-          "tags": ["Apple", "WWDC", "On-Device AI", "iOS", "Developer Tools"],
+          "tags": ["O'Reilly", "Industry Analysis", "Agent Infrastructure", "Enterprise"],
           "links": [
-            {"url": "https://developer.apple.com/wwdc26/", "label": "Apple: WWDC26 official page"},
-            {"url": "https://blog.mean.ceo/indie-devs-news-june-2026/", "label": "Indie Devs News: June 2026 roundup"}
+            {"url": "https://www.oreilly.com/radar/radar-trends-to-watch-june-2026/", "label": "O'Reilly Radar: June 2026 trends"}
           ]
         }
       ]
