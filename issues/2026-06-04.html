@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 04, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 04, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://microsoft.ai/news/introducingmai-code-1-flash/">Microsoft ships MAI-Code-1-Flash and MAI-Thinking-1 — its first in-house coding and reasoning models, trained without OpenAI data, rolling out across all GitHub Copilot tiers</a></li>
+      <li><a href="https://www.anthropic.com/news/claude-opus-4-8">Claude Opus 4.8 introduces Dynamic Workflows — plan work, run hundreds of parallel subagents, and execute codebase-scale migrations from kickoff to merge</a></li>
+      <li><a href="https://venturebeat.com/security/microsoft-launches-mxc-an-os-level-sandbox-for-ai-agents-with-openai-and-nvidia-already-on-board">Microsoft launches MXC (Execution Containers) — an OS-level, policy-driven sandbox for AI agents with OpenAI, NVIDIA, and OpenClaw already on board</a></li>
+      <li><a href="https://www.harness.io/products/ai-dlc-insights">Harness AI DLC Insights tracks every AI-generated line of code, maps token costs per model and developer to actual shipped PRs and deployments</a></li>
+      <li><a href="https://thehackernews.com/2026/06/openai-codex-authentication-tokens.html">codexui-android npm package with 29K+ weekly downloads caught stealing OpenAI Codex auth tokens — AI tooling is now a high-value supply chain attack surface</a></li>
+      <li><a href="https://biomejs.dev">Biome hits critical mass as ESLint alternative — 100x faster, zero-config, Rust-powered linting and formatting for the JavaScript ecosystem</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://microsoft.ai/news/introducingmai-code-1-flash/">Microsoft Ships MAI-Code-1-Flash and MAI-Thinking-1: First In-House Coding and Reasoning Models</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">At Build 2026, Microsoft announced MAI-Code-1-Flash (5B-parameter coding model) and MAI-Thinking-1 (reasoning model), both trained entirely in-house without OpenAI data. MAI-Code-1-Flash ships across all GitHub Copilot tiers with a 256K-token context window.</p>
+      <div class="article-meta">
+        <span class="tag">Microsoft</span>
+        <span class="tag">GitHub Copilot</span>
+        <span class="tag">Coding AI</span>
+        <span class="tag">Build 2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is Microsoft's clearest step toward AI model independence from OpenAI. MAI-Code-1-Flash outperforms Claude Haiku 4.5 on SWE-Bench Pro by 16 points (51.2% vs 35.2%) at a fraction of the cost. For engineering teams on Copilot, this means faster, cheaper code generation shipping as the default — and signals that first-party coding models from platform companies are the new normal.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Faster, cheaper inline code completions in VS Code via Copilot</li>
+          <li>Lightweight coding model for CI/CD pipelines and automated PR generation</li>
+          <li>Self-hosted alternative for teams that need licensed-data-only models</li>
+          <li>MAI-Thinking-1 for complex reasoning tasks alongside MAI-Code-1-Flash for fast generation</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced at Microsoft Build 2026 (June 2, 2026)</li>
+          <li>Rolling out to all GitHub Copilot tiers immediately</li>
+          <li>+16-point lead over Claude Haiku 4.5 on SWE-Bench Pro</li>
+          <li>5B parameters with 256K-token context window</li>
+          <li>Trained March–May 2026 on clean, licensed data</li>
+          <li>Covered by CNBC, Neowin, TechTimes, VentureBeat</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html">CNBC: Microsoft lessens reliance on OpenAI</a></li>
+          <li><a href="https://www.neowin.net/news/microsoft-unveils-mai-thinking-1-reasoning-and-mai-code-1-coding-models/">Neowin: MAI model details</a></li>
+          <li><a href="https://dev.to/akaranjkar08/microsoft-mai-thinking-1-mai-code-1-flash-developer-guide-to-7-new-mai-models-k4m">Developer guide to MAI models</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.anthropic.com/news/claude-opus-4-8">Claude Opus 4.8: Dynamic Workflows Enable Codebase-Scale Migrations with Parallel Subagents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Anthropic released Claude Opus 4.8 on May 28 with Dynamic Workflows — a feature that lets Claude Code plan work, spawn hundreds of parallel subagents within a single session, verify outputs, and execute codebase-scale migrations from kickoff to merge. Agentic coding scores jumped from 64.3% to 69.2%.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Agentic AI</span>
+        <span class="tag">Dynamic Workflows</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Dynamic Workflows turn Claude Code from a single-file editor into a codebase-scale migration engine. The ability to plan, fan out hundreds of subagents, and verify results before merging means tasks like 'upgrade every API endpoint to v3' or 'migrate 100K lines from React class components to hooks' are now single-session operations. Fast mode is also 3x cheaper than previous models.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Codebase-scale migrations across hundreds of thousands of lines of code</li>
+          <li>Fan out parallel subagents for multi-file refactoring in a single session</li>
+          <li>Use effort controls to balance quality vs speed per task</li>
+          <li>Mid-conversation system messages for evolving long-running agent sessions</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released May 28, 2026 — 41 days after Opus 4.7</li>
+          <li>Agentic coding: 64.3% → 69.2%</li>
+          <li>Knowledge work score: 1753 → 1890</li>
+          <li>Covered by TechCrunch, Axios, Simon Willison, 9to5Mac</li>
+          <li>Fast mode 3x cheaper than previous models</li>
+          <li>Same price as Opus 4.7</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/">TechCrunch: Opus 4.8 dynamic workflows</a></li>
+          <li><a href="https://simonwillison.net/2026/May/28/claude-opus-4-8/">Simon Willison: 'a modest but tangible improvement'</a></li>
+          <li><a href="https://www.anthropic.com/claude/opus">Anthropic: Claude Opus product page</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://larridin.com/developer-productivity-hub/developer-productivity-benchmarks-2026">AI Coding Costs in 2026: The $200–$600/Month Reality Check</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">New benchmarks show AI coding tools deliver 1.6x productivity returns — meaningful but far below the 10x vendor claims. Most engineering teams spend $200–$600/month per engineer on agentic tools, with smart teams routing 60–80% of agent traffic to self-hosted models (Qwen 3 Coder, Kimi K2.6) and escalating 20–40% to Claude Opus or Gemini Pro via API.</p>
+      <div class="article-meta">
+        <span class="tag">AI Economics</span>
+        <span class="tag">Developer Productivity</span>
+        <span class="tag">Model Routing</span>
+        <span class="tag">Cost Optimization</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The hype-to-reality gap is closing. 1.6x is real value but demands smarter model routing, not just throwing tokens at the most expensive model. Teams that build tiered routing — fast local models for autocomplete, frontier models for complex reasoning — are getting the same output quality at a fraction of the cost. This is the engineering discipline that separates productive AI adoption from expensive experiments.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build tiered model routing: local models for fast tasks, API for complex reasoning</li>
+          <li>Self-host Qwen 3 Coder or Kimi K2.6 for 60–80% of agent traffic to cut costs</li>
+          <li>Measure actual productivity gains vs token spend per developer</li>
+          <li>Set realistic expectations for AI coding tool ROI in your organization</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>95% of respondents use AI tools at least weekly (Pragmatic Engineer survey)</li>
+          <li>56% report doing 70%+ of engineering work with AI</li>
+          <li>Framework adoption doubled year-over-year: 9% → 18%</li>
+          <li>Multiple independent sources confirm $200–$600/month range</li>
+          <li>Self-hosted model routing becoming standard practice</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/ai-tooling-2026">Pragmatic Engineer: AI Tooling 2026</a></li>
+          <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog: State of AI Engineering</a></li>
+          <li><a href="https://addyosmani.com/blog/ai-coding-workflow/">Addy Osmani: LLM coding workflow in 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://venturebeat.com/security/microsoft-launches-mxc-an-os-level-sandbox-for-ai-agents-with-openai-and-nvidia-already-on-board">Microsoft MXC: OS-Level Sandboxing for AI Agents Ships at Build 2026</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Microsoft introduced MXC (Execution Containers), a policy-driven execution layer built into Windows that lets developers and IT admins declare exactly what an AI agent can and cannot access — enforced at runtime by the OS kernel. OpenAI, NVIDIA, and OpenClaw are launch partners.</p>
+      <div class="article-meta">
+        <span class="tag">Microsoft</span>
+        <span class="tag">Agent Security</span>
+        <span class="tag">Sandboxing</span>
+        <span class="tag">Build 2026</span>
+        <span class="tag">Windows</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first time an OS vendor has built agent sandboxing directly into the kernel. Every team running AI agents today either trusts them too much or builds bespoke sandboxing. MXC standardizes it: declare file, network, and UI access policies, and the OS enforces them. GitHub Copilot CLI already uses MXC's fast process isolation. This sets the floor for agent security across the industry.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Sandbox AI agents with OS-enforced file and network access policies</li>
+          <li>Deploy agents in enterprise environments with IT-managed Intune policies</li>
+          <li>Prevent agent UI spoofing and cross-session data leakage</li>
+          <li>Replace custom agent sandboxing with a standardized OS primitive</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced at Microsoft Build 2026 (June 2, 2026)</li>
+          <li>Launch partners: OpenAI, NVIDIA, OpenClaw, Hermes, Manus</li>
+          <li>GitHub Copilot CLI already using MXC fast process isolation</li>
+          <li>Covered by VentureBeat, Visual Studio Magazine, Windows Developer Blog</li>
+          <li>Session isolation prevents UI spoofing, input injection, cross-session data leakage</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/">Windows Developer Blog: Platform security for AI agents</a></li>
+          <li><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/">Windows as trusted development platform</a></li>
+          <li><a href="https://www.microsoft.com/en-us/security/blog/2026/06/02/microsoft-build-2026-securing-code-agents-and-models-across-the-development-lifecycle/">Microsoft Security Blog: Securing agents</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.harness.io/products/ai-dlc-insights">Harness AI DLC Insights: Map Every AI-Generated Line of Code to Its Token Cost and Shipped PR</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Harness launched AI DLC Insights, an on-machine developer agent that captures every AI-generated line of code, records token costs per model and tool, and maps that spend through the full delivery chain — from prompt to PR to deployment. It surfaces abandoned code, bloated prompts, expensive model choices, and missed cache hits.</p>
+      <div class="article-meta">
+        <span class="tag">Harness</span>
+        <span class="tag">AI Cost Management</span>
+        <span class="tag">Developer Productivity</span>
+        <span class="tag">Engineering Metrics</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Engineering leaders can't manage what they can't measure. With AI agent costs running $200–$2,000+ per engineer per month, knowing which tokens actually produced shipped code vs which were wasted on abandoned branches is the difference between informed investment and burning money. This is the first tool that connects AI spend to business outcomes through the entire delivery pipeline.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Attribute AI token spend per developer, team, and business unit</li>
+          <li>Detect wasted spend: abandoned code, bloated prompts, missed cache hits</li>
+          <li>Map AI-generated code through PR → ticket → deployment pipeline</li>
+          <li>Compare ROI across different AI models and tools per team</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced May 28, 2026</li>
+          <li>Covered by PRNewswire, SD Times, Morningstar, TipRanks</li>
+          <li>94% of engineering leaders say key metrics are missing (Harness 2026 report)</li>
+          <li>Available in beta within the Harness platform</li>
+          <li>Complements new Cloud & AI Cost Management product</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.prnewswire.com/news-releases/harness-launches-two-new-products-to-give-enterprise-engineering-teams-full-visibility-into-roi-of-ai-spend-302784490.html">PRNewswire: Harness AI ROI products</a></li>
+          <li><a href="https://sdtimes.com/ai-cost-management/harness-launches-two-products-to-give-enterprise-teams-full-visibility-into-roi-of-ai-spend/">SD Times: AI cost tracking</a></li>
+          <li><a href="https://www.harness.io/blog/harness-launches-products-give-visibility-into-roi-of-ai-spend">Harness blog: AI ROI visibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://biomejs.dev">Biome Hits Critical Mass: 100x Faster ESLint Replacement Gains Enterprise Adoption</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Biome, the Rust-powered linter and formatter for JavaScript/TypeScript, is gaining serious traction as the ESLint replacement the ecosystem has been waiting for. It runs 100x faster than ESLint with zero configuration, handling both linting and formatting in a single tool.</p>
+      <div class="article-meta">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Rust</span>
+        <span class="tag">Linting</span>
+        <span class="tag">Developer Tooling</span>
+        <span class="tag">Performance</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The JavaScript tooling layer is being rewritten in Rust, and Biome is leading the linting front. For teams where ESLint configs are a maintenance burden and CI lint steps add minutes to every PR, Biome is a drop-in replacement that runs in milliseconds. Zero config means AI agents can set up and enforce code quality without wrestling with .eslintrc files.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replace ESLint + Prettier with a single, faster tool</li>
+          <li>Speed up CI pipelines by cutting lint step from minutes to milliseconds</li>
+          <li>Zero-config linting for new projects and AI-generated code</li>
+          <li>Standardize code quality across JavaScript/TypeScript monorepos</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Consistently cited as top emerging developer tool in 2026 roundups</li>
+          <li>Covered by DEV Community, Medium, and multiple 'tools to watch' lists</li>
+          <li>Rust-based performance: 100x faster than ESLint</li>
+          <li>Zero-config design reduces setup friction</li>
+          <li>Part of broader Rust-ification of JavaScript tooling (Biome, Turbopack, Oxc)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://dev.to/thebitforge/top-5-emerging-developer-tools-to-watch-in-2026-12pl">DEV: Top 5 emerging developer tools 2026</a></li>
+          <li><a href="https://dev.to/glad_labs/2026-developer-tools-whats-new-whats-next-130d">DEV: Developer tools — what's new, what's next</a></li>
+          <li><a href="https://blog.akshaykhale.com/open-source-projects-that-got-me-excited-8360fed0b407">Open source projects gaining traction in 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://thehackernews.com/2026/06/openai-codex-authentication-tokens.html">codexui-android: AI Tooling Supply Chain Attack Steals 29K+ Developers' Codex Tokens</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">A malicious npm package called codexui-android, advertised as a remote web UI for OpenAI Codex with 29K+ weekly downloads, has been silently exfiltrating authentication tokens to an attacker-controlled server. The attack was embedded in a functional, actively maintained package — not a typosquat — making it harder to detect.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">Supply Chain</span>
+        <span class="tag">npm</span>
+        <span class="tag">OpenAI Codex</span>
+        <span class="tag">Token Theft</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>AI developer tooling is now a first-class supply chain attack target. Stolen Codex refresh tokens provide persistent, silent access to everything that account can do — not just chat. This is the wake-up call: AI tool tokens are as sensitive as cloud credentials, and the npm ecosystem's trust model doesn't scale to the value of what these tokens can access.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your npm dependencies for AI tool token access patterns</li>
+          <li>Rotate Codex/AI tool tokens if you installed codexui-android</li>
+          <li>Implement token scoping and short-lived credentials for AI tools</li>
+          <li>Add AI tool credential monitoring to your security posture</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>29,000+ weekly npm downloads compromised</li>
+          <li>60,000+ combined mobile installations</li>
+          <li>Covered by The Hacker News, CSO Online, InfoWorld, TechRadar, Aikido</li>
+          <li>Domain registered April 12, 2026 — two days after first npm publish</li>
+          <li>Functional package with active development (not a typosquat)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.aikido.dev/blog/codex-remote-ui-steals-ai-tokens">Aikido: Codex Remote UI steals AI tokens</a></li>
+          <li><a href="https://www.csoonline.com/article/4179815/attack-targeting-openai-codex-users-exposes-ai-software-supply-chain-risks.html">CSO Online: AI supply chain risks</a></li>
+          <li><a href="https://dataconomy.com/2026/06/02/popular-codex-package-caught-exfiltrating-authentication-credentials/">Dataconomy: Codex package exfiltrating credentials</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/ai-infrastructure-compute-strategy.html">The Inference Reckoning: Production AI Infrastructure Hits an Inflection Point in 2026</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Inference workloads now rival — and often exceed — training in compute demand. Data center rack density has surged from 10–15 kW in 2024 to 40–250 kW in 2026. NVIDIA's Jensen Huang declared at GTC 2026 that 'the inflection point of inference has arrived.' Most organizations remain stuck in pilot projects while leaders rebuild operations around AI as core infrastructure.</p>
+      <div class="article-meta">
+        <span class="tag">AI Infrastructure</span>
+        <span class="tag">Inference</span>
+        <span class="tag">MLOps</span>
+        <span class="tag">Production AI</span>
+        <span class="tag">GPU</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The production AI gap is widening fast. Companies that treated AI inference as an afterthought are hitting walls: power, cooling, cost, and reliability at scale. The shift from 'can we build it?' to 'can we run it?' means MLOps/LLMOps skills, GPU fleet management, and inference optimization are now as critical as the models themselves. If you're not planning your inference infrastructure today, you're already behind.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Plan inference infrastructure capacity before deploying production AI agents</li>
+          <li>Optimize model serving with tiered compute: GPU for complex, CPU/edge for simple</li>
+          <li>Build observability into inference pipelines from day one</li>
+          <li>Evaluate self-hosted vs API-based inference economics for your workload profile</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Deloitte Tech Trends 2026 report</li>
+          <li>Bessemer Venture Partners AI Infrastructure Roadmap</li>
+          <li>NVIDIA GTC 2026: Jensen Huang declares inference inflection point</li>
+          <li>Rack density 10-15 kW → 40-250 kW in two years</li>
+          <li>MLSys 2026 conference focused on production ML infrastructure</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.bvp.com/atlas/ai-infrastructure-roadmap-five-frontiers-for-2026">Bessemer: AI Infrastructure Roadmap 2026</a></li>
+          <li><a href="https://medium.com/@sanjeebmeister/the-complete-mlops-llmops-roadmap-for-2026-building-production-grade-ai-systems-bdcca5ed2771">Complete MLOps/LLMOps Roadmap for 2026</a></li>
+          <li><a href="https://www.lightreading.com/ai-machine-learning/five-dynamics-redefining-ai-infrastructure-in-2026-omdia">Omdia: Five dynamics redefining AI infrastructure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://developer.apple.com/wwdc26/">WWDC26 Kicks Off June 8: Apple's Play for On-Device AI and Developer Tools</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Apple's WWDC26 begins Monday, June 8, with expectations focused on expanded on-device AI capabilities, new developer frameworks, and deeper Siri/intelligence integration. After a relatively quiet 2025 for Apple AI, the developer community is watching for Apple's answer to the agent-powered development tools shipping from Microsoft and Google.</p>
+      <div class="article-meta">
+        <span class="tag">Apple</span>
+        <span class="tag">WWDC</span>
+        <span class="tag">On-Device AI</span>
+        <span class="tag">iOS</span>
+        <span class="tag">Developer Tools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Apple controls the most valuable developer ecosystem (iOS/macOS). How they integrate AI into Xcode, Swift, and on-device inference will shape what millions of mobile developers build next. On-device AI is Apple's competitive moat — if WWDC26 delivers compelling local model support, it could shift the balance between cloud and edge AI for consumer applications.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Prepare for new Xcode AI features and Swift framework updates</li>
+          <li>Plan mobile AI strategy around Apple's on-device inference capabilities</li>
+          <li>Evaluate Apple's developer tool investments vs Microsoft and Google offerings</li>
+          <li>Watch for Core ML and on-device model deployment improvements</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>WWDC26 officially announced for June 8, 2026</li>
+          <li>Apple Developer site live with session previews</li>
+          <li>Follows Microsoft Build 2026 (June 2-3) and Google I/O 2026</li>
+          <li>Developer community anticipation high after Apple's quiet 2025 AI year</li>
+          <li>On-device AI and privacy positioning is Apple's key differentiator</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://developer.apple.com/wwdc26/">Apple: WWDC26 official page</a></li>
+          <li><a href="https://blog.mean.ceo/indie-devs-news-june-2026/">Indie Devs News: June 2026 roundup</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>

@@ -180,8 +180,14 @@ def main():
 
     date_display = datetime.strptime(args.date, "%Y-%m-%d").strftime("%B %d, %Y")
 
+    anchor_to_url = {}
+    for sec in data.get("sections", []):
+        sec_slug = sec["name"].lower().replace(" ", "-").replace("&", "and")
+        for i, art in enumerate(sec["articles"]):
+            anchor_to_url[f"{sec_slug}-{i}"] = art.get("url", "#")
+
     summary_items = "\n".join(
-        f'      <li><a href="#{s.get("anchor", "")}">{s["text"]}</a></li>'
+        f'      <li><a href="{anchor_to_url.get(s.get("anchor", ""), "#")}">{s["text"]}</a></li>'
         for s in data.get("highlights", [])
     )
 
