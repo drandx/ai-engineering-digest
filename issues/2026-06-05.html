@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 05, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 05, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.minimax.io/blog/minimax-m3">MiniMax M3 ships as the first open-weight model combining frontier coding (59% SWE-Bench Pro), 1M-token context, and native multimodality — a new sparse attention mechanism makes it practical</a></li>
+      <li><a href="https://microsoft.ai/news/introducingmai-code-1-flash/">Microsoft builds its own coding model: MAI-Code-1-Flash (5B params) beats Claude Haiku 4.5 across coding benchmarks with 60% fewer tokens, rolling out to all GitHub Copilot tiers</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/28/anthropic-open-ai-startup-value.html">Anthropic files for IPO at $965B valuation, surpassing OpenAI ($730B) — first major AI company to file, with $47B run-rate revenue</a></li>
+      <li><a href="https://docs.x.ai/developers/model-capabilities/text/multi-agent">xAI launches Grok Build CLI with 8 parallel coding agents — grok-code-fast-1 scores 70.8% SWE-Bench Verified, available on SuperGrok Heavy ($99/mo)</a></li>
+      <li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/">Microsoft Work IQ APIs go GA June 16 — agents get structured access to email, calendar, chats, files, and collaboration patterns via A2A, MCP, and REST</a></li>
+      <li><a href="https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/ai-infrastructure-compute-strategy.html">AI coding tool economics land at 1.6x ROI and $200-$600/mo per engineer — Pragmatic Engineer and Datadog data show Claude Code overtaking Copilot as the #1 tool in just 8 months</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.minimax.io/blog/minimax-m3">MiniMax M3: First Open-Weight Model to Combine Frontier Coding, 1M Context, and Native Multimodality</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">MiniMax launched M3 on June 1, 2026 — an open-weight model that scores 59% on SWE-Bench Pro (ahead of GPT-5.5, behind Opus 4.7), supports a 1-million-token context window via a new MiniMax Sparse Attention (MSA) mechanism, and handles native multimodal input. Open weights expected on Hugging Face within days.</p>
+      <div class="article-meta">
+        <span class="tag">MiniMax</span>
+        <span class="tag">Open Weight</span>
+        <span class="tag">Long Context</span>
+        <span class="tag">Multimodal</span>
+        <span class="tag">Coding AI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>M3 is the first open-weight model that doesn't force you to choose between coding quality, context length, and multimodality. The MSA attention mechanism avoids quadratic compute costs by scoring only selected segments, making the 1M context window actually practical to run. For teams self-hosting coding agents on large codebases, this is the model that makes 'feed it the whole repo' viable without frontier API costs.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-host a coding agent that can ingest entire large codebases in a single context window</li>
+          <li>Run multimodal code review — feed screenshots, diagrams, and code together</li>
+          <li>Route high-context coding tasks to M3 while using smaller models for quick completions</li>
+          <li>Evaluate MSA attention for custom long-context applications</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>59% SWE-Bench Pro — ahead of GPT-5.5, behind only Opus 4.7</li>
+          <li>1M-token context via novel MiniMax Sparse Attention mechanism</li>
+          <li>Covered by The Decoder, TechTimes, DataNorth, MarkTechPost</li>
+          <li>API live on MiniMax platform and third-party routers (OpenRouter)</li>
+          <li>Open weights imminent on Hugging Face and GitHub</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://the-decoder.com/minimax-m3-open-weight-model-with-a-million-token-context-challenges-proprietary-leaders/">The Decoder: M3 challenges proprietary leaders</a></li>
+          <li><a href="https://www.marktechpost.com/2026/06/01/minimax-releases-minimax-m3-with-msa-architecture-supporting-1m-token-context-native-multimodality-and-agentic-coding/">MarkTechPost: MSA architecture deep dive</a></li>
+          <li><a href="https://openrouter.ai/minimax/minimax-m3">OpenRouter: M3 API pricing and benchmarks</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://microsoft.ai/news/introducingmai-code-1-flash/">Microsoft MAI-Code-1-Flash: A 5B Coding Model Built In-House, Rolling Out to GitHub Copilot</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Microsoft's MAI-Code-1-Flash is a 5-billion-parameter coding model built entirely by Microsoft — no OpenAI involvement. It beats Claude Haiku 4.5 across coding benchmarks with a 16-point lead on SWE-Bench Pro, uses adaptive thinking to allocate reasoning budget dynamically, and solves harder problems with up to 60% fewer tokens. Rolling out to all GitHub Copilot tiers now.</p>
+      <div class="article-meta">
+        <span class="tag">Microsoft</span>
+        <span class="tag">GitHub Copilot</span>
+        <span class="tag">Coding AI</span>
+        <span class="tag">Build 2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is Microsoft's declaration of model independence from OpenAI. MAI-Code-1-Flash is trained on Microsoft's own data, optimized specifically for Copilot workflows, and delivers better coding performance than Haiku 4.5 at 5B parameters. The adaptive thinking — staying concise for simple requests, reasoning deeper on complex tasks — means you get speed where you need it and depth where it matters. For Copilot users, this is the default model getting better without switching providers.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Get faster, cheaper Copilot completions with adaptive reasoning depth</li>
+          <li>Use in CI/CD pipelines where token cost matters — 60% savings on complex tasks</li>
+          <li>Compare against Claude Haiku 4.5 for lightweight coding agent workloads</li>
+          <li>Evaluate Microsoft's growing model independence from OpenAI for strategic planning</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced June 2, 2026 at Microsoft Build</li>
+          <li>85.8% adjusted accuracy, 16-point lead over Haiku 4.5 on SWE-Bench Pro</li>
+          <li>60% fewer tokens than comparable models on hard problems</li>
+          <li>Rolling out to Copilot Free, Pro, Pro+, and Max plans</li>
+          <li>Covered by CNBC, GitHub Blog, TechTimes, DataNorth, ChatForest</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-06-02-mai-code-1-flash-is-now-available-for-github-copilot/">GitHub Blog: MAI-Code-1-Flash in Copilot</a></li>
+          <li><a href="https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html">CNBC: Microsoft lessens OpenAI reliance</a></li>
+          <li><a href="https://chatforest.com/builders-log/microsoft-mai-code-1-flash-github-copilot-coding-model-build-2026/">ChatForest: MAI-Code-1-Flash benchmarks analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.cnbc.com/2026/05/28/anthropic-open-ai-startup-value.html">Anthropic Files for IPO at $965B Valuation — Surpasses OpenAI as Most Valuable AI Startup</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Anthropic closed a $65B Series H at a $965B valuation on May 28, 2026, leapfrogging OpenAI's $730B valuation. Run-rate revenue crossed $47B. On June 2, Anthropic filed a confidential S-1 with the SEC — making it the first major AI company to file for an IPO, ahead of OpenAI.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">IPO</span>
+        <span class="tag">Valuation</span>
+        <span class="tag">Industry</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The valuation flip signals a market judgment: safety-focused, developer-first AI (Claude Code, Agent SDK, MCP) is winning against the ChatGPT consumer moat. For engineers, this means Anthropic has the capital runway to keep investing in developer tools and infrastructure. The IPO filing also means public financial disclosures are coming — you'll soon know exactly how much revenue Claude Code and API usage generate, which matters for anyone building on the platform.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Factor Anthropic's financial stability into build-vs-buy decisions for AI infrastructure</li>
+          <li>Track upcoming S-1 disclosures for Claude API/Code usage data and pricing trends</li>
+          <li>Evaluate long-term platform risk: $965B valuation means Anthropic isn't going anywhere</li>
+          <li>Compare Anthropic's developer-first strategy vs. OpenAI's consumer-first approach for your stack</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>$965B valuation — highest for any AI startup</li>
+          <li>$47B run-rate revenue</li>
+          <li>First major AI company to file for IPO</li>
+          <li>Led by Altimeter, Dragoneer, Greenoaks, Sequoia</li>
+          <li>Covered by CNBC, Axios, Euronews, Hacker News front page</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.axios.com/2026/05/28/anthropic-ai-fundraising-openai">Axios: Anthropic tops OpenAI valuation</a></li>
+          <li><a href="https://www.euronews.com/business/2026/06/02/worlds-most-valuable-ai-start-up-anthropic-files-for-ipo-five-things-to-know">Euronews: Anthropic IPO — five things to know</a></li>
+          <li><a href="https://news.ycombinator.com/item?id=48336233">Hacker News: Anthropic surpasses OpenAI discussion</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://docs.x.ai/developers/model-capabilities/text/multi-agent">xAI Grok Build: 8 Parallel Coding Agents with a Purpose-Built Code Model</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">xAI launched Grok Build in early beta on May 14, 2026 — a CLI coding agent that runs up to 8 parallel sub-agents through a plan-search-build workflow. The underlying grok-code-fast-1 model scores 70.8% on SWE-Bench Verified. Available on SuperGrok Heavy at $99/mo (intro) / $300 list. Grok 4.20's multi-agent architecture reduces hallucinations by 65% via internal debate between four specialized agents.</p>
+      <div class="article-meta">
+        <span class="tag">xAI</span>
+        <span class="tag">Grok</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">Multi-Agent</span>
+        <span class="tag">CLI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>xAI is the latest entrant in the coding agent race, and they're differentiating on parallelism. While Claude Code and Codex run single-agent loops, Grok Build runs 8 agents simultaneously with a purpose-built code model. The 70.8% SWE-Bench Verified score puts grok-code-fast-1 in the competitive range. The $99/mo intro price undercuts Claude Code Max ($200/mo) — if the quality holds up, this creates real pricing pressure on the market.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run parallel coding agents on independent features simultaneously</li>
+          <li>Use the plan-search-build workflow for structured code generation</li>
+          <li>Evaluate Grok Build as a lower-cost alternative to Claude Code Max</li>
+          <li>Leverage multi-agent debate architecture for higher-confidence code generation</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Early beta launched May 14, 2026</li>
+          <li>70.8% SWE-Bench Verified with grok-code-fast-1</li>
+          <li>8 parallel sub-agents in plan-search-build workflow</li>
+          <li>Grok 4.20 multi-agent reduces hallucinations by 65%</li>
+          <li>Covered by CIO Dive, DevOps.com, Digital Applied, Verdent Guides</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.ciodive.com/news/xAI-coding-agents-Grok-Build/820422/">CIO Dive: xAI joins coding agent race</a></li>
+          <li><a href="https://devops.com/xai-enters-the-coding-agent-race-with-grok-build/">DevOps.com: Grok Build launch</a></li>
+          <li><a href="https://www.digitalapplied.com/blog/xai-grok-build-cli-parallel-coding-agents">Digital Applied: Parallel coding agents deep dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/">Microsoft Work IQ APIs Go GA June 16: Enterprise Context for Every Agent</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Microsoft's Work IQ APIs reach general availability on June 16, 2026. They give agents structured access to email, calendar, meetings, chats, files, people, and collaboration patterns across Microsoft 365. Endpoints include A2A (agent-to-agent), a redesigned remote MCP server, and REST API. Pricing is consumption-based via Copilot Credits, independent of M365 Copilot licensing.</p>
+      <div class="article-meta">
+        <span class="tag">Microsoft</span>
+        <span class="tag">Work IQ</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Agent Context</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the missing piece for enterprise agents: structured access to where work actually happens. Before Work IQ, agents could read files or call APIs, but couldn't understand organizational context — who works with whom, what meetings matter, which threads need follow-up. The MCP server endpoint means any MCP-compatible agent (Claude Code, OpenClaw, Cursor) can tap into M365 context without custom integration. The consumption-based pricing decoupled from Copilot licensing means you don't need a Copilot seat to use agents with M365 data.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build agents that understand organizational context — who to ask, when to schedule, what files matter</li>
+          <li>Connect Claude Code or OpenClaw to M365 data via the Work IQ MCP server</li>
+          <li>Automate meeting prep, email triage, and follow-up workflows with agent access to M365</li>
+          <li>Decouple agent M365 access from Copilot licensing for cost-effective enterprise deployments</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GA date: June 16, 2026</li>
+          <li>Announced at Microsoft Build 2026 (June 2-3)</li>
+          <li>Supports A2A, MCP, and REST API endpoints</li>
+          <li>Independent of M365 Copilot licensing</li>
+          <li>Covered by Microsoft 365 Blog, Microsoft Dev Blog, Windows Forum</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://devblogs.microsoft.com/microsoft365dev/work-iq-production-ready-intelligence-for-every-agent/">Microsoft Dev Blog: Work IQ for every agent</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq">Microsoft Learn: Work IQ MCP overview</a></li>
+          <li><a href="https://www.microsoft.com/en-us/licensing/news/work-iq-general-availability">Microsoft Licensing: Work IQ GA details</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://newsletter.pragmaticengineer.com/p/ai-tooling-2026">Claude Code Overtakes GitHub Copilot as #1 AI Coding Tool in 8 Months</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">According to Pragmatic Engineer's 2026 AI tooling survey and Datadog's State of AI Engineering report, Claude Code has gone from zero to the most-used AI coding tool in just 8 months, overtaking GitHub Copilot and Cursor. 95% of engineers now use AI tools at least weekly, with 75% using AI for at least half their engineering work.</p>
+      <div class="article-meta">
+        <span class="tag">Claude Code</span>
+        <span class="tag">Developer Productivity</span>
+        <span class="tag">Industry Data</span>
+        <span class="tag">AI Adoption</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The speed of Claude Code's rise is unprecedented in developer tooling. Going from launch to #1 in 8 months — displacing a tool backed by GitHub/Microsoft with massive distribution — signals that developer tool adoption is now driven by raw capability, not platform lock-in. The 75% AI-assisted work stat means we've crossed the tipping point: AI-assisted coding is the default, and teams not using it are the exception. For engineering leaders, the question isn't whether to adopt AI coding tools, but which ones to standardize on.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Benchmark your team's AI tool adoption against the 95% weekly usage rate</li>
+          <li>Evaluate Claude Code vs. Copilot vs. Cursor for team standardization</li>
+          <li>Budget for AI coding tools at $200-$600/mo per engineer based on industry data</li>
+          <li>Measure AI-assisted code share against the 60-75% elite team benchmark</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Pragmatic Engineer 2026 AI Tooling survey data</li>
+          <li>Datadog State of AI Engineering report</li>
+          <li>95% of engineers use AI tools at least weekly</li>
+          <li>75% use AI for at least half their engineering work</li>
+          <li>Claude Code: zero to #1 in 8 months (launched May 2025)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog: State of AI Engineering 2026</a></li>
+          <li><a href="https://larridin.com/developer-productivity-hub/developer-productivity-benchmarks-2026">Developer Productivity Benchmarks 2026</a></li>
+          <li><a href="https://www.buildmvpfast.com/articles/best-llms-2026-guide/coding-ai">Best AI for Coding June 2026 rankings</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/ai-infrastructure-compute-strategy.html">The $600B Inference Reckoning: AI Infrastructure's Center of Gravity Shifts from Training to Serving</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Inference workloads now rival or exceed training in both compute demand and economic importance. Leading tech enterprises will collectively deploy over $600B in AI infrastructure capex in 2026. Rack power density has risen from 10-15 kW in 2024 to 40-250 kW in 2026. Deloitte and Bessemer both flag this as the defining infrastructure shift of the year.</p>
+      <div class="article-meta">
+        <span class="tag">AI Infrastructure</span>
+        <span class="tag">Inference</span>
+        <span class="tag">Compute Economics</span>
+        <span class="tag">Enterprise</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>If your team runs AI in production, the cost center is shifting under your feet. Training was the expensive part; now inference is. This changes everything about capacity planning: you need to think about inference-optimized hardware, batching strategies, model distillation, and edge deployment. The $600B capex number means hyperscalers are betting their balance sheets on this shift — and the infrastructure you build today needs to account for inference economics, not just training costs.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Redesign infrastructure budgets around inference costs, not just training</li>
+          <li>Evaluate inference-optimized hardware (NVIDIA H200, custom ASICs) for production workloads</li>
+          <li>Implement model distillation and quantization to manage inference costs at scale</li>
+          <li>Plan data center capacity for 40-250 kW rack densities if running on-prem AI</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Deloitte Tech Trends 2026 report</li>
+          <li>Bessemer AI Infrastructure Roadmap 2026</li>
+          <li>$600B+ collective AI infrastructure capex in 2026</li>
+          <li>Rack power: 10-15 kW (2024) → 40-250 kW (2026)</li>
+          <li>Covered by Deloitte, Bessemer, Omdia/Light Reading, The AI Insider</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.bvp.com/atlas/ai-infrastructure-roadmap-five-frontiers-for-2026">Bessemer: AI Infrastructure Roadmap 2026</a></li>
+          <li><a href="https://www.lightreading.com/ai-machine-learning/five-dynamics-redefining-ai-infrastructure-in-2026-omdia">Omdia: Five dynamics redefining AI infrastructure</a></li>
+          <li><a href="https://theaiinsider.tech/2026/01/19/ai-moves-from-experiment-to-infrastructure-as-2026-forces-a-reckoning-for-tech-builders-and-investors/">AI Insider: From experiment to infrastructure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://larridin.com/developer-productivity-hub/developer-productivity-benchmarks-2026">AI Coding Tool ROI Lands at 1.6x — Here's What the Data Actually Shows</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Developer productivity benchmark data for 2026 shows AI coding tools deliver 1.6x ROI — not the 10x vendors claim. ROI jumps to 2.6x if time saved increases to 7 hours/week. Total cost per engineer runs $200-$600/mo across tool tiers. Elite teams see 80%+ weekly active usage, 60-75% AI-assisted code share, and sub-8-hour PR cycle times with code turnover ratios below 1.3x.</p>
+      <div class="article-meta">
+        <span class="tag">Developer Productivity</span>
+        <span class="tag">ROI</span>
+        <span class="tag">Benchmarks</span>
+        <span class="tag">AI Adoption</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first comprehensive, numbers-backed reality check on AI coding tool ROI. The 1.6x figure is encouraging but grounded — it means AI tools pay for themselves, but the 10x productivity claims are fantasy. The actionable insight is the 1.3x code turnover ratio threshold: if AI-generated code is being rewritten more than 1.3x, your team is losing the productivity gains to rework. The path to 2.6x ROI is better prompt engineering and workflow integration, not better models.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Set realistic ROI expectations: 1.6x base, 2.6x achievable with workflow optimization</li>
+          <li>Benchmark your team against elite metrics: 80% WAU, 60-75% AI code share, sub-8h PRs</li>
+          <li>Monitor code turnover ratio — above 1.3x means AI-generated code needs too much rework</li>
+          <li>Budget AI tooling at $200-$600/mo per engineer with evidence-backed cost ranges</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Larridin Developer Productivity Benchmarks 2026</li>
+          <li>1.6x base ROI, 2.6x with optimized workflows</li>
+          <li>$200-$600/mo per engineer across tool tiers</li>
+          <li>80%+ WAU, 60-75% AI-assisted code share for elite teams</li>
+          <li>Sub-8-hour PR cycle times as benchmark</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/ai-tooling-2026">Pragmatic Engineer: AI Tooling for Software Engineers in 2026</a></li>
+          <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog: State of AI Engineering</a></li>
+          <li><a href="https://dev.to/danishashko/the-best-llms-for-agentic-coding-in-2026-real-world-not-just-benchmarks-96n">DEV: Best LLMs for agentic coding — real-world data</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/mastra-ai/mastra">Mastra Hits 21K Stars: The TypeScript-Native Agent Framework with Built-In MCP</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Mastra is an opinionated TypeScript agent framework that has grown to 21K+ GitHub stars. It ships with built-in RAG, observability, MCP support, and a visual workflow builder. Unlike LangChain (Python-first) or CrewAI (multi-agent focus), Mastra is TypeScript-native and designed for full-stack engineers who want to build agents without leaving their stack.</p>
+      <div class="article-meta">
+        <span class="tag">TypeScript</span>
+        <span class="tag">Agent Framework</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">RAG</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The agent framework space has been Python-dominated. Mastra is the first TypeScript-native framework to break out — 21K stars puts it in LangChain territory for JS/TS developers. Built-in MCP support means it integrates with the same tool ecosystem as Claude Code and Cursor. The visual workflow builder lowers the barrier for teams that want agent orchestration without writing complex state machine code. If your team is TypeScript-first, Mastra eliminates the Python detour that other frameworks require.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build production agents in TypeScript without switching to Python</li>
+          <li>Use the visual workflow builder for agent orchestration without state machine code</li>
+          <li>Integrate with Claude Code and Cursor tool ecosystems via built-in MCP</li>
+          <li>Add RAG and observability to agents out of the box instead of assembling from libraries</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>21K+ GitHub stars</li>
+          <li>TypeScript-native with first-class MCP support</li>
+          <li>Built-in RAG, observability, and visual workflow builder</li>
+          <li>Featured in multiple 'top AI tools 2026' lists</li>
+          <li>Cited alongside LangGraph, CrewAI, and OpenAI Agents SDK</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.aitude.com/ai-engineer-tools-2026/">Aitude: 15 Must-Know AI Engineer Tools in 2026</a></li>
+          <li><a href="https://chatboq.com/blogs/top-ai-frameworks-key-statistics">ChatBoq: Top AI Frameworks 2026 statistics</a></li>
+          <li><a href="https://github.com/Zijian-Ni/awesome-ai-agents-2026">Awesome AI Agents 2026 — curated list</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
