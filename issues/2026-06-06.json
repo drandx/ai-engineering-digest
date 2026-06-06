@@ -1,0 +1,216 @@
+{
+  "highlights": [
+    {"text": "MAI-Code-1-Flash ships to all GitHub Copilot tiers — Microsoft's first in-house 5B coding model beats Claude Haiku 4.5 by 16 points on SWE-Bench Pro and is now live in the VS Code model picker", "anchor": "ai-tools-and-models-0"},
+    {"text": "Project Glasswing expands to 150 orgs in 15+ countries — Anthropic's AI security program has uncovered 10,000+ critical flaws in critical infrastructure codebases since April", "anchor": "ai-tools-and-models-1"},
+    {"text": "Bernstein: HMAC-chained audit log, 43 CLI coding agents in parallel git worktrees, zero LLM tokens spent on coordination — the orchestrator your compliance team will sign off on", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Mastra hits 22K stars: TypeScript agent framework with time-travel debugging, suspend/resume workflows, and full OpenTelemetry tracing from the team behind Gatsby", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "LangChain 1.0 GA: 90M monthly downloads, no breaking changes until 2.0, LangGraph v1 runtime powering Uber, JP Morgan, Klarna — the framework to commit to", "anchor": "developer-tools-and-frameworks-2"},
+    {"text": "LLM Gateways are now compliance infrastructure: Bifrost adds 11μs overhead at 5K RPS while routing, caching, and generating EU AI Act audit trails — ship before August deadline", "anchor": "infrastructure-and-production-0"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "MAI-Code-1-Flash: Microsoft's First In-House Coding Model Ships to All GitHub Copilot Users",
+          "url": "https://microsoft.ai/news/introducingmai-code-1-flash/",
+          "tldr": "Microsoft released MAI-Code-1-Flash on June 2, 2026 — a 5B-parameter coding model built end-to-end by Microsoft on clean, appropriately-licensed data, now rolling out to all GitHub Copilot tiers (Free, Student, Pro, Pro+, Max). It scores 51.2% on SWE-Bench Pro, outperforming Claude Haiku 4.5 (35.2%) by 16 points. Adaptive thinking adjusts reasoning budget based on task complexity, and the model is available in VS Code's model picker and the auto picker today.",
+          "why_it_matters": "MAI-Code-1-Flash is the model that ships to the GitHub Copilot user base — which means every developer on any Copilot plan now has access to a Microsoft-owned model, not just OpenAI's. That's a meaningful platform shift: Microsoft's infrastructure, Microsoft's data, Microsoft's roadmap. The 16-point SWE-Bench Pro lead over Claude Haiku 4.5 is concrete: at 5B parameters, it punches significantly above its size. For teams already on GitHub Copilot, this is an available upgrade today. For teams evaluating coding models, it sets a new size/performance floor for lightweight models.",
+          "traction": "high",
+          "traction_evidence": [
+            "Released June 2, 2026 and immediately rolling out to all Copilot tiers",
+            "51.2% SWE-Bench Pro — 16-point lead over Claude Haiku 4.5 (35.2%)",
+            "Trending on Hacker News (HN item #48374466)",
+            "Ships via VS Code model picker and auto picker — no configuration needed",
+            "Covered by GitHub Changelog, Microsoft AI, Neowin, DataNorth AI, ChatForest, TheRoboticsMedia"
+          ],
+          "use_cases": [
+            "Use as the default Copilot model for fast, accurate completions without switching to heavier models",
+            "Evaluate MAI-Code-1-Flash as a drop-in for Claude Haiku 4.5 in pipelines requiring a lightweight coding model",
+            "Leverage adaptive thinking for mixed workloads where simple tasks get fast responses and complex tasks get more reasoning budget",
+            "Benchmark as the new baseline when evaluating lightweight coding models — 5B at 51.2% SWE-Bench Pro resets expectations"
+          ],
+          "tags": ["Microsoft", "GitHub Copilot", "Coding AI", "MAI", "Build 2026"],
+          "links": [
+            {"url": "https://microsoft.ai/news/introducingmai-code-1-flash/", "label": "Microsoft AI: Introducing MAI-Code-1-Flash"},
+            {"url": "https://github.blog/changelog/2026-06-02-mai-code-1-flash-is-now-available-for-github-copilot/", "label": "GitHub Changelog: MAI-Code-1-Flash available for Copilot"},
+            {"url": "https://chatforest.com/builders-log/microsoft-mai-code-1-flash-github-copilot-coding-model-build-2026/", "label": "ChatForest: MAI-Code-1-Flash — benchmarks and what's different"},
+            {"url": "https://www.neowin.net/news/microsoft-unveils-mai-thinking-1-reasoning-and-mai-code-1-coding-models/", "label": "Neowin: MAI-Thinking-1 and MAI-Code-1-Flash overview"}
+          ]
+        },
+        {
+          "title": "Project Glasswing Expands to 150 Orgs in 15+ Countries: 10K+ Critical Infrastructure Vulnerabilities Found",
+          "url": "https://www.anthropic.com/news/expanding-project-glasswing",
+          "tldr": "Anthropic is expanding Project Glasswing to 150 new organizations in more than 15 countries, including power, water, healthcare, communications, and hardware sectors. Since April's initial launch with 50 partners (including the U.S. government), Claude Mythos Preview has identified more than 10,000 high or critical security flaws in critical infrastructure codebases. New partners include Okta, Samsung, SK Hynix, SK Telecom, NATO, and ENISA.",
+          "why_it_matters": "Project Glasswing is Anthropic's most direct deployment of frontier AI as defensive security infrastructure. The 10,000+ high/critical vulnerability count from the initial 50-org launch is not a PR number — it's a signal about the scale of undetected exposure in production systems. The expansion rationale Anthropic gives is direct: within 6-12 months, every major AI lab will have Mythos-class models, and a cheap offensive AI capability is coming regardless. The defensive side needs to scale now. For security engineers, this is worth tracking: the techniques Claude Mythos uses to find vulnerabilities in production codebases will eventually flow into standard tooling.",
+          "traction": "high",
+          "traction_evidence": [
+            "Announced June 2, 2026 by Anthropic — expanded from 50 to 200 total partner organizations",
+            "10,000+ high or critical security flaws found since April 2026 launch",
+            "Partners include Okta, Samsung, SK Hynix, SK Telecom, NATO, ENISA",
+            "Coverage in 15+ countries: Australia, Canada, France, Germany, Italy, Switzerland, Netherlands, Spain, Belgium, Sweden, India, Japan, New Zealand, South Korea",
+            "Covered by TechCrunch, CNBC, SecurityWeek, HelpNet Security, CyberScoop, ERP.Today, GadgetBond"
+          ],
+          "use_cases": [
+            "Security teams at critical infrastructure orgs: apply to the next Glasswing cohort for Claude Mythos codebase scanning",
+            "Track which vulnerability patterns Claude Mythos surfaces — these will define the next wave of static analysis tooling",
+            "For enterprise security engineers: benchmark Glasswing's findings against your current SAST/DAST results to quantify the gap",
+            "Model the architecture: Glasswing uses Claude in a long-horizon agentic scan mode that's different from traditional CVE matching"
+          ],
+          "tags": ["Anthropic", "Security", "Claude Mythos", "Critical Infrastructure", "Project Glasswing"],
+          "links": [
+            {"url": "https://www.anthropic.com/news/expanding-project-glasswing", "label": "Anthropic: Expanding Project Glasswing"},
+            {"url": "https://techcrunch.com/2026/06/02/anthropic-scales-claude-mythos-to-critical-infrastructure-in-15-countries/", "label": "TechCrunch: Anthropic scales Claude Mythos to critical infrastructure"},
+            {"url": "https://www.cnbc.com/2026/06/02/anthropic-mythos-ai-project-glasswing.html", "label": "CNBC: Anthropic expands Mythos to 150 organizations"},
+            {"url": "https://www.helpnetsecurity.com/2026/06/03/anthropic-project-glasswing-expansion/", "label": "HelpNet Security: Glasswing expansion details"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Bernstein: Deterministic Multi-Agent Orchestrator for 43 CLI Coding Agents with HMAC Audit Trails",
+          "url": "https://bernstein.run/",
+          "tldr": "Bernstein is an open-source Python orchestrator that decomposes a goal into tasks, spawns Claude Code, Codex, Gemini CLI, and 40+ other CLI coding agents into isolated git worktrees, runs them in parallel, then verifies output through lint, type checks, tests, and optional cross-model review before merging. The scheduler is pure Python — deterministic, replayable, zero LLM tokens spent on coordination. Every event writes to an HMAC-chained audit log where tampering breaks verification.",
+          "why_it_matters": "Most multi-agent orchestrators today use an LLM to decide what to do next — which adds cost, non-determinism, and debugging complexity. Bernstein flips this: the scheduler is plain Python with no LLM calls, which means the same inputs produce the same outputs regardless of agent response timing. The HMAC-chained audit log is the key differentiator for enterprise use: it gives security and compliance teams a tamper-evident record of exactly which agent did what, in what order, with what result. If you're building agentic pipelines that will face SOC 2 or regulatory audit, this is the architecture to study.",
+          "traction": "emerging",
+          "traction_evidence": [
+            "Listed in awesome-claude-code (GitHub issue #1653) as a standout community resource",
+            "Open-source on GitHub (sipyourdrink-ltd/bernstein), available on PyPI",
+            "Included in Augment Code's 9 Open-Source Agent Orchestrators 2026 list",
+            "Indexed by SkillsLLM, Glama MCP directory, and awesome-agent-orchestrators",
+            "Supports Claude Code, Codex, Gemini CLI, and 40+ other CLI coding agents"
+          ],
+          "use_cases": [
+            "Decompose a large feature into parallel tasks, run Claude Code and Codex simultaneously in isolated git worktrees, then merge after quality gates pass",
+            "Use HMAC-chained audit logs as compliance evidence for SOC 2 or regulatory review of AI-generated code",
+            "Run cross-model verification: have one agent write code and a different agent review it before merge",
+            "Replay failed runs deterministically from the audit log — no more 'it worked last time' debugging"
+          ],
+          "tags": ["Multi-Agent", "Orchestration", "Claude Code", "Compliance", "Open Source", "Python"],
+          "links": [
+            {"url": "https://bernstein.run/", "label": "Bernstein: Official site and docs"},
+            {"url": "https://github.com/sipyourdrink-ltd/bernstein", "label": "GitHub: sipyourdrink-ltd/bernstein"},
+            {"url": "https://bernstein.readthedocs.io/en/latest/", "label": "ReadTheDocs: Bernstein documentation"},
+            {"url": "https://www.augmentcode.com/tools/open-source-agent-orchestrators", "label": "Augment Code: 9 open-source agent orchestrators 2026"}
+          ]
+        },
+        {
+          "title": "Mastra Crosses 22K Stars: TypeScript Agent Framework with Time-Travel Debugging and Suspend/Resume Workflows",
+          "url": "https://github.com/mastra-ai/mastra",
+          "tldr": "Mastra is a TypeScript agent framework from the team behind Gatsby, now at 22K+ GitHub stars. Its workflow engine supports suspend-and-resume (workflows that pause for human input or external events and resume from exact state), time-travel debugging (replay any step with its original context), and built-in evals. Observability integrates with Langfuse, Braintrust, Arize, LangSmith, and any OpenTelemetry backend. Client tools now show up in server traces via CLIENT_TOOL_CALL spans.",
+          "why_it_matters": "Most TypeScript agent frameworks are either too simple (no workflow primitives) or too heavy (graph abstractions that obscure what's actually happening). Mastra hits the middle ground: workflow-driven development means you define steps, transitions, and suspend points explicitly, which makes agents debuggable and auditable by default. The time-travel debugger is practically unique — you can go back to any step with its original context, which reduces the debugging cycle for flaky agent runs from 're-run and hope' to 'inspect and replay.' For teams building TypeScript-native product features on top of agents, this is the most production-ready framework available.",
+          "traction": "medium",
+          "traction_evidence": [
+            "22,000+ GitHub stars on mastra-ai/mastra",
+            "Built by the team behind Gatsby — established track record in the JS ecosystem",
+            "June 2026 release: CLIENT_TOOL_CALL spans added to server traces, showing client-side tool execution in observability dashboards",
+            "Featured in JetBrains PyCharm Blog's Top Agentic Frameworks 2026 and Generative.inc guide",
+            "OpenTelemetry integration ships bidirectional context propagation with Langfuse, Braintrust, Arize, LangSmith"
+          ],
+          "use_cases": [
+            "Build TypeScript workflows that pause for Slack approval or external webhook, then resume from exact state — no re-running from scratch",
+            "Use time-travel debugging to replay a failing agent step with its original context instead of re-triggering the full run",
+            "Connect to Langfuse or Arize via OpenTelemetry — swap observability vendors later without rewriting your instrumentation",
+            "Add evals to production workflows using built-in primitives — measure faithfulness and relevance on the same traces you're already collecting"
+          ],
+          "tags": ["TypeScript", "Agent Framework", "Mastra", "Observability", "Workflow", "Open Source"],
+          "links": [
+            {"url": "https://github.com/mastra-ai/mastra", "label": "GitHub: mastra-ai/mastra"},
+            {"url": "https://mastra.ai/", "label": "Mastra: Official site"},
+            {"url": "https://mastra.ai/docs", "label": "Mastra: Documentation"},
+            {"url": "https://www.decisioncrafters.com/mastra-build-production-ready-ai-agents-in-typescript-with-22-3k-github-stars/", "label": "DecisionCrafters: Mastra 22K stars deep dive"}
+          ]
+        },
+        {
+          "title": "LangChain 1.0 GA: Stable API, LangGraph v1 Runtime, 90M Monthly Downloads — The Framework to Commit To",
+          "url": "https://www.langchain.com/blog/langchain-langgraph-1dot0",
+          "tldr": "LangChain 1.0 and LangGraph 1.0 reached general availability in late 2025, with a commitment to no breaking changes until 2.0. The 1.0 release streamlines around a new create_agent abstraction (fastest path to an agent on any model), a middleware system for human-in-the-loop, summarization, and PII redaction, and LangGraph as the default runtime. LangGraph 1.0 is the real differentiator: a battle-tested graph-based agent runtime powering Uber, LinkedIn, JP Morgan, Blackrock, Cisco, and Klarna at 90M monthly downloads.",
+          "why_it_matters": "Before 1.0, LangChain had a reputation for constant breaking changes and opaque abstractions that made production deployments fragile. The 1.0 commitment changes the calculus: teams can now build on LangChain without planning for framework-upgrade sprints. LangGraph's adoption at companies like Uber, JP Morgan, and Klarna confirms it has crossed the threshold from 'interesting tech' to 'default production runtime.' The middleware system is the most practical addition — built-in PII redaction and human-in-the-loop checkpoints are things every production team needs but typically builds from scratch. With 90M monthly downloads, the ecosystem of tutorials, tools, and integrations is unmatched.",
+          "traction": "high",
+          "traction_evidence": [
+            "LangChain 1.0 GA: commitment to no breaking changes until 2.0",
+            "90M monthly downloads across LangChain packages",
+            "LangGraph 1.0 in production at Uber, LinkedIn, JP Morgan, Blackrock, Cisco, Klarna",
+            "LangChain 1.1 also shipped, showing active iteration within stable API contract",
+            "Sequoia Capital featured LangChain's evolution from 0-to-1 in a dedicated editorial piece"
+          ],
+          "use_cases": [
+            "Build agents using create_agent — a single abstraction that works with any model provider without provider-specific glue code",
+            "Add PII redaction middleware in one line — no custom pre/post-processing code in your agent loop",
+            "Use LangGraph's checkpointing for human-in-the-loop: suspend, review, approve, and resume any agent step",
+            "Commit to LangChain 1.x for long-lived production agents — the no-breaking-changes guarantee means your upgrade path is defined"
+          ],
+          "tags": ["LangChain", "LangGraph", "Agent Framework", "Python", "Production AI"],
+          "links": [
+            {"url": "https://www.langchain.com/blog/langchain-langgraph-1dot0", "label": "LangChain: LangChain and LangGraph reach v1.0"},
+            {"url": "https://changelog.langchain.com/announcements/langchain-1-0-now-generally-available", "label": "LangChain Changelog: 1.0 GA announcement"},
+            {"url": "https://www.digitalapplied.com/blog/langchain-1-deep-dive-agent-protocol-runtime-2026", "label": "DigitalApplied: LangChain 1.0 deep dive — agent protocol and runtime"},
+            {"url": "https://sequoiacap.com/article/langchain-from-agent-0-to-1-to-agentic-engineering/", "label": "Sequoia Capital: LangChain from agent 0-to-1"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "LLM Gateways Are Now Compliance Infrastructure: Bifrost, Semantic Routing, and EU AI Act Readiness",
+          "url": "https://www.digitalapplied.com/blog/llm-gateway-architecture-2026-engineering-reference",
+          "tldr": "An LLM gateway — a middleware layer between your application and one or more model providers — has evolved from a cost-saving convenience into a required compliance layer. In 2026, production teams use gateways for multi-provider routing with automatic failover, semantic caching (cache by meaning, not exact match), token-aware rate limiting, virtual key management, and audit logging for EU AI Act and SOC 2. Bifrost, an open-source gateway written in Go, adds just 11 microseconds of overhead at 5,000 requests per second. EU AI Act high-risk obligations are enforceable from August 2026.",
+          "why_it_matters": "The EU AI Act's high-risk system requirements — structured audit logs, data-residency enforcement, budget controls — become legally enforceable in August 2026. Teams that didn't build these into their infrastructure early now have eight weeks to get compliant. A gateway is the fastest path: it centralizes logging, enforces model routing rules, and adds semantic caching without touching application code. Bifrost's 11μs overhead is the benchmark that proves gateway-layer compliance doesn't require trading latency. For any team serving EU users or operating in regulated sectors, the gateway is no longer optional infrastructure.",
+          "traction": "high",
+          "traction_evidence": [
+            "EU AI Act high-risk obligations enforceable from August 2026 — eight weeks out",
+            "Bifrost: open-source Go gateway, 11μs overhead at 5,000 RPS in sustained benchmarks",
+            "LiteLLM, Portkey, Cloudflare, Vercel AI Gateway, OpenRouter all ranked in 2026 enterprise comparisons",
+            "Gartner predicts 60% of software engineering teams will use AI evaluation and observability platforms by 2028 (from 18% in 2025)",
+            "Multiple 2026 engineering references from DigitalApplied, AppScale, Virtido, LushBinary, GetMaxim"
+          ],
+          "use_cases": [
+            "Route requests to multiple model providers (OpenAI, Anthropic, Google) with automatic failover — one gateway config instead of per-provider integration code",
+            "Use semantic caching to serve identical or near-identical prompts from cache — reduce token costs 20-40% on repetitive workloads",
+            "Generate structured audit logs that satisfy EU AI Act high-risk requirements before the August 2026 enforcement deadline",
+            "Enforce data-residency routing (EU requests → EU-hosted models only) without modifying application code"
+          ],
+          "tags": ["LLM Gateway", "Infrastructure", "EU AI Act", "Compliance", "Bifrost", "Semantic Caching"],
+          "links": [
+            {"url": "https://www.digitalapplied.com/blog/llm-gateway-architecture-2026-engineering-reference", "label": "DigitalApplied: LLM Gateway Architecture 2026 engineering reference"},
+            {"url": "https://appscale.blog/en/blog/enterprise-llm-gateway-architecture-routing-rate-limiting-observability-2026", "label": "AppScale: Enterprise LLM gateway — routing, rate limiting, observability"},
+            {"url": "https://virtido.com/blog/ai-gateway-patterns-production-guide", "label": "Virtido: AI gateway patterns for cost control and reliability at scale"},
+            {"url": "https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-for-enterprise-grade-reliability-and-scale/", "label": "GetMaxim: Top 5 LLM gateways for enterprise scale"}
+          ]
+        },
+        {
+          "title": "State of AI Engineering 2026: 95% Weekly Usage, 56% Doing 70%+ Work With AI, Framework Adoption Doubled",
+          "url": "https://www.datadoghq.com/state-of-ai-engineering/",
+          "tldr": "Datadog's State of AI Engineering 2026 report quantifies how AI tools have become standard developer infrastructure. 95% of respondents use AI tools at least weekly. 75% use AI for half or more of their work. 56% report doing 70% or more of their engineering work with AI assistance. Agent framework adoption nearly doubled year-over-year: from under 9% of organizations in early 2025 to nearly 18% by the start of 2026. Claude Code leads tool adoption, followed by GitHub Copilot, Cursor, and new entrants like Codex and Antigravity.",
+          "why_it_matters": "The numbers confirm that AI-assisted engineering is no longer an early adopter behavior — it's the default. When 56% of engineers report doing 70%+ of their work with AI, the baseline assumption for how long tasks take and what's achievable per sprint has shifted. The agent framework adoption doubling is the forward-looking signal: teams have moved past 'use a coding assistant' and are now building automated systems. For engineering managers, this data supports investment in agentic infrastructure. For engineers, it benchmarks where your own workflow sits relative to peers.",
+          "traction": "high",
+          "traction_evidence": [
+            "Published by Datadog — dataset from production telemetry and developer survey across enterprise accounts",
+            "95% weekly AI tool usage, 75% using AI for half or more of work, 56% at 70%+ threshold",
+            "Agent framework adoption: 9% in early 2025 → 18% by start of 2026 — doubled in one year",
+            "Claude Code ranked #1 for adoption, followed by GitHub Copilot, Cursor, Codex, Antigravity",
+            "JetBrains, Pragmatic Engineer, and ByteByteGo each reference the same usage-rate inflection in June 2026 analysis"
+          ],
+          "use_cases": [
+            "Benchmark your team's AI tool adoption against the 95% weekly usage baseline — identify workflow gaps",
+            "Use the framework adoption curve (9% → 18% YoY) to justify agent infrastructure investment to stakeholders",
+            "Map your team's tool stack against the top-5 ranked tools to identify where switching to higher-ranked options is worth evaluating",
+            "Track the 56% threshold: teams reporting 70%+ AI-assisted work are likely running agentic pipelines, not just autocomplete — model what they're doing"
+          ],
+          "tags": ["Developer Survey", "AI Engineering", "Datadog", "Adoption Metrics", "Agentic"],
+          "links": [
+            {"url": "https://www.datadoghq.com/state-of-ai-engineering/", "label": "Datadog: State of AI Engineering 2026"},
+            {"url": "https://newsletter.pragmaticengineer.com/p/ai-tooling-2026", "label": "Pragmatic Engineer: AI tooling 2026 analysis"},
+            {"url": "https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/", "label": "JetBrains PyCharm Blog: Top agentic frameworks 2026"},
+            {"url": "https://blog.bytebytego.com/p/whats-next-in-ai-five-trends-to-watch", "label": "ByteByteGo: Five AI trends to watch in 2026"}
+          ]
+        }
+      ]
+    }
+  ]
+}
