@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 07, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 07, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/">Gemini 3.5 Flash is now GA: beats its own Pro model on coding benchmarks while running 4x faster — available at $1.50/$9 per 1M tokens with a 1M-token context window</a></li>
+      <li><a href="https://www.buildfastwithai.com/blogs/kimi-k2-6-review-benchmarks">Kimi K2.6 ties GPT-5.5 on SWE-Bench Pro at 80% lower cost per token — Moonshot AI's 1T MoE ships open-weight under MIT license on Hugging Face</a></li>
+      <li><a href="https://dev.to/tejas1643/webmcp-is-the-most-important-thing-google-announced-at-io-2026-and-almost-nobody-is-talking-about-1j8m">WebMCP enters Chrome 149 public origin trial: websites can now expose native callable tools to AI agents — 67% fewer errors and 45% better task completion vs DOM scraping</a></li>
+      <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/">Google Managed Agents: one Gemini API call provisions an isolated Ubuntu+Python 3.12 sandbox with 16GB RAM — full agent execution with no infrastructure to operate</a></li>
+      <li><a href="https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan">Claude Agent SDK billing splits June 15: claude -p, GitHub Actions, and third-party SDK apps move to a separate $20/$100/$200 monthly credit pool — audit your CI/CD before the deadline</a></li>
+      <li><a href="https://coralogix.com/coralogix-raises-200m-to-scale-the-observability-backbone-for-the-age-of-ai/">Coralogix raises $200M at $1.6B: AI-native observability processing petabytes daily for 5,000+ customers — 78% of AI failures are invisible to traditional monitoring stacks</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/">Gemini 3.5 Flash Is Now GA: Beats Gemini Pro on Coding at 4x the Speed</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Launched at Google I/O on May 19, 2026 and now generally available, Gemini 3.5 Flash runs 4x faster than comparable frontier models while outperforming Gemini 3.1 Pro across coding and agentic benchmarks: 55.1% SWE-Bench Pro (vs 54.2% for 3.1 Pro), 76.2% Terminal-Bench 2.1, 83.6% MCP Atlas. Pricing is $1.50 input / $9 output per million tokens with a 1M-token context window. Available on the Gemini API, Google AI Studio, and Vertex AI with no waitlist.</p>
+      <div class="article-meta">
+        <span class="tag">Google</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Agentic</span>
+        <span class="tag">API</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Gemini 3.5 Flash is one of the few models where the speed tier actually beats the flagship on benchmarks that matter to developers — coding and agentic task completion. For teams defaulting to GPT-5.5 or Claude Opus 4.8 for agentic workloads, Flash's pricing ($1.50/$9 vs much higher rates for heavyweight models) and 4x speed advantage make it a compelling alternative for latency-sensitive agent loops. The 1M-token context at Flash pricing is especially useful for large codebase analysis. Gemini Managed Agents are also built on Flash, so code written against the Interactions API already runs on this model.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replace slower frontier models in agent loops where latency matters — 4x speed advantage at lower cost per token</li>
+          <li>Use the 1M context window to load an entire codebase or API spec without chunking</li>
+          <li>Benchmark against Claude Opus 4.8 and GPT-5.5 for your specific agentic workload — Flash's 55.1% SWE-Bench score suggests competitive coding performance at a fraction of the cost</li>
+          <li>Build on Gemini Managed Agents (also Flash-backed) for zero-infrastructure agent sandboxing</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Launched May 19, 2026 at Google I/O — now GA on Gemini API, AI Studio, and Vertex AI with no waitlist</li>
+          <li>55.1% SWE-Bench Pro — surpasses Gemini 3.1 Pro (54.2%) and Gemini 3.0 Flash (49.6%)</li>
+          <li>Covered by TechCrunch, aidatainsider, NxCode, Lushbinary, CodersEra, Latent Space</li>
+          <li>Powers Gemini Managed Agents — the Interactions API is built on 3.5 Flash</li>
+          <li>42% improvement on cyber benchmarks over Flash 3; 76.2% Terminal-Bench 2.1, 83.6% MCP Atlas</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/">Google: I/O 2026 developer highlights</a></li>
+          <li><a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API: Pricing documentation</a></li>
+          <li><a href="https://techcrunch.com/2026/05/19/with-gemini-3-5-flash-google-bets-its-next-ai-wave-on-agents-not-chatbots/">TechCrunch: Gemini 3.5 Flash — Google bets on agents</a></li>
+          <li><a href="https://lushbinary.com/blog/gemini-3-5-flash-developer-guide-benchmarks-pricing-agentic/">Lushbinary: Gemini 3.5 Flash developer guide — benchmarks and pricing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.buildfastwithai.com/blogs/kimi-k2-6-review-benchmarks">Kimi K2.6: Moonshot AI's Open-Weight 1T MoE Ties GPT-5.5 on Coding at 80% Lower Cost</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Released April 20, 2026 under a Modified MIT license, Kimi K2.6 is Moonshot AI's 1-trillion-parameter Mixture-of-Experts model with 32B active parameters per token. It scores 58.6% on SWE-Bench Pro — identical to GPT-5.5 and leading Claude Opus 4.6 (53.4%). Priced at approximately 80% less per million tokens than GPT-5.5, K2.6 supports Thinking mode (chain-of-thought, temperature 1.0) and Instant mode (direct responses, temperature 0.6), and can orchestrate 300 parallel sub-agents for long-horizon autonomous coding tasks.</p>
+      <div class="article-meta">
+        <span class="tag">Open Source</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Coding AI</span>
+        <span class="tag">Moonshot AI</span>
+        <span class="tag">Kimi</span>
+        <span class="tag">MoE</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The real story with Kimi K2.6 isn't the headline SWE-Bench score — it's that you get GPT-5.5-class coding performance at roughly 20 cents on the dollar under an open license. That changes the calculus for any team running high-volume agentic coding pipelines where model API costs are a budget line. The 300-parallel-sub-agent capability aligns directly with multi-agent coding patterns (git worktrees, parallel task decomposition) that serious engineering teams are building. The MIT-compatible license also means you can fine-tune and self-host without negotiating enterprise agreements.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run high-volume agentic coding pipelines where GPT-5.5-class performance is required but API costs are prohibitive</li>
+          <li>Self-host under the MIT-compatible license for private codebase work — no data leaves your infrastructure</li>
+          <li>Use Thinking mode for complex multi-step problems, Instant mode for fast completions — same model, different inference settings</li>
+          <li>Leverage 300-parallel sub-agent support for large-scale tasks: migrations, test generation, cross-file refactoring</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released April 20, 2026 on Hugging Face under Modified MIT license</li>
+          <li>58.6% SWE-Bench Pro — ties GPT-5.5 (58.6%), leads Claude Opus 4.6 (53.4%)</li>
+          <li>Won live programming competition May 3: 1st place, 22 match points (7-1-0) ahead of GPT-5.5 and Claude Opus 4.7</li>
+          <li>~80% cost reduction per million tokens vs GPT-5.5 (per DeepInfra benchmark analysis)</li>
+          <li>Coverage by BuildFastWithAI, MiraFlow, MindStudio, TosEa, Medium</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.buildfastwithai.com/blogs/kimi-k2-6-review-benchmarks">BuildFastWithAI: Kimi K2.6 review and benchmarks</a></li>
+          <li><a href="https://miraflow.ai/blog/kimi-k2-6-explained-moonshot-ai-open-source-model-ties-gpt-5-5-coding">MiraFlow: Kimi K2.6 — ties GPT-5.5 on coding</a></li>
+          <li><a href="https://deepinfra.com/blog/kimi-k2-6-api-benchmarks-latency-throughput-cost">DeepInfra: Kimi K2.6 API benchmarks — latency, throughput, cost</a></li>
+          <li><a href="https://medium.com/@tentenco/kimi-k2-6-kimi-code-review-saving-88-coding-costs-b7e8c5eaf5f1">Medium: Kimi K2.6 and Kimi Code Review — saving 88% on coding costs</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://dev.to/tejas1643/webmcp-is-the-most-important-thing-google-announced-at-io-2026-and-almost-nobody-is-talking-about-1j8m">WebMCP Enters Chrome 149 Origin Trial: Websites Can Now Be Native AI Agent Tools</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">WebMCP is a proposed W3C web standard co-developed by Google and Microsoft that lets websites expose JavaScript functions and HTML forms as structured, callable tools directly accessible to AI agents via the browser API navigator.modelContext. It entered a public origin trial in Chrome 149 on May 19, 2026 at Google I/O, with Microsoft Edge 147 already supporting it since March 2026. Compared to visual scraping and DOM manipulation, WebMCP produces 67% fewer errors and 45% better task completion on standardized benchmarks. Two implementation paths: declarative (HTML attributes on forms) for static content, imperative (JavaScript) for dynamic interactions.</p>
+      <div class="article-meta">
+        <span class="tag">WebMCP</span>
+        <span class="tag">Browser</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Web Standard</span>
+        <span class="tag">Google</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Agent</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Current browser-based AI agents — Antigravity, Claude Computer Use, OpenAI Operator — work by taking screenshots and manipulating the DOM, which is unreliable, slow, and breaks on UI changes. WebMCP replaces that with a proper protocol: developers annotate existing functions and forms so agents can call them directly, the same way MCP allows agents to call tools in local environments. For web developers, this is a new surface to implement alongside OpenGraph tags or schema.org markup. For agent developers, it's a reliable interaction layer. The Google/Microsoft co-development and W3C incubation signal this is tracking toward a real standard, not a Google-only experiment.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Annotate your web app's existing JS functions with WebMCP attributes — AI agents can call them directly without UI scraping</li>
+          <li>Use the imperative navigator.modelContext API to expose dynamic tool endpoints for authenticated agent interactions</li>
+          <li>Build browser-automation workflows on WebMCP-enabled sites — 67% error reduction means fewer retries and more reliable pipelines</li>
+          <li>Implement WebMCP on your SaaS product to support AI agent users before competitors — first-mover advantage in agent-friendly tooling</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Public origin trial live in Chrome 149 (May 19, 2026 at Google I/O developer keynote)</li>
+          <li>Microsoft Edge 147 added WebMCP support in March 2026</li>
+          <li>Co-developed by Google and Microsoft, incubated in W3C Web Machine Learning community group</li>
+          <li>67% fewer errors and 45% better task completion vs DOM scraping in benchmarks</li>
+          <li>Coverage from DEV Community (two independent posts), Webfuse, DiscoveredLabs, VyomEdge, ByteIota, ComputeLeap</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://webmcp.link/">WebMCP: Official spec and documentation</a></li>
+          <li><a href="https://dev.to/tejas1643/webmcp-is-the-most-important-thing-google-announced-at-io-2026-and-almost-nobody-is-talking-about-1j8m">DEV Community: WebMCP is the most important thing Google announced at I/O 2026</a></li>
+          <li><a href="https://discoveredlabs.com/blog/google-webmcp-explained-the-complete-guide-to-web-model-context-protocol-for-ai-agents">DiscoveredLabs: Complete WebMCP guide for developers</a></li>
+          <li><a href="https://www.computeleap.com/blog/chrome-built-in-mcp-server-native-mcp-v2-2026/">ComputeLeap: Chrome built-in MCP server — how it works</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/">Google Managed Agents API: One API Call Provisions an Isolated Linux Sandbox for Your Agent</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Google's Managed Agents API, announced at Google I/O and now generally available, lets developers spin up a fully isolated Linux environment (Ubuntu, Python 3.12, Node.js 22, 4 CPU cores, 16GB RAM) with a single call to the Gemini Interactions API. The agent can reason, plan, call tools, execute code, manage files, and browse the web within Google-managed infrastructure. Sessions are persistent via environment_id — subsequent calls resume the same sandbox with files and installed packages intact. Behavior is defined in AGENTS.md and SKILL.md markdown files. Powered by Gemini 3.5 Flash and the Antigravity agent harness.</p>
+      <div class="article-meta">
+        <span class="tag">Google</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Managed Agents</span>
+        <span class="tag">Sandboxing</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">API</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Giving an LLM a proper execution environment has been one of the harder infrastructure problems in agent development: you need isolation, persistence, and compute. Managed Agents handles all three without any setup — define behavior in markdown, make an API call, get back a session with full Linux capabilities. This is directly competitive with E2B sandboxes and Modal ephemeral compute, but integrated into the Gemini API with no additional dependencies. The AGENTS.md configuration mirrors Anthropic's CLAUDE.md pattern, so the mental model transfers. For teams already using Gemini, this is a zero-infrastructure path to agentic code execution in production.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build a code-generation agent that executes and validates its own output in an isolated Linux environment before returning results</li>
+          <li>Replace E2B or Modal sandboxes for Gemini-based agents — one fewer dependency, same isolation guarantees</li>
+          <li>Define reusable agent skills in SKILL.md and register them as custom managed agents via the Gemini API</li>
+          <li>Use persistent environment_id sessions for multi-turn tasks that install packages and maintain file state across calls</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced at Google I/O (May 19, 2026) and now generally available via the Gemini API</li>
+          <li>Backed by Gemini 3.5 Flash — the model beating Gemini 3.1 Pro on coding benchmarks</li>
+          <li>Covered by Google Cloud Blog, Virtualization Review, DataCamp, Eigent.ai, DEV Community, DigitalApplied</li>
+          <li>Integrated into Google AI Studio — accessible without any local setup</li>
+          <li>AGENTS.md/SKILL.md configuration mirrors the CLAUDE.md pattern — minimal learning curve for agent developers</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/">Google: Introducing Managed Agents in the Gemini API</a></li>
+          <li><a href="https://ai.google.dev/gemini-api/docs/managed-agents-quickstart">Gemini API Docs: Managed Agents quickstart</a></li>
+          <li><a href="https://www.philschmid.de/gemini-managed-agents-developer-guide">Phil Schmid: Gemini Managed Agents developer guide</a></li>
+          <li><a href="https://www.digitalapplied.com/blog/google-managed-agents-api-single-call">DigitalApplied: Google Managed Agents API — deep dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan">Agent Billing Splits June 15: Claude SDK, GitHub Actions, and claude -p Get Separate Credit Pools</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Starting June 15, 2026, Claude Agent SDK usage — including the claude -p command, Claude Code GitHub Actions, and any third-party app authenticating via the Agent SDK — will no longer draw from standard subscription usage limits. Instead, these use a separate monthly credit: $20 for Pro, $100 for Max 5x, and $200 for Max 20x. Credits reset monthly, don't roll over, and once exhausted move to pay-per-use billing at standard API rates if usage credits are enabled. Interactive Claude Code usage in terminal and IDE is unaffected and continues using subscription limits as before.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Billing</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Agent SDK</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most time-sensitive change for engineering teams this week — 8 days away. If your team runs Claude Code in GitHub Actions (PR reviews, test generation, automated refactoring), uses claude -p in CI scripts, or deploys any Agent SDK app, those workflows hit a hard credit limit starting June 15. A Pro subscriber running automated agents gets $20/month of Agent SDK budget — roughly equivalent to a few thousand API tokens at standard rates. Teams with heavy automated workflows may need to add usage credits, upgrade plans, or audit which CI/CD integrations are making Agent SDK calls. The billing split also makes agent costs explicit for the first time, which is useful for tracking AI spend by workload type.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your GitHub Actions workflows now — identify which ones use Claude Code (Agent SDK) vs interactive terminal use before June 15</li>
+          <li>Enable usage credits if your automated agents need budget beyond the monthly credit cap to avoid hard cutoffs</li>
+          <li>Upgrade to Max plans if automated agent spend exceeds Pro's $20/month credit</li>
+          <li>Use the billing split to measure actual API costs of automated workflows — the credit pool makes agent costs visible for the first time</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Anthropic support article and email notifications sent to affected users</li>
+          <li>Effective June 15, 2026 — 8 days from today</li>
+          <li>Covered by TechTimes, DigitalApplied, BuildThisNow, CodersEra, DevToolPicks, Apiyi</li>
+          <li>Affects every engineer using Claude Code in GitHub Actions, claude -p, or Agent SDK integrations</li>
+          <li>Credit levels: $20/month Pro, $100/month Max 5x, $200/month Max 20x</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan">Claude Help Center: Use the Agent SDK with your plan</a></li>
+          <li><a href="https://www.digitalapplied.com/blog/anthropic-claude-credit-overhaul-june-15-2026">DigitalApplied: Claude credit overhaul June 15 — full explanation</a></li>
+          <li><a href="https://codersera.com/blog/anthropic-june-2026-billing-change-claude-code/">CodersEra: June 15 billing change — Claude Code and Agent SDK impact</a></li>
+          <li><a href="https://help.apiyi.com/en/anthropic-claude-subscription-agent-sdk-billing-split-june-2026-en.html">Apiyi: 5 key points of the Agent SDK billing split</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://coralogix.com/coralogix-raises-200m-to-scale-the-observability-backbone-for-the-age-of-ai/">Coralogix Raises $200M at $1.6B: The Observability Stack Built for AI Agent Workloads</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Coralogix announced a $200M Series F on June 3, 2026, led by Advent and CPPIB with participation from Greenfield and Brighton Park Capital, bringing total funding to $550M at a $1.6B valuation. Revenue grew 60%+ year-over-year with 5,000+ customers (IBM, Tradeweb, JFrog) and 30 at $1M+ ARR. The platform is designed for AI-era telemetry: a schema-free streaming data lake with customer-owned storage, three operational modes (Olly AI investigator, MCP interface, CLI for agent workflows), and petabyte-scale daily ingestion across 8 regions including GovCloud.</p>
+      <div class="article-meta">
+        <span class="tag">Observability</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">Coralogix</span>
+        <span class="tag">Funding</span>
+        <span class="tag">OpenTelemetry</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Traditional monitoring assumes structured, predictable telemetry — metrics, logs, traces in known schemas. AI agents produce the opposite: variable-length reasoning chains, tool call sequences, embedding similarity scores, and multi-modal outputs that break standard pipelines. The schema-free lake architecture is a direct response. The MCP integration is also significant: your observability platform becomes a tool that agents themselves can query — 'what's the p99 latency of this endpoint over the past hour' as an agent tool call, not a dashboard visit. For teams building production AI systems, Coralogix's cited 78% invisible failure rate (AI errors that don't trigger traditional alerts) is the most important number to internalize.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replace structured telemetry pipelines with schema-free ingestion — capture LLM reasoning chains, tool call sequences, and agent decisions without pre-defined schemas</li>
+          <li>Use Coralogix's MCP integration to let agents query production observability data directly as a tool — no dashboard context-switching required</li>
+          <li>Use the CLI interface for automated agent-driven incident investigation — correlate log patterns and traces in response to alerts</li>
+          <li>Set up AI-specific alerting beyond traditional metric thresholds: catch the 78% of AI failures that appear as silent quality degradations rather than hard errors</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>June 3, 2026: $200M Series F led by Advent and CPPIB — total funding $550M, valuation $1.6B</li>
+          <li>60%+ revenue growth year-over-year; 30 customers at $1M+ ARR, 5,000+ enterprise customers</li>
+          <li>Covered by TechCrunch, SecurityWeek, VentureBurn, GlobeNewswire, HPCWire, Advent International</li>
+          <li>Gartner (May 2026) predicts 40% of AI-deploying organizations will use dedicated AI observability by 2028</li>
+          <li>96% of IT leaders expect observability spending to grow over the next 12-24 months (LogicMonitor 2026)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://coralogix.com/coralogix-raises-200m-to-scale-the-observability-backbone-for-the-age-of-ai/">Coralogix: $200M Series F announcement</a></li>
+          <li><a href="https://techcrunch.com/2026/06/03/coralogix-raises-200m-in-race-to-build-the-monitoring-layer-for-ai-agents/">TechCrunch: Coralogix raises $200M to build AI agent monitoring layer</a></li>
+          <li><a href="https://www.securityweek.com/coralogix-raises-200m-at-1-6b-valuation-to-scale-ai-observability-platform/">SecurityWeek: Coralogix $200M at $1.6B valuation</a></li>
+          <li><a href="https://www.braintrust.dev/articles/best-ai-observability-tools-2026">Braintrust: AI observability tools buyer's guide 2026</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://montecarlo.ai/blog-best-ai-observability-tools/">78% of AI Failures Are Silent: Why Traditional Monitoring Misses Most Agent Errors</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">A June 2026 analysis combining Gartner data and observability vendor benchmarks quantifies a critical gap: 78% of AI failures — wrong answers, degraded reasoning quality, silent factual errors — don't trigger traditional monitoring alerts. Traditional APM catches infrastructure failures (API errors, timeouts, OOM) but misses semantic failures: a model confidently giving wrong answers. Gartner predicts 40% of organizations deploying AI will implement dedicated AI observability tools by 2028, up from roughly 15% today. EU AI Act enforcement from August 2026 requires continuous monitoring and bias detection logs for high-risk AI systems.</p>
+      <div class="article-meta">
+        <span class="tag">AI Observability</span>
+        <span class="tag">Production AI</span>
+        <span class="tag">LLM Monitoring</span>
+        <span class="tag">EU AI Act</span>
+        <span class="tag">Evals</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the observability gap that bites teams six months after going to production. Your uptime metrics look fine, your error rates are stable — and then a user finds that your agent has been recommending outdated API signatures for three weeks. Traditional APM tools don't catch semantic drift, they catch server errors. The 78% invisible failure rate means most teams are flying blind on the most impactful category of AI failures. Tools purpose-built for this — LangSmith, Braintrust, Arize, Langfuse, Helicone — trace at the prompt/response level, evaluate outputs against rubrics, and alert on semantic degradation. This is the category of infrastructure investment that teams are consistently underprioritizing until something breaks in production.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Add LangSmith or Langfuse tracing to your production agent — capture every prompt/response pair for post-hoc quality drift analysis</li>
+          <li>Set up semantic evals as production monitors: run an LLM judge on a sample of production outputs every hour and alert if scores drop below threshold</li>
+          <li>Build an audit trail for EU AI Act compliance — structured logs of model inputs, outputs, and decisions for high-risk systems required before August 2026</li>
+          <li>Run regression evals whenever you upgrade a model version using Braintrust or Arize — catch silent degradations before they reach users</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Gartner prediction (May 2026): 40% of AI-deploying orgs will use AI observability by 2028 (from ~15%)</li>
+          <li>EU AI Act high-risk enforcement from August 2026 mandates continuous monitoring and bias detection logs</li>
+          <li>96% of IT leaders expect observability spending to grow over next 12-24 months (LogicMonitor 2026 survey)</li>
+          <li>Monte Carlo, Braintrust, Arize, LangSmith, Langfuse, Helicone — all raised rounds and added enterprise customers in 2025-2026</li>
+          <li>Coralogix $200M Series F (June 3, 2026) directly cites AI agent observability gap as the growth thesis</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://montecarlo.ai/blog-best-ai-observability-tools/">Monte Carlo: 17 best AI observability tools in June 2026</a></li>
+          <li><a href="https://www.braintrust.dev/articles/best-ai-observability-tools-2026">Braintrust: AI observability buyer's guide 2026</a></li>
+          <li><a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-12-gartner-predicts-40-percent-of-organizations-deploying-ai-will-use-ai-observability-to-monitor-model-performance-by-2028">Gartner: 40% of AI-deploying orgs will use AI observability by 2028</a></li>
+          <li><a href="https://www.logicmonitor.com/blog/observability-ai-trends-2026">LogicMonitor: 5 observability and AI trends for 2026</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://blog.mean.ceo/latest-ai-developments-news-june-2026/">Q2 2026: $42.6B in AI Funding — Agentic Systems Alone Capture Nearly Half</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Q2 2026 AI venture funding reached $42.6 billion across 312 rounds, with startups focused on agentic systems capturing $20 billion — nearly half the total. Notable Q2 rounds include Coralogix $200M (AI observability), and continued Series H activity from leading model labs. The concentration signals a decisive market bet: the next wave of AI value is being captured at the orchestration and infrastructure layer (multi-agent frameworks, agent runtimes, agent memory, observability), not exclusively at the model layer.</p>
+      <div class="article-meta">
+        <span class="tag">Funding</span>
+        <span class="tag">AI Industry</span>
+        <span class="tag">Agentic</span>
+        <span class="tag">Venture Capital</span>
+        <span class="tag">Market Signals</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>For engineers making architectural decisions, funding concentration is a leading indicator of where the ecosystem is standardizing. When $20B of Q2 2026 AI investment flows to agentic systems specifically, it signals that autonomous, tool-using, multi-step AI systems are the product form factor that enterprise buyers are paying for. The practical implication: if you're building internal tools, products, or platform features today, agents aren't a 'maybe later' architectural decision. The companies capturing this investment are solving the hard infrastructure problems — memory persistence, tool reliability, multi-agent coordination, compliance, and observability — which are the same problems that show up six months into any production deployment.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use Q2 funding concentration to identify which infrastructure components (agent memory, orchestration, observability) are becoming default enterprise requirements</li>
+          <li>Benchmark your product roadmap against where $20B is flowing: agentic capabilities not on your H2 2026 roadmap will likely be there by Q1 2027</li>
+          <li>Evaluate vendors in the agentic stack against their funding runway — a key risk factor for long-term infrastructure decisions</li>
+          <li>Track the consolidation signal: when half of AI investment goes to agentic systems, M&A activity in frameworks and tooling is likely to follow</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Q2 2026: $42.6B total AI funding across 312 rounds (MEAN CEO June 2026 startup edition)</li>
+          <li>Agentic systems alone: $20B — nearly 50% of total Q2 AI investment</li>
+          <li>Coralogix $200M Series F (June 3) anchors the observability submarket</li>
+          <li>Consistent with Datadog State of AI Engineering 2026: agent framework adoption doubled YoY (9% → 18%)</li>
+          <li>Sequoia, a16z, Advent, and CPPIB all made multiple agentic infrastructure bets in Q2 2026</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.mean.ceo/latest-ai-developments-news-june-2026/">MEAN CEO: Latest AI developments — June 2026 startup edition</a></li>
+          <li><a href="https://blog.mean.ceo/hacker-news-trends-june-2026/">MEAN CEO: Hacker News trends — June 2026</a></li>
+          <li><a href="https://theaitrack.com/ai-news-june-2026-in-depth-and-concise/">TheAITrack: AI news June 2026 — in-depth and concise</a></li>
+          <li><a href="https://www.aiapps.com/blog/ai-news-breakthroughs-launches-trends-must-read/">AIApps: Top AI news for June 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
