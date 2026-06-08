@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 08, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 08, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.archyde.com/wwdc-2026-apple-unveils-ai-powered-siri-ios-27-and-macos-27/">Apple WWDC 2026: Siri rebuilt on a custom Gemini 1.2T-parameter model under a $1B/year deal — iOS 27 Extensions lets users set Claude, ChatGPT, or Gemini as their default AI starting today</a></li>
+      <li><a href="https://www.anthropic.com/news/series-h">Anthropic overtakes OpenAI at $965B — Claude Code now drives ~33% of a $47B ARR run rate, making it the fastest-growing developer tool in history</a></li>
+      <li><a href="https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/">OpenAI Realtime API exits beta: GPT-Realtime-2 (GPT-5-class voice reasoning), GPT-Realtime-Translate (70+ languages), and GPT-Realtime-Whisper are now production-ready with MCP server support</a></li>
+      <li><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/">Microsoft Execution Containers (MXC): kernel-enforced agent sandboxing on Windows and WSL via JSON policy + TypeScript SDK — OpenAI, Nvidia, and OpenClaw are launch partners</a></li>
+      <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog State of AI Engineering 2026: 69% of companies run 3+ LLMs, 5% of AI requests fail in production — operational complexity has overtaken model quality as the #1 scaling barrier</a></li>
+      <li><a href="https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/">JetBrains ranks the agentic frameworks for June 2026: LangGraph for production stateful workflows, CrewAI for rapid prototyping, Haystack for EU-native enterprise RAG pipelines</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.archyde.com/wwdc-2026-apple-unveils-ai-powered-siri-ios-27-and-macos-27/">Apple WWDC 2026: Siri on Gemini 1.2T Model, iOS 27 Extensions Make Claude and ChatGPT First-Class iPhone Options</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Tim Cook opened his final WWDC keynote on June 8, 2026 at Apple Park by announcing a ground-up Siri rebuild powered by a custom 1.2-trillion-parameter Google Gemini model — a multi-year deal worth approximately $1 billion per year. The new Siri supports screen awareness and context-driven actions across apps. iOS 27 introduces an Extensions system letting users select Claude, ChatGPT, or Gemini as their default AI assistant. Developer betas of iOS 27, macOS 27, and iPadOS 27 are available today; public betas follow in July with a fall 2026 general release.</p>
+      <div class="article-meta">
+        <span class="tag">Apple</span>
+        <span class="tag">WWDC</span>
+        <span class="tag">iOS 27</span>
+        <span class="tag">Siri</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Extensions</span>
+        <span class="tag">Mobile AI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Two shifts matter here for engineers. First, Siri was never a platform — it was a feature that blocked third-party AI from the most intimate layer of the OS. With the Extensions system, Claude and ChatGPT can now be the default assistant on 1+ billion iPhones. That's a new distribution surface: deep-link intents, on-device context access, and system-level tool invocations. For any team building iOS apps, the question is no longer 'can we integrate an AI?' but 'which AI do our users run by default?' Second, the Gemini licensing deal signals that Apple will pay for best-in-class foundation models rather than try to build them internally — the model wars are now a supply chain decision, not a capabilities arms race.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Register your Claude-powered iOS app for Extensions entitlements to become selectable as the user's default AI — first-mover access to a billion-device distribution surface</li>
+          <li>Use iOS 27's screen-awareness Siri intents to expose your app's core actions to AI-driven workflows without users needing to open your app</li>
+          <li>Build against the new Siri Extensions API to surface your SaaS functionality to users who have Claude or ChatGPT set as their default AI</li>
+          <li>Test your AI integration roadmap against all three platforms: Claude (Anthropic), GPT (OpenAI), and Gemini (Google) are all first-class citizens in iOS 27 from day one</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>WWDC keynote June 8, 2026 — developer betas shipping immediately</li>
+          <li>iOS 27 Extensions confirmed for Claude (Anthropic), ChatGPT (OpenAI), and Gemini (Google)</li>
+          <li>Siri running on custom 1.2T-param Gemini model under ~$1B/year multi-year licensing deal</li>
+          <li>Tim Cook's final WWDC keynote as CEO (stepping down September 1 to John Ternus)</li>
+          <li>Coverage by MacRumors, Archyde, Business Standard, Yahoo Finance, Newsweek, Seeking Alpha, Motley Fool</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.archyde.com/wwdc-2026-apple-unveils-ai-powered-siri-ios-27-and-macos-27/">Archyde: WWDC 2026 — Apple unveils AI-powered Siri, iOS 27, and macOS 27</a></li>
+          <li><a href="https://www.macrumors.com/guide/wwdc-2026-what-to-expect/">MacRumors: WWDC 2026 — complete guide to every announcement</a></li>
+          <li><a href="https://www.heygotrade.com/en/news/apple-wwdc-2026-siri-ai-gemini/">HeyGoTrade: Gemini-powered Siri headlines Apple's WWDC 2026</a></li>
+          <li><a href="https://www.business-standard.com/technology/tech-news/wwdc-2026-siri-to-ios-27-what-to-expect-from-apple-s-biggest-ai-reset-yet-126060800421_1.html">Business Standard: WWDC 2026 — Apple's biggest AI reset yet</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.anthropic.com/news/series-h">Anthropic Overtakes OpenAI at $965B: Claude Code Now Drives a Third of $47B ARR</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Anthropic closed a $65 billion Series H on May 28, 2026 at a $965 billion post-money valuation — surpassing OpenAI's reported $852 billion mark — led by Altimeter Capital, Dragoneer, Greenoaks, and Sequoia Capital, with $5 billion from Amazon. Revenue grew from $1B ARR at the start of 2025 to $47B ARR by May 2026 — a 47x increase in 17 months. Claude Code, which launched in May 2025, is estimated to generate approximately $15.5 billion in annualized revenue, roughly 33% of the company's total.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Funding</span>
+        <span class="tag">Series H</span>
+        <span class="tag">Market Signals</span>
+        <span class="tag">AI Industry</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The funding story matters less than the revenue story: a coding CLI tool that didn't exist 13 months ago is now generating $15.5 billion in annualized revenue and driving a third of the most valuable AI company in the world. This is the single fastest product growth arc in enterprise software history. For engineering leaders, the signal is in what Claude Code users are actually paying for: not chat, not image generation — developer tooling for writing, refactoring, and shipping code. The market has validated that AI coding tools are infrastructure-tier spending, not experiment budget. The valuation overtake also matters strategically: it shifts the default competitive framing from 'OpenAI and everyone else' to a two-horse race, which affects roadmap commitments, enterprise procurement, and which models become the defaults in build-versus-buy decisions.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use the revenue data to justify Claude Code investment to finance: at $47B ARR and $965B valuation, Anthropic is not a vendor risk — it's infrastructure</li>
+          <li>Benchmark your team's AI coding productivity against the aggregate signal: engineers paying this much for Claude Code are extracting measurable productivity gains</li>
+          <li>Track the model roadmap implications: at this revenue scale, Anthropic can fund frontier model training cycles that smaller labs cannot — Claude's capability trajectory is locked in</li>
+          <li>Use the $965B valuation inflection as a procurement calendar signal: enterprise contracts, SLAs, and multi-year Claude Code seats negotiated now will be at pre-IPO pricing</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Anthropic Series H announcement, May 28, 2026 — $65B at $965B post-money</li>
+          <li>Surpasses OpenAI's reported $852B valuation — Anthropic is now the most valuable AI startup</li>
+          <li>Revenue trajectory: $1B ARR (Jan 2025) → $9B ARR (Dec 2025) → $14B ARR (Feb 2026) → $47B ARR (May 2026)</li>
+          <li>Claude Code estimated at ~$15.5B ARR, ~33% of total revenue per Stripe transaction tracking</li>
+          <li>Coverage by TechCrunch, CNBC, Axios, Morningstar, FX Leaders, Euronews, HPCWire, Built In</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.anthropic.com/news/series-h">Anthropic: Series H announcement</a></li>
+          <li><a href="https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/">TechCrunch: Anthropic raises $65B, nears $1T valuation</a></li>
+          <li><a href="https://www.cnbc.com/2026/05/28/anthropic-open-ai-startup-value.html">CNBC: Anthropic tops OpenAI as most valuable AI startup</a></li>
+          <li><a href="https://enterprisedna.co/resources/news/anthropic-47-billion-run-rate-series-h-965-billion-valuation-2026/">Enterprise DNA: $47B run rate and Series H deep dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/">OpenAI Realtime API Exits Beta: GPT-Realtime-2, Translate, and Whisper Now Production-Ready with MCP Support</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI launched three new real-time audio models in May 2026 and simultaneously moved the Realtime API from beta to general availability. GPT-Realtime-2 is the first voice model with GPT-5-class reasoning — it can listen, reason, and take action during a conversation rather than just responding. GPT-Realtime-Translate handles live multilingual conversations across 70+ input languages into 13 output languages with real-time transcription. GPT-Realtime-Whisper is a streaming speech-to-text model optimized for sub-100ms latency. The GA release adds MCP server support, image input, and SIP phone calling integration.</p>
+      <div class="article-meta">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Voice AI</span>
+        <span class="tag">Realtime API</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Speech</span>
+        <span class="tag">SIP</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The Realtime API going GA with MCP support closes the loop between voice interfaces and tool-using agents. Previously, building a voice agent that could actually do work required stitching together a transcription layer, an LLM call, and a TTS layer — three round trips with compounding latency. GPT-Realtime-2 collapses that to a single streaming session. The MCP integration means any MCP-compatible tool your agent can use in text mode it can now use in voice mode, with the same invocation pattern. The SIP integration is the enterprise telephony unlock: phone call → AI agent → tool execution without a third-party telephony wrapper. For teams building voice-first workflows or customer-facing voice agents, this is the API that makes production deployment practical.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build customer support voice agents that use MCP tools (CRM lookups, ticket creation) during a live call — no transcribe→LLM→speak round trips</li>
+          <li>Use GPT-Realtime-Translate to build multilingual conference tools or customer interviews with live transcription and translation in 70 languages</li>
+          <li>Connect GPT-Realtime-2 via SIP to your enterprise phone system — handle inbound calls with reasoning-capable agents without a telephony middleware layer</li>
+          <li>Use GPT-Realtime-Whisper for streaming transcription in voice-to-text pipelines where latency matters (real-time captions, dictation, voice coding commands)</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Realtime API moves from beta to general availability — production-grade SLAs now guaranteed</li>
+          <li>Three new models: GPT-Realtime-2, GPT-Realtime-Translate, GPT-Realtime-Whisper</li>
+          <li>GPT-Realtime-Translate: 70+ input languages, 13 output languages — live conversation translation</li>
+          <li>MCP server support added — voice agents can now call any MCP-compatible tool</li>
+          <li>SIP phone calling integration — direct telephony without third-party wrappers</li>
+          <li>Coverage by OpenAI blog, gHacks, AI Magazine, MindStudio, Notebookcheck, Latent Space</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/">OpenAI: Advancing voice intelligence — new models in the API</a></li>
+          <li><a href="https://www.ghacks.net/2026/05/11/openai-releases-three-new-realtime-voice-models-for-the-api-with-gpt-5-class-reasoning/">gHacks: Three new Realtime voice models with GPT-5-class reasoning</a></li>
+          <li><a href="https://www.mindstudio.ai/blog/openai-realtime-voice-api-3-new-models-builders-guide">MindStudio: Realtime Voice API — 3 new models, builders guide</a></li>
+          <li><a href="https://www.latent.space/p/ainews-gpt-realtime-2-translate-and">Latent Space: GPT-Realtime-2, Translate, and Whisper analysis</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/">Microsoft Execution Containers (MXC): OS-Level Agent Sandboxing Ships with TypeScript SDK — OpenAI, Nvidia, OpenClaw Are Launch Partners</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Announced at Microsoft Build 2026 on June 2, MXC is a policy-driven execution SDK built into the Windows kernel that lets developers declare exactly what an AI agent can and cannot access at runtime. Policy is defined in a versioned JSON schema (currently 0.6.0-alpha), and enforcement is built into the OS itself and extended to WSL. The TypeScript SDK ships as @microsoft/mxc-sdk on npm. Multiple containment backends are supported — OS-native process sandboxes to full VMs — behind a unified API. Launch partners: OpenAI, Nvidia, Manus, Nous Research (Hermes agent), and the OpenClaw project.</p>
+      <div class="article-meta">
+        <span class="tag">Microsoft</span>
+        <span class="tag">MXC</span>
+        <span class="tag">Agent Security</span>
+        <span class="tag">Sandboxing</span>
+        <span class="tag">Windows</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Build 2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Agent sandboxing has been a patchwork of custom Docker configurations, manual process isolation, and application-layer restrictions that each team implements differently. MXC pushes that to the OS level: the same policy file that constrains what your agent can access on a dev machine also enforces those constraints in Windows 365 cloud VMs and WSL environments. The JSON schema makes policies auditable and version-controlled like any other config. The launch partner list (OpenAI + Nvidia + OpenClaw) signals that this isn't a Microsoft-only feature — MXC is positioning as the default sandboxing layer for agents running on Windows across any framework. The TypeScript SDK on npm means you can prototype the integration today without waiting for stable GA.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Write a JSON policy file declaring filesystem allow-lists and network rules for your agent — MXC enforces it at the OS level without application-layer wrappers</li>
+          <li>Use the @microsoft/mxc-sdk TypeScript API to build state-aware agent sessions with kernel-enforced boundaries — audit logs are automatic</li>
+          <li>Deploy agents in Windows 365 cloud VMs with the same MXC policy file you tested locally — consistent enforcement across dev and production</li>
+          <li>Use MXC as the security primitive when integrating agents into enterprise Windows environments where IT policy restricts Docker-based sandboxing</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced June 2, 2026 at Microsoft Build 2026 — early preview (schema v0.6.0-alpha)</li>
+          <li>GitHub: github.com/microsoft/mxc — public repository with TypeScript SDK</li>
+          <li>@microsoft/mxc-sdk available on npm immediately</li>
+          <li>Launch partners: OpenAI, Nvidia, Manus, Nous Research, OpenClaw — cross-ecosystem buy-in</li>
+          <li>Coverage by VentureBeat, Petri, ByteIota, Cloud Native Now, Windows Developer Blog, WindowsForum</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/">Windows Developer Blog: Platform security for AI agents</a></li>
+          <li><a href="https://github.com/microsoft/mxc">GitHub: microsoft/mxc — source and TypeScript SDK</a></li>
+          <li><a href="https://venturebeat.com/security/microsoft-launches-mxc-an-os-level-sandbox-for-ai-agents-with-openai-and-nvidia-already-on-board">VentureBeat: MXC launches — OpenAI and Nvidia on board</a></li>
+          <li><a href="https://petri.com/microsoft-execution-containers-boundaries-ai-agents/">Petri: How MXC defines boundaries for AI agents</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/">JetBrains: State of Agentic Frameworks June 2026 — When to Use LangGraph, CrewAI, Haystack, or smolagents</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">JetBrains published a ranked guide to agentic frameworks in June 2026, synthesizing production adoption data and developer feedback from millions of PyCharm users. LangGraph leads for stateful, production-grade workflows with explicit graph control and HITL interrupts. CrewAI wins for speed-to-prototype with multi-agent teams. Haystack suits EU-native enterprise RAG and NLP pipelines with structured pipeline composition. smolagents (HuggingFace) stands out for minimal-code MCP-native builds. Datadog data confirms framework adoption doubled year-over-year, from 9% to 18% of organizations.</p>
+      <div class="article-meta">
+        <span class="tag">LangGraph</span>
+        <span class="tag">CrewAI</span>
+        <span class="tag">Haystack</span>
+        <span class="tag">smolagents</span>
+        <span class="tag">Agentic Frameworks</span>
+        <span class="tag">Python</span>
+        <span class="tag">Production AI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the practical decision guide that the framework documentation sites won't give you. LangGraph v1 is in production at Uber, JP Morgan, and Klarna — those aren't demos, they're the reference deployments that validate the framework's operational model. The CrewAI vs LangGraph choice is a genuine tradeoff between speed and control: CrewAI gets you to a working multi-agent demo in an afternoon but doesn't give you the interrupt/resume primitives that production HITL workflows require. The Haystack framing matters for EU-deploying teams: it's the only major framework with EU-based infrastructure and GDPR-native design, which is increasingly a requirement for high-risk AI Act applications. Use this guide to shortlist your stack before committing to infrastructure.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use LangGraph when your agent needs explicit state machines, HITL interrupt points, and production observability — the JP Morgan/Klarna reference validates it for compliance-sensitive workflows</li>
+          <li>Start with CrewAI to validate the multi-agent approach quickly, then migrate to LangGraph when you need finer workflow control and audit trails</li>
+          <li>Choose Haystack for RAG + agentic pipelines in EU-regulated contexts — EU-native infrastructure and GDPR-by-default design simplifies AI Act compliance before the August deadline</li>
+          <li>Use smolagents for lightweight MCP-native agents where you want full visibility into the code and zero framework magic — 1,000-line core means you can read and understand the entire framework</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>JetBrains PyCharm Blog — June 2026, based on PyCharm telemetry and developer surveys</li>
+          <li>LangGraph v1 runtime in production at Uber, JP Morgan, Klarna — confirmed enterprise deployments</li>
+          <li>LangChain (LangGraph's parent): 90M monthly downloads as of LangChain 1.0 GA</li>
+          <li>Datadog confirms: agentic framework adoption doubled YoY (9% → 18% of organizations)</li>
+          <li>smolagents: 26K GitHub stars, HuggingFace-maintained, 1,000-line core codebase</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/">JetBrains PyCharm Blog: Top agentic frameworks for 2026</a></li>
+          <li><a href="https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026">Alice Labs: Best AI agent frameworks 2026 — 7 production-tested rankings</a></li>
+          <li><a href="https://softmaxdata.com/blog/definitive-guide-to-agentic-frameworks-in-2026-langgraph-crewai-ag2-openai-and-more/">SoftMax Data: Definitive guide to agentic frameworks 2026</a></li>
+          <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog: State of AI Engineering 2026 — framework adoption data</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog State of AI Engineering 2026: 69% of Teams Run 3+ LLMs, 5% of Requests Fail in Production</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Datadog's 2026 State of AI Engineering report, based on telemetry from thousands of production AI deployments, finds that operational complexity has replaced model capability as the primary barrier to reliable AI at scale. Key findings: 69% of companies now run three or more models simultaneously; agentic framework adoption doubled year-over-year (9% → 18%); approximately 5% of AI model requests fail in production, with nearly 60% of those failures caused by capacity limits rather than model errors; and average token usage more than doubled for median teams and quadrupled for heavy users.</p>
+      <div class="article-meta">
+        <span class="tag">Datadog</span>
+        <span class="tag">Production AI</span>
+        <span class="tag">AI Engineering</span>
+        <span class="tag">Observability</span>
+        <span class="tag">Reliability</span>
+        <span class="tag">Multi-Model</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 5% production failure rate is the headline that engineering teams need to plan around. It's not a bug to fix — it's a capacity planning reality. At 5% failure, a system making 1,000 AI calls per hour is failing 50 times per hour; at scale, that compounds into user-visible incidents unless your architecture handles it explicitly. The 60% capacity-caused failure split is equally important: these aren't model hallucinations or logic errors, they're rate limits and quota exhaustion — problems solvable with retry logic, circuit breakers, and multi-provider routing. The 69% multi-model figure means most teams are now managing model routing as a real architectural concern, not a single-vendor integration. Token usage doubling/quadrupling is a cost signal that most Q1 2026 AI budgets didn't anticipate.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Implement retry logic and circuit breakers for the 5% failure baseline — treat capacity failures as a class-1 reliability concern, not an edge case</li>
+          <li>Add multi-provider routing to your AI infrastructure: if 69% of teams run 3+ models, unified routing with fallback is now a standard pattern, not an optimization</li>
+          <li>Right-size your AI cost budget: token usage doubled for median teams in one year — audit actual token consumption now before your 2027 budget cycle locks in today's numbers</li>
+          <li>Use the framework adoption data to make a buy-vs-build decision: at 18% of organizations using agentic frameworks, the ecosystem is mature enough to commit to rather than build around</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Datadog annual State of AI Engineering report — based on real production telemetry, not surveys</li>
+          <li>69% of companies use 3+ models: multi-model routing is now the default architecture</li>
+          <li>Framework adoption doubled: 9% (early 2025) → 18% (early 2026) across startup, mid-market, enterprise</li>
+          <li>5% production failure rate with ~60% caused by capacity limits — actionable engineering data</li>
+          <li>Coverage by APMdigest, BigDATAwire, Quiver Quantitative, DEV Community, Telecom Reseller, StockTitan</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog: State of AI Engineering 2026 — full report</a></li>
+          <li><a href="https://www.datadoghq.com/about/latest-news/press-releases/datadog-state-of-ai-engineering-report-2026/">Datadog: State of AI Engineering press release</a></li>
+          <li><a href="https://dev.to/ajaydevineni/agent-sprawl-is-your-next-production-incident-an-sre-response-to-datadogs-state-of-ai-engineering-3k83">DEV Community: Agent sprawl — SRE response to Datadog's 2026 findings</a></li>
+          <li><a href="https://dev.to/mnemehq/datadogs-state-of-ai-engineering-report-quietly-confirms-the-governance-crisis-10ni">DEV Community: Datadog report confirms the governance crisis</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://dev.to/ajaydevineni/agent-sprawl-is-your-next-production-incident-an-sre-response-to-datadogs-state-of-ai-engineering-3k83">Agent Sprawl Is Your Next Production Incident: How to Govern Agents Before They Govern You</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">An SRE analysis of the Datadog State of AI Engineering 2026 data identifies a new production risk pattern: 'agent sprawl' — untracked, ungoverned AI agents accumulating across an organization's infrastructure with no centralized inventory, inconsistent retry behavior, and unmonitored resource consumption. With agentic framework adoption doubling YoY and token usage quadrupling for heavy users, organizations that started with two or three agent experiments are now running dozens of production agents with no unified visibility layer. The SRE analysis proposes four mitigation patterns: agent registry, token budgets, failure-class tagging, and standardized circuit breakers.</p>
+      <div class="article-meta">
+        <span class="tag">Agent Governance</span>
+        <span class="tag">SRE</span>
+        <span class="tag">Production AI</span>
+        <span class="tag">Reliability</span>
+        <span class="tag">Token Management</span>
+        <span class="tag">Observability</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the production pattern that teams consistently underestimate until it breaks. Agent sprawl looks like a governance problem on the surface, but it's actually a reliability problem: uncoordinated agents competing for the same API quota explain a significant portion of that 5% production failure rate Datadog measured. The token-budget and failure-class-tagging patterns are particularly actionable — they require no framework migration, just instrumentation and alerting that you add to existing agents. The agent registry pattern is the structural solution: if you can't list all the AI agents running in your production environment in under 30 seconds, you have agent sprawl. Microsoft Agent 365 SDK (GA since May 1) and Datadog's own AI observability integrations both address this with vendor tooling, but the SRE post outlines how to build lightweight governance without a new vendor dependency.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build an agent registry: maintain a central inventory of every production agent with its model, token budget, and SLO — if you can't enumerate them in 30 seconds, sprawl is already a problem</li>
+          <li>Add failure-class tagging to your AI error logging: distinguish capacity errors (rate limits, quota exhaustion) from logic errors (wrong output, tool failure) — they require different SRE responses</li>
+          <li>Implement per-agent token budgets at the API layer with hard stops and alerting thresholds — prevents one runaway agent from consuming shared quota during an incident</li>
+          <li>Use Microsoft Agent 365 SDK's framework-agnostic control plane to centralize governance across LangChain, OpenAI SDK, and LangGraph agents without refactoring each individually</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Directly grounded in Datadog's State of AI Engineering 2026 production telemetry data</li>
+          <li>Token usage quadrupled for heavy users YoY — uncontrolled consumption is measurable at industry scale</li>
+          <li>Agentic framework adoption doubled to 18%: most teams now have multiple production agents without unified inventory</li>
+          <li>Microsoft Agent 365 SDK (GA May 1) addresses agent sprawl governance — framework-agnostic, integrates with LangChain, OpenAI SDK, LangGraph</li>
+          <li>DEV Community post trending with SRE and platform engineering audience</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://dev.to/ajaydevineni/agent-sprawl-is-your-next-production-incident-an-sre-response-to-datadogs-state-of-ai-engineering-3k83">DEV Community: Agent sprawl — SRE response to Datadog 2026</a></li>
+          <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog: State of AI Engineering 2026 — source data</a></li>
+          <li><a href="https://developer.microsoft.com/en-us/agents">Microsoft Developer: Agent 365 SDK — build agents your way</a></li>
+          <li><a href="https://dev.to/mnemehq/datadogs-state-of-ai-engineering-report-quietly-confirms-the-governance-crisis-10ni">DEV Community: Datadog quietly confirms the governance crisis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://developer.microsoft.com/en-us/agents">Microsoft Agent 365 SDK Goes GA: Framework-Agnostic Governance for Every Agent Stack</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Microsoft Agent 365 SDK reached general availability on May 1, 2026 as the unified control plane for managing, securing, and governing AI agents across any framework. It ships native packages for Microsoft Agent Framework, OpenAI Agents SDK, LangChain, LangGraph, Semantic Kernel, and Azure AI Foundry. Agent 365 for Local Agents, in public preview, discovers AI agents running on managed endpoints and maps them to associated devices and users. Windows 365 for Agents is also generally available — providing secure, managed Cloud PCs for enterprise agent automation with preconfigured developer tooling.</p>
+      <div class="article-meta">
+        <span class="tag">Microsoft</span>
+        <span class="tag">Agent 365 SDK</span>
+        <span class="tag">Agent Governance</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">LangGraph</span>
+        <span class="tag">Enterprise AI</span>
+        <span class="tag">Build 2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The framework-agnostic design is what makes Agent 365 SDK worth evaluating even if you're not on Azure. Most organizations running agents in production are using two or three frameworks simultaneously: OpenAI SDK for simple pipelines, LangGraph for complex stateful workflows, maybe LangChain for RAG. Agent 365 SDK gives you a single control plane with uniform access controls, compliance enforcement, and observability across all three — without requiring framework migration. The local agent discovery feature (currently in preview) addresses the agent sprawl problem identified in the Datadog report: it can enumerate every agent running on managed Windows endpoints and link them to users and devices. For enterprise teams with AI Act compliance obligations arriving in August 2026, the audit trail and access control primitives are directly applicable.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Add Agent 365 SDK governance to an existing LangChain or OpenAI SDK agent without refactoring — install the framework package and connect to the Agent 365 control plane</li>
+          <li>Use local agent discovery (preview) to build an inventory of all agents running on managed Windows devices — solves the agent sprawl enumeration problem</li>
+          <li>Deploy enterprise agents on Windows 365 for Agents (GA) for managed, secure Cloud PC execution with IT-controlled access and compliance logging</li>
+          <li>Use Agent 365's access controls and audit trails as the compliance backbone for EU AI Act high-risk system requirements before the August 2026 enforcement deadline</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>General availability May 1, 2026 — Microsoft Build 2026 (June 2) was the major developer rollout event</li>
+          <li>Native packages for 6 frameworks: Microsoft Agent Framework, OpenAI Agents SDK, LangChain, LangGraph, Semantic Kernel, Azure AI Foundry</li>
+          <li>Agent 365 for Local Agents in public preview — endpoint discovery for managed Windows environments</li>
+          <li>Windows 365 for Agents GA — managed Cloud PCs for enterprise agent automation</li>
+          <li>Covered by Microsoft Build 2026 sessions, Redmond Magazine, Visual Studio Magazine, Windows News, AGuideToCloud</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://developer.microsoft.com/en-us/agents">Microsoft Developer: Build agents your way — Agent 365 SDK</a></li>
+          <li><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/">Windows Developer Blog: Build 2026 — Windows as the trusted platform for development</a></li>
+          <li><a href="https://www.aguidetocloud.com/blog/microsoft-build-2026-recap/">A Guide to Cloud: Microsoft Build 2026 recap — all AI announcements</a></li>
+          <li><a href="https://techcommunity.microsoft.com/blog/windows-itpro-blog/made-for-developers-and-agents-windows-365-at-build-2026/4519041">Microsoft Tech Community: Windows 365 at Build 2026 — for developers and agents</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
