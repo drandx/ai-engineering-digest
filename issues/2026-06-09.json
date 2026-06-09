@@ -1,96 +1,95 @@
 {
   "highlights": [
-    {"text": "WWDC 2026: Xcode 27 ships dual-engine agentic coding — local Neural Engine for real-time Swift completions, cloud routing to Claude, Gemini, or OpenAI agents, plus MCP support platform-wide across all Apple OSes", "anchor": "ai-tools-and-models-0"},
-    {"text": "Apple's new LanguageModel protocol lets any iOS/macOS app swap between Claude, Gemini, and OpenAI with a single line change — no recompile, no code rewrite", "anchor": "developer-tools-and-frameworks-0"},
-    {"text": "Google Antigravity 2.0 launches as a full agent-first dev platform with CLI, SDK, managed agents, and desktop app — Gemini CLI retires June 18", "anchor": "ai-tools-and-models-1"},
-    {"text": "OpenAI Codex goes beyond code: Sites deploys interactive dashboards and web apps, /app hands off CLI threads to Desktop, and GPT-5.3-Codex sets new SWE-Bench Pro highs", "anchor": "ai-tools-and-models-2"},
-    {"text": "Databricks State of AI Agents 2026: companies with AI governance tools push 12x more projects to production — Unity AI Gateway now governs agent access to LLMs and MCP servers", "anchor": "infrastructure-and-production-0"},
-    {"text": "Kimi K2.6 scales Agent Swarm to 300 specialized sub-agents and 4,000 coordinated steps in a single autonomous run — open-weight 1T MoE, Modified MIT license", "anchor": "developer-tools-and-frameworks-1"}
+    {"text": "Microsoft ships 7 in-house MAI models: MAI-Thinking-1 (1T MoE, 35B active) matches Sonnet 4.6 on reasoning; MAI-Code-1-Flash (5B params) is purpose-built for GitHub Copilot at Haiku-class cost", "anchor": "ai-tools-and-models-0"},
+    {"text": "MiniMax M3 scores 59.0% on SWE-Bench Pro — beating GPT-5.5 — with a 1M-token context window and open weights under a permissive license", "anchor": "ai-tools-and-models-1"},
+    {"text": "OpenCode hits 160K GitHub stars and 7.5M monthly developers: the open-source, model-agnostic coding agent built by the SST team is now the most-starred AI coding tool on GitHub", "anchor": "ai-tools-and-models-2"},
+    {"text": "Xcode 27 ships a dual-engine AI coding system: on-device Neural Engine for real-time Swift, cloud routing to Claude/Gemini/OpenAI — with MCP and Agent Client Protocol plugin support", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Microsoft open-sources the Agent Governance Toolkit under MIT — the first framework to address all 10 OWASP Agentic AI risks with sub-millisecond policy enforcement across LangChain, CrewAI, and ADK", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Colorado kills its original AI Act and replaces it with CADMA — a narrower law removing algorithmic discrimination obligations, effective January 2027 instead of June 30", "anchor": "infrastructure-and-production-0"}
   ],
   "sections": [
     {
       "name": "AI Tools & Models",
       "articles": [
         {
-          "title": "WWDC 2026: Xcode 27 Ships Dual-Engine Agentic Coding with Multi-Provider Cloud Routing and MCP Platform-Wide",
-          "url": "https://developer.apple.com/news/?id=lvart8mq",
-          "tldr": "Apple unveiled Xcode 27 at WWDC 2026 (June 8-9) with a dual-engine agentic coding system: a local Neural Engine model handles real-time Swift completions without any cloud roundtrip, while a cloud routing layer dispatches heavier tasks to Anthropic's Claude, Google's Gemini, or OpenAI's agents. Agents can run tests, operate the iOS Simulator via a new Device Hub, fix issues, and localize apps. MCP support — first shipped in Xcode 26.3 — now extends across iOS 27, macOS 27 (Golden Gate), iPadOS 27, watchOS 27, and visionOS 27.",
-          "why_it_matters": "Apple just made every Mac with Apple silicon an agentic coding machine with zero cloud dependency for basic completions. The dual-engine approach is pragmatic: local inference for speed-sensitive completions (sub-10ms), cloud routing for complex multi-file analysis where frontier models matter. The multi-provider routing means Apple isn't locked to one AI vendor — and neither are you. MCP going platform-wide means the same tool ecosystem powering Claude Code and Cursor now works inside Xcode and across every Apple OS. For iOS/macOS developers, this eliminates the 'leave Xcode to use AI' workflow entirely.",
+          "title": "Microsoft Ships 7 In-House MAI Models: MAI-Thinking-1 Matches Sonnet 4.6, MAI-Code-1-Flash Is Built for Copilot",
+          "url": "https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/",
+          "tldr": "Announced at Microsoft Build 2026 on June 2, Microsoft AI released a family of seven models built entirely in-house without OpenAI data or distillation. MAI-Thinking-1 is a 1-trillion-parameter sparse MoE with 35B active parameters and a 256K context window, scoring 97.0% on AIME 2025 and matching Sonnet 4.6 in blind human evaluations. MAI-Code-1-Flash is a 5B-parameter agentic coding model purpose-built for GitHub Copilot and VS Code. The family also includes MAI-Image-2.5 (text-to-image and editing), MAI-Transcribe-1.5 (world's best transcription model per Microsoft), and upcoming MAI-Voice-2 for text-to-speech.",
+          "why_it_matters": "This is Microsoft's clearest signal yet that it's building a full model stack independent of OpenAI. MAI-Thinking-1 at 35B active parameters matching Sonnet 4.6 on reasoning is significant because it runs cheaper than frontier models while delivering comparable quality — the MoE architecture means you pay for 35B active compute, not the full 1T. MAI-Code-1-Flash at 5B parameters is the more immediately practical release: it's tailor-made for the GitHub Copilot integration that millions of developers already use daily, and at Haiku-class parameter count, inference costs are minimal. For teams using Azure or GitHub, these models are the first credible in-house alternatives to routing everything through OpenAI's API.",
           "traction": "high",
           "traction_evidence": [
-            "Announced at WWDC 2026 keynote, June 8, 2026",
-            "Developer beta available same day — June 8",
-            "Xcode 27 is Apple silicon only, 30% smaller binary",
-            "MCP support expanded from Xcode to all Apple platforms",
-            "Multi-provider: Claude, Gemini, OpenAI agents supported",
-            "Covered by Apple Newsroom, TechTimes, MacRumors, CNBC, Computerworld, ChatForest"
+            "Announced June 2, 2026 at Microsoft Build 2026 — available immediately via Azure AI",
+            "MAI-Thinking-1: 97.0% AIME 2025, 94.5% AIME 2026, matches Sonnet 4.6 in blind evals",
+            "MAI-Code-1-Flash integrated into GitHub Copilot and VS Code — immediate distribution to millions of developers",
+            "Trained entirely on commercially licensed data without distillation from any third-party model",
+            "Coverage by CNBC, Simon Willison, TechTimes, Lushbinary, Microsoft AI Blog"
           ],
           "use_cases": [
-            "Use local Neural Engine completions for instant Swift suggestions without cloud latency or costs",
-            "Route complex multi-file refactors to Claude or Gemini via the cloud layer without leaving Xcode",
-            "Build MCP-compatible tools that work across Xcode, Claude Code, Cursor, and Apple platforms",
-            "Run agentic coding workflows that test, simulate, and fix iOS apps end-to-end in Xcode 27"
+            "Use MAI-Code-1-Flash in GitHub Copilot for fast inline completions at minimal cost — 5B params means sub-100ms latency on most hardware",
+            "Evaluate MAI-Thinking-1 as a reasoning model for enterprise Azure deployments where OpenAI dependency is a procurement concern",
+            "Compare MAI-Thinking-1's 256K context against Claude Opus and GPT-5.5 for long-document reasoning tasks — MoE architecture means lower cost per token",
+            "Use MAI-Transcribe-1.5 as a Whisper alternative for production speech-to-text pipelines on Azure"
           ],
-          "tags": ["Apple", "WWDC 2026", "Xcode", "Agentic Coding", "MCP", "Neural Engine"],
+          "tags": ["Microsoft", "MAI", "LLM", "GitHub Copilot", "MoE", "Build 2026", "Azure"],
           "links": [
-            {"url": "https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/", "label": "Apple Newsroom: New intelligence frameworks and advanced tools"},
-            {"url": "https://www.techtimes.com/articles/318045/20260609/xcode-27-device-ai-code-completion-uses-neural-engine-skips-cloud-entirely.htm", "label": "TechTimes: Xcode 27 on-device AI code completion"},
-            {"url": "https://chatforest.com/builders-log/wwdc-2026-keynote-confirmed-apple-ai-platform-builder-guide/", "label": "ChatForest: WWDC 2026 builder guide"},
-            {"url": "https://www.macrumors.com/2026/06/08/wwdc-2026-recap/", "label": "MacRumors: Everything Apple announced at WWDC 2026"}
+            {"url": "https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/", "label": "Microsoft AI: Launching seven new MAI models"},
+            {"url": "https://microsoft.ai/news/introducing-mai-thinking-1/", "label": "Microsoft AI: Introducing MAI-Thinking-1"},
+            {"url": "https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html", "label": "CNBC: Microsoft unveils new AI models to lessen reliance on OpenAI"},
+            {"url": "https://simonwillison.net/2026/Jun/2/microsofts-new-models/", "label": "Simon Willison: Microsoft's new MAI models"}
           ]
         },
         {
-          "title": "Google Antigravity 2.0: From Code Editor to Full Agent-First Platform — Gemini CLI Retires June 18",
-          "url": "https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/",
-          "tldr": "Google launched Antigravity 2.0 at I/O 2026 (May 19) as a standalone agent-first development platform. It includes a desktop app for orchestrating parallel agents, Antigravity CLI for terminal-native agent creation, an Antigravity SDK for programmatic access, Managed Agents in the Gemini API, and enterprise support via the Gemini Enterprise Agent Platform. Gemini CLI and Gemini Code Assist IDE extensions retire on June 18 for all tiers — migration to Antigravity CLI is mandatory.",
-          "why_it_matters": "Google is consolidating its fragmented developer AI surface (Gemini CLI, Code Assist, AI Studio) into one platform built around agents, not completions. The Antigravity SDK lets you define custom agent behaviors and host them on your own infrastructure — Google's answer to Anthropic's Agent SDK and OpenAI's Codex runtime. The June 18 Gemini CLI retirement is just 9 days away, and any CI/CD pipelines, scripts, or developer workflows using Gemini CLI need to migrate now. Powered by Gemini 3.5 Flash, which outperforms Gemini 3.1 Pro at 4x the speed.",
-          "traction": "high",
+          "title": "MiniMax M3: Open-Weight 1M-Context Model Scores 59% SWE-Bench Pro — Beating GPT-5.5",
+          "url": "https://www.minimax.io/blog/minimax-m3",
+          "tldr": "Released June 1, 2026 by Shanghai-based MiniMax, M3 is the first open-weight model to combine frontier coding performance (59.0% SWE-Bench Pro, surpassing GPT-5.5's 58.6%), a 1-million-token context window, and native multimodality. The model uses a novel MiniMax Sparse Attention (MSA) mechanism that reduces per-token compute at 1M context to 1/20th of the prior generation, with 9x faster prefill and 15x faster decoding. Weights and technical report will be published on Hugging Face within days. API pricing starts at $20/month for ~1.7B tokens.",
+          "why_it_matters": "M3 is the first open-weight model to top SWE-Bench Pro — the benchmark that measures real-world software engineering capability, not synthetic coding puzzles. At 59.0% it edges past GPT-5.5 (58.6%) and significantly leads Claude Opus 4.6 (53.4%). The 1M-token context with the MSA efficiency breakthrough means you can load entire codebases without chunking, at dramatically lower compute cost than brute-force attention. For teams already self-hosting Kimi K2.6 or DeepSeek models, M3 is the new ceiling for open-weight coding performance. The API pricing ($20-120/month for billions of tokens) also makes it the cheapest frontier-class option for high-volume agentic workloads.",
+          "traction": "medium",
           "traction_evidence": [
-            "Launched at Google I/O 2026, May 19, 2026",
-            "Desktop app, CLI, SDK, managed agents, and enterprise platform",
-            "Gemini CLI retirement confirmed: June 18, 2026",
-            "Powered by Gemini 3.5 Flash — frontier speed",
-            "Covered by Google Dev Blog, TechCrunch, MarkTechPost, The Next Web, Memeburn"
+            "Released June 1, 2026 — API available immediately, weights pending Hugging Face release",
+            "59.0% SWE-Bench Pro — highest score among open-weight models, surpasses GPT-5.5 (58.6%)",
+            "MSA reduces 1M-context compute to 1/20th prior gen: 9x prefill speedup, 15x decode speedup",
+            "Coverage by The Decoder, MLQ AI, DataNorth, TechTimes, Apiyi, CodersEra",
+            "API pricing: $20/month Plus (~1.7B tokens), $50/month Max (~5.1B tokens), $120/month Ultra (~9.8B tokens)"
           ],
           "use_cases": [
-            "Migrate Gemini CLI scripts and CI/CD pipelines to Antigravity CLI before June 18 deadline",
-            "Orchestrate parallel agents via the desktop app for multi-task development workflows",
-            "Use the Antigravity SDK to build and self-host custom agents with Google's agent harness",
-            "Deploy Managed Agents via the Gemini API for production agentic workloads at enterprise scale"
+            "Self-host M3 for agentic coding pipelines where you need GPT-5.5-class performance without sending code to external APIs",
+            "Use the 1M-token context to load entire monorepos or multi-file codebases in a single prompt — MSA makes this computationally viable",
+            "Run M3 as the coding backbone in multi-agent systems where high-volume token throughput matters more than peak quality on individual prompts",
+            "Benchmark M3 against Kimi K2.6 and GPT-5.5 for your specific codebase — SWE-Bench Pro scores suggest M3 leads on real-world SWE tasks"
           ],
-          "tags": ["Google", "Antigravity", "Agent Platform", "Gemini", "CLI Migration"],
+          "tags": ["Open Source", "LLM", "MiniMax", "Coding AI", "SWE-Bench", "Long Context"],
           "links": [
-            {"url": "https://www.marktechpost.com/2026/05/19/google-launches-antigravity-2-0-at-i-o-2026-a-standalone-agent-first-platform-with-cli-sdk-managed-execution-and-enterprise-support/", "label": "MarkTechPost: Antigravity 2.0 launch deep dive"},
-            {"url": "https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/", "label": "TechCrunch: Antigravity 2.0 desktop app and CLI"},
-            {"url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/", "label": "Google Dev Blog: Gemini CLI to Antigravity CLI transition"},
-            {"url": "https://jangwook.net/en/blog/en/google-io-2026-antigravity-2-agent-platform-analysis/", "label": "Analysis: Gemini CLI shutdown and agent IDE war"}
+            {"url": "https://www.minimax.io/blog/minimax-m3", "label": "MiniMax: M3 — frontier coding, 1M context, native multimodality"},
+            {"url": "https://the-decoder.com/minimax-m3-open-weight-model-with-a-million-token-context-challenges-proprietary-leaders/", "label": "The Decoder: MiniMax M3 challenges proprietary leaders"},
+            {"url": "https://mlq.ai/news/minimax-releases-m3-an-open-weight-model-with-1m-token-context-and-frontier-coding-scores/", "label": "MLQ AI: MiniMax M3 — 1M context and frontier coding scores"},
+            {"url": "https://codersera.com/blog/minimax-m3-developer-guide/", "label": "CodersEra: MiniMax M3 developer guide"}
           ]
         },
         {
-          "title": "OpenAI Codex Goes Beyond Code: Sites Deploys Dashboards, Desktop Handoff Ships, Enterprise Workspaces Emerge",
-          "url": "https://openai.com/index/codex-for-almost-everything/",
-          "tldr": "OpenAI's June 2026 Codex update expands agents well beyond code generation. Sites (now in preview) lets agents create, deploy, and inspect websites, dashboards, and internal tools hosted by OpenAI. The /app command hands off CLI threads into Codex Desktop on macOS and Windows. Remote execution uses short-lived server tokens instead of ChatGPT access tokens. Role-specific plugins and expanded onboarding tailor the agent to design, product, or data workflows — not just engineering.",
-          "why_it_matters": "Codex is evolving from a coding agent into a general-purpose work agent. Sites is the most significant shift: agents can now deploy interactive artifacts — dashboards, internal tools, web apps — not just write code files. This puts Codex in direct competition with Anthropic's Artifacts and Google's Antigravity Canvases for 'agent builds something you can use immediately.' The desktop handoff is equally important: seamless CLI-to-GUI transitions mean you can start work in the terminal and finish it with visual tools. For teams evaluating agentic platforms, Codex is now a full workspace, not a code generator.",
+          "title": "OpenCode Hits 160K GitHub Stars: The Open-Source Coding Agent Used by 7.5M Developers Monthly",
+          "url": "https://opencode.ai/",
+          "tldr": "OpenCode, the open-source AI coding agent built by the SST (Serverless Stack) team, has reached 160,000+ GitHub stars and 7.5 million monthly active developers — surpassing Claude Code's 122K+ stars to become the most-starred AI coding tool on GitHub. Built in Go as a terminal-native TUI, OpenCode supports 75+ LLM providers (Claude, GPT, Gemini, and any OpenAI-compatible endpoint), stores no code on external servers, and handles planning, file editing, terminal commands, and self-debugging. It also ships as a desktop app and IDE extension. LogRocket's June 2026 AI Dev Tool Power Rankings placed OpenCode at #1.",
+          "why_it_matters": "OpenCode's rise is the strongest signal that the AI coding agent category has moved beyond single-vendor lock-in. Unlike Claude Code (Anthropic-only) or Codex (OpenAI-only), OpenCode is fully model-agnostic — teams can route to whichever model fits the task without changing tools. The 160K-star trajectory (zero to 160K in under a year) mirrors the adoption pattern that made VS Code dominant: open-source, extensible, and community-driven. For engineering teams evaluating coding agents, OpenCode eliminates the vendor lock-in risk: if your preferred model changes or a cheaper alternative appears, you switch the model config, not the tool.",
           "traction": "high",
           "traction_evidence": [
-            "Sites feature in preview as of June 2026",
-            "Desktop handoff: CLI to macOS/Windows Codex Desktop",
-            "GPT-5.3-Codex: new SWE-Bench Pro and Terminal-Bench highs",
-            "Remote execution with server tokens replacing ChatGPT auth",
-            "Covered by OpenAI Blog, TechCrunch, VentureBeat, Releasebot"
+            "160,000+ GitHub stars — most-starred AI coding agent on GitHub, surpassing Claude Code (122K+)",
+            "7.5 million monthly active developers, 900+ contributors, 13,000+ commits",
+            "LogRocket June 2026 AI Dev Tool Power Rankings: #1 overall",
+            "Zero to 160K stars in under 12 months (launched June 2025)",
+            "Coverage by TechFundingNews, Medium, MorphLLM, ByteIota, SSNTPL"
           ],
           "use_cases": [
-            "Deploy internal dashboards and tools via Sites without setting up hosting infrastructure",
-            "Hand off terminal coding sessions to Codex Desktop for visual review and iteration",
-            "Use role-specific plugins to extend Codex beyond engineering into product, design, and data workflows",
-            "Set up remote execution with short-lived server tokens for secure enterprise deployments"
+            "Replace vendor-locked coding agents with OpenCode — switch between Claude, GPT, Gemini, or self-hosted models without changing your workflow",
+            "Use OpenCode in air-gapped or privacy-sensitive environments: no code leaves your machine, and you can route to local models via Ollama or vLLM",
+            "Run OpenCode as a desktop app or IDE extension if terminal-first isn't your team's preference — same capabilities across all surfaces",
+            "Contribute to the 900-contributor ecosystem — OpenCode's plugin architecture means custom tools and integrations ship as community PRs"
           ],
-          "tags": ["OpenAI", "Codex", "Sites", "Desktop", "Enterprise Agent"],
+          "tags": ["Open Source", "Coding Agent", "OpenCode", "CLI", "Model Agnostic", "Developer Tools"],
           "links": [
-            {"url": "https://openai.com/index/introducing-gpt-5-3-codex/", "label": "OpenAI: Introducing GPT-5.3-Codex"},
-            {"url": "https://techcrunch.com/2026/06/02/openai-launches-new-codex-tools-for-white-collar-work/", "label": "TechCrunch: Codex tools for white-collar work"},
-            {"url": "https://venturebeat.com/orchestration/openais-codex-update-lets-agents-build-interactive-enterprise-workspaces-via-sites-and-role-specific-plugins", "label": "VentureBeat: Codex Sites and enterprise workspaces"},
-            {"url": "https://developers.openai.com/codex/changelog", "label": "OpenAI: Codex changelog"}
+            {"url": "https://opencode.ai/", "label": "OpenCode: Official site"},
+            {"url": "https://github.com/opencode-ai/opencode", "label": "GitHub: opencode-ai/opencode"},
+            {"url": "https://blog.logrocket.com/ai-dev-tool-power-rankings/", "label": "LogRocket: AI dev tool power rankings — June 2026"},
+            {"url": "https://techfundingnews.com/opencode-the-background-story-on-the-most-popular-open-source-coding-agent-in-the-world/", "label": "TechFundingNews: OpenCode — the background story"}
           ]
         }
       ]
@@ -99,84 +98,84 @@
       "name": "Developer Tools & Frameworks",
       "articles": [
         {
-          "title": "Apple LanguageModel Protocol: One Swift API to Swap Claude, Gemini, and OpenAI in Any App — No Recompile",
-          "url": "https://www.techtimes.com/articles/318039/20260609/wwdc-2026-developer-tools-foundation-models-now-swaps-ai-providers-without-code-changes.htm",
-          "tldr": "Apple's Foundation Models framework now includes a LanguageModel protocol — a public Swift interface that third-party cloud model providers (Claude, Gemini, OpenAI) implement to expose a common inference surface across iOS 27, macOS 27, iPadOS 27, watchOS 27, and visionOS 27. Switching providers is a single-line model instance swap. Dynamic Profiles let developers update how models interact with their apps on the fly without app updates.",
-          "why_it_matters": "This is the 'USB-C moment' for AI in apps. Apple just standardized a common interface that any LLM provider can implement — meaning app developers write AI features once and swap providers based on cost, capability, or compliance requirements. Dynamic Profiles take this further: you can change model behavior server-side without pushing an app update. For teams building AI-powered iOS/macOS apps, this eliminates vendor lock-in at the framework level. It also means Claude, Gemini, and OpenAI are now first-class citizens in the Apple ecosystem — competing on capability, not integration ease.",
+          "title": "Xcode 27: Apple Ships a Dual-Engine AI Coding System with MCP and Agent Client Protocol Support",
+          "url": "https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/",
+          "tldr": "Unveiled at WWDC 2026's Platform State of the Union on June 8, Xcode 27 introduces a dual-engine AI architecture: a local model running on Apple Silicon's Neural Engine for real-time Swift code completion (no cloud round-trip), and a cloud routing layer that connects to Claude (Anthropic), Gemini (Google), and OpenAI agents for heavier analysis. The coding agent can simulate entire apps, write and run tests, inspect visual changes through live previews, and operate the iOS Simulator via a new Device Hub. Xcode 27 supports plugins via Model Context Protocol (MCP) and Agent Client Protocol (ACP), with GitHub and Figma as launch integrations. Apple Silicon only, 30% smaller, developer beta available now.",
+          "why_it_matters": "Xcode 27 is the first major IDE to ship with both on-device and multi-provider cloud AI as a unified system. The on-device Neural Engine model means Swift developers get sub-50ms code completions with zero network dependency — this is the latency that makes inline suggestions feel native rather than intrusive. The multi-provider cloud layer (Claude, Gemini, OpenAI) means Apple isn't picking a winner; developers choose which model handles complex tasks. The MCP and ACP plugin support is the architecturally significant decision: it means Xcode is adopting the same open protocols that Claude Code, OpenCode, and the broader agent ecosystem use, so third-party tools can integrate without Apple-specific SDKs.",
           "traction": "high",
           "traction_evidence": [
-            "Announced at WWDC 2026 Platforms State of the Union, June 8",
-            "Available across all Apple platforms: iOS 27, macOS 27, iPadOS, watchOS, visionOS",
-            "Google confirmed Gemini integration via the LanguageModel protocol",
-            "Dynamic Profiles enable server-side model behavior updates",
-            "Covered by TechTimes, Apple Developer, Google Blog, ChatForest, Computerworld"
+            "WWDC 2026 Platform State of the Union, June 8 — developer beta available immediately",
+            "Multi-provider AI: Claude (Anthropic), Gemini (Google), and OpenAI agents as first-class providers",
+            "MCP and Agent Client Protocol (ACP) plugin support — GitHub and Figma as launch partners",
+            "On-device Neural Engine model for zero-latency Swift completions — no cloud dependency",
+            "Coverage by Apple Newsroom, TechTimes, Pokde, FoneArena, Lushbinary, Apple Developer Videos"
           ],
           "use_cases": [
-            "Build iOS apps with AI features that swap between Claude, Gemini, and OpenAI without code changes",
-            "Use Dynamic Profiles to A/B test different model configurations without app store updates",
-            "Implement the LanguageModel protocol to make your own model available across the Apple ecosystem",
-            "Route different AI tasks to different providers — local Foundation Model for simple tasks, cloud for complex"
+            "Use Xcode 27's on-device model for real-time Swift completions during active coding — no cloud latency, no data leaving your machine",
+            "Configure your preferred cloud AI provider (Claude, Gemini, or OpenAI) for complex refactoring, test generation, and architecture analysis",
+            "Install MCP plugins to connect Xcode to your existing tool ecosystem — GitHub for PR context, Figma for design-to-code workflows",
+            "Use the Device Hub to let the coding agent autonomously run your app in the iOS Simulator, write tests, and validate UI changes through live preview"
           ],
-          "tags": ["Apple", "WWDC 2026", "Foundation Models", "Swift", "Provider Agnostic", "LanguageModel"],
+          "tags": ["Apple", "Xcode", "WWDC 2026", "MCP", "ACP", "Swift", "IDE", "Neural Engine"],
           "links": [
-            {"url": "https://developer.apple.com/news/?id=lvart8mq", "label": "Apple Developer: 5 takeaways from Platforms State of the Union"},
-            {"url": "https://blog.google/innovation-and-ai/technology/developers-tools/bringing-gemini-models-to-apple-developers/", "label": "Google Blog: Bringing Gemini models to Apple developers"},
-            {"url": "https://www.computerworld.com/article/4006108/wwdc-for-developers-apples-tools-get-a-lot-better-for-ai.html", "label": "Computerworld: Apple's tools get a lot better for AI"},
-            {"url": "https://byteiota.com/wwdc-2026-developer-preview-what-ships-june-8/", "label": "ByteIota: WWDC 2026 developer preview — what ships June 8"}
+            {"url": "https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/", "label": "Apple Newsroom: New intelligence frameworks and advanced tools"},
+            {"url": "https://developer.apple.com/videos/play/wwdc2026/258/", "label": "Apple Developer: What's new in Xcode 27 — WWDC26 session"},
+            {"url": "https://www.techtimes.com/articles/318039/20260609/wwdc-2026-developer-tools-foundation-models-now-swaps-ai-providers-without-code-changes.htm", "label": "TechTimes: WWDC 2026 developer tools — Foundation Models swap AI providers"},
+            {"url": "https://www.technetbooks.com/2026/06/xcode-27-unveiled-at-wwdc-2026-ai-agent.html", "label": "Technetbook: Xcode 27 AI agent integration and custom LLM selection"}
           ]
         },
         {
-          "title": "Kimi K2.6: Open-Weight 1T MoE Scales Agent Swarm to 300 Sub-Agents and 4,000 Coordinated Steps",
-          "url": "https://www.kimi.com/blog/kimi-k2-6",
-          "tldr": "Moonshot AI's Kimi K2.6 is a 1-trillion-parameter Mixture-of-Experts model (32B active per token) released under a Modified MIT license. The headline capability is Agent Swarm: scaling to 300 domain-specialized sub-agents executing up to 4,000 coordinated steps in a single autonomous run — up from 100 sub-agents and 1,500 steps in K2.5. K2.6 leads open-source on Agentic Coding (58.33) and is available on Hugging Face, Ollama, and via Moonshot's API.",
-          "why_it_matters": "Every other open-weight model gives you one agent. K2.6 gives you 300 working in concert. The Agent Swarm architecture is designed for workflows that require domain specialization at scale — think automated security audits where different agents handle network, application, infrastructure, and compliance simultaneously. At 32B active parameters per token on a 1T MoE, it's efficient enough to self-host while maintaining frontier-class coding capability. The Modified MIT license makes it commercially viable. For teams running multi-agent workflows on proprietary APIs, K2.6 is the open-weight alternative that doesn't compromise on coordination complexity.",
-          "traction": "high",
+          "title": "Microsoft Agent Governance Toolkit: Open-Source Runtime Security Covering All 10 OWASP Agentic Risks",
+          "url": "https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/",
+          "tldr": "Released in April 2026 under the MIT license and gaining significant traction through Microsoft Build 2026, the Agent Governance Toolkit is the first open-source framework to address all 10 OWASP Agentic AI risks — including goal hijacking, tool misuse, identity abuse, memory poisoning, cascading failures, and rogue agents — with deterministic, sub-millisecond policy enforcement. The toolkit includes Agent OS (policy engine intercepting every agent action), Agent Mesh (agent-to-agent communication security), Agent Runtime (dynamic execution rings), and Agent Compliance (automated governance verification with grading). It integrates with LangChain callbacks, CrewAI task decorators, Google ADK plugins, and Microsoft Agent Framework middleware. Available for Python, Rust, TypeScript, Go, and .NET.",
+          "why_it_matters": "Until now, agent security has been a patchwork of application-layer checks: prompt injection guards, output filtering, tool allow-lists written by individual teams. The Agent Governance Toolkit pushes enforcement to the runtime layer — every agent action passes through a policy engine before execution, regardless of which framework built the agent. The OWASP Agentic Top 10 coverage matters because it provides a standard threat model that security teams can audit against, rather than each team inventing their own risk categories. The framework-agnostic design (LangChain, CrewAI, ADK, Microsoft Agent Framework) means you can adopt it without migrating your agent stack.",
+          "traction": "medium",
           "traction_evidence": [
-            "Released April 20, 2026 under Modified MIT license",
-            "1T MoE, 32B active — leads open-source on Agentic Coding (58.33)",
-            "Agent Swarm: 300 sub-agents, 4,000 steps — 3x improvement over K2.5",
-            "Available on Hugging Face, Ollama, Kimi API, and Kimi Code",
-            "Covered by Kimi Blog, DeepInfra, Kilo AI, Trilogy AI, Hugging Face"
+            "Released April 2, 2026 under MIT license — gaining traction through Build 2026 sessions",
+            "First toolkit to cover all 10 OWASP Agentic AI Top 10 risks (published December 2025)",
+            "Framework integrations: LangChain, CrewAI, Google ADK, Microsoft Agent Framework",
+            "Available for 5 languages: Python, Rust, TypeScript, Go, .NET",
+            "Coverage by InfoWorld, CSO Online, Help Net Security, Phoronix, Microsoft Tech Community"
           ],
           "use_cases": [
-            "Run multi-agent security audits with 300 domain-specialized sub-agents coordinating autonomously",
-            "Self-host a frontier-class coding model with commercial-friendly licensing",
-            "Build agent swarm workflows for large-scale code migrations, test generation, or documentation",
-            "Use Ollama to run K2.6 locally for agentic coding without API costs"
+            "Add the Agent OS policy engine to existing LangChain or CrewAI agents — intercept and enforce tool access, data boundaries, and action limits without framework migration",
+            "Use Agent Compliance to generate audit trails for EU AI Act high-risk system requirements before the August 2026 enforcement deadline",
+            "Deploy Agent Mesh to secure agent-to-agent communication in multi-agent architectures — prevent cascading failures and rogue agent propagation",
+            "Run the OWASP Agentic Top 10 assessment against your production agents using the toolkit's built-in policy templates as a security baseline"
           ],
-          "tags": ["Moonshot AI", "Kimi", "Open Weight", "MoE", "Agent Swarm", "Agentic Coding"],
+          "tags": ["Microsoft", "Security", "OWASP", "Agent Governance", "Open Source", "Runtime Security"],
           "links": [
-            {"url": "https://www.kimi.com/ai-models/kimi-k2-6", "label": "Kimi: K2.6 model overview"},
-            {"url": "https://deepinfra.com/blog/kimi-k2-6-model-overview", "label": "DeepInfra: K2.6 architecture and capabilities"},
-            {"url": "https://huggingface.co/moonshotai/Kimi-K2.6", "label": "Hugging Face: Kimi K2.6 weights"},
-            {"url": "https://blog.kilo.ai/p/kimi-k26-has-arrived-an-open-weight", "label": "Kilo AI: K2.6 open-weight powerhouse review"}
+            {"url": "https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/", "label": "Microsoft Open Source Blog: Introducing the Agent Governance Toolkit"},
+            {"url": "https://github.com/microsoft/agent-governance-toolkit", "label": "GitHub: microsoft/agent-governance-toolkit"},
+            {"url": "https://www.infoworld.com/article/4155591/microsofts-new-agent-governance-toolkit-targets-top-owasp-risks-for-ai-agents.html", "label": "InfoWorld: Agent Governance Toolkit targets top OWASP risks"},
+            {"url": "https://techcommunity.microsoft.com/blog/linuxandopensourceblog/agent-governance-toolkit-architecture-deep-dive-policy-engines-trust-and-sre-for/4510105", "label": "Microsoft Tech Community: Architecture deep dive — policy engines and trust"}
           ]
         },
         {
-          "title": "JetBrains Maps Top Agentic Frameworks for 2026: LangGraph, CrewAI, and Haystack Lead Production Adoption",
-          "url": "https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/",
-          "tldr": "JetBrains published a comprehensive guide to agentic frameworks in June 2026. LangGraph leads for complex multi-step workflows via stateful graphs. CrewAI dominates multi-agent collaboration where specialized agents divide tasks. Haystack (by deepset) wins for production RAG and retrieval-augmented agents. Framework adoption has nearly doubled YoY — from 9% of organizations in early 2025 to 18% by early 2026. 55% of developers now regularly use AI agents.",
-          "why_it_matters": "With framework adoption doubling and 55% of developers using agents, choosing the right framework is no longer experimental — it's a production architecture decision. JetBrains' guide maps the decision space: LangGraph for workflows with complex state management, CrewAI when you need multiple specialized agents collaborating, Haystack when RAG quality matters most. The 9% → 18% adoption jump means the early-adopter phase is over; teams not evaluating frameworks are falling behind their peers. Each framework has distinct strengths — this guide prevents the common mistake of picking one and forcing it to do everything.",
-          "traction": "high",
+          "title": "AI Developer Productivity: The Real Numbers Are 1.6x, Not 10x — And Elite Teams Hit 4-6x ROI",
+          "url": "https://larridin.com/developer-productivity-hub/developer-productivity-benchmarks-2026",
+          "tldr": "The Larridin Developer Productivity Benchmarks 2026 report, drawing on data from enterprise engineering organizations, finds that AI tools deliver a median 1.6x productivity multiplier — not the 10x that vendor marketing claims. However, top-quartile organizations achieve 4-6x ROI through better prompt engineering, stronger code review standards, and targeted use of expensive agentic tools. Elite teams show 80%+ weekly active usage, 60-75% AI-assisted code share, and sub-8-hour PR cycle times. The report recommends routing 60-80% of agent traffic to cheaper or self-hosted models and escalating only 20-40% to frontier models like Claude Opus 4.7 or Gemini 3.1 Pro.",
+          "why_it_matters": "This is the data that engineering managers need to set realistic expectations and justify AI tool investment. The 1.6x median means most teams are getting real but modest returns — enough to justify the spend, but not the transformative leap that marketing decks promise. The 4-6x top-quartile gap is the actionable finding: the difference between 1.6x and 4-6x isn't the model or the tool, it's how teams use them — prompt engineering practices, review discipline, and routing expensive frontier models only where they matter. The 60-80% self-hosted routing recommendation directly addresses cost management.",
+          "traction": "medium",
           "traction_evidence": [
-            "Published June 2026 by JetBrains (PyCharm Blog)",
-            "Framework adoption: 9% (early 2025) → 18% (early 2026) — nearly 2x YoY",
-            "55% of developers now regularly use AI agents",
-            "LangGraph, CrewAI, Haystack identified as production leaders",
-            "Corroborated by Datadog State of AI Engineering and Pragmatic Engineer survey data"
+            "Larridin Developer Productivity Benchmarks 2026 — enterprise engineering data, not surveys",
+            "1.6x median productivity multiplier across all surveyed organizations",
+            "Top-quartile teams: 4-6x ROI, 80%+ weekly active usage, sub-8-hour PR cycles",
+            "95% of engineers report using AI tools weekly, 75% for half or more of their work",
+            "Corroborated by Pragmatic Engineer newsletter and LogRocket analysis"
           ],
           "use_cases": [
-            "Choose LangGraph for multi-step agent workflows requiring complex state management and branching",
-            "Use CrewAI when tasks need multiple specialized agents working in parallel or sequence",
-            "Pick Haystack for RAG-first agent architectures where retrieval quality drives output quality",
-            "Benchmark your team's framework adoption against the 18% industry average"
+            "Use the 1.6x median as the baseline when budgeting AI tool ROI — expect modest gains initially, with upside as team practices mature",
+            "Implement the 60/40 model routing pattern: route bulk agent traffic to Gemini Flash, DeepSeek, or self-hosted models; reserve Opus/GPT-5.5 for complex multi-step tasks",
+            "Benchmark your team against the elite tier: 80%+ weekly active usage, 60-75% AI-assisted code, sub-8-hour PR cycles",
+            "Invest in prompt engineering training and code review standards before upgrading models — the 1.6x-to-4x gap is driven by practice, not by which model you use"
           ],
-          "tags": ["JetBrains", "Agentic Frameworks", "LangGraph", "CrewAI", "Haystack", "Production"],
+          "tags": ["Developer Productivity", "AI ROI", "Engineering Management", "Benchmarks", "Best Practices"],
           "links": [
-            {"url": "https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/", "label": "JetBrains: Top agentic frameworks 2026"},
-            {"url": "https://www.datadoghq.com/state-of-ai-engineering/", "label": "Datadog: State of AI Engineering — framework adoption data"},
-            {"url": "https://newsletter.pragmaticengineer.com/p/ai-tooling-2026", "label": "Pragmatic Engineer: AI tooling survey 2026"},
-            {"url": "https://blog.logrocket.com/ai-dev-tool-power-rankings/", "label": "LogRocket: AI dev tool power rankings June 2026"}
+            {"url": "https://larridin.com/developer-productivity-hub/developer-productivity-benchmarks-2026", "label": "Larridin: Developer Productivity Benchmarks 2026"},
+            {"url": "https://newsletter.pragmaticengineer.com/p/ai-tooling-2026", "label": "Pragmatic Engineer: AI tooling for software engineers in 2026"},
+            {"url": "https://blog.logrocket.com/ai-dev-tool-power-rankings/", "label": "LogRocket: AI dev tool power rankings — June 2026"},
+            {"url": "https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026", "label": "Cortex: Engineering leader's guide to AI tools for developers in 2026"}
           ]
         }
       ]
@@ -185,85 +184,57 @@
       "name": "Infrastructure & Production",
       "articles": [
         {
-          "title": "Databricks State of AI Agents 2026: Companies with Governance Tools Push 12x More Projects to Production",
-          "url": "https://www.databricks.com/resources/ebook/state-of-ai-agents",
-          "tldr": "Databricks' 2026 State of AI Agents report, analyzing 20,000+ global organizations, found that companies using AI governance tools push 12x more AI projects to production than those without. Organizations with evaluation tools deploy nearly 6x more. The new Unity AI Gateway extends Unity Catalog's governance model to agentic AI — applying permissions, auditing, and policy controls to how agents access LLMs and MCP servers. Only 19% of organizations have deployed AI agents, but those that have are already creating 97% of new databases.",
-          "why_it_matters": "The 12x production multiplier is the most concrete evidence yet that governance isn't a brake on AI adoption — it's an accelerator. Teams that invest in governance, evaluation, and proper data infrastructure ship more, not less. The Unity AI Gateway is Databricks' answer to the 'agents accessing everything' problem: fine-grained permissions, on-behalf-of access, cost attribution across models and teams, and unified API with built-in fallbacks and rate limits. The 19% deployment / 97% database creation stat reveals that the few organizations with agents in production are generating massive data infrastructure — everyone else is still piloting.",
+          "title": "Colorado Kills Its AI Act and Replaces It with CADMA: A Narrower Law Without Algorithmic Discrimination Rules",
+          "url": "https://www.bytebacklaw.com/2026/05/colorado-repeals-replaces-its-ai-act-what-the-new-law-means/",
+          "tldr": "Colorado's original AI Act (SB 24-205), scheduled to take effect June 30, 2026, was stayed by a federal magistrate judge on April 27 and effectively replaced when Governor Polis signed SB 26-189 on May 14. The new law, the Colorado Automated Decision-Making Technology Act (CADMA), takes effect January 1, 2027 with a dramatically narrower scope: it removes the concept of 'algorithmic discrimination' and its associated risk management, impact assessment, and broad disclosure requirements. What remains: developers must provide technical documentation to deployers, and both parties must retain compliance records (version identifiers, changelogs, mitigation docs) for at least three years.",
+          "why_it_matters": "The Colorado pivot is a leading indicator of how US AI regulation is likely to evolve. The original SB 24-205 was the most aggressive state-level AI law in the US — broader than the EU AI Act in some requirements — and it proved unworkable before it ever took effect. For engineering teams, CADMA is manageable: maintain version identifiers, changelogs, and documentation of material changes for three years. That's compliance you can handle with existing CI/CD practices (git tags, release notes, structured changelogs) rather than building new ML fairness testing pipelines. The January 2027 effective date also buys time to implement.",
           "traction": "high",
           "traction_evidence": [
-            "20,000+ organizations analyzed in the report",
-            "12x more projects to production with governance tools",
-            "6x more deployments with evaluation tools",
-            "19% agent deployment rate, 97% of new databases from agents",
-            "Unity AI Gateway launched with MCP server governance",
-            "Covered by Databricks, SiliconANGLE, SaaStr, Intelligent CIO, StartupHub"
+            "Original SB 24-205 stayed by federal magistrate judge April 27, 2026",
+            "Governor Polis signed replacement SB 26-189 (CADMA) on May 14, 2026",
+            "Effective date: January 1, 2027 — replacing the original June 30, 2026 deadline",
+            "Coverage by Littler, Hunton, Norton Rose Fulbright, Brownstein, ByteBack Law, Wikipedia",
+            "First major US AI law to be repealed and replaced before taking effect"
           ],
           "use_cases": [
-            "Implement AI governance before scaling agents — the 12x multiplier justifies the investment",
-            "Use Unity AI Gateway to control which agents access external LLMs and MCP servers with fine-grained permissions",
-            "Monitor and attribute costs across models, teams, and agentic workflows with built-in auditing",
-            "Evaluate your organization against the 19% deployment benchmark — and the 12x governance gap"
+            "Remove SB 24-205 compliance work from your Q3 2026 roadmap — the original law is dead; CADMA doesn't take effect until January 2027",
+            "Implement CADMA's documentation requirements using existing CI/CD artifacts: git tags as version identifiers, automated changelogs, and release notes as mitigation documentation",
+            "Retain compliance records for 3 years: set up automated archival of model version metadata, training data provenance, and change logs for any consequential-decision AI system",
+            "Watch CADMA as the template for other US state AI laws — its narrower scope is likely to influence Texas, California, and New York proposals"
           ],
-          "tags": ["Databricks", "AI Governance", "Unity Catalog", "Production AI", "Enterprise"],
+          "tags": ["AI Regulation", "Colorado", "CADMA", "Compliance", "Legal", "US Policy"],
           "links": [
-            {"url": "https://www.databricks.com/blog/enterprise-ai-agent-trends-top-use-cases-governance-evaluations-and-more", "label": "Databricks Blog: Enterprise AI agent trends"},
-            {"url": "https://www.databricks.com/blog/ai-gateway-governance-layer-agentic-ai", "label": "Databricks Blog: Unity AI Gateway for agentic AI"},
-            {"url": "https://siliconangle.com/2026/01/27/databricks-reports-finds-surge-ai-agent-adoption-despite-governance-bottlenecks/", "label": "SiliconANGLE: AI agent adoption surge despite governance bottlenecks"},
-            {"url": "https://www.saastr.com/databricks-only-19-of-organizations-have-deployed-ai-agents-but-theyre-already-creating-97-of-databases/", "label": "SaaStr: 19% deployed, 97% of databases"}
+            {"url": "https://www.bytebacklaw.com/2026/05/colorado-repeals-replaces-its-ai-act-what-the-new-law-means/", "label": "ByteBack Law: Colorado repeals and replaces its AI Act"},
+            {"url": "https://www.littler.com/news-analysis/asap/colorado-amends-its-artificial-intelligence-law-substantially-reducing", "label": "Littler: Colorado amends AI law, substantially reducing obligations"},
+            {"url": "https://www.hunton.com/privacy-and-cybersecurity-law-blog/colorado-ai-act-amended-and-effective-date-delayed", "label": "Hunton: Colorado AI Act amended and effective date delayed"},
+            {"url": "https://www.nortonrosefulbright.com/en-us/knowledge/publications/18733d31/colorado-enacts-revised-ai-law", "label": "Norton Rose Fulbright: Colorado enacts revised AI law"}
           ]
         },
         {
-          "title": "Gemini CLI Retires June 18: What Teams Using Google's Dev Tools Need to Do This Week",
-          "url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/",
-          "tldr": "Google confirmed that Gemini CLI and Gemini Code Assist IDE extensions will cease on June 18, 2026 for AI Pro, AI Ultra, and free-tier users. All functionality migrates to Antigravity CLI, the Antigravity SDK, and the Antigravity desktop app. The transition requires updating CLI installations, migrating scripts that reference gemini-cli commands, and updating CI/CD configurations that depend on Gemini Code Assist.",
-          "why_it_matters": "This is a 9-day deadline. Any CI/CD pipeline, shell script, or developer workflow using gemini-cli or Gemini Code Assist IDE extensions will break on June 18 unless migrated. The Antigravity CLI is not a 1:1 rename — it's a new agent-first tool with different command semantics, so 'find and replace' won't cut it. Google is also shutting down the free tier's access to Gemini CLI, which means open-source projects and CI pipelines relying on free Gemini CLI access need alternative plans. Teams should audit their toolchains this week and migrate before the deadline.",
+          "title": "EU AI Act Reaches Full Application August 2: What Engineering Teams Must Ship Before the Deadline",
+          "url": "https://www.usetenfold.ai/blog/top-ai-trends-in-june-2026-what-enterprise-leaders-need-to-know-now",
+          "tldr": "The EU AI Act reaches full application on August 2, 2026 — 54 days from today — with transparency requirements and high-risk AI system rules now enforceable. Organizations deploying AI in the EU must implement continuous monitoring, bias detection logging, and human oversight mechanisms for high-risk systems. Gartner predicts 40% of AI-deploying organizations will adopt dedicated AI observability tools by 2028 (up from ~15% today). Meanwhile, 96% of IT leaders expect observability spending to grow over the next 12-24 months.",
+          "why_it_matters": "August 2 is 54 days away and the requirements are specific: continuous monitoring of model performance, bias detection logs, structured audit trails of model inputs and outputs, and documented human oversight procedures for high-risk AI systems. These aren't aspirational guidelines — they're enforceable requirements with penalties. For engineering teams, the practical work falls into three categories: (1) instrumentation — adding tracing and logging to every AI system that touches EU users, (2) evaluation — running periodic bias and performance evals against production traffic, and (3) documentation — maintaining the risk assessments and technical documentation that regulators can request.",
           "traction": "high",
           "traction_evidence": [
-            "Retirement date confirmed: June 18, 2026 — 9 days away",
-            "Affects AI Pro, AI Ultra, and free-tier users",
-            "Gemini CLI and Code Assist IDE extensions both retiring",
-            "Migration target: Antigravity CLI, SDK, and desktop app",
-            "Covered by Google Dev Blog, TechCrunch, analysis blogs"
+            "EU AI Act full application date: August 2, 2026 — enforceable transparency and high-risk requirements",
+            "Gartner (May 2026): 40% of AI-deploying orgs will use AI observability by 2028, up from ~15%",
+            "96% of IT leaders expect observability spending to increase (LogicMonitor 2026 survey)",
+            "Coralogix $200M raise (June 3) cites EU AI Act compliance as growth driver",
+            "Coverage by Tenfold, Gartner Newsroom, LogicMonitor, BVP, multiple legal publications"
           ],
           "use_cases": [
-            "Audit all CI/CD pipelines for gemini-cli or Gemini Code Assist dependencies this week",
-            "Migrate shell scripts from gemini-cli to Antigravity CLI — command semantics have changed",
-            "Update IDE plugin configurations from Gemini Code Assist to Antigravity extensions",
-            "Plan alternative access for open-source projects relying on free Gemini CLI tier"
+            "Audit every AI system touching EU users and classify as high-risk or not — the high-risk classification triggers continuous monitoring, bias logging, and human oversight requirements",
+            "Add LangSmith, Langfuse, or Arize tracing to production AI pipelines now — structured logs of inputs, outputs, and decisions are the minimum for August 2 compliance",
+            "Implement periodic bias evals on production traffic: sample outputs weekly, run against demographic fairness rubrics, and store results as audit artifacts",
+            "Prepare technical documentation packages: model architecture, training data provenance, risk assessment, and mitigation measures — regulators can request these after August 2"
           ],
-          "tags": ["Google", "Gemini CLI", "Migration", "Antigravity", "CI/CD", "Deadline"],
+          "tags": ["EU AI Act", "Compliance", "AI Regulation", "Observability", "Production AI", "Governance"],
           "links": [
-            {"url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/", "label": "Google Dev Blog: Transitioning to Antigravity CLI"},
-            {"url": "https://jangwook.net/en/blog/en/google-io-2026-antigravity-2-agent-platform-analysis/", "label": "Analysis: Gemini CLI shutdown and what it means"},
-            {"url": "https://nerdleveltech.com/google-antigravity-2-agentic-coding-platform", "label": "Nerd Level Tech: Antigravity 2.0 agentic coding platform"},
-            {"url": "https://antigravity.google/blog/google-io-2026", "label": "Google Antigravity Blog: I/O 2026 launch details"}
-          ]
-        },
-        {
-          "title": "Apple Core AI Framework: Run Custom Models on Apple Silicon with Neural Engine Optimization",
-          "url": "https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/",
-          "tldr": "Apple introduced Core AI at WWDC 2026 — a new framework optimized for Apple silicon's unified memory and Neural Engine that replaces Core ML as the primary way to run custom on-device models. Core AI is designed specifically for the Neural Engine's architecture, providing better performance than Core ML for transformer-based models. Combined with the Foundation Models framework for Apple's own models and the LanguageModel protocol for cloud providers, this creates a three-tier AI stack: on-device custom (Core AI), on-device Apple (Foundation Models), and cloud (LanguageModel protocol).",
-          "why_it_matters": "Core AI completes Apple's three-tier AI architecture. The key insight is that Apple is investing in on-device inference as a first-class capability, not just a privacy feature. Core AI is optimized for transformer architectures on Neural Engine — meaning models designed for this pipeline will significantly outperform Core ML conversions. For ML engineers, this means Apple silicon is becoming a viable inference platform, not just a consumer chip. The three-tier stack (Core AI + Foundation Models + LanguageModel protocol) gives developers a clear decision framework: custom models on-device, Apple models on-device, or frontier models in the cloud — all through unified Apple frameworks.",
-          "traction": "high",
-          "traction_evidence": [
-            "Announced at WWDC 2026 keynote, June 8, 2026",
-            "Replaces Core ML for transformer-based on-device models",
-            "Optimized for Apple silicon Neural Engine and unified memory",
-            "Part of iOS 27, macOS 27 (Golden Gate) SDK",
-            "Covered by Apple Newsroom, TechTimes, Popular Science, ChatForest"
-          ],
-          "use_cases": [
-            "Port custom transformer models to Core AI for optimized Neural Engine inference on Apple devices",
-            "Build offline-capable AI features using Core AI instead of requiring cloud API calls",
-            "Use the three-tier stack: Core AI for custom models, Foundation Models for Apple LLM, LanguageModel for cloud",
-            "Develop Apple Vision Pro and watchOS AI features with on-device inference via Core AI"
-          ],
-          "tags": ["Apple", "WWDC 2026", "Core AI", "On-Device ML", "Neural Engine", "Apple Silicon"],
-          "links": [
-            {"url": "https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/", "label": "Apple Newsroom: Intelligence frameworks and advanced tools"},
-            {"url": "https://developer.apple.com/news/?id=lvart8mq", "label": "Apple Developer: Platforms State of the Union takeaways"},
-            {"url": "https://www.techtimes.com/articles/318039/20260609/wwdc-2026-developer-tools-foundation-models-now-swaps-ai-providers-without-code-changes.htm", "label": "TechTimes: WWDC 2026 developer tools"},
-            {"url": "https://runaihome.com/blog/wwdc-2026-apple-foundation-models-core-ai-home-lab-2026/", "label": "RunAIHome: Core AI and Foundation Models for home lab builders"}
+            {"url": "https://www.usetenfold.ai/blog/top-ai-trends-in-june-2026-what-enterprise-leaders-need-to-know-now", "label": "Tenfold: Top AI trends in June 2026 — enterprise compliance"},
+            {"url": "https://www.bvp.com/atlas/ai-infrastructure-roadmap-five-frontiers-for-2026", "label": "Bessemer: AI infrastructure roadmap — five frontiers for 2026"},
+            {"url": "https://machinelearningmastery.com/the-roadmap-for-mastering-llmops-in-2026/", "label": "ML Mastery: Roadmap for mastering LLMOps in 2026"},
+            {"url": "https://almcorp.com/blog/colorado-ai-act-sb-205-compliance-guide/", "label": "ALM Corp: AI Act compliance guide — Colorado and EU compared"}
           ]
         }
       ]
