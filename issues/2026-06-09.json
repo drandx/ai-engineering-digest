@@ -1,95 +1,96 @@
 {
   "highlights": [
-    {"text": "WWDC Foundation Models: Apple's LanguageModel protocol lets Swift apps swap on-device Apple, Gemini, and Claude inference with a config change — no app code rewrite needed", "anchor": "ai-tools-and-models-0"},
-    {"text": "MiniMax M3 debuts as the first open-weight model with 1M-token context + multimodal computer use — SWE-Bench Pro 59%, input at $0.30/M tokens, weights on Hugging Face soon", "anchor": "ai-tools-and-models-1"},
-    {"text": "GPT-5.5 is the new agentic default: 74.9% SWE-bench, 82.7% Terminal-Bench 2.0 — OpenAI's first fully retrained base model since GPT-4.5, now free-tier on ChatGPT", "anchor": "ai-tools-and-models-2"},
-    {"text": "OpenCode hits 160K GitHub stars and 7.5M monthly devs — LSP-integrated, MCP-native terminal coding agent that works with 75+ providers including local Ollama", "anchor": "developer-tools-and-frameworks-0"},
-    {"text": "Nous Research Hermes Agent: writes its own reusable skills via GEPA, 40% faster on repeated tasks — 175K GitHub stars in under 4 months, 118 pre-compiled skills bundled", "anchor": "developer-tools-and-frameworks-1"},
-    {"text": "LLM gateways are now critical production infrastructure: semantic caching cuts costs 40-80%, canonical 2026 routing separates failover (5xx) from fallback (429/context overflow)", "anchor": "infrastructure-and-production-0"}
+    {"text": "WWDC 2026: Xcode 27 ships dual-engine agentic coding — local Neural Engine for real-time Swift completions, cloud routing to Claude, Gemini, or OpenAI agents, plus MCP support platform-wide across all Apple OSes", "anchor": "ai-tools-and-models-0"},
+    {"text": "Apple's new LanguageModel protocol lets any iOS/macOS app swap between Claude, Gemini, and OpenAI with a single line change — no recompile, no code rewrite", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Google Antigravity 2.0 launches as a full agent-first dev platform with CLI, SDK, managed agents, and desktop app — Gemini CLI retires June 18", "anchor": "ai-tools-and-models-1"},
+    {"text": "OpenAI Codex goes beyond code: Sites deploys interactive dashboards and web apps, /app hands off CLI threads to Desktop, and GPT-5.3-Codex sets new SWE-Bench Pro highs", "anchor": "ai-tools-and-models-2"},
+    {"text": "Databricks State of AI Agents 2026: companies with AI governance tools push 12x more projects to production — Unity AI Gateway now governs agent access to LLMs and MCP servers", "anchor": "infrastructure-and-production-0"},
+    {"text": "Kimi K2.6 scales Agent Swarm to 300 specialized sub-agents and 4,000 coordinated steps in a single autonomous run — open-weight 1T MoE, Modified MIT license", "anchor": "developer-tools-and-frameworks-1"}
   ],
   "sections": [
     {
       "name": "AI Tools & Models",
       "articles": [
         {
-          "title": "WWDC 2026: Apple's Foundation Models LanguageModel Protocol Lets Swift Apps Swap AI Providers Without Code Changes",
-          "url": "https://www.techtimes.com/articles/318039/20260609/wwdc-2026-developer-tools-foundation-models-now-swaps-ai-providers-without-code-changes.htm",
-          "tldr": "Announced at WWDC 2026 on June 8, Apple introduced a public LanguageModel protocol built into the Foundation Models framework — a Swift interface that third-party cloud providers implement to expose a unified inference surface across iOS 27, macOS 27, iPadOS 27, watchOS 27, and visionOS 27. Google's Gemini models are already the first cloud implementation via the Firebase Apple SDK, meaning on-device Apple models and cloud-hosted Gemini sit behind the same API. Xcode 27 ships a dual-engine agentic coding system: a local Neural Engine model for real-time Swift suggestions, and a cloud routing layer for heavier analysis via Claude, Gemini, or OpenAI agents.",
-          "why_it_matters": "The LanguageModel protocol solves the vendor-lock problem for iOS and macOS developers. Today, integrating Claude requires Anthropic's SDK, Gemini requires Firebase, and on-device inference requires Apple's private APIs — three different integration surfaces that diverge when models update. With the LanguageModel protocol, you write your inference call once against a standard Swift interface and swap between on-device Apple models and cloud-hosted Claude or Gemini in configuration, not code. The practical engineering unlock: on-device for cost-sensitive or latency-sensitive flows, cloud for heavy reasoning — determined at runtime without branching your application logic. Xcode 27's dual-engine agentic system is equally significant: the local model handles low-latency autocompletion, while the cloud routing layer handles multi-file refactoring and test generation. Developer betas are available now; the WWDC 2026 sessions include working code examples for registering a custom LanguageModel provider.",
+          "title": "WWDC 2026: Xcode 27 Ships Dual-Engine Agentic Coding with Multi-Provider Cloud Routing and MCP Platform-Wide",
+          "url": "https://developer.apple.com/news/?id=lvart8mq",
+          "tldr": "Apple unveiled Xcode 27 at WWDC 2026 (June 8-9) with a dual-engine agentic coding system: a local Neural Engine model handles real-time Swift completions without any cloud roundtrip, while a cloud routing layer dispatches heavier tasks to Anthropic's Claude, Google's Gemini, or OpenAI's agents. Agents can run tests, operate the iOS Simulator via a new Device Hub, fix issues, and localize apps. MCP support — first shipped in Xcode 26.3 — now extends across iOS 27, macOS 27 (Golden Gate), iPadOS 27, watchOS 27, and visionOS 27.",
+          "why_it_matters": "Apple just made every Mac with Apple silicon an agentic coding machine with zero cloud dependency for basic completions. The dual-engine approach is pragmatic: local inference for speed-sensitive completions (sub-10ms), cloud routing for complex multi-file analysis where frontier models matter. The multi-provider routing means Apple isn't locked to one AI vendor — and neither are you. MCP going platform-wide means the same tool ecosystem powering Claude Code and Cursor now works inside Xcode and across every Apple OS. For iOS/macOS developers, this eliminates the 'leave Xcode to use AI' workflow entirely.",
           "traction": "high",
           "traction_evidence": [
-            "Announced June 8, 2026 at WWDC 2026 — developer betas for iOS 27, macOS 27, Xcode 27 ship immediately",
-            "Google Gemini already implemented the protocol via Firebase Apple SDK — first production cloud provider",
-            "LanguageModel protocol covers iOS 27, macOS 27, iPadOS 27, watchOS 27, visionOS 27 — entire Apple platform",
-            "Xcode 27 dual-engine ships with the first developer beta — no separate install required",
-            "Coverage by TechTimes, FoneArena, ByteIota, ChatForest, RunAIHome, SingJuPost, LushBinary"
+            "Announced at WWDC 2026 keynote, June 8, 2026",
+            "Developer beta available same day — June 8",
+            "Xcode 27 is Apple silicon only, 30% smaller binary",
+            "MCP support expanded from Xcode to all Apple platforms",
+            "Multi-provider: Claude, Gemini, OpenAI agents supported",
+            "Covered by Apple Newsroom, TechTimes, MacRumors, CNBC, Computerworld, ChatForest"
           ],
           "use_cases": [
-            "Replace model-specific SDK calls with a single LanguageModel protocol call — swap between on-device Apple model and Gemini cloud in a config flag without rewriting inference logic",
-            "Use on-device inference for real-time features (autocomplete, suggestions) and route to Claude or GPT for heavy tasks (long-context analysis, multi-file refactors) with the same Swift interface",
-            "Register your own cloud model as a LanguageModel provider using the Firebase Apple SDK pattern — your model becomes a first-class option in iOS 27 apps that adopt the protocol",
-            "Use Xcode 27's Device Hub and live preview integration to build agents that can simulate apps and inspect visual changes — agentic testing without leaving the IDE"
+            "Use local Neural Engine completions for instant Swift suggestions without cloud latency or costs",
+            "Route complex multi-file refactors to Claude or Gemini via the cloud layer without leaving Xcode",
+            "Build MCP-compatible tools that work across Xcode, Claude Code, Cursor, and Apple platforms",
+            "Run agentic coding workflows that test, simulate, and fix iOS apps end-to-end in Xcode 27"
           ],
-          "tags": ["Apple", "WWDC 2026", "iOS 27", "Foundation Models", "Swift", "Xcode 27", "LanguageModel Protocol"],
+          "tags": ["Apple", "WWDC 2026", "Xcode", "Agentic Coding", "MCP", "Neural Engine"],
           "links": [
-            {"url": "https://www.techtimes.com/articles/318039/20260609/wwdc-2026-developer-tools-foundation-models-now-swaps-ai-providers-without-code-changes.htm", "label": "TechTimes: Foundation Models now swaps AI providers without code changes"},
-            {"url": "https://www.fonearena.com/blog/484623/apple-wwdc26-foundation-models-gemini-support-xcode-27-agentic-coding-tools.html", "label": "FoneArena: WWDC26 — Foundation Models gain Gemini support, Xcode 27 agentic tools"},
-            {"url": "https://byteiota.com/apple-foundation-models-wwdc-2026-multimodal-python-sdk/", "label": "ByteIota: Apple Foundation Models WWDC 2026 — multimodal and Python SDK"},
-            {"url": "https://singjupost.com/wwdc26-platforms-state-of-the-union-june-8-2026-transcript/", "label": "SingJuPost: WWDC26 Platforms State of the Union — full transcript"}
+            {"url": "https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/", "label": "Apple Newsroom: New intelligence frameworks and advanced tools"},
+            {"url": "https://www.techtimes.com/articles/318045/20260609/xcode-27-device-ai-code-completion-uses-neural-engine-skips-cloud-entirely.htm", "label": "TechTimes: Xcode 27 on-device AI code completion"},
+            {"url": "https://chatforest.com/builders-log/wwdc-2026-keynote-confirmed-apple-ai-platform-builder-guide/", "label": "ChatForest: WWDC 2026 builder guide"},
+            {"url": "https://www.macrumors.com/2026/06/08/wwdc-2026-recap/", "label": "MacRumors: Everything Apple announced at WWDC 2026"}
           ]
         },
         {
-          "title": "MiniMax M3: First Open-Weight Frontier Model With 1M-Token Context, Multimodal Computer Use, and Sub-$0.30 Pricing",
-          "url": "https://www.minimax.io/blog/minimax-m3",
-          "tldr": "MiniMax launched M3 on June 1, 2026 as the first open-weight model to combine frontier-tier coding performance, a 1-million-token context window, and native multimodal capabilities (text, image, video, and desktop computer use) in a single architecture. M3 scores 59.0% on SWE-Bench Pro — ahead of GPT-5.5 and Gemini 3.1 Pro on that benchmark. A novel MiniMax Sparse Attention (MSA) architecture reduces per-token compute to one-twentieth of the prior generation at 1M-token context, delivering 9x faster prefill and 15x faster decoding. Input pricing starts at $0.30/M tokens with blended cost as low as $0.06/M with cache optimization. Open weights expected on Hugging Face and GitHub within approximately ten days of launch.",
-          "why_it_matters": "Three capabilities in a single open-weight model that no other open-weight release has combined before: 1M-token context (Llama 4 Scout matches this, but not the other two), frontier coding scores, and native computer use. For teams evaluating whether to self-host or use API-based models, M3's pricing and open-weight roadmap significantly change the economics. At $0.30/M input or $0.06/M cached, a team running 50M tokens per day in coding agent pipelines pays roughly $15/day in API costs — an order of magnitude cheaper than Claude Opus 4.8 or GPT-5.5 at similar context lengths. The computer use capability means M3 can drive a desktop GUI directly, not just generate code — relevant for test automation agents, browser-based workflows, and desktop application testing without a separate computer use model. The caveat: M3 trails Claude Opus 4.8 by 10-13 points on agent evaluations, and some benchmark claims are self-reported and unverified by third parties.",
-          "traction": "medium",
+          "title": "Google Antigravity 2.0: From Code Editor to Full Agent-First Platform — Gemini CLI Retires June 18",
+          "url": "https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/",
+          "tldr": "Google launched Antigravity 2.0 at I/O 2026 (May 19) as a standalone agent-first development platform. It includes a desktop app for orchestrating parallel agents, Antigravity CLI for terminal-native agent creation, an Antigravity SDK for programmatic access, Managed Agents in the Gemini API, and enterprise support via the Gemini Enterprise Agent Platform. Gemini CLI and Gemini Code Assist IDE extensions retire on June 18 for all tiers — migration to Antigravity CLI is mandatory.",
+          "why_it_matters": "Google is consolidating its fragmented developer AI surface (Gemini CLI, Code Assist, AI Studio) into one platform built around agents, not completions. The Antigravity SDK lets you define custom agent behaviors and host them on your own infrastructure — Google's answer to Anthropic's Agent SDK and OpenAI's Codex runtime. The June 18 Gemini CLI retirement is just 9 days away, and any CI/CD pipelines, scripts, or developer workflows using Gemini CLI need to migrate now. Powered by Gemini 3.5 Flash, which outperforms Gemini 3.1 Pro at 4x the speed.",
+          "traction": "high",
           "traction_evidence": [
-            "Launched June 1, 2026 — available via MiniMax API, monthly token plans, and MiniMax Code agent product",
-            "59.0% SWE-Bench Pro — surpasses GPT-5.5 (58.6%) and Gemini 3.1 Pro (54.2%) on this benchmark",
-            "MSA architecture: 9x faster prefill, 15x faster decoding vs prior generation at 1M-token context",
-            "Open weights expected on Hugging Face/GitHub within ~10 days of launch — MIT license anticipated",
-            "Coverage by The Decoder, TechTimes, DataNorth, Vasundhara, FelloAI, CodersEra, Kingy AI"
+            "Launched at Google I/O 2026, May 19, 2026",
+            "Desktop app, CLI, SDK, managed agents, and enterprise platform",
+            "Gemini CLI retirement confirmed: June 18, 2026",
+            "Powered by Gemini 3.5 Flash — frontier speed",
+            "Covered by Google Dev Blog, TechCrunch, MarkTechPost, The Next Web, Memeburn"
           ],
           "use_cases": [
-            "Load an entire large monorepo (1M tokens covers ~750K lines of code) into context for a single-shot refactoring or architecture analysis without chunking or retrieval",
-            "Use M3's computer use capability to build desktop test automation agents that can operate UIs directly — no separate computer use model integration needed",
-            "Evaluate M3 as a self-hosted alternative to GPT-5.5 for high-volume agentic coding pipelines: comparable SWE-Bench score at ~80% lower API cost",
-            "Process image and video inputs alongside code for multimodal debugging workflows — screenshot analysis, UI review, and visual regression within a single inference call"
+            "Migrate Gemini CLI scripts and CI/CD pipelines to Antigravity CLI before June 18 deadline",
+            "Orchestrate parallel agents via the desktop app for multi-task development workflows",
+            "Use the Antigravity SDK to build and self-host custom agents with Google's agent harness",
+            "Deploy Managed Agents via the Gemini API for production agentic workloads at enterprise scale"
           ],
-          "tags": ["MiniMax", "Open Weights", "LLM", "Computer Use", "Long Context", "Coding", "Self-Host"],
+          "tags": ["Google", "Antigravity", "Agent Platform", "Gemini", "CLI Migration"],
           "links": [
-            {"url": "https://www.minimax.io/blog/minimax-m3", "label": "MiniMax: M3 — frontier coding, 1M context, native multimodality"},
-            {"url": "https://the-decoder.com/minimax-m3-open-weight-model-with-a-million-token-context-challenges-proprietary-leaders/", "label": "The Decoder: MiniMax M3 challenges proprietary leaders with 1M context"},
-            {"url": "https://www.techtimes.com/articles/317532/20260601/minimax-m3-open-weight-coding-model-frontier-claims-unverified-benchmarks.htm", "label": "TechTimes: MiniMax M3 — frontier claims and unverified benchmarks"},
-            {"url": "https://codersera.com/blog/minimax-m3-developer-guide/amp/", "label": "CodersEra: MiniMax M3 developer guide"}
+            {"url": "https://www.marktechpost.com/2026/05/19/google-launches-antigravity-2-0-at-i-o-2026-a-standalone-agent-first-platform-with-cli-sdk-managed-execution-and-enterprise-support/", "label": "MarkTechPost: Antigravity 2.0 launch deep dive"},
+            {"url": "https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/", "label": "TechCrunch: Antigravity 2.0 desktop app and CLI"},
+            {"url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/", "label": "Google Dev Blog: Gemini CLI to Antigravity CLI transition"},
+            {"url": "https://jangwook.net/en/blog/en/google-io-2026-antigravity-2-agent-platform-analysis/", "label": "Analysis: Gemini CLI shutdown and agent IDE war"}
           ]
         },
         {
-          "title": "GPT-5.5 Is the New Agentic Coding Default: 74.9% SWE-Bench, 82.7% Terminal-Bench, Now Free on ChatGPT",
-          "url": "https://openai.com/index/introducing-gpt-5-5/",
-          "tldr": "OpenAI released GPT-5.5 on April 23, 2026 — the first fully retrained base model since GPT-4.5 — and made it the free-tier default on ChatGPT on May 5, 2026 with GPT-5.5 Instant. It leads the real-world coding rankings: 74.9% SWE-bench Verified, 88% Aider Polyglot, and 82.7% on Terminal-Bench 2.0. It powers OpenAI's Codex agent and earns its lead not through benchmark gaming but through practical agentic behaviors: holding context across large codebases, reasoning through ambiguous failures, checking assumptions with tools, and propagating changes through related files with fewer tokens than GPT-5.4.",
-          "why_it_matters": "The engineering benchmark that matters most here is Terminal-Bench 2.0 — unlike SWE-bench, it measures an agent executing real terminal workflows: cloning repos, running tests, interpreting tool output, and completing multi-step engineering tasks in a live shell. GPT-5.5's 82.7% on Terminal-Bench is 5+ points ahead of Claude Opus 4.7 and positions it as the strongest available model for agentic terminal workflows. The free-tier availability via GPT-5.5 Instant means developers can now run GPT-5.5-class reasoning without an API key — relevant for prototyping and evaluating whether the model fits your use case before committing to paid API calls. The 52.5% hallucination reduction vs GPT-5.4 matters for production agentic pipelines where incorrect tool call arguments and fabricated function names compound into unreliable agents.",
+          "title": "OpenAI Codex Goes Beyond Code: Sites Deploys Dashboards, Desktop Handoff Ships, Enterprise Workspaces Emerge",
+          "url": "https://openai.com/index/codex-for-almost-everything/",
+          "tldr": "OpenAI's June 2026 Codex update expands agents well beyond code generation. Sites (now in preview) lets agents create, deploy, and inspect websites, dashboards, and internal tools hosted by OpenAI. The /app command hands off CLI threads into Codex Desktop on macOS and Windows. Remote execution uses short-lived server tokens instead of ChatGPT access tokens. Role-specific plugins and expanded onboarding tailor the agent to design, product, or data workflows — not just engineering.",
+          "why_it_matters": "Codex is evolving from a coding agent into a general-purpose work agent. Sites is the most significant shift: agents can now deploy interactive artifacts — dashboards, internal tools, web apps — not just write code files. This puts Codex in direct competition with Anthropic's Artifacts and Google's Antigravity Canvases for 'agent builds something you can use immediately.' The desktop handoff is equally important: seamless CLI-to-GUI transitions mean you can start work in the terminal and finish it with visual tools. For teams evaluating agentic platforms, Codex is now a full workspace, not a code generator.",
           "traction": "high",
           "traction_evidence": [
-            "Released April 23, 2026 — GPT-5.5 Instant free-tier default on ChatGPT since May 5, 2026",
-            "74.9% SWE-bench Verified, 88% Aider Polyglot, 82.7% Terminal-Bench 2.0 — current #1 on Terminal-Bench",
-            "Powers OpenAI Codex agent — Codex moved to #1 in agentic coding tool rankings in April 2026",
-            "52.5% fewer hallucinations vs GPT-5.4 — per OpenAI internal evaluation",
-            "Coverage by OpenAI, TechCrunch, MindStudio, CodeRabbit, LLM Stats, NVIDIA Blog, Wikipedia"
+            "Sites feature in preview as of June 2026",
+            "Desktop handoff: CLI to macOS/Windows Codex Desktop",
+            "GPT-5.3-Codex: new SWE-Bench Pro and Terminal-Bench highs",
+            "Remote execution with server tokens replacing ChatGPT auth",
+            "Covered by OpenAI Blog, TechCrunch, VentureBeat, Releasebot"
           ],
           "use_cases": [
-            "Use GPT-5.5 via Codex for long-horizon agentic coding tasks: multi-file refactors, ambiguous bug hunts, and large codebase traversal where context retention matters",
-            "Benchmark GPT-5.5 against Claude Opus 4.7 specifically on Terminal-Bench-style workflows before committing to either model in a terminal agent architecture",
-            "Prototype GPT-5.5 integrations using the free-tier GPT-5.5 Instant endpoint before scaling to paid API calls — the free tier runs the same base model",
-            "Take advantage of the token efficiency improvement: GPT-5.5 delivers better results with fewer tokens than GPT-5.4 for most tasks, which directly reduces per-request API costs"
+            "Deploy internal dashboards and tools via Sites without setting up hosting infrastructure",
+            "Hand off terminal coding sessions to Codex Desktop for visual review and iteration",
+            "Use role-specific plugins to extend Codex beyond engineering into product, design, and data workflows",
+            "Set up remote execution with short-lived server tokens for secure enterprise deployments"
           ],
-          "tags": ["OpenAI", "GPT-5.5", "Coding", "Benchmarks", "Agentic", "Terminal-Bench", "SWE-bench"],
+          "tags": ["OpenAI", "Codex", "Sites", "Desktop", "Enterprise Agent"],
           "links": [
-            {"url": "https://openai.com/index/introducing-gpt-5-5/", "label": "OpenAI: Introducing GPT-5.5"},
-            {"url": "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/", "label": "TechCrunch: GPT-5.5 Instant — new default model for ChatGPT"},
-            {"url": "https://www.coderabbit.ai/blog/gpt-5-5-benchmark-results", "label": "CodeRabbit: GPT-5.5 benchmark results — real-world coding performance"},
-            {"url": "https://blogs.nvidia.com/blog/openai-codex-gpt-5-5-ai-agents/", "label": "NVIDIA Blog: OpenAI Codex powered by GPT-5.5 on NVIDIA infrastructure"}
+            {"url": "https://openai.com/index/introducing-gpt-5-3-codex/", "label": "OpenAI: Introducing GPT-5.3-Codex"},
+            {"url": "https://techcrunch.com/2026/06/02/openai-launches-new-codex-tools-for-white-collar-work/", "label": "TechCrunch: Codex tools for white-collar work"},
+            {"url": "https://venturebeat.com/orchestration/openais-codex-update-lets-agents-build-interactive-enterprise-workspaces-via-sites-and-role-specific-plugins", "label": "VentureBeat: Codex Sites and enterprise workspaces"},
+            {"url": "https://developers.openai.com/codex/changelog", "label": "OpenAI: Codex changelog"}
           ]
         }
       ]
@@ -98,84 +99,84 @@
       "name": "Developer Tools & Frameworks",
       "articles": [
         {
-          "title": "OpenCode: 160K Stars, 7.5M Monthly Devs — The Open-Source Terminal Coding Agent With LSP and MCP Built In",
-          "url": "https://opencode.ai/",
-          "tldr": "OpenCode is a Go-based terminal coding agent that has accumulated 160,000+ GitHub stars, 900+ contributors, and 7.5 million monthly active developers — making it the most-adopted open-source coding agent by active usage. It ships with two agents switchable via Tab: Build (full file read/write/shell access) and Plan (read-only analysis). LSP integration means it loads the correct language server for your project automatically — giving the model live compiler diagnostics, type information, and dependency resolution rather than raw file contents. MCP support extends capabilities through external tools using the standard protocol. All 75+ LLM providers are supported including local Ollama for fully offline operation. Zero telemetry: no code or context data is stored.",
-          "why_it_matters": "The LSP integration is the engineering differentiator that separates OpenCode from simpler terminal agents. When Claude Code, Codex, or a raw LLM API call operates on a file, it sees text. When OpenCode operates on the same file, it sees the compiler's view: type errors, unresolved imports, call graph data — the same signal your IDE shows you. This means the model can diagnose 'undefined variable' errors from type inference, not just pattern matching on the source, and catch import cycle errors before writing any code. The 7.5M MAU metric tells you something important: OpenCode is being used by practitioners in actual workflows, not just demo accounts. The zero-telemetry stance makes it the default choice for teams with data sensitivity requirements where sending code to Claude Code's telemetry pipeline is a compliance risk.",
+          "title": "Apple LanguageModel Protocol: One Swift API to Swap Claude, Gemini, and OpenAI in Any App — No Recompile",
+          "url": "https://www.techtimes.com/articles/318039/20260609/wwdc-2026-developer-tools-foundation-models-now-swaps-ai-providers-without-code-changes.htm",
+          "tldr": "Apple's Foundation Models framework now includes a LanguageModel protocol — a public Swift interface that third-party cloud model providers (Claude, Gemini, OpenAI) implement to expose a common inference surface across iOS 27, macOS 27, iPadOS 27, watchOS 27, and visionOS 27. Switching providers is a single-line model instance swap. Dynamic Profiles let developers update how models interact with their apps on the fly without app updates.",
+          "why_it_matters": "This is the 'USB-C moment' for AI in apps. Apple just standardized a common interface that any LLM provider can implement — meaning app developers write AI features once and swap providers based on cost, capability, or compliance requirements. Dynamic Profiles take this further: you can change model behavior server-side without pushing an app update. For teams building AI-powered iOS/macOS apps, this eliminates vendor lock-in at the framework level. It also means Claude, Gemini, and OpenAI are now first-class citizens in the Apple ecosystem — competing on capability, not integration ease.",
           "traction": "high",
           "traction_evidence": [
-            "160,000+ GitHub stars, 900+ contributors, 13,000+ commits — github.com/opencode-ai/opencode",
-            "7.5 million monthly active developers — largest active user base of any open-source coding agent",
-            "#1 most-adopted open-source coding agent in LogRocket AI dev tool power rankings June 2026",
-            "LSP integration: automatic language server loading for live compiler diagnostics per project",
-            "Coverage by LogRocket, BuildMVPFast, MightyBot, DEV Community, DecisionCrafters, MorphLLM"
+            "Announced at WWDC 2026 Platforms State of the Union, June 8",
+            "Available across all Apple platforms: iOS 27, macOS 27, iPadOS, watchOS, visionOS",
+            "Google confirmed Gemini integration via the LanguageModel protocol",
+            "Dynamic Profiles enable server-side model behavior updates",
+            "Covered by TechTimes, Apple Developer, Google Blog, ChatForest, Computerworld"
           ],
           "use_cases": [
-            "Run OpenCode with a local Ollama model for air-gapped or compliance-sensitive codebases — full agent capability with zero external API calls or telemetry",
-            "Use the LSP integration for type-aware debugging: OpenCode receives live compiler diagnostics, so it can catch type errors and import issues before modifying files",
-            "Switch between Build and Plan agents (Tab key) during a session — use Plan to analyze and propose without file side-effects, then switch to Build to execute the approved changes",
-            "Extend OpenCode with MCP servers for project-specific tools: your database schema browser, internal API docs, or CI log fetcher become first-class agent tools"
+            "Build iOS apps with AI features that swap between Claude, Gemini, and OpenAI without code changes",
+            "Use Dynamic Profiles to A/B test different model configurations without app store updates",
+            "Implement the LanguageModel protocol to make your own model available across the Apple ecosystem",
+            "Route different AI tasks to different providers — local Foundation Model for simple tasks, cloud for complex"
           ],
-          "tags": ["OpenCode", "Open Source", "Terminal Agent", "LSP", "MCP", "Go", "Coding Agent"],
+          "tags": ["Apple", "WWDC 2026", "Foundation Models", "Swift", "Provider Agnostic", "LanguageModel"],
           "links": [
-            {"url": "https://opencode.ai/", "label": "OpenCode: official website and documentation"},
-            {"url": "https://github.com/opencode-ai/opencode", "label": "GitHub: opencode-ai/opencode — 160K+ stars"},
-            {"url": "https://blog.logrocket.com/ai-dev-tool-power-rankings/", "label": "LogRocket: AI dev tool power rankings — June 2026"},
-            {"url": "https://dev.to/ji_ai/opencode-hit-140k-stars-why-terminal-agents-won-2026-aci", "label": "DEV Community: OpenCode hit 140K stars — why terminal agents won 2026"}
+            {"url": "https://developer.apple.com/news/?id=lvart8mq", "label": "Apple Developer: 5 takeaways from Platforms State of the Union"},
+            {"url": "https://blog.google/innovation-and-ai/technology/developers-tools/bringing-gemini-models-to-apple-developers/", "label": "Google Blog: Bringing Gemini models to Apple developers"},
+            {"url": "https://www.computerworld.com/article/4006108/wwdc-for-developers-apples-tools-get-a-lot-better-for-ai.html", "label": "Computerworld: Apple's tools get a lot better for AI"},
+            {"url": "https://byteiota.com/wwdc-2026-developer-preview-what-ships-june-8/", "label": "ByteIota: WWDC 2026 developer preview — what ships June 8"}
           ]
         },
         {
-          "title": "Nous Research Hermes Agent: Self-Improving Open-Source Agent That Writes Its Own Skills via GEPA",
-          "url": "https://hermes-agent.org/",
-          "tldr": "Hermes Agent is an open-source AI agent framework from Nous Research first released February 25, 2026, that crossed 175,000 GitHub stars in under four months. Its core differentiator is automatic skill compilation: after completing any complex task (5+ tool calls), the agent writes a new reusable skill package with zero human authoring. The improvement mechanism, GEPA (an ICLR 2026 Oral-accepted algorithm), makes agents with 20+ self-generated skills 40% faster on repeated tasks. Version 0.10.0 (April 16) bundles 118 pre-compiled skills, three-layer persistent memory, and integrations for WhatsApp, Telegram, Slack, Discord, Signal, and iMessage. MIT license.",
-          "why_it_matters": "Most agent frameworks are stateless: every conversation starts from zero. Hermes Agent's three-layer memory (working, episodic, semantic) and GEPA-driven skill compilation mean the agent accumulates domain-specific knowledge the longer it runs. In a production engineering context, this translates to measurable ROI over time: a Hermes Agent deployed to handle CI/CD debugging will, after 20+ debugging sessions, have compiled skills for your specific pipeline patterns — root-cause diagnosis for your common failure modes, not generic debugging advice. The 40% speed improvement from compiled skills is also a cost optimization: faster task completion on repeated workflows means fewer tokens per task and lower API spend per interaction. The ICLR 2026 Oral acceptance for GEPA signals that the self-improvement mechanism is peer-reviewed and reproducible, not just demo-ware.",
+          "title": "Kimi K2.6: Open-Weight 1T MoE Scales Agent Swarm to 300 Sub-Agents and 4,000 Coordinated Steps",
+          "url": "https://www.kimi.com/blog/kimi-k2-6",
+          "tldr": "Moonshot AI's Kimi K2.6 is a 1-trillion-parameter Mixture-of-Experts model (32B active per token) released under a Modified MIT license. The headline capability is Agent Swarm: scaling to 300 domain-specialized sub-agents executing up to 4,000 coordinated steps in a single autonomous run — up from 100 sub-agents and 1,500 steps in K2.5. K2.6 leads open-source on Agentic Coding (58.33) and is available on Hugging Face, Ollama, and via Moonshot's API.",
+          "why_it_matters": "Every other open-weight model gives you one agent. K2.6 gives you 300 working in concert. The Agent Swarm architecture is designed for workflows that require domain specialization at scale — think automated security audits where different agents handle network, application, infrastructure, and compliance simultaneously. At 32B active parameters per token on a 1T MoE, it's efficient enough to self-host while maintaining frontier-class coding capability. The Modified MIT license makes it commercially viable. For teams running multi-agent workflows on proprietary APIs, K2.6 is the open-weight alternative that doesn't compromise on coordination complexity.",
           "traction": "high",
           "traction_evidence": [
-            "175,000+ GitHub stars in under 4 months — github.com/NousResearch/hermes-agent",
-            "GEPA accepted as ICLR 2026 Oral — peer-reviewed self-improvement mechanism",
-            "v0.10.0 bundles 118 pre-compiled skills and three-layer memory architecture",
-            "GEPA: 40% faster on repeated tasks with 20+ self-generated skills — empirically verified",
-            "Coverage by NxCode, Innobu, AI Builder Club, Security Boulevard, Hermes-agent.org"
+            "Released April 20, 2026 under Modified MIT license",
+            "1T MoE, 32B active — leads open-source on Agentic Coding (58.33)",
+            "Agent Swarm: 300 sub-agents, 4,000 steps — 3x improvement over K2.5",
+            "Available on Hugging Face, Ollama, Kimi API, and Kimi Code",
+            "Covered by Kimi Blog, DeepInfra, Kilo AI, Trilogy AI, Hugging Face"
           ],
           "use_cases": [
-            "Deploy Hermes Agent for repetitive engineering workflows (PR reviews, incident triage, test generation) where the skill compilation loop compounds into measurable speed gains over weeks",
-            "Use the three-layer memory architecture for long-running projects: the agent retains episodic context from past sessions and semantic knowledge about your codebase conventions",
-            "Start from the 118 bundled skills in v0.10.0 to seed domain knowledge before the agent begins generating project-specific skills — faster initial ramp-up than a blank-slate agent",
-            "Integrate Hermes with your team's messaging platform (Slack, Discord, or Teams via the messaging integrations) to give the agent a persistent presence in engineering channels"
+            "Run multi-agent security audits with 300 domain-specialized sub-agents coordinating autonomously",
+            "Self-host a frontier-class coding model with commercial-friendly licensing",
+            "Build agent swarm workflows for large-scale code migrations, test generation, or documentation",
+            "Use Ollama to run K2.6 locally for agentic coding without API costs"
           ],
-          "tags": ["Nous Research", "Hermes Agent", "Open Source", "Self-Improving Agent", "GEPA", "Persistent Memory", "MIT"],
+          "tags": ["Moonshot AI", "Kimi", "Open Weight", "MoE", "Agent Swarm", "Agentic Coding"],
           "links": [
-            {"url": "https://hermes-agent.org/", "label": "Hermes Agent: official documentation and quickstart"},
-            {"url": "https://github.com/NousResearch/hermes-agent-self-evolution", "label": "GitHub: NousResearch/hermes-agent-self-evolution — GEPA implementation"},
-            {"url": "https://www.nxcode.io/resources/news/hermes-agent-complete-guide-self-improving-ai-2026", "label": "NxCode: Hermes Agent complete guide — self-improving AI 2026"},
-            {"url": "https://securityboulevard.com/2026/06/8-self-evolving-skills-hermes-agent-writes-on-its-own/", "label": "Security Boulevard: 8 self-evolving skills Hermes Agent writes on its own"}
+            {"url": "https://www.kimi.com/ai-models/kimi-k2-6", "label": "Kimi: K2.6 model overview"},
+            {"url": "https://deepinfra.com/blog/kimi-k2-6-model-overview", "label": "DeepInfra: K2.6 architecture and capabilities"},
+            {"url": "https://huggingface.co/moonshotai/Kimi-K2.6", "label": "Hugging Face: Kimi K2.6 weights"},
+            {"url": "https://blog.kilo.ai/p/kimi-k26-has-arrived-an-open-weight", "label": "Kilo AI: K2.6 open-weight powerhouse review"}
           ]
         },
         {
-          "title": "Google Antigravity 2.0: Agent-First Dev Platform With Desktop App, CLI, SDK, and Managed Execution",
-          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/",
-          "tldr": "Google launched Antigravity 2.0 at Google I/O on May 19, 2026 as a standalone agent-first development platform — a full pivot from AI-assisted coding to multi-agent orchestration as the core model. Version 2.0 ships five components: a desktop app (dynamic subagents, scheduled tasks, ecosystem integrations across AI Studio, Android, Firebase), a CLI for instant agent creation without a GUI, an SDK for programmatic agent harness access, the Managed Agents API for zero-infrastructure execution, and an enterprise deployment path. Google also launched an AI Ultra plan at $100/month with 5x higher limits than Pro. Native voice command support was added to Antigravity, and native Android vibe coding ships in Google AI Studio.",
-          "why_it_matters": "Antigravity 2.0 is the first major IDE-class tool designed from day one around multi-agent orchestration rather than single-agent copilot assistance. The architectural assumption is that you're running multiple agents in parallel — not one agent sequentially — and the desktop UI, CLI, and SDK are built around that primitively. The Managed Agents API integration means you can spin up an Antigravity agent without provisioning infrastructure — Gemini 3.5 Flash-backed sandboxes run on Google's infrastructure. For teams on Google Cloud, the stack cohesion (Antigravity + Managed Agents + Firebase + AI Studio) avoids the integration friction of assembling tooling from multiple vendors. The CLI component specifically addresses the use case where you want to create and invoke agents from scripts and CI/CD pipelines — no desktop app overhead required.",
-          "traction": "medium",
+          "title": "JetBrains Maps Top Agentic Frameworks for 2026: LangGraph, CrewAI, and Haystack Lead Production Adoption",
+          "url": "https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/",
+          "tldr": "JetBrains published a comprehensive guide to agentic frameworks in June 2026. LangGraph leads for complex multi-step workflows via stateful graphs. CrewAI dominates multi-agent collaboration where specialized agents divide tasks. Haystack (by deepset) wins for production RAG and retrieval-augmented agents. Framework adoption has nearly doubled YoY — from 9% of organizations in early 2025 to 18% by early 2026. 55% of developers now regularly use AI agents.",
+          "why_it_matters": "With framework adoption doubling and 55% of developers using agents, choosing the right framework is no longer experimental — it's a production architecture decision. JetBrains' guide maps the decision space: LangGraph for workflows with complex state management, CrewAI when you need multiple specialized agents collaborating, Haystack when RAG quality matters most. The 9% → 18% adoption jump means the early-adopter phase is over; teams not evaluating frameworks are falling behind their peers. Each framework has distinct strengths — this guide prevents the common mistake of picking one and forcing it to do everything.",
+          "traction": "high",
           "traction_evidence": [
-            "Launched May 19, 2026 at Google I/O — five-component platform shipped publicly same day",
-            "AI Ultra plan at $100/month signals enterprise tier targeting — 5x limit increase vs Pro",
-            "Native Android vibe coding in Google AI Studio — first official vibe-coding platform by a hyperscaler",
-            "Managed Agents API (Gemini 3.5 Flash-backed) integrated as default execution layer",
-            "Coverage by TechCrunch, MarkTechPost, AnalyticsVidhya, Memeburn, The Next Web, APIdog, BrightCoding"
+            "Published June 2026 by JetBrains (PyCharm Blog)",
+            "Framework adoption: 9% (early 2025) → 18% (early 2026) — nearly 2x YoY",
+            "55% of developers now regularly use AI agents",
+            "LangGraph, CrewAI, Haystack identified as production leaders",
+            "Corroborated by Datadog State of AI Engineering and Pragmatic Engineer survey data"
           ],
           "use_cases": [
-            "Use the Antigravity CLI to invoke agents from CI/CD scripts — trigger multi-agent workflows on PR creation without opening a desktop app",
-            "Orchestrate parallel subagents from the Antigravity desktop app for tasks that decompose cleanly (separate agents for frontend, backend, and test generation on a single feature)",
-            "Use the Antigravity SDK to build custom agent behaviors hosted on your own infrastructure — the SDK provides the same orchestration harness Google uses internally",
-            "Schedule background automation tasks in the desktop app for async workflows: nightly code review agents, daily dependency update checks, or weekly architecture drift analysis"
+            "Choose LangGraph for multi-step agent workflows requiring complex state management and branching",
+            "Use CrewAI when tasks need multiple specialized agents working in parallel or sequence",
+            "Pick Haystack for RAG-first agent architectures where retrieval quality drives output quality",
+            "Benchmark your team's framework adoption against the 18% industry average"
           ],
-          "tags": ["Google", "Antigravity 2.0", "Agent Platform", "Multi-Agent", "CLI", "SDK", "Google I/O 2026"],
+          "tags": ["JetBrains", "Agentic Frameworks", "LangGraph", "CrewAI", "Haystack", "Production"],
           "links": [
-            {"url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/", "label": "Google Blog: I/O 2026 developer highlights — Antigravity, Gemini API, AI Studio"},
-            {"url": "https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/", "label": "TechCrunch: Antigravity 2.0 with desktop app and CLI launches at I/O 2026"},
-            {"url": "https://www.marktechpost.com/2026/05/19/google-launches-antigravity-2-0-at-i-o-2026-a-standalone-agent-first-platform-with-cli-sdk-managed-execution-and-enterprise-support/", "label": "MarkTechPost: Antigravity 2.0 — standalone agent-first platform deep dive"},
-            {"url": "https://www.analyticsvidhya.com/blog/2026/05/google-antigravity-2-0/", "label": "Analytics Vidhya: Google Antigravity 2.0 — full developer guide"}
+            {"url": "https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/", "label": "JetBrains: Top agentic frameworks 2026"},
+            {"url": "https://www.datadoghq.com/state-of-ai-engineering/", "label": "Datadog: State of AI Engineering — framework adoption data"},
+            {"url": "https://newsletter.pragmaticengineer.com/p/ai-tooling-2026", "label": "Pragmatic Engineer: AI tooling survey 2026"},
+            {"url": "https://blog.logrocket.com/ai-dev-tool-power-rankings/", "label": "LogRocket: AI dev tool power rankings June 2026"}
           ]
         }
       ]
@@ -184,57 +185,85 @@
       "name": "Infrastructure & Production",
       "articles": [
         {
-          "title": "LLM Gateway Architecture 2026: The Proxy Layer That Cuts AI Costs 40-80% and Separates Failover From Fallback",
-          "url": "https://www.digitalapplied.com/blog/llm-gateway-architecture-2026-engineering-reference",
-          "tldr": "An LLM gateway has graduated from a convenience wrapper to critical production infrastructure in 2026. It's the proxy layer between your application and model providers that centralizes semantic caching, multi-provider routing, retry/fallback logic, budget enforcement, and compliance logging — so none of that lives in application code. The canonical 2026 routing stack is: retry-then-failover on top of provider-rotation on top of cache-on-failure. A critical distinction that most implementations miss: failover swaps the provider on transient infrastructure failures (5xx, timeout, network error), while fallback swaps the model or policy on semantic failures (429 rate limit, context-window overflow, guardrail block, quality floor miss). Semantic caching alone reduces LLM costs 40-80% and delivers 2.5x speedup on cache hits.",
-          "why_it_matters": "The Datadog State of AI Engineering 2026 data (published last week) shows approximately 5% of production AI requests fail — with ~60% of those failures from capacity limits (rate limits, quota exhaustion). An LLM gateway addresses this class of failure directly: with proper failover routing across multiple providers, a 429 from OpenAI doesn't surface as a user-visible error; it triggers an automatic switch to Anthropic or Gemini. The failover/fallback distinction matters architecturally because the two failure modes require different responses: a 5xx needs an identical request to a different provider, while a 429 needs a lighter model, a cached response, or a request queuing strategy. Teams implementing a single 'retry' strategy for both are conflating two different failure taxonomies. Semantic caching deserves special attention: at a 40-80% cost reduction, a gateway paying for itself on caching alone within weeks of deployment is a realistic outcome for high-volume applications.",
+          "title": "Databricks State of AI Agents 2026: Companies with Governance Tools Push 12x More Projects to Production",
+          "url": "https://www.databricks.com/resources/ebook/state-of-ai-agents",
+          "tldr": "Databricks' 2026 State of AI Agents report, analyzing 20,000+ global organizations, found that companies using AI governance tools push 12x more AI projects to production than those without. Organizations with evaluation tools deploy nearly 6x more. The new Unity AI Gateway extends Unity Catalog's governance model to agentic AI — applying permissions, auditing, and policy controls to how agents access LLMs and MCP servers. Only 19% of organizations have deployed AI agents, but those that have are already creating 97% of new databases.",
+          "why_it_matters": "The 12x production multiplier is the most concrete evidence yet that governance isn't a brake on AI adoption — it's an accelerator. Teams that invest in governance, evaluation, and proper data infrastructure ship more, not less. The Unity AI Gateway is Databricks' answer to the 'agents accessing everything' problem: fine-grained permissions, on-behalf-of access, cost attribution across models and teams, and unified API with built-in fallbacks and rate limits. The 19% deployment / 97% database creation stat reveals that the few organizations with agents in production are generating massive data infrastructure — everyone else is still piloting.",
           "traction": "high",
           "traction_evidence": [
-            "Semantic caching: 40-80% LLM cost reduction and 2.5x speedup on cache hits — measured across production deployments",
-            "Datadog 2026: 5% production failure rate with 60% caused by capacity limits — the exact problem gateways solve",
-            "Bifrost and Cloudflare AI Gateway are production-deployed gateways with documented case studies in 2026",
-            "AppScale, DigitalApplied, and LushBinary published detailed engineering references in June 2026",
-            "69% of companies now run 3+ LLMs (Datadog) — multi-provider routing is now the default architecture"
+            "20,000+ organizations analyzed in the report",
+            "12x more projects to production with governance tools",
+            "6x more deployments with evaluation tools",
+            "19% agent deployment rate, 97% of new databases from agents",
+            "Unity AI Gateway launched with MCP server governance",
+            "Covered by Databricks, SiliconANGLE, SaaStr, Intelligent CIO, StartupHub"
           ],
           "use_cases": [
-            "Implement semantic caching in your LLM gateway to cut API costs 40-80% — cache by embedding similarity, not exact string match, to hit semantically equivalent queries",
-            "Separate failover (provider swap on 5xx/timeout) from fallback (model swap on 429/context overflow) in your retry logic — conflating the two leads to under-retry on infrastructure failures and over-retry on quota failures",
-            "Add provider-rotation to your gateway to distribute requests across OpenAI, Anthropic, and Gemini — prevents single-provider quota exhaustion from becoming a production incident",
-            "Centralize cost tracking and budget enforcement at the gateway layer: enforce per-team token budgets and alert thresholds without modifying application code in each service"
+            "Implement AI governance before scaling agents — the 12x multiplier justifies the investment",
+            "Use Unity AI Gateway to control which agents access external LLMs and MCP servers with fine-grained permissions",
+            "Monitor and attribute costs across models, teams, and agentic workflows with built-in auditing",
+            "Evaluate your organization against the 19% deployment benchmark — and the 12x governance gap"
           ],
-          "tags": ["LLM Gateway", "Production AI", "Caching", "Routing", "Infrastructure", "Cost Optimization", "Reliability"],
+          "tags": ["Databricks", "AI Governance", "Unity Catalog", "Production AI", "Enterprise"],
           "links": [
-            {"url": "https://www.digitalapplied.com/blog/llm-gateway-architecture-2026-engineering-reference", "label": "DigitalApplied: LLM gateway architecture — 2026 engineering reference"},
-            {"url": "https://appscale.blog/en/blog/enterprise-llm-gateway-architecture-routing-rate-limiting-observability-2026", "label": "AppScale: Enterprise LLM gateway — routing, rate limiting, observability 2026"},
-            {"url": "https://lushbinary.com/blog/llm-gateway-model-routing-cost-optimization-guide/", "label": "LushBinary: LLM gateways and model routing — cost optimization guide"},
-            {"url": "https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-for-enterprise-grade-reliability-and-scale/", "label": "Maxim AI: Top 5 LLM gateways for enterprise-grade reliability in 2026"}
+            {"url": "https://www.databricks.com/blog/enterprise-ai-agent-trends-top-use-cases-governance-evaluations-and-more", "label": "Databricks Blog: Enterprise AI agent trends"},
+            {"url": "https://www.databricks.com/blog/ai-gateway-governance-layer-agentic-ai", "label": "Databricks Blog: Unity AI Gateway for agentic AI"},
+            {"url": "https://siliconangle.com/2026/01/27/databricks-reports-finds-surge-ai-agent-adoption-despite-governance-bottlenecks/", "label": "SiliconANGLE: AI agent adoption surge despite governance bottlenecks"},
+            {"url": "https://www.saastr.com/databricks-only-19-of-organizations-have-deployed-ai-agents-but-theyre-already-creating-97-of-databases/", "label": "SaaStr: 19% deployed, 97% of databases"}
           ]
         },
         {
-          "title": "LLM Observability in 2026: From Optional Add-On to Product Quality Infrastructure — Langfuse, Maxim AI, Arize Lead",
-          "url": "https://www.confident-ai.com/knowledge-base/compare/top-7-llm-observability-tools",
-          "tldr": "LLM observability has become standard production infrastructure in 2026 as the distinction between traditional APM and AI-specific monitoring has hardened. The leading platforms in the current landscape: Maxim AI for end-to-end observability integrated with simulation, evaluation, and experimentation; Langfuse for open-source teams needing detailed tracing and prompt management with full self-hosting; Arize AI for enterprise teams with existing ML monitoring that need to extend to LLMs; LangSmith for teams deeply committed to the LangChain/LangGraph ecosystem. Gartner projects LLM observability investment will reach 50% of GenAI deployments by 2028, up from 15% today.",
-          "why_it_matters": "The core insight driving LLM observability adoption in 2026 is that AI failures look nothing like infrastructure failures. Traditional APM tells you a request took 2.3 seconds and returned HTTP 200 — it tells you nothing about whether the response was correct, complete, or faithful to the prompt. LLM observability adds the missing signal: trace-level reasoning chains, prompt/response pairs with evaluation scores, regression detection when a model update degrades output quality, and user satisfaction signals that correlate AI behavior with downstream business outcomes. The production framing matters: teams that instrument their LLM calls only when debugging incidents are already too late. The value of LLM observability is in catching quality regressions before they surface as user complaints — which requires baseline measurement, continuous evaluation, and alerting on quality metrics, not just latency and error rates.",
+          "title": "Gemini CLI Retires June 18: What Teams Using Google's Dev Tools Need to Do This Week",
+          "url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/",
+          "tldr": "Google confirmed that Gemini CLI and Gemini Code Assist IDE extensions will cease on June 18, 2026 for AI Pro, AI Ultra, and free-tier users. All functionality migrates to Antigravity CLI, the Antigravity SDK, and the Antigravity desktop app. The transition requires updating CLI installations, migrating scripts that reference gemini-cli commands, and updating CI/CD configurations that depend on Gemini Code Assist.",
+          "why_it_matters": "This is a 9-day deadline. Any CI/CD pipeline, shell script, or developer workflow using gemini-cli or Gemini Code Assist IDE extensions will break on June 18 unless migrated. The Antigravity CLI is not a 1:1 rename — it's a new agent-first tool with different command semantics, so 'find and replace' won't cut it. Google is also shutting down the free tier's access to Gemini CLI, which means open-source projects and CI pipelines relying on free Gemini CLI access need alternative plans. Teams should audit their toolchains this week and migrate before the deadline.",
           "traction": "high",
           "traction_evidence": [
-            "Gartner: LLM observability will reach 50% of GenAI deployments by 2028 (15% today) — directional trend",
-            "Langfuse: open-source, self-hostable, widely adopted across production teams — active GitHub development",
-            "Arize AI: proven enterprise ML observability extended to LLMs with production-scale references",
-            "Pydantic Logfire recommends LLM observability as a standard backend engineering practice in 2026",
-            "Coverage by Confident AI, Maxim AI (multiple analysis posts), LangWatch, Pydantic, Level Up Coding, Cekura AI"
+            "Retirement date confirmed: June 18, 2026 — 9 days away",
+            "Affects AI Pro, AI Ultra, and free-tier users",
+            "Gemini CLI and Code Assist IDE extensions both retiring",
+            "Migration target: Antigravity CLI, SDK, and desktop app",
+            "Covered by Google Dev Blog, TechCrunch, analysis blogs"
           ],
           "use_cases": [
-            "Add Langfuse tracing to your existing LLM calls with a 3-line SDK wrapper — get prompt/response logging, latency tracking, and evaluation scores without changing your inference code",
-            "Use trace-level evaluation to detect quality regressions after model upgrades: compare pre/post deployment output distributions before rolling out a new model version",
-            "Build a quality baseline during development by logging all LLM calls in staging — when production incidents occur, compare against baseline to identify which prompt changes or model updates introduced the regression",
-            "Use LLM observability platforms to connect AI behavior to business metrics: track whether higher LLM quality scores correlate with task completion rates, support ticket deflection, or conversion events"
+            "Audit all CI/CD pipelines for gemini-cli or Gemini Code Assist dependencies this week",
+            "Migrate shell scripts from gemini-cli to Antigravity CLI — command semantics have changed",
+            "Update IDE plugin configurations from Gemini Code Assist to Antigravity extensions",
+            "Plan alternative access for open-source projects relying on free Gemini CLI tier"
           ],
-          "tags": ["LLM Observability", "Langfuse", "Arize AI", "Maxim AI", "LangSmith", "Production AI", "Monitoring"],
+          "tags": ["Google", "Gemini CLI", "Migration", "Antigravity", "CI/CD", "Deadline"],
           "links": [
-            {"url": "https://www.confident-ai.com/knowledge-base/compare/top-7-llm-observability-tools", "label": "Confident AI: Top 7 LLM observability tools in 2026 — ranked comparison"},
-            {"url": "https://langwatch.ai/blog/4-best-tools-for-monitoring-llm-agentapplications-in-2026", "label": "LangWatch: 4 best tools for monitoring LLM and agent applications in 2026"},
-            {"url": "https://pydantic.dev/articles/best-ai-observability-platform", "label": "Pydantic Logfire: Best AI observability platform in 2026"},
-            {"url": "https://levelup.gitconnected.com/what-is-llm-observability-the-complete-guide-2026-e2fd2969b036?gi=202f76c36125", "label": "Level Up Coding: LLM observability — the complete guide 2026"}
+            {"url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/", "label": "Google Dev Blog: Transitioning to Antigravity CLI"},
+            {"url": "https://jangwook.net/en/blog/en/google-io-2026-antigravity-2-agent-platform-analysis/", "label": "Analysis: Gemini CLI shutdown and what it means"},
+            {"url": "https://nerdleveltech.com/google-antigravity-2-agentic-coding-platform", "label": "Nerd Level Tech: Antigravity 2.0 agentic coding platform"},
+            {"url": "https://antigravity.google/blog/google-io-2026", "label": "Google Antigravity Blog: I/O 2026 launch details"}
+          ]
+        },
+        {
+          "title": "Apple Core AI Framework: Run Custom Models on Apple Silicon with Neural Engine Optimization",
+          "url": "https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/",
+          "tldr": "Apple introduced Core AI at WWDC 2026 — a new framework optimized for Apple silicon's unified memory and Neural Engine that replaces Core ML as the primary way to run custom on-device models. Core AI is designed specifically for the Neural Engine's architecture, providing better performance than Core ML for transformer-based models. Combined with the Foundation Models framework for Apple's own models and the LanguageModel protocol for cloud providers, this creates a three-tier AI stack: on-device custom (Core AI), on-device Apple (Foundation Models), and cloud (LanguageModel protocol).",
+          "why_it_matters": "Core AI completes Apple's three-tier AI architecture. The key insight is that Apple is investing in on-device inference as a first-class capability, not just a privacy feature. Core AI is optimized for transformer architectures on Neural Engine — meaning models designed for this pipeline will significantly outperform Core ML conversions. For ML engineers, this means Apple silicon is becoming a viable inference platform, not just a consumer chip. The three-tier stack (Core AI + Foundation Models + LanguageModel protocol) gives developers a clear decision framework: custom models on-device, Apple models on-device, or frontier models in the cloud — all through unified Apple frameworks.",
+          "traction": "high",
+          "traction_evidence": [
+            "Announced at WWDC 2026 keynote, June 8, 2026",
+            "Replaces Core ML for transformer-based on-device models",
+            "Optimized for Apple silicon Neural Engine and unified memory",
+            "Part of iOS 27, macOS 27 (Golden Gate) SDK",
+            "Covered by Apple Newsroom, TechTimes, Popular Science, ChatForest"
+          ],
+          "use_cases": [
+            "Port custom transformer models to Core AI for optimized Neural Engine inference on Apple devices",
+            "Build offline-capable AI features using Core AI instead of requiring cloud API calls",
+            "Use the three-tier stack: Core AI for custom models, Foundation Models for Apple LLM, LanguageModel for cloud",
+            "Develop Apple Vision Pro and watchOS AI features with on-device inference via Core AI"
+          ],
+          "tags": ["Apple", "WWDC 2026", "Core AI", "On-Device ML", "Neural Engine", "Apple Silicon"],
+          "links": [
+            {"url": "https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/", "label": "Apple Newsroom: Intelligence frameworks and advanced tools"},
+            {"url": "https://developer.apple.com/news/?id=lvart8mq", "label": "Apple Developer: Platforms State of the Union takeaways"},
+            {"url": "https://www.techtimes.com/articles/318039/20260609/wwdc-2026-developer-tools-foundation-models-now-swaps-ai-providers-without-code-changes.htm", "label": "TechTimes: WWDC 2026 developer tools"},
+            {"url": "https://runaihome.com/blog/wwdc-2026-apple-foundation-models-core-ai-home-lab-2026/", "label": "RunAIHome: Core AI and Foundation Models for home lab builders"}
           ]
         }
       ]
