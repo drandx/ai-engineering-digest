@@ -1,0 +1,215 @@
+{
+  "highlights": [
+    {"text": "Anthropic ships Claude Fable 5 — its first public Mythos-class model — excelling at SWE, knowledge work, and vision at $10/$50 per M tokens, with hard safety limits that fall back to Opus 4.8 in high-risk domains", "anchor": "ai-tools-and-models-0"},
+    {"text": "Miasma worm compromises 73 Microsoft GitHub repos: a self-replicating supply chain attack that weaponizes AI coding tools (Claude Code, Cursor, Gemini CLI) as the infection vector — toolkit open-sourced June 9", "anchor": "infrastructure-and-production-0"},
+    {"text": "Apple ships the LanguageModel protocol in Foundation Models: iOS 27 apps can swap between on-device Apple models, Claude, and Gemini via Swift Package Manager with zero session-code changes", "anchor": "ai-tools-and-models-1"},
+    {"text": "VS Code 1.123 goes all-in on agents: Session Sync across machines, /chronicle for searching your AI coding history, a Research Agent preview, and 1M-token context windows", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Microsoft Work IQ APIs hit GA June 16: 10 generic MCP tools that give any agent semantic access to M365 email, calendar, meetings, chats, and files — billed via Copilot Credits", "anchor": "developer-tools-and-frameworks-1"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Claude Fable 5: Anthropic's First Public Mythos-Class Model Ships with Hard Safety Limits",
+          "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+          "tldr": "Released June 9, 2026, Claude Fable 5 is the most capable model Anthropic has ever made publicly available — a Mythos-class architecture that significantly outperforms competitors on software engineering, knowledge work, and vision tasks. Pricing is $10 per million input tokens and $50 per million output tokens (double Opus 4.8). Through June 22, Fable 5 is included in Pro, Max, Team, and seat-based Enterprise plans at no extra cost; after June 23, it moves to usage credits. In high-risk domains (cybersecurity, biology, chemistry, distillation), the model blocks responses and falls back to Claude Opus 4.8. Anthropic also deployed Mythos 5 — the same underlying model with safeguards lifted — to pre-approved organizations.",
+          "why_it_matters": "Fable 5 is the first time Anthropic has made a Mythos-class model broadly available, and the safety architecture is the story engineers should pay attention to. Rather than a single model with a uniform capability profile, Anthropic has implemented domain-specific capability boundaries: the model actively refuses and falls back to Opus 4.8 in areas where unrestricted Mythos-class reasoning poses risks. For engineering teams, the practical impact is in the SWE and vision capabilities — Fable 5 is positioned as the strongest coding model Anthropic offers. The pricing at 2x Opus 4.8 means teams need to benchmark whether the capability uplift justifies the cost for their specific workloads, or whether Opus 4.8 remains the better cost-performance point for routine coding tasks. The June 23 billing transition is a hard deadline: audit your team's usage patterns before then.",
+          "traction": "high",
+          "traction_evidence": [
+            "Released June 9, 2026 — available immediately via Claude API and subscription plans",
+            "First Mythos-class model available to the general public",
+            "Pricing: $10/$50 per million tokens — 2x Opus 4.8",
+            "Through June 22 included in Pro/Max/Team/Enterprise plans; usage credits required after June 23",
+            "Coverage by TechCrunch, CNBC, Hacker News, SD Times, Yahoo Finance, CodersEra, Heise"
+          ],
+          "use_cases": [
+            "Benchmark Fable 5 against Opus 4.8 on your team's most complex coding tasks — the Mythos architecture may deliver step-change improvements on multi-file refactoring and architectural reasoning",
+            "Evaluate the safety fallback behavior: if your workload touches security analysis or vulnerability research, test how the Opus 4.8 fallback affects output quality in those domains",
+            "Set up cost monitoring before June 23 — the transition from plan-included to usage credits will change your monthly AI spend if your team is heavy Fable 5 users",
+            "Use Fable 5's vision capabilities for code review tasks involving diagrams, screenshots, or UI mockups — Mythos-class visual reasoning is a meaningful upgrade over Opus 4.8"
+          ],
+          "tags": ["Anthropic", "Claude", "Fable 5", "Mythos", "LLM", "Safety", "Frontier Model"],
+          "links": [
+            {"url": "https://www.anthropic.com/news/claude-fable-5-mythos-5", "label": "Anthropic: Claude Fable 5 and Mythos 5 announcement"},
+            {"url": "https://techcrunch.com/2026/06/09/anthropic-released-claude-fable-5-its-most-powerful-model-publicly-days-after-warning-ai-is-getting-too-dangerous/", "label": "TechCrunch: Anthropic releases Fable 5 days after warning AI is becoming too dangerous"},
+            {"url": "https://www.cnbc.com/2026/06/09/anthropic-mythos-claude-fable-5.html", "label": "CNBC: Anthropic releases Mythos-like AI model to the public"},
+            {"url": "https://codersera.com/blog/claude-fable-5-launch-guide-2026/", "label": "CodersEra: Claude Fable 5 launch guide — benchmarks, pricing, and what's new"}
+          ]
+        },
+        {
+          "title": "Apple Foundation Models: LanguageModel Protocol Lets iOS 27 Apps Swap Between On-Device, Claude, and Gemini",
+          "url": "https://developer.apple.com/videos/play/wwdc2026/241/",
+          "tldr": "Announced at WWDC 2026, Apple's Foundation Models framework introduces the LanguageModel protocol — a public Swift interface that lets any iOS 27, macOS 27 (Golden Gate), iPadOS 27, watchOS 27, or visionOS 27 app use AI models through a unified API. Developers can swap between Apple's on-device model, Claude (via Anthropic's Swift package), and Gemini (via Firebase Apple SDK) through Swift Package Manager with no session-code changes. New capabilities include multimodal prompts (images alongside text), built-in Vision tools (OCR, barcode readers), Spotlight-powered local RAG, and Dynamic Profiles for swapping models, tools, and instructions at runtime. A Python SDK is also available for server-side development.",
+          "why_it_matters": "The LanguageModel protocol is Apple's answer to the model lock-in problem, and it's architecturally significant because it operates at the OS framework level, not the application level. Any app built against Foundation Models can offer users a choice of AI provider — on-device for privacy and offline use, Claude for complex reasoning, Gemini for multimodal tasks — without the developer writing provider-specific code. The built-in Vision tools (OCR, barcode) and Spotlight RAG mean on-device AI apps can reason about visual content and retrieve local data without any cloud calls. For iOS developers, this is the API that makes AI a first-class platform capability rather than a third-party integration. The Python SDK extends this to server-side, making the protocol useful beyond Apple's client platforms.",
+          "traction": "high",
+          "traction_evidence": [
+            "WWDC 2026 Platform State of the Union — developer beta available immediately",
+            "Anthropic and Google confirmed as launch providers with published Swift packages",
+            "Built-in Vision tools: OCRTool, BarcodeReaderTool — no third-party dependencies for visual AI",
+            "Spotlight-powered local RAG — fully on-device retrieval-augmented generation",
+            "Coverage by Apple Developer, TechTimes, ByteIota, Implicator, ChatForest, RunAIHome"
+          ],
+          "use_cases": [
+            "Build iOS 27 apps that offer users a choice of AI provider: on-device for offline/privacy, Claude for deep reasoning, Gemini for multimodal — one codebase, three backends",
+            "Use the built-in OCRTool and BarcodeReaderTool to let on-device models reason about receipts, labels, documents, and product barcodes without cloud API calls",
+            "Implement Spotlight-powered local RAG to build privacy-first AI apps that search and reason over the user's on-device data — no data leaves the phone",
+            "Use Dynamic Profiles to A/B test different models in production: swap the underlying model per user segment without deploying new code"
+          ],
+          "tags": ["Apple", "WWDC 2026", "Foundation Models", "Swift", "iOS 27", "LanguageModel Protocol", "MCP", "On-Device AI"],
+          "links": [
+            {"url": "https://developer.apple.com/videos/play/wwdc2026/241/", "label": "Apple Developer: What's new in the Foundation Models framework — WWDC26"},
+            {"url": "https://developer.apple.com/videos/play/wwdc2026/339/", "label": "Apple Developer: Bring an LLM provider to the Foundation Models framework"},
+            {"url": "https://developer.apple.com/documentation/FoundationModels", "label": "Apple Developer: Foundation Models documentation"},
+            {"url": "https://www.techtimes.com/articles/318039/20260609/wwdc-2026-developer-tools-foundation-models-now-swaps-ai-providers-without-code-changes.htm", "label": "TechTimes: Foundation Models swaps AI providers without code changes"}
+          ]
+        },
+        {
+          "title": "Claude Code Ships Nested Subagent Support: Managing Context Limits in Complex Workflows",
+          "url": "https://releasebot.io/updates/anthropic/claude-code",
+          "tldr": "Boris Cherny, Claude Code lead at Anthropic, announced nested subagent support — a feature that allows Claude Code to spawn hierarchical agent trees where parent agents delegate subtasks to child agents, each with their own context window. This addresses the fundamental constraint of complex agentic workflows: a single agent attempting a multi-file refactoring or large codebase analysis eventually hits context limits and loses coherence. With nested subagents, the parent agent maintains the high-level plan while child agents handle scoped tasks (analyzing a single file, running a specific test suite, reviewing one module) within their own context boundaries. Results flow back to the parent for synthesis.",
+          "why_it_matters": "Context window management is the operational bottleneck that separates toy agent demos from production agentic workflows. A single Claude Code session working on a large codebase can exhaust its context window mid-task, leading to lost context, repeated work, or degraded output quality. Nested subagents solve this by decomposing work into context-scoped units: the parent agent never needs to hold all the details simultaneously, and child agents get clean context windows for their specific subtasks. This is the architectural pattern that makes whole-codebase operations (refactoring across 50 files, comprehensive test generation, architectural audits) reliable rather than probabilistic. For teams using Claude Code in CI/CD or batch automation, this directly improves the success rate of complex automated tasks.",
+          "traction": "medium",
+          "traction_evidence": [
+            "Announced by Boris Cherny, Claude Code lead at Anthropic",
+            "Addresses the #1 operational constraint in agentic coding: context window exhaustion during complex tasks",
+            "Claude Code estimated at ~$15.5B ARR — nested subagents serve the power-user segment driving that revenue",
+            "Builds on the Claude Agent SDK's existing subagent primitives, now available in the interactive CLI",
+            "Referenced in Crescendo AI's June 2026 news roundup and multiple developer community discussions"
+          ],
+          "use_cases": [
+            "Run whole-codebase refactoring with Claude Code: the parent agent plans the migration, spawns child agents per module, each child refactors within its own clean context window",
+            "Use nested subagents for comprehensive test generation: parent identifies untested code paths, child agents write tests for each path without polluting each other's context",
+            "Build CI/CD pipelines that use Claude Code for multi-step code review: one subagent checks for bugs, another reviews security, a third evaluates performance — results synthesized by the parent",
+            "Debug complex issues by delegating investigation to subagents: one reads logs, another traces the call stack, a third checks recent commits — parent correlates findings"
+          ],
+          "tags": ["Anthropic", "Claude Code", "Subagents", "Context Management", "Agentic Coding", "Developer Tools"],
+          "links": [
+            {"url": "https://releasebot.io/updates/anthropic/claude-code", "label": "Releasebot: Claude Code updates — June 2026"},
+            {"url": "https://code.claude.com/docs/en/agent-sdk/overview", "label": "Claude Code Docs: Agent SDK overview"},
+            {"url": "https://www.crescendo.ai/news/latest-ai-news-and-updates", "label": "Crescendo AI: Latest AI news — June 2026"},
+            {"url": "https://github.com/anthropics/claude-agent-sdk-python", "label": "GitHub: anthropics/claude-agent-sdk-python"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "VS Code 1.123: Agent Session Sync, Chronicle Search, Research Agent, and 1M-Token Context Windows",
+          "url": "https://code.visualstudio.com/updates/v1_123",
+          "tldr": "Released June 3, 2026, VS Code 1.123 is the most agent-focused release in the editor's history. Chat sessions now sync automatically to your GitHub account across machines and workspaces, capturing conversations, files touched, repository context, branches, timestamps, and linked PRs/issues. The new /chronicle command lets you search your AI coding history with natural language. A Research Agent preview (Insiders only) runs deep research on any topic and produces a cited Markdown report — optimized for depth over speed with read-only access. The Agents window supports multiple side-by-side sessions. Context windows expanded to 1 million tokens for compatible Anthropic and OpenAI models. Remote agent sessions (preview) run over SSH or Dev Tunnels and persist when the client disconnects. BYOK expanded to air-gapped environments.",
+          "why_it_matters": "Session Sync and Chronicle together solve a problem that every team using AI coding tools faces: institutional knowledge locked in ephemeral chat sessions. Previously, the reasoning and decisions an AI made during a complex debugging session vanished when you closed the tab. Now that context is searchable across your entire history — 'how did I fix that authentication bug last month?' becomes a natural-language query. The 1M-token context support is the infrastructure that makes whole-codebase reasoning practical inside VS Code rather than requiring a separate tool. Remote agent sessions are the enterprise unlock: run an agent on a powerful remote machine, disconnect your laptop, reconnect later — the agent kept working. For distributed teams, this means agent sessions that outlive individual developer sessions.",
+          "traction": "high",
+          "traction_evidence": [
+            "VS Code 1.123 released June 3, 2026 — available to all users immediately",
+            "Session Sync: automatic GitHub-backed sync of AI sessions across machines and workspaces",
+            "/chronicle: natural-language search across all past AI coding sessions",
+            "1M-token context windows for Anthropic and OpenAI models — largest native context in any mainstream IDE",
+            "Coverage by Visual Studio Magazine, DevOps.com, Neowin, Windows Forum, Windows Report, Nsane Forums"
+          ],
+          "use_cases": [
+            "Use /chronicle to search past debugging sessions: 'when did I last touch the auth middleware?' or 'show me the reasoning behind the database schema change' — turns ephemeral AI chats into searchable institutional knowledge",
+            "Run long-running agent tasks on a remote machine via Remote Agent Sessions: start a complex refactoring on your office workstation, disconnect, continue monitoring from your laptop at home",
+            "Open multiple agent sessions side-by-side to compare different approaches to the same problem — run Claude on one side, GPT on the other, evaluate outputs in parallel",
+            "Use the Research Agent to generate cited reports on unfamiliar codebases, APIs, or architectural patterns before diving into implementation — depth-first research without context-switching"
+          ],
+          "tags": ["VS Code", "Microsoft", "IDE", "Agent Sessions", "Developer Tools", "Chronicle", "Context Window"],
+          "links": [
+            {"url": "https://code.visualstudio.com/updates/v1_123", "label": "VS Code: 1.123 release notes"},
+            {"url": "https://visualstudiomagazine.com/articles/2026/06/04/vs-code-1-123-adds-agent-session-sync-1m-context-windows.aspx", "label": "Visual Studio Magazine: VS Code 1.123 adds agent session sync and 1M context"},
+            {"url": "https://devops.com/visual-studio-code-1-123-brings-deeper-ai-integration-and-smarter-agent-tools/", "label": "DevOps.com: VS Code 1.123 brings deeper AI integration and smarter agent tools"},
+            {"url": "https://www.neowin.net/news/vs-code-1123-introduces-massive-upgrades-for-persistent-ai-developer-workflows/", "label": "Neowin: VS Code 1.123 introduces massive upgrades for persistent AI developer workflows"}
+          ]
+        },
+        {
+          "title": "Microsoft Work IQ APIs Hit GA June 16: 10 MCP Tools Give Any Agent Semantic Access to M365",
+          "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/",
+          "tldr": "Announced at Microsoft Build 2026 on June 2 and reaching general availability on June 16, 2026, the Work IQ APIs provide a semantic intelligence layer over Microsoft 365 data — email, calendar, meetings, chats, files, people, collaboration patterns, and line-of-business systems. Instead of exposing hundreds of data-specific Graph API endpoints, Work IQ collapses operations into 10 generic tools with progressive disclosure through Model Context Protocol (MCP). Each agent gets a digital workspace within the M365 tenant boundary that stores data, files, memory, progress, and intermediate outputs. Billing is consumption-based via Copilot Credits — no separate SKU or per-user license. The APIs ship as REST, A2A (agent-to-agent), and a redesigned remote MCP server.",
+          "why_it_matters": "The Graph API has over 1,000 endpoints — teaching an agent to navigate that surface area is a significant prompt engineering and tool-use challenge. Work IQ's reduction to 10 generic MCP tools with progressive disclosure is the design insight that matters: agents don't need to know the full API surface, they discover capabilities contextually through MCP. The digital workspace concept solves the statefulness problem in enterprise agents: intermediate results, progress, and memory persist within the M365 tenant boundary, so agents can resume work across sessions without external state management. For teams building enterprise agents that need access to organizational context (who's working on what, which meetings discussed this feature, what emails reference this customer), Work IQ is the difference between building a RAG pipeline over exported data and getting live semantic access to the M365 graph.",
+          "traction": "high",
+          "traction_evidence": [
+            "Announced June 2 at Microsoft Build 2026 — GA on June 16, 2026",
+            "10 generic MCP tools replace hundreds of data-specific Graph API endpoints",
+            "Digital workspaces: agent-scoped state within M365 tenant boundary",
+            "Consumption billing via Copilot Credits — no separate subscription or per-user license",
+            "Coverage by Microsoft 365 Blog, Microsoft 365 Developer Blog, LinkLoot, ChatForest, Windows Forum"
+          ],
+          "use_cases": [
+            "Build agents that query organizational context: 'who discussed feature X in meetings last week?' or 'which emails from the customer mention the deadline?' — Work IQ provides semantic search, not just keyword matching",
+            "Use the MCP server to connect non-Microsoft agents (LangGraph, CrewAI, Claude Code) to M365 data — the MCP interface means any MCP-compatible agent can access Work IQ without Microsoft-specific SDKs",
+            "Deploy enterprise agents with persistent state: the digital workspace stores progress and intermediate outputs within your M365 tenant, so agents can resume complex multi-session tasks",
+            "Audit your Copilot Credits consumption before June 16 — Work IQ billing draws from the same pool as Copilot Studio, so model your expected agent traffic against your credit allocation"
+          ],
+          "tags": ["Microsoft", "Work IQ", "M365", "MCP", "Enterprise AI", "Build 2026", "Graph API"],
+          "links": [
+            {"url": "https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/", "label": "Microsoft 365 Blog: Announcing the new Work IQ APIs"},
+            {"url": "https://devblogs.microsoft.com/microsoft365dev/work-iq-production-ready-intelligence-for-every-agent/", "label": "Microsoft 365 Developer Blog: Work IQ — production-ready intelligence for every agent"},
+            {"url": "https://linkloot.io/blog/microsoft-work-iq-apis-ga-june-2026", "label": "LinkLoot: Microsoft Work IQ APIs go GA June 16 — what agent builders get"},
+            {"url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq", "label": "Microsoft Learn: Work IQ MCP overview (preview)"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Miasma Worm Compromises 73 Microsoft GitHub Repos: AI Coding Tools Are Now a Supply Chain Attack Vector",
+          "url": "https://www.stepsecurity.io/blog/miasma-worm-hits-microsoft-again-azure-functions-action-and-72-other-repositories-disabled-after-supply-chain-attack-targeting-ai-coding-agents",
+          "tldr": "On June 5, 2026, the Miasma worm — a self-replicating, Bun-based supply chain malware — compromised 73 Microsoft GitHub repositories across the Azure, Azure-Samples, Microsoft, and MicrosoftDocs organizations. The attack used previously compromised contributor credentials to push a malicious commit to Azure/durabletask, introducing configuration files that triggered credential-harvesting payloads when repositories were opened in AI coding tools (Claude Code, Gemini CLI, Cursor, VS Code). The worm harvests credentials for AWS, Azure, GCP, Kubernetes, npm, and GitHub, then automatically propagates by committing itself back into any repository the stolen tokens can write to. GitHub disabled affected repos in a 105-second automated sweep. On June 9, an unknown actor open-sourced the full Miasma toolkit, which has been linked to 73 Microsoft repos, 32 Red Hat npm packages, and 57 additional npm packages across 286+ malicious versions since May 29.",
+          "why_it_matters": "Miasma represents a new class of supply chain attack that specifically targets the way engineers work in 2026: by poisoning repository configuration files that AI coding tools automatically parse. When you open a repo in Claude Code or Cursor, these tools read configuration files (.claude/settings.json, .cursor/rules, MCP configs) to set up the development environment — Miasma exploits this trust by embedding credential-harvesting payloads in those files. The self-replicating aspect is what makes this a worm rather than a one-off attack: each compromised developer's credentials are used to infect more repositories, creating exponential propagation. The open-sourcing of the toolkit on June 9 means copycat attacks are now trivial to launch. Engineering teams need to immediately audit their AI tool configurations: what files do your coding agents trust? What permissions do they inherit? The 105-second GitHub response time is impressive, but the damage was done in the propagation window.",
+          "traction": "high",
+          "traction_evidence": [
+            "73 Microsoft GitHub repos compromised across Azure, Azure-Samples, Microsoft, MicrosoftDocs orgs",
+            "Targets AI coding tools specifically: Claude Code, Gemini CLI, Cursor, VS Code",
+            "Harvests credentials for AWS, Azure, GCP, Kubernetes, npm, GitHub — self-propagates via stolen tokens",
+            "Toolkit open-sourced June 9, 2026 — lowering the barrier for copycat attacks",
+            "Coverage by TechCrunch, The Register, Hacker News, StepSecurity, Rescana, SC Media, Windows Forum, Perplexity AI Magazine"
+          ],
+          "use_cases": [
+            "Audit your AI coding tool configuration files immediately: check .claude/settings.json, .cursor/rules, .vscode/settings.json, and MCP configs for unexpected entries in every repository your team clones",
+            "Implement repository-level allowlists for AI tool configurations: don't let coding agents automatically trust config files from external repositories without review",
+            "Review your GitHub token scopes: the worm propagates using stolen tokens with write access — reduce token permissions to the minimum required scope for each integration",
+            "Add pre-clone hooks or CI checks that scan repository configuration files for known Miasma payload patterns before developers open repos in AI coding tools"
+          ],
+          "tags": ["Security", "Supply Chain", "Miasma Worm", "GitHub", "AI Coding Tools", "Credential Theft", "Microsoft"],
+          "links": [
+            {"url": "https://www.stepsecurity.io/blog/miasma-worm-hits-microsoft-again-azure-functions-action-and-72-other-repositories-disabled-after-supply-chain-attack-targeting-ai-coding-agents", "label": "StepSecurity: Miasma worm hits Microsoft again — 72 repositories disabled"},
+            {"url": "https://thehackernews.com/2026/06/miasma-worm-hits-73-microsoft-github.html", "label": "The Hacker News: Miasma worm hits 73 Microsoft GitHub repositories"},
+            {"url": "https://www.theregister.com/security/2026/06/08/github-nukes-70-microsoft-repos-amid-suspected-worm-attack/5252169", "label": "The Register: GitHub nukes 70+ Microsoft repos following suspected worm infections"},
+            {"url": "https://www.rescana.com/post/miasma-worm-supply-chain-attack-73-microsoft-github-repositories-compromised-via-ai-coding-tools", "label": "Rescana: Miasma worm supply chain attack — 73 Microsoft repos compromised via AI coding tools"}
+          ]
+        },
+        {
+          "title": "AI Coding Tool Security: The Attack Surface Engineers Aren't Auditing",
+          "url": "https://windowsforum.com/threads/miasma-worm-how-ai-coding-agents-turn-open-a-repo-into-a-security-boundary.423913/",
+          "tldr": "The Miasma worm incident has triggered a broader industry conversation about the security model of AI coding tools. A Windows Forum technical analysis argues that AI coding agents have turned 'open a repository' into a security boundary crossing — when Claude Code, Cursor, or Gemini CLI parse a repo's configuration files, they effectively execute untrusted instructions with the developer's full credential set. The Hacker News hiring thread for June 2026 shows a surge in demand for security engineers specializing in AI tool infrastructure. Meanwhile, the Hacker News trends analysis notes that 'trust, security, and controlled workflows' have displaced 'flashy demos' as the dominant AI conversation. Microsoft's own MXC (Execution Containers) — announced at Build 2026 — is positioned as the OS-level answer to this problem, but it's still in early preview (schema v0.6.0-alpha).",
+          "why_it_matters": "Every AI coding tool that reads repository configuration files, MCP server definitions, or tool specifications is implicitly running a trust protocol: it assumes the repository owner's configuration is benign. Miasma proved that assumption is exploitable at scale. The security model gap is specific: traditional code review catches malicious source code, but AI tool configurations (.claude/, .cursor/, .mcp.json) often bypass code review because they're treated as developer preferences rather than executable code. This is a class of vulnerability, not a single incident — any AI tool that auto-loads configuration from untrusted repositories is susceptible. The engineering response needs to happen at three layers: (1) tool vendors need sandboxed config parsing, (2) organizations need policies treating AI configs as reviewed artifacts, and (3) developers need awareness that cloning a repo now has a broader attack surface than it did 18 months ago.",
+          "traction": "emerging",
+          "traction_evidence": [
+            "Triggered by Miasma worm compromising 73 Microsoft GitHub repos via AI tool configuration files",
+            "Hacker News June 2026 hiring thread: surge in demand for AI tool security engineers",
+            "Hacker News trends analysis: 'trust, security, and controlled workflows' dominate AI conversations",
+            "Microsoft MXC (Build 2026) positioned as OS-level agent sandboxing — but still alpha",
+            "Coverage by Windows Forum, Complex Discovery, Dataminr, CyberSec Guru, multiple HN discussions"
+          ],
+          "use_cases": [
+            "Treat AI tool configuration files (.claude/, .cursor/, .mcp.json, .vscode/mcp.json) as reviewed artifacts in your code review process — they're executable instructions, not preferences",
+            "Implement a 'sandbox-first' policy for external repositories: open untrusted repos in a container or VM before allowing AI tools to parse their configuration",
+            "Evaluate Microsoft MXC as a future sandboxing layer for agent execution — track the schema evolution from v0.6.0-alpha toward GA",
+            "Add AI tool configuration file scanning to your CI/CD pipeline: flag new or modified config files in PRs the same way you'd flag changes to Dockerfiles or CI configs"
+          ],
+          "tags": ["Security", "AI Coding Tools", "Supply Chain", "Trust Model", "MXC", "Agent Security", "DevSecOps"],
+          "links": [
+            {"url": "https://windowsforum.com/threads/miasma-worm-how-ai-coding-agents-turn-open-a-repo-into-a-security-boundary.423913/", "label": "Windows Forum: How AI coding agents turn 'open a repo' into a security boundary"},
+            {"url": "https://complexdiscovery.com/when-the-worm-targets-the-assistant-miasma-turns-ai-coding-agents-into-the-trigger/", "label": "Complex Discovery: When the worm targets the assistant"},
+            {"url": "https://blog.mean.ceo/hacker-news-trends-june-2026/", "label": "Hacker News Trends: June 2026 — trust, security, and controlled workflows"},
+            {"url": "https://hnhiring.com/june-2026", "label": "HN Hiring: June 2026 — AI security hiring surge"}
+          ]
+        }
+      ]
+    }
+  ]
+}
