@@ -17,11 +17,12 @@
   <section class="summary">
     <h2>Today's Highlights</h2>
     <ul>
-      <li><a href="https://code.visualstudio.com/updates/v1_124">VS Code 1.124 enables Copilot Autopilot by default — agents write files, run commands, and call tools autonomously, with Advanced Autopilot using a utility model to cap loops at three</a></li>
-      <li><a href="https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/">Google signs $920M/month deal with SpaceX for 110K NVIDIA GPUs as bridge capacity for surging Gemini Enterprise demand — SpaceX IPO is tomorrow (June 12)</a></li>
-      <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog State of AI Engineering: 69% of companies use 3+ models in production, 5% of AI requests fail (60% from capacity limits), and agent framework adoption doubled year-over-year</a></li>
-      <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Gemini 3.5 Pro nearing June launch with 2M-token context and Deep Think reasoning — Google told I/O attendees 'give us until next month' and the window is closing</a></li>
-      <li><a href="https://coralogix.com/blog/coralogix-raises-200m-to-scale-the-observability-backbone-for-theage-of-ai/">Coralogix raises $200M Series F at $1.6B valuation to build AI-native observability — over half of enterprise customers already use AI agents to investigate incidents</a></li>
+      <li><a href="https://opencode.ai/">OpenCode hits 172K stars and 7.5M monthly users — terminal-native, BYOK, 75+ model providers, LSP diagnostics fed back to the model — now the #1 AI coding tool per LogRocket June 2026</a></li>
+      <li><a href="https://developer.apple.com/videos/play/wwdc2026/258/">Xcode 27 ships dual-engine agentic coding: local Neural Engine completions stay on-device, Claude/Gemini/GPT routes for complex multi-file work — first IDE where privacy and frontier capability coexist by default</a></li>
+      <li><a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/">GitHub Copilot usage-based billing live since June 1: developers burning monthly credits in hours — one engineer depleted 8% of their allotment in 2 hours, another spent $6 on a single change request</a></li>
+      <li><a href="https://chatforest.com/builders-log/gemini-cli-dead-june-18-antigravity-cli-agy-migration/">Google kills Gemini CLI on June 18 — 7 days away — all Pro, Ultra, and free users must migrate to Antigravity CLI or lose access; organizations on paid API keys retain Gemini CLI access</a></li>
+      <li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/">Microsoft Work IQ APIs go GA June 16: the M365 intelligence layer for enterprise agents — email, calendar, meetings, files, and collaboration patterns available via MCP and REST to any agent builder</a></li>
+      <li><a href="https://openclaw.ai/">OpenClaw reaches 346K GitHub stars: privacy-first local AI agent running on your own device, connecting to 25+ messaging channels — the fastest GitHub project growth in recorded history</a></li>
     </ul>
   </section>
 
@@ -29,129 +30,133 @@
     <h2 class="section-title">AI Tools & Models</h2>
     <div class="article" id="ai-tools-&-models-0">
       <div class="article-header">
-        <h3><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog State of AI Engineering 2026: 69% Multi-Model, 5% Failure Rate, Framework Adoption Doubled</a></h3>
+        <h3><a href="https://opencode.ai/">OpenCode: Terminal-Native AI Coding Agent Hits 172K Stars and 7.5M Monthly Active Users</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">Datadog's 2026 State of AI Engineering report, drawn from thousands of production AI agent environments, reveals that 69% of companies now use three or more AI models in production alongside increasingly complex agent workflows. OpenAI holds 63% provider share, but Anthropic Claude and Google Gemini grew by 23 and 20 percentage points respectively. Around 5% of AI model requests fail in production, with nearly 60% of those failures caused by capacity limits. Agent framework adoption doubled year-over-year, rising from 9% to nearly 18% of organizations. The report identifies context engineering — retrieval quality, summarization, deduplication, and information hierarchy — as the key gap between what long-context models allow and what production agents reliably deliver.</p>
+      <p class="tldr">OpenCode is an open-source, terminal-native AI coding agent that reached 172K GitHub stars and 7.5 million monthly active users as of June 2026, making it the most-adopted open-source coding agent and the #1 tool in LogRocket's June 2026 AI dev tool power rankings. It supports 75+ model providers — Claude, GPT, Gemini, DeepSeek, and local models via Ollama — through a BYOK model where your cost is your provider's API cost, not a subscription premium. Key differentiators: LSP integration feeds compiler diagnostics directly to the model mid-session, a background subagents architecture runs parallel tasks without blocking the main session, and a Scout agent handles external research. Air-gapped deployment is supported for regulated industries.</p>
       <div class="article-meta">
-        <span class="tag">Datadog</span>
-        <span class="tag">AI Engineering</span>
-        <span class="tag">Production AI</span>
-        <span class="tag">Observability</span>
+        <span class="tag">OpenCode</span>
+        <span class="tag">AI Coding</span>
+        <span class="tag">Terminal</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">BYOK</span>
+        <span class="tag">LSP</span>
         <span class="tag">Multi-Model</span>
-        <span class="tag">Infrastructure</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>This is the most data-rich snapshot of how AI is actually running in production, not how vendors say it runs. The 5% failure rate is the number every engineering team should benchmark against — if your AI systems fail more often, you have an infrastructure problem. The 60% capacity-failure breakdown means the most common production AI outage isn't a bad prompt or a hallucination — it's running out of GPU capacity or hitting rate limits. The multi-model trend (69% using 3+ models) confirms that model lock-in is fading: teams are routing different tasks to different providers based on cost and capability. The context engineering finding is the actionable takeaway — long context windows are necessary but not sufficient; what you put in the context window matters more than how big it is.</p>
+        <p>OpenCode's rise to #1 reflects a structural shift in how developers want to interact with AI coding tools: from GUI-centric to terminal-first workflows where the agent fits into existing shell, git, and CI patterns rather than wrapping everything in a new IDE. The BYOK model is the key economic differentiator — with GitHub Copilot moving to metered billing and Cursor at $20-60/month, OpenCode's cost scales only with your actual token usage, not a platform premium. The LSP feedback loop is the technical differentiator: most coding agents work with static context, while OpenCode routes live compiler errors back to the model, closing the edit-compile-fix loop inside the agent session. The 75+ provider support means your workflows don't break when a model provider has an outage or raises prices.</p>
         <h4>Use cases</h4>
         <ul>
-          <li>Benchmark your production AI failure rate against the 5% industry baseline — if you're above it, investigate whether capacity limits or prompt issues are the primary driver</li>
-          <li>Implement multi-model routing: use the 69% multi-model trend as justification for building provider-agnostic abstractions that let you swap between Claude, GPT, and Gemini based on task type and cost</li>
-          <li>Invest in context engineering before upgrading to larger context windows — Datadog's data shows retrieval quality and deduplication matter more than raw token capacity</li>
-          <li>Monitor your AI framework dependencies: with adoption doubling, ensure you're tracking framework versions and breaking changes the same way you track other production dependencies</li>
+          <li>Replace your current AI coding tool with OpenCode to eliminate subscription costs — BYOK means you pay only for tokens consumed at provider API rates</li>
+          <li>Leverage LSP integration to close the edit-compile loop: OpenCode receives compiler diagnostics and lint errors in real time, letting the agent fix issues without requiring you to copy-paste error messages</li>
+          <li>Run background subagents for parallel work: kick off a refactoring task and a test generation task simultaneously without blocking your main terminal session</li>
+          <li>Deploy in air-gapped environments with local models via Ollama — for teams in regulated industries where no code can leave the network perimeter</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>Published April 21, 2026 — based on telemetry from thousands of production AI agent environments</li>
-          <li>69% of companies use 3+ AI models in production; OpenAI at 63% share, Anthropic and Google growing fastest</li>
-          <li>5% of AI model requests fail in production — 60% of failures from capacity limits</li>
-          <li>Agent framework adoption doubled YoY: 9% to 18% of organizations</li>
-          <li>Coverage by TechCrunch, BigDATAwire, APMdigest, Quiver Quantitative, DEV Community, CXOToday</li>
+          <li>172K GitHub stars — most-starred open-source AI coding agent as of June 2026</li>
+          <li>7.5 million monthly active users — larger MAU than most commercial coding tools</li>
+          <li>#1 in LogRocket June 2026 AI Dev Tool Power Rankings — first time a terminal agent has topped the list</li>
+          <li>75+ model providers supported via BYOK — Claude, GPT, Gemini, DeepSeek, local via Ollama</li>
+          <li>Air-gapped deployment support — adopted in regulated industries (finance, healthcare, defense)</li>
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog: State of AI Engineering 2026</a></li>
-          <li><a href="https://www.datadoghq.com/about/latest-news/press-releases/datadog-state-of-ai-engineering-report-2026/">Datadog Press Release: AI is hitting operational limits as companies rush to scale</a></li>
-          <li><a href="https://www.quiverquant.com/news/Datadog+Report+Reveals+Operational+Complexity+as+Major+Barrier+to+Scalable+AI+Adoption">Quiver Quantitative: Operational complexity as major barrier to scalable AI</a></li>
-          <li><a href="https://dev.to/mnemehq/datadogs-state-of-ai-engineering-report-quietly-confirms-the-governance-crisis-10ni">DEV Community: Datadog report confirms the governance crisis</a></li>
+          <li><a href="https://opencode.ai/">OpenCode: The open source AI coding agent</a></li>
+          <li><a href="https://blog.logrocket.com/ai-dev-tool-power-rankings/">LogRocket: AI dev tool power rankings June 2026 — OpenCode enters at #1</a></li>
+          <li><a href="https://www.morphllm.com/ai-coding-agent">MorphLLM: Best AI coding agents 2026 — Terminal-Bench, price, and source compared</a></li>
+          <li><a href="https://ssojet.com/blog/ai-coding-agents-compared">SSOJet: 12 AI coding agents compared — Claude Code vs Antigravity vs Codex vs Cursor vs OpenCode</a></li>
         </ul>
       </div>
     </div>
     <div class="article" id="ai-tools-&-models-1">
       <div class="article-header">
-        <h3><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Gemini 3.5 Pro Nearing June Launch: 2M-Token Context Window and Deep Think Reasoning</a></h3>
+        <h3><a href="https://developer.apple.com/videos/play/wwdc2026/258/">Xcode 27 Ships Dual-Engine Agentic Coding: On-Device Neural Engine Completions, Optional Cloud Routing for Claude, Gemini, and GPT</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">Google's Gemini 3.5 Pro — announced at Google I/O on May 19, 2026 — is expected to ship publicly any day now. Sundar Pichai told the I/O audience to 'give us until next month,' pointing to June 2026 as the release window. The model targets a 2-million-token context window, Deep Think reasoning (an extended thinking mode for complex problems), and frontier multimodal capabilities across text, image, audio, and video. Gemini 3.5 Flash is already shipping and outperforms the previous-generation 3.1 Pro on nearly all benchmarks while running 4x faster than other frontier models. Pro is currently in limited Vertex preview for select enterprise customers, with public availability expected imminently via AI Studio and the Gemini API.</p>
+      <p class="tldr">Announced at WWDC 2026 (June 8-9), Xcode 27 ships a dual-engine agentic coding system as its primary AI architecture. The local engine runs inline code completions entirely on Apple Silicon's Neural Engine with no source code transmitted to any server — ever, by default. The cloud engine routes complex agentic tasks (multi-file refactoring, test suite generation, autonomous debugging, UI refinement against a visual design) to selectable third-party agents from Anthropic, Google, and OpenAI via explicit developer opt-in. Agents support interactive planning, multi-turn Q&A, a Markdown-rendering canvas with side-by-side code and preview, iOS Simulator control, crash report analysis from Organizer, and Playgrounds for isolated idea testing. Xcode 27 runs exclusively on Apple Silicon and is 30% smaller than Xcode 26.</p>
       <div class="article-meta">
-        <span class="tag">Google</span>
-        <span class="tag">Gemini</span>
-        <span class="tag">LLM</span>
-        <span class="tag">Deep Think</span>
-        <span class="tag">Long Context</span>
-        <span class="tag">Frontier Model</span>
-        <span class="tag">Google I/O</span>
+        <span class="tag">Apple</span>
+        <span class="tag">Xcode 27</span>
+        <span class="tag">WWDC 2026</span>
+        <span class="tag">iOS</span>
+        <span class="tag">On-Device AI</span>
+        <span class="tag">Neural Engine</span>
+        <span class="tag">Privacy</span>
+        <span class="tag">Agentic Coding</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>Gemini 3.5 Pro is positioned to be Google's direct competitor to Claude Opus 4.8 and GPT-5.5 at the frontier tier. The 2M-token context window — double what most competitors offer — combined with Deep Think reasoning could make it the go-to model for tasks that require both massive context and deep reasoning: full-codebase analysis, long-document understanding, and multi-step agent workflows. The fact that 3.5 Flash already beats last year's Pro on benchmarks while running 4x faster signals that Pro should be a significant step up. For engineering teams, the practical question is whether to wait for Pro or build on Flash now — Flash is production-ready today and handles most agentic workloads, while Pro adds the ceiling for the hardest reasoning tasks. Google's pricing will be the deciding factor: 3.5 Flash already tripled compared to 3.1 Flash.</p>
+        <p>Xcode 27 is the first mainstream IDE where privacy-first and frontier-capability are the same default workflow, not a tradeoff. Completions stay on-device — your code never leaves your Mac unless you explicitly invoke a cloud agent. This is the answer to a question every engineering org using AI coding tools has been asking: how do we get AI code assistance without sending proprietary source code to external servers? The dual-engine architecture also means Apple Silicon Macs are now a first-class AI development environment without cloud dependency for the most common coding assistance pattern. For iOS/macOS teams at companies with strict data handling requirements, this removes the blocker that has kept many from adopting AI coding tools at all.</p>
         <h4>Use cases</h4>
         <ul>
-          <li>If you need to ship today, build on Gemini 3.5 Flash — it outperforms last year's Pro and is 4x faster than other frontier models for agentic workloads</li>
-          <li>Prepare your infrastructure for 2M-token context: test whether your prompts, RAG pipelines, and agent architectures can effectively use that much context without quality degradation</li>
-          <li>Evaluate Deep Think reasoning for your hardest engineering tasks — multi-step debugging, architectural analysis, and complex code generation where standard inference falls short</li>
-          <li>Request Vertex preview access now if you're an enterprise customer: search 'gemini-3-5-pro' in Vertex AI Model Garden and contact your account team for allowlist access</li>
+          <li>Enable Xcode 27 inline completions for your iOS/macOS team immediately — no data leaves the device, making this safe for teams under NDA, HIPAA, or proprietary code restrictions</li>
+          <li>Use the cloud agent opt-in for complex tasks: point Anthropic or Google agents at multi-file Swift refactors, let them iterate against the iOS Simulator and fix visual issues without leaving Xcode</li>
+          <li>Leverage crash report integration: pull Organizer crash reports directly into an agentic coding session to diagnose and fix production issues with full backtrace context</li>
+          <li>Test ideas in isolation via Playgrounds before committing — the agent can prototype in a Playground sandbox and show you a working result before touching production code</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>Announced at Google I/O 2026 on May 19 — Sundar Pichai committed to June release</li>
-          <li>3.5 Flash already shipping and outperforming 3.1 Pro on nearly all benchmarks</li>
-          <li>2M-token context window — largest among frontier models from the big three</li>
-          <li>Deep Think reasoning mode for extended problem-solving</li>
-          <li>Coverage by TechCrunch, TechTimes, CodersEra, WaveSpeed, ChatForest, ACTGSYS</li>
+          <li>Announced at WWDC 2026 Platform State of the Union, June 8-9 — Xcode 27 beta available immediately</li>
+          <li>On-device completions: zero source code transmission, runs on Neural Engine — confirmed by Apple engineering</li>
+          <li>Cloud agents from Anthropic, Google, OpenAI integrated — opt-in, not default — developer selectable</li>
+          <li>First Xcode release to require Apple Silicon exclusively — signals commitment to on-device AI as primary architecture</li>
+          <li>Coverage: Apple Developer, TechTimes, Lushbinary, Byteiota, iClarified, Pokde, Apple Newsroom</li>
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Google: Gemini 3.5 — frontier intelligence with action</a></li>
-          <li><a href="https://techcrunch.com/2026/05/19/with-gemini-3-5-flash-google-bets-its-next-ai-wave-on-agents-not-chatbots/">TechCrunch: With Gemini 3.5 Flash, Google bets on agents, not chatbots</a></li>
-          <li><a href="https://www.techtimes.com/articles/317919/20260606/google-gemini-35-pro-nears-june-launch-2-million-token-context-deep-think-reasoning.htm">TechTimes: Google Gemini 3.5 Pro nears June launch</a></li>
-          <li><a href="https://codersera.com/blog/gemini-3-5-pro-launch-guide-2026/">CodersEra: Gemini 3.5 Pro launch guide 2026</a></li>
+          <li><a href="https://developer.apple.com/videos/play/wwdc2026/258/">Apple Developer: What's new in Xcode 27 — WWDC26</a></li>
+          <li><a href="https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/">Apple Newsroom: Apple aids app development with new intelligence frameworks and advanced tools</a></li>
+          <li><a href="https://www.techtimes.com/articles/318110/20260610/wwdc-2026-day-3-xcode-27-neural-engine-completes-code-without-sending-source-any-server.htm">TechTimes: Xcode 27 Neural Engine completes code without sending source to any server</a></li>
+          <li><a href="https://lushbinary.com/blog/xcode-27-agentic-coding-device-hub-guide/">Lushbinary: Xcode 27 agentic coding and Device Hub guide</a></li>
         </ul>
       </div>
     </div>
     <div class="article" id="ai-tools-&-models-2">
       <div class="article-header">
-        <h3><a href="https://www.kimi.com/ai-models/kimi-k2-6">Kimi K2.6: Open-Weight Coding Model Runs 13-Hour Autonomous Sessions with 1,000+ Tool Calls</a></h3>
-        <span class="traction-badge traction-medium">Growing</span>
+        <h3><a href="https://openclaw.ai/">OpenClaw Passes 346K GitHub Stars: Privacy-First Local AI Agent Running on Your Own Devices Across 25+ Messaging Channels</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">Moonshot AI's Kimi K2.6 is an open-weight model released under the Modified MIT License that combines frontier-tier coding performance with unprecedented long-horizon agentic execution. In a demonstration, K2.6 autonomously overhauled exchange-core — an 8-year-old open-source financial matching engine — over a 13-hour session, iterating through 12 optimization strategies and making 1,000+ tool calls to modify 4,000+ lines of code. The model shows strong generalization across Rust, Go, and Python, and excels at front-end, DevOps, and performance optimization tasks. It currently leads the open-source leaderboard on coding and agentic coding benchmarks alongside GLM-5.1, DeepSeek V4-Pro, and Qwen3-Coder-Next. Available via Kimi.com, the API, Kimi Code, and on Ollama.</p>
+      <p class="tldr">OpenClaw (affectionately called 'Molty'), created by PSPDFKit founder Peter Steinberger, is a viral open-source personal AI assistant that runs entirely on your own devices — no cloud subscription, just bring your own API key. It connects the AI model to over 25 messaging channels including WhatsApp, Telegram, Slack, Discord, Signal, iMessage, Microsoft Teams, and Matrix, plus 50+ tool integrations. The project went from 9,000 stars at launch to over 346,000 stars by June 2026 — the fastest GitHub star growth in recorded history, surpassing even Docker and VSCode's early trajectories. Under Apache 2.0, deployable on any OS or platform.</p>
       <div class="article-meta">
+        <span class="tag">OpenClaw</span>
+        <span class="tag">Local AI</span>
         <span class="tag">Open Source</span>
-        <span class="tag">Kimi</span>
-        <span class="tag">Moonshot AI</span>
-        <span class="tag">Coding Agent</span>
-        <span class="tag">Long Horizon</span>
-        <span class="tag">Self-Hosted</span>
-        <span class="tag">Agentic</span>
+        <span class="tag">Personal AI</span>
+        <span class="tag">Privacy</span>
+        <span class="tag">Apache 2.0</span>
+        <span class="tag">Messaging</span>
+        <span class="tag">BYOK</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>The 13-hour autonomous session is the headline, but the engineering significance is deeper: K2.6 demonstrates that open-weight models can maintain coherent, goal-directed behavior over extremely long execution horizons — something that was previously frontier-model-only territory. The 1,000+ tool calls across 12 distinct optimization strategies shows the model can plan, execute, evaluate, and adapt without human intervention. For teams self-hosting coding agents, K2.6 under Modified MIT means you can run this locally without per-token API costs, which fundamentally changes the economics of agentic coding for high-volume workloads. The strong multi-language generalization (Rust, Go, Python) and task-type breadth (frontend, DevOps, performance) makes it a credible general-purpose coding backbone rather than a Python-only specialist.</p>
+        <p>OpenClaw solves a problem that no cloud AI assistant solves: you own the infrastructure, the data, and the model routing. Your conversations never leave your hardware unless you explicitly call an external API you control. For developers, the practical value is an AI agent that persists context across all the messaging apps your team actually uses — Slack, Telegram, Discord — without paying $20/month for a separate AI subscription per app. The 'bring your own API key' model means you use the same provider account you're already paying for (Claude API, OpenAI API) without an intermediary capturing your data or adding markup. The 50+ integrations mean the agent can take actions on GitHub, Google Calendar, email, and databases — a personal automation layer sitting on your preferred messaging UI.</p>
         <h4>Use cases</h4>
         <ul>
-          <li>Self-host K2.6 via Ollama for long-running agentic coding tasks where API costs would be prohibitive — 13-hour sessions at zero marginal token cost</li>
-          <li>Use K2.6 for legacy codebase modernization: its demonstrated ability to plan and execute multi-strategy refactoring over hours makes it suited for large-scale code transformation</li>
-          <li>Benchmark K2.6 against Opus 4.8 and GPT-5.5 on your team's specific workloads — open-weight models now compete on coding quality, and the cost advantage is significant for batch workloads</li>
-          <li>Deploy K2.6 as the coding backbone in multi-agent systems where you need high-volume tool calling without rate limits or API quotas</li>
+          <li>Deploy OpenClaw on a home server or NAS to get a personal AI agent that runs 24/7, responds on WhatsApp and Telegram, and costs only your API tokens</li>
+          <li>Replace per-app AI subscriptions: use one OpenClaw instance with your Claude or OpenAI key to power AI assistance across all your messaging apps simultaneously</li>
+          <li>Build team automation: deploy on internal infrastructure, connect to your GitHub, Slack, and Linear, and let the agent handle routine engineering tasks via natural language in chat</li>
+          <li>Use the 50+ integrations to build workflows that aren't possible in ChatGPT or Claude web: 'check my GitHub PRs, summarize overnight comments, draft responses and post them' — all triggered from iMessage</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>Open-weight under Modified MIT License — full self-hosting with no per-token costs</li>
-          <li>13-hour autonomous session: 12 optimization strategies, 1,000+ tool calls, 4,000+ lines modified</li>
-          <li>Top of open-source coding leaderboard alongside GLM-5.1, DeepSeek V4-Pro, Qwen3-Coder-Next</li>
-          <li>Available on Ollama, Hugging Face, and via API — immediate self-hosting path</li>
-          <li>Coverage by Kilo AI, TheSys.dev, MindStudio, multiple developer community discussions</li>
+          <li>346K+ GitHub stars as of June 2026 — fastest GitHub project growth trajectory in recorded history</li>
+          <li>25+ messaging channel integrations: WhatsApp, Telegram, Slack, Discord, Signal, iMessage, Teams, Matrix</li>
+          <li>50+ tool integrations covering GitHub, calendars, databases, email, web search</li>
+          <li>Apache 2.0 license — commercial use, self-hosting, no restrictions</li>
+          <li>NVIDIA blog feature: 'What OpenClaw Agents Mean for Every Organization' — enterprise interest signal</li>
+          <li>Coverage: Wikipedia, DigitalOcean, DataCamp, Milvus, NVIDIA, Medium, multiple developer communities</li>
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://www.kimi.com/ai-models/kimi-k2-6">Kimi: K2.6 — leading open-source model in coding and agent</a></li>
-          <li><a href="https://www.kimi.com/blog/kimi-k2-6">Kimi Tech Blog: Advancing open-source coding with K2.6</a></li>
-          <li><a href="https://huggingface.co/moonshotai/Kimi-K2.6">Hugging Face: moonshotai/Kimi-K2.6</a></li>
-          <li><a href="https://www.thesys.dev/blogs/kimi-k2-6">TheSys: Kimi K2.6 — benchmarks, 12-hour coding, and 300-agent swarms</a></li>
+          <li><a href="https://openclaw.ai/">OpenClaw: Your own personal AI assistant</a></li>
+          <li><a href="https://github.com/openclaw/openclaw">GitHub: openclaw/openclaw — 346K+ stars</a></li>
+          <li><a href="https://www.digitalocean.com/resources/articles/what-is-openclaw">DigitalOcean: What is OpenClaw? Your open-source AI assistant for 2026</a></li>
+          <li><a href="https://blogs.nvidia.com/blog/what-openclaw-agents-mean-for-every-organization/">NVIDIA: What OpenClaw agents mean for every organization</a></li>
         </ul>
       </div>
     </div>
@@ -160,87 +165,174 @@
     <h2 class="section-title">Developer Tools & Frameworks</h2>
     <div class="article" id="developer-tools-&-frameworks-0">
       <div class="article-header">
-        <h3><a href="https://code.visualstudio.com/updates/v1_124">VS Code 1.124: Copilot Autopilot Enabled by Default — Agents Now Act Autonomously</a></h3>
+        <h3><a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/">GitHub Copilot Usage-Based Billing Is Live: Developers Report Burning Through Monthly Credits in Hours</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">Released June 10, 2026, VS Code 1.124 enables Copilot Autopilot by default — the permission level that lets the AI agent write files, execute terminal commands, call tools, and auto-respond to prompts without stopping for human approval at each step. The new Advanced Autopilot mode adds a secondary utility model that reads the session transcript and caps autonomous loops at three iterations, preventing runaway agent behavior while maximizing task completion. Other additions include background sessions (send quick requests while composing the next session), keyboard-based session navigation, restored layouts on reload, and an integrated browser with device emulation, screenshot-to-chat, and browsing history. The integrated browser now supports mobile/touch emulation, custom user-agents, and a new 'Add Screenshot to Chat' feature for UI debugging.</p>
+      <p class="tldr">GitHub Copilot switched all plans to usage-based metered billing on June 1, 2026. Every plan now includes a monthly allotment of GitHub AI Credits — priced at token consumption rates for each model. Code completions and Next Edit suggestions remain unlimited and do not consume credits. Complex agentic requests do. Developer reports since June 1 are stark: one engineer depleted 8% of their monthly allotment in two hours of regular work; another spent $6 on a single change request. The community backlash is concentrated in heavy Copilot agentic users who previously had unlimited access under flat-rate subscriptions. GitHub's response has been to point users toward spending limit dashboards rather than adjust pricing.</p>
       <div class="article-meta">
-        <span class="tag">VS Code</span>
-        <span class="tag">Microsoft</span>
+        <span class="tag">GitHub</span>
         <span class="tag">Copilot</span>
-        <span class="tag">Autopilot</span>
-        <span class="tag">Agent Autonomy</span>
-        <span class="tag">IDE</span>
+        <span class="tag">Billing</span>
+        <span class="tag">Usage-Based</span>
+        <span class="tag">AI Credits</span>
+        <span class="tag">Cost Management</span>
         <span class="tag">Developer Tools</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>Enabling Autopilot by default is a significant shift in the trust model between developers and AI coding agents. Previously, VS Code's agent mode required explicit approval for each action — now the default is autonomous execution. The Advanced Autopilot's loop-capping at three iterations is the safety mechanism that makes this practical: it prevents the well-known failure mode where an agent enters an infinite fix-test-break cycle, while still allowing enough iterations to complete most tasks. The background sessions feature addresses a real workflow friction — you no longer have to wait for one agent session to finish before starting the next. The integrated browser with screenshot-to-chat is the UI debugging workflow that closes the loop between 'the layout looks wrong' and 'here's exactly what I see' without leaving the editor.</p>
+        <p>GitHub Copilot's billing change is the clearest signal yet that the economics of frontier AI coding assistance don't fit flat subscription pricing. When a single complex agentic session costs $6, engineering teams running dozens of concurrent developers against large codebases will see monthly bills compound quickly. The billing structure also creates a performance-cost tradeoff: using more capable, expensive models depletes credits faster, creating pressure to downgrade model quality to stay within budget. For teams evaluating coding tools, the June 1 change makes the TCO calculation very different from what it was in May. The shift also benefits OpenCode and other BYOK tools — if you're paying per token anyway, eliminating the platform markup becomes strategically attractive.</p>
         <h4>Use cases</h4>
         <ul>
-          <li>Let Autopilot handle routine multi-step tasks — file creation, test writing, and build-fix cycles — without babysitting each approval dialog</li>
-          <li>Use Advanced Autopilot for tasks that need iteration but shouldn't run forever: the 3-loop cap prevents runaway agent behavior while allowing fix-test-iterate workflows</li>
-          <li>Use background sessions to queue up research or exploratory requests while actively working in your main agent session — parallel AI workflows without context switching</li>
-          <li>Leverage the integrated browser's screenshot-to-chat feature for UI bugs: capture exactly what you see, attach it to the agent session, and let the agent debug the visual issue with full context</li>
+          <li>Audit your team's Copilot usage via the Billing Overview dashboard before the first monthly bill arrives — understand which use patterns consume credits fastest and set spending limits per developer</li>
+          <li>Benchmark your actual monthly cost under the new model: track credits consumed for a week of real work and extrapolate before you hit an unexpected overage</li>
+          <li>Evaluate OpenCode or Claude Code as BYOK alternatives — if you're already paying per token under Copilot's new model, eliminating the platform markup may be economically equivalent at lower total cost</li>
+          <li>Separate agentic and completion workflows: code completions don't consume credits, so you can keep unlimited completions while routing expensive agentic requests to a BYOK tool</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>Released June 10, 2026 — available to all VS Code users immediately</li>
-          <li>Copilot Autopilot enabled by default for all users — largest change to VS Code's AI trust model</li>
-          <li>Advanced Autopilot: utility model reads session transcript, caps loops at three iterations</li>
-          <li>Background sessions and keyboard session navigation for multi-session workflows</li>
-          <li>Coverage by TechTimes, Neowin, Windows Report, NTCompatible, Nsane Forums, DevClass</li>
+          <li>Billing change effective June 1, 2026 — all Copilot plans migrated to AI Credits model simultaneously</li>
+          <li>Developer backlash immediate and severe: Reddit thread 'credits vanish in a single day' with thousands of upvotes</li>
+          <li>Reported: 8% monthly credit depletion in 2 hours; $6 spent on a single change request</li>
+          <li>GitHub has not announced pricing adjustments in response to developer feedback</li>
+          <li>Coverage: The Register ('Angry devs vow to flee'), gHacks, Visual Studio Magazine, Windows Forum, LetsDatScience, DigitalApplied</li>
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://code.visualstudio.com/updates/v1_124">VS Code: 1.124 release notes</a></li>
-          <li><a href="https://www.techtimes.com/articles/318164/20260610/vs-code-1124-enables-copilot-autopilot-default-advanced-mode-caps-autonomous-loops-three.htm">TechTimes: VS Code 1.124 enables Copilot Autopilot by default</a></li>
-          <li><a href="https://www.neowin.net/news/microsoft-releases-visual-studio-code-1124-with-smarter-autonomous-ai-agents/">Neowin: VS Code 1.124 with smarter autonomous AI agents</a></li>
-          <li><a href="https://windowsreport.com/visual-studio-code-adds-more-autonomous-ai-workflows-and-cross-device-agent-sessions/">Windows Report: VS Code adds autonomous AI workflows and cross-device sessions</a></li>
+          <li><a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/">GitHub Blog: GitHub Copilot is moving to usage-based billing</a></li>
+          <li><a href="https://www.theregister.com/ai-and-ml/2026/06/02/github-copilot-users-threaten-exit-as-metered-billing-kicks-in/5249826">The Register: Angry devs vow to flee GitHub Copilot as metered billing takes hold</a></li>
+          <li><a href="https://www.ghacks.net/2026/06/02/github-copilot-usage-based-billing-takes-effect-drawing-developer-backlash-over-rapid-credit-depletion/">gHacks: Usage-based billing takes effect, drawing backlash over rapid credit depletion</a></li>
+          <li><a href="https://www.digitalapplied.com/blog/github-copilot-ai-credits-billing-2026-cost-audit-playbook">DigitalApplied: GitHub Copilot AI Credits — a cost audit playbook</a></li>
         </ul>
       </div>
     </div>
     <div class="article" id="developer-tools-&-frameworks-1">
       <div class="article-header">
-        <h3><a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/">Microsoft Agent Framework at Build 2026: Agent Harness, Hosted Agents, and CodeAct Ship for Production</a></h3>
+        <h3><a href="https://chatforest.com/builders-log/gemini-cli-dead-june-18-antigravity-cli-agy-migration/">Google Kills Gemini CLI on June 18 — You Have 7 Days to Migrate to Antigravity CLI</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">At Microsoft Build 2026 on June 2, the Microsoft Agent Framework (MAF) team announced three major production capabilities building on the 1.0 GA release from April 2. The Agent Harness provides shell and filesystem access, human-in-the-loop approval flows, and context management across long-running sessions — the layer where model reasoning meets real execution. Hosted Agents in Foundry Agent Service lets developers package agent code as containers and deploy onto Foundry-managed infrastructure with built-in identity, automatic scaling, managed session state, observability, and versioning. CodeAct enables agents to generate and execute code as their primary action mechanism rather than relying on predefined tool schemas. MAF 1.0 represents the convergence of AutoGen and Semantic Kernel into a single production-ready platform, available for Python, .NET, and TypeScript.</p>
+      <p class="tldr">Google announced at I/O 2026 (May 19) that Gemini CLI will stop serving all Google AI Pro, Ultra, and free Gemini Code Assist individual users on June 18, 2026. The replacement is Antigravity CLI (binary: agy) — the command-line surface of Google's Antigravity 2.0 platform, which also includes a desktop app, SDK, and Managed Agents API. Antigravity 2.0 represents a full platform pivot from AI-assisted coding to multi-agent orchestration as the primary development model. Google estimates migration takes under 10 minutes for most setups. Key exception: organizations with paid Gemini Code Assist Standard or Enterprise licenses, or direct Gemini API paid keys, retain Gemini CLI access.</p>
       <div class="article-meta">
-        <span class="tag">Microsoft</span>
-        <span class="tag">Agent Framework</span>
-        <span class="tag">Build 2026</span>
-        <span class="tag">AutoGen</span>
-        <span class="tag">Semantic Kernel</span>
-        <span class="tag">CodeAct</span>
-        <span class="tag">Production AI</span>
+        <span class="tag">Google</span>
+        <span class="tag">Gemini CLI</span>
+        <span class="tag">Antigravity</span>
+        <span class="tag">Migration</span>
+        <span class="tag">Deadline</span>
+        <span class="tag">Developer Tools</span>
+        <span class="tag">Agent Platform</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>The Agent Harness is the most architecturally significant announcement because it directly addresses the gap between 'agent that reasons' and 'agent that does things.' Until now, giving agents shell and filesystem access required custom scaffolding — MAF standardizes this with built-in security boundaries, approval flows, and session persistence. Hosted Agents solves the deployment story: teams no longer need to build custom infrastructure for running agents at scale — container packaging, auto-scaling, and observability come out of the box. The AutoGen + Semantic Kernel convergence matters for teams that were evaluating both: there's now one framework, one set of APIs, and one upgrade path. CodeAct is the sleeper feature — agents that write and execute code dynamically are fundamentally more flexible than agents limited to predefined tool schemas, but also require stronger sandboxing.</p>
+        <p>The June 18 deadline is 7 days away as of today (June 11). Teams using Gemini CLI in CI/CD pipelines, Makefile automation, or daily developer workflows will hit a hard failure if they haven't migrated. The replacement isn't a drop-in renaming — Antigravity CLI is a closed-source Go binary with a different command surface, new configuration format, and deeper agent orchestration capabilities. The migration guide estimates 10 minutes for simple setups, but teams with customized Gemini CLI integrations in scripts or automation will need more time. The broader story is Google's bet on agents-first tooling: Antigravity 2.0 ships five components (desktop app, CLI, SDK, Managed Agents API, enterprise deployment path) and positions multi-agent orchestration — not single-model coding assistance — as the primary development model.</p>
         <h4>Use cases</h4>
         <ul>
-          <li>Use the Agent Harness to build coding agents with shell and filesystem access — the built-in approval flows and context management replace custom scaffolding</li>
-          <li>Deploy production agents via Hosted Agents in Foundry: package as a container, get auto-scaling, identity, session state, and observability without building infrastructure</li>
-          <li>Migrate from standalone AutoGen or Semantic Kernel to MAF 1.0 — the convergence means one upgrade path and unified APIs going forward</li>
-          <li>Evaluate CodeAct for dynamic tool use: agents that generate and execute code can handle tasks that don't fit predefined tool schemas, like data analysis or custom API interactions</li>
+          <li>Run the migration now if you use Gemini CLI in any CI/CD pipeline, Makefile, or shell script — install `agy`, run `agy migrate`, update references before June 18</li>
+          <li>Evaluate whether to migrate to Antigravity CLI or switch to a different tool: if you're on the free tier, compare Antigravity Pro ($20/month) against OpenCode (BYOK) or Claude Code</li>
+          <li>Check your team's scripts for `gemini` binary references — grep your repos and dotfiles for any `gemini` commands and update them to `agy` equivalents</li>
+          <li>Explore Antigravity 2.0's agent capabilities during the migration: the new desktop app, Managed Agents API, and SDK offer capabilities Gemini CLI never had — treat migration as an upgrade evaluation</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>MAF 1.0 GA since April 2, 2026 — Build 2026 announcements add production deployment capabilities</li>
-          <li>Converges AutoGen and Semantic Kernel — two of the most-used agent frameworks — into one platform</li>
-          <li>Available for Python, .NET, and TypeScript — broadest language support among enterprise agent frameworks</li>
-          <li>Hosted Agents tracing and evaluation GA expected later in June 2026</li>
-          <li>Coverage by Visual Studio Magazine, Microsoft Tech Community, DevBlogs, Cloud Factory Group, A Guide to Cloud</li>
+          <li>Hard June 18, 2026 deadline — no grace period announced by Google</li>
+          <li>Affects all Google AI Pro, Ultra, and free Gemini Code Assist individual users</li>
+          <li>Antigravity 2.0 announced May 19 at Google I/O — 30-day migration window now nearly closed</li>
+          <li>Multiple migration guides published: DigitalApplied, Agentpedia, Windows News, ChatForest, DEV Community</li>
+          <li>Coverage: TechCrunch, Google Blog, Analytics Vidhya, DEV Community, memeburn, byteiota, AI Builder Club</li>
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/">Microsoft DevBlogs: Agent Framework at BUILD 2026 — Agent Harness, Hosted Agents, CodeAct</a></li>
-          <li><a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/">Microsoft DevBlogs: Microsoft Agent Framework Version 1.0</a></li>
-          <li><a href="https://devblogs.microsoft.com/foundry/agent-service-build2026/">Microsoft Foundry Blog: Build and run agents at scale at Build 2026</a></li>
-          <li><a href="https://visualstudiomagazine.com/articles/2026/04/06/microsoft-ships-production-ready-agent-framework-1-0-for-net-and-python.aspx">Visual Studio Magazine: Microsoft ships production-ready Agent Framework 1.0</a></li>
+          <li><a href="https://chatforest.com/builders-log/gemini-cli-dead-june-18-antigravity-cli-agy-migration/">ChatForest: Google Is Killing Gemini CLI on June 18 — migration checklist</a></li>
+          <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/">Google Blog: I/O 2026 developer highlights — Antigravity, Gemini API, AI Studio</a></li>
+          <li><a href="https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/">TechCrunch: Google launches Antigravity 2.0 with updated desktop app and CLI at I/O 2026</a></li>
+          <li><a href="https://www.digitalapplied.com/blog/gemini-cli-to-antigravity-cli-migration-june-18-2026-guide">DigitalApplied: Gemini CLI dies June 18 — the Antigravity migration guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/">Microsoft Work IQ APIs Go GA June 16: The M365 Intelligence Layer That Lets Agents Reason Over Business Context</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Announced at Microsoft Build 2026 (June 2), Work IQ APIs go generally available on June 16, 2026. Work IQ builds a semantic understanding of an organization's business by continuously processing email, calendar, meetings, chats, files, people graphs, collaboration patterns, and line-of-business systems within the Microsoft 365 tenant boundary. Via a redesigned remote MCP server, REST API, and A2A (Agent-to-Agent) protocol, any agent can access that intelligence — not raw data, but structured semantic understanding. The platform includes Chat (inference over M365 data), Context (semantic business knowledge), Tools (action surface across M365 apps), and Workspaces (persistent agent memory, intermediate outputs, and file storage within the tenant boundary). Priced in Copilot Credits on consumption-based billing.</p>
+      <div class="article-meta">
+        <span class="tag">Microsoft</span>
+        <span class="tag">Work IQ</span>
+        <span class="tag">M365</span>
+        <span class="tag">Enterprise AI</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Agent Context</span>
+        <span class="tag">Build 2026</span>
+        <span class="tag">Copilot</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Work IQ is the answer to the question: 'how do I build an agent that knows what's actually happening in my organization without scraping emails and calendar events?' The semantic layer means your agents don't get raw email threads — they get structured understanding of relationships, projects, decisions, and communication patterns. The tenant-boundary constraint is the enterprise trust mechanism: all data processing stays within your M365 tenant, satisfying the data residency and governance requirements that block most AI agent deployments in regulated industries. The MCP server surface means you can connect Work IQ to any agent framework — LangChain, Microsoft Agent Framework, CrewAI, or a custom agent — without rewriting to Microsoft-specific APIs. Going GA on June 16 means this moves from preview to production-SLA territory in 5 days.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build an enterprise coding agent that understands project context: connect Work IQ to your agent and let it pull relevant meeting notes, PR discussions, and decision history before generating code</li>
+          <li>Create an on-call automation agent: when a production incident fires, the agent queries Work IQ for who owns the affected service (people graph), what changed recently (files/chats), and drafts an incident summary with proper attribution</li>
+          <li>Use the A2A protocol to chain Work IQ with external agents: orchestrate a task where Work IQ provides organizational context and a specialized coding agent or search agent completes the work</li>
+          <li>Evaluate Work IQ for EU AI Act compliance workflows: the tenant-boundary architecture and structured audit trail satisfy documentation requirements for AI systems acting on business data within EU organizations</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GA date confirmed: June 16, 2026 — 5 days from today, moves from preview to production SLA</li>
+          <li>Announced at Microsoft Build 2026 (June 2) — positioned as the intelligence layer for the Microsoft 365 ecosystem</li>
+          <li>MCP server access: any agent framework connects without Microsoft-specific SDK dependency</li>
+          <li>Data stays within M365 tenant boundary — enterprise governance requirement satisfied</li>
+          <li>Coverage: Microsoft 365 Blog, Windows Forum, Windows News AI, CryptoBriefing, LinkLoot, Learn.microsoft.com</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/">Microsoft 365 Blog: Announcing the new Work IQ APIs</a></li>
+          <li><a href="https://windowsforum.com/threads/microsoft-work-iq-apis-ga-june-16-2026-build-governed-enterprise-agents-in-m365.421598/">Windows Forum: Work IQ APIs GA June 16 — build governed enterprise agents in M365</a></li>
+          <li><a href="https://linkloot.io/blog/microsoft-work-iq-apis-ga-june-2026">LinkLoot: Microsoft Work IQ APIs go GA on June 16 — what agent builders get</a></li>
+          <li><a href="https://windowsnews.ai/article/microsoft-iq-at-build-2026-context-layer-powering-enterprise-agents-work-iq-fabric-iq.423529">Windows News AI: Microsoft IQ at Build 2026 — context layer powering enterprise agents</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://cursor.com/changelog/3-0">Cursor 3.0 Enterprise GA: Multi-Team Governance, Parallel Cloud Agents, and Design Mode Now Available to All Enterprise Customers</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Cursor 3.0, launched April 2 under codename Glass, completed its enterprise GA rollout in June 2026 with multi-team governance capabilities now available to all Enterprise customers. The core architectural shift: agent management console as primary interface, traditional IDE as secondary surface. Key capabilities: parallel agents running locally, in git worktrees, in the cloud, and on remote SSH simultaneously; Cloud Handoff for moving long-running agent sessions between local and cloud environments; Design Mode for annotating UI elements directly in the browser to give agents precise visual targets; multi-repo workspaces where one agent updates the frontend while another patches a backend library. Enterprise now includes separate security, governance, budget, and feature controls per team from a unified management console.</p>
+      <div class="article-meta">
+        <span class="tag">Cursor</span>
+        <span class="tag">IDE</span>
+        <span class="tag">Agent Management</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">Multi-Repo</span>
+        <span class="tag">Cloud Handoff</span>
+        <span class="tag">Design Mode</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Cursor 3's architectural choice — agent console first, editor second — is a bet on the way developers will spend their time in 2026: managing and reviewing agent work rather than writing code directly. The multi-repo workspace is the first implementation of this in a mainstream IDE: tasks that previously required manually coordinating changes across repositories are now expressible as a single agent instruction with cross-repo context. Cloud Handoff solves the 'laptop closes, task dies' problem for long-running agent sessions — start a migration on your local machine, handoff to cloud when you're done for the day, review results in the morning. For enterprise teams, the per-team governance controls mean you can give your junior developers a different agent budget and capability set than senior engineers without managing separate Cursor subscriptions.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use multi-repo workspaces to tackle full-stack changes: assign the frontend agent to update React components and the backend agent to update API contracts — both visible in the same agent console</li>
+          <li>Set per-team agent budgets in the Enterprise console to cap monthly AI spend per engineering team — aligns with the GitHub Copilot billing shift where uncapped usage creates unpredictable costs</li>
+          <li>Use Cloud Handoff to run overnight migrations: start a large refactoring task at end of day, hand it off to a cloud agent, review the completed diff in the morning with full session history</li>
+          <li>Use Design Mode for UI debugging: annotate the exact element in the browser that looks wrong, attach it to an agent session — more precise than describing layout issues in text</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Cursor 3.0 launched April 2, 2026 — enterprise governance features GA in June 2026</li>
+          <li>Multi-team management console with per-team security, governance, budget controls — now GA for all Enterprise</li>
+          <li>Parallel agent execution: local, worktrees, cloud, SSH — simultaneously across multiple repos</li>
+          <li>Cloud Handoff: agent session continuity across local-to-cloud transitions</li>
+          <li>Coverage: The New Stack ('IDE is now a fallback, not the default'), DataCamp, Medium (Ewan Mak), cursor.com/changelog, Cursor community forum</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://cursor.com/changelog/3-0">Cursor: 3.0 — New interface changelog</a></li>
+          <li><a href="https://thenewstack.io/cursor-3-demotes-ide/">The New Stack: Cursor 3 demotes the IDE — the IDE is now a fallback, not the default</a></li>
+          <li><a href="https://www.datacamp.com/blog/cursor-3">DataCamp: What is Cursor 3? Agents, worktrees, and what's new</a></li>
+          <li><a href="https://blog.imseankim.com/cursor-3-agents-window-multi-agent-cloud-handoff-design-mode-ai-coding-ide-2026/">Sean Kim: Cursor 3 Agents Window — multi-agent cloud handoff and Design Mode explained</a></li>
         </ul>
       </div>
     </div>
@@ -249,129 +341,88 @@
     <h2 class="section-title">Infrastructure & Production</h2>
     <div class="article" id="infrastructure-&-production-0">
       <div class="article-header">
-        <h3><a href="https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/">Google-SpaceX $920M/Month GPU Deal: 110K NVIDIA GPUs as Bridge Capacity for Surging Gemini Demand</a></h3>
+        <h3><a href="https://www.braintrust.dev/articles/best-ai-observability-tools-2026">78% of AI Failures Are Invisible in Production: The State of AI Observability in 2026 and What to Do About It</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
-      <p class="tldr">Disclosed in SpaceX's IPO filing on June 5, 2026, Google will pay SpaceX $920 million per month from October 2026 through June 2029 for access to approximately 110,000 NVIDIA GPUs, CPUs, memory, and related infrastructure. The 32-month deal is projected to be worth roughly $30 billion. Google characterized it as 'a short-term, timely agreement to ensure we have bridge capacity to meet surging customer demand for our agent platform, Gemini Enterprise, which has been even higher than we expected.' Capacity begins ramping during a reduced-fee period from June through September 2026, with the full rate starting October 1. Either party may terminate with 90 days' notice after December 31, 2026. SpaceX's IPO is scheduled for June 12, 2026 — tomorrow.</p>
+      <p class="tldr">Braintrust's 2026 AI observability buyer's guide, combined with a Gartner prediction and production data from multiple vendors, paints a troubling picture: an estimated 78% of AI system failures are invisible — the model produces confident, plausible output that is subtly wrong, and no user complaint or error log surfaces the failure. Gartner predicts 40% of organizations deploying AI will use dedicated AI observability tools by 2028. The undetected failure mode has real cost: one retail company lost $15 million in revenue over three months from undetected model degradation in a recommendation system. Braintrust raised $80M Series B in February 2026 at an $800M valuation to build the observability layer for AI. Their platform captures traces, token counts, tool calls, costs, and errors, and includes Loop — an AI agent that analyzes traces and suggests better prompts, scorers, and datasets.</p>
       <div class="article-meta">
-        <span class="tag">Google</span>
-        <span class="tag">SpaceX</span>
-        <span class="tag">GPU</span>
-        <span class="tag">Infrastructure</span>
-        <span class="tag">Cloud Computing</span>
-        <span class="tag">NVIDIA</span>
-        <span class="tag">IPO</span>
+        <span class="tag">Observability</span>
+        <span class="tag">AI Monitoring</span>
+        <span class="tag">LLMOps</span>
+        <span class="tag">Braintrust</span>
+        <span class="tag">Gartner</span>
+        <span class="tag">Production AI</span>
+        <span class="tag">Evaluation</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>This deal reveals two things about the state of AI infrastructure in mid-2026. First, Google — one of the world's largest chip designers and data center operators — cannot build GPU capacity fast enough to meet demand for its own products. When Google Cloud needs to rent 110K GPUs from SpaceX, the GPU shortage is real and acute, not a theoretical supply chain concern. Second, SpaceX is now an AI compute provider, not just a rocket company — this deal positions it as a cloud competitor alongside AWS, Azure, and GCP, right ahead of its IPO. For engineering teams, the practical implication is that GPU-intensive workloads (training, fine-tuning, high-volume inference) will remain capacity-constrained and expensive through at least 2027. The $920M/month price tag — roughly $8,400 per GPU per month — sets a market floor for frontier GPU rental costs.</p>
+        <p>The 78% invisible failure rate is the number that makes AI observability non-optional: if your AI system can be wrong 78% of the time without triggering any alert, your incident response process is essentially broken for AI workloads. Traditional software monitoring catches crashes and latency spikes — it does not catch AI systems that confidently output wrong information, gradually drift from intended behavior, or degrade on edge cases after a model update. The $15M revenue loss example is the production case study that should drive urgency: the failure was quiet, accumulating, and invisible until someone noticed the revenue drop and traced it back. For teams shipping agents in 2026, establishing evaluation baselines and production traces is the difference between operating blind and operating with visibility.</p>
         <h4>Use cases</h4>
         <ul>
-          <li>Factor GPU scarcity into your 2026-2027 AI infrastructure planning: if Google can't build fast enough, your team should expect continued capacity constraints and elevated costs for GPU workloads</li>
-          <li>Evaluate SpaceX compute as an alternative cloud provider if you're capacity-constrained on AWS, Azure, or GCP — the IPO filing suggests they'll expand leasing beyond the Google deal</li>
-          <li>Use the $8,400/GPU/month implied pricing as a benchmark when negotiating GPU cloud contracts — if that's what Google pays, you should know where your rates compare</li>
-          <li>Accelerate your model efficiency work: smaller, faster models (distillation, quantization, efficient architectures) become more strategically important when GPU capacity is this constrained</li>
+          <li>Deploy Braintrust or an equivalent tracing tool on your production AI agents this week: capture traces, token counts, tool calls, and errors — establish a baseline before you have an incident</li>
+          <li>Set up LLM-as-judge scoring in your CI pipeline: run your eval suite against every model update or prompt change before deploying to production, catching behavioral drift before it reaches users</li>
+          <li>Map the invisible failure modes for your specific agent: document what 'confidently wrong' looks like for your use case, build scorers that catch it, and add them to your monitoring dashboard</li>
+          <li>Use the $15M revenue loss story to justify observability budget: the ROI calculation on AI monitoring is straightforward — one caught failure that would otherwise have cost $X versus the cost of the tool</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>Disclosed in SpaceX IPO filing June 5, 2026 — $30B projected deal value over 32 months</li>
-          <li>110,000 NVIDIA GPUs — one of the largest known GPU lease agreements</li>
-          <li>Google admits Gemini Enterprise demand exceeded expectations — bridge capacity needed</li>
-          <li>SpaceX IPO scheduled June 12, 2026 — deal is a centerpiece of the investment thesis</li>
-          <li>Coverage by TechCrunch, CNBC, Yahoo Finance, MLQ, Business Standard, AI CERTs, Cryptonomist</li>
+          <li>Gartner (May 12, 2026): 40% of AI-deploying orgs will use AI observability tools by 2028</li>
+          <li>78% of AI failures are invisible — estimate from Braintrust production data and research synthesis</li>
+          <li>Braintrust $80M Series B at $800M valuation (February 2026) — led by ICONIQ, with a16z, Greylock</li>
+          <li>$15M revenue loss from undetected model degradation — documented production case study</li>
+          <li>Coverage: Gartner, Braintrust, SiliconANGLE, Voiceflow, DynamicBusiness, Monte Carlo, CheckThat.ai</li>
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/">TechCrunch: Google will pay SpaceX $920M per month for compute</a></li>
-          <li><a href="https://www.cnbc.com/2026/06/05/google-to-pay-spacex-920-million-a-month-for-xai-compute-capacity.html">CNBC: Google to pay SpaceX $920M/month for compute capacity</a></li>
-          <li><a href="https://mlq.ai/news/spacex-signs-920m-per-month-deal-to-lease-110000-nvidia-gpus-to-google-ahead-of-ipo/">MLQ: SpaceX signs $920M/month deal to lease 110K GPUs to Google</a></li>
-          <li><a href="https://www.business-standard.com/technology/tech-news/google-spacex-ai-compute-deal-data-centres-gpu-infrastructure-126060800750_1.html">Business Standard: Why Google's SpaceX deal signals the rise of the AI compute landlord</a></li>
+          <li><a href="https://www.braintrust.dev/articles/best-ai-observability-tools-2026">Braintrust: AI observability tools — buyer's guide 2026</a></li>
+          <li><a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-12-gartner-predicts-40-percent-of-organizations-deploying-ai-will-use-ai-observability-to-monitor-model-performance-by-2028">Gartner: 40% of AI-deploying orgs will use AI observability by 2028</a></li>
+          <li><a href="https://siliconangle.com/2026/02/17/braintrust-lands-80m-series-b-funding-round-become-observability-layer-ai/">SiliconANGLE: Braintrust lands $80M Series B to become the observability layer for AI</a></li>
+          <li><a href="https://www.braintrust.dev/articles/agent-observability-complete-guide-2026">Braintrust: Agent observability — complete guide for 2026</a></li>
         </ul>
       </div>
     </div>
     <div class="article" id="infrastructure-&-production-1">
       <div class="article-header">
-        <h3><a href="https://coralogix.com/blog/coralogix-raises-200m-to-scale-the-observability-backbone-for-theage-of-ai/">Coralogix Raises $200M Series F at $1.6B Valuation: Betting on Observability for AI Agents</a></h3>
-        <span class="traction-badge traction-high">High Traction</span>
-      </div>
-      <p class="tldr">On June 3, 2026, Coralogix announced a $200 million Series F round at a $1.6 billion post-money valuation, led by Advent International and the Canada Pension Plan Investment Board (CPPIB). The round comes just 11 months after a $115 million Series E, bringing total funding to $550 million. Coralogix's platform collects and analyzes logs, metrics, and traces for more than 5,000 customers including IBM, Tradeweb, and JFrog. The company reports that more than half of its enterprise customers now use either Olly (its AI agent) or their own AI models through command-line and agentic interfaces to investigate incidents and query operational data. The funding will scale the platform's AI-native observability capabilities as agent-driven workflows move into production.</p>
-      <div class="article-meta">
-        <span class="tag">Coralogix</span>
-        <span class="tag">Observability</span>
-        <span class="tag">Funding</span>
-        <span class="tag">AI Infrastructure</span>
-        <span class="tag">Series F</span>
-        <span class="tag">Monitoring</span>
-        <span class="tag">AI Agents</span>
-        <button class="toggle-btn">More ▼</button>
-      </div>
-      <div class="details">
-        <h4>Why it matters</h4>
-        <p>The timing and pace of this raise tells the infrastructure story of mid-2026: AI agents are moving into production fast enough that observability vendors are racing to build the monitoring layer. The 11-month gap between Series E ($115M) and Series F ($200M) reflects investor conviction that AI observability will be as foundational as application observability became in the cloud era. The 50%+ enterprise adoption of AI-driven incident investigation is the leading indicator — when your customers are already using AI to query your observability platform, the feedback loop is clear. For engineering teams, this signals that AI agent monitoring is becoming a dedicated budget category. With the EU AI Act reaching full application on August 2, structured observability for AI systems isn't optional — it's a compliance requirement for systems touching EU users.</p>
-        <h4>Use cases</h4>
-        <ul>
-          <li>Evaluate Coralogix or equivalent AI-native observability platforms for monitoring your production AI agents — structured logs, traces, and metrics for agent actions are becoming table stakes</li>
-          <li>Use AI-driven incident investigation to reduce MTTR: Coralogix's 50%+ enterprise adoption of AI-assisted querying suggests the workflow is mature enough for production use</li>
-          <li>Build your EU AI Act compliance monitoring on top of observability infrastructure: continuous model monitoring, bias detection logging, and audit trails map directly to observability platform capabilities</li>
-          <li>Budget for AI observability as a separate line item in 2027 planning — the $200M raise signals this is becoming a dedicated category, not a feature of existing APM tools</li>
-        </ul>
-        <h4>Traction</h4>
-        <ul>
-          <li>$200M Series F at $1.6B valuation — 11 months after $115M Series E</li>
-          <li>Led by Advent International and Canada Pension Plan Investment Board (CPPIB)</li>
-          <li>5,000+ customers including IBM, Tradeweb, JFrog</li>
-          <li>50%+ enterprise customers use AI agents for incident investigation</li>
-          <li>Coverage by TechCrunch, Yahoo Finance, GlobeNewsWire, ChannelE2E, BigDATAwire, VentureBurn</li>
-        </ul>
-        <h4>Sources</h4>
-        <ul>
-          <li><a href="https://coralogix.com/blog/coralogix-raises-200m-to-scale-the-observability-backbone-for-theage-of-ai/">Coralogix: Raises $200M to scale the observability backbone for the age of AI</a></li>
-          <li><a href="https://techcrunch.com/2026/06/03/coralogix-raises-200m-in-race-to-build-the-monitoring-layer-for-ai-agents/">TechCrunch: Coralogix raises $200M to build the monitoring layer for AI agents</a></li>
-          <li><a href="https://www.adventinternational.com/news/coralogix-raises-200m-to-scale-the-observability-backbone-for-the-age-of-ai/">Advent International: Coralogix raises $200M for AI observability</a></li>
-          <li><a href="https://newmarketpitch.com/blogs/news/coralogix-series-f-why">New Market Pitch: Why Coralogix raised a $200M Series F</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="article" id="infrastructure-&-production-2">
-      <div class="article-header">
-        <h3><a href="https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/">AI Agent Frameworks Hit 18% Enterprise Adoption: The Production Patterns Emerging from Real Deployments</a></h3>
+        <h3><a href="https://newsletter.pragmaticengineer.com/p/ai-tooling-2026">Pragmatic Engineer Survey: 95% of Engineers Use AI Tools Weekly, but the Productivity Gap Grows Wider Between Power Users and Occasional Users</a></h3>
         <span class="traction-badge traction-medium">Growing</span>
       </div>
-      <p class="tldr">JetBrains' June 2026 analysis of the agentic framework landscape, combined with Datadog's telemetry data, reveals that agent framework adoption has nearly doubled year-over-year — from 9% to 18% of organizations. The current landscape includes LangChain/LangGraph for orchestration, Microsoft Agent Framework (converging AutoGen + Semantic Kernel), Google ADK, CrewAI for multi-agent systems, and LlamaIndex for document-heavy RAG workflows. According to Databricks' 2026 State of AI Agents analysis of 20,000+ global organizations, companies that implemented AI governance and proper data infrastructure pushed 12x more projects to production than those that didn't. Meanwhile, 55% of respondents now regularly use AI agents, with staff+ engineers leading at 63.5% adoption.</p>
+      <p class="tldr">The Pragmatic Engineer's 2026 AI Tooling for Software Engineers survey reveals that 95% of respondents use AI tools at least weekly, and 75% use AI for at least half of their engineering work. Claude Code rose from zero to the #1 most-used AI tool in eight months. Anthropic's Opus and Sonnet models dominate coding tasks by a wide margin — more mentions than all other model providers combined. Newcomers like OpenCode and Antigravity are gaining traction, with OpenCode reaching 60% of Cursor's usage share despite not existing during the previous survey. The most significant finding: a productivity gap is opening between developers who use AI tools as the primary workflow layer and those who use them occasionally — the former report 3-5x faster task completion on well-defined engineering work.</p>
       <div class="article-meta">
-        <span class="tag">Agent Frameworks</span>
-        <span class="tag">LangChain</span>
-        <span class="tag">Microsoft</span>
-        <span class="tag">JetBrains</span>
-        <span class="tag">Enterprise Adoption</span>
-        <span class="tag">Production AI</span>
+        <span class="tag">Survey</span>
+        <span class="tag">Pragmatic Engineer</span>
+        <span class="tag">Developer Productivity</span>
+        <span class="tag">AI Tools</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Adoption</span>
+        <span class="tag">Engineering Culture</span>
         <button class="toggle-btn">More ▼</button>
       </div>
       <div class="details">
         <h4>Why it matters</h4>
-        <p>The 9% to 18% doubling is the adoption curve inflection point — it signals that agent frameworks are crossing from early adopter to early majority territory. The Databricks finding is the most actionable data point: the 12x production deployment gap between companies with governance/data infrastructure and those without means the bottleneck isn't the framework choice, it's the surrounding infrastructure. Framework selection matters less than whether you have structured evaluation, observability, and data pipelines feeding your agents. The 63.5% staff+ adoption rate indicates that senior engineers are driving agent adoption from the bottom up, not waiting for top-down mandates. For teams evaluating frameworks, the convergence of AutoGen and Semantic Kernel into Microsoft Agent Framework simplifies the decision: if you're in the Microsoft ecosystem, the choice is made. If not, LangChain/LangGraph remains the most broadly adopted option.</p>
+        <p>The 95% weekly usage number confirms that AI tools have crossed the threshold from optional to expected in software engineering. But the more significant data point is the productivity gap: teams where developers have integrated AI tools deeply into every workflow (not just code completion) report dramatically faster execution on well-defined tasks. Claude Code's rise from zero to #1 in 8 months — in a market dominated by Cursor — reflects a genuine shift toward terminal-native, agent-first workflows among senior engineers. For engineering managers, the survey suggests that the competitive disadvantage isn't whether your team uses AI tools, but whether your developers are using them at the level where the 3-5x productivity gains materialize.</p>
         <h4>Use cases</h4>
         <ul>
-          <li>Invest in governance and data infrastructure before evaluating frameworks — the 12x deployment gap means your pipeline and evaluation setup matters more than which framework you pick</li>
-          <li>If in the Microsoft ecosystem, migrate to Microsoft Agent Framework 1.0 — the AutoGen + Semantic Kernel convergence eliminates the need to choose between them</li>
-          <li>Use LangChain/LangGraph as the default for framework-agnostic, multi-provider agent architectures — broadest community support and provider integrations</li>
-          <li>Track your team's agent adoption metrics against the 55% industry baseline — if your senior engineers aren't using agents regularly, investigate whether tooling or culture is the blocker</li>
+          <li>Audit your team's AI tool usage depth: are developers using AI for code completion only (shallow), or for architectural decisions, PR reviews, and debugging (deep)? The 3-5x gap is between these two groups</li>
+          <li>Establish an AI tool fluency standard: given 95% weekly usage, being a non-user is now a measurable productivity disadvantage — identify the team members below the baseline and invest in onboarding</li>
+          <li>Evaluate Claude Code for your team given its rapid rise: the shift from IDE-integrated to terminal-native workflows is the underlying driver — understand whether your team's workflow would benefit from this model</li>
+          <li>Track which AI tools your engineers are gravitating toward (survey quarterly): the competitive landscape shifted dramatically in one survey cycle — Claude Code and OpenCode weren't factors six months ago</li>
         </ul>
         <h4>Traction</h4>
         <ul>
-          <li>Agent framework adoption doubled YoY: 9% to 18% (Datadog State of AI Engineering 2026)</li>
-          <li>Databricks 2026 analysis of 20,000+ orgs: governance + data infra = 12x more production deployments</li>
-          <li>55% of respondents regularly use AI agents; staff+ engineers at 63.5%</li>
-          <li>JetBrains Junie ships agentic capabilities across IntelliJ IDEA, PyCharm, WebStorm</li>
-          <li>Coverage by JetBrains Blog, Datadog, Databricks, DataCamp, Medium developer discussions</li>
+          <li>95% of respondents use AI tools at least weekly — June 2026 Pragmatic Engineer survey</li>
+          <li>75% use AI for at least half of their engineering work</li>
+          <li>Claude Code: zero to #1 most-used AI tool in 8 months — outpacing Cursor in survey mentions</li>
+          <li>OpenCode: 60% of Cursor's usage share despite not existing during the previous survey period</li>
+          <li>3-5x faster task completion reported by deep AI workflow integrators vs. occasional users</li>
+          <li>Coverage: Pragmatic Engineer newsletter (400K+ subscribers), referenced across developer communities</li>
         </ul>
         <h4>Sources</h4>
         <ul>
-          <li><a href="https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/">JetBrains: Top agentic frameworks for building applications 2026</a></li>
-          <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog: State of AI Engineering 2026 — framework adoption data</a></li>
-          <li><a href="https://www.datacamp.com/blog/best-agentic-ide">DataCamp: The 13 best agentic IDEs in 2026</a></li>
-          <li><a href="https://techcommunity.microsoft.com/blog/azuredevcommunityblog/the-future-of-agentic-ai-inside-microsoft-agent-framework-1-0/4510698">Microsoft Tech Community: Inside Microsoft Agent Framework 1.0</a></li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/ai-tooling-2026">Pragmatic Engineer: AI Tooling for Software Engineers in 2026</a></li>
+          <li><a href="https://blog.logrocket.com/ai-dev-tool-power-rankings/">LogRocket: AI dev tool power rankings June 2026 — full comparison</a></li>
+          <li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">Cortex: The engineering leader's guide to AI tools for developers in 2026</a></li>
+          <li><a href="https://medium.com/@addyosmani/my-llm-coding-workflow-going-into-2026-52fe1681325e">Addy Osmani: My LLM coding workflow going into 2026</a></li>
         </ul>
       </div>
     </div>
