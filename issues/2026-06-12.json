@@ -1,94 +1,95 @@
 {
   "highlights": [
-    {"text": "Anthropic publishes 'When AI Builds Itself': Claude now writes 80%+ of Anthropic's merged code, engineers ship 8x more per day, and the company calls for a verifiable global AI pause mechanism", "anchor": "ai-tools-and-models-0"},
-    {"text": "WebMCP ships in Chrome 149 origin trial — Google and Microsoft co-author a W3C standard that lets websites declare structured tools for browser AI agents, replacing fragile screenshot loops", "anchor": "developer-tools-and-frameworks-0"},
-    {"text": "GitHub Copilot switches to usage-based billing June 1: AI credits at $0.01 each replace premium requests — agentic coding sessions now cost real money per token", "anchor": "ai-tools-and-models-2"},
-    {"text": "Google Antigravity 2.0 ships as a standalone agent-first platform with desktop app, Go CLI, SDK, and Managed Agents API — spin up a sandboxed Linux agent with a single Gemini API call", "anchor": "ai-tools-and-models-1"},
-    {"text": "Databricks State of AI Agents: companies with AI governance push 12x more projects to production; multi-agent systems grew 327% in four months across 20,000+ organizations", "anchor": "infrastructure-and-production-0"},
-    {"text": "Biome v2 hits production at AWS, Google, Microsoft, and Cloudflare — the Rust-built ESLint+Prettier replacement lints 10K files in 0.8s vs ESLint's 45s, with 491 type-aware rules closing the gap", "anchor": "developer-tools-and-frameworks-1"}
+    {"text": "Apple Foundation Models gains unified cloud routing at WWDC 2026: one Swift API covers on-device Apple Intelligence, Private Cloud Compute, and Claude/Gemini with zero code changes — framework going open source summer 2026", "anchor": "ai-tools-and-models-0"},
+    {"text": "Qwen3-Coder-Next: 80B MoE with 3.9B active parameters hits 70.6% SWE-bench Verified, beats DeepSeek V3, and runs locally on a 48GB machine via Ollama under Apache 2.0", "anchor": "ai-tools-and-models-1"},
+    {"text": "Temporal hits $300M Series D and 3,000 enterprise customers — Nexus GA, Multi-Region 99.99% SLA — the crash-proof durable execution layer most agent teams are building without", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "MCP ecosystem crosses 10,000 public servers with 97M monthly SDK downloads — ChatGPT, Cursor, Codex CLI, Bedrock, VS Code, and Gemini all speak it natively in June 2026", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Langfuse joins ClickHouse: open-source LLM observability trusted by 19 Fortune 50 companies merges with the fastest analytics DB — MIT license and self-hosting explicitly maintained", "anchor": "infrastructure-and-production-0"},
+    {"text": "SWE-bench Verified is saturated at 80%: six frontier models statistically tied, OpenAI deprecated it citing contamination — SWE-bench Pro tops out at ~23% and is now the discriminating benchmark", "anchor": "infrastructure-and-production-1"}
   ],
   "sections": [
     {
       "name": "AI Tools & Models",
       "articles": [
         {
-          "title": "Anthropic: When AI Builds Itself — Claude Writes 80% of Its Own Code, Calls for Global AI Pause",
-          "url": "https://www.anthropic.com/institute/recursive-self-improvement",
-          "tldr": "Published June 4, 2026, Anthropic's Institute paper reveals that more than 80% of the code merged into Anthropic's codebase in May 2026 was authored by Claude — up from low single digits before Claude Code's February 2025 research preview. The typical Anthropic engineer now merges 8x as much code per day as in 2024, and on the most complex open-ended engineering problems, Claude's success rate climbed to 76% in May 2026, a 50-percentage-point increase in six months. The paper maps the path toward recursive self-improvement — AI that can design and train its own successor — and calls for a verifiable global pause mechanism before that threshold is crossed.",
-          "why_it_matters": "This is the first major AI lab to publish hard numbers on AI writing AI at production scale. The 80% figure isn't aspirational — it's measured from merged commits. The 8x productivity multiplier is the most concrete data point available for engineering leaders trying to forecast how AI coding agents change team capacity. The recursive self-improvement framing is the deeper signal: if AI can reliably improve its own training pipeline, the feedback loop accelerates in ways that current governance structures aren't designed to handle. For engineering teams, the practical takeaway is that the productivity ceiling for AI-assisted development is still climbing fast — the question is whether your workflows are set up to capture it.",
+          "title": "Apple Foundation Models Gets Unified Cloud Routing, Core AI, and Open Source Plans at WWDC 2026",
+          "url": "https://developer.apple.com/videos/play/wwdc2026/241/",
+          "tldr": "Announced at WWDC 2026 (June 8-9), the Foundation Models framework received its most significant update since launch. It now exposes a unified LanguageModel protocol with four swappable backends: the on-device Apple Intelligence model (zero transmission, zero cost), Private Cloud Compute (Apple servers; free for apps with under 2 million first-time downloads), Core AI (self-hosted weights including Qwen, Mistral, SAM3, and any Hugging Face MLX model), and server-side third-party models (Claude, Gemini) via explicit opt-in. All four backends share the same Swift API — switching between them requires changing a single Swift Package Manager dependency, with no application code changes. New capabilities in 2026: multimodal image input, Dynamic Profiles for multi-agent workflows, built-in semantic search, key-value caching primitives, direct Vision framework tool access (OCR, barcode reading), and richer context management APIs. Apple also confirmed the Foundation Models framework will go open source later in summer 2026.",
+          "why_it_matters": "This is the story from WWDC 2026 that matters most to iOS and macOS app developers building AI features. The on-device path gives you truly private AI — no data ever leaves the device, no token costs. The Private Cloud Compute path is free for indie developers and startups (under 2M downloads) — a meaningful subsidy for teams that need cloud-grade capability without the API bill. The server-side Claude/Gemini path means you can use frontier models at full capability without leaving the Foundation Models API surface. The architectural insight: prototype against the free on-device model and ship to production against Claude or Gemini by swapping one dependency. Core AI's inclusion of Qwen and Mistral from Hugging Face means you can run fine-tuned, domain-specific models entirely on the user's Apple Silicon hardware. The open-source commitment signals Apple intends this to be an infrastructure standard, not a proprietary cage.",
           "traction": "high",
           "traction_evidence": [
-            "Published June 4, 2026 by Anthropic Institute — based on internal production data from Anthropic's own engineering org",
-            "80%+ of merged code authored by Claude in May 2026 — measured from version control, not self-reported",
-            "8x code output per engineer per day compared to 2024 baseline",
-            "Coverage by Scientific American, TechCrunch, Tom's Hardware, The Next Web, Fortune, VentureBeat, News9"
+            "Announced at WWDC 2026 Platforms State of the Union, June 8-9 — developer betas available immediately",
+            "Free Private Cloud Compute access for apps with under 2M downloads — confirmed by Apple Developer documentation",
+            "Core AI curated model library: Qwen, Mistral, SAM3 optimized for Apple Silicon — plus any Hugging Face MLX model",
+            "Framework going open source summer 2026 — Apple Developer documentation confirmed",
+            "Coverage: MacRumors, Apple Developer (WWDC26 session 241 and 326), TechTimes, RunAIHome, Lushbinary, TechResearchOnline, Medium (MLX integration)"
           ],
           "use_cases": [
-            "Use the 80% and 8x figures to benchmark your own AI-assisted development metrics — if you're seeing 2-3x, there's likely a workflow or tooling gap to close",
-            "Evaluate whether your CI/CD pipeline can handle 8x more merged code per day — review bottlenecks in testing, deployment, and code review capacity",
-            "Read the recursive self-improvement paper to understand the policy proposals Anthropic is pushing — the global pause mechanism will affect frontier model access if adopted",
-            "Track Claude's success rate on complex engineering tasks (76% and climbing) as a decision input for when to delegate hard problems vs. keeping them human-only"
+            "Build a Markdown summarizer with zero cloud cost: use Foundation Models on-device path by default, add a single config line to route complex documents to Claude when the on-device model needs help — no API surface changes",
+            "Load a fine-tuned Mistral model via Core AI for domain-specific features (legal, medical, code review): the model runs on the user's Apple Silicon without any cloud request, satisfying strict data residency requirements",
+            "Use Dynamic Profiles to build multi-agent workflows in Swift: orchestrate an extraction agent (text + Vision) passing structured data to a reasoning agent, both calling the same LanguageModel protocol with different models behind them",
+            "Prototype an AI feature in Xcode 27 Playgrounds with the free on-device model, then deploy to App Store routing to Claude via server-side path by swapping one SPM dependency — the prototyping and production code paths are identical"
           ],
-          "tags": ["Anthropic", "Claude", "Recursive Self-Improvement", "AI Safety", "Developer Productivity", "Code Generation"],
+          "tags": ["Apple", "Foundation Models", "Core AI", "WWDC 2026", "Swift", "On-Device AI", "iOS", "MLX", "Open Source", "Multi-Agent"],
           "links": [
-            {"url": "https://www.anthropic.com/institute/recursive-self-improvement", "label": "Anthropic Institute: When AI builds itself"},
-            {"url": "https://thenextweb.com/news/anthropic-claude-recursive-self-improvement-code", "label": "The Next Web: Claude writes 80% of its code, calls for AI pause"},
-            {"url": "https://www.scientificamerican.com/article/anthropic-warns-ai-may-soon-begin-recursive-self-improvement/", "label": "Scientific American: Anthropic warns AI may soon begin recursive self-improvement"},
-            {"url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-says-claude-now-writes-more-than-80-percent-of-its-merged-code", "label": "Tom's Hardware: Anthropic warns Claude AI is building itself faster than expected"}
+            {"url": "https://developer.apple.com/videos/play/wwdc2026/241/", "label": "Apple Developer: What's new in the Foundation Models framework — WWDC26 session 241"},
+            {"url": "https://developer.apple.com/videos/play/wwdc2026/326/", "label": "Apple Developer: Integrate on-device AI models using Core AI — WWDC26 session 326"},
+            {"url": "https://lushbinary.com/blog/apple-foundation-models-framework-swift-guide/", "label": "Lushbinary: Apple Foundation Models framework Swift guide"},
+            {"url": "https://medium.com/@nuthalapativarun/mlx-is-now-a-first-class-citizen-in-apples-ai-stack-run-any-hugging-face-model-through-foundation-9dfb8dad2191", "label": "Medium: MLX is now a first-class citizen in Apple's AI stack — run any Hugging Face model through Foundation Models"}
           ]
         },
         {
-          "title": "Google Antigravity 2.0: Agent-First Developer Platform with CLI, SDK, and Managed Agents API",
-          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/",
-          "tldr": "Launched at Google I/O on May 19, 2026, Antigravity 2.0 is Google's pivot from AI-assisted coding to multi-agent orchestration as the core development model. The release ships five components: a standalone desktop app for orchestrating multiple agents simultaneously, a new Go-based CLI, an SDK for custom workflows, the Managed Agents API (single API call spins up an agent in an isolated Linux sandbox that reasons, writes code, manages files, and browses the web), and an enterprise deployment path. The default model is Gemini 3.5 Flash. Important deadline: consumer access to the legacy Gemini CLI and Gemini Code Assist IDE extensions ends June 18, 2026, pushing all users to Antigravity.",
-          "why_it_matters": "This is Google's answer to Claude Code and OpenAI Codex — but with a different architecture. Instead of a single terminal agent, Antigravity 2.0 is a multi-agent orchestration platform where you can design custom subagent workflows and schedule background tasks. The Managed Agents API is the most developer-actionable piece: one API call gives you a stateful agent in a sandboxed Linux environment with no infrastructure to manage. The June 18 deadline for legacy Gemini CLI and Code Assist means every developer currently using those tools has days to migrate. Google is also introducing a $100/month AI Ultra plan with 5x higher limits than Pro, signaling that heavy agentic usage needs its own pricing tier.",
+          "title": "Qwen3-Coder-Next: 80B MoE with 3.9B Active Parameters Beats DeepSeek V3 on SWE-bench, Runs Locally Under Apache 2.0",
+          "url": "https://huggingface.co/Qwen/Qwen3-Coder-Next",
+          "tldr": "Qwen3-Coder-Next is Alibaba's open-weight coding model designed specifically for agentic coding workflows. Architecture: 80B total parameters using a Mixture-of-Experts design that activates only 3.9B parameters per forward pass — delivering frontier-class coding performance at a fraction of the compute cost. Key benchmark: 70.6% SWE-bench Verified, placing it ahead of DeepSeek V3 (70.2%). Context window: 256K tokens. License: Apache 2.0 — commercial deployment, fine-tuning, and distillation all permitted. Available via Ollama (`ollama pull qwen3-coder-next`), LM Studio, OpenRouter, and Fireworks AI. Works as a backend for Claude Code, Cline, Kilo, Trae, Aider, and any OpenAI-compatible agent framework.",
+          "why_it_matters": "The 3.9B active parameters number is the key metric for teams thinking about infrastructure cost. In a multi-agent coding workflow where hundreds of parallel agent steps run in sequence, each forward pass activates only 3.9B parameters — comparable to a 4B dense model's compute — while delivering SWE-bench scores ahead of DeepSeek V3 (a full-weight 67B+ model). For teams self-hosting AI coding infrastructure, this translates to: run Qwen3-Coder-Next on a single A100 or M2 Ultra at interactive speeds, with no per-token API cost. The Apache 2.0 license is the other differentiator: you can fine-tune on proprietary code without restrictions, distill into smaller models for edge deployment, and commercialize derivative models. At 256K context, it ingests entire small-to-mid-size repositories in a single prompt.",
           "traction": "high",
           "traction_evidence": [
-            "Launched at Google I/O 2026, May 19 — available immediately as desktop app, CLI, and API",
-            "Managed Agents API in public preview — Antigravity agent powered by Gemini 3.5 Flash",
-            "Legacy Gemini CLI and Code Assist sunsetting June 18 — forced migration to Antigravity",
-            "New $100/month AI Ultra plan introduced alongside Pro ($20) and standard tiers",
-            "Coverage by TechCrunch, The Next Web, MarkTechPost, AnalyticsVidhya, Memeburn, Google Developers Blog"
+            "70.6% SWE-bench Verified — ahead of DeepSeek V3 (70.2%) while activating 10-20x fewer parameters",
+            "Apache 2.0 license — commercial deployment, fine-tuning, and distillation permitted without restriction",
+            "Available on Ollama, LM Studio, OpenRouter, Fireworks AI — no waitlist, pull and run today",
+            "Compatible backend for Claude Code, Cline, Kilo, Trae, Aider — works in existing toolchains",
+            "Benchmarked independently by DEV Community, Morph, Pinggy, KiloCode — consistently ranked #1 open-source coding model by active-parameter efficiency"
           ],
           "use_cases": [
-            "Migrate from Gemini CLI or Gemini Code Assist before June 18 — install the Antigravity 2.0 desktop app or Go CLI now to avoid disruption",
-            "Use the Managed Agents API to spin up disposable coding agents in isolated Linux sandboxes — one API call, no infrastructure, for tasks like code generation, testing, or file processing",
-            "Evaluate the AI Ultra plan ($100/month) against your agentic usage patterns — if you're hitting rate limits on Pro, the 5x higher limits may be cost-effective vs. API pricing",
-            "Build custom multi-agent workflows using the Antigravity SDK — orchestrate specialized agents for different parts of your development pipeline"
+            "Self-host a frontier-tier coding agent on a single A100 (80GB) or M2 Ultra: Qwen3-Coder-Next runs at interactive speeds on hardware most teams already have in the cloud, with zero per-token API cost",
+            "Use as the model for parallel agent pipelines: 3.9B active parameters means you can run 15-20 concurrent Qwen3-Coder-Next instances on a single 80GB GPU — equivalent throughput to what a full 70B dense model consumes for one instance",
+            "Fine-tune on your proprietary codebase under Apache 2.0: the license permits commercial fine-tuning, and the 256K context window enables training with substantially larger code examples than most fine-tuning recipes allow",
+            "Drop it behind an OpenAI-compatible API server (vLLM or Ollama) and point your existing Claude Code, Cline, or Aider configuration at it — zero agent framework changes required"
           ],
-          "tags": ["Google", "Antigravity", "Gemini", "Managed Agents", "Google I/O", "Developer Tools", "Agentic Coding"],
+          "tags": ["Qwen", "Alibaba", "Open Source", "MoE", "Coding Model", "Local AI", "SWE-bench", "Apache 2.0", "Ollama"],
           "links": [
-            {"url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/", "label": "Google: I/O 2026 developer highlights — Antigravity, Gemini API, AI Studio"},
-            {"url": "https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/", "label": "TechCrunch: Google launches Antigravity 2.0 at I/O 2026"},
-            {"url": "https://antigravity.google/blog/google-io-2026", "label": "Google Antigravity Blog: I/O 2026 announcement"},
-            {"url": "https://www.marktechpost.com/2026/05/19/google-launches-antigravity-2-0-at-i-o-2026-a-standalone-agent-first-platform-with-cli-sdk-managed-execution-and-enterprise-support/", "label": "MarkTechPost: Google launches Antigravity 2.0 with CLI, SDK, and enterprise support"}
+            {"url": "https://huggingface.co/Qwen/Qwen3-Coder-Next", "label": "Hugging Face: Qwen3-Coder-Next model card"},
+            {"url": "https://github.com/QwenLM/Qwen3-Coder", "label": "GitHub: QwenLM/Qwen3-Coder"},
+            {"url": "https://dev.to/danishashko/the-best-llms-for-agentic-coding-in-2026-real-world-not-just-benchmarks-96n", "label": "DEV Community: Best LLMs for agentic coding in 2026 — real-world, not just benchmarks"},
+            {"url": "https://www.morphllm.com/best-open-source-coding-model-2026", "label": "Morph: Best open-source coding model 2026 — GLM-5 vs MiniMax M2.5 vs Qwen3-Coder vs Kimi K2.5"}
           ]
         },
         {
-          "title": "GitHub Copilot Switches to Usage-Based Billing: AI Credits Replace Premium Requests",
-          "url": "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/",
-          "tldr": "As of June 1, 2026, all monthly GitHub Copilot plans transitioned from request-based to usage-based billing. Every plan now includes a monthly allotment of GitHub AI Credits (1 credit = $0.01 USD): Copilot Pro gets $10/month in credits, Pro+ gets $39/month. The cost of each interaction depends on the model used and tokens consumed, with model multipliers determining how fast credits deplete. Plan prices remain unchanged, but agentic coding sessions, chat, and code review — which are token-heavy — are now individually metered. Annual plan subscribers stay on request-based pricing until their plan expires, then auto-migrate.",
-          "why_it_matters": "This is the most disruptive pricing change in AI coding tools this quarter, and it affects millions of developers. The shift from 'unlimited premium requests' to per-token billing fundamentally changes the economics of agentic coding. A single Claude Sonnet or GPT-5.5 chat session that previously counted as one premium request now drains credits proportional to token usage. For teams that rely heavily on Copilot's agentic features — multi-file edits, code review, extended chat sessions — monthly costs could increase significantly. The $10 Pro budget covers roughly 1,000 credits, which may not last through a full month of heavy agentic use. Engineering managers need to audit their team's Copilot usage patterns before the next billing cycle.",
-          "traction": "high",
+          "title": "Qwen Code: Alibaba Open-Sources a Terminal Coding Agent Built and Co-Designed with Qwen3-Coder",
+          "url": "https://github.com/QwenLM/qwen-code",
+          "tldr": "Alibaba's Qwen team released Qwen Code, an open-source terminal coding agent under MIT license. The project is based on the Google Gemini CLI architecture and co-developed alongside Qwen3-Coder — model and agent evolve together. Supports any OpenAI/Anthropic/Gemini-compatible API, Alibaba Cloud Coding Plan, OpenRouter, or Fireworks AI as backends. Key features: headless mode for CI/CD pipeline integration, IDE integrations, Qwen-optimized context management, and multi-provider authentication. Qwen OAuth was discontinued April 15, 2026 — users must now use Alibaba Cloud or BYOK via supported providers.",
+          "why_it_matters": "Qwen Code is the fourth major open-source terminal coding agent (alongside Claude Code, OpenCode, and Antigravity CLI) with two meaningful differentiators. First, it shares architectural DNA with Google Gemini CLI — if your team was using Gemini CLI before the June 18 deprecation deadline, Qwen Code is the migration path with the smallest learning curve. Second, the co-design relationship between the agent and Qwen3-Coder means the context management, tool-use patterns, and recovery strategies are specifically tuned to how Qwen3-Coder reasons — not a generic wrapper. The MIT license (more permissive than Apache 2.0) and the headless mode make it immediately useful in CI/CD automation: run it in GitHub Actions to auto-generate release notes, update documentation, or apply lint fixes on PR branches without interactive session overhead.",
+          "traction": "medium",
           "traction_evidence": [
-            "Effective June 1, 2026 — all monthly Copilot subscribers automatically migrated",
-            "Millions of developers affected — GitHub Copilot is the most widely used AI coding tool",
-            "Developer backlash captured in GitHub Discussions thread #192948 and Visual Studio Magazine coverage",
-            "Model multipliers increase for annual plan subscribers on June 1",
-            "Coverage by GitHub Blog, Visual Studio Magazine, GitHub Docs, Windows Forum, Apidog"
+            "GitHub: QwenLM/qwen-code — MIT license, open-source, available on npm",
+            "Co-developed alongside Qwen3-Coder — model and agent share the same release cadence from Alibaba's Qwen team",
+            "Headless mode explicitly designed for CI/CD: non-interactive execution supported for GitHub Actions, Makefile targets, shell scripts",
+            "Listed as primary agent framework on Qwen3-Coder Hugging Face model card and qwen.ai/qwencode",
+            "Based on Google Gemini CLI architecture — migration path for teams affected by the Gemini CLI June 18 shutdown"
           ],
           "use_cases": [
-            "Audit your team's Copilot credit consumption in the first full billing cycle (June 1-30) — compare actual spend against the included credit allotment to forecast overages",
-            "Switch to lower-cost models for routine completions (GPT-4.1 mini or MAI-Code-1-Flash have lower multipliers) and reserve frontier models for complex tasks",
-            "If you're on an annual plan, evaluate whether to renew or switch to monthly before your plan expires — annual subscribers get request-based pricing until expiration",
-            "Consider supplementing Copilot with free/open-source alternatives like OpenCode for token-heavy workflows to stay within credit budgets"
+            "Migrate from Gemini CLI before its June 18 deadline: Qwen Code inherits the Gemini CLI architecture, meaning your existing workflow patterns, command structure, and context expectations translate with minimal friction",
+            "Add headless coding automation to CI/CD: trigger Qwen Code in GitHub Actions to auto-generate release notes, update API documentation from code changes, or run targeted refactors on feature branches before review",
+            "Run a fully open-source, zero-cloud coding stack: Qwen Code (MIT) + Qwen3-Coder-Next (Apache 2.0) + Ollama — no proprietary components, no API costs, no data leaving your network",
+            "Use as a reference implementation: the MIT license and clean Gemini CLI-derived architecture make it the most hackable open-source terminal agent for teams building custom tooling"
           ],
-          "tags": ["GitHub", "Copilot", "Pricing", "Usage-Based Billing", "AI Credits", "Developer Tools"],
+          "tags": ["Qwen", "Alibaba", "Terminal Agent", "Open Source", "MIT", "CI/CD", "Coding Agent", "BYOK", "Gemini CLI Migration"],
           "links": [
-            {"url": "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/", "label": "GitHub Blog: Copilot is moving to usage-based billing"},
-            {"url": "https://github.com/orgs/community/discussions/192948", "label": "GitHub Community Discussion: Usage-based billing feedback"},
-            {"url": "https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals", "label": "GitHub Docs: Usage-based billing for individuals"},
-            {"url": "https://visualstudiomagazine.com/articles/2026/04/27/devs-sound-off-on-usage-based-copilot-pricing-change-you-will-get-less-but-pay-the-same-price.aspx", "label": "Visual Studio Magazine: Devs sound off — 'You will get less, but pay the same price'"}
+            {"url": "https://github.com/QwenLM/qwen-code", "label": "GitHub: QwenLM/qwen-code"},
+            {"url": "https://qwen.ai/qwencode", "label": "Qwen Code: official overview — open-source AI agent for the terminal"},
+            {"url": "https://qwenlm.github.io/qwen-code-docs/en/", "label": "Qwen Code documentation"},
+            {"url": "https://vibecodinghub.org/tools/qwen-code", "label": "Vibe Coding Hub: Qwen Code review — provider-flexible, headless mode, IDE integrations"}
           ]
         }
       ]
@@ -97,84 +98,87 @@
       "name": "Developer Tools & Frameworks",
       "articles": [
         {
-          "title": "WebMCP Ships in Chrome 149: A W3C Standard for Browser AI Agents, Co-Authored by Google and Microsoft",
-          "url": "https://developer.chrome.com/docs/ai/webmcp",
-          "tldr": "Confirmed at Google I/O on May 19, 2026, WebMCP moved from a behind-a-flag prototype to a public origin trial in Chrome 149. The proposed W3C standard, co-developed with Microsoft, lets websites declare structured tools — JavaScript functions and annotated HTML form elements — that browser-based AI agents can invoke directly. Instead of screenshot-and-click loops, agents make a single function call, which is faster, more reliable, and safer (agents cannot invoke undeclared tools). Gemini Spark is the first browser agent to support WebMCP natively. Firefox support is committed for Q3 2026; Safari is expected Q4. About 12% of enterprise websites have already started WebMCP implementation.",
-          "why_it_matters": "WebMCP is the web's answer to the MCP protocol that's already standard for desktop AI agents. Today, browser-based agents like Anthropic's computer use and OpenAI's Operator rely on screenshots and pixel-level interaction — slow, brittle, and a security risk. WebMCP replaces that with a structured contract: the website declares what actions are available, and the agent calls them directly. For web developers, this means adding a few annotations to your existing forms and JavaScript functions makes your site 'agent-ready' without building a separate API. The 12% enterprise adoption before the origin trial even launched signals that companies see this as inevitable. The Google-Microsoft co-authorship and W3C process mean this is on track to be a real standard, not a single-vendor experiment.",
+          "title": "Temporal Hits $300M Series D and 3,000 Enterprise Customers: The Crash-Proof Durable Execution Layer for Production AI Agents",
+          "url": "https://thenewstack.io/temporal-durable-execution-ai-workflows/",
+          "tldr": "Temporal, the open-source durable workflow engine, raised a $300M Series D in February 2026 led by Andreessen Horowitz (total raised: ~$650M) and has grown to 3,000+ paying enterprise customers including NVIDIA, Netflix, and Stripe. Recent milestones: Temporal Nexus (cross-namespace workflow connectivity) reached GA, Multi-Region Replication hit GA with a 99.99% uptime SLA, and Temporal Cloud on Google Cloud launched alongside new SDKs for Ruby and .NET. The core primitive: write agent workflow logic as ordinary code, and Temporal records every step so when an agent crashes at step 47 of 200, execution resumes exactly from step 47 — not from the beginning.",
+          "why_it_matters": "Most AI agent frameworks solve the orchestration problem — how to chain steps together. Temporal solves the reliability problem — what happens when step 47 of a 200-step agent pipeline fails. The durable execution model means every tool call, LLM inference, branching decision, and state update is persisted. A coding agent running a 3-hour codebase migration can survive a machine restart at hour 2 and continue from the exact checkpoint. At 3,000 enterprise customers including NVIDIA and Netflix, this is not experimental infrastructure — it's the layer that production-grade, long-running agent workloads depend on. The $300M raise and Nexus GA signal that multi-team, cross-service agent orchestration is the next frontier, and Temporal is betting it will be the infrastructure standard for it.",
           "traction": "high",
           "traction_evidence": [
-            "Origin trial live in Chrome 149 — developer documentation published May 18, 2026",
-            "W3C standard co-authored by Google and Microsoft — cross-vendor commitment",
-            "Firefox committed to Q3 2026 support; Safari expected Q4 2026",
-            "12% of enterprise websites have started WebMCP implementation",
-            "Coverage by Chrome for Developers, PPC Land, AI Weekly, ScriptWalker, Web Developer, ChatForest, DEV Community"
+            "3,000+ paying enterprise customers — NVIDIA, Netflix, Stripe, Snap confirmed",
+            "$300M Series D raised February 2026 led by Andreessen Horowitz — total funding approximately $650M",
+            "Temporal Nexus GA: cross-namespace workflow connectivity for distributed enterprise agent systems",
+            "Multi-Region Replication GA with 99.99% SLA — enterprise reliability tier now standard",
+            "Temporal Cloud on Google Cloud launched — expands beyond AWS and Azure to all major clouds",
+            "Coverage: The New Stack, IntuitionLabs, CallSphere, CIO, ToolDirectory"
           ],
           "use_cases": [
-            "Add WebMCP tool declarations to your web app's forms and JavaScript functions — start with high-value actions like checkout, search, and account management that agents are most likely to invoke",
-            "Join the Chrome 149 origin trial to test how Gemini Spark and other browser agents interact with your declared tools before the standard finalizes",
-            "Audit your site's current agent interaction patterns — if you're seeing bot traffic attempting screenshot-based interactions, WebMCP gives you a structured alternative that you control",
-            "If you're building browser automation tools or testing frameworks, integrate WebMCP tool discovery so your agents use declared tools instead of fragile DOM selectors"
+            "Wrap long-horizon coding agents in Temporal workflows: if the agent crashes mid-migration at step 150 of 300, Temporal replays state and resumes from step 150 — no restart, no data loss, no repeat of already-completed work",
+            "Use Temporal Nexus to chain agent workflows across service ownership boundaries: a billing namespace workflow triggers a coding agent in an engineering namespace without exposing internal state or requiring shared secrets",
+            "Add human-in-the-loop checkpoints as Temporal signals: pause a running agent waiting for human approval, resume via webhook when approved — no polling, no timeout management, no custom state machine",
+            "Replace ad-hoc retry logic and error handling throughout your agent pipeline with Temporal's built-in retry policies, timeouts, and compensation handlers — the reliability code is the framework, not your code"
           ],
-          "tags": ["WebMCP", "Chrome", "W3C", "Browser Agents", "Google", "Microsoft", "Web Standards"],
+          "tags": ["Temporal", "Durable Execution", "Agent Infrastructure", "Workflow Orchestration", "Production AI", "Series D", "Open Source", "Multi-Region"],
           "links": [
-            {"url": "https://developer.chrome.com/docs/ai/webmcp", "label": "Chrome for Developers: WebMCP documentation"},
-            {"url": "https://developer.chrome.com/blog/chrome-at-io26", "label": "Chrome at I/O 2026: 15 updates powering the agentic web"},
-            {"url": "https://ppc.land/chrome-149-origin-trial-puts-webmcp-in-developers-hands-at-last/", "label": "PPC Land: Chrome 149 origin trial puts WebMCP in developers' hands"},
-            {"url": "https://dev.to/soumyadeepdey/why-webmcp-is-the-most-important-thing-google-announced-at-io-2026-and-nobodys-talking-about-it-2edf", "label": "DEV Community: Why WebMCP is the most important thing Google announced at I/O 2026"}
+            {"url": "https://thenewstack.io/temporal-durable-execution-ai-workflows/", "label": "The New Stack: Temporal hits 3,000 paying customers with its crash-proof workflow engine"},
+            {"url": "https://intuitionlabs.ai/articles/agentic-ai-temporal-orchestration", "label": "IntuitionLabs: Agentic AI workflows — why orchestration with Temporal is key"},
+            {"url": "https://callsphere.ai/blog/temporal-ai-agent-workflows-durable-execution-workflow-as-code", "label": "CallSphere: Temporal for AI agent workflows — durable execution and workflow-as-code"},
+            {"url": "https://tooldirectory.ai/tools/temporal", "label": "ToolDirectory: Temporal — durable execution for agents review 2026"}
           ]
         },
         {
-          "title": "Biome v2 Hits Production at AWS, Google, and Microsoft: The Rust-Built ESLint+Prettier Replacement",
-          "url": "https://biomejs.dev/guides/migrate-eslint-prettier/",
-          "tldr": "Biome, the Rust-based frontend toolchain that combines linting and formatting in a single binary, has reached critical mass in 2026. It lints 10,000 files in 0.8 seconds vs ESLint's 45.2 seconds (56x faster), and its formatter is 35x faster than Prettier on a 171,127-line benchmark. Biome v2 ships 491 type-aware lint rules that cover what previously required ESLint + TypeScript ESLint + several plugins, with 97% Prettier formatting compatibility. Production deployments now include AWS, Google, Microsoft, Cloudflare, Coinbase, and Slack. The tool provides dedicated migration commands for existing ESLint and Prettier configurations.",
-          "why_it_matters": "The ESLint+Prettier combination has been the JavaScript/TypeScript linting standard for years, but it's a multi-tool, multi-config, Node.js-dependent setup that's slow on large codebases. Biome replaces the entire stack with a single Rust binary that's 35-56x faster. The 491 type-aware rules in v2 close what was the last major functionality gap. For large monorepos and CI pipelines where linting takes minutes, switching to Biome can cut that to seconds. The production adoption at AWS, Google, Microsoft, Cloudflare, Coinbase, and Slack removes the 'is it ready?' question — these are large-scale, high-stakes codebases. The migration tooling means you don't have to rewrite your config from scratch.",
+          "title": "MCP Ecosystem Crosses 10,000 Public Servers and 97M Monthly SDK Downloads: The Integration Layer Every AI Runtime Now Speaks",
+          "url": "https://www.digitalapplied.com/blog/mcp-adoption-statistics-2026-model-context-protocol",
+          "tldr": "Model Context Protocol (MCP), introduced by Anthropic in November 2024, has reached a scale that marks it as the default integration standard for the AI agent ecosystem. By Q2 2026: 10,000+ active public MCP servers (Anthropic December 2025 update), 9,652 server records in the official MCP Registry as of May 2026, and 97M+ monthly SDK downloads across Python and TypeScript. Every major AI runtime now speaks MCP natively: Claude Desktop, Claude Code, ChatGPT desktop app, Cursor, Codex CLI, OpenAI Agents SDK, VS Code, Amazon Bedrock AgentCore Gateway, Google Gemini, and Microsoft Copilot. Community-built servers cover GitHub, Slack, PostgreSQL, Stripe, Figma, Docker, Kubernetes, and hundreds of other tools. Stacklok's 2026 software report shows 41% of surveyed organizations with MCP servers in limited or broad production.",
+          "why_it_matters": "MCP crossed a critical threshold in 2026: it stopped being 'Anthropic's protocol' and became the lingua franca of AI tool integration. When ChatGPT, the OpenAI Agents SDK, Amazon Bedrock, and Google Gemini all speak it natively, the tooling decision is made. For engineering teams, the practical implication is: a tool you build as an MCP server today works across every major AI runtime without modification — Claude Code, Cursor, Codex CLI, and VS Code are all valid deployment targets for the same server code. The 10,000 server ecosystem means the integrations your agents need — GitHub, Slack, Postgres, Stripe, Linear, Jira — almost certainly already exist and can be wired up in a single config file. The 2026 MCP Roadmap (published June 2026) addresses the remaining production pain points: authentication improvements, streaming, and registry standardization.",
           "traction": "high",
           "traction_evidence": [
-            "Production deployments at AWS, Google, Microsoft, Cloudflare, Coinbase, Slack",
-            "56x faster than ESLint on 10K-file benchmark (0.8s vs 45.2s)",
-            "491 type-aware lint rules in v2 — covers ESLint + TypeScript ESLint + plugins",
-            "97% Prettier formatting compatibility with dedicated migration commands",
-            "Coverage by DEV Community, Pockit, 10x.pub, byteiota, PkgPulse, DevBolt, noqta.tn"
+            "10,000+ active public MCP servers — Anthropic December 2025 ecosystem update",
+            "9,652 server records in the official MCP Registry as of May 24, 2026 pull",
+            "97M+ monthly SDK downloads across Python and TypeScript packages",
+            "41% of surveyed software organizations using MCP in limited or broad production — Stacklok 2026 report",
+            "Native support: Claude Code, ChatGPT desktop, Cursor, Codex CLI, OpenAI Agents SDK, VS Code, Amazon Bedrock AgentCore Gateway, Gemini, Microsoft Copilot",
+            "2026 MCP Roadmap published — addressing production adoption blockers: auth, streaming, registry standards"
           ],
           "use_cases": [
-            "Run 'biome migrate eslint' and 'biome migrate prettier' on your existing config to generate a Biome configuration — test it against your CI pipeline and compare lint times",
-            "For monorepos where ESLint takes minutes in CI, switch to Biome to cut linting to seconds — the single binary means no more dependency conflicts between ESLint plugins",
-            "Adopt Biome for new projects as the default linter+formatter — one tool, one config file, one dependency instead of five",
-            "If you rely on custom ESLint plugins, check Biome's 491-rule coverage against your specific rules — the remaining 3% Prettier incompatibility is mostly edge cases in template literals and decorators"
+            "Build an internal tool integration once as an MCP server and deploy it to Claude Code, Cursor, and VS Code simultaneously — the same server code works across all three AI runtimes without modification",
+            "Wire up GitHub, Slack, Linear, and your database in a single MCP config file and connect them to any agent that speaks MCP — skip the custom tool integration code you'd otherwise write for each provider",
+            "Self-host an MCP proxy server to add authentication, logging, and rate limiting to public MCP servers before exposing them to your agents — the emerging pattern for enterprise MCP deployments",
+            "Evaluate the 2026 MCP Roadmap against your production pain points: if you're blocked by authentication flows or streaming limitations, those are the prioritized items for this year's protocol updates"
           ],
-          "tags": ["Biome", "Rust", "ESLint", "Prettier", "JavaScript", "TypeScript", "Linting", "Developer Tools"],
+          "tags": ["MCP", "Model Context Protocol", "Anthropic", "Integration Standard", "Agent Infrastructure", "Open Source", "Tool Ecosystem"],
           "links": [
-            {"url": "https://biomejs.dev/guides/migrate-eslint-prettier/", "label": "Biome: Migrate from ESLint and Prettier guide"},
-            {"url": "https://dev.to/pockit_tools/biome-the-eslint-and-prettier-killer-complete-migration-guide-for-2026-27m", "label": "DEV Community: Biome — the ESLint and Prettier killer? Complete migration guide"},
-            {"url": "https://recca0120.github.io/en/2026/03/10/biome-eslint-prettier-replacement/", "label": "Replace ESLint + Prettier with Biome: 35x faster, one tool"},
-            {"url": "https://tianpan.co/forum/t/biome-is-replacing-eslint-prettier-bun-is-replacing-node-js-2026-is-the-year-rust-rewrites-the-javascript-toolchain/916", "label": "10x.pub: 2026 is the year Rust rewrites the JavaScript toolchain"}
+            {"url": "https://www.digitalapplied.com/blog/mcp-adoption-statistics-2026-model-context-protocol", "label": "DigitalApplied: MCP adoption statistics 2026 — Model Context Protocol"},
+            {"url": "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/", "label": "MCP Blog: The 2026 MCP Roadmap"},
+            {"url": "https://thenewstack.io/model-context-protocol-roadmap-2026/", "label": "The New Stack: MCP's biggest growing pains for production use will soon be solved"},
+            {"url": "https://workos.com/blog/everything-your-team-needs-to-know-about-mcp-in-2026", "label": "WorkOS: Everything your team needs to know about MCP in 2026"}
           ]
         },
         {
-          "title": "MotherDuck Launches Agentic Data Ingestion: Natural-Language Workflows for DuckDB Cloud",
-          "url": "https://siliconangle.com/2026/06/10/exclusive-motherduck-adds-agentic-data-ingestion-cloud-analytics-service/",
-          "tldr": "Announced June 10, 2026, MotherDuck unveiled Flights — a new capability that lets users create and operate data ingestion workflows through natural-language interactions with AI assistants. Instead of writing ETL code, you describe what data you want and how to transform it, and the agent builds and runs the pipeline in DuckDB. MotherDuck crossed 10,000 paying teams in Q1 2026. The broader DuckDB ecosystem also shipped DuckLake 1.0, a production-ready lakehouse format built on SQL that stores data on object storage and accesses it as a database — bridging the gap between data lakes and traditional databases.",
-          "why_it_matters": "Data ingestion is the most tedious part of most analytics workflows — writing connectors, handling schema changes, managing incremental loads. MotherDuck's Flights replaces that with natural-language agent workflows, which is a practical application of the 'agentic everything' trend that actually saves time on a task engineers hate. DuckLake 1.0 is the more architecturally significant release: a lakehouse format that operates as a SQL database solves the 'do I use a data lake or a database?' question with 'both, and they're the same thing.' For teams already using DuckDB for local analytics, MotherDuck's 10K paying teams milestone signals that the cloud-managed version is production-validated.",
-          "traction": "medium",
+          "title": "Claude Agent SDK: The Same Harness That Powers Claude Code Is Now Programmable in Python and TypeScript",
+          "url": "https://code.claude.com/docs/en/agent-sdk/overview",
+          "tldr": "The Claude Agent SDK (renamed from Claude Code SDK in September 2025) gives developers programmatic access to the same tools, agent loop, and context management that power Claude Code — in Python (`claude-agent-sdk-python`) and TypeScript (`@anthropic-ai/claude-agent-sdk`). Out of the box: file editing, bash execution, web search, web fetch, a tool-use loop with configurable checkpoints, subagents (delegated child agents with clean context windows), persistent sessions, and MCP client support with single-config-line server connections. The TypeScript SDK bundles the Claude Code binary as an optional dependency — no separate install needed. Supported models: Claude Sonnet 4.6, Opus 4.7, Opus 4.8, and Fable 5. MCP crossed 200 registered server implementations that wire to the SDK in a single config line.",
+          "why_it_matters": "The Claude Agent SDK is the only framework where the agent infrastructure is identical to the tool you use interactively to verify it works. When you debug your agent in Claude Code, you are running the same execution harness your production SDK uses — same tool implementations, same context management, same subagent patterns. That eliminates an entire class of parity bugs. The MCP integration is the deepest of any agent framework — Playwright, Slack, GitHub, Linear, and hundreds of other servers connect with one config line, no custom tool wrapper code. Subagents with separate context windows solve the context management problem for large tasks: each subagent gets a fresh 200K token window, and the orchestrator aggregates results without hitting context limits. The persistent sessions API means agent state survives across Python or TypeScript function calls — you can pause and resume a migration mid-flight.",
+          "traction": "high",
           "traction_evidence": [
-            "MotherDuck Flights announced June 10, 2026 — SiliconANGLE exclusive",
-            "MotherDuck crossed 10,000 paying teams in Q1 2026",
-            "DuckLake 1.0 released as production-ready lakehouse format",
-            "DuckDB v1.5.2 production-ready; DuckDB-wasm enables browser-based analytics",
-            "Coverage by SiliconANGLE, MotherDuck Blog, DataSoft Technologies, Kestra, Data Engineering Central"
+            "Production-deployed: same harness as Claude Code, used by millions of developers interactively",
+            "Python: pip install claude-agent-sdk-python; TypeScript: @anthropic-ai/claude-agent-sdk — available today",
+            "Subagents: child agents with clean context windows, same pattern as Claude Code's Dynamic Workflows",
+            "MCP: 200+ registered server implementations wirable with single config line — Playwright, Slack, GitHub, Linear",
+            "Supports Opus 4.8, Fable 5, Sonnet 4.6 — the full model tier range",
+            "Coverage: Agent SDK docs, MindStudio, Promptfoo, TechPlained, Totalum, Morph framework comparison"
           ],
           "use_cases": [
-            "Try MotherDuck Flights for your next data ingestion task — describe the source, schema, and transformations in natural language instead of writing a custom ETL pipeline",
-            "Evaluate DuckLake 1.0 as a simpler alternative to Iceberg or Delta Lake if you need a lakehouse but want SQL-native access without a separate catalog service",
-            "Use DuckDB-wasm to add embedded analytics to your web app — run SQL queries directly in the browser without a backend analytics server",
-            "For teams running DuckDB locally in notebooks or scripts, evaluate MotherDuck as the cloud tier for sharing results and running scheduled queries"
+            "Automate multi-step engineering tasks in Python: write a script that opens a session, passes a task description, and receives a completed PR diff — the agent handles file reading, code editing, test running, and git operations",
+            "Build a CI automation agent with subagents: the orchestrator identifies issues from test failures, spawns parallel subagents for each failing test, collects fixes, and commits — all driven by 20 lines of Python",
+            "Connect any MCP server to your agent with one config line: add GitHub MCP to get PR creation and issue reading, add Slack MCP to post summaries — zero custom tool implementation code",
+            "Use persistent sessions for long-running pipelines: start a migration session in one pipeline stage, check its progress in another, and finalize in a third — Temporal + Claude Agent SDK is the production pattern for durable multi-hour migrations"
           ],
-          "tags": ["DuckDB", "MotherDuck", "DuckLake", "Analytics", "Data Engineering", "Agentic AI", "ETL"],
+          "tags": ["Claude Agent SDK", "Anthropic", "Python", "TypeScript", "MCP", "Subagents", "Production AI", "Agent Framework"],
           "links": [
-            {"url": "https://siliconangle.com/2026/06/10/exclusive-motherduck-adds-agentic-data-ingestion-cloud-analytics-service/", "label": "SiliconANGLE: MotherDuck adds agentic data ingestion to cloud analytics"},
-            {"url": "https://motherduck.com/blog/duckdb-ecosystem-newsletter-april-2026/", "label": "MotherDuck: DuckDB ecosystem newsletter — April 2026"},
-            {"url": "https://motherduck.com/learn/best-cloud-data-warehouses-real-time-analytics-2026/", "label": "MotherDuck: Best database for real-time analytics in 2026"},
-            {"url": "https://dataengineeringcentral.substack.com/p/duckdb-ai-and-the-future-of-data", "label": "Data Engineering Central: DuckDB, AI, and the future of data engineering"}
+            {"url": "https://code.claude.com/docs/en/agent-sdk/overview", "label": "Claude Code Docs: Agent SDK overview"},
+            {"url": "https://github.com/anthropics/claude-agent-sdk-typescript", "label": "GitHub: anthropics/claude-agent-sdk-typescript"},
+            {"url": "https://www.morphllm.com/ai-agent-framework", "label": "Morph: AI agent frameworks 2026 — 8 SDKs compared + Claude Agent SDK reference"},
+            {"url": "https://www.promptfoo.dev/docs/providers/claude-agent-sdk/", "label": "Promptfoo: Claude Agent SDK provider docs — eval and test your SDK agents"}
           ]
         }
       ]
@@ -183,57 +187,59 @@
       "name": "Infrastructure & Production",
       "articles": [
         {
-          "title": "Databricks 2026 State of AI Agents: Governance Drives 12x More Projects to Production",
-          "url": "https://www.databricks.com/resources/ebook/state-of-ai-agents",
-          "tldr": "Databricks' 2026 State of AI Agents report, analyzing 20,000+ organizations on the Data Intelligence Platform (including 60%+ of the Fortune 500), reveals that companies implementing AI governance push 12x more projects to production than those that don't. Multi-agent systems grew 327% in under four months. Companies using evaluation tools get nearly 6x more AI projects into production. More than 80% of databases in agent workflows are now built by AI agents themselves — driving demand for a new kind of database designed for agent-generated schemas. The report highlights that most AI pilots still fail to reach production, and governance plus evaluation are the true differentiators.",
-          "why_it_matters": "The 12x production multiplier from governance is the most counterintuitive finding in AI engineering this year. Teams typically view governance as overhead that slows deployment. Databricks' data shows the opposite: structured guardrails, access controls, and audit trails remove the organizational friction that blocks promotion from staging to production. The 327% multi-agent growth in four months means enterprises are moving past single-agent chatbots into orchestrated systems — which are more powerful but also more opaque, making the governance finding even more relevant. The 6x multiplier from evaluation tools reinforces that you can't ship what you can't measure. For engineering leaders, this report is ammunition for investing in eval infrastructure and governance frameworks before scaling agent deployments.",
+          "title": "Langfuse Joins ClickHouse: Open-Source LLM Observability Trusted by 19 Fortune 50 Companies Merges with the Fastest Analytics Database",
+          "url": "https://langfuse.com/blog/joining-clickhouse",
+          "tldr": "In January 2026, ClickHouse acquired Langfuse as part of a $400M Series D that tripled ClickHouse's valuation to $15B. Langfuse is the leading open-source LLM engineering platform: 2,000+ paying customers, trusted by 19 of the Fortune 50 and 63 of the Fortune 500, with 26M+ monthly SDK installs. The combination is technically natural — Langfuse's architecture already runs entirely on ClickHouse for both cloud and self-hosted deployments. Both the MIT license and self-hosting capability are explicitly maintained post-acquisition, with no product changes or roadmap disruption. The joint roadmap focuses on full-fidelity trace storage at petabyte scale with millisecond analytical query latency — the combination of LLM trace collection and ClickHouse's analytical engine.",
+          "why_it_matters": "Langfuse was already the default choice for open-source LLM observability: MIT license, self-hosted, no vendor lock-in, covers traces, evals, prompt management, datasets, and human annotation in one platform. The ClickHouse acquisition doesn't change what Langfuse is — it changes the ceiling for what it can scale to. ClickHouse's core strength (analytical queries over billions of rows at sub-second latency) is exactly what production LLM observability requires at scale: querying trace patterns across millions of agent sessions, running evals over production samples, detecting behavioral drift across model versions. Teams previously forced to sample traces to control storage costs can now store everything and query it all. For self-hosters, the technical stack you're already running (Langfuse on ClickHouse) now has a $15B company's engineering team behind it.",
           "traction": "high",
           "traction_evidence": [
-            "Based on data from 20,000+ organizations including 60%+ of the Fortune 500",
-            "12x more AI projects reach production with governance — the largest production multiplier in any 2026 AI report",
-            "Multi-agent systems grew 327% in under four months",
-            "6x more AI projects to production with evaluation tools",
-            "Coverage by SiliconANGLE, Intelligent CIO, CIO Dive, LinkedIn, IT Nerd"
+            "Acquired by ClickHouse in January 2026 as part of $400M Series D — ClickHouse valuation tripled to $15B",
+            "2,000+ paying customers; trusted by 19 Fortune 50 and 63 Fortune 500 companies",
+            "26M+ SDK installs per month — one of the most-downloaded LLM infrastructure libraries on PyPI",
+            "MIT license explicitly maintained post-acquisition — self-hosting and commercial use unchanged",
+            "Architecture already built on ClickHouse — technical integration risk is zero, the stack was always unified",
+            "Coverage: ClickHouse blog, Langfuse blog, SiliconANGLE, InfoWorld, Orrick, Tasrie IT, Byteiota"
           ],
           "use_cases": [
-            "Implement AI governance (access controls, audit trails, model versioning) before your next agent deployment — the 12x multiplier means governance accelerates production, not slows it",
-            "Add evaluation tools to your AI pipeline: automated evals for accuracy, latency, cost, and safety are the single highest-leverage investment for getting agents to production",
-            "If you're running multi-agent systems, instrument inter-agent communication for observability — the 327% growth means debugging multi-agent failures is now a core engineering skill",
-            "Use the 80% agent-built database finding to evaluate whether your schema management can handle AI-generated tables and columns at scale"
+            "Self-host Langfuse on ClickHouse to store every trace at full fidelity — not just sampled — and run analytical queries over complete production data months later to understand model behavior drift",
+            "Deploy Langfuse's LLM-as-judge eval framework on sampled production traces: detect when your agent starts producing subtly wrong outputs in ways that never trigger user complaints or error logs",
+            "Wire Langfuse into your CI pipeline for eval-gated deployments: fail the deploy if prompt changes cause the eval score to drop below your quality threshold on a held-out test dataset",
+            "Use Langfuse prompt management as a deployment control plane: version prompts separately from application code, roll back a misbehaving prompt without a code deploy, and compare prompt versions A/B in production with full trace data"
           ],
-          "tags": ["Databricks", "AI Agents", "Governance", "Production", "Multi-Agent", "Evaluation", "Enterprise AI"],
+          "tags": ["Langfuse", "ClickHouse", "LLM Observability", "Open Source", "MIT", "AI Infrastructure", "Evals", "Tracing", "Self-Hosted", "LLMOps"],
           "links": [
-            {"url": "https://www.databricks.com/resources/ebook/state-of-ai-agents", "label": "Databricks: 2026 State of AI Agents report"},
-            {"url": "https://www.databricks.com/blog/enterprise-ai-agent-trends-top-use-cases-governance-evaluations-and-more", "label": "Databricks Blog: Enterprise AI agent trends — use cases, governance, and evaluations"},
-            {"url": "https://siliconangle.com/2026/01/27/databricks-reports-finds-surge-ai-agent-adoption-despite-governance-bottlenecks/", "label": "SiliconANGLE: Surge in AI agent adoption despite governance bottlenecks"},
-            {"url": "https://www.ciodive.com/news/AI-multiagent-systems-databricks-IT/811610/", "label": "CIO Dive: CIOs lean into multiagent systems with customers in mind"}
+            {"url": "https://langfuse.com/blog/joining-clickhouse", "label": "Langfuse: Joining ClickHouse"},
+            {"url": "https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability", "label": "ClickHouse: Welcoming Langfuse — the future of open-source LLM observability"},
+            {"url": "https://siliconangle.com/2026/01/16/database-maker-clickhouse-raises-400m-acquires-ai-observability-startup-langfuse/", "label": "SiliconANGLE: ClickHouse raises $400M, acquires AI observability startup Langfuse"},
+            {"url": "https://www.infoworld.com/article/4118621/clickhouse-buys-langfuse-as-data-platforms-race-to-own-the-ai-feedback-loop.html", "label": "InfoWorld: ClickHouse buys Langfuse as data platforms race to own the AI feedback loop"}
           ]
         },
         {
-          "title": "SpaceX IPO Opens Today at $135/Share: The $1.77 Trillion Debut That Reshapes Tech Infrastructure",
-          "url": "https://www.cnbc.com/2026/06/09/spacex-ipo-explained-stock-price-date.html",
-          "tldr": "SpaceX begins trading on Nasdaq today (June 12, 2026) under ticker SPCX at $135 per share, pricing 555.6 million Class A shares to raise approximately $75 billion — the largest IPO in history, more than triple Alibaba's record. The company is valued at roughly $1.77 trillion, making it larger than Tesla on day one. SpaceX allocated about 30% of public shares to retail investors, far above the typical 5-10%. The IPO follows Google's $920M/month deal with SpaceX for 110K NVIDIA GPUs as bridge capacity for Gemini Enterprise demand, cementing SpaceX's role not just as a launch provider but as AI infrastructure.",
-          "why_it_matters": "SpaceX's IPO matters to engineers for a reason beyond the financial milestone: the company is becoming AI infrastructure. The Google GPU deal means SpaceX is building data center capacity to serve Gemini workloads — the same models powering Antigravity, Managed Agents, and the Gemini API that developers use daily. Starlink's low-latency global connectivity is also enabling edge AI deployments in locations where traditional data centers can't reach. For engineering teams evaluating cloud providers and inference infrastructure, SpaceX is now a variable in the equation. The 30% retail allocation also means many engineers can participate directly — a departure from the typical institutional-only IPO structure.",
+          "title": "SWE-bench Verified Is Saturated: Six Frontier Models Tied Near 80%, OpenAI Deprecated It — SWE-bench Pro Is the New Standard",
+          "url": "https://www.morphllm.com/swe-bench-pro",
+          "tldr": "As of June 2026, SWE-bench Verified — the benchmark that defined AI coding capability for two years — can no longer discriminate between frontier models. Six models are statistically tied near 80%: Claude Fable 5 (80.3% vendor-reported), Claude Opus 4.8 (88.6% Verified), GPT-5.5 (SWE-bench deprecated by OpenAI), Gemini 3.1 Pro, Kimi K2.6, and MiniMax M3. OpenAI formally deprecated SWE-bench Verified in February 2026 citing contamination. The replacement benchmark is SWE-bench Pro — significantly harder, with top public-subset scores around 23%. On Pro, meaningful separation emerges: Claude Fable 5 leads at 80.3% (vendor-reported), GPT-5.5 at 58.6% — a 22-point gap that reflects real capability differences on hard tasks. Claude Mythos 5 (restricted access, Anthropic internal) leads SWE-bench Verified at 95.5%.",
+          "why_it_matters": "The saturation problem has a direct cost for engineering teams: models scored on SWE-bench Verified are being selected based on a benchmark that no longer discriminates. A 5-point gap between two models on SWE-bench Verified tells you almost nothing meaningful about relative performance on your production coding tasks. The transition to SWE-bench Pro changes the comparative story significantly — Claude Fable 5's 22-point Pro lead over GPT-5.5 (80.3% vs 58.6%) represents a real capability gap on hard, multi-step software engineering tasks. The 23% ceiling for top public-subset Pro scores also provides important context: even frontier models fail the majority of hard, real-world software engineering problems. Benchmark scores in the 70-80% range on Verified were always measuring Python-heavy, well-scoped GitHub issues — not the messy, ambiguous, multi-file tasks most production codebases present.",
           "traction": "high",
           "traction_evidence": [
-            "Trading opens June 12, 2026 on Nasdaq under ticker SPCX",
-            "$75 billion raised at $135/share — largest IPO in history",
-            "$1.77 trillion valuation — larger than Tesla at market open",
-            "30% retail allocation vs. typical 5-10% — Bloomberg reports multiple oversubscription",
-            "Coverage by CNBC, Bloomberg, Yahoo Finance, Investing.com, Zacks, Capital.com"
+            "Six frontier models statistically tied near 80% SWE-bench Verified as of June 2026 — benchmark can no longer discriminate",
+            "OpenAI formally deprecated SWE-bench Verified in February 2026 — cited contamination as the reason",
+            "SWE-bench Pro public top scores ~23% — significantly harder, well below saturation",
+            "Claude Fable 5 80.3% Pro vs GPT-5.5 58.6% Pro — 22-point gap reveals real capability separation at the hard end",
+            "Claude Mythos 5: 95.5% SWE-bench Verified — restricted access, establishes near-ceiling on the old benchmark",
+            "Coverage: Morph SWE-bench Pro leaderboard, BenchLM.ai, Scale AI SWE-bench Pro public leaderboard, CodeAnt"
           ],
           "use_cases": [
-            "Track SPCX as a proxy for AI infrastructure demand — the Google GPU deal and Starlink data center partnerships make SpaceX a barometer for compute capacity investment",
-            "If your company uses Google Cloud or Gemini API, understand that SpaceX GPU capacity is part of Google's inference scaling strategy — service reliability may improve as bridge capacity comes online",
-            "Evaluate Starlink connectivity for edge AI deployments in remote locations where traditional internet infrastructure is unavailable or unreliable",
-            "For the 30% retail allocation: review your brokerage's SPCX availability today if you're interested — demand is multiple-times oversubscribed"
+            "Stop using SWE-bench Verified as a primary model selection signal: use the SWE-bench Pro leaderboard at morphllm.com/swe-bench-pro — it hasn't saturated and shows meaningful separation between frontier models",
+            "Build an internal eval set from 20-30 real issues from your own codebase: sample actual bugs and feature requests, run candidate models, and treat the results as your primary selection signal — your workload, not a Python benchmark",
+            "Use the SWE-bench Pro public subset for reproducible comparisons: it's harder, not contaminated, hasn't saturated — and the 23% ceiling means you'll see meaningful separation between models on genuinely difficult tasks",
+            "Calibrate your expectations from vendor-reported scores: Claude Fable 5's 80.3% Pro is vendor-reported (full agent scaffolding, optimal settings); the public-subset ceiling is ~23% — both numbers are real, they're measuring different things"
           ],
-          "tags": ["SpaceX", "IPO", "AI Infrastructure", "Google", "NVIDIA", "Starlink", "GPU"],
+          "tags": ["SWE-bench", "Benchmark", "Model Evaluation", "AI Coding", "Claude Fable 5", "GPT-5.5", "Leaderboard", "Model Selection", "LLMOps"],
           "links": [
-            {"url": "https://www.cnbc.com/2026/06/09/spacex-ipo-explained-stock-price-date.html", "label": "CNBC: SpaceX IPO explained — stock price, date, and how to buy"},
-            {"url": "https://www.cnbc.com/2026/06/03/spacex-ipo-stock-price-roadshow-musk.html", "label": "CNBC: SpaceX targets fixed $135 IPO price for roadshow"},
-            {"url": "https://www.investing.com/news/stock-market-news/spacex-prices-ipo-at-135-per-share-for-june-12-nasdaq-debut-432SI-4738217", "label": "Investing.com: SpaceX prices IPO at $135 per share for June 12 Nasdaq debut"},
-            {"url": "https://finance.yahoo.com/markets/stocks/articles/spacex-just-got-superchip-ahead-123000304.html", "label": "Yahoo Finance: SpaceX got a superchip ahead of its June 12 IPO"}
+            {"url": "https://www.morphllm.com/swe-bench-pro", "label": "Morph: SWE-bench Pro leaderboard 2026 — every model score, Claude Fable 5 leads at 80.3%"},
+            {"url": "https://benchlm.ai/benchmarks/sweVerified", "label": "BenchLM.ai: SWE-bench Verified benchmark 2026 — 53 LLM scores"},
+            {"url": "https://www.morphllm.com/best-ai-model-for-coding", "label": "Morph: Best AI model for coding June 2026 — 12 models ranked by SWE-bench Pro score and cost per task"},
+            {"url": "https://labs.scale.com/leaderboard/swe_bench_pro_public", "label": "Scale AI: SWE-bench Pro public leaderboard — standardized evaluation scores"}
           ]
         }
       ]
