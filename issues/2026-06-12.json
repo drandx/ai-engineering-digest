@@ -1,0 +1,242 @@
+{
+  "highlights": [
+    {"text": "Anthropic publishes 'When AI Builds Itself': Claude now writes 80%+ of Anthropic's merged code, engineers ship 8x more per day, and the company calls for a verifiable global AI pause mechanism", "anchor": "ai-tools-and-models-0"},
+    {"text": "WebMCP ships in Chrome 149 origin trial — Google and Microsoft co-author a W3C standard that lets websites declare structured tools for browser AI agents, replacing fragile screenshot loops", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "GitHub Copilot switches to usage-based billing June 1: AI credits at $0.01 each replace premium requests — agentic coding sessions now cost real money per token", "anchor": "ai-tools-and-models-2"},
+    {"text": "Google Antigravity 2.0 ships as a standalone agent-first platform with desktop app, Go CLI, SDK, and Managed Agents API — spin up a sandboxed Linux agent with a single Gemini API call", "anchor": "ai-tools-and-models-1"},
+    {"text": "Databricks State of AI Agents: companies with AI governance push 12x more projects to production; multi-agent systems grew 327% in four months across 20,000+ organizations", "anchor": "infrastructure-and-production-0"},
+    {"text": "Biome v2 hits production at AWS, Google, Microsoft, and Cloudflare — the Rust-built ESLint+Prettier replacement lints 10K files in 0.8s vs ESLint's 45s, with 491 type-aware rules closing the gap", "anchor": "developer-tools-and-frameworks-1"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Anthropic: When AI Builds Itself — Claude Writes 80% of Its Own Code, Calls for Global AI Pause",
+          "url": "https://www.anthropic.com/institute/recursive-self-improvement",
+          "tldr": "Published June 4, 2026, Anthropic's Institute paper reveals that more than 80% of the code merged into Anthropic's codebase in May 2026 was authored by Claude — up from low single digits before Claude Code's February 2025 research preview. The typical Anthropic engineer now merges 8x as much code per day as in 2024, and on the most complex open-ended engineering problems, Claude's success rate climbed to 76% in May 2026, a 50-percentage-point increase in six months. The paper maps the path toward recursive self-improvement — AI that can design and train its own successor — and calls for a verifiable global pause mechanism before that threshold is crossed.",
+          "why_it_matters": "This is the first major AI lab to publish hard numbers on AI writing AI at production scale. The 80% figure isn't aspirational — it's measured from merged commits. The 8x productivity multiplier is the most concrete data point available for engineering leaders trying to forecast how AI coding agents change team capacity. The recursive self-improvement framing is the deeper signal: if AI can reliably improve its own training pipeline, the feedback loop accelerates in ways that current governance structures aren't designed to handle. For engineering teams, the practical takeaway is that the productivity ceiling for AI-assisted development is still climbing fast — the question is whether your workflows are set up to capture it.",
+          "traction": "high",
+          "traction_evidence": [
+            "Published June 4, 2026 by Anthropic Institute — based on internal production data from Anthropic's own engineering org",
+            "80%+ of merged code authored by Claude in May 2026 — measured from version control, not self-reported",
+            "8x code output per engineer per day compared to 2024 baseline",
+            "Coverage by Scientific American, TechCrunch, Tom's Hardware, The Next Web, Fortune, VentureBeat, News9"
+          ],
+          "use_cases": [
+            "Use the 80% and 8x figures to benchmark your own AI-assisted development metrics — if you're seeing 2-3x, there's likely a workflow or tooling gap to close",
+            "Evaluate whether your CI/CD pipeline can handle 8x more merged code per day — review bottlenecks in testing, deployment, and code review capacity",
+            "Read the recursive self-improvement paper to understand the policy proposals Anthropic is pushing — the global pause mechanism will affect frontier model access if adopted",
+            "Track Claude's success rate on complex engineering tasks (76% and climbing) as a decision input for when to delegate hard problems vs. keeping them human-only"
+          ],
+          "tags": ["Anthropic", "Claude", "Recursive Self-Improvement", "AI Safety", "Developer Productivity", "Code Generation"],
+          "links": [
+            {"url": "https://www.anthropic.com/institute/recursive-self-improvement", "label": "Anthropic Institute: When AI builds itself"},
+            {"url": "https://thenextweb.com/news/anthropic-claude-recursive-self-improvement-code", "label": "The Next Web: Claude writes 80% of its code, calls for AI pause"},
+            {"url": "https://www.scientificamerican.com/article/anthropic-warns-ai-may-soon-begin-recursive-self-improvement/", "label": "Scientific American: Anthropic warns AI may soon begin recursive self-improvement"},
+            {"url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-says-claude-now-writes-more-than-80-percent-of-its-merged-code", "label": "Tom's Hardware: Anthropic warns Claude AI is building itself faster than expected"}
+          ]
+        },
+        {
+          "title": "Google Antigravity 2.0: Agent-First Developer Platform with CLI, SDK, and Managed Agents API",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/",
+          "tldr": "Launched at Google I/O on May 19, 2026, Antigravity 2.0 is Google's pivot from AI-assisted coding to multi-agent orchestration as the core development model. The release ships five components: a standalone desktop app for orchestrating multiple agents simultaneously, a new Go-based CLI, an SDK for custom workflows, the Managed Agents API (single API call spins up an agent in an isolated Linux sandbox that reasons, writes code, manages files, and browses the web), and an enterprise deployment path. The default model is Gemini 3.5 Flash. Important deadline: consumer access to the legacy Gemini CLI and Gemini Code Assist IDE extensions ends June 18, 2026, pushing all users to Antigravity.",
+          "why_it_matters": "This is Google's answer to Claude Code and OpenAI Codex — but with a different architecture. Instead of a single terminal agent, Antigravity 2.0 is a multi-agent orchestration platform where you can design custom subagent workflows and schedule background tasks. The Managed Agents API is the most developer-actionable piece: one API call gives you a stateful agent in a sandboxed Linux environment with no infrastructure to manage. The June 18 deadline for legacy Gemini CLI and Code Assist means every developer currently using those tools has days to migrate. Google is also introducing a $100/month AI Ultra plan with 5x higher limits than Pro, signaling that heavy agentic usage needs its own pricing tier.",
+          "traction": "high",
+          "traction_evidence": [
+            "Launched at Google I/O 2026, May 19 — available immediately as desktop app, CLI, and API",
+            "Managed Agents API in public preview — Antigravity agent powered by Gemini 3.5 Flash",
+            "Legacy Gemini CLI and Code Assist sunsetting June 18 — forced migration to Antigravity",
+            "New $100/month AI Ultra plan introduced alongside Pro ($20) and standard tiers",
+            "Coverage by TechCrunch, The Next Web, MarkTechPost, AnalyticsVidhya, Memeburn, Google Developers Blog"
+          ],
+          "use_cases": [
+            "Migrate from Gemini CLI or Gemini Code Assist before June 18 — install the Antigravity 2.0 desktop app or Go CLI now to avoid disruption",
+            "Use the Managed Agents API to spin up disposable coding agents in isolated Linux sandboxes — one API call, no infrastructure, for tasks like code generation, testing, or file processing",
+            "Evaluate the AI Ultra plan ($100/month) against your agentic usage patterns — if you're hitting rate limits on Pro, the 5x higher limits may be cost-effective vs. API pricing",
+            "Build custom multi-agent workflows using the Antigravity SDK — orchestrate specialized agents for different parts of your development pipeline"
+          ],
+          "tags": ["Google", "Antigravity", "Gemini", "Managed Agents", "Google I/O", "Developer Tools", "Agentic Coding"],
+          "links": [
+            {"url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/", "label": "Google: I/O 2026 developer highlights — Antigravity, Gemini API, AI Studio"},
+            {"url": "https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/", "label": "TechCrunch: Google launches Antigravity 2.0 at I/O 2026"},
+            {"url": "https://antigravity.google/blog/google-io-2026", "label": "Google Antigravity Blog: I/O 2026 announcement"},
+            {"url": "https://www.marktechpost.com/2026/05/19/google-launches-antigravity-2-0-at-i-o-2026-a-standalone-agent-first-platform-with-cli-sdk-managed-execution-and-enterprise-support/", "label": "MarkTechPost: Google launches Antigravity 2.0 with CLI, SDK, and enterprise support"}
+          ]
+        },
+        {
+          "title": "GitHub Copilot Switches to Usage-Based Billing: AI Credits Replace Premium Requests",
+          "url": "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/",
+          "tldr": "As of June 1, 2026, all monthly GitHub Copilot plans transitioned from request-based to usage-based billing. Every plan now includes a monthly allotment of GitHub AI Credits (1 credit = $0.01 USD): Copilot Pro gets $10/month in credits, Pro+ gets $39/month. The cost of each interaction depends on the model used and tokens consumed, with model multipliers determining how fast credits deplete. Plan prices remain unchanged, but agentic coding sessions, chat, and code review — which are token-heavy — are now individually metered. Annual plan subscribers stay on request-based pricing until their plan expires, then auto-migrate.",
+          "why_it_matters": "This is the most disruptive pricing change in AI coding tools this quarter, and it affects millions of developers. The shift from 'unlimited premium requests' to per-token billing fundamentally changes the economics of agentic coding. A single Claude Sonnet or GPT-5.5 chat session that previously counted as one premium request now drains credits proportional to token usage. For teams that rely heavily on Copilot's agentic features — multi-file edits, code review, extended chat sessions — monthly costs could increase significantly. The $10 Pro budget covers roughly 1,000 credits, which may not last through a full month of heavy agentic use. Engineering managers need to audit their team's Copilot usage patterns before the next billing cycle.",
+          "traction": "high",
+          "traction_evidence": [
+            "Effective June 1, 2026 — all monthly Copilot subscribers automatically migrated",
+            "Millions of developers affected — GitHub Copilot is the most widely used AI coding tool",
+            "Developer backlash captured in GitHub Discussions thread #192948 and Visual Studio Magazine coverage",
+            "Model multipliers increase for annual plan subscribers on June 1",
+            "Coverage by GitHub Blog, Visual Studio Magazine, GitHub Docs, Windows Forum, Apidog"
+          ],
+          "use_cases": [
+            "Audit your team's Copilot credit consumption in the first full billing cycle (June 1-30) — compare actual spend against the included credit allotment to forecast overages",
+            "Switch to lower-cost models for routine completions (GPT-4.1 mini or MAI-Code-1-Flash have lower multipliers) and reserve frontier models for complex tasks",
+            "If you're on an annual plan, evaluate whether to renew or switch to monthly before your plan expires — annual subscribers get request-based pricing until expiration",
+            "Consider supplementing Copilot with free/open-source alternatives like OpenCode for token-heavy workflows to stay within credit budgets"
+          ],
+          "tags": ["GitHub", "Copilot", "Pricing", "Usage-Based Billing", "AI Credits", "Developer Tools"],
+          "links": [
+            {"url": "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/", "label": "GitHub Blog: Copilot is moving to usage-based billing"},
+            {"url": "https://github.com/orgs/community/discussions/192948", "label": "GitHub Community Discussion: Usage-based billing feedback"},
+            {"url": "https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals", "label": "GitHub Docs: Usage-based billing for individuals"},
+            {"url": "https://visualstudiomagazine.com/articles/2026/04/27/devs-sound-off-on-usage-based-copilot-pricing-change-you-will-get-less-but-pay-the-same-price.aspx", "label": "Visual Studio Magazine: Devs sound off — 'You will get less, but pay the same price'"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "WebMCP Ships in Chrome 149: A W3C Standard for Browser AI Agents, Co-Authored by Google and Microsoft",
+          "url": "https://developer.chrome.com/docs/ai/webmcp",
+          "tldr": "Confirmed at Google I/O on May 19, 2026, WebMCP moved from a behind-a-flag prototype to a public origin trial in Chrome 149. The proposed W3C standard, co-developed with Microsoft, lets websites declare structured tools — JavaScript functions and annotated HTML form elements — that browser-based AI agents can invoke directly. Instead of screenshot-and-click loops, agents make a single function call, which is faster, more reliable, and safer (agents cannot invoke undeclared tools). Gemini Spark is the first browser agent to support WebMCP natively. Firefox support is committed for Q3 2026; Safari is expected Q4. About 12% of enterprise websites have already started WebMCP implementation.",
+          "why_it_matters": "WebMCP is the web's answer to the MCP protocol that's already standard for desktop AI agents. Today, browser-based agents like Anthropic's computer use and OpenAI's Operator rely on screenshots and pixel-level interaction — slow, brittle, and a security risk. WebMCP replaces that with a structured contract: the website declares what actions are available, and the agent calls them directly. For web developers, this means adding a few annotations to your existing forms and JavaScript functions makes your site 'agent-ready' without building a separate API. The 12% enterprise adoption before the origin trial even launched signals that companies see this as inevitable. The Google-Microsoft co-authorship and W3C process mean this is on track to be a real standard, not a single-vendor experiment.",
+          "traction": "high",
+          "traction_evidence": [
+            "Origin trial live in Chrome 149 — developer documentation published May 18, 2026",
+            "W3C standard co-authored by Google and Microsoft — cross-vendor commitment",
+            "Firefox committed to Q3 2026 support; Safari expected Q4 2026",
+            "12% of enterprise websites have started WebMCP implementation",
+            "Coverage by Chrome for Developers, PPC Land, AI Weekly, ScriptWalker, Web Developer, ChatForest, DEV Community"
+          ],
+          "use_cases": [
+            "Add WebMCP tool declarations to your web app's forms and JavaScript functions — start with high-value actions like checkout, search, and account management that agents are most likely to invoke",
+            "Join the Chrome 149 origin trial to test how Gemini Spark and other browser agents interact with your declared tools before the standard finalizes",
+            "Audit your site's current agent interaction patterns — if you're seeing bot traffic attempting screenshot-based interactions, WebMCP gives you a structured alternative that you control",
+            "If you're building browser automation tools or testing frameworks, integrate WebMCP tool discovery so your agents use declared tools instead of fragile DOM selectors"
+          ],
+          "tags": ["WebMCP", "Chrome", "W3C", "Browser Agents", "Google", "Microsoft", "Web Standards"],
+          "links": [
+            {"url": "https://developer.chrome.com/docs/ai/webmcp", "label": "Chrome for Developers: WebMCP documentation"},
+            {"url": "https://developer.chrome.com/blog/chrome-at-io26", "label": "Chrome at I/O 2026: 15 updates powering the agentic web"},
+            {"url": "https://ppc.land/chrome-149-origin-trial-puts-webmcp-in-developers-hands-at-last/", "label": "PPC Land: Chrome 149 origin trial puts WebMCP in developers' hands"},
+            {"url": "https://dev.to/soumyadeepdey/why-webmcp-is-the-most-important-thing-google-announced-at-io-2026-and-nobodys-talking-about-it-2edf", "label": "DEV Community: Why WebMCP is the most important thing Google announced at I/O 2026"}
+          ]
+        },
+        {
+          "title": "Biome v2 Hits Production at AWS, Google, and Microsoft: The Rust-Built ESLint+Prettier Replacement",
+          "url": "https://biomejs.dev/guides/migrate-eslint-prettier/",
+          "tldr": "Biome, the Rust-based frontend toolchain that combines linting and formatting in a single binary, has reached critical mass in 2026. It lints 10,000 files in 0.8 seconds vs ESLint's 45.2 seconds (56x faster), and its formatter is 35x faster than Prettier on a 171,127-line benchmark. Biome v2 ships 491 type-aware lint rules that cover what previously required ESLint + TypeScript ESLint + several plugins, with 97% Prettier formatting compatibility. Production deployments now include AWS, Google, Microsoft, Cloudflare, Coinbase, and Slack. The tool provides dedicated migration commands for existing ESLint and Prettier configurations.",
+          "why_it_matters": "The ESLint+Prettier combination has been the JavaScript/TypeScript linting standard for years, but it's a multi-tool, multi-config, Node.js-dependent setup that's slow on large codebases. Biome replaces the entire stack with a single Rust binary that's 35-56x faster. The 491 type-aware rules in v2 close what was the last major functionality gap. For large monorepos and CI pipelines where linting takes minutes, switching to Biome can cut that to seconds. The production adoption at AWS, Google, Microsoft, Cloudflare, Coinbase, and Slack removes the 'is it ready?' question — these are large-scale, high-stakes codebases. The migration tooling means you don't have to rewrite your config from scratch.",
+          "traction": "high",
+          "traction_evidence": [
+            "Production deployments at AWS, Google, Microsoft, Cloudflare, Coinbase, Slack",
+            "56x faster than ESLint on 10K-file benchmark (0.8s vs 45.2s)",
+            "491 type-aware lint rules in v2 — covers ESLint + TypeScript ESLint + plugins",
+            "97% Prettier formatting compatibility with dedicated migration commands",
+            "Coverage by DEV Community, Pockit, 10x.pub, byteiota, PkgPulse, DevBolt, noqta.tn"
+          ],
+          "use_cases": [
+            "Run 'biome migrate eslint' and 'biome migrate prettier' on your existing config to generate a Biome configuration — test it against your CI pipeline and compare lint times",
+            "For monorepos where ESLint takes minutes in CI, switch to Biome to cut linting to seconds — the single binary means no more dependency conflicts between ESLint plugins",
+            "Adopt Biome for new projects as the default linter+formatter — one tool, one config file, one dependency instead of five",
+            "If you rely on custom ESLint plugins, check Biome's 491-rule coverage against your specific rules — the remaining 3% Prettier incompatibility is mostly edge cases in template literals and decorators"
+          ],
+          "tags": ["Biome", "Rust", "ESLint", "Prettier", "JavaScript", "TypeScript", "Linting", "Developer Tools"],
+          "links": [
+            {"url": "https://biomejs.dev/guides/migrate-eslint-prettier/", "label": "Biome: Migrate from ESLint and Prettier guide"},
+            {"url": "https://dev.to/pockit_tools/biome-the-eslint-and-prettier-killer-complete-migration-guide-for-2026-27m", "label": "DEV Community: Biome — the ESLint and Prettier killer? Complete migration guide"},
+            {"url": "https://recca0120.github.io/en/2026/03/10/biome-eslint-prettier-replacement/", "label": "Replace ESLint + Prettier with Biome: 35x faster, one tool"},
+            {"url": "https://tianpan.co/forum/t/biome-is-replacing-eslint-prettier-bun-is-replacing-node-js-2026-is-the-year-rust-rewrites-the-javascript-toolchain/916", "label": "10x.pub: 2026 is the year Rust rewrites the JavaScript toolchain"}
+          ]
+        },
+        {
+          "title": "MotherDuck Launches Agentic Data Ingestion: Natural-Language Workflows for DuckDB Cloud",
+          "url": "https://siliconangle.com/2026/06/10/exclusive-motherduck-adds-agentic-data-ingestion-cloud-analytics-service/",
+          "tldr": "Announced June 10, 2026, MotherDuck unveiled Flights — a new capability that lets users create and operate data ingestion workflows through natural-language interactions with AI assistants. Instead of writing ETL code, you describe what data you want and how to transform it, and the agent builds and runs the pipeline in DuckDB. MotherDuck crossed 10,000 paying teams in Q1 2026. The broader DuckDB ecosystem also shipped DuckLake 1.0, a production-ready lakehouse format built on SQL that stores data on object storage and accesses it as a database — bridging the gap between data lakes and traditional databases.",
+          "why_it_matters": "Data ingestion is the most tedious part of most analytics workflows — writing connectors, handling schema changes, managing incremental loads. MotherDuck's Flights replaces that with natural-language agent workflows, which is a practical application of the 'agentic everything' trend that actually saves time on a task engineers hate. DuckLake 1.0 is the more architecturally significant release: a lakehouse format that operates as a SQL database solves the 'do I use a data lake or a database?' question with 'both, and they're the same thing.' For teams already using DuckDB for local analytics, MotherDuck's 10K paying teams milestone signals that the cloud-managed version is production-validated.",
+          "traction": "medium",
+          "traction_evidence": [
+            "MotherDuck Flights announced June 10, 2026 — SiliconANGLE exclusive",
+            "MotherDuck crossed 10,000 paying teams in Q1 2026",
+            "DuckLake 1.0 released as production-ready lakehouse format",
+            "DuckDB v1.5.2 production-ready; DuckDB-wasm enables browser-based analytics",
+            "Coverage by SiliconANGLE, MotherDuck Blog, DataSoft Technologies, Kestra, Data Engineering Central"
+          ],
+          "use_cases": [
+            "Try MotherDuck Flights for your next data ingestion task — describe the source, schema, and transformations in natural language instead of writing a custom ETL pipeline",
+            "Evaluate DuckLake 1.0 as a simpler alternative to Iceberg or Delta Lake if you need a lakehouse but want SQL-native access without a separate catalog service",
+            "Use DuckDB-wasm to add embedded analytics to your web app — run SQL queries directly in the browser without a backend analytics server",
+            "For teams running DuckDB locally in notebooks or scripts, evaluate MotherDuck as the cloud tier for sharing results and running scheduled queries"
+          ],
+          "tags": ["DuckDB", "MotherDuck", "DuckLake", "Analytics", "Data Engineering", "Agentic AI", "ETL"],
+          "links": [
+            {"url": "https://siliconangle.com/2026/06/10/exclusive-motherduck-adds-agentic-data-ingestion-cloud-analytics-service/", "label": "SiliconANGLE: MotherDuck adds agentic data ingestion to cloud analytics"},
+            {"url": "https://motherduck.com/blog/duckdb-ecosystem-newsletter-april-2026/", "label": "MotherDuck: DuckDB ecosystem newsletter — April 2026"},
+            {"url": "https://motherduck.com/learn/best-cloud-data-warehouses-real-time-analytics-2026/", "label": "MotherDuck: Best database for real-time analytics in 2026"},
+            {"url": "https://dataengineeringcentral.substack.com/p/duckdb-ai-and-the-future-of-data", "label": "Data Engineering Central: DuckDB, AI, and the future of data engineering"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Databricks 2026 State of AI Agents: Governance Drives 12x More Projects to Production",
+          "url": "https://www.databricks.com/resources/ebook/state-of-ai-agents",
+          "tldr": "Databricks' 2026 State of AI Agents report, analyzing 20,000+ organizations on the Data Intelligence Platform (including 60%+ of the Fortune 500), reveals that companies implementing AI governance push 12x more projects to production than those that don't. Multi-agent systems grew 327% in under four months. Companies using evaluation tools get nearly 6x more AI projects into production. More than 80% of databases in agent workflows are now built by AI agents themselves — driving demand for a new kind of database designed for agent-generated schemas. The report highlights that most AI pilots still fail to reach production, and governance plus evaluation are the true differentiators.",
+          "why_it_matters": "The 12x production multiplier from governance is the most counterintuitive finding in AI engineering this year. Teams typically view governance as overhead that slows deployment. Databricks' data shows the opposite: structured guardrails, access controls, and audit trails remove the organizational friction that blocks promotion from staging to production. The 327% multi-agent growth in four months means enterprises are moving past single-agent chatbots into orchestrated systems — which are more powerful but also more opaque, making the governance finding even more relevant. The 6x multiplier from evaluation tools reinforces that you can't ship what you can't measure. For engineering leaders, this report is ammunition for investing in eval infrastructure and governance frameworks before scaling agent deployments.",
+          "traction": "high",
+          "traction_evidence": [
+            "Based on data from 20,000+ organizations including 60%+ of the Fortune 500",
+            "12x more AI projects reach production with governance — the largest production multiplier in any 2026 AI report",
+            "Multi-agent systems grew 327% in under four months",
+            "6x more AI projects to production with evaluation tools",
+            "Coverage by SiliconANGLE, Intelligent CIO, CIO Dive, LinkedIn, IT Nerd"
+          ],
+          "use_cases": [
+            "Implement AI governance (access controls, audit trails, model versioning) before your next agent deployment — the 12x multiplier means governance accelerates production, not slows it",
+            "Add evaluation tools to your AI pipeline: automated evals for accuracy, latency, cost, and safety are the single highest-leverage investment for getting agents to production",
+            "If you're running multi-agent systems, instrument inter-agent communication for observability — the 327% growth means debugging multi-agent failures is now a core engineering skill",
+            "Use the 80% agent-built database finding to evaluate whether your schema management can handle AI-generated tables and columns at scale"
+          ],
+          "tags": ["Databricks", "AI Agents", "Governance", "Production", "Multi-Agent", "Evaluation", "Enterprise AI"],
+          "links": [
+            {"url": "https://www.databricks.com/resources/ebook/state-of-ai-agents", "label": "Databricks: 2026 State of AI Agents report"},
+            {"url": "https://www.databricks.com/blog/enterprise-ai-agent-trends-top-use-cases-governance-evaluations-and-more", "label": "Databricks Blog: Enterprise AI agent trends — use cases, governance, and evaluations"},
+            {"url": "https://siliconangle.com/2026/01/27/databricks-reports-finds-surge-ai-agent-adoption-despite-governance-bottlenecks/", "label": "SiliconANGLE: Surge in AI agent adoption despite governance bottlenecks"},
+            {"url": "https://www.ciodive.com/news/AI-multiagent-systems-databricks-IT/811610/", "label": "CIO Dive: CIOs lean into multiagent systems with customers in mind"}
+          ]
+        },
+        {
+          "title": "SpaceX IPO Opens Today at $135/Share: The $1.77 Trillion Debut That Reshapes Tech Infrastructure",
+          "url": "https://www.cnbc.com/2026/06/09/spacex-ipo-explained-stock-price-date.html",
+          "tldr": "SpaceX begins trading on Nasdaq today (June 12, 2026) under ticker SPCX at $135 per share, pricing 555.6 million Class A shares to raise approximately $75 billion — the largest IPO in history, more than triple Alibaba's record. The company is valued at roughly $1.77 trillion, making it larger than Tesla on day one. SpaceX allocated about 30% of public shares to retail investors, far above the typical 5-10%. The IPO follows Google's $920M/month deal with SpaceX for 110K NVIDIA GPUs as bridge capacity for Gemini Enterprise demand, cementing SpaceX's role not just as a launch provider but as AI infrastructure.",
+          "why_it_matters": "SpaceX's IPO matters to engineers for a reason beyond the financial milestone: the company is becoming AI infrastructure. The Google GPU deal means SpaceX is building data center capacity to serve Gemini workloads — the same models powering Antigravity, Managed Agents, and the Gemini API that developers use daily. Starlink's low-latency global connectivity is also enabling edge AI deployments in locations where traditional data centers can't reach. For engineering teams evaluating cloud providers and inference infrastructure, SpaceX is now a variable in the equation. The 30% retail allocation also means many engineers can participate directly — a departure from the typical institutional-only IPO structure.",
+          "traction": "high",
+          "traction_evidence": [
+            "Trading opens June 12, 2026 on Nasdaq under ticker SPCX",
+            "$75 billion raised at $135/share — largest IPO in history",
+            "$1.77 trillion valuation — larger than Tesla at market open",
+            "30% retail allocation vs. typical 5-10% — Bloomberg reports multiple oversubscription",
+            "Coverage by CNBC, Bloomberg, Yahoo Finance, Investing.com, Zacks, Capital.com"
+          ],
+          "use_cases": [
+            "Track SPCX as a proxy for AI infrastructure demand — the Google GPU deal and Starlink data center partnerships make SpaceX a barometer for compute capacity investment",
+            "If your company uses Google Cloud or Gemini API, understand that SpaceX GPU capacity is part of Google's inference scaling strategy — service reliability may improve as bridge capacity comes online",
+            "Evaluate Starlink connectivity for edge AI deployments in remote locations where traditional internet infrastructure is unavailable or unreliable",
+            "For the 30% retail allocation: review your brokerage's SPCX availability today if you're interested — demand is multiple-times oversubscribed"
+          ],
+          "tags": ["SpaceX", "IPO", "AI Infrastructure", "Google", "NVIDIA", "Starlink", "GPU"],
+          "links": [
+            {"url": "https://www.cnbc.com/2026/06/09/spacex-ipo-explained-stock-price-date.html", "label": "CNBC: SpaceX IPO explained — stock price, date, and how to buy"},
+            {"url": "https://www.cnbc.com/2026/06/03/spacex-ipo-stock-price-roadshow-musk.html", "label": "CNBC: SpaceX targets fixed $135 IPO price for roadshow"},
+            {"url": "https://www.investing.com/news/stock-market-news/spacex-prices-ipo-at-135-per-share-for-june-12-nasdaq-debut-432SI-4738217", "label": "Investing.com: SpaceX prices IPO at $135 per share for June 12 Nasdaq debut"},
+            {"url": "https://finance.yahoo.com/markets/stocks/articles/spacex-just-got-superchip-ahead-123000304.html", "label": "Yahoo Finance: SpaceX got a superchip ahead of its June 12 IPO"}
+          ]
+        }
+      ]
+    }
+  ]
+}
