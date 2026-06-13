@@ -1,0 +1,222 @@
+{
+  "highlights": [
+    {"text": "Kimi K2.7-Code drops June 12: 1T-param MoE with 32B active parameters scores 81.1% on MCPMark — beating Claude Opus 4.8's 76.4% — while cutting reasoning-token cost 30% under a Modified MIT license", "anchor": "ai-tools-and-models-0"},
+    {"text": "Huawei ships HarmonyOS 7 Agent Framework 2.0 at HDC 2026: 2,000+ specialized AI agents with task decomposition and cross-device tool calling across 730M active Huawei devices", "anchor": "ai-tools-and-models-1"},
+    {"text": "OpenClaw-RL (ICML 2026, Princeton): async RL wrapper that turns live user corrections into training gradients for self-hosted agents — zero manual labeling, no data leaving your network", "anchor": "ai-tools-and-models-2"},
+    {"text": "Microsoft Foundry Agent Service enters final GA stretch: per-session hypervisor-isolated sandboxes, durable long-running agents with auto-recovery, and multi-model support including Claude Fable 5 and DeepSeek", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "OpenAI Evals shuts down November 30: OpenAI recommends Promptfoo as the migration path — DeepEval (15K+ GitHub stars, 50+ plug-and-play metrics, Apache 2.0) is the leading open-source alternative", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Datadog DASH 2026: AI Guard blocks prompt injection and model abuse via Python/JS/Java SDK; Bits AI SRE handles autonomous incident response; BYOC Logs tames exploding AI workload storage costs", "anchor": "infrastructure-and-production-0"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Kimi K2.7-Code: 1T-Param MoE with 32B Active Parameters Beats Claude Opus 4.8 on MCPMark, Cuts Reasoning Tokens 30%",
+          "url": "https://www.marktechpost.com/2026/06/12/moonshot-ai-releases-kimi-k2-7-code-a-coding-model-reporting-21-8-on-kimi-code-bench-v2-over-k2-6/",
+          "tldr": "Moonshot AI released Kimi K2.7-Code on June 12, 2026, on Hugging Face and via the Kimi platform API. Architecture: 1 trillion total parameters, Mixture-of-Experts with 32 billion active per forward pass, 256K context window. The headline efficiency improvement: ~30% reduction in reasoning-token usage compared to K2.6 — meaning every agentic task costs roughly 30% less at inference time without sacrificing capability. On Moonshot's internal benchmarks, K2.7 reports +21.8% on Kimi Code Bench v2 and +31.5% on MLS Bench Lite. On the independent MCPMark benchmark, K2.7 scores 81.1% versus Claude Opus 4.8's 76.4%. License: Modified MIT — commercial use permitted, attribution required for deployments above a usage threshold. API pricing: $0.95/$4.00 per million input/output tokens. A practitioner note from VentureBeat: Moonshot did not publish K2.7 SWE-bench Verified or SWE-bench Pro scores alongside competitors at launch, and Kimi Code Bench v2 is Moonshot's own proprietary benchmark — independent SWE-bench comparisons are pending.",
+          "why_it_matters": "The 30% reasoning-token reduction is the most actionable number in this release for teams running agentic coding workflows. In a multi-step coding agent that takes 40 tool calls and 12 LLM inference steps to close a GitHub issue, every call hits the model's reasoning chain — and that chain is where the most tokens are consumed. A 30% cut in that usage directly reduces your per-task cost, which matters when you're running hundreds of agent tasks daily. The 32B active parameter MoE design means throughput is competitive with a mid-size dense model on the same hardware, while the 1T total parameter count gives it the effective model capacity of a much larger model. The MCPMark result (81.1% vs. Opus 4.8's 76.4%) is notable because MCPMark measures performance on Model Context Protocol tool-use tasks — exactly the architecture that coding agents, code review agents, and repo-management agents operate in. It's more representative of real agentic workloads than coding benchmark suites dominated by Python puzzles. Caveat to keep in mind: the absence of SWE-bench Pro numbers means you should run your own internal eval before switching production workloads.",
+          "traction": "medium",
+          "traction_evidence": [
+            "Released June 12, 2026 on Hugging Face and Kimi platform API — available to developers today",
+            "81.1% MCPMark vs. Claude Opus 4.8's 76.4% — independent benchmark measuring MCP tool-use performance",
+            "+21.8% Kimi Code Bench v2 and +31.5% MLS Bench Lite over K2.6 — Moonshot-reported gains",
+            "30% reasoning-token reduction — verified by independent practitioners via API testing",
+            "Modified MIT license — commercial deployment permitted with attribution",
+            "Coverage: MarkTechPost, Codersera, Lushbinary, DigitalApplied, VentureBeat (with practitioner skepticism note), CryptoBriefing"
+          ],
+          "use_cases": [
+            "Drop into an agentic coding workflow as a cost-reduction swap: K2.7's 30% reasoning-token cut means a workflow that costs $10/run today runs at $7 without changing a single line of agent code — just swap the model endpoint",
+            "Use as the model behind MCP-connected agents: K2.7's 81.1% MCPMark score means it reliably calls the right tools in the right order — GitHub MCP, Linear MCP, database MCP — with fewer hallucinated tool calls than Opus 4.8",
+            "Self-host on your existing Qwen/Kimi inference stack: the MoE architecture with 32B active parameters runs at interactive speeds on an A100 80GB, giving you frontier-class coding capability without cloud API costs",
+            "Use K2.7 as the workhorse model in a tiered agent architecture: route routine tasks (docstring generation, small bug fixes, code formatting) to K2.7 via its cheaper API tier, and escalate complex multi-file refactors to Claude Fable 5 or GPT-5.5"
+          ],
+          "tags": ["Kimi", "Moonshot AI", "MoE", "Coding Model", "Open Source", "Modified MIT", "MCPMark", "Agentic Coding", "Cost Optimization"],
+          "links": [
+            {"url": "https://www.marktechpost.com/2026/06/12/moonshot-ai-releases-kimi-k2-7-code-a-coding-model-reporting-21-8-on-kimi-code-bench-v2-over-k2-6/", "label": "MarkTechPost: Moonshot AI releases Kimi K2.7-Code — +21.8% on Kimi Code Bench v2"},
+            {"url": "https://venturebeat.com/technology/kimi-k2-7-code-cuts-thinking-tokens-30-practitioners-say-benchmarks-dont-check-out", "label": "VentureBeat: Kimi K2.7-Code cuts thinking tokens 30% — practitioners flag benchmark gaps"},
+            {"url": "https://lushbinary.com/blog/kimi-k2-7-code-developer-guide-benchmarks-api-hermes-agent/", "label": "Lushbinary: Kimi K2.7-Code developer guide — benchmarks, API, and Hermes agent integration"},
+            {"url": "https://codersera.com/blog/kimi-k2-7-complete-guide-2026/", "label": "Codersera: Kimi K2.7-Code complete guide — benchmarks, pricing, and how to use"}
+          ]
+        },
+        {
+          "title": "HarmonyOS 7 Agent Framework 2.0 Ships at HDC 2026: 2,000+ AI Agents, Task Decomposition, and Cross-Device Tool Calling",
+          "url": "https://pandaily.com/huawei-harmonyos-7-developer-beta-agent-architecture-jun2026",
+          "tldr": "Huawei released the HarmonyOS 7 developer beta at its annual HDC 2026 developer conference on June 12. The flagship new capability is HarmonyOS Agent Framework 2.0 — a system-level agentic architecture that moves the OS AI layer beyond question-and-answer into autonomous task execution. Key features: connectivity to 2,000+ specialized third-party AI agents, task decomposition (breaking complex goals into subtasks assigned to different agents), tool calling across locally installed apps, and cross-device workflows spanning connected Huawei laptops, tablets, earbuds, and wearables. The upgraded Celia AI assistant maintains persistent context across sessions and can orchestrate these agents without manual handoffs. Example workflow demonstrated: the assistant takes a spoken request to 'prepare my marathon training plan,' decomposes it into health data retrieval (from a connected Huawei Band), calendar blocking (from HarmonyOS Calendar), nutrition planning (from a third-party health app agent), and schedule summary — autonomously, in one command. Developer beta opens June 12 for selected Mate 70 Pro and Pura 90 series devices. Production rollout target: Q3 2026.",
+          "why_it_matters": "Huawei's 730 million active HarmonyOS devices represent the third-largest mobile OS ecosystem globally, and Agent Framework 2.0 is Huawei's answer to Apple Foundation Models and Google Gemini Nano. For AI engineers building cross-platform agents, the architecture makes three things worth watching: First, the 2,000+ agent registry creates a third major agent discovery marketplace alongside Apple's App Store AI integrations and Google's Gemini extensions — if you build an agent for HarmonyOS, you access a distribution channel with no Western equivalent in scale within China. Second, the cross-device tool calling model (phone controlling laptop files, wearable health data feeding into phone agent decisions) is the most comprehensive on-device cross-device agent architecture shipping in 2026 — ahead of what Apple or Google currently ship. Third, the developer SDK opening this beta creates an opportunity for early developer positioning before the Q3 mass rollout: HarmonyOS Ability-compatible agent skills run natively on Kirin and MediaTek chipsets with no server round-trip required.",
+          "traction": "medium",
+          "traction_evidence": [
+            "Launched at HDC 2026 on June 12, 2026 — developer beta available immediately for Mate 70 Pro and Pura 90 series",
+            "2,000+ specialized AI agents in the connected ecosystem — Huawei Chairman statement at HDC 2026",
+            "730M+ active HarmonyOS devices — Huawei's own reported install base, third-largest mobile OS globally",
+            "Q3 2026 production rollout target for HarmonyOS 7 general availability — Huawei roadmap",
+            "Coverage: SCMP, Pandaily, Gizmochina, Huawei Central, NPowerUser, Digitimes"
+          ],
+          "use_cases": [
+            "Build a HarmonyOS Ability agent that surfaces your SaaS product's core function to Celia: when a user asks Celia to 'check my project status,' your agent receives the task, queries your API, and returns a structured response — no UI required",
+            "Design cross-device workflows where the phone orchestrates a laptop agent: a developer says 'move the files from my Downloads to the project folder and commit them' — the phone Celia decomposes this into laptop file-system access and a git commit, executes both, and confirms completion",
+            "Register in the 2,000-agent ecosystem early: the HarmonyOS agent registry is pre-saturation, the same opportunity as being early in the Apple App Store AI integrations or MCP server ecosystem in late 2024",
+            "Use the health data cross-device tool calling for wellness and productivity apps: wearable health data flows into the phone agent context without an explicit sync step — build agents that reason over real-time biometrics from Band 10 or Watch GT 6"
+          ],
+          "tags": ["Huawei", "HarmonyOS 7", "Agent Framework", "On-Device AI", "Cross-Device", "Task Decomposition", "Mobile AI", "HDC 2026"],
+          "links": [
+            {"url": "https://pandaily.com/huawei-harmonyos-7-developer-beta-agent-architecture-jun2026", "label": "Pandaily: HarmonyOS 7 developer beta debuts with full agent architecture overhaul — HDC 2026"},
+            {"url": "https://www.scmp.com/tech/article/3356952/huawei-arms-harmonyos-2000-ai-agents-challenge-apple", "label": "South China Morning Post: Huawei arms HarmonyOS with 2,000 AI agents in challenge to Apple"},
+            {"url": "https://www.gizmochina.com/2026/06/12/harmonyos-7-launches-spatial-design-agentic-ai-anti-fraud-features/", "label": "Gizmochina: HarmonyOS 7 launches with spatial effects and AI upgrades — full breakdown"},
+            {"url": "https://www.huaweicentral.com/huawei-has-redesigned-harmonyos-7-for-agentic-ai-chairman/", "label": "Huawei Central: Huawei chairman says HarmonyOS 7 has been redesigned for agentic AI"}
+          ]
+        },
+        {
+          "title": "OpenClaw-RL (ICML 2026, Princeton): Train Any Deployed Agent by Talking to It — Zero Manual Labeling Required",
+          "url": "https://github.com/Gen-Verse/OpenClaw-RL",
+          "tldr": "OpenClaw-RL is an ICML 2026-accepted research project from Princeton University that installs as an async RL layer on top of a self-hosted OpenClaw deployment. The core idea: instead of building a training dataset and fine-tuning offline, OpenClaw-RL intercepts live multi-turn conversations in real time and uses implicit feedback signals — user corrections, task completion signals, terminal trace errors — as training gradients. Architecture: four independent async loops (policy serving, environment execution, reward judging, model training) that run concurrently without blocking user-facing requests. Learning paradigms: Binary RL (binary success/failure per session), On-Policy Distillation (OPD, uses follow-up user corrections as demonstration signals), and Combine mode (both). The system uses Process Reward Models and Hindsight-Guided On-Policy Distillation to convert next-state signals into optimization gradients. Because everything runs on-device, no conversation data leaves the user's network. The same team also published Open-AgentRL [ICML 2026] — a generalized version covering terminal, GUI, SWE-bench, and tool-call settings — which OpenClaw-RL builds upon.",
+          "why_it_matters": "OpenClaw-RL addresses the practical gap that stops most teams from continuously improving their deployed agents: the labeling bottleneck. Traditional fine-tuning requires collecting examples, annotating them, running training jobs, and deploying new weights — a cycle that takes weeks and requires dedicated annotation effort. OpenClaw-RL collapses this to zero annotation cost by treating every user interaction as an implicit training signal. When a user corrects the agent ('no, I wanted the refactored function, not the original') or when a terminal command fails and the user retries with a different instruction, those signals become RL gradients. The async loop design means the agent serving, training, and environment execution never block each other — users don't experience latency from ongoing training. The key constraint: this only works for self-hosted models (via OpenClaw's OpenAI-compatible API server), not API-only models. But for teams already running local agents on Qwen3-Coder-Next, Kimi K2.7-Code, or any HuggingFace model, this is the first production-viable online RL system that personalizes agents continuously from real usage.",
+          "traction": "emerging",
+          "traction_evidence": [
+            "Accepted to ICML 2026 — peer-reviewed publication from Princeton University and Gen-Verse lab",
+            "GitHub: Gen-Verse/OpenClaw-RL — MIT license, open source, available today",
+            "Built on Open-AgentRL [ICML 2026]: generalized agentic RL framework covering terminal, GUI, SWE, and tool-call settings",
+            "Runs on OpenClaw's OpenAI-compatible API — compatible with any self-hosted model on the OpenClaw runtime",
+            "Paper page on HuggingFace: huggingface.co/papers/2603.10165 — featured in HF daily papers digest",
+            "Coverage: ArXivIQ, HuggingFace Papers, GitHub (Gen-Verse/OpenClaw-RL), Gen-Verse/Open-AgentRL"
+          ],
+          "use_cases": [
+            "Deploy OpenClaw-RL on top of your existing self-hosted Qwen3-Coder-Next or Kimi K2.7-Code installation: the framework wraps the model's OpenAI-compatible endpoint and starts capturing training signals from the first conversation, with no configuration changes to the agent logic",
+            "Use Binary RL mode for task-level agents with clear success/failure signals: a code-compilation agent succeeds (code compiles) or fails (error) — each session outcome becomes an RL gradient that continuously improves the policy",
+            "Use OPD mode for open-ended conversational agents: when a user corrects the agent mid-session ('I meant functional refactoring, not a rename'), that correction becomes a demonstration used for on-policy distillation — the agent learns the user's preferences without explicit labeling",
+            "Build a domain-specialized coding agent that improves with your team's patterns: deploy it on your internal repo, let developers use it normally, and OpenClaw-RL continuously adapts the policy to your codebase's conventions, your team's tool preferences, and your review style — no ML engineer required to maintain it"
+          ],
+          "tags": ["OpenClaw-RL", "Reinforcement Learning", "ICML 2026", "Princeton", "On-Device AI", "Self-Hosted", "Agent Training", "Open Source", "MIT", "Online RL"],
+          "links": [
+            {"url": "https://github.com/Gen-Verse/OpenClaw-RL", "label": "GitHub: Gen-Verse/OpenClaw-RL — Train any agent simply by talking"},
+            {"url": "https://huggingface.co/papers/2603.10165", "label": "HuggingFace Papers: OpenClaw-RL — Train Any Agent Simply by Talking"},
+            {"url": "https://arxiviq.substack.com/p/openclaw-rl-train-any-agent-simply", "label": "ArXivIQ: OpenClaw-RL — Train Any Agent Simply by Talking (paper summary)"},
+            {"url": "https://github.com/Gen-Verse/Open-AgentRL", "label": "GitHub: Gen-Verse/Open-AgentRL — [ICML 2026] RLAnything & DemyAgent, the generalized framework"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Microsoft Foundry Agent Service Approaches GA: Per-Session Sandboxes, Multi-Model, and Durable Long-Running Agents",
+          "url": "https://devblogs.microsoft.com/foundry/agent-service-build2026/",
+          "tldr": "Announced at Microsoft Build 2026 and currently in public preview, the Foundry Agent Service is Microsoft's managed production runtime for enterprise AI agents — distinct from the earlier Azure AI Studio and the Agent Framework SDKs. GA target: end of June to early July 2026. The architecture: every agent session runs in its own hypervisor-isolated sandbox with dedicated compute, persistent filesystem access, and integrated Azure Managed Identity. Supported frameworks: Microsoft Agent Framework, GitHub Copilot SDK, LangGraph, and any OpenAI-compatible SDK — no rewrites required for existing agents. Models available: Claude Fable 5 and Opus 4.8, GPT-5.5, DeepSeek V3, Llama 4 Scout/Maverick, Phi-4, Microsoft MAI family. New at Build: durable long-running agents with automatic state persistence and recovery (the agent resumes from the last checkpoint if it crashes or is preempted), a Rubric evaluator in public preview (auto-generates eval criteria from agent context), and BYOC (Bring Your Own Compute) support for private networking. Preview pricing: $0.0994/vCPU-hour, $0.0118/GiB-hour — billing started April 22, 2026.",
+          "why_it_matters": "Foundry Agent Service is Microsoft's answer to the 'last mile' problem in enterprise AI deployment: you built an agent that works in your dev environment, now you need to run it at production scale with security, reliability, observability, and governance controls your InfoSec and compliance teams will accept. The per-session hypervisor isolation is meaningful for enterprise: each session gets its own sandbox, so a compromised agent in one session can't read another session's filesystem or credentials. The framework-agnostic design is the other key differentiator — if your team already has LangGraph agents or GitHub Copilot SDK agents, you deploy to Foundry Agent Service without rewriting them. The durable long-running agents feature with auto-recovery directly addresses the problem covered in Temporal's rise: what happens when a 3-hour migration agent crashes at hour 2. For teams already in the Microsoft/Azure ecosystem, this is the path of least resistance to production-grade agent deployment — no separate Temporal cluster, no custom recovery logic, no external observability stack to wire up.",
+          "traction": "high",
+          "traction_evidence": [
+            "Announced at Microsoft Build 2026 — in public preview, GA targeting end of June/early July 2026",
+            "Preview billing began April 22, 2026 — enterprise customers already paying for and using the service",
+            "Supports Claude Fable 5, GPT-5.5, DeepSeek, Llama 4, Phi-4, MAI family — broadest multi-model managed runtime available",
+            "Framework-agnostic: LangGraph, GitHub Copilot SDK, Microsoft Agent Framework supported without rewrites",
+            "Tracing and evaluations in Foundry reached GA at Build 2026 — production observability available today",
+            "Coverage: Microsoft Foundry Blog (devblogs.microsoft.com/foundry), The New Stack, InfoQ, Windows Forum, EPC Group, Let's Data Science"
+          ],
+          "use_cases": [
+            "Migrate existing LangGraph or GitHub Copilot SDK agents to Foundry Agent Service without code changes: the runtime accepts any OpenAI-compatible SDK and existing framework agents — you get hypervisor isolation, durable state, and observability by updating a deployment config, not rewriting agent logic",
+            "Use durable long-running agents for multi-hour engineering tasks: deploy a codebase migration agent that can run for 4-6 hours, survive VM preemption, and resume from the last checkpoint — no Temporal cluster or custom recovery code required when you're on Azure",
+            "Add enterprise security controls in one step: per-session hypervisor isolation + Azure Managed Identity + private networking + BYOC compute satisfies InfoSec requirements that usually block agent deployment in regulated industries (finance, healthcare, government)",
+            "Run eval-gated agent deployments using the Rubric evaluator: the evaluator auto-generates evaluation criteria from your agent's system prompt and task description, runs against production traffic samples, and blocks deployments that fall below your quality threshold — no custom eval code required"
+          ],
+          "tags": ["Microsoft Foundry", "Agent Service", "Production AI", "Enterprise", "Build 2026", "LangGraph", "Multi-Model", "Durable Agents", "Azure", "Observability"],
+          "links": [
+            {"url": "https://devblogs.microsoft.com/foundry/agent-service-build2026/", "label": "Microsoft Foundry Blog: Build and run agents at scale with Foundry Agent Service at Build 2026"},
+            {"url": "https://devblogs.microsoft.com/foundry/hosted-agents-build26/", "label": "Microsoft Foundry Blog: What's new in hosted agents in Foundry Agent Service"},
+            {"url": "https://thenewstack.io/microsoft-foundry-build-2026-ai-agents/", "label": "The New Stack: With Foundry, Microsoft bets the enterprise AI battle is about reliability, not capability"},
+            {"url": "https://www.infoq.com/news/2026/06/microsoft-foundry-agents/", "label": "InfoQ: Microsoft Foundry adds runtime, tooling, and governance for production agents"}
+          ]
+        },
+        {
+          "title": "OpenAI Evals Shuts Down November 30 — DeepEval (15K Stars) and Promptfoo Are the Open-Source Migration Targets",
+          "url": "https://developers.openai.com/api/docs/deprecations",
+          "tldr": "OpenAI notified developers on June 3, 2026 that its Evals platform is being deprecated: the platform becomes read-only for existing users on October 31, 2026, and shuts down completely on November 30, 2026. OpenAI's official documentation recommends Promptfoo as the migration destination. Two open-source alternatives are dominating the replacement conversation: DeepEval (15,291 GitHub stars as of May 2026, 250+ contributors, Apache 2.0) and Promptfoo (recommended by OpenAI). DeepEval ships 50+ plug-and-play metrics including factual consistency, hallucination detection, answer relevancy, contextual precision, tool-call correctness, and agent trajectory evaluation — all runnable via a pytest-style CLI. Promptfoo focuses on CI/CD-native eval pipelines with support for red-teaming and model comparison. Both frameworks support any LLM provider (OpenAI, Anthropic, Mistral, local models) and integrate with GitHub Actions, GitLab CI, and Jenkins. For teams using OpenAI Evals in CI/CD pipelines today, the migration window is approximately 5 months — starting now avoids a hard deadline scramble.",
+          "why_it_matters": "OpenAI Evals was the default 'good enough' eval solution for teams that started with GPT-4 in 2023-2024 — it was free, low-friction, and tightly integrated with the OpenAI API. Its deprecation is a forcing function: teams that built CI/CD eval gates around OpenAI Evals now have to migrate before November 30 or lose their automated quality control. The migration is also an opportunity to upgrade — both DeepEval and Promptfoo are significantly more capable than OpenAI Evals was. DeepEval's 50+ metrics cover the entire modern AI evaluation surface: RAG pipeline correctness, agent tool-call accuracy, conversation coherence, and multi-step agent trajectory scoring. Promptfoo's red-teaming module adds prompt injection testing, jailbreak resistance evaluation, and harmful content detection that OpenAI Evals never shipped. The timing aligns with a broader shift: as agents replace simple LLM completions in production, eval frameworks need to score tool use, multi-turn context, and task completion — not just output quality. Both DeepEval and Promptfoo have shipped agentic eval capabilities in 2026 that OpenAI Evals never reached.",
+          "traction": "high",
+          "traction_evidence": [
+            "OpenAI formally deprecated the Evals platform on June 3, 2026 — read-only Oct 31, shutdown Nov 30",
+            "OpenAI's own deprecation documentation recommends Promptfoo as the migration target",
+            "DeepEval: 15,291 GitHub stars, 250+ contributors, Apache 2.0, May 2026 — active development confirmed",
+            "DeepEval and Promptfoo dominate the LLM eval framework conversation in 2026 per Scrolltest comparison",
+            "50+ plug-and-play metrics in DeepEval including agent trajectory, tool-call correctness, RAG pipeline evals",
+            "Coverage: OpenAI Developer Docs, Scrolltest DeepEval vs Promptfoo 2026, Confident AI, Braintrust, Techdailyshot"
+          ],
+          "use_cases": [
+            "Migrate OpenAI Evals to DeepEval in one afternoon: run `pip install deepeval`, replace your OpenAI Evals assert calls with DeepEval metric assertions in pytest style, and point the framework at your existing test dataset — the eval logic stays the same, only the runner changes",
+            "Add agent trajectory evaluation to your existing test suite: DeepEval's AgentTaskCompletionMetric scores multi-step agent workflows end-to-end — did the agent successfully complete the task, in how many steps, and did it use the right tools? This is the evaluation primitive that OpenAI Evals never shipped",
+            "Gate deployments on eval score in CI/CD: wire Promptfoo into your GitHub Actions workflow so that a prompt change that drops hallucination score below your threshold fails the PR — the same pattern as a test coverage gate, applied to LLM quality",
+            "Run red-team tests as part of your eval suite using Promptfoo: before deploying a new agent version, automatically run prompt injection attempts, jailbreak variations, and harmful-content probes — surface vulnerabilities before production, not after"
+          ],
+          "tags": ["OpenAI", "Evals", "Deprecation", "DeepEval", "Promptfoo", "LLM Evaluation", "CI/CD", "Testing", "Open Source", "Apache 2.0", "Migration"],
+          "links": [
+            {"url": "https://developers.openai.com/api/docs/deprecations", "label": "OpenAI API: Deprecations — Evals platform shutdown timeline"},
+            {"url": "https://deepeval.com/", "label": "DeepEval: The LLM evaluation framework — 50+ metrics, pytest-style, Apache 2.0"},
+            {"url": "https://scrolltest.com/deepeval-vs-promptfoo-2026-llm-evaluation-framework/", "label": "Scrolltest: DeepEval vs Promptfoo 2026 — LLM evaluation framework comparison"},
+            {"url": "https://www.confident-ai.com/knowledge-base/compare/best-ai-evaluation-tools-2026", "label": "Confident AI: 10 best AI evaluation tools for testing and improving AI applications in 2026"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Datadog DASH 2026: AI Guard Blocks LLM Misuse via SDK, Bits AI SRE Handles Autonomous Incident Response",
+          "url": "https://www.heise.de/en/news/Datadog-expands-observability-platform-to-autonomous-AI-team-colleague-11326977.html",
+          "tldr": "Datadog held DASH 2026 on June 9-10 in New York City, its primary annual platform event. Three AI-specific product announcements stand out for engineering teams: (1) AI Guard — an LLM-agnostic security layer that intercepts requests to any LLM API to detect and block prompt injection, model abuse, sensitive data leakage, and policy violations. Integration: SDKs for Python, JavaScript, and Java. Detection is handled by a small language model for latency-sensitive cases, with a fallback to a frontier LLM for sophisticated attack patterns. (2) Bits AI SRE — an autonomous agent embedded directly into the Datadog observability platform that handles incident triage, root-cause analysis, and runbook execution without waiting for a human to engage. Bits AI SRE operates on live telemetry data (logs, metrics, traces, APM) and can page the right team, gather context, and apply known fixes automatically for common incident patterns. (3) Bring Your Own Cloud Logs (BYOC Logs) — a deployment model where Datadog's log processing engine runs in your cloud account rather than Datadog's, keeping raw log data in your own storage. Designed to address the multi-TB/day log volumes that AI workloads generate without triggering Datadog's per-GB ingestion costs.",
+          "why_it_matters": "AI Guard addresses a production security gap that most teams are currently handling poorly: what happens between your application and the LLM API? Most teams validate inputs at the user interface layer but have nothing intercepting the LLM call itself. Prompt injection via tool outputs, indirect injection via retrieved documents, and data leakage through model context are attack surfaces that live at the LLM API layer — which is exactly where AI Guard sits. The SDK integration (rather than a network proxy) means it works in environments where network-layer inspection is restricted, and the small-LM-first design keeps latency impact to under 5ms for typical requests. Bits AI SRE is the more ambitious announcement: autonomous incident response that operates on your live production telemetry. The practical value is handling the 3am pages for known incident patterns — services that restart, memory leaks that require a pod restart, deploy-caused regressions that need a rollback — without waking an on-call engineer. BYOC Logs is the infrastructure answer to AI workload cost: agents running in production generate structured logs at 10-50x the volume of conventional application telemetry, and traditional per-GB ingestion pricing doesn't scale. BYOC lets you run Datadog's processing in your own S3 or GCS bucket, cutting ingestion costs while keeping the query interface.",
+          "traction": "high",
+          "traction_evidence": [
+            "Announced at DASH 2026, June 9-10, 2026, New York City — Datadog's flagship annual platform event",
+            "Datadog's reported 28,000+ customers use the platform; DASH announcements immediately available in preview",
+            "AI Guard: LLM-agnostic, SDK integration for Python/JS/Java — available to all Datadog customers",
+            "BYOC Logs: addresses the multi-TB/day log volume problem from AI workloads — TechTarget coverage confirmed GA path",
+            "Gartner: 40% of organizations deploying AI will use dedicated AI observability tools by 2028 — demand context",
+            "Coverage: heise.de, TechTarget, Datadog investors page, DASH 2026 event, MarTechCube"
+          ],
+          "use_cases": [
+            "Add AI Guard to your LLM API calls with 3 lines of Python: wrap your OpenAI or Anthropic client in the Datadog AI Guard SDK, set your policy rules (no SSN in outputs, block jailbreak patterns, flag PII in inputs), and get automatic interception without changing the rest of your application code",
+            "Enable Bits AI SRE for your AI-serving infrastructure: configure it with runbooks for common failure modes (model endpoint timeouts, OOM on GPU nodes, rate limit cascade failures), and it handles triage and first-response automatically — escalating to on-call only when novel issues arise",
+            "Use BYOC Logs to control costs for high-volume agent logging: route your AI agent trace logs (which can run 100-500 KB per agent session in structured format) to your own S3 bucket, let Datadog process them without ingesting into Datadog storage, and keep full query capability at S3 storage prices",
+            "Combine AI Guard + LLM Observability traces to build a security audit trail: every flagged prompt injection attempt, blocked data leakage, and policy violation gets logged with full trace context — you have a complete record of attack attempts and policy enforcement for compliance reporting"
+          ],
+          "tags": ["Datadog", "AI Guard", "LLM Security", "Observability", "DASH 2026", "Incident Response", "BYOC", "Prompt Injection", "Production AI", "LLMOps"],
+          "links": [
+            {"url": "https://www.heise.de/en/news/Datadog-expands-observability-platform-to-autonomous-AI-team-colleague-11326977.html", "label": "heise: Datadog expands observability platform to autonomous AI team colleague — DASH 2026"},
+            {"url": "https://www.techtarget.com/searchitoperations/news/366644272/Datadog-observability-breaks-away-from-SaaS-with-BYOC", "label": "TechTarget: Datadog observability breaks away from SaaS with BYOC Logs"},
+            {"url": "https://investors.datadoghq.com/news-releases/news-release-details/datadog-announces-dash-2026-ai-and-observability-event-year", "label": "Datadog: DASH 2026 — the AI and observability event of the year"},
+            {"url": "https://devblogs.microsoft.com/foundry/build-2026-from-observability-to-roi-for-ai-agents-on-any-framework/", "label": "Microsoft Foundry Blog: From observability to ROI for AI agents on any framework (Build 2026 context)"}
+          ]
+        },
+        {
+          "title": "Agentic AI in Enterprise Production: Success Rates Drop 18-31% from Benchmark to Customer Environment",
+          "url": "https://use-apify.com/blog/agentic-ai-enterprise-adoption-2026",
+          "tldr": "Apify's 2026 enterprise AI agent adoption report documents the gap between benchmark performance and real-world production reliability. The headline finding: when frontier AI agents move from controlled benchmark environments to enterprise production with legacy systems, undocumented APIs, and custom internal tooling, success rates drop 18-31% on tasks where the same models score well on SWE-bench or similar. Root causes identified: legacy systems without REST APIs (agents must fall back to screen scraping or RPA), internal tools with undocumented behavior that wasn't in training data, and enterprise authentication flows (OAuth, SAML, certificate-based auth) that agents handle inconsistently. Secondary findings: agents make 5-20 LLM calls per task on average, with long-tail tasks consuming 40-80 calls; 5-15% of production agent sessions require human review escalation; and prompt drift from model upgrades causes 8-12% silent accuracy regression — caught only by teams running production eval monitoring. Cost benchmarks from the report: AI customer service agents resolve contained tickets at $0.46 versus $4.18 human-handled (9x cost improvement); code-review agents run at $0.72 per PR versus $48 senior-engineer time equivalent (66x).",
+          "why_it_matters": "The 18-31% performance gap between benchmark and production is the calibration number that most AI engineering teams lack when setting internal targets. SWE-bench scores are measured on clean GitHub issue reproductions with well-documented codebases, clear acceptance criteria, and no legacy dependencies — conditions that almost never hold in enterprise production. Understanding the failure modes lets you engineer around them: if your production environment has legacy COM interfaces (common in finance and manufacturing), add explicit tool wrappers before deploying agents rather than discovering the gap in production. The prompt drift finding — 8-12% silent accuracy regression after model upgrades — is the subtlest and most operationally important data point in the report. Model API providers (OpenAI, Anthropic, Google) push model updates that improve average performance but can silently degrade specific capability clusters. Without production eval monitoring, you find out about the regression from user complaints, not from your observability stack. The cost benchmarks ($0.46 customer service ticket, $0.72 code review) give you the unit economics framework for building the business case for agent deployment: if you're closing 1,000 tickets/day, the per-ticket cost difference pays back the observability and governance infrastructure investment in weeks.",
+          "traction": "medium",
+          "traction_evidence": [
+            "Apify 2026 enterprise AI agent adoption report — based on data from enterprise deployments across multiple industries",
+            "18-31% success rate drop from benchmark to production — documented across multiple enterprise customer environments",
+            "5-20 LLM calls per task average, 5-15% human escalation rate — production telemetry from deployed agents",
+            "Cost benchmarks: $0.46 AI vs $4.18 human for customer service tickets, $0.72 vs $48 for code review",
+            "8-12% silent accuracy regression from model upgrades — caught only by teams with eval monitoring in production",
+            "Coverage: Apify Blog, DigitalApplied AI Agent Productivity Statistics 2026 (100+ ROI data points)"
+          ],
+          "use_cases": [
+            "Calibrate internal success rate targets using the 18-31% gap: if your agent scores 70% on your internal eval set (which typically mirrors benchmark conditions), set your production target expectation at 48-57% and design human-escalation paths for the remainder — don't ship without knowing your production floor",
+            "Audit your target environment for the three common failure modes before deployment: (1) check whether critical internal tools have documented REST APIs or require screen scraping, (2) map your auth flows (SAML, OAuth, certificates) and test your agent against each, (3) identify legacy systems with undocumented behavior and build explicit tool wrappers before they become production failures",
+            "Set up prompt drift monitoring as a standard pre/post upgrade test: when your LLM provider notifies you of a model update, run your production eval suite immediately — the 8-12% regression window is narrow but the silent failures from missing it accumulate into user-facing quality degradation",
+            "Use the cost benchmarks to frame ROI for agent investments: at $0.46 per customer service ticket, a 1,000-ticket/day operation saves $3,720/day ($1.36M/year) over human handling — the economics of the observability stack, governance tooling, and eval infrastructure pay back in weeks at that volume"
+          ],
+          "tags": ["Enterprise AI", "Production Agents", "Benchmark Gap", "ROI", "Reliability", "Prompt Drift", "Human Escalation", "Cost Per Task", "Evaluation", "LLMOps"],
+          "links": [
+            {"url": "https://use-apify.com/blog/agentic-ai-enterprise-adoption-2026", "label": "Apify: Agentic AI in production — enterprise adoption, risk, and ROI in 2026"},
+            {"url": "https://www.digitalapplied.com/blog/ai-agent-productivity-statistics-2026-roi-data-points", "label": "DigitalApplied: AI agent productivity statistics 2026 — 100+ ROI data points"},
+            {"url": "https://www.gartner.com/en/newsroom/press-releases/2026-05-12-gartner-predicts-40-percent-of-organizations-deploying-ai-will-use-ai-observability-to-monitor-model-performance-by-2028", "label": "Gartner: 40% of organizations deploying AI will use observability tools by 2028 (May 2026)"},
+            {"url": "https://www.braintrust.dev/articles/best-ai-observability-tools-2026", "label": "Braintrust: AI observability tools buyer's guide — monitoring AI agents in production 2026"}
+          ]
+        }
+      ]
+    }
+  ]
+}
