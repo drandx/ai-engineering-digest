@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 14, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 14, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://byteiota.com/opencode-open-source-ai-coding-agent-guide-2026/">OpenCode hits 172K GitHub stars to become the most-starred open-source AI coding agent -- LSP integration gives the AI real code intelligence (types, signatures, diagnostics), not just text, across 20+ languages</a></li>
+      <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog State of AI Engineering 2026: 5% of all LLM requests fail in production, 60% of those failures from rate limits and capacity -- 69% of companies now use 3+ models, agent framework adoption doubled YoY</a></li>
+      <li><a href="https://github.com/github/spec-kit">GitHub Spec Kit reaches 111K stars and 55+ releases -- the spec-driven development toolkit that turns 'vibe coding' into a repeatable Spec > Plan > Tasks > Implement workflow across 30+ AI agents</a></li>
+      <li><a href="https://www.securityweek.com/google-detects-first-ai-generated-zero-day-exploit/">Google GTIG catches first confirmed AI-generated zero-day exploit in the wild -- a Python script that bypassed 2FA on a widely-used admin tool, with clear AI fingerprints in the code</a></li>
+      <li><a href="https://www.programming-helper.com/tech/biome-2026-rust-toolchain-web-development">Biome v2.4 ships at AWS, Google, Microsoft, and Cloudflare -- the Rust-powered linter/formatter lints 10,000 files in 0.8 seconds vs ESLint's 45.2 seconds, now at 491 rules</a></li>
+      <li><a href="https://motherduck.com/blog/pg-duckdb-release/">DuckDB ecosystem goes production-grade: DuckLake 1.0 ships a SQL lakehouse format, pg_duckdb 1.0 embeds DuckDB's analytical engine inside PostgreSQL with up to 1500x query speedups</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://byteiota.com/opencode-open-source-ai-coding-agent-guide-2026/">OpenCode: The 172K-Star Open-Source Terminal Agent That Gives AI Real Code Intelligence via LSP</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenCode, released by Anomaly Innovations in June 2025, has exploded to 172,000+ GitHub stars and 7.5 million monthly active developers in 2026 -- making it the most-starred open-source AI coding agent, ahead of Gemini CLI and Codex. Built in Go under an MIT license, OpenCode is terminal-native and provider-agnostic with 75+ model provider support. Its key differentiator is Language Server Protocol (LSP) integration: while most AI coding tools see code as text, OpenCode feeds the AI actual type information, function signatures, import paths, and live compiler diagnostics across TypeScript, Python, Rust, Go, C/C++, Java, and 18+ additional languages. Other features include multi-session support (multiple agents working in parallel on the same project), MCP server support, and a plugin system. Available as a terminal interface, desktop app, and IDE extension.</p>
+      <div class="article-meta">
+        <span class="tag">OpenCode</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Terminal Agent</span>
+        <span class="tag">LSP</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">MIT</span>
+        <span class="tag">Provider-Agnostic</span>
+        <span class="tag">Go</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>LSP integration is the real story here, not the star count. Most AI coding agents parse your codebase as raw text -- OpenCode gives the model the same semantic understanding your IDE has. When the AI sees a function call, it knows the parameter types, return type, and whether the call will type-check -- before generating code. This eliminates an entire class of 'plausible but wrong' suggestions that plague text-based agents. The multi-session feature is the second differentiator: you can run parallel agents on different parts of the same project simultaneously -- one fixing tests while another refactors a module -- without context collision. At 172K stars with 7.5M monthly active developers, this is no longer an experiment. The provider-agnostic design means you can point it at Claude, GPT-5.5, Qwen3-Coder-Next, or a self-hosted model with no code changes -- useful for teams running the 60/80 routing pattern between open and frontier models.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use OpenCode's LSP integration for type-safe code generation: the AI sees compiler diagnostics in real-time, so generated code that would fail type-checking gets caught before it hits your files -- particularly valuable for TypeScript and Rust projects</li>
+          <li>Run parallel coding sessions with multi-session support: one agent handles test generation while another refactors production code in the same repository -- no context window sharing, no interference</li>
+          <li>Point OpenCode at different model providers per task: route simple refactoring to self-hosted Qwen3-Coder-Next and complex architectural work to Claude Opus 4.8 -- same tool, same workflow, different cost profiles</li>
+          <li>Migrate from Aider or Cline with minimal friction: OpenCode's terminal-native design and MCP support mean your existing MCP servers (GitHub, Slack, Linear) work without modification</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>172,000+ GitHub stars -- most-starred open-source AI coding agent as of June 2026</li>
+          <li>7.5 million monthly active developers as of May 2026</li>
+          <li>MIT license -- fully open-source, provider-agnostic, no vendor lock-in</li>
+          <li>Between January and April 2026, crossed Cline, OpenHands, and closed gap on Aider despite 2-year head start</li>
+          <li>Coverage by Morph, DEV Community, byteiota, ChatForest, DecisionCrafters, Lushbinary, AiCoderScope</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://byteiota.com/opencode-open-source-ai-coding-agent-guide-2026/">byteiota: OpenCode open-source AI coding agent guide 2026</a></li>
+          <li><a href="https://www.morphllm.com/ai-coding-agent">Morph: Best AI coding agents 2026 -- ranked by Terminal-Bench, price, and source</a></li>
+          <li><a href="https://dev.to/ji_ai/opencode-hit-140k-stars-why-terminal-agents-won-2026-aci">DEV Community: OpenCode hit 140K stars -- why terminal agents won 2026</a></li>
+          <li><a href="https://chatforest.com/builders-log/opencode-model-agnostic-coding-agent-builder-guide/">ChatForest: OpenCode -- the model-agnostic coding agent that overtook Claude Code on GitHub stars</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog State of AI Engineering 2026: 5% of AI Requests Fail in Production, 60% from Capacity Limits</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Datadog's State of AI Engineering report, published April 21, 2026 and based on real-world telemetry from thousands of organizations running AI in production, reveals that operational complexity -- not model intelligence -- is the primary barrier to scaling AI. Key findings: 5% of all LLM call spans report errors in production, with nearly 60% of those errors caused by exceeded rate limits and capacity constraints. 69% of companies now use three or more models alongside increasingly complex agent workflows. Agent framework adoption nearly doubled year-over-year, from 9% to almost 18% of organizations. OpenAI remains the most widely used provider at 63% share, while Google Gemini and Anthropic Claude grew by 20 and 23 percentage points respectively.</p>
+      <div class="article-meta">
+        <span class="tag">Datadog</span>
+        <span class="tag">AI Engineering</span>
+        <span class="tag">Production AI</span>
+        <span class="tag">Observability</span>
+        <span class="tag">Rate Limits</span>
+        <span class="tag">Multi-Model</span>
+        <span class="tag">Agent Frameworks</span>
+        <span class="tag">LLMOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first large-scale production telemetry report that quantifies the gap between AI demos and AI reality. The 5% error rate sounds small until you calculate the impact: if your AI agent pipeline runs 200 LLM calls to complete a task, there's a 99.95^200 = ~90% chance at least one call fails. For long-horizon agent workflows with hundreds of steps, that's nearly guaranteed disruption. The 60% rate-limit attribution confirms what the GPU capacity crisis stories have been saying: the bottleneck isn't model capability, it's infrastructure capacity. The 69% multi-model finding is the most actionable insight: most teams are already running multiple providers, which means multi-model routing, fallback logic, and provider-abstraction layers aren't optional architecture -- they're production requirements. The doubled agent framework adoption shows the ecosystem is scaling, but every new framework adds production surface area that needs monitoring.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Add retry logic with exponential backoff and provider fallback to every LLM call in your agent pipeline: with a 5% per-call error rate, long agent chains need automatic recovery to avoid cascading failures</li>
+          <li>Instrument your LLM calls with Datadog, Langfuse, or equivalent observability: the 5% error rate is an average -- your specific workloads may be higher or lower, and you need to know which</li>
+          <li>Build multi-provider routing into your agent architecture from day one: 69% of companies already use 3+ models -- if you're locked to one provider, a rate-limit spike takes your entire system down with no fallback</li>
+          <li>Budget for rate limits as a first-class infrastructure constraint: 60% of production AI failures are capacity-related -- negotiate committed throughput with your providers or self-host open models for baseline capacity</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published April 21, 2026 -- based on real-world telemetry from thousands of production organizations</li>
+          <li>5% LLM error rate in production with 60% from capacity limits -- first large-scale quantification</li>
+          <li>69% of companies use 3+ models -- validated multi-model trend from production data</li>
+          <li>Agent framework adoption doubled YoY from 9% to 18% of organizations</li>
+          <li>Coverage by BigDATAwire, GlobeNewsWire, Quiver Quantitative, CIO&Leader, APMdigest, StockTitan</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.datadoghq.com/state-of-ai-engineering/">Datadog: State of AI Engineering 2026</a></li>
+          <li><a href="https://www.datadoghq.com/about/latest-news/press-releases/datadog-state-of-ai-engineering-report-2026/">Datadog: AI is hitting operational limits as companies rush to scale</a></li>
+          <li><a href="https://www.hpcwire.com/bigdatawire/this-just-in/datadog-report-ai-is-hitting-operational-limits-as-companies-rush-to-scale/">BigDATAwire: Datadog report -- AI is hitting operational limits as companies rush to scale</a></li>
+          <li><a href="https://www.globenewswire.com/news-release/2026/04/21/3278077/0/en/AI-Is-Hitting-Operational-Limits-as-Companies-Rush-to-Scale-Datadog-Report-Finds.html">GlobeNewsWire: Datadog report finds AI is hitting operational limits</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.com/github/spec-kit">GitHub Spec Kit Reaches 111K Stars: The Spec-Driven Development Toolkit That Turns Vibe Coding Into a Repeatable Workflow</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">GitHub Spec Kit, first released September 2, 2025, has reached 111,000 GitHub stars and 55+ releases -- making it one of the fastest-growing developer tools of 2026. Spec Kit is an open-source toolkit for Spec-Driven Development (SDD), a methodology that requires developers to write detailed specifications, technical plans, and task breakdowns before any AI agent writes code. The core workflow: /speckit.specify (write the spec) > /speckit.plan (generate technical plan) > /speckit.tasks (break into implementable tasks) > /speckit.implement (AI executes each task against the spec). Version 0.10 replaced legacy --ai flags with an --integration system, extensions, presets, and per-event hooks. The toolkit supports 30+ AI coding agents including Claude Code, GitHub Copilot, Cursor, Gemini CLI, and Codex, with an agent-skills install mode as of v0.10.</p>
+      <div class="article-meta">
+        <span class="tag">GitHub</span>
+        <span class="tag">Spec Kit</span>
+        <span class="tag">Spec-Driven Development</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">AI Coding</span>
+        <span class="tag">Workflow</span>
+        <span class="tag">Developer Tools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Spec Kit addresses the reliability problem in AI-assisted coding. The dominant workflow in 2026 -- prompt, generate, hope it's right -- produces code that works for demos but breaks in production. Spec-driven development inverts this: you define what correct means before the AI writes anything, then the AI implements against a verifiable specification. The 111K star count signals that developers are discovering this independently -- the vibe coding backlash is real, and it's driving adoption of structured alternatives. For engineering teams, the practical unlock is that Spec Kit works with your existing AI coding agent -- it's not a replacement for Claude Code or Cursor, it's a workflow layer that sits on top. The v0.10 integration system is the enterprise-readiness milestone: presets and hooks mean organizations can enforce SDD as a standard workflow across teams without relying on individual developer discipline.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Add Spec Kit to your existing Claude Code or Cursor workflow: run /speckit.specify before any complex feature, then hand the spec to your agent -- the AI implements against your requirements instead of guessing</li>
+          <li>Enforce spec-driven development across your team with v0.10 presets: configure a preset that requires a spec for any PR touching more than 3 files, and use hooks to validate the spec exists before the implement step runs</li>
+          <li>Use spec files as living documentation: the specs Spec Kit generates are Markdown files that stay in your repo -- they document the why behind implementations and survive long after the original developer moves on</li>
+          <li>Compare AI agent quality on the same spec: run the same Spec Kit spec through Claude Code, Copilot, and Cursor and diff the implementations -- the spec provides a controlled evaluation surface that benchmarks can't</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>111,000 GitHub stars with 55+ releases since September 2025 -- one of the fastest-growing developer tools of 2026</li>
+          <li>Supports 30+ AI agent integrations including Claude Code, Copilot, Cursor, Gemini CLI, Codex</li>
+          <li>v0.10 released with integration system, extensions, presets, per-event hooks -- enterprise-readiness milestone</li>
+          <li>Microsoft Developer Blog published official integration guide -- Diving Into Spec-Driven Development With GitHub Spec Kit</li>
+          <li>Coverage by DevOps.com, Visual Studio Magazine, MarkTechPost, CryptoBriefing, Knightli, DEV Community</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/github/spec-kit">GitHub: github/spec-kit -- toolkit for Spec-Driven Development</a></li>
+          <li><a href="https://developer.microsoft.com/blog/spec-driven-development-spec-kit">Microsoft for Developers: Diving into Spec-Driven Development with GitHub Spec Kit</a></li>
+          <li><a href="https://devops.com/githubs-spec-kit-puts-the-spec-back-in-software-development/">DevOps.com: GitHub's Spec Kit puts the spec back in software development</a></li>
+          <li><a href="https://visualstudiomagazine.com/articles/2026/05/12/github-spec-kit-takes-off-as-antidote-to-piecemeal-vibe-coding.aspx">Visual Studio Magazine: GitHub Spec Kit takes off as antidote to piecemeal vibe coding</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.programming-helper.com/tech/biome-2026-rust-toolchain-web-development">Biome v2.4: The Rust-Powered ESLint + Prettier Replacement Now Running at AWS, Google, Microsoft, and Cloudflare</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Biome, the Rust-powered all-in-one linter and formatter, has reached v2.4 (February 2026) with 491 lint rules and type-aware features. Performance: Biome lints 10,000 files in 0.8 seconds compared to ESLint's 45.2 seconds -- a 56x speedup. Production deployments now run at AWS, Google, Microsoft, Cloudflare, Coinbase, and Slack. Biome replaces both ESLint and Prettier with a single binary, eliminating the configuration complexity of maintaining two separate tools and their plugin ecosystems. The v2.0 'Biotype' release in late 2025 was the maturity inflection point, followed by v2.3 (January 2026) expanding to type-aware lint rules. Biome has become the default choice for new projects and a recommended upgrade for existing ones in the JavaScript/TypeScript ecosystem.</p>
+      <div class="article-meta">
+        <span class="tag">Biome</span>
+        <span class="tag">Rust</span>
+        <span class="tag">ESLint</span>
+        <span class="tag">Prettier</span>
+        <span class="tag">Linter</span>
+        <span class="tag">Formatter</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Developer Tools</span>
+        <span class="tag">Performance</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 56x speed difference isn't a micro-optimization -- it changes developer workflow. When linting takes 45 seconds, developers disable lint-on-save and batch lint checks to CI. When it takes 0.8 seconds, linting runs on every keystroke without lag. That's the difference between catching issues at write-time versus review-time. The single-binary design eliminates a real pain point: ESLint + Prettier configurations conflict constantly, and debugging which tool is reformatting which line is a time sink that adds zero product value. Enterprise adoption at AWS, Google, and Microsoft is the validation signal -- these organizations have massive JavaScript codebases where lint performance is a daily developer experience issue, not an abstract benchmark. The current limitation is the missing plugin ecosystem for framework-specific rules (React hooks, Next.js) -- if your project depends on eslint-plugin-react-hooks, Biome can't replace ESLint yet, but for pure TypeScript/JavaScript projects, the migration is straightforward.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Migrate new TypeScript/JavaScript projects directly to Biome -- skip ESLint + Prettier setup entirely: one npm install, one config file, linting + formatting in a single command</li>
+          <li>Enable lint-on-save in your editor with Biome: at 0.8s for 10K files, the feedback loop is fast enough for real-time linting during development -- catch issues at write-time instead of review-time</li>
+          <li>Reduce CI pipeline time: if your ESLint step takes 2-3 minutes on large repos, Biome can cut that to seconds -- freeing CI minutes for tests that actually need the time</li>
+          <li>Keep ESLint for framework-specific plugins (react-hooks, next) and run Biome for everything else: the two can coexist during migration -- Biome handles formatting and general JS/TS rules while ESLint covers framework-specific checks</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Production deployments at AWS, Google, Microsoft, Cloudflare, Coinbase, Slack</li>
+          <li>56x faster than ESLint: 10,000 files in 0.8s vs 45.2s</li>
+          <li>491 lint rules as of v2.3 (January 2026) with type-aware features</li>
+          <li>v2.0 'Biotype' late 2025 + v2.3 January 2026 + v2.4 February 2026 -- rapid release cadence</li>
+          <li>Coverage by Programming Helper, DEV Community, Pockit, byteiota, NextFuture, PkgPulse</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.programming-helper.com/tech/biome-2026-rust-toolchain-web-development">Programming Helper: Biome 2026 -- how the Rust-powered toolchain is quietly replacing ESLint and Prettier</a></li>
+          <li><a href="https://dev.to/pockit_tools/biome-the-eslint-and-prettier-killer-complete-migration-guide-for-2026-27m">DEV Community: Biome -- the ESLint and Prettier killer? Complete migration guide for 2026</a></li>
+          <li><a href="https://byteiota.com/biome-replaces-eslint-in-2026-10-20x-faster-linting/">byteiota: Biome replaces ESLint in 2026 -- 10-20x faster linting</a></li>
+          <li><a href="https://www.pkgpulse.com/guides/biome-vs-eslint-vs-oxlint-2026">PkgPulse: Biome vs ESLint vs Oxlint 2026 -- which JS linter to pick</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.securityweek.com/google-detects-first-ai-generated-zero-day-exploit/">Google GTIG Catches First Confirmed AI-Generated Zero-Day Exploit: An LLM-Built 2FA Bypass Stopped Before Mass Deployment</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">On May 11, 2026, Google's Threat Intelligence Group (GTIG) published a report identifying the first confirmed case of threat actors using AI to develop a zero-day exploit. The exploit was a Python script that bypassed two-factor authentication on a widely deployed open-source web administration tool by exploiting a logic flaw tied to hardcoded trust assumptions. GTIG researchers identified several AI fingerprints in the code: clean ANSI color classes, organized educational prompts, a fabricated CVSS score, and detailed help menus -- markers characteristic of LLM-generated code. The attack was discovered during preparation for a mass exploitation campaign and was stopped before deployment. Google coordinated with the vendor to patch the vulnerability before the campaign could launch. The discovery timeline from concept to working exploit was estimated at hours, not months, for a well-prompted LLM.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">Zero-Day</span>
+        <span class="tag">AI-Generated Exploit</span>
+        <span class="tag">Google GTIG</span>
+        <span class="tag">2FA Bypass</span>
+        <span class="tag">Threat Intelligence</span>
+        <span class="tag">Cybersecurity</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the security milestone that was predicted but hadn't been confirmed until now: an AI model didn't just write exploit code from a known vulnerability -- it discovered a previously unknown vulnerability and built a functional bypass. The hardcoded trust assumption the AI found is exactly the kind of semantic logic flaw that automated scanners miss because it's not a buffer overflow or injection -- it's a design assumption that happened to be wrong. For engineering teams, the implication is that AI-assisted offense is now faster than human-paced defense. The 'hours, not months' timeline means the window between vulnerability discovery and exploitation is collapsing. The practical response: audit your own trust assumptions (hardcoded admin paths, 2FA exception logic, service account bypass patterns) with the same AI tools attackers are using -- if an LLM can find the flaw, it can also find it defensively. The AI code fingerprints GTIG identified (fabricated CVSS scores, educational prompts) are useful forensic markers today but will disappear as attackers learn to strip them.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run AI-assisted security audits on your own codebase: prompt Claude or GPT-5.5 to find logic flaws in your authentication, authorization, and 2FA implementation -- the same capability attackers used offensively works defensively</li>
+          <li>Audit hardcoded trust assumptions in your web admin tools: check for paths, IPs, or service accounts that bypass 2FA or assume trusted context -- these are the semantic flaws AI excels at finding</li>
+          <li>Add AI code fingerprint detection to your security review process: fabricated CVSS scores, educational comments, clean ANSI formatting, and detailed help menus in exploit code are current markers of AI-generated scripts</li>
+          <li>Shorten your vulnerability response window: if AI-generated exploits can go from concept to working code in hours, your patching timeline needs to be measured in hours too -- automated patching and deployment pipelines are now security-critical infrastructure</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published May 11, 2026 by Google's Threat Intelligence Group -- first confirmed AI-generated zero-day in the wild</li>
+          <li>Attack stopped before mass deployment -- Google coordinated vendor patch</li>
+          <li>Exploit targeted a widely deployed open-source web admin tool used across enterprise environments</li>
+          <li>Coverage by SecurityWeek, The Hacker News, CryptoBriefing, CybersecurityNews, Infosecurity Magazine, Atlantic Council, Scientific American (Cloud Security Alliance)</li>
+          <li>Atlantic Council analysis: spyware industry is watching AI-generated exploit capabilities</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.securityweek.com/google-detects-first-ai-generated-zero-day-exploit/">SecurityWeek: Google detects first AI-generated zero-day exploit</a></li>
+          <li><a href="https://thehackernews.com/2026/05/hackers-used-ai-to-develop-first-known.html">The Hacker News: Hackers used AI to develop first known zero-day 2FA bypass</a></li>
+          <li><a href="https://cryptobriefing.com/google-ai-zero-day-exploit-2fa-bypass/">CryptoBriefing: Google confirms hackers used AI to create zero-day exploit bypassing 2FA</a></li>
+          <li><a href="https://www.atlanticcouncil.org/dispatches/hackers-using-ai-just-found-a-zero-day-the-spyware-industry-is-watching/">Atlantic Council: Hackers using AI just found a zero-day -- the spyware industry is watching</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://motherduck.com/blog/pg-duckdb-release/">DuckDB Ecosystem Goes Production-Grade: DuckLake 1.0 Ships a SQL Lakehouse, pg_duckdb 1.0 Embeds Analytics Inside PostgreSQL</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">The DuckDB ecosystem hit two major 1.0 milestones in 2026. DuckLake 1.0 is a production-ready lakehouse format built entirely on SQL, with clients already available for Apache DataFusion, Apache Spark, Trino, and pandas DataFrames -- adopted at dozens of companies. pg_duckdb 1.0 embeds DuckDB's columnar-vectorized analytical engine directly inside PostgreSQL as an extension, intercepting analytical queries automatically and running them through DuckDB's engine while keeping the existing Postgres setup untouched. Performance: up to 1500x speedup for certain analytical queries, with a more realistic 10x improvement for typical workloads. DuckDB itself reached version 1.5.2, and by the end of 2025, every serious data team surveyed had either tried or shipped it. Some SME clients have replaced their Snowflake bills with a single-VM setup running DuckDB on Parquet files, cutting monthly analytics spend by 80%.</p>
+      <div class="article-meta">
+        <span class="tag">DuckDB</span>
+        <span class="tag">pg_duckdb</span>
+        <span class="tag">DuckLake</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Analytics</span>
+        <span class="tag">Data Engineering</span>
+        <span class="tag">Lakehouse</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Embedded Database</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>pg_duckdb 1.0 is the bigger story for most engineering teams. PostgreSQL is already your primary database -- now you can run analytical queries against it at columnar-engine speeds without setting up a separate data warehouse, ETL pipeline, or analytics database. The extension intercepts queries automatically: if a query looks analytical (aggregations, window functions, large scans), DuckDB handles it; if it's transactional, Postgres handles it. No query routing logic needed. The 80% cost reduction for SMEs replacing Snowflake is the economic argument: Snowflake charges per-query compute on cloud infrastructure; DuckDB runs on your existing VM with no per-query cost. DuckLake 1.0 extends this to data lake scenarios: instead of learning Delta Lake or Apache Iceberg, teams that already know SQL can use DuckLake as their lakehouse format. The convergence story is clear -- DuckDB is becoming the analytical engine that runs everywhere your data already lives.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Install pg_duckdb on your existing PostgreSQL instance to run analytical queries without a separate data warehouse: aggregation queries that took minutes in Postgres complete in seconds through DuckDB's columnar engine</li>
+          <li>Replace your Snowflake or BigQuery setup for small-to-medium datasets: DuckDB on Parquet files on a single VM handles analytical workloads that cost hundreds per month on cloud warehouses, for a fraction of the cost</li>
+          <li>Use DuckLake 1.0 as a SQL-native lakehouse format: if your team knows SQL but not Delta Lake or Iceberg, DuckLake gives you lakehouse capabilities (versioning, time travel, schema evolution) in familiar SQL</li>
+          <li>Embed DuckDB in your Python data pipelines: replace pandas for large-scale analysis -- DuckDB processes datasets that crash pandas by streaming through columnar execution instead of loading everything into memory</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>pg_duckdb 1.0 released 2026 -- production-ready PostgreSQL extension for DuckDB analytics</li>
+          <li>DuckLake 1.0 shipped with clients for DataFusion, Spark, Trino, and pandas -- adopted at dozens of companies</li>
+          <li>DuckDB v1.5.2 -- by end of 2025, every serious data team surveyed had tried or shipped it</li>
+          <li>Up to 1500x analytical query speedup inside PostgreSQL; realistic 10x for typical workloads</li>
+          <li>SMEs replacing Snowflake with DuckDB on Parquet, cutting analytics spend 80%</li>
+          <li>Coverage by MotherDuck, BigDATAwire, Towards Dev, Kestra, Programming Helper, BuildMVPFast, DatasoftTechnologies</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://motherduck.com/blog/pg-duckdb-release/">MotherDuck: Announcing pg_duckdb version 1.0</a></li>
+          <li><a href="https://motherduck.com/blog/duckdb-ecosystem-newsletter-april-2026/">MotherDuck: DuckDB ecosystem newsletter -- April 2026</a></li>
+          <li><a href="https://medium.com/towardsdev/pg-duckdb-1-0-release-signals-stronger-postgresql-and-duckdb-integration-for-python-workflows-62c39f6f29e9">Towards Dev: pg_duckdb 1.0 signals stronger PostgreSQL and DuckDB integration</a></li>
+          <li><a href="https://www.buildmvpfast.com/blog/duckdb-embedded-analytics-app-developers-no-data-warehouse-2026">BuildMVPFast: DuckDB embedded analytics for app developers 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
