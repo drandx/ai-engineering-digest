@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 16, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 16, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://github.com/MiniMax-AI/MiniMax-M3">MiniMax M3 open weights are live on Hugging Face — first open-weight model with 59% SWE-Bench Pro (beats GPT-5.5), 1M-token context, and Sparse Attention architecture; Unsloth GGUFs already available for desktop-scale evaluation</a></li>
+      <li><a href="https://www.digitalapplied.com/blog/github-copilot-ai-credits-billing-2026-cost-audit-playbook">GitHub Copilot AI Credits billing: two weeks in, developers report 10x-100x cost spikes on agentic workflows — the community discussion has 958 downvotes and the industry is now reckoning with the end of flat-rate AI subscription pricing</a></li>
+      <li><a href="https://developer.apple.com/videos/play/wwdc2026/319/">Apple Foundation Models goes free for small developers at WWDC 2026: Private Cloud Compute at zero cost for qualifying devs, server-side Claude and Gemini integration through the same Swift API, open source this summer</a></li>
+      <li><a href="https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/">Microsoft Work IQ APIs go generally available today (June 16): programmatic organizational context for agents, plus Web IQ — a model-agnostic MCP-native grounding stack running 2.5x faster than alternatives</a></li>
+      <li><a href="https://www.datadoghq.com/blog/dash-2026-new-feature-roundup-keynote/">Datadog DASH 2026 ships 100+ features: AI Agent Monitoring maps decision paths for Claude Code, Cursor, and Copilot; AI Guard blocks LLM injection attacks using deep stateful behavioral telemetry — both now available</a></li>
+      <li><a href="https://explainx.ai/blog/when-will-fable-5-be-available-again-2026">Fable 5 negotiations: Anthropic senior staff are in Washington DC meeting White House and Commerce officials — Fortune reveals the routine 'fix this code' prompt behind the ban, Axios reports CCP-linked access allegations broadening the dispute</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://github.com/MiniMax-AI/MiniMax-M3">MiniMax M3 Open Weights Are Live: Frontier Open-Weight Coding Model with 59% SWE-Bench Pro, 1M Context, and Desktop-Scale GGUFs</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">MiniMax (Shanghai) launched the M3 API on June 1, 2026, and the open weights have now landed on Hugging Face and GitHub following the promised 10-day window. MiniMax M3 is the first open-weight model to combine frontier-level coding performance — 59% SWE-Bench Pro, vendor-reported, surpassing GPT-5.5 and Gemini 3.1 Pro — with a native 1-million-token context window and multimodal inputs. The core architectural innovation is MiniMax Sparse Attention (MSA): a lightweight index branch scans incoming tokens and runs attention only on relevant blocks, enabling 9x faster input processing and 15x faster generation at 1M context versus the prior architecture. Unsloth has published GGUF quantizations on Hugging Face, making the model accessible for evaluation on desktop hardware.</p>
+      <div class="article-meta">
+        <span class="tag">MiniMax</span>
+        <span class="tag">M3</span>
+        <span class="tag">Open Weights</span>
+        <span class="tag">SWE-Bench Pro</span>
+        <span class="tag">1M Context</span>
+        <span class="tag">Sparse Attention</span>
+        <span class="tag">Hugging Face</span>
+        <span class="tag">Unsloth</span>
+        <span class="tag">GGUF</span>
+        <span class="tag">Coding Model</span>
+        <span class="tag">Self-Hosting</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most significant open-weight model release for AI engineers since Kimi K2, and it is evaluable today with quantizations already on Hugging Face. The 59% SWE-Bench Pro figure is vendor-reported and should be independently verified — but even if independent reruns land 5-10 points lower, that is still leading-class performance for an open-weight model on the harder Pro variant of the benchmark. The MSA speed improvement at 1M tokens changes the economics of full-repository context: at 1M tokens, most models either truncate, degrade severely on later tokens, or run prohibitively slowly. MSA's selective attention specifically addresses this — 9x faster input processing at 1M context makes loading a complete large codebase practical rather than theoretical. For teams currently running DeepSeek V4-Flash or Qwen3-Coder-Next for agentic coding, M3 represents a meaningful capability step up in the open-weight tier. The Unsloth GGUFs reduce the hardware barrier for evaluation — you do not need H100s to run the quantized variants on your internal eval suite before any production commitment. Primary caveat: M3 is a 428B parameter model; even quantized, it requires substantial hardware. Check the specific GGUF quantization levels against your available RAM before assuming desktop-runnable.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Pull the Unsloth GGUF quantization and run M3 against your internal coding eval suite today: you do not need H100s for the quantized variants, and you get an independent benchmark number instead of relying solely on MiniMax's vendor-reported 59% SWE-Bench Pro figure</li>
+          <li>Use M3's 1M-token context for full-repository analysis: with 9x faster input processing, loading a complete codebase (200K-500K tokens) is now practical for migration analysis, cross-file refactoring planning, or repo-wide test generation — tasks where most models either truncate or run prohibitively slowly</li>
+          <li>Test M3 as a self-hosted alternative to DeepSeek V4-Pro for long-context agentic tasks: V4-Pro requires API access; M3's open weights let you keep data on your own infrastructure at frontier-class quality for the same long-context use cases</li>
+          <li>Evaluate the multimodal inputs for UI-to-code workflows: M3 handles image and video natively — test it on screenshot-to-component generation or visual debugging tasks where you currently need a separate vision model in your pipeline</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Open weights live on Hugging Face and GitHub as of ~June 10-11, 2026 — Unsloth GGUF quantizations published</li>
+          <li>59% SWE-Bench Pro — vendor-reported at launch June 1, surpassing GPT-5.5 and Gemini 3.1 Pro on the same benchmark</li>
+          <li>MiniMax Sparse Attention: 9x faster input, 15x faster generation vs. predecessor at 1M context</li>
+          <li>428B total parameters — Unsloth GGUFs reduce hardware requirement for evaluation</li>
+          <li>Coverage: The Decoder, Codersera, DataNorth, NerdLevelTech, MindStudio, Vasundhara, IBL News, FelloAI</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/MiniMax-AI/MiniMax-M3">GitHub: MiniMax-AI/MiniMax-M3 — official weights and technical report</a></li>
+          <li><a href="https://huggingface.co/unsloth/MiniMax-M3-GGUF">Hugging Face: unsloth/MiniMax-M3-GGUF (quantized, desktop-runnable)</a></li>
+          <li><a href="https://www.minimax.io/models/text/m3">MiniMax: M3 model page — 1M context, multimodal, coding frontier</a></li>
+          <li><a href="https://the-decoder.com/minimax-m3-open-weight-model-with-a-million-token-context-challenges-proprietary-leaders/">The Decoder: MiniMax M3 — open-weight model with a million-token context challenges proprietary leaders</a></li>
+          <li><a href="https://nerdleveltech.com/minimax-m3-open-weight-coding-sparse-attention">NerdLevelTech: MiniMax M3 — open-weight coding at 1/10 the cost</a></li>
+          <li><a href="https://codersera.com/blog/minimax-m3-developer-guide/">Codersera: MiniMax M3 developer guide — benchmarks, architecture, and deployment</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://developer.apple.com/videos/play/wwdc2026/319/">Apple Foundation Models Goes Free for Small Developers at WWDC 2026: Private Cloud Compute, Server-Side Claude/Gemini Integration, Open Source This Summer</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">At WWDC 2026's Platforms State of the Union on June 9, Apple announced free access to Apple Foundation Models running on Private Cloud Compute for developers enrolled in the App Store Small Business Program with fewer than 2 million first-time app downloads. Three framework capabilities were announced alongside: image input support, a server-side integration layer that lets developers call Claude and Gemini through the same Swift Foundation Models API without switching SDKs, and Dynamic Profiles for building multi-agent workflows where specialized sub-agents hand off tasks. Apple also confirmed the full Foundation Models framework will be open-sourced later this summer.</p>
+      <div class="article-meta">
+        <span class="tag">Apple</span>
+        <span class="tag">Foundation Models</span>
+        <span class="tag">WWDC 2026</span>
+        <span class="tag">Private Cloud Compute</span>
+        <span class="tag">Swift</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Multi-Agent</span>
+        <span class="tag">iOS</span>
+        <span class="tag">On-Device AI</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The server-side multi-provider integration is the most architecturally significant announcement for iOS AI engineers. Today, building an iOS app that uses on-device Apple models for privacy-sensitive tasks and routes complex requests to Claude or Gemini requires two separate SDKs and two different request patterns. The new server-side layer collapses this: one Swift API call, configurable to route on-device for private user data and server-side to Claude or Gemini for complex analysis. That is a real reduction in integration surface. The free Private Cloud Compute tier changes the economics for small-team iOS development: running inference for an app used by tens of thousands of users was previously a non-trivial monthly infrastructure cost. Qualifying developers now get that at zero cost up to 2 million downloads, which pushes the meaningful cost inflection point far beyond where most indie apps live. Dynamic Profiles is Apple's take on multi-agent workflow orchestration in Swift: native API for routing task types to specialized agents, rather than implementing routing logic manually. The open-source commitment for this summer means the inference runtime will be inspectable, forkable, and potentially portable — an Apple-quality inference stack with MIT or Apache licensing could meaningfully change the on-device inference ecosystem.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Qualifying iOS developers: enable free Private Cloud Compute in your App Store developer account now — if you're in the Small Business Program and under 2M downloads, your users get Apple Foundation Model inference at no cost, with Apple's privacy guarantees, without billing code</li>
+          <li>Prototype a hybrid on-device/cloud routing pattern with the server-side integration: route short context requests to on-device models (fast, free, private) and long or complex analysis to Claude server-side through the same Foundation Models Swift API — no separate SDKs</li>
+          <li>Build a multi-agent iOS workflow with Dynamic Profiles: design a task pipeline where a triage profile routes incoming requests to specialized sub-agents (code, writing, research) using Apple's native orchestration API instead of custom routing logic</li>
+          <li>Watch for the open-source release this summer: evaluate whether the Foundation Models inference runtime can be adapted for non-Apple platforms — the Apple team's focus on hardware efficiency could make this a serious alternative to llama.cpp for specific deployment scenarios</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced WWDC 2026 Platforms State of the Union, June 9, 2026 — official Apple Developer session with video</li>
+          <li>App Store Small Business Program: >2M developers immediately eligible for free Private Cloud Compute</li>
+          <li>Server-side multi-provider integration (Claude + Gemini through same Swift API) — first non-Apple cloud backend support</li>
+          <li>Open source commitment for Foundation Models framework — confirmed for 'later this summer'</li>
+          <li>Coverage: MacRumors, TechFundingNews, AI Tech Connect, ByteIota, LushBinary, Apple Developer</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://developer.apple.com/videos/play/wwdc2026/319/">Apple Developer: Build with the new Apple Foundation Model on Private Cloud Compute — WWDC26</a></li>
+          <li><a href="https://developer.apple.com/videos/play/wwdc2026/241/">Apple Developer: What's new in the Foundation Models framework — WWDC26</a></li>
+          <li><a href="https://www.macrumors.com/2026/06/09/apple-outlines-major-ai-and-developer-tool-updates/">MacRumors: Apple outlines major AI and developer tool updates at WWDC 2026</a></li>
+          <li><a href="https://developer.apple.com/private-cloud-compute/">Apple Developer: Private Cloud Compute overview</a></li>
+          <li><a href="https://aitechconnect.in/news/apple-wwdc-2026-foundation-models-ios-builders">AI Tech Connect: Apple WWDC 2026 — Foundation Models Free Tier for iOS Builders</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.digitalapplied.com/blog/glm-5-2-zai-flagship-coding-plan-release">GLM-5.2 Open Weights Drop This Week: 744B MoE, MIT License, 1M Context — What to Evaluate When They Land</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Zhipu AI's GLM-5.2, announced June 13 on Z.ai's Coding Plan, is releasing its MIT-licensed open weights this week. As of June 16 the weights are not yet public, but the release is imminent within the promised window. The model uses a 744-billion-parameter Mixture-of-Experts architecture with a 1-million-token context window, 131,072 output tokens (among the highest in the open-weight tier), and two configurable thinking-effort levels. Zhipu published zero external benchmarks at launch — evaluation is entirely left to the community.</p>
+      <div class="article-meta">
+        <span class="tag">GLM-5.2</span>
+        <span class="tag">Z.ai</span>
+        <span class="tag">Zhipu</span>
+        <span class="tag">Open Weights</span>
+        <span class="tag">MIT License</span>
+        <span class="tag">MoE</span>
+        <span class="tag">1M Context</span>
+        <span class="tag">131K Output Tokens</span>
+        <span class="tag">Self-Hosting</span>
+        <span class="tag">vLLM</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 131K output token limit is GLM-5.2's most differentiated feature for engineering teams. Most models cap output at 8-32K tokens, which means generating long artifacts — complete test suites, full migration scripts, comprehensive API specs — requires multiple chained calls with context management overhead. GLM-5.2's 131K output limit means generating a complete large artifact in a single response, which eliminates the fragmentation problem for long-form generation tasks. The 744B MoE architecture follows the same pattern as DeepSeek V4 and Kimi K2: massive total parameters, much smaller active footprint per inference. When the weights land, check for MoE-aware quantization from Unsloth or similar teams — a Q4 GGUF of a 744B MoE will have far lower active memory requirements than the total parameter count implies. The no-benchmarks-at-launch posture is unusual but creates a specific opportunity: community SWE-bench reruns will land within days of the weights being available, and those independent numbers will be the first trustworthy signal on where GLM-5.2 actually sits relative to MiniMax M3, Kimi K2, and DeepSeek V4-Pro. The thinking-effort level design (low/high) lets you route within a single model — low-effort for routine tasks, high-effort for complex reasoning — simplifying agentic pipelines that currently maintain two separate models for cost vs. quality routing.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>As soon as the weights land, run GLM-5.2 against your internal coding eval suite before the community benchmarks arrive — Zhipu's no-benchmarks launch means your eval is the only signal you can trust for your specific task distribution</li>
+          <li>Test the 131K output token ceiling for large-file generation: measure whether you can generate a complete 5,000-line test suite, a full OpenAPI spec, or a long migration script in a single response — and whether quality holds at long output lengths</li>
+          <li>Evaluate thinking-effort routing within a single model: route docstring generation and simple completions to low-effort mode, architecture analysis and complex debugging to high-effort mode — measure the quality delta against the time delta to find the right breakeven for your task mix</li>
+          <li>Monitor the Hugging Face community tab on the GLM-5.2 repo for quantized variants: Unsloth has been fast with GGUF quantizations for large MoE models — a Q4 GGUF of a 744B MoE will have much lower active memory requirements than the total parameter count implies</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>MIT open weights promised for week of June 16, 2026 — imminent release, not yet live as of June 16</li>
+          <li>744B MoE architecture — 131K output tokens per response, among the highest available in open weights</li>
+          <li>Two thinking-effort levels (low/high) — first for the GLM family, within-model reasoning depth routing</li>
+          <li>Zero external benchmarks published at launch — independent community evaluation required</li>
+          <li>Coverage: Codersera, FelloAI, DigitalApplied, BuildFastWithAI, AIMadeTools, Techsy.io, Pasquale Pillitteri</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.digitalapplied.com/blog/glm-5-2-zai-flagship-coding-plan-release">DigitalApplied: GLM-5.2 on Z.ai's Coding Plan — what's confirmed</a></li>
+          <li><a href="https://codersera.com/blog/glm-5-2-release-1m-context-coding-2026/">Codersera: GLM 5.2 release — 1M context, coding-first, open weights incoming</a></li>
+          <li><a href="https://felloai.com/glm-5-2/">FelloAI: GLM 5.2 — what is it, MIT license, self-hosting guide</a></li>
+          <li><a href="https://www.aimadetools.com/blog/glm-5-2-complete-guide">AIMadeTools: GLM-5.2 complete guide — 1M context, MIT license, setup</a></li>
+          <li><a href="https://techsy.io/en/blog/glm-5-2">Techsy.io: GLM 5.2 review — 1M-context coding model explained</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://www.digitalapplied.com/blog/github-copilot-ai-credits-billing-2026-cost-audit-playbook">GitHub Copilot AI Credits: Two Weeks In, Developers Report 10x-100x Cost Spikes — A Cost Playbook for Engineering Teams</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">GitHub Copilot switched from request-based to usage-based AI Credits billing on June 1, 2026. Two weeks in, developers are reporting severe cost spikes: projections showing monthly costs jumping from $29 to $750, from $50 to $3,000, and in heavy agentic workflows even higher. The GitHub community discussion collected 958 downvotes against 24 upvotes. AI Credits are priced at 1 credit = $0.01, with plan-included credits of 1,500 (Pro, $10/month), 3,900 (Pro+, $39/month), and 1,900 per seat (Business, $19/seat/month). Annual plan holders remain on legacy pricing until renewal — a significant split between users experiencing the change now vs. later.</p>
+      <div class="article-meta">
+        <span class="tag">GitHub Copilot</span>
+        <span class="tag">AI Credits</span>
+        <span class="tag">Usage-Based Billing</span>
+        <span class="tag">Cost Management</span>
+        <span class="tag">Developer Tooling</span>
+        <span class="tag">Token Cost</span>
+        <span class="tag">Agentic Coding</span>
+        <span class="tag">Billing</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most consequential cost structure shift in AI developer tooling since Copilot launched. For three years, the product encouraged deeper AI adoption — longer sessions, better models, more agentic workflows — under flat subscription pricing. The switch to usage-based billing in June 2026 retroactively reprices those decisions. The 958-downvote community thread is a trust signal: developers made workflow investment decisions under an assumption of pricing stability that turned out to be wrong. The bill shock is concentrated in exactly the behaviors Copilot encouraged: long agentic sessions using premium models (Opus-class, GPT-5.5) are the primary driver. The strategic implications for engineering leaders are immediate. First, Cursor's flat Enterprise pricing and open-source alternatives (Continue, Aider) have become structurally more attractive for high-volume agentic use — evaluate whether your team's actual usage pattern makes usage-based Copilot cheaper or more expensive than flat alternatives. Second, the billing change creates an opportunity to audit where AI compute is actually going: Copilot's new usage analytics differentiate completions, chat, code review, and agent sessions by model. Teams that do this audit often discover 20-40% of credits going to sessions that produce no committed code.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run a Copilot usage audit immediately: open the Copilot organization dashboard, filter by product surface (completions vs. chat vs. agent vs. code review), identify which surfaces and which models are consuming the most credits — this is the prerequisite for any optimization or budget decision</li>
+          <li>Instrument your agentic Copilot workflows to count model calls per subtask: agents that invoke premium models on every step are the primary bill shock driver — identify which subtasks can route to Haiku-class models and measure the quality impact; a 40% reduction in premium model calls often halves agentic costs with minimal quality loss</li>
+          <li>Evaluate Cursor flat Enterprise pricing as a hedge for heavy agentic users: calculate your team's monthly Copilot credit projection at current usage and compare to Cursor Enterprise seat cost — for developers with heavy agentic workflows, the math may favor flat pricing</li>
+          <li>If you're on an annual plan, benchmark usage now before migration: you have until renewal to understand your consumption baseline and either optimize your workflow, switch products, or budget for the new cost level — do not wait until the switch happens to get this data</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Went live June 1, 2026 — all monthly Pro and Pro+ plans migrated automatically</li>
+          <li>GitHub community discussion: 958 downvotes, 24 upvotes — among the most negative-sentiment product change discussions on GitHub</li>
+          <li>Documented cost projections: $29 → $750, $50 → $3,000; extreme agentic cases higher</li>
+          <li>Annual Pro/Pro+ plan holders grandfathered until renewal — split user experience complicates team-wide estimates</li>
+          <li>Coverage: GitHub Blog, TokenMix, DigitalApplied, TechJournal, Visual Studio Magazine, WindowsForum</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.digitalapplied.com/blog/github-copilot-ai-credits-billing-2026-cost-audit-playbook">DigitalApplied: GitHub Copilot AI Credits are live — a cost audit playbook</a></li>
+          <li><a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/">GitHub Blog: GitHub Copilot is moving to usage-based billing</a></li>
+          <li><a href="https://github.com/orgs/community/discussions/192948">GitHub Community: Copilot usage-based billing discussion (958 downvotes)</a></li>
+          <li><a href="https://tokenmix.ai/blog/github-copilot-ai-credits-billing-2026">TokenMix: GitHub Copilot AI Credits 2026 — prices, limits, cost math</a></li>
+          <li><a href="https://techjournal.org/github-copilot-token-billing-backlash">TechJournal: Copilot token billing starts today — devs report 10x-50x cost increases</a></li>
+          <li><a href="https://visualstudiomagazine.com/articles/2026/04/27/devs-sound-off-on-usage-based-copilot-pricing-change-you-will-get-less-but-pay-the-same-price.aspx">Visual Studio Magazine: Devs sound off on usage-based Copilot pricing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/">Microsoft Work IQ APIs Go GA Today (June 16): Organizational Context for Agents + Web IQ MCP-Native Grounding</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Microsoft's Work IQ APIs reach general availability on June 16, 2026. Work IQ provides programmatic access to an organizational intelligence layer — people, org structure, project context, communication signals, and meeting history — giving agents the contextual grounding they need to reason correctly about enterprise workflows without custom knowledge retrieval. Announced alongside the GA: Web IQ, an AI-first web search stack that is model-agnostic and MCP-native, returning relevant passages at approximately 2.5x the speed of the next-best grounding alternative. Both are part of the Microsoft Foundry ecosystem.</p>
+      <div class="article-meta">
+        <span class="tag">Microsoft</span>
+        <span class="tag">Work IQ</span>
+        <span class="tag">Web IQ</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Organizational Context</span>
+        <span class="tag">Grounding</span>
+        <span class="tag">Enterprise AI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Microsoft Foundry</span>
+        <span class="tag">Build 2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The core problem Work IQ solves is one of the most common failure modes in enterprise AI agents: a coding or knowledge assistant that has no idea who you are, who your colleagues are, what projects are currently in flight, or what the organizational context for a task is. These agents produce technically correct but organizationally wrong outputs — recommendations that violate internal standards, documents that don't reflect the team's current project state, or routing decisions that go to the wrong team. Work IQ's organizational context layer is the connective tissue that has been missing from enterprise AI agents, and it is now a GA API call rather than a custom integration project. Web IQ's MCP-native design is the key detail for teams building grounding pipelines today. If your agent uses web search via a custom tool, a native MCP server that returns structured, agent-ready passages at 2.5x speed is a direct upgrade with no architectural change. The model-agnostic design means this is not locked to Azure OpenAI — you can ground DeepSeek, GLM-5.2, or any model your team uses via the same MCP interface. The combined Work IQ + Web IQ announcement creates the grounding stack Microsoft has been building toward: organizational context (Work IQ) plus live web grounding (Web IQ), both accessible from any agent framework.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Add Work IQ to any agent that needs organizational reasoning: for an internal coding agent that needs to know 'who owns this service', 'what team manages this database', or 'what projects are in flight', Work IQ provides programmatic access to that organizational graph without building a custom knowledge base</li>
+          <li>Replace your current web search tool with Web IQ via MCP: if your agent makes web search calls through a custom REST wrapper, switching to the MCP-native Web IQ server gives structured passage retrieval at 2.5x speed with no changes to your agent framework — update the MCP server configuration and redeploy</li>
+          <li>Combine Work IQ + Web IQ for grounded enterprise agents: use Work IQ for organizational context (people, projects, org structure) and Web IQ for live external information — unified MCP-compatible interface for both internal and external grounding</li>
+          <li>Evaluate Work IQ for multi-agent workflows that fail on organizational routing: if your agents produce correct technical outputs but wrong organizational decisions (wrong team to notify, wrong process, wrong escalation path), Work IQ's context layer addresses that specific failure mode directly</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Work IQ APIs generally available June 16, 2026 — GA confirmed in Microsoft Build 2026 announcements</li>
+          <li>Web IQ: 2.5x faster than next-best alternative — model-agnostic, MCP-native structured passage retrieval</li>
+          <li>Part of Microsoft Foundry ecosystem — connects to hosted runtimes, Foundry IQ grounding, MAI models, observability</li>
+          <li>Coverage: Microsoft Blog, DEV Community (Build 2026 DevOps lens), The New Stack, WindowsForum</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/">Microsoft Blog: Build 2026 — Be yourself at work (Work IQ announcement)</a></li>
+          <li><a href="https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/">Microsoft Foundry Blog: What's new in Microsoft Foundry at Build 2026</a></li>
+          <li><a href="https://dev.to/pwd9000/microsoft-build-2026-top-announcements-from-a-devops-lens-419k">DEV Community: Microsoft Build 2026 — top announcements from a DevOps lens</a></li>
+          <li><a href="https://thenewstack.io/microsoft-foundry-build-2026-ai-agents/">The New Stack: Microsoft Foundry at Build 2026 — AI agents as production infrastructure</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.datadoghq.com/blog/dash-2026-new-feature-roundup-keynote/">Datadog DASH 2026: AI Agent Monitoring Natively Tracks Claude Code, Cursor, and Copilot — AI Guard Blocks LLM Injection with Stateful Behavioral Analysis</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Datadog shipped 100+ capabilities at DASH 2026 (June 9-10) focused on autonomous AI operations, agent security, and data management at AI workload scale. Two features are immediately relevant for AI engineering teams: AI Agent Monitoring, which maps every step of an agent's decision path — inputs, tool invocations, sub-agent calls, outputs — in an interactive graph with native integrations for Claude Code, Cursor, and GitHub Copilot; and AI Guard, which detects and blocks AI agent attacks using deep agent telemetry tracing combined with stateful behavioral anomaly analysis, catching prompt injection attacks that stateless evaluators miss. A third capability, Bring Your Own Cloud Logs (BYOC), lets teams keep AI workload log data in their own cloud storage while Datadog handles analysis.</p>
+      <div class="article-meta">
+        <span class="tag">Datadog</span>
+        <span class="tag">DASH 2026</span>
+        <span class="tag">AI Agent Monitoring</span>
+        <span class="tag">AI Guard</span>
+        <span class="tag">Observability</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">Copilot</span>
+        <span class="tag">LLM Security</span>
+        <span class="tag">BYOC</span>
+        <span class="tag">Prompt Injection</span>
+        <span class="tag">LLMOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The native integrations with Claude Code, Cursor, and GitHub Copilot signal that AI tooling observability has crossed from nice-to-have to expected production infrastructure. Engineering teams using these tools have been measuring token usage via vendor dashboards but lacking full decision traces: what did the agent actually do, which tools did it invoke, where did it fail and recover, and what did a given task actually cost at the workflow level rather than the request level? AI Agent Monitoring fills this gap — the interactive decision graph shows not just that the agent consumed 50K tokens, but that it invoked the GitHub tool 12 times, called the model 7 times, wrote 3 files, and failed on step 4 before recovering. AI Guard's stateful behavioral approach is technically significant: most LLM security layers evaluate individual prompts in isolation. Stateful analysis tracks agent behavior across a session and detects anomalous patterns — an agent that suddenly invokes more tools than usual, calls external endpoints it has not reached before, or generates outputs inconsistent with its session history. This catches slow-burn injection attacks that spread across multiple turns, which are exactly the category of attack that grows as agents have longer-running sessions with more tool access. BYOC Logs addresses the data governance constraint that has blocked production AI observability for regulated industries: AI workloads generate enormous log volumes (one LLM call can produce kilobytes of trace data), and routing all of that to Datadog's managed ingestion creates both cost and residency concerns. BYOC resolves both by keeping raw logs in your own S3 or Azure Blob while using Datadog for analysis.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Instrument your Claude Code or Cursor sessions with AI Agent Monitoring for cost-per-task analysis: connect your coding agent platform to Datadog's native integrations and measure the full cost of each coding workflow (total tokens, tool invocations, retries) rather than individual API calls — identify which workflows are inefficient and which are cost-justified</li>
+          <li>Use AI Guard's stateful detection as an MCP security layer: if you're running MCP servers that expose your codebase, databases, or internal tools to AI agents, behavioral anomaly detection across the full session provides a security boundary that individual prompt evaluation cannot</li>
+          <li>Enable BYOC Logs for production AI agents handling sensitive workloads: keep raw AI workload logs in your own S3 or Azure Blob, use Datadog for trace correlation and anomaly detection — resolves data residency requirements for regulated industries without giving up observability</li>
+          <li>Build a cost-per-task dashboard for your AI agent fleet: use AI Agent Monitoring's trace data to create a team-level view of which agent workflows complete tasks vs. consume credits without completing them — this is the ROI signal missing from most AI tooling budget reviews</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>DASH 2026 June 9-10, 2026 — 100+ new capabilities shipped at Datadog's annual conference</li>
+          <li>Native integrations: Claude Code, Cursor, GitHub Copilot — all three major coding agent platforms covered</li>
+          <li>AI Guard: stateful behavioral anomaly analysis — beyond stateless prompt-response evaluation</li>
+          <li>BYOC Logs: customer-controlled cloud storage with Datadog analysis — resolves data residency for AI logs</li>
+          <li>Coverage: SiliconAngle, BigDATAwire, Quiver Quantitative, StorageNewsletter, Techzine, Barchart</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.datadoghq.com/blog/dash-2026-new-feature-roundup-keynote/">Datadog Blog: DASH 2026 — guide to newest announcements and keynote</a></li>
+          <li><a href="https://siliconangle.com/2026/06/09/datadog-launches-100-features-dash-push-autonomous-ai-ops/">SiliconAngle: Datadog launches 100+ features at DASH to push autonomous AI ops</a></li>
+          <li><a href="https://www.hpcwire.com/bigdatawire/this-just-in/datadog-adds-autonomous-remediation-ai-agent-monitoring-and-cloud-storage-controls/">BigDATAwire: Datadog adds autonomous remediation, AI Agent Monitoring, and cloud storage controls</a></li>
+          <li><a href="https://www.barchart.com/story/news/32813377/datadog-expands-llm-observability-with-new-capabilities-to-monitor-agentic-ai-accelerate-development-and-improve-model-performance">Barchart: Datadog expands LLM observability with AI Agent Monitoring and AI Agents Console</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://devblogs.microsoft.com/foundry/build-2026-from-observability-to-roi-for-ai-agents-on-any-framework/">Microsoft Foundry at Build 2026: GA Observability-to-ROI for AI Agents on Any Framework — No Azure Lock-In Required</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">At Microsoft Build 2026, Microsoft Foundry reached general availability for tracing and evaluations across any agent framework, and previewed ROI for Agents — a feature that maps the cost of running an agent to the business value it creates (task completion rate, time saved, cost efficiency) in a single Foundry Portal dashboard. Supported frameworks include LangChain, LangGraph, AutoGen, Semantic Kernel, and custom Python/TypeScript agents. Evaluations GA includes context-specific rubric evaluators and multi-turn evaluation support. The ROI for Agents dashboard (private preview) shows agentic run cost side-by-side with task completion metrics, with daily trend views and click-through to low-ROI traces for debugging.</p>
+      <div class="article-meta">
+        <span class="tag">Microsoft</span>
+        <span class="tag">Microsoft Foundry</span>
+        <span class="tag">Observability</span>
+        <span class="tag">ROI</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">LangGraph</span>
+        <span class="tag">AutoGen</span>
+        <span class="tag">Semantic Kernel</span>
+        <span class="tag">Build 2026</span>
+        <span class="tag">Multi-Turn Evaluation</span>
+        <span class="tag">LLMOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 'any framework' commitment is the most strategically significant part of this announcement. Production AI engineering teams are fragmented across LangGraph, AutoGen, Semantic Kernel, and direct SDK calls — an observability layer that requires a specific framework is effectively useless for most teams. Foundry's any-framework support means you add the tracing SDK once and get structured trace data in the Foundry Portal regardless of how your agents are built. The ROI for Agents feature addresses the specific gap blocking AI agent budget approval in most enterprises: you can tell your CTO that the coding agent ran 500 times last week and cost $2,400 in tokens, but you cannot tell them how many tasks it completed, how much time it saved, or whether the net ROI justified the spend. Without those numbers, AI agent spend looks like a cost center rather than a productivity investment. The private preview status means it is not available to everyone yet, but it signals the direction the entire observability industry is moving: not just 'what did the agent do' but 'was it worth it.' Multi-turn rubric evaluations reaching GA matters for teams building conversational agents: assessing whether an agent completed a multi-step task correctly requires evaluating the full trajectory, not individual responses. The GA of multi-turn evaluators makes this systematically testable.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Integrate Foundry tracing into your non-Azure agent framework this week: if you're on LangGraph or AutoGen and have not added tracing, Foundry's any-framework support means you get structured trace data in the Foundry Portal without migrating to Azure's native runtime — add the SDK and start capturing agent trajectories</li>
+          <li>Apply for the ROI for Agents private preview if you have an enterprise Microsoft account: getting into preview now gives you 2-3 months of ROI data before GA — the historical trend data is the asset you need for budget justification conversations in Q3</li>
+          <li>Use multi-turn rubric evaluators for conversational agents: define a rubric that captures what a successful multi-step task completion looks like for your use case, then run your agent against that rubric to identify where quality degrades across turns — this is the systematic eval pattern that replaces manual spot-checking</li>
+          <li>Build the AI ROI case before the feature goes GA: use Foundry's existing cost tracking combined with your own task completion rate measurement to create a simple ROI spreadsheet — when ROI for Agents reaches GA, historical data makes the trend comparison immediately available</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Tracing and evaluations reached GA at Build 2026 — production-ready, any-framework support confirmed</li>
+          <li>ROI for Agents in private preview — links task completion rate, time saved, and cost efficiency in single dashboard</li>
+          <li>Any framework confirmed: LangChain, LangGraph, AutoGen, Semantic Kernel, custom Python/TypeScript</li>
+          <li>Coverage: Microsoft Foundry Blog, The New Stack, WindowsForum, Azure Feeds, A Guide to Cloud & AI</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://devblogs.microsoft.com/foundry/build-2026-from-observability-to-roi-for-ai-agents-on-any-framework/">Microsoft Foundry Blog: From observability to ROI for AI agents on any framework</a></li>
+          <li><a href="https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/">Microsoft Foundry Blog: What's new in Microsoft Foundry at Build 2026</a></li>
+          <li><a href="https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/">Microsoft Foundry Blog: Build agents you can trust — open evals and a control standard</a></li>
+          <li><a href="https://thenewstack.io/microsoft-foundry-build-2026-ai-agents/">The New Stack: Microsoft Foundry at Build 2026 — AI agents as production infrastructure</a></li>
+          <li><a href="https://azurefeeds.com/2026/06/03/whats-new-in-observability-at-build-2026/">Azure Feeds: What's new in observability at Build 2026</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://explainx.ai/blog/when-will-fable-5-be-available-again-2026">Fable 5 Negotiations Update: Anthropic Staff in Washington DC, Fortune Reveals the 'Fix This Code' Prompt, Axios Reports CCP Access Allegations</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Four days after the June 12 suspension, Anthropic's senior technical staff are in Washington DC meeting with White House and Commerce Department officials to dispute the Fable 5 and Mythos 5 export ban. New reporting from Fortune reveals the specific 'fix this code' prompt that triggered the export control action — a routine defensive security workflow that asked the model to analyze a codebase and fix vulnerabilities, not an exotic jailbreak. Axios separately reports the dispute has widened: allegations of CCP-linked access to Fable 5 have emerged as a secondary thread in the Commerce Department's assessment. No restoration timeline has been announced. The Polymarket prediction market for 'Fable 5 restored for US customers by June 13' closed at 2%.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">Fable 5</span>
+        <span class="tag">Export Controls</span>
+        <span class="tag">Pentagon</span>
+        <span class="tag">Commerce Department</span>
+        <span class="tag">Washington DC</span>
+        <span class="tag">CCP</span>
+        <span class="tag">Supply Chain Risk</span>
+        <span class="tag">AI Policy</span>
+        <span class="tag">Geopolitical Risk</span>
+        <span class="tag">Security</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The Fortune 'fix this code' detail is the most practically significant new piece of information for engineering teams. The export control trigger was not exotic — it was a standard AI-assisted code security review prompt that any security engineering team runs routinely. This establishes that the boundary between 'routine AI security tooling' and 'export-controlled cyber capability' is genuinely undefined under the current directive. Engineering teams running AI-assisted vulnerability analysis need to understand that ambiguity exists regardless of which model they use. The CCP access allegations from Axios represent a second risk thread that changes the resolution path: if the suspension is partially motivated by concerns about specific access patterns rather than purely technical capability, resolving it requires addressing both the technical trigger and the access concern — two separate bureaucratic processes. The Anthropic-in-DC development signals active contestation rather than acceptance, which is the correct response to a government action Anthropic believes is legally unsound. The most likely resolution scenarios: (1) the ban is narrowed with exemptions for defensive security use cases, (2) Anthropic implements technical access controls that satisfy Commerce and the ban lifts for US persons, or (3) the dispute widens further. The practical recommendation is unchanged: treat Fable 5 availability as indeterminate, maintain a tested fallback on Opus 4.8 or a self-hosted model, and do not build new production dependencies on Fable 5 until the legal situation resolves.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Review which AI-assisted code security workflows your team runs and flag them for legal counsel: the 'fix security vulnerabilities in code' prompt that triggered this action is the same pattern used in automated security review pipelines — understand the regulatory ambiguity before your team runs that pattern in a context with compliance exposure</li>
+          <li>Set up a Fable 5 availability check in your deployment pipeline: the Anthropic API health endpoint and isfable5back.com are the fastest signals for restoration — if systems need to switch from fallback to Fable 5 on restoration, wire in an automated check rather than relying on manual monitoring</li>
+          <li>Watch the Commerce Department's final ruling language carefully: the definition of what constitutes an export-controlled AI capability will come from how this dispute resolves, and that definition will apply to your AI security tooling stack regardless of which model or provider you use</li>
+          <li>When Fable 5 restores, test capability parity before migrating back: do not assume a restored Fable 5 is identical to the pre-suspension version — run your internal benchmark suite against the restored model before switching production workloads back from your fallback</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Anthropic senior staff in Washington DC meeting with White House and Commerce officials — June 15-16, 2026</li>
+          <li>Fortune: 'fix this code' prompt specifics revealed — standard defensive security workflow, not an exotic jailbreak</li>
+          <li>Axios: CCP-linked access allegations emerged as secondary thread in Commerce Department assessment</li>
+          <li>Polymarket 'Fable 5 restored by June 13' closed at 2% — market reflecting no near-term resolution</li>
+          <li>isfable5back.com real-time availability checker — still showing Not Restored as of June 16</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://explainx.ai/blog/when-will-fable-5-be-available-again-2026">ExplainX.ai: When will Fable 5 be available again? What we know</a></li>
+          <li><a href="https://isfable5back.com/">Is Fable 5 Back? — real-time availability checker</a></li>
+          <li><a href="https://polymarket.com/event/claude-fable-5-restored-for-us-customers-by-20260613193753196">Polymarket: Claude Fable 5 restored for US customers by June 13 — closed at 2%</a></li>
+          <li><a href="https://vanbeaumond.nl/en/blog/claude-fable-5-disabled-update-2026">Van Beaumond: Claude Fable 5 unexpectedly disabled — update June 2026</a></li>
+          <li><a href="https://www.developersdigest.tech/blog/claude-fable-5-down">Developers Digest: Is Claude Fable 5 down? Why it is unavailable (June 2026)</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
