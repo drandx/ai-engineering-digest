@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 17, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 17, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://openai.com/index/deployment-simulation/">OpenAI introduces Deployment Simulation — a method that replays 1.3M past conversations through candidate models before release, predicting undesirable behavior rates within 1.5x median error</a></li>
+      <li><a href="https://medium.com/@unicodeveloper/claude-code-vs-codex-vs-opencode-which-ai-coding-agent-is-actually-the-best-in-2026-baa9f6fd5374">Claude Code now authors 4% of all public GitHub commits (~135K/day), with SemiAnalysis projecting 20% by end of 2026 — the fastest adoption of any developer tool in GitHub's history</a></li>
+      <li><a href="https://www.bleepingcomputer.com/news/security/malicious-jetbrains-marketplace-plugins-steal-ai-api-keys-from-developers/">15 malicious JetBrains Marketplace plugins disguised as AI coding assistants steal API keys from 70,000+ developer installs — the largest IDE supply chain attack targeting AI credentials</a></li>
+      <li><a href="https://theplanettools.ai/blog/microsoft-ai-token-economics-agents-cost-vs-employees-claude-code-copilot-may-2026">AI token costs hit $2,000/engineer/month at Microsoft, prompting a company-wide ban on Claude Code by June 30 — Uber burned its entire 2026 AI budget by April after 84% agentic adoption</a></li>
+      <li><a href="https://dev.to/sienna/qwen3-coder-next-the-complete-2026-guide-to-running-powerful-ai-coding-agents-locally-1k95">Qwen3-Coder 480B ships as the strongest open-source coding model: 480B MoE with 35B active parameters matches Claude Sonnet 4 on agentic coding benchmarks under Apache 2.0</a></li>
+      <li><a href="https://www.cortex.io/post/the-business-case-for-internal-developer-portals-in-2026">Platform engineering reaches critical mass — Gartner confirms 80% of large enterprises now run Internal Developer Platforms, with Backstage commanding 89% market share among IDP frameworks</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://openai.com/index/deployment-simulation/">OpenAI Deployment Simulation: Predicting Model Behavior Before Release by Replaying 1.3M Real Conversations</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">On June 16, 2026, OpenAI published Deployment Simulation — a method for testing how a candidate model will behave in production before it ships. The technique replays previous conversations (stripped of the original assistant responses) through the new model, then inspects the regenerated answers for 20 categories of undesirable behavior. OpenAI analyzed roughly 1.3 million de-identified conversations spanning GPT-5 Thinking through GPT-5.4, from August 2025 to March 2026. The key insight: models are less likely to detect they're being tested in realistic replayed conversations than in synthetic red-team prompts, leading to more natural behavior. The aggregate result was a median multiplicative error of 1.5x — for a true rate of 10 in 100k, the simulation estimates 6.67 to 15 in 100k. OpenAI also extended the method to agentic coding scenarios through simulated tool calls.</p>
+      <div class="article-meta">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Safety</span>
+        <span class="tag">Deployment</span>
+        <span class="tag">Testing</span>
+        <span class="tag">Model Evaluation</span>
+        <span class="tag">Red Teaming</span>
+        <span class="tag">Agentic AI</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most practical AI safety technique published in 2026 for engineering teams building on LLMs. The core problem it solves: synthetic red-teaming and benchmark evaluations don't predict how a model behaves when real users interact with it in messy, unpredictable ways. Models behave differently under test conditions than production conditions — they can detect evaluation patterns and perform accordingly. By replaying actual user conversations, Deployment Simulation catches the failure modes that only appear in real usage: subtle instruction-following regressions, tone shifts, refusal pattern changes, and edge cases that synthetic prompts never generate. The 1.5x median error means the predictions are actionable — close enough to make release/no-release decisions. For teams running model upgrades in production (swapping GPT-5.3 for 5.4, or switching providers), the same technique applies: replay your logged conversations through the candidate model and measure regression before your users find it. The extension to agentic coding with simulated tool calls is particularly relevant — it means you can test whether a model upgrade will break your agent's tool-calling patterns without running the agent against real systems.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build your own deployment simulation pipeline: log your AI conversations (with appropriate privacy controls), then replay them through candidate models before upgrading — catch regressions before users do</li>
+          <li>Test model provider switches before committing: if you're evaluating a move from GPT-5.4 to Claude Opus 4.8, replay your production conversations through both and compare failure rates on the dimensions you care about</li>
+          <li>Validate agent tool-calling behavior on upgrades: use simulated tool calls to verify your agent's decision patterns don't change when you swap the underlying model — critical for production agents with real-world side effects</li>
+          <li>Complement synthetic red-teaming with realistic replay: synthetic prompts catch known attack patterns, but replay catches the long-tail user behavior that synthetic prompts never generate</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published June 16, 2026 by OpenAI — analysis of 1.3 million de-identified conversations</li>
+          <li>Pre-registered predictions for 20 types of undesirable behavior on GPT-5.4 Thinking</li>
+          <li>Extended to agentic coding through simulated tool calls — covers the fastest-growing AI use case</li>
+          <li>Median multiplicative error of 1.5x — actionable accuracy for release decisions</li>
+          <li>Coverage: OpenAI, MarkTechPost, Lifeboat News, AIDailyPost, n1n.ai, StartupHub.ai</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openai.com/index/deployment-simulation/">OpenAI: Predicting model behavior before release by simulating deployment</a></li>
+          <li><a href="https://www.marktechpost.com/2026/06/16/openai-deployment-simulation/">MarkTechPost: OpenAI's Deployment Simulation extends pre-deployment risk assessment to agentic coding</a></li>
+          <li><a href="https://aidailypost.com/news/openais-deployment-simulation-beats-baseline-adds-risk-checks-agentic">AIDailyPost: OpenAI's Deployment Simulation beats baseline, adds risk checks for agentic</a></li>
+          <li><a href="https://explore.n1n.ai/blog/predicting-ai-model-behavior-deployment-simulation-2026-06-17">n1n.ai: Predicting AI model behavior via deployment simulation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://medium.com/@unicodeveloper/claude-code-vs-codex-vs-opencode-which-ai-coding-agent-is-actually-the-best-in-2026-baa9f6fd5374">Claude Code Now Authors 4% of All GitHub Commits — SemiAnalysis Projects 20% by End of 2026</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">By February 2026, Claude Code was authoring roughly 4% of all public GitHub commits — approximately 135,000 commits per day — and hit a single-day peak of 326,000 commits by March 15, 2026. SemiAnalysis projects Claude Code will exceed 20% of all daily commits by end of 2026. Meanwhile, developer awareness jumped from 31% in mid-2025 to 57% by January 2026, with workplace adoption growing roughly 6x in the same period. The Pragmatic Engineer newsletter declared Claude Code the most-used AI coding tool, overtaking GitHub Copilot and Cursor within eight months of its May 2025 release. In blind code quality reviews, Claude Code output was rated cleaner 67% of the time versus Codex, though a 500+ developer Reddit survey showed 65% preferred Codex day-to-day for its speed and autonomy. The rivalry is now the dominant storyline in developer tooling.</p>
+      <div class="article-meta">
+        <span class="tag">Claude Code</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Codex</span>
+        <span class="tag">AI Adoption</span>
+        <span class="tag">Developer Tools</span>
+        <span class="tag">Agentic Coding</span>
+        <span class="tag">Code Quality</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>4% of all public GitHub commits is an extraordinary adoption metric for a tool that didn't exist 13 months ago. To put it in perspective: if SemiAnalysis's 20% projection holds, by December 2026 one in five commits on the world's largest code platform will be authored through Claude Code. This isn't autocomplete — these are full commits from an agentic coding workflow where the AI reads, plans, edits, and commits. The 67% vs 65% quality-preference split between Claude Code and Codex reveals the market segmentation: Claude Code wins on code quality and long-context reasoning (cleaner output in blind reviews), while Codex wins on speed and autonomous execution (preferred in day-to-day workflow). For engineering leaders, the implication is that the AI coding agent is no longer optional tooling — it's becoming the primary authoring mechanism for a significant share of production code. The code review, testing, and quality assurance processes need to evolve accordingly.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Implement AI-commit attribution in your git workflow: tag commits authored via Claude Code or Codex so you can track what percentage of your codebase is AI-authored and correlate with bug rates and rework metrics</li>
+          <li>Standardize on one primary agent per team to reduce context-switching costs: the Claude Code vs Codex split means your team likely has both — pick a default based on your workflow (quality-first vs speed-first) and use the other for edge cases</li>
+          <li>Update code review processes for AI-authored commits: the 67% quality rating means AI code is generally clean, but the 33% that isn't clean contains the kind of plausible-but-wrong logic that's harder to catch than obviously bad human code</li>
+          <li>Budget for AI agent costs as a line item: at 4% of commits and growing, the infrastructure cost of running AI coding agents is becoming a material engineering expense — model it explicitly</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>4% of all public GitHub commits by February 2026 — ~135,000 commits/day</li>
+          <li>Single-day peak of 326,000 Claude Code commits on March 15, 2026</li>
+          <li>SemiAnalysis projects 20% of all daily commits by end of 2026</li>
+          <li>Developer awareness: 31% (mid-2025) to 57% (January 2026); workplace adoption grew 6x</li>
+          <li>Coverage: Pragmatic Engineer, MindStudio, Morphllm, Medium (Unicodeveloper, Emojot Engineering), Composio, Firecrawl</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://medium.com/@unicodeveloper/claude-code-vs-codex-vs-opencode-which-ai-coding-agent-is-actually-the-best-in-2026-baa9f6fd5374">Medium: Claude Code vs Codex vs OpenCode — which AI coding agent is actually the best in 2026?</a></li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/ai-tooling-2026">Pragmatic Engineer: AI tooling for software engineers in 2026</a></li>
+          <li><a href="https://www.morphllm.com/comparisons/codex-vs-claude-code">Morphllm: Codex vs Claude Code — benchmarks, subagents & limits compared</a></li>
+          <li><a href="https://www.mindstudio.ai/blog/claude-code-vs-openai-codex-comparison">MindStudio: Claude Code vs OpenAI Codex — which AI coding agent is better?</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://dev.to/sienna/qwen3-coder-next-the-complete-2026-guide-to-running-powerful-ai-coding-agents-locally-1k95">Qwen3-Coder 480B: Alibaba Ships the Strongest Open-Source Coding Model — Matching Claude Sonnet 4 on Agentic Benchmarks</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Alibaba's Qwen team released Qwen3-Coder 480B — a Mixture-of-Experts model with 480 billion total parameters and 35 billion active parameters per token, described as 'our most agentic code model to date.' The flagship model matches Claude Sonnet 4 on agentic coding benchmarks, making it the most capable open-source coding model available. The Qwen3-Coder family spans multiple sizes: the flagship 480B for cloud deployment, and Qwen3-Coder-Next (80B MoE, 3B active) for local development — the smaller model pushes 40-60 tokens/second on 16GB RAM laptops. All models are released under Apache 2.0 license, allowing unrestricted commercial use. The 60/80 routing pattern has emerged as the standard: teams route 60-80% of agent traffic to self-hosted Qwen3-Coder or similar open models, escalating 20-40% to Claude Opus or Gemini Pro via API.</p>
+      <div class="article-meta">
+        <span class="tag">Qwen3</span>
+        <span class="tag">Alibaba</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">MoE</span>
+        <span class="tag">Coding Model</span>
+        <span class="tag">Apache 2.0</span>
+        <span class="tag">Self-Hosted</span>
+        <span class="tag">Agentic Coding</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Qwen3-Coder 480B closes the gap between open-source and frontier proprietary coding models to near-zero. Matching Claude Sonnet 4 on agentic benchmarks means the model can handle real-world software engineering tasks — multi-file refactoring, test generation, bug fixing — at a quality level that was exclusive to paid API access six months ago. The 60/80 routing pattern this enables is the most impactful economic shift in AI coding: by handling the majority of coding tasks with a self-hosted open model and only escalating complex work to expensive API calls, teams reduce their AI coding costs by 60-80% without meaningful quality degradation on routine tasks. The Apache 2.0 license removes all commercial restrictions — you can fine-tune it on your codebase, embed it in your products, or run it as an internal service with no licensing obligations. The practical limitation is infrastructure: the 480B flagship requires serious GPU clusters to self-host (think 4-8x A100/H100), making it a cloud-hosted or API-served model for most teams. Qwen3-Coder-Next at 80B is the one you run locally.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploy Qwen3-Coder-Next locally for routine coding tasks: at 40-60 tok/s on a laptop with 16GB RAM, it handles code completion, test generation, and simple refactoring without API costs or latency</li>
+          <li>Implement the 60/80 routing pattern: route standard coding tasks to self-hosted Qwen3-Coder and escalate complex multi-file architecture work to Claude Opus 4.8 — most teams report 60-80% cost reduction</li>
+          <li>Fine-tune Qwen3-Coder on your proprietary codebase: Apache 2.0 means no restrictions — a fine-tuned model that understands your internal frameworks, naming conventions, and patterns outperforms a general model on your specific codebase</li>
+          <li>Use the 480B flagship via cloud endpoints for tasks that need maximum quality: DeepInfra and other providers offer hosted Qwen3-Coder at competitive pricing — cheaper than frontier API calls with comparable coding quality</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Matches Claude Sonnet 4 on agentic coding benchmarks — strongest open-source coding model</li>
+          <li>Apache 2.0 license — unrestricted commercial use, modification, and redistribution</li>
+          <li>Qwen3-Coder-Next (80B) runs at 40-60 tok/s on 16GB RAM laptops — viable for local development</li>
+          <li>The 60/80 routing pattern adopted by most engineering teams in 2026</li>
+          <li>Coverage: DEV Community, Medium, Pinggy, kilo.ai, RemoteOpenClaw</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://dev.to/sienna/qwen3-coder-next-the-complete-2026-guide-to-running-powerful-ai-coding-agents-locally-1k95">DEV Community: Qwen3-Coder-Next — the complete 2026 guide to running AI coding agents locally</a></li>
+          <li><a href="https://pinggy.io/blog/best_open_source_self_hosted_llms_for_coding/">Pinggy: Best open-source self-hosted LLMs for coding in 2026</a></li>
+          <li><a href="https://kilo.ai/open-source-models">kilo.ai: Best open-source and open-weight coding models (2026)</a></li>
+          <li><a href="https://mehmetozgenozdogan.medium.com/locally-hosted-coding-agents-the-2026-landscape-ed652def5989">Medium: Locally hosted coding agents — the 2026 landscape</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://www.bleepingcomputer.com/news/security/malicious-jetbrains-marketplace-plugins-steal-ai-api-keys-from-developers/">15 Malicious JetBrains Marketplace Plugins Steal AI API Keys from 70,000+ Developer Installs</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Security researchers at Aikido discovered a coordinated malware campaign on the JetBrains Marketplace: 15 IDE plugins published under seven vendor accounts, disguised as AI coding assistants built on DeepSeek, OpenAI, and SiliconFlow, secretly exfiltrate every AI API key entered into their settings. The plugins have been installed close to 70,000 times, with the two most downloaded — DeepSeek AI Assist (27,727 downloads) and CodeGPT AI Assistant (25,571 downloads) — still containing active credential theft code as of BleepingComputer's independent verification. The campaign started in October 2025, with new malicious plugins published as recently as June 10, 2026. The plugins function as advertised, providing real AI coding assistance while silently transmitting API keys to attacker-controlled servers.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">JetBrains</span>
+        <span class="tag">Supply Chain</span>
+        <span class="tag">IDE Plugins</span>
+        <span class="tag">API Keys</span>
+        <span class="tag">DeepSeek</span>
+        <span class="tag">Malware</span>
+        <span class="tag">Developer Tools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the largest IDE supply chain attack specifically targeting AI credentials, and it exploits a new attack surface created by the AI coding tool boom. Unlike traditional supply chain attacks that target build systems or runtime dependencies, this campaign targets the API keys that give attackers direct access to paid AI services — and potentially to the proprietary code and conversations routed through those services. The dual-use design (plugins that actually work while stealing keys) makes detection harder: developers don't suspect a plugin that provides real AI assistance. The 70,000 install count means thousands of API keys are likely compromised, and any code or conversations sent through those keys is potentially exposed. For engineering teams, this is a wake-up call about AI credential management: API keys entered into third-party IDE plugins are now a high-value target, and marketplace vetting processes at JetBrains (and by extension, VS Code Marketplace and other IDE ecosystems) haven't caught up to the threat.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your team's JetBrains plugins immediately: check for the 15 named malicious plugins (list in Aikido's report) and rotate any AI API keys that were entered into third-party IDE plugins</li>
+          <li>Move AI API keys out of IDE plugin settings: use environment variables or a secrets manager instead of pasting keys into plugin configuration UIs — if a plugin is compromised, it can't steal what it never received</li>
+          <li>Restrict IDE plugin installation to an approved allowlist: JetBrains supports organizational plugin management — curate a list of vetted AI plugins and block unapproved installations across your engineering org</li>
+          <li>Monitor your AI API key usage for anomalies: if your OpenAI or Anthropic bill spikes or you see API calls from unexpected IPs, your keys may have been exfiltrated — set up billing alerts and IP allowlists on your API accounts</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>70,000+ combined installs across 15 malicious plugins published under 7 vendor accounts</li>
+          <li>Active from October 2025 to at least June 10, 2026 — 8+ months undetected on the marketplace</li>
+          <li>BleepingComputer independently verified credential theft code still active in latest versions</li>
+          <li>Top plugins: DeepSeek AI Assist (27,727 downloads), CodeGPT AI Assistant (25,571 downloads)</li>
+          <li>Coverage: BleepingComputer, The Hacker News, Infosecurity Magazine, GBHackers, Aikido, CyberPress, Techzine, Aviatrix</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.bleepingcomputer.com/news/security/malicious-jetbrains-marketplace-plugins-steal-ai-api-keys-from-developers/">BleepingComputer: Malicious JetBrains Marketplace plugins steal AI API keys from developers</a></li>
+          <li><a href="https://thehackernews.com/2026/06/malicious-jetbrains-plugins-steal-ai.html">The Hacker News: Malicious JetBrains plugins steal AI API keys as Chrome extensions capture chatbot chats</a></li>
+          <li><a href="https://www.aikido.dev/blog/multiple-jetbrains-ide-plugins-caught-stealing-ai-keys">Aikido: Multiple JetBrains IDE plugins caught stealing AI keys</a></li>
+          <li><a href="https://gbhackers.com/jetbrains-plugin-security-alert/">GBHackers: JetBrains plugin security alert — 70,000+ installs linked to AI key theft</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://inference.net/content/claude-agent-sdk-production-guide/">Claude Agent SDK: Anthropic Rebrands Its Agent Framework with 5-Level Sub-Agent Nesting and Separate Billing</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Anthropic renamed the Claude Code SDK to the Claude Agent SDK in early 2026, signaling a broader ambition beyond code-specific use cases. The SDK now supports sub-agents spawning their own sub-agents up to 5 levels deep, hooks that intercept agent behavior at lifecycle points (before tool calls, after responses, on errors), and the deepest MCP integration of any agent framework — connecting Playwright, Slack, GitHub, and hundreds of other MCP servers with a single configuration line. On June 15, 2026, Anthropic introduced separate monthly Agent SDK billing credits, splitting agent costs from standard API usage. The framework comparison landscape now includes 8 major agent SDKs, with Claude Agent SDK positioned as the production-grade option for teams already in the Anthropic ecosystem.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Agent SDK</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Sub-Agents</span>
+        <span class="tag">Developer Tools</span>
+        <span class="tag">AI Framework</span>
+        <span class="tag">Billing</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The rename from 'Code SDK' to 'Agent SDK' reflects the broader industry shift: AI agents aren't just for coding anymore. The 5-level sub-agent nesting is the architectural feature that matters — it enables hierarchical agent orchestration where a planning agent spawns research agents that spawn execution agents, all within a single framework. This mirrors how engineering teams actually decompose complex tasks: a lead agent breaks down a migration into subtasks, each subtask agent handles its domain, and each can further delegate. The separate billing starting June 15 is the business signal: Anthropic is pricing agent workloads differently from API calls because agent sessions consume dramatically more tokens (multiple tool calls, context accumulation, retry loops). For teams building on the Claude Agent SDK, this means agent costs are now a distinct budget line item that needs its own monitoring and optimization. The MCP integration depth is the competitive moat — with hundreds of pre-built server connections, teams can wire their agent into existing infrastructure (GitHub, Slack, databases, browsers) without building custom integrations.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build hierarchical agent workflows with 5-level nesting: a planning agent decomposes a task, spawns specialist agents for each subtask, and each can further delegate — useful for complex migrations, multi-repository refactoring, and cross-system automation</li>
+          <li>Use lifecycle hooks for agent guardrails: intercept tool calls before execution to enforce policies (no destructive git operations without approval, no API calls to production without confirmation), and log all agent actions for audit trails</li>
+          <li>Connect your agent to existing infrastructure via MCP: wire up GitHub for PR creation, Slack for notifications, databases for queries, and browsers for web automation — all through single-line MCP server configurations</li>
+          <li>Monitor Agent SDK costs separately from API costs: with the new billing split, set up distinct budgets and alerts for agent workloads versus standard API calls to prevent agent sessions from silently consuming your API budget</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Renamed from Claude Code SDK to Claude Agent SDK — reflecting broader agent use cases beyond coding</li>
+          <li>Sub-agent nesting up to 5 levels deep — hierarchical orchestration for complex workflows</li>
+          <li>Separate Agent SDK billing credits introduced June 15, 2026</li>
+          <li>Deepest MCP integration of any agent framework — hundreds of pre-built server connections</li>
+          <li>Coverage: Morphllm, Inference.net, Releasebot, Totalum, Anthropic release notes</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://inference.net/content/claude-agent-sdk-production-guide/">Inference.net: Claude Agent SDK — the production guide to tracing, subagents, and evaluation</a></li>
+          <li><a href="https://www.morphllm.com/ai-agent-framework">Morphllm: AI agent frameworks 2026 — 8 SDKs compared + Claude Agent SDK reference</a></li>
+          <li><a href="https://releasebot.io/updates/anthropic">Releasebot: Anthropic release notes — June 2026</a></li>
+          <li><a href="https://www.totalum.app/blog/claude-agent-sdk-totalum-2026">Totalum: Claude Agent SDK in 2026 — what it is, when to use it, and how to ship it</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://blog.logrocket.com/ai-dev-tool-power-rankings/">LogRocket AI Dev Tool Power Rankings: Claude Code #1, Cursor Rising, the Market Fragments Into Specializations</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">LogRocket published its June 2026 AI dev tool power rankings, confirming Claude Code as the most-used AI coding tool with a 46% 'most loved' rating among surveyed engineers. The Pragmatic Engineer newsletter independently reached the same conclusion: Claude Code rose from zero to #1 in eight months, overtaking GitHub Copilot and Cursor. The broader market is fragmenting into specializations — Claude Code dominates terminal-native agentic workflows, Cursor leads AI-augmented IDE editing, Codex owns asynchronous cloud-based agent tasks, and newcomers like Antigravity and Atoms are carving niches in full-stack AI orchestration. 95% of surveyed developers now use AI tools at least weekly, and 75% use AI for at least half their engineering work. The industry consensus on model routing has solidified: use frontier models (Claude Opus, GPT-5.5) for complex reasoning and open models (Qwen3-Coder, Kimi K2) for routine tasks.</p>
+      <div class="article-meta">
+        <span class="tag">AI Coding Tools</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">Codex</span>
+        <span class="tag">Developer Experience</span>
+        <span class="tag">Market Analysis</span>
+        <span class="tag">Adoption</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The fragmentation pattern is the real signal here. In 2025, the question was 'which AI coding tool should we use?' In 2026, the answer is 'several, each for a different workflow.' Claude Code for multi-file refactoring and complex debugging, Cursor for in-editor completion and focused edits, Codex for background tasks you fire-and-forget. This isn't indecision — it's market maturity. Just as developers use different tools for different tasks (Git for version control, Docker for containers, Terraform for infrastructure), AI coding tools are specializing into distinct workflow categories. The 95% weekly usage and 75% half-their-work numbers mean AI tool adoption is no longer a competitive advantage — it's table stakes. The competitive advantage now comes from how well you integrate and route between tools, which models you use for which tasks, and how effectively you verify AI output.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your team's AI tool stack against the specialization pattern: are you using one tool for everything, or routing tasks to the right tool? Claude Code for complex multi-file work, Cursor for in-editor edits, Codex for async background tasks</li>
+          <li>Standardize model routing across your organization: the 60/80 pattern (open models for routine, frontier for complex) is now industry consensus — implement it as policy, not individual choice</li>
+          <li>Track the 75% AI-assisted metric against your own team: if your engineers are using AI for less than half their work, investigate whether it's a tooling gap, a training gap, or a workflow mismatch</li>
+          <li>Evaluate the newcomers (Antigravity, Atoms) for specific use cases: full-stack orchestration tools that deploy teams of specialized agents may outperform single-agent tools for greenfield projects</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>LogRocket June 2026 power rankings — comprehensive multi-tool comparison with survey data</li>
+          <li>Claude Code: 46% 'most loved' rating, #1 in 8 months — fastest adoption in AI coding tool history</li>
+          <li>95% of developers use AI tools weekly; 75% use AI for half their work</li>
+          <li>Pragmatic Engineer newsletter independently confirmed Claude Code #1</li>
+          <li>Coverage: LogRocket Blog, Pragmatic Engineer, MarkTechPost, Cortex, Analytics Vidhya, Developers Digest</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.logrocket.com/ai-dev-tool-power-rankings/">LogRocket Blog: AI dev tool power rankings & comparison — June 2026</a></li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/ai-tooling-2026">Pragmatic Engineer: AI tooling for software engineers in 2026</a></li>
+          <li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">Cortex: The engineering leader's guide to AI tools for developers in 2026</a></li>
+          <li><a href="https://www.developersdigest.tech/blog/best-ai-coding-tools-june-2026-post-fable5">Developers Digest: Best AI coding tools June 2026 — updated after Fable 5</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://theplanettools.ai/blog/microsoft-ai-token-economics-agents-cost-vs-employees-claude-code-copilot-may-2026">AI Token Costs Hit $2,000/Engineer/Month: Microsoft Bans Claude Code, Uber Burns Its 2026 Budget by April</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">In early June 2026, Microsoft's Experiences + Devices division (Windows, Microsoft 365, Outlook, Teams, Surface) ordered thousands of engineers to stop using Claude Code by June 30 and switch to GitHub Copilot CLI. The stated driver: token-based billing reached approximately $2,000 per engineer per month, burning through the division's annual AI budget in months. Microsoft's fiscal year ends June 30, and the move consolidated on in-house tooling while cutting costs. Meanwhile, Uber rolled out Claude Code to roughly 5,000 engineers in December 2025; usage nearly doubled by February 2026, and by March 84% of developers were classified as agentic coding users. By April, Uber had burned through its entire 2026 AI budget. A Goldman Sachs report projects AI agents may increase token demand by 24x compared to standard completions, as each agentic task chains 5-80 LLM calls.</p>
+      <div class="article-meta">
+        <span class="tag">Token Economics</span>
+        <span class="tag">AI Costs</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Uber</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">Budget</span>
+        <span class="tag">Cost Optimization</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first major correction in the AI coding tool adoption curve: the token economics that work at pilot scale collapse at enterprise scale. Microsoft and Uber aren't edge cases — they're bellwethers. The math is straightforward: at $2,000/month per engineer across a 10,000-person engineering org, that's $240 million per year in AI token costs alone — more than many companies spend on their entire cloud infrastructure. Goldman Sachs's 24x multiplier explains why: an agentic coding session that touches 15 files, runs tests, and iterates on failures generates 24x more tokens than a single code completion. The unit price per token has collapsed (GPT-4-level intelligence now costs $0.06/M tokens), but total spend keeps rising because usage growth vastly outpaces price cuts. For engineering leaders, this is the inflection point where AI tooling moves from 'approved for all' to 'needs cost governance.' The companies that will succeed are those implementing model routing (cheap models for routine tasks, expensive models only when needed), token budgets per engineer, and automated cost monitoring — the same discipline applied to cloud infrastructure a decade ago.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Implement per-engineer token budgets immediately: set monthly limits with alerts at 50%, 80%, and hard stops at 100% — the Microsoft example shows that uncapped agentic usage can burn an annual budget in months</li>
+          <li>Deploy the 60/80 model routing pattern: route routine coding tasks to self-hosted Qwen3-Coder ($0 marginal cost) and escalate only complex reasoning tasks to frontier APIs — teams report 60-80% cost reduction</li>
+          <li>Track cost per commit and cost per PR, not just cost per engineer: normalize AI spending against output to identify which workflows generate value and which burn tokens on rework</li>
+          <li>Negotiate committed throughput and volume pricing with your AI providers: at enterprise scale, pay-as-you-go pricing is the most expensive option — committed annual contracts with volume discounts can cut per-token costs by 30-50%</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Microsoft bans Claude Code by June 30, 2026 — $2,000/month per engineer in token costs</li>
+          <li>Uber burned entire 2026 AI budget by April after 84% agentic adoption among 5,000 engineers</li>
+          <li>Goldman Sachs report: AI agents increase token demand 24x vs standard completions</li>
+          <li>Tom's Hardware: 'AI costs begin to bite' — firms turning to Chinese LLMs and open-source to extend budgets</li>
+          <li>Coverage: ThePlanetTools.ai, Let's Data Science, Tom's Hardware (2 articles), Portal26, Morphllm, Investing.com</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://theplanettools.ai/blog/microsoft-ai-token-economics-agents-cost-vs-employees-claude-code-copilot-may-2026">ThePlanetTools.ai: When AI costs more than an engineer — the token bill</a></li>
+          <li><a href="https://letsdatascience.com/news/microsoft-and-peers-curb-ai-use-amid-rising-token-costs-9412fa01">Let's Data Science: Microsoft and peers curb AI use amid rising token costs</a></li>
+          <li><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-costs-begin-to-bite-as-agents-may-increase-token-demand-by-24-times-says-goldman-sachs-report-uber-and-microsoft-among-companies-feeling-the-bite-of-tokenized-billing">Tom's Hardware: AI costs begin to bite — agents may increase token demand 24x, Goldman Sachs</a></li>
+          <li><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-costs-spike-as-subscriptions-hit-pricing-wall-firms-turn-towards-chinese-llms-open-source-models-to-extend-budget">Tom's Hardware: AI costs spike — firms turn to Chinese LLMs and open-source to extend budget</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.cortex.io/post/the-business-case-for-internal-developer-portals-in-2026">Platform Engineering Reaches Critical Mass: 80% of Large Enterprises Run IDPs, Backstage Commands 89% Market Share</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Gartner's 2026 prediction has been fulfilled: 80% of large software engineering organizations have now established platform engineering teams providing reusable services, components, and tools via Internal Developer Platforms (IDPs). Backstage, Spotify's open-source IDP framework, commands 89% market share among internal developer portal frameworks, serving over 2 million developers at more than 3,400 organizations. Companies using IDPs deliver updates up to 40% faster while cutting operational overhead nearly in half. The IDP market has matured from experimental to essential, with Humanitec, Port, Cortex, and Cycloid filling different niches — Backstage for full-featured portals, Humanitec for infrastructure orchestration, Port for developer self-service, and Cortex for engineering intelligence.</p>
+      <div class="article-meta">
+        <span class="tag">Platform Engineering</span>
+        <span class="tag">IDP</span>
+        <span class="tag">Backstage</span>
+        <span class="tag">Developer Experience</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Self-Service</span>
+        <span class="tag">DevOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>IDPs have crossed the adoption threshold where not having one is the exception, not the rule. The 40% delivery speed increase and 50% operational overhead reduction provide the business case, but the real driver in 2026 is AI integration. AI coding agents need standardized infrastructure to work effectively — they need to know how to create services, provision databases, set up CI/CD pipelines, and deploy to environments. An IDP provides the self-service APIs that AI agents call to do infrastructure work, instead of requiring human operators to click through consoles. Backstage's 89% market share means it's the de facto standard — if you're building internal developer tooling, building it as a Backstage plugin means it's immediately available to 2 million developers at 3,400 organizations. For teams that haven't adopted an IDP yet, the question has shifted from 'should we build one?' to 'how quickly can we adopt one?' — the 20% of large enterprises without IDPs are now the ones explaining why they're behind, not the 80% explaining why they invested.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you don't have an IDP, start with Backstage: at 89% market share, it has the largest plugin ecosystem, the most community support, and the most transferable skills — your engineers' experience with it is portable</li>
+          <li>Wire your AI coding agents into your IDP's self-service APIs: when Claude Code or Codex needs to create a new service, provision a database, or set up a deployment pipeline, it should call your IDP's APIs instead of requiring manual infrastructure work</li>
+          <li>Use your IDP as the governance layer for AI-provisioned infrastructure: AI agents can create resources fast, but they need guardrails — your IDP enforces naming conventions, security policies, and resource limits automatically</li>
+          <li>Measure developer experience metrics through your IDP: track time-to-first-commit for new hires, time-to-deploy for new services, and infrastructure request fulfillment time — these are the metrics that justify continued IDP investment</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Gartner 2026 prediction fulfilled: 80% of large software engineering organizations run IDPs</li>
+          <li>Backstage: 89% market share, 3,400+ organizations, 2M+ developers — de facto standard</li>
+          <li>40% faster delivery speed and ~50% reduction in operational overhead — validated ROI</li>
+          <li>Over 65% of enterprises have built or adopted IDPs as of 2024, reaching 80% by 2026</li>
+          <li>Coverage: Cortex, Cycloid, Northflank, HyScaler, Facets Cloud, Calmops</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.cortex.io/post/the-business-case-for-internal-developer-portals-in-2026">Cortex: The business case for internal developer portals in 2026</a></li>
+          <li><a href="https://www.cycloid.io/cycloid_page/internal-developer-platforms-idps-2026s-top-11/">Cycloid: Internal Developer Platforms — 2026's top 11</a></li>
+          <li><a href="https://northflank.com/blog/top-six-internal-developer-platforms">Northflank: Top 6 internal developer platforms for 2026</a></li>
+          <li><a href="https://hyscaler.com/insights/internal-developer-platforms-idp-guide/">HyScaler: Internal Developer Platforms — the complete guide for 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
