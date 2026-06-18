@@ -17,10 +17,11 @@
   <section class="summary">
     <h2>Today's Highlights</h2>
     <ul>
-      <li><a href="https://www.developersdigest.tech/blog/opencode-developer-guide-2026">OpenCode hits 160K GitHub stars and 7.5M monthly active developers — the model-agnostic open-source coding agent supports 75+ providers and has become the fastest-growing developer tool on GitHub in 2026</a></li>
-      <li><a href="https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/">Microsoft launches 7 in-house MAI models at Build 2026: MAI-Thinking-1 matches Sonnet 4.6 in blind evals, MAI-Code-1-Flash ships as Copilot's built-in agentic engine at 5B active parameters</a></li>
-      <li><a href="https://thehackernews.com/2026/06/144-mastra-npm-packages-compromised-via.html">144 Mastra npm packages backdoored via hijacked contributor account in 88-minute automated attack — easy-day-js typosquat deploys North Korean APT crypto-stealing RAT affecting 1.1M weekly downloads</a></li>
-      <li><a href="https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/">Xcode 27 ships agentic coding at WWDC 2026: on-device Neural Engine completions that never leave your Mac, plus cloud routing to Claude, Gemini, and GPT agents via Apple's new MCP bridge</a></li>
+      <li><a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/">Gemini CLI stops serving ALL requests TODAY (June 18) — CI/CD pipelines calling `gemini` break immediately with no grace period; migration to Antigravity CLI (`agy`) requires 4 breaking-change fixes: env var rename, new default model, SSE stream format, and non-zero exit codes on tool failures</a></li>
+      <li><a href="https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost">GLM-5.2 MIT open weights land on Hugging Face: 753B MoE beats GPT-5.5 on SWE-bench Pro (62.1 vs 58.6) and FrontierSWE (74.4% vs 72.6%) at $5.80/M tokens vs GPT-5.5's $35/M — one-sixth the API cost for frontier coding performance</a></li>
+      <li><a href="https://venturebeat.com/technology/kimi-k2-7-code-cuts-thinking-tokens-30-practitioners-say-benchmarks-dont-check-out">Kimi K2.7-Code ships 1T-parameter coding model with 30% fewer thinking tokens — but VentureBeat reports practitioners can't replicate gains, and Moonshot has submitted to zero independent benchmarks (SWE-bench, Terminal-Bench, DeepSWE)</a></li>
+      <li><a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/">144 Mastra npm packages backdoored via hijacked contributor account in 88-minute automated attack — easy-day-js typosquat deploys North Korean APT crypto-stealing RAT affecting 1.1M weekly downloads</a></li>
+      <li><a href="https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost">OpenCode hits 160K GitHub stars and 7.5M monthly active developers — the model-agnostic open-source coding agent supports 75+ providers and has become the fastest-growing developer tool on GitHub in 2026</a></li>
       <li><a href="https://fortune.com/2026/06/17/why-is-ai-spending-increasing-as-tokens-get-cheaper-jevons-paradox/">The Jevons Paradox hits AI: token prices down 98% since 2022, but average enterprise AI budgets grew from $1.2M to $7M — Fortune reports consumption rising 100x while per-token costs fell 10x</a></li>
     </ul>
   </section>
@@ -28,6 +29,94 @@
   <section>
     <h2 class="section-title">AI Tools & Models</h2>
     <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost">GLM-5.2 Open Weights Are Live: MIT License, 753B MoE, Beats GPT-5.5 on Coding at One-Sixth the API Cost</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Z.ai released GLM-5.2's full MIT-licensed weights to Hugging Face and ModelScope on June 16-17, 2026. The model is a 753B-parameter Mixture-of-Experts architecture with a 1-million-token context window and 131,072 output tokens — one of the highest output limits in the open-weight tier. On SWE-bench Pro, GLM-5.2 scored 62.1 vs GPT-5.5's 58.6; on FrontierSWE, 74.4% vs 72.6%; on MCP-Atlas tool-usage, 77.0 vs 75.3. API pricing: $1.40/M input + $4.40/M output ($5.80 combined) — vs GPT-5.5 at $35/M. The MIT license permits unrestricted commercial use, fine-tuning, and redistribution.</p>
+      <div class="article-meta">
+        <span class="tag">GLM-5.2</span>
+        <span class="tag">Z.ai</span>
+        <span class="tag">Open Weights</span>
+        <span class="tag">MIT License</span>
+        <span class="tag">MoE</span>
+        <span class="tag">SWE-bench Pro</span>
+        <span class="tag">Cost Optimization</span>
+        <span class="tag">Self-Hosting</span>
+        <span class="tag">1M Context</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>GLM-5.2 is now the highest-scoring open-weight model on independent coding benchmarks — beating GPT-5.5 on three separate evaluations at one-sixth the API cost. For teams paying frontier rates for code review, test generation, or refactoring, it's the clearest cost-reduction path available. The 131K output token limit eliminates multi-call chaining for large artifacts like full test suites or migration scripts. MIT license enables fine-tuning on proprietary codebases and self-hosting via vLLM for zero marginal token cost. Caveat: self-hosting 753B MoE at full precision requires 8+ H100s — most teams start on the Z.ai API or hosted endpoints, then evaluate self-hosting ROI by volume.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Route coding tasks to GLM-5.2 API and cut spending up to 80%: at $5.80/M vs GPT-5.5's $35/M, any team using GPT-5.5 for code review or test generation can swap to GLM-5.2 — benchmark parity makes this a straightforward eval</li>
+          <li>Use GLM-5.2's 131K output limit for large single-response artifacts: generate a full test suite or migration script without chaining calls — eliminates context management overhead of multi-call generation</li>
+          <li>Self-host via vLLM for zero marginal cost once volume justifies hardware: MIT license means no per-token cost on your own GPUs — evaluate the crossover point where self-hosting ROI exceeds cloud API spend</li>
+          <li>Fine-tune on proprietary code: unlike GPT-5.5, GLM-5.2 open weights can be fine-tuned on internal codebases with no licensing restrictions</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>MIT-licensed weights live on Hugging Face and ModelScope as of June 16-17 — top-four model on HF by engagement within 24h</li>
+          <li>SWE-bench Pro: 62.1 vs GPT-5.5's 58.6 — beats current OpenAI flagship on independent benchmark</li>
+          <li>FrontierSWE: 74.4% vs 72.6%; MCP-Atlas: 77.0 vs 75.3 — consistent margin across three independent evals</li>
+          <li>API: $5.80/M tokens combined vs GPT-5.5's $35/M — 6x cheaper for comparable benchmark performance</li>
+          <li>Coverage: VentureBeat, TechTimes, HF Blog, AIPoster, CryptoBriefing, Let's Data Science, Codersera, APIdog</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost">VentureBeat: GLM-5.2 beats GPT-5.5 on long-horizon coding benchmarks for 1/6th the cost</a></li>
+          <li><a href="https://huggingface.co/blog/zai-org/glm-52-blog">Hugging Face Blog: GLM-5.2 — Built for Long-Horizon Tasks</a></li>
+          <li><a href="https://www.techtimes.com/articles/318543/20260617/glm-52-open-weights-live-top-coding-benchmark-api-use-carries-china-data-risk.htm">TechTimes: GLM-5.2 Open Weights Live — Top Coding Benchmark, China Data Risk on API</a></li>
+          <li><a href="https://codersera.com/blog/glm-5-2-vs-gpt-5-5-coding-2026/">Codersera: GLM-5.2 vs GPT-5.5 — Open-Weights vs Closed Flagship for Coding (2026)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://venturebeat.com/technology/kimi-k2-7-code-cuts-thinking-tokens-30-practitioners-say-benchmarks-dont-check-out">Kimi K2.7-Code: 30% Fewer Thinking Tokens, But Practitioners Say the Benchmarks Don't Check Out</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Moonshot AI released Kimi K2.7-Code on June 12 — the fifth major release in the K2 family in under a year. It uses the same 1T-parameter MoE architecture as K2.6 but generates 30% fewer reasoning tokens per response. Moonshot claims +21.8% on Kimi Code Bench v2, +11% on Program Bench, +31.5% on MLS Bench Lite — all proprietary benchmarks. A HighSpeed mode trades quality for latency. The open weights are on Hugging Face under Modified MIT License. The catch: as of June 14, K2.7-Code has no independent submissions to SWE-bench Verified, SWE-bench Pro, Terminal-Bench, or DeepSWE — and VentureBeat reports practitioners running it on real repositories say the claimed gains don't replicate.</p>
+      <div class="article-meta">
+        <span class="tag">Kimi</span>
+        <span class="tag">K2.7-Code</span>
+        <span class="tag">Moonshot AI</span>
+        <span class="tag">Open Weights</span>
+        <span class="tag">Benchmark Controversy</span>
+        <span class="tag">Coding Model</span>
+        <span class="tag">Reasoning Tokens</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The Kimi K2.7-Code benchmark controversy illustrates the pattern that has become endemic in open-weight releases: strong first-party numbers, zero independent verification, real-world disappointment. The 30% reasoning token reduction is a genuine efficiency gain for teams already on K2.6 — 10K reasoning tokens becomes 7K, cutting API spend and latency on that task. The HighSpeed mode adds within-model quality/speed routing, similar to GLM-5.2's thinking-effort levels. But the internal-only benchmarks are a warning sign. The practical rule for 2026: treat internal-benchmark-only model claims as unverified hypotheses until SWE-bench Pro or DeepSWE numbers appear from the community.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If running K2.6 today, benchmark K2.7-Code on your internal eval before migrating: the 30% token reduction is real — but verify quality holds on your task distribution, not Moonshot's internal benchmarks</li>
+          <li>Use HighSpeed mode for latency-sensitive agentic loops: test the quality/speed tradeoff on your specific workload before committing</li>
+          <li>Wait for independent SWE-bench Pro or DeepSWE community numbers before new commitment: typically land within 1-2 weeks of open weights release</li>
+          <li>Build a personal eval habit for new model releases: allocate 1-2 engineer-days to test any new model against your actual coding tasks before accepting vendor claims</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released June 12, 2026 — fifth major K2 release in under a year</li>
+          <li>Open weights on Hugging Face under Modified MIT License</li>
+          <li>VentureBeat June 14: practitioners report gains don't replicate on production repositories; no independent benchmark submission</li>
+          <li>TechTimes: adds HighSpeed mode but skips independent submission as of June 15</li>
+          <li>Coverage: VentureBeat, MarkTechPost, Codersera, BuildFastWithAI, Flowtivity, TechTimes, Totalum</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://venturebeat.com/technology/kimi-k2-7-code-cuts-thinking-tokens-30-practitioners-say-benchmarks-dont-check-out">VentureBeat: Kimi K2.7-Code cuts thinking tokens 30% — practitioners say benchmarks don't check out</a></li>
+          <li><a href="https://www.marktechpost.com/2026/06/12/moonshot-ai-releases-kimi-k2-7-code-a-coding-model-reporting-21-8-on-kimi-code-bench-v2-over-k2-6/">MarkTechPost: Moonshot AI releases Kimi K2.7-Code — +21.8% on Kimi Code Bench v2</a></li>
+          <li><a href="https://www.techtimes.com/articles/318414/20260615/kimi-k27-code-adds-highspeed-mode-skips-independent-benchmark-submission.htm">TechTimes: K2.7-Code adds HighSpeed mode but skips independent benchmark submission</a></li>
+          <li><a href="https://huggingface.co/moonshotai/Kimi-K2.6">Hugging Face: moonshotai/Kimi-K2.6 (weights)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
       <div class="article-header">
         <h3><a href="https://www.developersdigest.tech/blog/opencode-developer-guide-2026">OpenCode Hits 160K GitHub Stars: The Model-Agnostic Coding Agent With 7.5M Monthly Active Developers</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
@@ -72,7 +161,7 @@
         </ul>
       </div>
     </div>
-    <div class="article" id="ai-tools-&-models-1">
+    <div class="article" id="ai-tools-&-models-3">
       <div class="article-header">
         <h3><a href="https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/">Microsoft Launches 7 In-House MAI Models at Build 2026: MAI-Thinking-1 Matches Sonnet 4.6, MAI-Code-1-Flash Powers Copilot</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
@@ -124,6 +213,51 @@
     <h2 class="section-title">Developer Tools & Frameworks</h2>
     <div class="article" id="developer-tools-&-frameworks-0">
       <div class="article-header">
+        <h3><a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/">Gemini CLI Stops Working TODAY: The 15-Minute Migration to Antigravity CLI (Four Breaking Changes)</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">On June 18, 2026 — today — Google's Gemini CLI stops serving all requests for free, Pro, and Ultra tier users and individual Gemini Code Assist subscribers. No grace period. Any script or CI/CD pipeline calling the `gemini` command fails immediately. Migration to Antigravity CLI (`agy`) involves four breaking changes beyond the binary rename: (1) env var rename from GEMINI_API_KEY to AV_API_KEY, (2) default model changes to gemini-3-pro, (3) `--stream` now emits SSE by default, (4) exit codes are non-zero on tool-use failures. Agent state directory moves from `~/.gemini/` to `~/.antigravity/`. Organizations on Gemini Code Assist Standard, Enterprise, or Google Cloud licenses are unaffected.</p>
+      <div class="article-meta">
+        <span class="tag">Gemini CLI</span>
+        <span class="tag">Antigravity CLI</span>
+        <span class="tag">Google</span>
+        <span class="tag">Breaking Change</span>
+        <span class="tag">Migration</span>
+        <span class="tag">CI/CD</span>
+        <span class="tag">DevOps</span>
+        <span class="tag">Deprecation</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is an immediate operational issue. Unlike most deprecations with graceful fallbacks, this is a hard cutover — the binary stops working today. CI/CD pipelines that call `gemini` for code review, changelog generation, or documentation will fail silently or with auth errors. The exit code change is the sneakiest trap: `if gemini ...; then` conditionals break because the new non-zero exit on tool-use failure triggers failure branches even when the model response is correct. The env var rename (GEMINI_API_KEY → AV_API_KEY) will cause silent auth failures in any script reading the old variable. The migration itself is fast (15 minutes for simple setups) but the four breaking changes require explicit fixes — it's not a drop-in rename.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit every `gemini` call in CI/CD pipelines immediately: search GitHub Actions, GitLab CI, Jenkins, and shell scripts — each one breaks today without warning; prioritize pipelines that block deployments</li>
+          <li>Fix the four breaking changes in order: rename GEMINI_API_KEY → AV_API_KEY in all secrets managers, update model flags for the new default (gemini-3-pro), update `--stream` consumers to parse SSE, and fix exit-code conditionals for non-zero tool-use failures</li>
+          <li>Migrate local dev first, then CI: run `npm install -g @google/antigravity-cli` then `agy auth login` — verify interactive queries work before testing tool-invocation workflows in CI</li>
+          <li>Manually migrate persisted state from `~/.gemini/` to `~/.antigravity/`: conversation history and tool configurations saved in sessions are not auto-migrated</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Hard deadline June 18, 2026 — Google Developer Blog official announcement, no grace period</li>
+          <li>Affects all free, Pro, and Ultra tier users plus individual Gemini Code Assist subscribers</li>
+          <li>Hacker News thread actively discussing migration issues before the deadline</li>
+          <li>The Register: 'Bye-bye, Gemini CLI' — editorial coverage confirming the cutover</li>
+          <li>Coverage: Google Developer Blog, The Register, Digital Applied, Harsh Rastogi, InventiveHQ, AI Builder Club</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/">Google Developers Blog: Transitioning Gemini CLI to Antigravity CLI</a></li>
+          <li><a href="https://www.theregister.com/ai-ml/2026/05/20/bye-bye-gemini-cli-google-nudges-devs-toward-antigravity/5243605">The Register: Bye-bye, Gemini CLI; Google nudges devs toward Antigravity</a></li>
+          <li><a href="https://news.ycombinator.com/item?id=48196867">Hacker News: Gemini CLI will stop working from June 18, 2026</a></li>
+          <li><a href="https://www.digitalapplied.com/blog/gemini-cli-to-antigravity-cli-migration-june-18-2026-guide">Digital Applied: Gemini CLI dies June 18 — the Antigravity migration guide</a></li>
+          <li><a href="https://www.harshrastogi.tech/blog/gemini-cli-shutdown-antigravity-migration-guide">Harsh Rastogi: Gemini CLI is dead — 15-minute migration guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
         <h3><a href="https://thehackernews.com/2026/06/144-mastra-npm-packages-compromised-via.html">144 Mastra npm Packages Backdoored in 88-Minute Attack: North Korean APT Deploys Crypto-Stealing RAT via easy-day-js Typosquat</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
@@ -169,7 +303,7 @@
         </ul>
       </div>
     </div>
-    <div class="article" id="developer-tools-&-frameworks-1">
+    <div class="article" id="developer-tools-&-frameworks-2">
       <div class="article-header">
         <h3><a href="https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/">Xcode 27 Ships Agentic Coding at WWDC 2026: On-Device Neural Engine Completions, Cloud Agents via MCP Bridge to Claude, Gemini, and GPT</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
@@ -218,7 +352,7 @@
         </ul>
       </div>
     </div>
-    <div class="article" id="developer-tools-&-frameworks-2">
+    <div class="article" id="developer-tools-&-frameworks-3">
       <div class="article-header">
         <h3><a href="https://rywalker.com/research/github-spec-kit">Spec Kit Hits 111K GitHub Stars: Spec-Driven Development Standardizes the AI Coding Workflow Across 30+ Agent Integrations</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
@@ -259,6 +393,50 @@
           <li><a href="https://github.com/VoltAgent/awesome-openclaw-skills/blob/main/categories/coding-agents-and-ides.md">GitHub: awesome-openclaw-skills — coding agents and IDEs (includes Spec Kit integrations)</a></li>
           <li><a href="https://www.indiehackers.com/post/top-6-openclaw-tools-developers-are-using-in-2026-f25e9a48ae">Indie Hackers: Top 6 OpenClaw tools developers are using in 2026 (features speckit-workflow)</a></li>
           <li><a href="https://releasebot.io/updates/openclaw">Releasebot: OpenClaw release notes — June 2026 (speckit-swarm integration)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-4">
+      <div class="article-header">
+        <h3><a href="https://github.com/openclaw/openclaw">OpenClaw Hits 247K GitHub Stars: The Local AI Gateway Connecting Any LLM to 20+ Messaging Apps</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenClaw is at 247,000 GitHub stars and 47,700 forks — one of the fastest-growing open-source projects in GitHub history. It operates as a local AI gateway: a long-lived process that connects AI models (Claude, DeepSeek, GPT, any model via API) to 20+ messaging integrations including WhatsApp, Telegram, Slack, Discord, Signal, iMessage, Microsoft Teams, and Matrix. The architecture is a single local Gateway process that holds provider connections and exposes a typed WebSocket API — self-hosted, no SaaS subscription, bring your own API keys. NVIDIA has published an integration with NemoClaw for fully air-gapped deployments.</p>
+      <div class="article-meta">
+        <span class="tag">OpenClaw</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Local AI</span>
+        <span class="tag">AI Gateway</span>
+        <span class="tag">Slack</span>
+        <span class="tag">WhatsApp</span>
+        <span class="tag">Telegram</span>
+        <span class="tag">Self-Hosted</span>
+        <span class="tag">NVIDIA</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>OpenClaw solves the 'AI in my existing communication channels' problem — which is more engineering-relevant than it sounds. Teams wanting Slack-native AI that queries internal tools and answers codebase questions without a separate chat UI are building exactly what OpenClaw's gateway architecture enables. The local gateway model centralizes API key management: instead of distributing keys across team members or building a shared key management system, the gateway holds the credentials and exposes a controlled interface. This is the internal API proxy pattern applied to LLM access — centralized credential management, unified logging, and a single rate-limit enforcement point. The 247K star count validates the architecture. The NVIDIA NemoClaw integration extends it to air-gapped environments where external LLM API calls are prohibited.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploy OpenClaw as a team AI gateway for Slack: run one local process with shared API keys, connect to your Slack workspace — the gateway handles auth, logging, and rate limiting centrally without distributing credentials</li>
+          <li>Use OpenClaw's WebSocket API as a foundation for a custom internal AI assistant: the typed interface is designed for extension — write a client that routes requests based on internal business logic (which model, which tools, which users)</li>
+          <li>Run fully air-gapped AI with OpenClaw + NVIDIA NemoClaw: for regulated environments that can't route to external LLM APIs, NemoClaw provides a local inference endpoint that OpenClaw treats as any other provider — same messaging integrations, no external calls</li>
+          <li>Study OpenClaw's gateway architecture as a reference design: single-process gateway owning provider connections + typed API to clients is the right pattern for centralized AI credential management at team scale</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>247,000 GitHub stars and 47,700 forks — viral growth from 9K to 60K stars in under a week in January 2026</li>
+          <li>NVIDIA Technical Blog integration with NemoClaw — enterprise validation for air-gapped deployments</li>
+          <li>DigitalOcean published official overview — mainstream developer adoption signal</li>
+          <li>Coverage: Medium (Micheal Lanham), DigitalOcean, Milvus Blog, NVIDIA Technical Blog, Wikipedia, emergent.sh</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/openclaw/openclaw">GitHub: openclaw/openclaw — Your own personal AI assistant</a></li>
+          <li><a href="https://openclaw.ai/">OpenClaw: official site and documentation</a></li>
+          <li><a href="https://developer.nvidia.com/blog/build-a-secure-always-on-local-ai-agent-with-nvidia-nemoclaw-and-openclaw/">NVIDIA Technical Blog: Build a secure local AI agent with OpenClaw and NVIDIA NemoClaw</a></li>
+          <li><a href="https://medium.com/@Micheal-Lanham/210-000-github-stars-in-10-days-what-openclaws-architecture-teaches-us-about-building-personal-ai-dae040fab58f">Medium: 210,000 GitHub stars in 10 days — what OpenClaw's architecture teaches us</a></li>
         </ul>
       </div>
     </div>
@@ -356,6 +534,52 @@
           <li><a href="https://www.spheron.network/blog/ai-inference-cost-economics-2026/">Spheron: AI inference cost economics in 2026 — GPU FinOps playbook</a></li>
           <li><a href="https://oplexa.com/ai-inference-cost-crisis-2026/">Oplexa: AI inference cost crisis 2026 — why your AI bill is exploding</a></li>
           <li><a href="https://www.goldmansachs.com/insights/articles/tracking-trillions-the-assumptions-shaping-scale-of-the-ai-build-out">Goldman Sachs: Tracking trillions — the assumptions shaping the scale of the AI build-out</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://dev.to/tokenmixai/ai-gateway-caching-explained-why-l1-l2-cache-layers-cut-90-of-your-llm-bill-45ab">AI Gateway Semantic Caching Cuts 90% of LLM Bills: Helicone and Portkey Are the Production-Grade Options</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">As LLM API costs dominate AI infrastructure budgets, AI gateways — thin proxy layers between apps and LLM providers — have emerged as the primary cost-reduction lever. Semantic caching uses embeddings to serve cached responses to semantically similar prompts, capturing a much larger fraction of repeatable queries than exact-match caching. Helicone is Rust-based with P50 latency of 8ms, ~3,000 RPS per instance on 64MB RAM, and open-source self-hosting. Portkey routes across 1,600+ LLMs and adds semantic caching, circuit breakers, canary deployments, and model fallbacks. Both gateways also provide model fallbacks, load balancing, and unified request logging.</p>
+      <div class="article-meta">
+        <span class="tag">AI Gateway</span>
+        <span class="tag">Semantic Caching</span>
+        <span class="tag">Helicone</span>
+        <span class="tag">Portkey</span>
+        <span class="tag">LLM Cost Optimization</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Model Fallback</span>
+        <span class="tag">LLMOps</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 90% cost reduction from semantic caching is real for the right workloads: if a significant fraction of your queries are near-identical (same user asking the same question differently, CI pipeline running the same code review on similar diffs, documentation generator processing similar files), semantic caching serves the majority of them from cache at zero token cost. The AI gateway pattern also provides production reliability features that go beyond cost: model fallbacks (Claude rate-limits → fall back to GPT-5.5 transparently), canary model deployments (5% traffic to new model version, validate quality before full rollout), and circuit breakers. These are the same patterns that production microservices apply to service-to-service HTTP calls, now applied to LLM API traffic. Not having a gateway in production is the 2026 equivalent of calling external services without retries or circuit breakers — technically functional, operationally fragile.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploy Helicone or Portkey in front of your LLM API today: both offer OpenAI-compatible endpoints — change your base URL in one line and immediately get semantic caching, request logging, and latency tracking with no other code changes</li>
+          <li>Run a 30-day cache hit rate analysis before committing: both gateways provide dashboards — hit rate above 40% means caching pays for the operational overhead; below 20% means your queries are too diverse to benefit significantly</li>
+          <li>Use Portkey's model fallback config to eliminate provider downtime impact: configure a fallback chain (Claude → GPT-5.5 → GLM-5.2 API) so rate-limits or outages route to the fallback automatically</li>
+          <li>Implement canary model deployments through the gateway for safe upgrades: route 5% of traffic to a new model version, compare quality metrics for 48 hours, then gradually increase — production-safe way to upgrade without risking regression</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>LLM observability/gateway market: $1.97B in 2025, growing to $2.69B in 2026 — gateway is fastest-growing segment</li>
+          <li>Helicone: Rust-based, 8ms P50, 3,000 RPS per instance — production-ready benchmarked performance</li>
+          <li>Portkey: routes 1,600+ LLMs, open-source on GitHub with significant star count</li>
+          <li>Gartner: 60% of software engineering teams will use AI evaluation/observability platforms by 2028 (up from 18% in 2025)</li>
+          <li>Coverage: Braintrust, Techsy, DEV Community (TokenMix), Portkey, Helicone, onpage, truefoundry, getmaxim.ai</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://dev.to/tokenmixai/ai-gateway-caching-explained-why-l1-l2-cache-layers-cut-90-of-your-llm-bill-45ab">DEV Community (TokenMix): AI gateway caching — L1+L2 cache layers cut 90% of your LLM bill</a></li>
+          <li><a href="https://www.braintrust.dev/articles/best-llm-gateways-2026">Braintrust: 6 best LLM gateways for developers in 2026</a></li>
+          <li><a href="https://techsy.io/en/blog/best-llm-gateway-tools">Techsy: 8 LLM gateways ranked 2026</a></li>
+          <li><a href="https://github.com/Portkey-AI/gateway">GitHub: Portkey-AI/gateway — 1,600+ LLMs, integrated guardrails</a></li>
+          <li><a href="https://www.helicone.ai/blog/top-llm-gateways-comparison-2025">Helicone: Top LLM gateways — complete comparison guide</a></li>
         </ul>
       </div>
     </div>
