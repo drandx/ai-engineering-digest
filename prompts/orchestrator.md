@@ -129,9 +129,18 @@ git commit -m "Daily digest: $TODAY" || echo "Nothing to commit"
 git push
 ```
 
-## Step 7: Notify
+## Step 7: Send Email
 
-Use PushNotification to send: "AI Engineering Digest published: https://drandx.github.io/ai-engineering-digest/"
+Build a plain-text body with today's top stories and links, write it to /tmp/digest-email-body.txt, then run:
+```bash
+GOG_KEYRING_PASSWORD="openclaw-gmail" GOG_KEYRING_BACKEND=file /opt/homebrew/bin/gog gmail send --to garjuanpablo@gmail.com --subject "AI Engineering Digest — $TODAY" --body-file /tmp/digest-email-body.txt --no-input 2>&1
+```
+
+**If the email command fails** (non-zero exit, "invalid_grant", "expired", or "revoked" in output), you MUST:
+1. Send a PushNotification: "Digest email FAILED — Gmail OAuth token may be expired. Run: gog auth add garjuanpablo@gmail.com --services gmail"
+2. Do NOT silently continue — Pablo needs to know.
+
+If the email succeeds, send a PushNotification: "AI Engineering Digest published: https://drandx.github.io/ai-engineering-digest/"
 
 ## Quality Standards
 
