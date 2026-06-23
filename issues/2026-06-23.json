@@ -1,0 +1,276 @@
+{
+  "highlights": [
+    {"text": "Claude Fable 5 paywall starts today (June 23): free window through June 22 is over — continued use requires consumption credits at $10 input / $50 output per million tokens, billed against the same API rate for chat, Claude Code, and Research mode", "anchor": "ai-tools-and-models-0"},
+    {"text": "Gemini 2.5 Pro + Deep Think released June 22: configurable 32K thinking budgets, thought summaries, native MCP tool support in the Gemini API — Google's answer to o3's extended thinking and first Gemini model with developer-tunable reasoning depth", "anchor": "ai-tools-and-models-1"},
+    {"text": "MiniMax M3: open-weight 1M context model with 59% SWE-Bench Pro (ahead of GPT-5.5, behind Opus 4.8), native multimodality, and Sparse Attention architecture that avoids quadratic cost at long context — available via API at a fraction of frontier closed-model pricing", "anchor": "ai-tools-and-models-2"},
+    {"text": "OpenCode hits 176K GitHub stars and 7.5M monthly active users — MIT-licensed, model-agnostic (75+ providers), LSP-native terminal coding agent now ahead of Gemini CLI (105K) and Codex CLI (92K); daily ship cadence, no vendor lock-in", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Antigravity CLI replaces Gemini CLI as of June 18 — Go-based async multi-agent rewrite; any CI/CD pipeline, shell script, or IDE extension calling the gemini command is now broken; migration to agy binary required", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Biome v2.5 (June 5): 500+ lint rules, cross-file linting, --watch mode, 35x faster than Prettier — production deployed at AWS, Google, Microsoft, Cloudflare, Coinbase, Slack; ESLint + Prettier drop-in replacement", "anchor": "developer-tools-and-frameworks-2"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Claude Fable 5 Paywall Starts Today: Free Window Closes, Consumption Credits Required at $10/$50 per Million Tokens",
+          "url": "https://claudefa.st/blog/models/claude-fable-5-mythos-5",
+          "tldr": "From June 9 through June 22, Claude Fable 5 was included at no extra cost in Claude Pro, Max, Team, and Enterprise seat-based plans. Starting June 23 today, Anthropic removes Fable 5 from plan limits — continued use draws down consumption credits billed at API rates: $10/M input, $50/M output. Every token counts: chat messages, Claude Code terminal usage, Research mode sessions, and project file context all consume credits. Fable 5 remains the most expensive generally available Anthropic model, double the price of Opus 4.8 ($5/$25). It is available via the Claude API (model ID: claude-fable-5), Claude Code, AWS Bedrock, Google Cloud Vertex AI, and Microsoft Foundry.",
+          "why_it_matters": "The transition from plan-included to consumption-priced changes the cost calculus for every team using Fable 5. During the free window, the incentive was to route all tasks to the highest-capability model at no marginal cost. Now the economics flip: at $10/$50 per million tokens, Fable 5 is expensive enough that task routing becomes a real cost engineering problem. For context, Opus 4.8 is $5/$25/M — Fable 5 costs 2x across the board. For tasks where Fable 5 is significantly better (multi-file architectural refactors, complex multi-step agents, FrontierCode-class coding problems), the premium is likely justified. For straightforward code completion, summarization, or Q&A, routing to Sonnet 4.6 ($3/$15) or Haiku 4.5 saves 70%+ without meaningful quality loss. Two immediate actions: (1) Review your Claude Code and API usage dashboards to see how much Fable 5 your team consumed in the free window — this is your baseline for what credit budget you actually need. (2) Set routing rules in your agent or API integration to send lightweight tasks to Sonnet or Haiku, reserving Fable 5 for the cases where its Terminal-Bench 88% score or FrontierCode leadership actually matters.",
+          "traction": "high",
+          "traction_evidence": [
+            "Claude Fable 5 available free on all paid Claude plans June 9–22 — confirmed by Anthropic, Claudefast, Finout, and MindStudio",
+            "June 23 consumption credit billing starts today — documented across Claudefast, Andrew.ooo, APIdog, Future Stack Reviews",
+            "$10/$50 per million tokens — Anthropic API pricing confirmed for claude-fable-5 model ID",
+            "Available on AWS Bedrock, Google Cloud Vertex AI, Microsoft Foundry from day one — multi-cloud GA",
+            "Coverage: Claudefast, Andrew.ooo, APIdog, Finout, CloudZero, Shadow.inc, MindStudio, AyAutomate, Future Stack Reviews"
+          ],
+          "use_cases": [
+            "Audit last 14 days of Fable 5 API usage before setting your credit budget: pull usage breakdowns from the Anthropic console for June 9–22 — this tells you your daily Fable 5 token burn at zero marginal cost, which is an upper bound; estimate how much of that was actually Fable 5-class work vs. tasks that Sonnet 4.6 would have handled fine",
+            "Implement model routing in your agent stack now: add logic that routes tasks by complexity — send architectural analysis, large-codebase refactors, and multi-step agent chains to claude-fable-5; send single-file completions, summarization, and structured extraction to claude-sonnet-4-6 (saves 70%+ on those tasks)",
+            "Set a credit budget alert before your first billing cycle: in the Anthropic console, configure a credit spend alert at 50% and 80% of your monthly budget — Fable 5's $50/M output rate means a 100K-token output response costs $5, so a few hundred long agentic sessions can exhaust a modest budget quickly",
+            "For Claude Code users: set a default model in .claude/settings.json using defaultModel: 'claude-sonnet-4-6' for routine coding tasks, and only invoke Fable 5 explicitly with /model claude-fable-5 when the task warrants it — this prevents the default from silently burning credits on routine work"
+          ],
+          "tags": ["Claude Fable 5", "Anthropic", "API Pricing", "Consumption Credits", "Model Routing", "Cost Optimization", "Claude Code"],
+          "links": [
+            {"url": "https://claudefa.st/blog/models/claude-fable-5-mythos-5", "label": "Claudefast: Claude Fable 5 and Mythos 5 — pricing, access, and the June 22 catch"},
+            {"url": "https://andrew.ooo/answers/claude-fable-5-credits-paywall-june-22-2026/", "label": "Andrew.ooo: Claude Fable 5 paywall June 22, 2026 — prepare your plan"},
+            {"url": "https://www.finout.io/blog/claude-fable-5-mythos-5-pricing-benchmarks", "label": "Finout: Claude Fable 5 and Mythos 5 pricing, API costs, and benchmark comparison"},
+            {"url": "https://www.mindstudio.ai/blog/claude-fable-5-pricing-access-usage-limits", "label": "MindStudio: Claude Fable 5 pricing, access, and usage limits — what you need to know"},
+            {"url": "https://claudefa.st/blog/guide/development/fable-5-usage-credits", "label": "Claudefast: Claude Fable 5 usage credits explained"}
+          ]
+        },
+        {
+          "title": "Gemini 2.5 Pro + Deep Think: 32K Thinking Budgets, Thought Summaries, and Native MCP Tool Support in the Gemini API",
+          "url": "https://developers.googleblog.com/en/gemini-2-5-thinking-model-updates/",
+          "tldr": "Google released Gemini 2.5 Pro with Deep Think on June 22, adding three developer-facing capabilities: (1) configurable thinking budgets up to 32K tokens — developers can tune how long the model reasons before responding, trading latency for quality; (2) thought summaries that organize the model's internal reasoning into structured markdown with headers and tool-use annotations, replacing raw thought dumps with a readable record; (3) native MCP tool support in the Gemini API and Vertex AI, enabling direct integration with any MCP server. Deep Think is Gemini 2.5 Pro's extended-reasoning mode where the model considers multiple hypotheses before committing to an answer, similar to o3's extended thinking. Gemini 2.5 Pro retains its 2M token context window and tops LiveCodeBench V6 among Google's models.",
+          "why_it_matters": "The configurable thinking budget is the most operationally significant feature for production teams. Models with extended reasoning can be expensive and slow if they're allowed to run unbounded — a 32K-token thinking budget at Gemini 2.5 Pro pricing adds real latency and cost if the task doesn't warrant it. The thinking budget parameter lets you set an upper bound: for simple tasks, cap at 4K tokens of thinking; for hard math or complex debugging, open it to 32K. This is the same architectural control that o3 provides with its 'thinking effort' parameter, and it matters for teams trying to deploy extended-reasoning models in production without runaway costs. The native MCP tool support is the second notable addition: Gemini 2.5 Pro can now connect directly to any MCP server from the API, matching what Claude and OpenAI already support. For teams building multi-provider agent systems, this closes the MCP compatibility gap — you can now route tasks to Gemini 2.5 Pro as a drop-in in an MCP-enabled agent stack without a shim layer. Thought summaries are useful for debugging and trust: when an agent produces an unexpected output, the thought summary gives you a structured trace of the reasoning chain that led there, faster than parsing raw thought tokens.",
+          "traction": "high",
+          "traction_evidence": [
+            "Gemini 2.5 Pro Deep Think released June 22 — confirmed on Google Developers Blog and Google AI for Developers changelog",
+            "32K configurable thinking budgets + MCP tool support — documented in Gemini API release notes and Vertex AI changelog",
+            "Tops LiveCodeBench V6 among Google models — reported in Google DeepMind updates",
+            "2M token context window retained — confirmed in model documentation",
+            "Coverage: Google Developers Blog, Google AI for Developers, Google Cloud Blog, Google DeepMind, OrtTech, AIWiki"
+          ],
+          "use_cases": [
+            "Set thinking budget by task category in your API calls: low (4K tokens) for conversational and simple extraction tasks, medium (16K) for code review and multi-step analysis, high (32K) for complex debugging, architectural design, or math-heavy problems — this alone can cut per-request reasoning cost by 4–8x for mixed workloads",
+            "Use thought summaries as structured agent logs: store the thought summary alongside each API response in your trace database (Langfuse, Helicone, etc.) — when an agent produces a wrong or unexpected output, the thought summary gives you a readable debugging record without parsing raw 32K token thought blocks",
+            "Replace your Gemini shim layer with native MCP: if you built a custom MCP adapter to use Gemini models in your agent stack, test the native MCP tool support in the Gemini API — native support reduces latency by eliminating the intermediary and gives the model direct tool-call context",
+            "Benchmark Deep Think vs. o3 extended thinking on your specific tasks: both support configurable reasoning depth, but they have different cost profiles and performance characteristics by task type — run your top 10 hardest production tasks through both with equivalent thinking budgets and compare quality and latency before committing to one"
+          ],
+          "tags": ["Gemini", "Google", "Deep Think", "Extended Reasoning", "MCP", "Thinking Budget", "LLM", "Production AI"],
+          "links": [
+            {"url": "https://developers.googleblog.com/en/gemini-2-5-thinking-model-updates/", "label": "Google Developers Blog: Gemini 2.5 — updates to our family of thinking models"},
+            {"url": "https://ai.google.dev/gemini-api/docs/changelog", "label": "Google AI for Developers: Gemini API release notes"},
+            {"url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-gemini-2-5-flash-and-pro-capabilities", "label": "Google Cloud Blog: Expanding Gemini 2.5 Flash and Pro capabilities"},
+            {"url": "https://ortemtech.com/blog/gemini-2-5-pro-complete-guide-2026/", "label": "OrtTech: Gemini 2.5 Pro 2026 — 2M context, Deep Think, when it beats GPT-5.5 and Claude Opus"}
+          ]
+        },
+        {
+          "title": "MiniMax M3: Open-Weight 1M Context, 59% SWE-Bench Pro, MSA Architecture — Frontier Coding at a Fraction of Closed-Model Pricing",
+          "url": "https://www.minimax.io/blog/minimax-m3",
+          "tldr": "MiniMax launched M3 on June 1, 2026 — billed as the first open-weight model combining frontier coding-agent performance, a 1-million-token context window, and native multimodal input (text, image, video) in a single model. M3 scores 59% on SWE-Bench Pro, ahead of GPT-5.5 and Gemini 3.1 Pro but just behind Claude Opus 4.7. The key technical innovation is MiniMax Sparse Attention (MSA): instead of computing attention over every token pair (quadratic cost), MSA pre-filters which KV blocks are relevant to the current query and computes attention only on those, making 1M-token context windows economically viable. Monthly token plans start at $20 (Plus, ~1.7B tokens) and scale to $120 (Ultra, ~9.8B tokens). Open weights are available on Hugging Face; the API is live.",
+          "why_it_matters": "MiniMax M3 is the clearest evidence yet that the open-weight frontier is closing the gap with proprietary models for coding tasks. A 59% SWE-Bench Pro score puts M3 in the same tier as closed-model leaders from a few months ago — and it's available to self-host or run via API at token plan pricing that is an order of magnitude cheaper than comparable closed models. For engineering teams evaluating their model stack, M3 unlocks two things: (1) repository-scale context without RAG — a 1M token context window means M3 can hold 750K+ words (a medium-sized codebase) in a single call without chunking or retrieval infrastructure; (2) self-hosting sovereignty — with open weights on Hugging Face, teams in regulated industries or with data residency requirements can run M3 on their own infrastructure. The MSA architecture is also worth understanding: the core insight (filter KV blocks before computing full attention) is the pattern that every future long-context model will converge on. M3 is the first open-weight implementation of this approach at production scale, which makes it a useful reference architecture for teams building custom inference pipelines.",
+          "traction": "high",
+          "traction_evidence": [
+            "Launched June 1, 2026 — MiniMax official blog, The Decoder, DataNorth, TechTimes",
+            "59% SWE-Bench Pro — MiniMax benchmark, ahead of GPT-5.5 and Gemini 3.1 Pro per MiniMax report",
+            "Open weights published on Hugging Face — confirmed, MIT-style license",
+            "API live at minimax.io — monthly plans $20/$50/$120; token plan pricing documented",
+            "Coverage: The Decoder, MiniMax Blog, TechTimes, Felloai, Lushbinary, DataNorth, Codersera, SaaSCity, NerdLevelTech, Vasundhara"
+          ],
+          "use_cases": [
+            "Replace RAG with a single M3 context call for medium-sized codebases: if your codebase fits under 750K tokens, benchmark a single M3 1M-context call against your current retrieval pipeline — the MSA architecture keeps this economically viable; for many teams the quality improvement from whole-codebase context will outweigh the token cost",
+            "Self-host M3 for regulated industries: use the Hugging Face open weights to deploy M3 in your own VPC or on-premises infrastructure, eliminating data residency and compliance blockers that prevent using closed models for sensitive code analysis",
+            "Use M3's $20/month plan as a model-flexibility hedge: for teams using expensive closed models for batch analysis workloads (nightly code review, documentation generation, security scanning), routing that work through M3's Plus tier ($20/month, 1.7B tokens) dramatically cuts costs without giving up frontier-class output quality",
+            "Evaluate MSA for custom inference builds: if your team is building long-context inference infrastructure, study MiniMax's technical report on MSA — the KV block pre-filtering pattern is the state-of-the-art approach to extending context windows without quadratic cost explosion, and understanding it now positions you ahead of when it becomes the industry default"
+          ],
+          "tags": ["MiniMax M3", "Open Weights", "LLM", "Sparse Attention", "Long Context", "SWE-Bench", "Self-Hosting", "Coding Agent"],
+          "links": [
+            {"url": "https://www.minimax.io/blog/minimax-m3", "label": "MiniMax: MiniMax M3 — frontier coding, 1M context, native multimodality"},
+            {"url": "https://the-decoder.com/minimax-m3-open-weight-model-with-a-million-token-context-challenges-proprietary-leaders/", "label": "The Decoder: MiniMax M3 — open-weight model with a million-token context challenges proprietary leaders"},
+            {"url": "https://lushbinary.com/blog/minimax-m3-developer-guide-benchmarks-pricing-msa-architecture/", "label": "Lushbinary: MiniMax M3 developer guide — benchmarks, pricing, MSA architecture"},
+            {"url": "https://www.techtimes.com/articles/317532/20260601/minimax-m3-open-weight-coding-model-frontier-claims-unverified-benchmarks.htm", "label": "TechTimes: MiniMax M3 open-weight coding model — frontier claims, unverified benchmarks"}
+          ]
+        },
+        {
+          "title": "Terminal-Bench 2.1: Claude Fable 5 Breaks the 85% Barrier at 88% — First Leaderboard Update Since Fable 5 Launch",
+          "url": "https://codingfleet.com/blog/terminal-bench-leaderboard-2026/",
+          "tldr": "The Terminal-Bench 2.1 leaderboard (last updated June 17, 2026) now shows Claude Fable 5 at 88%, making it the first model to break 85% on the benchmark. Terminal-Bench 2.1 evaluates real CLI agentic coding tasks including package management, build systems, git operations, server configuration, file manipulation, and shell scripting across 31 models. Second place is Codex CLI on GPT-5.5 at 83.4%, followed by Claude Code on Opus 4.8 at 78.9%. Scores are not comparable across versions — 2.1 is harder than 2.0. The leaderboard distinguishes '2.1' (tbench.ai or Anthropic-verified) from '2.0' (vendor-reported), making rankings directly comparable.",
+          "why_it_matters": "Terminal-Bench 2.1 is currently the most trustworthy public benchmark for agentic CLI coding performance — it evaluates real command-line tasks rather than synthetic coding problems, which better reflects what coding agents actually do in production (run shell commands, manage packages, configure CI). Fable 5's 88% score establishes it as the clear performance leader for agentic work, with a 4.6 percentage point gap over second-place Codex CLI. That gap is significant: on a benchmark this hard, closing 4.6 points requires a model generation transition, not a prompt improvement. For teams choosing an agent backend: the Terminal-Bench gap between Fable 5 (88%) and the Sonnet/Haiku tier is where model selection decisions for agentic workflows should be grounded — not on chat benchmarks or human preference ratings. The distinction between 2.1 (verified) and 2.0 (vendor-reported) scores is also useful: filtering for verified scores removes inflated self-reported numbers and gives you a cleaner comparison for procurement decisions.",
+          "traction": "medium",
+          "traction_evidence": [
+            "Terminal-Bench 2.1 updated June 17, 2026 — codingfleet.com and pricepertoken.com leaderboards",
+            "Claude Fable 5 at 88% — first model to break 85% on any Terminal-Bench version, Anthropic-verified",
+            "31 models ranked with verified vs. vendor-reported distinction — morphllm.com ai-coding-agent page",
+            "Coverage: CodingFleet, Morph LLM, PricePerToken, BenchLM.ai, LLM-Stats"
+          ],
+          "use_cases": [
+            "Use Terminal-Bench 2.1 verified scores (not 2.0 vendor-reported) as the baseline for model selection in agentic coding procurement: filter the leaderboard to '2.1 verified' entries before comparing models — the 2.0 vendor-reported scores include self-reported numbers that inflate rankings by 5–15 points on average",
+            "Evaluate the 88% vs. 83.4% gap as the Fable 5 premium decision: if your agent workloads are CLI-heavy (devops automation, CI/CD agents, shell-scripting generation), the 4.6-point Terminal-Bench gap is worth benchmarking on your own task distribution — 4.6 points on this benchmark translates to measurable success-rate differences on real agentic tasks",
+            "Use the leaderboard to identify the sweet spot in the Fable 5 (88%) to Opus 4.8 (78.9%) gap: for teams transitioning off Fable 5's free window today, Opus 4.8 at 78.9% Terminal-Bench and $5/$25 pricing offers 90% of the agentic performance at half the cost — benchmark your specific task distribution to see if the 9-point gap matters for your use cases",
+            "Track the leaderboard monthly for model churn signals: Terminal-Bench 2.1 has compressed what used to be a 15-point gap between tiers into a tighter range — when the #2 model (Codex CLI at 83.4%) is within one model generation of #1, you are closer to commodity territory than to a winner-take-all market, which affects long-term model lock-in decisions"
+          ],
+          "tags": ["Terminal-Bench", "Fable 5", "Benchmark", "Coding Agent", "Claude Code", "Agentic Coding", "Leaderboard", "CLI"],
+          "links": [
+            {"url": "https://codingfleet.com/blog/terminal-bench-leaderboard-2026/", "label": "CodingFleet: Terminal-Bench 2.1 leaderboard — AI CLI coding ranked 2026"},
+            {"url": "https://www.morphllm.com/ai-coding-agent", "label": "Morph LLM: 11 AI coding agents ranked — Terminal-Bench scores, price, license"},
+            {"url": "https://pricepertoken.com/leaderboards/benchmark/terminalbench", "label": "PricePerToken: TerminalBench leaderboard 2026 — compare AI model scores"},
+            {"url": "https://benchlm.ai/benchmarks/terminalBench2", "label": "BenchLM.ai: Terminal-Bench 2.0 benchmark — 30 model averages"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "OpenCode: 176K GitHub Stars, 7.5M Monthly Users, MIT — The Model-Agnostic Terminal Agent That Passed Gemini CLI and Codex in Adoption",
+          "url": "https://opencode.ai/",
+          "tldr": "OpenCode, built by the SST team (now Anomaly), is now the most-starred open-source coding agent on GitHub at 176,017 stars — ahead of Gemini CLI (105K) and OpenAI Codex CLI (92K). It ships daily, supports 75+ AI providers, runs in the terminal, and is MIT-licensed with no vendor lock-in. The project has 900+ contributors and 13,000+ commits. Key differentiators: LSP (Language Server Protocol) integration gives OpenCode type-aware code editing that dumb shell agents can't match; a provider-agnostic architecture means you can switch between Claude, GPT-5.5, Gemini 2.5, Qwen, or any local model without changing your workflow; and air-gapped deployment is supported for enterprises that can't send code to external APIs.",
+          "why_it_matters": "OpenCode's 176K star count and 7.5M monthly active users are not just vanity metrics — they reflect the structural argument it makes against closed coding agents: model-agnostic tooling is more durable than any single-model bet. The teams adopting OpenCode most heavily are those burned by vendor-specific workflows: Gemini CLI users facing the June 18 forced migration to Antigravity, teams that wanted more control over which model handles which task, and engineers in air-gapped environments who couldn't use Claude Code or Cursor. The LSP integration is the technical differentiator worth understanding: most terminal coding agents operate on raw text, which means they don't have awareness of types, symbols, or the semantic structure of your codebase. OpenCode's LSP integration surfaces that information, enabling edits that are semantically aware rather than text-pattern matches. For teams evaluating their coding agent stack: OpenCode's MIT license means you can fork it, modify it, and self-host it — the open-source alternative to paying for a closed-source agent that may change its pricing model on a given Monday morning.",
+          "traction": "high",
+          "traction_evidence": [
+            "176,017 GitHub stars — most-starred open-source coding agent as of June 18, 2026 Morph LLM leaderboard",
+            "7.5M monthly active users, 900+ contributors, 13,000+ commits — confirmed by Developers Digest and ByteIota",
+            "75+ provider support including Claude, GPT-5.5, Gemini, Qwen, Ollama local models — confirmed on opencode.ai",
+            "MIT license, daily ship cadence — anomalyco/opencode GitHub repository",
+            "Coverage: Morph LLM, opencode.ai, Developers Digest, ByteIota, ExplainX, Tool Directory, Dev.to"
+          ],
+          "use_cases": [
+            "Use OpenCode as a Gemini CLI drop-in replacement today: teams whose CI/CD pipelines called the gemini command can migrate to OpenCode configured with the Gemini 2.5 Pro provider — you get the same model access with a stable MIT-licensed tool that won't be sunset by a product pivot",
+            "Leverage OpenCode's multi-provider routing for cost optimization: configure OpenCode to route by task — use a cheap local Ollama model for simple completions, OpenCode with Sonnet 4.6 for standard coding tasks, and switch to Fable 5 via the same CLI interface only for hard agentic work; no tooling change required when you switch models",
+            "Evaluate OpenCode's LSP integration against your current agent for type-aware refactors: run the same TypeScript or Go refactoring task in OpenCode and your current agent side-by-side — OpenCode's LSP awareness should produce fewer type errors and import issues in the output, particularly on large-codebase tasks",
+            "For air-gapped environments: deploy OpenCode with a local Ollama model running Qwen 3.6 Plus or MiniMax M3 (with open weights) — this gives you a fully air-gapped coding agent stack with frontier-class quality and zero external API calls"
+          ],
+          "tags": ["OpenCode", "Open Source", "CLI Agent", "MIT License", "LSP", "Model Agnostic", "Terminal", "Coding Agent"],
+          "links": [
+            {"url": "https://opencode.ai/", "label": "OpenCode: The open-source AI coding agent"},
+            {"url": "https://github.com/anomalyco/opencode/", "label": "GitHub: anomalyco/opencode — source, contributors, releases"},
+            {"url": "https://www.developersdigest.tech/blog/opencode-developer-guide-2026", "label": "Developers Digest: OpenCode developer guide — the open-source coding agent with 160K stars"},
+            {"url": "https://www.morphllm.com/ai-coding-agent", "label": "Morph LLM: 11 AI coding agents ranked — Terminal-Bench scores, price, license"},
+            {"url": "https://www.explainx.ai/blog/opencode-open-source-ai-coding-agent-guide-2026", "label": "ExplainX: OpenCode open-source coding agent guide 2026"}
+          ]
+        },
+        {
+          "title": "Antigravity CLI Replaces Gemini CLI as of June 18 — Go-Based Async Multi-Agent Rewrite, Pipelines Broken",
+          "url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/",
+          "tldr": "On June 18, 2026, Google ended all Gemini CLI service for free, Google AI Pro, and Ultra subscribers. The replacement is Antigravity CLI, invoked as agy — a closed-source Go rewrite of the TypeScript Gemini CLI, built around asynchronous multi-agent orchestration. Where Gemini CLI was a single-agent TypeScript tool, Antigravity CLI uses a manager agent that decomposes goals into subtasks and spawns dynamic subagents in parallel, each with isolated context windows and model configurations. Every CI/CD pipeline, shell script, and IDE extension that calls the gemini command is now broken. Migration requires installing the agy binary, updating all scripts, and adapting any custom Extensions (now called Antigravity Plugins). Not all Gemini CLI features are at parity at launch.",
+          "why_it_matters": "The immediate operational impact is a forced migration for any team using Gemini CLI in automation. If you have CI/CD pipelines, GitHub Actions, or shell scripts calling gemini, those are broken today. The migration to agy requires more than a search-and-replace: Antigravity CLI is architecturally different (async multi-agent vs. single-agent), the plugin system has changed (Extensions → Antigravity Plugins), and feature parity is incomplete at launch. The architectural shift from single-agent to async multi-agent is genuinely significant: Antigravity's manager + subagent pattern matches what Anthropic is doing with Claude Code Agent Teams and what Microsoft is doing with multi-agent orchestration. The difference is that Antigravity's subagents each get isolated context windows and model configurations, which enables true parallel task execution rather than sequential handoff. For teams not on Google AI: this transition is still a signal. Three major CLI coding tools (Claude Code, Codex CLI, Antigravity CLI) are all converging on async multi-agent architectures as the default model for heavy agentic work. Single-agent CLI tools are increasingly the exception rather than the norm.",
+          "traction": "high",
+          "traction_evidence": [
+            "June 18 shutdown — Gemini CLI stopped serving requests for all free, Pro, and Ultra subscribers, confirmed TechTimes and Google Developers Blog",
+            "Google Developers Blog official announcement — 'transitioning Gemini CLI to Antigravity CLI'",
+            "GitHub Discussion #27274 in google-gemini/gemini-cli — developer community discussion on migration",
+            "Google I/O 2026: Antigravity 2.0 announced alongside CLI transition — TechJack Solutions",
+            "Coverage: Google Developers Blog, TechTimes, AI Builder Club, TechJack Solutions, AgentPedia, Inventive HQ, OSTechNix, Let's Data Science"
+          ],
+          "use_cases": [
+            "Audit every gemini command call in your codebase and CI/CD now: run grep -r 'gemini ' .github/ scripts/ Makefile to find all callsites; prioritize by impact (production pipelines first) and migrate each to agy — the binary name change alone will break most automation",
+            "Test Antigravity CLI's async multi-agent mode for parallel research tasks: Antigravity's manager + subagent architecture excels at tasks that decompose into independent sub-problems — try researching a technical topic where you'd normally run multiple sequential queries and compare wall-clock time vs. Gemini CLI",
+            "Check your Gemini CLI Extensions for Antigravity Plugin compatibility: if you built custom Extensions (the Gemini CLI plugin system), review the Antigravity Plugin documentation before migrating — the API surface changed and not all Extension hooks map 1:1 to Antigravity Plugins",
+            "Consider OpenCode or Claude Code as Antigravity alternatives if you prefer open-source: both support Gemini models as providers, so you can keep using Gemini 2.5 Pro without depending on Google's proprietary CLI binary — OpenCode's MIT license and daily ship cadence make it a more durable choice than a closed-source Go binary whose roadmap you don't control"
+          ],
+          "tags": ["Antigravity CLI", "Google", "Gemini CLI", "CLI Agent", "Multi-Agent", "Migration", "CI/CD", "Go"],
+          "links": [
+            {"url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/", "label": "Google Developers Blog: Transitioning Gemini CLI to Antigravity CLI"},
+            {"url": "https://www.techtimes.com/articles/318660/20260618/gemini-cli-shutdown-takes-effect-ci-cd-pipelines-break-go-based-antigravity-cli-arrives.htm", "label": "TechTimes: Gemini CLI shutdown — CI/CD pipelines break as Go-based Antigravity CLI arrives"},
+            {"url": "https://github.com/google-gemini/gemini-cli/discussions/27274", "label": "GitHub Discussion #27274: Transitioning Gemini CLI to Antigravity CLI"},
+            {"url": "https://inventivehq.com/blog/gemini-cli-deprecated-antigravity-cli-migration", "label": "Inventive HQ: Gemini CLI is being retired on June 18 — meet Antigravity CLI"},
+            {"url": "https://agentpedia.codes/blog/antigravity-cli-deep-dive", "label": "AgentPedia: Antigravity CLI deep dive — Google's Go-based terminal agent"}
+          ]
+        },
+        {
+          "title": "Biome v2.5: 500+ Lint Rules, Cross-File Linting, --watch Mode — ESLint + Prettier Drop-In at 35x the Speed",
+          "url": "https://nerdleveltech.com/migrate-eslint-prettier-to-biome",
+          "tldr": "Biome v2.5 launched June 5, 2026, bringing the lint rule count to 500+, adding cross-file linting (rules that span multiple files), a --watch mode for development, a concise reporter, and .svg file support. Biome is a single Rust binary that replaces ESLint and Prettier — its formatter claims 97% Prettier compatibility and benchmarks 35x faster than Prettier on 171,127 lines across 2,104 files. The migration path: install biome, run biome migrate eslint and biome migrate prettier to convert existing configs into one biome.json, then run biome check --write. Production deployments confirmed at AWS, Google, Microsoft, Cloudflare, Coinbase, and Slack.",
+          "why_it_matters": "Biome v2.5's cross-file linting closes the last significant functional gap between Biome and a mature ESLint setup. Most of the ESLint rules teams actually rely on are cross-file: no-unused-exports, consistent import ordering, circular dependency detection, component naming conventions that span a directory. Until cross-file linting landed, Biome was a great single-file linter but couldn't fully replace a team's ESLint setup for TypeScript/JavaScript monorepos with cross-module rules. The 35x performance advantage is real: on a mid-sized project, replacing ESLint + Prettier with Biome typically cuts lint+format CI time from 30–90 seconds to 2–5 seconds. Multiplied across hundreds of CI runs per week, this is meaningful compute savings and a faster feedback loop. The enterprise validation (AWS, Google, Microsoft, Cloudflare, Coinbase, Slack) signals that Biome is past the early-adopter risk threshold. Teams that were waiting for production proof before switching can now point to Fortune 500 production deployments. For AI-assisted development specifically: Biome's zero-config formatting with 97% Prettier compatibility means AI-generated code can be consistently formatted in the same pass as linting — removing the 'format, then lint, then fix lint errors' loop that adds friction to agentic coding workflows.",
+          "traction": "high",
+          "traction_evidence": [
+            "Biome v2.5 released June 5, 2026 — 500+ lint rules, cross-file linting, --watch mode confirmed",
+            "35x faster than Prettier on 171K line benchmark — Biome official benchmarks, NerdLevelTech, ByteIota",
+            "97% Prettier compatibility — Biome formatter documentation",
+            "Production at AWS, Google, Microsoft, Cloudflare, Coinbase, Slack — confirmed in Biome migration guides and official docs",
+            "Coverage: NerdLevelTech, ByteIota, DevBolt, Dev.to Pockit, BuildMVPFast, PkgPulse, noqta.tn"
+          ],
+          "use_cases": [
+            "Run biome migrate eslint && biome migrate prettier on your next project sprint: the migration commands automatically convert your .eslintrc and .prettierrc into a single biome.json — review the output for unsupported rule mappings (Biome will flag them) and assess whether you need to keep ESLint running in parallel for those specific rules",
+            "Use Biome's --watch mode for tighter AI-assisted development loops: with biome check --watch running, every AI-generated code edit is immediately linted and formatted — you see errors and formatting inconsistencies before the next prompt, not after a CI run that comes back 2 minutes later",
+            "Route Biome check --write into your git pre-commit hook: replace your ESLint and Prettier pre-commit steps with a single biome check --write --files-changed-only call — the 35x speed advantage means pre-commit runs in under a second on changed files, removing the friction that causes developers to skip hooks",
+            "Evaluate cross-file linting for your TypeScript monorepo: test Biome v2.5's cross-file rules against the specific ESLint cross-file rules your team relies on (no-unused-exports, circular-deps, consistent interfaces across packages) — if Biome covers your key cross-file rules, this is the blocker removal that makes a full ESLint retirement viable"
+          ],
+          "tags": ["Biome", "ESLint", "Prettier", "Linting", "Formatting", "Rust", "DX", "JavaScript", "TypeScript", "Developer Tools"],
+          "links": [
+            {"url": "https://nerdleveltech.com/migrate-eslint-prettier-to-biome", "label": "NerdLevelTech: Migrate from ESLint and Prettier to Biome — 2026 guide"},
+            {"url": "https://dev.to/pockit_tools/biome-the-eslint-and-prettier-killer-complete-migration-guide-for-2026-27m", "label": "Dev.to: Biome — the ESLint and Prettier killer? Complete migration guide for 2026"},
+            {"url": "https://byteiota.com/biome-replaces-eslint-in-2026-10-20x-faster-linting/", "label": "ByteIota: Biome replaces ESLint in 2026 — 10–20x faster linting"},
+            {"url": "https://www.buildmvpfast.com/blog/biome-replacing-prettier-eslint-rust-toolchain-2026", "label": "BuildMVPFast: Biome vs ESLint and Prettier — Rust toolchain 2026"},
+            {"url": "https://www.pkgpulse.com/guides/biome-vs-eslint-vs-oxlint-2026", "label": "PkgPulse: Biome vs ESLint vs Oxlint 2026 — which JS linter to pick"}
+          ]
+        },
+        {
+          "title": "Claude Agent SDK Gets a Separate Credit Pool (June 15): Build Production Agents on Claude Code's Harness Without Burning Conversational Limits",
+          "url": "https://code.claude.com/docs/en/agent-sdk/overview",
+          "tldr": "Starting June 15, 2026, the Claude Agent SDK draws subscription usage from a dedicated monthly Agent SDK credit pool, separate from your interactive Claude conversational limits. The SDK (pip install claude-agent-sdk / npm install @anthropic-ai/claude-agent-sdk) is Anthropic's library for building production AI agents on the same harness that powers Claude Code. Out of the box: file editing tools, bash execution, web search/fetch, persistent sessions, subagents with delegated context, human-in-the-loop checkpoints, and first-class MCP client support. Model support: Sonnet 4.6, Opus 4.7, Opus 4.8. It was renamed in September 2025 from the Claude Code SDK.",
+          "why_it_matters": "The separate credit pool removes the biggest operational friction in building production agents with the Claude Agent SDK: before June 15, every SDK call drew from the same bucket as your conversational Claude usage, meaning a runaway agent job could exhaust your plan limits and block your team's interactive sessions. Now SDK workloads have their own pool — you can run continuous background agents, nightly eval pipelines, or long-horizon agentic tasks against the SDK credit without affecting your team's daily Claude usage. For engineers evaluating agent frameworks: the Claude Agent SDK's value proposition is that you get the same harness, tool set, and session management that Claude Code uses, exposed as a clean Python/TypeScript SDK. You don't have to build file editing, bash execution, or MCP client support from scratch — they're bundled. The first-class MCP support is particularly significant: any MCP server you've already built for Claude Code works without modification in an SDK agent, which eliminates the 'build for CLI, rebuild for production' cycle. The separate credit pool makes this more viable for real production workloads where a runaway agent is a billing risk, not just a usage cap.",
+          "traction": "medium",
+          "traction_evidence": [
+            "June 15, 2026 separate credit pool launched — confirmed in Morph LLM Agent SDK guide and Totalum blog",
+            "pip install claude-agent-sdk / npm install @anthropic-ai/claude-agent-sdk — packages available on PyPI and npm",
+            "GitHub repos: anthropics/claude-agent-sdk-python and anthropics/claude-agent-sdk-typescript — active development",
+            "Renamed from Claude Code SDK in September 2025 — documented in hidekazu-konishi.com complete guide",
+            "Coverage: Morph LLM, Totalum, Beginners in AI, Hidekazu Konishi, Claude Code Docs (code.claude.com)"
+          ],
+          "use_cases": [
+            "Build nightly eval pipelines using the SDK without affecting team conversational limits: now that SDK credits are separate, you can schedule SDK agents to run eval suites overnight against new model releases — the SDK handles session management, and the separate pool ensures daytime Claude usage isn't blocked by background eval jobs",
+            "Port your Claude Code workflows to production agents with minimal rewrite: if you have Claude Code workflows (slash commands, hooks, MCP integrations) you want to run programmatically, the Agent SDK accepts the same tool configuration and MCP server setup — most migrations are a few hours of wrapping, not a full rewrite",
+            "Use human-in-the-loop checkpoints for high-stakes agent actions: the SDK's checkpoint feature lets you pause an agent before it performs irreversible actions (database writes, deployments, external API calls) and wait for human approval — this is the pattern for production agents where full autonomy is too risky but full human execution is too slow",
+            "Evaluate the SDK credit pool size for your use case before setting up continuous agents: check what credit pool your current plan gets for Agent SDK usage (Pro, Max, and Team plans get different allocations) and estimate your daily token consumption based on your agent task distribution — the separate pool prevents surprises, but it still has limits"
+          ],
+          "tags": ["Claude Agent SDK", "Anthropic", "Production Agents", "MCP", "Credits", "Subagents", "SDK", "Developer Tools"],
+          "links": [
+            {"url": "https://code.claude.com/docs/en/agent-sdk/overview", "label": "Claude Code Docs: Agent SDK overview"},
+            {"url": "https://github.com/anthropics/claude-agent-sdk-python", "label": "GitHub: anthropics/claude-agent-sdk-python"},
+            {"url": "https://github.com/anthropics/claude-agent-sdk-typescript", "label": "GitHub: anthropics/claude-agent-sdk-typescript"},
+            {"url": "https://www.morphllm.com/claude-agent-sdk", "label": "Morph LLM: Claude Agent SDK — build agents on Claude Code's harness (TypeScript + Python)"},
+            {"url": "https://www.totalum.app/blog/claude-agent-sdk-totalum-2026", "label": "Totalum: Claude Agent SDK in 2026 — what it is, when to use it, and how to ship it"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Langfuse: Open-Source LLM Observability at 2,300+ Companies, Self-Hostable, OpenTelemetry-Native — The Production Tracing Stack for AI Teams",
+          "url": "https://langfuse.com/",
+          "tldr": "Langfuse is the most widely adopted open-source LLM engineering platform, used by 2,300+ companies and processing billions of observations per month. It provides LLM-native tracing (capturing token usage, model parameters, prompt/completion pairs, and costs per trace), LLM-as-a-Judge evaluation for automated output quality scoring, prompt management with versioning and A/B testing, dataset management for offline evals, and custom dashboards. It integrates with OpenTelemetry, LangChain, OpenAI SDK, LiteLLM, and any MCP-enabled stack. Self-hosting is first-class: a Docker Compose setup is provided, and enterprise self-hosted deployments run on AWS, GCP, and Azure. Langfuse recently added vLLM integration for teams self-hosting inference.",
+          "why_it_matters": "LLM observability has reached production-requirement status in 2026 — Gartner estimates 60% of software engineering teams will use AI evaluation and observability platforms by 2028, up from 18% in 2025. The gap between Langfuse and general-purpose APM tools (Datadog, New Relic) is native LLM semantics: Langfuse understands tokens, prompts, completions, and model costs as first-class concepts, whereas APM tools require custom instrumentation to capture these. LLM-as-a-Judge is the highest-leverage feature for most teams: it uses an LLM to automatically score outputs on dimensions you define (accuracy, tone adherence, tool-use correctness), enabling continuous quality monitoring without human reviewers for every production trace. Self-hosting is the differentiator for regulated industries: if you can't send your prompts and completions to a third-party SaaS for observability (HIPAA, SOC 2, EU data residency), Langfuse's Docker Compose self-host gives you full observability without data leaving your environment. With the vLLM integration, you can also observe self-hosted inference — a complete closed-loop observability stack without any external API dependency.",
+          "traction": "high",
+          "traction_evidence": [
+            "2,300+ companies using Langfuse — confirmed by Langfuse docs and OtterAI blog",
+            "Billions of observations per month processed — Langfuse official documentation",
+            "GitHub: langfuse/langfuse — active YC W23 company, open source",
+            "Gartner: 60% of engineering teams will use AI observability by 2028 (up from 18% in 2025) — cited in Confident AI and TrueFoundry analyses",
+            "Coverage: Langfuse Docs, PyImageSearch (two tutorials May 2026), MarkTechPost, Solo.io, OtterAI, Confident AI, MLflow guide, Pristren"
+          ],
+          "use_cases": [
+            "Instrument every LLM call in production with Langfuse tracing in a single decorator: add @observe to your LLM-calling functions in Python or wrap your TypeScript calls with Langfuse's SDK — every call gets a trace with token counts, latency, cost, and model metadata without any per-call instrumentation logic",
+            "Set up LLM-as-a-Judge quality monitoring for your most important agent outputs: define a scoring rubric for your top 3 output types (accuracy, format adherence, safety), add LLM-as-a-Judge scores to your Langfuse traces, and alert when the rolling average drops below threshold — this gives you continuous quality monitoring without human reviewers",
+            "Self-host Langfuse with Docker Compose for data-sensitive workloads: if you're building healthcare, legal, or financial applications where prompt/completion pairs can't leave your environment, the Docker Compose setup deploys Langfuse in your VPC in under 30 minutes — all trace data stays in your infrastructure",
+            "Use Langfuse datasets to build a regression test suite from production traces: when a production trace surfaces a bug or quality issue, add it to a Langfuse dataset — run that dataset against new model versions or prompt changes to catch regressions before they reach production; this turns production incidents into a growing eval suite automatically"
+          ],
+          "tags": ["Langfuse", "LLM Observability", "Open Source", "Self-Hosted", "Tracing", "Evaluation", "OpenTelemetry", "Production AI", "LLM-as-a-Judge"],
+          "links": [
+            {"url": "https://langfuse.com/", "label": "Langfuse: Open source AI engineering platform"},
+            {"url": "https://github.com/langfuse/langfuse", "label": "GitHub: langfuse/langfuse — source, integrations, self-hosting docs"},
+            {"url": "https://pyimagesearch.com/2026/05/18/llm-observability-with-self-hosted-langfuse-and-vllm/", "label": "PyImageSearch: LLM observability with self-hosted Langfuse and vLLM"},
+            {"url": "https://www.solo.io/blog/llm-observability-agentgateway-langfuse", "label": "Solo.io: Open-source LLM observability — tracing AI calls with Agentgateway and Langfuse"},
+            {"url": "https://otterai.net/blog/post?slug=langfuse-llm-tracing-observability-2026", "label": "OtterAI: Langfuse in 2026 — open-source LLM tracing that survives real production"},
+            {"url": "https://www.marktechpost.com/2026/05/24/build-a-complete-langfuse-observability-and-evaluation-pipeline-for-tracing-prompt-management-scoring-and-experiments/", "label": "MarkTechPost: Build a complete Langfuse observability and evaluation pipeline"}
+          ]
+        }
+      ]
+    }
+  ]
+}
