@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 24, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 24, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://huggingface.co/blog/zai-org/glm-52-blog">GLM-5.2 MIT open weights now live: 753B MoE scores 51 on Intelligence Index 4.1 (ahead of MiniMax M3 and DeepSeek V4-Pro), beats GPT-5.5 on FrontierSWE at 1/6th the cost — full benchmarks published after the June 15 preview had none</a></li>
+      <li><a href="https://explainx.ai/blog/is-fable-5-back-2026">Fable 5 still offline day 12: Anthropic's July 8 privacy policy update requires government-issued ID + biometrics — the mechanism for US-citizen-only access restoration; Polymarket at 57% odds for pre-July, August 1 is the 60-day Executive Order hard deadline</a></li>
+      <li><a href="https://tenetsecurity.ai/blog/agentjacking-coding-agents-with-fake-sentry-errors/">Agentjacking disclosed: 2,388 organizations exposed via Sentry DSN injection — 85% success rate hijacking Claude Code, Cursor, and Codex; bypasses EDR, WAF, IAM, and Cloudflare; attacker-controlled shell runs with developer privileges</a></li>
+      <li><a href="https://github.com/github/spec-kit">OpenClaw reaches 380K GitHub stars: most-adopted self-hosted AI agent, MIT, always-on heartbeat system, 22 messaging platforms, local Markdown memory, any LLM — founder joined OpenAI but OpenClaw Foundation stewards the project</a></li>
+      <li><a href="https://www.databricks.com/blog/ai-governance-data-ai-summit-2026-whats-new-unity-ai-gateway">Databricks Unity AI Gateway adds MCP governance at Data+AI Summit: per-agent spend caps, smart routing across 50+ model providers, and security integrations with CrowdStrike, Okta, Palo Alto Networks, and Zscaler</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://huggingface.co/blog/zai-org/glm-52-blog">GLM-5.2 MIT Open Weights Now Live: 753B MoE Beats GPT-5.5 on FrontierSWE at 1/6th the Cost — Full Benchmarks Published</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Z.ai (formerly Zhipu AI) released the full MIT-licensed weights for GLM-5.2 on Hugging Face on June 16-17, 2026, after a June 13 soft launch to coding plan tiers with no public benchmarks. The model is a 753B-parameter Mixture-of-Experts architecture with two thinking-effort levels (fast and deep), a 1-million-token context window, and a full MIT license with zero usage restrictions. Now with benchmarks published: GLM-5.2 scores 51 on the Intelligence Index 4.1, placing it first among open-weight models — ahead of MiniMax-M3 (44), DeepSeek V4-Pro (44), and Kimi K2.7 (43). On FrontierSWE, GLM-5.2 beats GPT-5.5 at approximately 1/6th the cost to serve. The API is live at Z.ai with token plans from $20/month (Plus, ~1.7B tokens) to $120/month (Ultra). Weights are at zai-org/GLM-5.2 on Hugging Face.</p>
+      <div class="article-meta">
+        <span class="tag">GLM-5.2</span>
+        <span class="tag">Zhipu AI</span>
+        <span class="tag">Z.ai</span>
+        <span class="tag">Open Weights</span>
+        <span class="tag">MIT License</span>
+        <span class="tag">LLM</span>
+        <span class="tag">MoE</span>
+        <span class="tag">1M Context</span>
+        <span class="tag">FrontierSWE</span>
+        <span class="tag">Intelligence Index</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>GLM-5.2 is the most capable open-weight model available today based on independent benchmarks, and the MIT license makes it the most permissive option at this capability tier. For engineering teams, the combination of Intelligence Index 4.1 score 51, MIT licensing, and a 1M-token context window answers three distinct questions simultaneously: Can it replace a frontier closed model for coding tasks? (Competes with GPT-5.5, trails Opus 4.8 and Fable 5.) Can it be self-hosted or fine-tuned without license restrictions? (Yes — MIT, unrestricted.) Can it handle full-repository context without RAG? (Yes — 1M context at competitive speeds.) The FrontierSWE performance at 1/6th the API cost of GPT-5.5 is the most actionable number for teams running batch coding workloads. The two thinking-effort levels (fast and deep) mirror the Gemini Deep Think configurable thinking budget pattern — letting you cap reasoning cost for simple tasks and open it for complex ones. Primary caveat: GLM-5.2 is a 753B parameter model; self-hosting requires substantial hardware (multiple H100s or equivalent). The API plan pricing ($20-120/month) makes it accessible without self-hosting infrastructure, but teams evaluating self-hosting should verify hardware requirements against their specific quantization before committing.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Evaluate GLM-5.2 against GPT-5.5 on your top FrontierSWE-class tasks: since both have published FrontierSWE scores and GLM-5.2 claims cost advantage at 1/6th the price, run your 10 hardest batch coding tasks against both APIs and compare quality and cost — the cost gap alone may justify the switch for batch workloads even if GLM-5.2 trails by a few points on quality</li>
+          <li>Use GLM-5.2's MIT license for fine-tuning on proprietary codebases: unlike GPT-5.5 (no fine-tuning API as of June 2026) or Opus 4.8 (no open weights), GLM-5.2's MIT license permits fine-tuning on your internal code, deploying the fine-tuned model in your VPC, and commercializing derivative models — this is the most permissive option at this capability level</li>
+          <li>Route the 'deep' thinking level for architectural tasks and 'fast' for completions: GLM-5.2's two effort levels map directly to fast/slow tasks in your workload — configure your LLM client to use fast for docstring generation, test case writing, and simple completions, and deep for multi-file refactors and architecture analysis; this avoids paying for heavy reasoning on tasks that don't need it</li>
+          <li>Test GLM-5.2's 1M context on your full repository as a RAG alternative: for codebases under 750K tokens, benchmark a single GLM-5.2 1M-context call against your current retrieval pipeline — if the 1M call produces higher quality answers, you can eliminate chunking infrastructure and reduce architectural complexity at comparable or lower cost</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>MIT open weights released June 16-17 on Hugging Face (zai-org/GLM-5.2) — unrestricted commercial use, fine-tuning, and deployment</li>
+          <li>Intelligence Index 4.1 score 51 — #1 open-weight model ahead of MiniMax-M3 (44), DeepSeek V4-Pro (44), Kimi K2.7 (43)</li>
+          <li>Beats GPT-5.5 on FrontierSWE at approximately 1/6th the cost — reported by StableLearn and Labellerr</li>
+          <li>API live at Z.ai with token plans from $20/month — Plus, Pro, Ultra tiers available</li>
+          <li>Coverage: HuggingFace Blog (Z.ai), Pandaily, StableLearn, Labellerr, Codersera, DigitalApplied, Layer3Labs, AIMatchTools, Eigent, VettedConsumer, Whalesbook</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://huggingface.co/blog/zai-org/glm-52-blog">HuggingFace Blog: GLM-5.2 — Built for Long-Horizon Tasks</a></li>
+          <li><a href="https://huggingface.co/zai-org/GLM-5.2">HuggingFace: zai-org/GLM-5.2 — model weights and documentation</a></li>
+          <li><a href="https://stable-learn.com/en/glm-5-2-open-source-release/">StableLearn: GLM-5.2 — 753B parameters beat GPT-5.5 at 1/6th the cost</a></li>
+          <li><a href="https://www.labellerr.com/blog/glm-5-2-open-weight-ai-model/">Labellerr: GLM-5.2 just beat GPT-5.5 at a sixth of the cost</a></li>
+          <li><a href="https://codersera.com/blog/glm-5-2-complete-guide-2026/">Codersera: GLM-5.2 complete guide 2026</a></li>
+          <li><a href="https://pandaily.com/zhipu-ai-glm-5-dot-2-open-source-mit-jun2026">Pandaily: Zhipu AI open-sources GLM-5.2 with 1M token context</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://explainx.ai/blog/is-fable-5-back-2026">Fable 5 Day 12: Still Offline — But Anthropic's July 8 Biometrics Update Reveals the US-Only Restoration Path</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">As of June 24, 2026 — day 12 of the US government export control suspension — Claude Fable 5 and Mythos 5 remain offline for all users worldwide. The diplomatic path (G7 'trusted partners' framework, UK exemption request) has produced no restoration announcement. The technical restoration path has now emerged: Anthropic updated its privacy policy effective July 8, 2026 to require collection of government-issued ID and biometric verification. This is the identity verification mechanism that would allow Anthropic to comply with an export control directive by restricting access to verified US persons only. Prediction markets have $1.1M+ in contracts staked: Polymarket gives 57% odds that Fable 5 is restored for US customers before July 1, and separate contracts price the US government rescinding the directive by August at 71%. The August 1, 2026 deadline is hard — the 60-day Executive Order requiring NSA/Treasury/CISA to complete the Covered Frontier Model framework is the legal mechanism that creates the clearest path forward.</p>
+      <div class="article-meta">
+        <span class="tag">Fable 5</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Export Controls</span>
+        <span class="tag">US Government</span>
+        <span class="tag">Biometrics</span>
+        <span class="tag">ID Verification</span>
+        <span class="tag">Model Access</span>
+        <span class="tag">Compliance</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The July 8 privacy policy update is the most concrete operational signal since the ban started. Government-issued ID + biometrics collection is architecturally necessary for Anthropic to comply with an export control that restricts access to US persons only — you cannot do country-level access control at the model API layer without identity verification. If Anthropic can verify each user's citizenship or residency, they can selectively restore access for US persons under the current directive rather than needing the directive formally lifted. The practical implications for engineering teams are different depending on their situation: US-based teams with US-citizen users should expect Fable 5 access to be restorable in the July-August window if Anthropic proceeds with ID verification gating — but this is contingent on the Commerce Department accepting the compliance mechanism. Non-US teams face a longer timeline: the G7 'trusted partners' framework, if it progresses, is a multi-month negotiation, not a weekend fix. For infrastructure planning: any team that was counting on Fable 5 or Mythos 5 for production workloads and hasn't established a fallback to Opus 4.8, GLM-5.2, or DeepSeek V4-Pro should treat the August 1 deadline as the last date by which your fallback architecture needs to be production-ready. There is no guarantee of restoration by then, and the 60-day window closing without resolution means the situation moves into uncharted legal territory.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Finalize your Fable 5 fallback architecture before August 1: if your production workloads currently depend on Fable 5, use the July window to complete fallback routing to Opus 4.8 (best Anthropic alternative at 78.9% Terminal-Bench), GLM-5.2 (leading open-weight alternative, MIT), or DeepSeek V4-Pro (80.6% SWE-bench, $0.87/M output) — the August 1 deadline closes the period of diplomatic uncertainty</li>
+          <li>Monitor the July 8 privacy policy change for implications to your user base: if Anthropic gates Fable 5 restoration behind government ID + biometrics verification, applications built on Fable 5 will need to integrate this verification step into their user onboarding — plan the UX and compliance implications before the mechanism goes live</li>
+          <li>For US-based teams: watch the Anthropic console for any beta access emails in the July 1-8 window — if Anthropic is testing ID-gated restoration, early access will likely roll out to a subset of users before July 8 as a systems check; being on the early access list means staying active on Anthropic's developer forums and Discord</li>
+          <li>For non-US teams: the 'trusted partners' framework has no confirmed timeline — plan for Fable 5 to remain unavailable through Q3 2026 in your roadmap and evaluate GLM-5.2 or self-hosted open-weight models as the long-term alternative for international deployments</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>June 24 status confirmed: Fable 5 and Mythos 5 offline worldwide, day 12 — isfable5back.com real-time tracker, ExplainX</li>
+          <li>July 8 Anthropic privacy policy update requiring government ID + biometrics — The New Stack, ExplainX, PasqualePillitteri</li>
+          <li>Polymarket: 57% odds Fable 5 restored for US customers before July 1 — $1.1M+ in contracts staked</li>
+          <li>71% odds US government rescinds directive before August 1 — Polymarket Fable 5 ban contracts</li>
+          <li>August 1 hard deadline: 60-day EO requiring NSA/Treasury/CISA Covered Frontier Model framework completion</li>
+          <li>Coverage: ExplainX, The New Stack, PasqualePillitteri, ISFable5Back.com, TechTimes, Polymarket</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://explainx.ai/blog/is-fable-5-back-2026">ExplainX: Is Fable 5 Back? No — Status and Alternatives (June 23, 2026)</a></li>
+          <li><a href="https://pasqualepillitteri.it/en/news/5180/claude-fable-5-when-will-it-return">PasqualePillitteri: When Will Claude Fable 5 Return? The 48-Hour Rumor and the Facts</a></li>
+          <li><a href="https://thenewstack.io/fable-ban-open-weights/">The New Stack: Fable 5 Ban — 4 Open Models Responded Before Anthropic Could Restore Access</a></li>
+          <li><a href="https://polymarket.com/event/claude-fable-5-restored-for-us-customers-by-20260613193753196">Polymarket: Claude Fable 5 restored for US customers — live prediction market</a></li>
+          <li><a href="https://isfable5back.com/">ISFable5Back.com: Real-time access status tracker</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://openclaw.ai/">OpenClaw: 380K GitHub Stars — The Most Widely Deployed Self-Hosted AI Agent With Always-On Heartbeat, 22 Messaging Platforms, and MIT License</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenClaw is an open-source, self-hosted AI agent that runs continuously on your machine — not waiting for a prompt, but autonomously checking for pending tasks every 30 minutes via a heartbeat system. It connects any LLM (Claude, GPT, Gemini, DeepSeek, Grok, or fully local Ollama models) to your file system, shell, browser, and 22 messaging platforms including WhatsApp, Telegram, Slack, Discord, Signal, iMessage, Teams, and 14 others. Memory is stored in local Markdown files, persisting facts and preferences across sessions without a cloud dependency. As of June 2026, it has 380,000+ GitHub stars and 79,600 forks across 61,861 commits — making it the most widely adopted self-hosted AI agent framework. It was created by Austrian developer Peter Steinberger (who joined OpenAI in February 2026) and is now stewarded by the independently incorporated OpenClaw Foundation under MIT license.</p>
+      <div class="article-meta">
+        <span class="tag">OpenClaw</span>
+        <span class="tag">Self-Hosted AI</span>
+        <span class="tag">AI Agent</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">MIT License</span>
+        <span class="tag">Heartbeat</span>
+        <span class="tag">Multi-Platform</span>
+        <span class="tag">Personal Agent</span>
+        <span class="tag">Local AI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>OpenClaw occupies a category no other major tool currently fills: an always-on, self-hosted, multi-channel AI agent that runs on your infrastructure rather than in a cloud provider's UI. The 380K star count isn't just a popularity signal — it reflects adoption by a specific class of developer who wants an AI assistant that is private, persistent, and not locked into a single company's product decisions. The heartbeat system is the key architectural differentiator: instead of requiring a developer to open a chat interface and type a question, OpenClaw can receive a Slack message, process it while you're away from your desk, complete multi-step workflows (file edits, shell commands, web searches), and respond — all without manual invocation. This is the pattern that enterprise agent teams are building with LangGraph and CrewAI, but packaged in a tool that a solo developer can deploy in under an hour. The local Markdown memory is an important technical choice: OpenClaw's memory is portable, readable, version-controllable, and doesn't require a vector database. For teams evaluating personal agent infrastructure, the OpenClaw Foundation governance (independent of OpenAI after Steinberger joined) means the project isn't subject to an employer's product roadmap decisions — the MIT license and foundation structure are the sustainability mechanisms. The 22-platform messaging integration matrix is the widest of any self-hosted agent tool, which matters for teams whose workflows span multiple communication channels.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploy OpenClaw as a personal DevOps agent: configure it with your GitHub, Jira, and Slack credentials via MCP, set the heartbeat to check every 30 minutes, and route Slack messages with action-required tags to OpenClaw — it can create GitHub issues, update ticket statuses, run shell commands, and reply to Slack threads autonomously while you're in meetings or offline</li>
+          <li>Use OpenClaw's local Markdown memory for project-specific context persistence: create a project-context.md file in your OpenClaw memory directory with architectural decisions, API conventions, and style preferences; OpenClaw reads this before every session and applies it to code generation and review tasks — this is the simplest possible form of stateful agent memory with no vector DB required</li>
+          <li>Run OpenClaw with a fully local Ollama model for air-gapped environments: configure OpenClaw to use Ollama with GLM-5.2 quantized or Qwen3-Coder-Next as the backend; you get an always-on AI agent with zero external API calls, zero data exfiltration risk, and zero per-token cost — the complete self-hosted stack for sensitive environments</li>
+          <li>Wire OpenClaw into your incident response flow: give it access to your monitoring tools via MCP (Datadog, PagerDuty, Sentry), a Slack or Teams channel for alerts, and shell access to your infrastructure; when an alert fires, OpenClaw can correlate logs, run diagnostic commands, and post a structured diagnosis to your incident channel before an on-call engineer picks up their phone</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>380,000+ GitHub stars, 79,600 forks, 61,861 commits — confirmed on openclaw/openclaw GitHub repository</li>
+          <li>Most widely adopted self-hosted AI agent framework as of June 2026 — KDnuggets, DEV Community, Medium Data Science Collective</li>
+          <li>OpenClaw Foundation incorporated after Peter Steinberger joined OpenAI February 2026 — project governance independent of OpenAI</li>
+          <li>22 messaging platform integrations confirmed on openclaw.ai — WhatsApp, Telegram, Slack, Signal, iMessage, Discord, Teams, Matrix, and 14 others</li>
+          <li>Coverage: KDnuggets, DigitalOcean Resources, OpenClaw Foundation (clawdocs.org), DEV Community, Medium, AlphaMatch, Generect</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openclaw.ai/">OpenClaw: Personal AI Assistant — official site</a></li>
+          <li><a href="https://github.com/openclaw/openclaw">GitHub: openclaw/openclaw — 380K stars, source and releases</a></li>
+          <li><a href="https://www.kdnuggets.com/openclaw-explained-the-free-ai-agent-tool-going-viral-already-in-2026">KDnuggets: OpenClaw explained — the free AI agent tool going viral in 2026</a></li>
+          <li><a href="https://www.digitalocean.com/resources/articles/what-is-openclaw">DigitalOcean: What is OpenClaw? Your open-source AI assistant for 2026</a></li>
+          <li><a href="https://clawdocs.org/getting-started/introduction">OpenClaw Docs: Community documentation — getting started guide</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.com/github/spec-kit">GitHub Spec-Kit: From Vibe Coding to Spec-Driven AI Development — 30+ Agent Integrations, One Workflow to Rule Them All</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">GitHub Spec-Kit (github/spec-kit) is an open-source toolkit that structures AI-assisted development into a four-stage workflow: specify → plan → tasks → implement. The specify stage produces a plan.md, data-model.md, research.md, and quickstart.md from a natural-language description. The implement stage runs any connected coding agent against the task list. As of June 2026, Spec-Kit integrates with 30+ AI coding agents — including Claude Code, GitHub Copilot, Cursor, Gemini CLI, Windsurf, Amp, Codex CLI, Roo Code, Kilo Code, and OpenCode — and is model-agnostic at each stage. The project is developed by GitHub and documented at speckit.org. The key problem it solves: AI coding agents given an open-ended prompt drift, hallucinate requirements, and produce inconsistent implementations. Spec-Kit enforces a structured decision record before any code is written.</p>
+      <div class="article-meta">
+        <span class="tag">GitHub</span>
+        <span class="tag">Spec-Kit</span>
+        <span class="tag">Spec-Driven Development</span>
+        <span class="tag">AI Coding</span>
+        <span class="tag">Multi-Agent</span>
+        <span class="tag">Developer Workflow</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Code Quality</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Spec-Kit addresses the failure mode that is increasingly cited as the real bottleneck in AI-assisted development: not code generation speed, but the verification overhead of reviewing what agents produce when they work from vague prompts. The four-stage workflow shifts the AI's work upstream — instead of asking the agent to 'build a user authentication system,' Spec-Kit first asks the agent to produce a spec document that you review and approve before any code is written. This dramatically reduces the scope of verification: you review a two-page spec once, approve it, and then the agent implements against that contract. The 30+ agent integration matrix makes Spec-Kit model-agnostic: you can run specify with Claude Code, plan with Cursor, and implement with OpenCode — or use a single tool for all stages. This portability matters as the coding agent landscape continues to shift (Gemini CLI → Antigravity, OpenAI Codex deprecation cycles). The specify → plan → tasks → implement pattern is also the structure that enterprise software processes already use: writing a spec before coding is not a new idea, but Spec-Kit is the first tool to wire this into AI coding agent workflows as a first-class primitive. For teams struggling with agent drift in larger codebases, this is the structural fix that prompt engineering alone can't provide.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replace open-ended agent prompts with a Spec-Kit specify stage for every feature above 50 lines: run the specify CLI against your feature description, review the generated plan.md and data-model.md, edit for accuracy, then hand off the approved spec to your coding agent — this shifts the agent's first failure mode (misunderstanding requirements) to a reviewable document rather than a discovered bug</li>
+          <li>Use Spec-Kit's tasks stage to build verifiable checklists for multi-agent workflows: the tasks output is a structured checklist that each agent step can mark done as it completes — this gives you an audit trail of what was implemented and what remains, which is essential when a Claude Code session runs for 45 minutes and you need to understand its progress</li>
+          <li>Wire Spec-Kit into your GitHub PR template: run specify on each PR description to generate a data-model.md and quickstart.md as PR artifacts — reviewers can check the spec document against the diff, making PR review faster because the intent is explicit rather than inferred from code</li>
+          <li>Evaluate Spec-Kit for onboarding junior engineers to AI-assisted development: the specify → plan → tasks → implement workflow teaches the mental model of writing requirements before code, which is both a software engineering best practice and the skill that makes AI agent outputs more reliable — Spec-Kit makes this pattern enforced rather than aspirational</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>30+ AI coding agent integrations as of June 2026 — Claude Code, GitHub Copilot, Cursor, Gemini CLI, Windsurf, Amp, Codex CLI, Roo Code, Kilo Code, OpenCode</li>
+          <li>Published by GitHub (github/spec-kit) — first-party credibility from the GitHub team</li>
+          <li>Microsoft Developer Blog coverage on spec-driven development + Spec-Kit</li>
+          <li>MarkTechPost feature May 2026: 'Meet GitHub Spec-Kit: An Open Source Toolkit for Spec-Driven Development with AI Coding Agents'</li>
+          <li>Coverage: MarkTechPost, Microsoft Developer Blog, DEV Community, Augment Code, Knightli, RyWalker Research, AdrianHall</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/github/spec-kit">GitHub: github/spec-kit — open-source toolkit source and documentation</a></li>
+          <li><a href="https://speckit.org/">Spec-Kit: AI-Powered Specification-Driven Development Toolkit</a></li>
+          <li><a href="https://www.marktechpost.com/2026/05/08/meet-github-spec-kit-an-open-source-toolkit-for-spec-driven-development-with-ai-coding-agents/">MarkTechPost: Meet GitHub Spec-Kit — spec-driven development with AI coding agents</a></li>
+          <li><a href="https://developer.microsoft.com/blog/spec-driven-development-spec-kit">Microsoft Developer Blog: Diving Into Spec-Driven Development with GitHub Spec Kit</a></li>
+          <li><a href="https://dev.to/petersaktor/github-spec-kit-from-vibe-coding-to-spec-driven-development-1pgd">DEV Community: GitHub Spec-Kit — from vibe coding to spec-driven development</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://tenetsecurity.ai/blog/agentjacking-coding-agents-with-fake-sentry-errors/">Agentjacking: One Fake Sentry Error Hijacks Claude Code, Cursor, and Codex — 2,388 Organizations Exposed</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Tenet Security published research in June 2026 documenting 'agentjacking' — a novel attack class that exploits the intersection of Sentry's open event-ingestion architecture and the implicit trust model of MCP-connected AI coding agents. The attack requires only a Sentry DSN (Data Source Name) — a public, write-only credential discoverable in any browser's JavaScript source or via a one-line GitHub search. An attacker posts a malicious Sentry error event containing Markdown-injected shell commands. When a developer asks their AI coding agent to 'fix unresolved Sentry issues,' the agent fetches the event via the Sentry MCP server and executes the attacker-controlled commands with the developer's full system privileges. Tenet confirmed an 85% exploitation success rate against Claude Code, Cursor, and Codex in testing, and identified 2,388 organizations with injectable DSNs as of June 12, 2026 — 71 of which rank in the global Tranco top-1 million websites. Sentry added a content filter after disclosure on June 3 but characterized a root-cause fix as not feasible.</p>
+      <div class="article-meta">
+        <span class="tag">Agentjacking</span>
+        <span class="tag">Security</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Sentry</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">Codex</span>
+        <span class="tag">Prompt Injection</span>
+        <span class="tag">Supply Chain</span>
+        <span class="tag">Coding Agents</span>
+        <span class="tag">Tenet Security</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Agentjacking is the first disclosed attack class that exploits AI coding agent workflows specifically, and it is highly accessible: the attack requires no zero-day, no special access, and no exploit code beyond a crafted HTTP request to a public endpoint. The 'Authorized Intent Chain' is the reason traditional defenses fail — every action in the attack is technically authorized. The developer authorized the agent to access Sentry. The agent authorized the shell execution as part of its normal workflow. The Sentry MCP server returned real-looking error data. There is no anomaly for an EDR, WAF, or SIEM to catch. The 85% success rate across three major coding agents (Claude Code, Cursor, Codex) means this is not a narrow edge case — it reflects the default trust model that all three tools apply to MCP-connected data sources. The credentials that an agentjacking attack can extract are extremely high-value: AWS access keys, GitHub OAuth tokens, Kubernetes service account tokens, Sentry authentication tokens, and npm package registry credentials all live in a typical developer's environment. A successful attack does not just compromise the developer's machine — it can expose CI/CD pipelines, production cloud infrastructure, and private repositories. The immediate action for any team using Sentry MCP is to audit what permissions your coding agent has in your environment and whether Sentry MCP access should be gated behind an explicit confirmation prompt rather than automatic execution.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your Sentry MCP configuration for implicit-execution exposure: in Claude Code, Cursor, or Codex, check whether your Sentry MCP server is configured to allow the agent to fetch and act on error data without an explicit confirmation step — if your agent can read Sentry errors and execute code without a HITL checkpoint, you are exposed; add a confirmation prompt before any action triggered by fetched Sentry data</li>
+          <li>Search your public GitHub repositories for accidentally exposed Sentry DSNs: run a GitHub code search for your organization's Sentry organization slug combined with 'publicKey' or 'dsn' — if a DSN is in a public JavaScript bundle or a committed config file, rotate it immediately; Sentry DSNs are intentionally public by design, but rotating one that has been exposed removes the attack surface</li>
+          <li>Add a MCP server allowlist and block Sentry MCP from running unconfirmed shell commands: configure your coding agent to treat data from Sentry MCP as untrusted input — require explicit developer confirmation before any tool call that originates from a Sentry-fetched event; this is the same principle as requiring confirmation before 'git reset --hard' but applied to data-triggered actions</li>
+          <li>Brief your security team on the Authorized Intent Chain attack model: agentjacking bypasses all perimeter controls because every action is technically authorized — your security team's threat model almost certainly does not include 'attacker manipulates content in a monitoring tool that the AI agent then acts on'; update your threat model and run a tabletop exercise using the Tenet Security PoC as the scenario</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Tenet Security disclosure June 3, 2026 — Sentry acknowledged same day and added content filter</li>
+          <li>2,388 injectable organizations identified via GitHub DSN search — 71 in Tranco top-1M websites</li>
+          <li>85% exploitation success rate confirmed against Claude Code, Cursor, and Codex in testing</li>
+          <li>CSA Research Note published June 12, 2026 (labs.cloudsecurityalliance.org) — independent security community validation</li>
+          <li>Coverage: Tenet Security, The Hacker News, The New Stack, SC World, GBHackers, CyberPress, Infosecurity Magazine, Aviatrix Threat Research, Decryption Digest, Pinggy, Mallory AI, Vibe Graveyard, Saptang Labs</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://tenetsecurity.ai/blog/agentjacking-coding-agents-with-fake-sentry-errors/">Tenet Security: One Fake Bug Report Hijacked a $250B Company's AI Agent</a></li>
+          <li><a href="https://thenewstack.io/agentjacking-sentry-mcp-attack/">The New Stack: A public Sentry key is all it takes to hijack Claude Code, Cursor, and Codex</a></li>
+          <li><a href="https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html">The Hacker News: Agentjacking attack tricks AI coding agents into running malicious code</a></li>
+          <li><a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-agentjacking-mcp-sentry-injection-20260612/">CSA Research Note: Agentjacking — MCP Injection Hijacks AI Coding Agents</a></li>
+          <li><a href="https://saptanglabs.com/preempting-agentjacking-validating-mcp-trust-boundaries-in-ai-workflows/">Saptang Labs: Preempting Agentjacking — validating MCP trust boundaries in AI workflows</a></li>
+          <li><a href="https://www.decryptiondigest.com/blog/agentjacking-sentry-mcp-ai-coding-agent-attack">Decryption Digest: Agentjacking AI coding agent attack — 2,388 orgs exposed</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.databricks.com/blog/ai-governance-data-ai-summit-2026-whats-new-unity-ai-gateway">Databricks Unity AI Gateway: MCP Governance, Per-Agent Spend Caps, and Smart Routing for Enterprise AI Teams at Data+AI Summit 2026</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">At Data+AI Summit 2026 (June 15-18, Moscone, San Francisco, ~30,000 attendees), Databricks announced major new capabilities for Unity AI Gateway — the enterprise AI governance layer that sits between your agents and the model providers. New in June 2026: (1) Cost controls — hard spend caps per agent, smart routing that automatically balances quality and cost across 50+ model providers, and visibility into AI spend across disparate tools; (2) MCP governance — Unity AI Gateway now governs models, MCP servers, agents, and skills through Unity Catalog, with runtime policy enforcement for each; (3) Security ecosystem — integrations with CrowdStrike, Cyera, HiddenLayer, Netskope, Noma Security, Obsidian Security, Openlayer, and Palo Alto Networks for AI threat detection and data protection; (4) Identity governance — integrations with Okta, Ping Identity, SailPoint, and Saviynt. OpenAI GPT-5.5 and Codex are also now available on Databricks, governed through Unity AI Gateway.</p>
+      <div class="article-meta">
+        <span class="tag">Databricks</span>
+        <span class="tag">Unity AI Gateway</span>
+        <span class="tag">AI Governance</span>
+        <span class="tag">MCP Governance</span>
+        <span class="tag">Enterprise AI</span>
+        <span class="tag">Cost Controls</span>
+        <span class="tag">Model Routing</span>
+        <span class="tag">Security</span>
+        <span class="tag">Data+AI Summit</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Enterprise AI teams deploying agents at scale face two governance problems that general-purpose observability tools don't solve: (1) cost attribution and enforcement — when 50 agents across 10 teams are all calling the same model endpoints, you need spend caps per agent and automatic routing to cheaper models when caps are approached; (2) MCP security — as MCP server deployments grow, each server represents a trust boundary that can be exploited (see: Agentjacking in this issue). Unity AI Gateway is the first enterprise-grade platform to treat MCP servers as governed infrastructure assets, not just configuration files. The security ecosystem integrations are the most strategically significant announcement: by integrating with CrowdStrike and Palo Alto Networks, Databricks is positioning Unity AI Gateway as the control plane for enterprise AI security — the layer where prompt injection attacks, model abuse, and AI-specific threats are detected and blocked. For teams already on the Databricks platform, these capabilities land without requiring separate infrastructure. For teams evaluating enterprise AI governance platforms, the key differentiator versus Langfuse (observability-focused) or custom routing layers is that Unity AI Gateway combines governance, security, and cost controls in a single managed service backed by the Unity Catalog lineage layer.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Set per-agent spend caps before deploying the next batch of production agents: Unity AI Gateway's hard spend cap feature lets you define a monthly token budget per agent or per team — configure this before scaling, not after your first billing surprise; pair it with smart routing to automatically fall back to cheaper models when an agent approaches its cap rather than hard-stopping it</li>
+          <li>Register your production MCP servers in Unity Catalog to enable runtime governance: once an MCP server is registered, Unity AI Gateway can enforce policies on which agents can call it, under what conditions, and with what data filtering — this is the governance layer that prevents an Agentjacking-style exploit from an unregistered MCP server from propagating across your entire agent fleet</li>
+          <li>Use Unity AI Gateway's smart routing to automatically run GLM-5.2 or DeepSeek V4-Flash for classification and summarization tasks while reserving GPT-5.5 or Opus 4.8 for code generation and analysis: configure routing rules by task type and cost threshold — the smart routing engine will select the cheapest model that meets your quality threshold for each call</li>
+          <li>Integrate HiddenLayer or Noma Security for model behavior monitoring: these Unity AI Gateway partners monitor model inputs and outputs in real-time for anomalies consistent with jailbreaks, prompt injection, or model abuse — wire them into your production agent pipelines to detect the patterns that traditional application security tools miss</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Data+AI Summit 2026 announcement June 15-18 — 30,000 attendees at Moscone, San Francisco</li>
+          <li>OpenAI GPT-5.5 and Codex now available on Databricks via Unity AI Gateway — confirmed Databricks Blog</li>
+          <li>Security partner ecosystem: CrowdStrike, Palo Alto Networks, Okta, Zscaler, HiddenLayer, Noma Security — all confirmed integrations</li>
+          <li>Unity AI Gateway product page live — databricks.com/product/artificial-intelligence/unity-ai-gateway</li>
+          <li>Coverage: Databricks Blog (3 separate posts), Atlan, Qubika, AIBucket.io, Wokeey</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.databricks.com/blog/ai-governance-data-ai-summit-2026-whats-new-unity-ai-gateway">Databricks Blog: AI governance at Data+AI Summit 2026 — what's new with Unity AI Gateway</a></li>
+          <li><a href="https://www.databricks.com/blog/building-open-ecosystem-ai-governance-unity-ai-gateway">Databricks Blog: Building an open ecosystem for AI governance with Unity AI Gateway</a></li>
+          <li><a href="https://www.databricks.com/blog/openai-gpt-55-now-available-databricks-fully-governed-through-unity-ai-gateway">Databricks Blog: OpenAI GPT-5.5 and Codex now available on Databricks, governed through Unity AI Gateway</a></li>
+          <li><a href="https://atlan.com/know/ai-agent/databricks/databricks-data-ai-summit-2026-announcements/">Atlan: Databricks Data+AI Summit 2026 — key announcements recap</a></li>
+          <li><a href="https://docs.databricks.com/aws/en/ai-gateway/">Databricks Docs: Unity AI Gateway — AWS documentation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://www.requesty.ai/blog/ai-agent-cost-optimization-how-to-cut-llm-spend-by-80-percent-with-routing">Model Routing in 2026: How Production Teams Are Cutting LLM Spend 60-86% Without Sacrificing Quality</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">With Fable 5 paywall starting June 23 and GitHub Copilot billing shock driving 10x-50x cost increases on agentic workflows, model routing has become the highest-leverage cost engineering technique in production AI. The core strategy: send easy tasks to cheap models ($0.30-3/M tokens) and complex tasks to frontier models ($10-50/M). Teams that have implemented tuned routing layers report 60-86% total cost reductions without detectable quality regressions. A specific benchmark: routing 70% of traffic to Flash-class models ($0.30/M), 20% to mid-tier ($3/M), and reserving 10% for frontier ($15/M) drops average cost from $15 to $2.10 per million tokens — an 86% reduction. Combined with prompt caching (40-90% savings on input tokens) and context window management (30-60% savings), production teams are achieving 60-80% total cost reduction. Tools implementing routing today: LiteLLM (open-source proxy), Requesty.ai (routing API), Portkey (gateway with routing), and Databricks Unity AI Gateway (enterprise).</p>
+      <div class="article-meta">
+        <span class="tag">Model Routing</span>
+        <span class="tag">LLM Cost Optimization</span>
+        <span class="tag">LiteLLM</span>
+        <span class="tag">Prompt Caching</span>
+        <span class="tag">Production AI</span>
+        <span class="tag">AI Cost</span>
+        <span class="tag">Agent Infrastructure</span>
+        <span class="tag">Budget Management</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Model routing has moved from a cost optimization technique to a production necessity following June 2026's billing events. The Fable 5 paywall at $50/M output tokens and GitHub Copilot's move to token-based AI Credits have broken the 'unlimited frontier model' assumption that most agent architectures were built on. Teams that built their agent stacks assuming flat subscription pricing are now discovering that their per-task costs were never visible to them before. The practical implication: if your agent currently sends every task to the same model, you are almost certainly overpaying by 3-10x. Most production workloads contain a natural mix of easy tasks (classification, summarization, structured extraction) and hard tasks (code generation, multi-step reasoning, complex debugging). The easy tasks should not be going to GPT-5.5 or Opus 4.8. Routing logic does not have to be complex to be effective: even a simple rule ('if the input is under 500 tokens and the task type is extraction, use Haiku 4.5') can cut your bill by 30-40% with no quality regression on those task types. The more sophisticated implementations use a lightweight routing model that classifies task complexity and selects the appropriate tier in under 10ms — adding negligible latency while reducing cost by 60-80%.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Implement a 3-tier routing rule in your LLM client today without tooling: classify tasks by type — (1) fast/cheap: classification, extraction, summarization, Q&A → route to Haiku 4.5 or Flash; (2) standard: code completion, review, moderate analysis → route to Sonnet 4.6 or equivalent; (3) frontier: architectural refactors, complex debugging, multi-file agentic work → route to Opus 4.8 or GPT-5.5; this single change cuts average cost 40-60% with no new tooling</li>
+          <li>Add prompt caching for repeated context in agentic workflows: if your agents prefix every call with the same system prompt, code context, or documentation excerpt, enable Anthropic or OpenAI prompt caching (40-90% savings on cached input tokens) — for agents that make 20+ sequential calls with a shared context, caching turns every call after the first into a dramatically cheaper cached hit</li>
+          <li>Use LiteLLM (30K+ stars, MIT) as a routing proxy in front of your existing LLM calls: LiteLLM provides a drop-in OpenAI-compatible endpoint that routes to any provider; configure routing rules in a YAML file, add fallback providers for resilience, and enable cost tracking by model — you get routing, cost attribution, and provider fallback in a single self-hosted proxy without changing your application code</li>
+          <li>Audit your top 10 highest-cost agent workflows and bucket them by task complexity: pull your last 30 days of API usage from Anthropic or OpenAI console, identify the 5 workflows consuming the most tokens, and assess for each whether frontier-model quality is actually required; for each workflow where mid-tier quality is acceptable, route to the cheaper model and measure quality regression on a 100-task sample before committing to production</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Teams report 60-86% cost reduction with model routing — Requesty.ai blog, NiteAgent, Paxrel, Moltbook-AI, AI-AgentsPlus</li>
+          <li>86% example: routing 70% traffic to Flash at $0.30/M, 20% to Sonnet at $3/M, 10% to Opus at $15/M reduces average cost from $15 to $2.10/M</li>
+          <li>LiteLLM (open-source LLM proxy): 30K+ GitHub stars, widely adopted for routing and cost management</li>
+          <li>Fable 5 ($50/M output) + Copilot billing shock (June 1) create immediate urgency for cost optimization in June 2026</li>
+          <li>Coverage: Requesty.ai, DigitalApplied, NiteAgent, Paxrel, Moltbook-AI, TrueFoundry, AI-AgentsPlus, Taskade</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.requesty.ai/blog/ai-agent-cost-optimization-how-to-cut-llm-spend-by-80-percent-with-routing">Requesty.ai: AI agent cost optimization — how to cut LLM spend by 80% with routing</a></li>
+          <li><a href="https://www.digitalapplied.com/blog/llm-model-routing-2026-cost-quality-optimization-engineering-guide">DigitalApplied: LLM model routing in 2026 — cost-quality optimization engineering guide</a></li>
+          <li><a href="https://niteagent.com/blog/ai-agent-cost-optimization-2026/">NiteAgent: AI agent cost optimization in 2026 — how to cut token spend by 60%</a></li>
+          <li><a href="https://www.truefoundry.com/blog/ai-cost-optimization-strategies">TrueFoundry: AI cost optimization strategies 2026 — a practical guide</a></li>
+          <li><a href="https://paxrel.com/blog-ai-agent-cost-optimization">Paxrel: AI agent cost optimization — how to cut your LLM bill by 80%</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
