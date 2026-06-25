@@ -1,0 +1,272 @@
+{
+  "highlights": [
+    {"text": "GPT-5.6 stalls in its own launch window — Day 3 of the predicted June 22–28 window with no API page, system card, or announcement from OpenAI; $1.1M in Polymarket contracts at 83% odds now looking shaky", "anchor": "ai-tools-and-models-0"},
+    {"text": "Netflix Headroom hits 39K GitHub stars: the open-source local proxy that compresses LLM context 60-95% before the first API call has saved users an estimated $700K and 200 billion tokens since January", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Cursor Bugbot now 3x faster and 22% cheaper: 90% of runs finish under 3 minutes, /review before push is live, and Composer 2.5 is now the engine powering Bugbot in Cursor 3.7+", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Qwen3.6-35B-A3B: Alibaba's Apache 2.0 MoE with only 3B active parameters scores 73.4% SWE-bench Verified and runs quantized on a 24GB Mac — the strongest laptop-scale coding model available", "anchor": "ai-tools-and-models-1"},
+    {"text": "MLflow publishes the 2026 production AI agent architecture guide: modular multi-agent design, span-based tracing with per-call cost metadata, LLM-as-a-Judge evaluation, and drift detection closing the feedback loop", "anchor": "infrastructure-and-production-0"},
+    {"text": "AI production monitoring has crystallized into three layers — infrastructure metrics, LLM telemetry, and quality evaluation — and teams stopping at layer 2 are blind to the quality drift killing user trust", "anchor": "infrastructure-and-production-1"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "GPT-5.6 Stalls Inside Its Own Launch Window: Day 3, No API Page — What's Confirmed and What Engineers Should Do While Waiting",
+          "url": "https://www.techtimes.com/articles/318799/20260621/gpt-56-launch-window-starts-monday-alignment-fix-15m-token-context-inside.htm",
+          "tldr": "As of June 25, three days into the predicted June 22–28 launch window for GPT-5.6 (codename kindle-alpha), OpenAI has published no announcement, API model page, system card, or ChatGPT changelog entry. Polymarket placed $1.1M in contracts at 83% odds for a launch within this window; those odds are now under pressure. What is confirmed from OpenAI's chief scientist: GPT-5.6 is 'a meaningful leap' over GPT-5.5. What is not confirmed: the 1.5M-token context window, Codex UltraFast performance improvements, alignment pipeline redesign, or pricing — all of these come from leaked benchmarks and community reverse-engineering of staging environments, not official sources. GPT-5.5 launched on April 23, 2026, with a 1M-token context and 82.7% Terminal-Bench 2.0. The window closes June 28.",
+          "why_it_matters": "For engineering teams, the practical implication of a delayed GPT-5.6 is straightforward: any architectural decisions that were waiting on a 1.5M-context window or improved alignment should continue with GPT-5.5 workflows and the cost optimization levers already available (Batch/Flex modes at 50% off, prompt caching at 75-90% off, 272K billing cliff awareness). The delay also strengthens the case for model-agnostic routing — teams that built hard dependencies on 'when GPT-5.6 ships' as a trigger point are discovering that OpenAI's release cadence is unpredictable enough that architecture should not be gated on it. The most actionable stance: treat GPT-5.5 as the production-stable OpenAI foundation model for the next 4-6 weeks regardless of when 5.6 lands, since even after announcement there will be a 2-4 week API maturation period before you want to route production traffic to a new model.",
+          "traction": "high",
+          "traction_evidence": [
+            "$1.1M in Polymarket contracts staked at 83% odds for June 22–28 launch window",
+            "OpenAI chief scientist confirmed 'a meaningful leap' over GPT-5.5 — the only official signal",
+            "TechTimes, eWeek, andrew.ooo, and WowHow all reporting June 22–28 as launch window based on leaked staging logs",
+            "No API page, system card, or OpenAI changelog entry as of June 25 — confirmed unannounced"
+          ],
+          "use_cases": [
+            "Lock in GPT-5.5 Batch/Flex mode for non-latency-sensitive workloads (50% discount) while the 5.6 window plays out — this is the most immediate cost lever regardless of 5.6's timing",
+            "Build model-routing logic that can switch between GPT-5.5 and GPT-5.6 on a flag rather than a hard cutover — this lets you A/B test quality on your actual workloads the day 5.6 lands without re-architecting",
+            "Monitor openai.com/index/ and the OpenAI changelog rather than community rumor sites — the official announcement is the only reliable trigger for planning a migration",
+            "Evaluate whether the rumored 1.5M context window is actually your bottleneck: if your current workloads run comfortably inside 400K tokens, GPT-5.6's context expansion changes nothing for you and the alignment fix is the more relevant upgrade"
+          ],
+          "tags": ["OpenAI", "GPT-5.6", "LLM", "API", "Context Window"],
+          "links": [
+            {"url": "https://www.techtimes.com/articles/318799/20260621/gpt-56-launch-window-starts-monday-alignment-fix-15m-token-context-inside.htm", "label": "TechTimes: GPT-5.6 Launch Window Starts Monday — Alignment Fix and 1.5M Token Context Inside"},
+            {"url": "https://chatforest.com/builders-log/openai-gpt-5-6-june-2026-pre-release-builder-guide/", "label": "ChatForest: GPT-5.6 Builder Guide — What to Watch Before the June 22–28 Launch Window"},
+            {"url": "https://wowhow.cloud/blogs/gpt-5-6-release-date-features-developer-guide-june-2026", "label": "WowHow: GPT-5.6 Preview — 1.5M Context, Agentic-First Design, Codex UltraFast"},
+            {"url": "https://releasebot.io/updates/openai", "label": "Releasebot: OpenAI Release Notes — June 2026 Latest Updates (real-time tracker)"},
+            {"url": "https://andrew.ooo/answers/what-is-gpt-5-6-release-june-2026/", "label": "andrew.ooo: What Is GPT-5.6? OpenAI's June 2026 Release Explained"}
+          ]
+        },
+        {
+          "title": "Qwen3.6-35B-A3B: Alibaba's Laptop-Scale Apache 2.0 Coding MoE Scores 73.4% SWE-Bench Verified — The Strongest Open-Weight Model That Runs on a 24GB Mac",
+          "url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
+          "tldr": "Alibaba's Qwen3.6-35B-A3B is a 35B Mixture-of-Experts model with only 3B active parameters per token — meaning it behaves like a 3B model at inference time while drawing on a 35B parameter pool. Released April 16, 2026, under Apache 2.0, it scores 73.4% on SWE-bench Verified and runs quantized in approximately 21GB of RAM, making it compatible with 24GB Mac configurations via GGUF and Ollama. It has a 262K-token context window, outperforms Gemma 4 26B-A4B on coding by 21 points in independent testing, and is the first open-weight model in the Qwen 3.6 generation. Weights are on Hugging Face and the model runs via Ollama at `ollama pull qwen3-coder`.",
+          "why_it_matters": "Qwen3.6-35B-A3B fills a specific gap: a coding-optimized open-weight model that any developer can run locally on a modern MacBook Pro or a mid-range workstation without a GPU cluster, while still hitting benchmark numbers that were frontier-only six months ago. The 3B active parameter design means inference latency is closer to a 3B model than a 35B model — fast enough for interactive coding workflows, not just batch evaluation. For teams with compliance constraints that prohibit sending code to external APIs, this is the strongest private inference option available at this compute level. The Apache 2.0 license permits commercial fine-tuning and redistribution with no attribution requirements — unlike Qwen3-Coder 480B (which is Apache 2.0 but requires serious hardware to run), this model is actually deployable on commodity infrastructure. The primary caveat: the 73.4% SWE-bench Verified score uses Alibaba's internal scaffold, which is not the standard public harness, making direct comparison to other labs' published numbers uncertain — independent benchmarks place it somewhat lower but still ahead of models in its compute class.",
+          "traction": "medium",
+          "traction_evidence": [
+            "Apache 2.0 license, weights on Hugging Face (Qwen/Qwen3.6-35B-A3B) — runs via Ollama with `ollama pull qwen3-coder`",
+            "73.4% SWE-bench Verified, beats Gemma 4 26B-A4B on coding by 21 points (Towards AI, April 2026)",
+            "262K context window, ~21GB quantized — compatible with 24GB Mac without GPU",
+            "First open-weight model in the Qwen 3.6 generation; Qwen 3.6 Plus (closed, cloud-only) scores 78.8% SWE-bench Verified"
+          ],
+          "use_cases": [
+            "Run qwen3-coder via Ollama locally as a private fallback when Claude Code or Cursor isn't available or when working with proprietary code you can't send to external APIs",
+            "Fine-tune on your internal codebase under Apache 2.0: the model's architecture and license both permit commercial fine-tuning and redistribution, making it suitable for building custom code review or completion models on proprietary repos",
+            "Use the 262K context window for repository-scale analysis on medium-sized codebases without a retrieval pipeline — ingest an entire service's source at once for refactoring or architecture questions",
+            "Benchmark against GPT-5.5 on your actual coding tasks using your existing test suite: the SWE-bench gap between this model and frontier closed models is meaningful, but on real-world tasks with your codebase the gap may be smaller than benchmarks suggest"
+          ],
+          "tags": ["Alibaba", "Qwen", "Open Source", "Apache 2.0", "MoE", "Local LLM", "Coding", "SWE-bench"],
+          "links": [
+            {"url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B", "label": "Hugging Face: Qwen/Qwen3.6-35B-A3B — model weights and documentation"},
+            {"url": "https://ollama.com/library/qwen3-coder", "label": "Ollama: qwen3-coder — pull and run locally"},
+            {"url": "https://qwen.ai/blog?id=qwen3.6-35b-a3b", "label": "Qwen Studio: Qwen3.6-35B-A3B release blog"},
+            {"url": "https://www.buildfastwithai.com/blogs/qwen3-6-35b-a3b-review", "label": "BuildFastWithAI: Qwen3.6-35B-A3B — 73.4% SWE-bench, Runs Locally"},
+            {"url": "https://pub.towardsai.net/i-tested-alibaba-qwen3-6-35b-a3b-30cc4658a382", "label": "Towards AI: Qwen3.6-35B-A3B vs Gemma 4 26B — Smaller-Active Model Won Coding by 21 Points"}
+          ]
+        },
+        {
+          "title": "Claude Code + Cursor + Codex Are Converging Into One Stack — And Teams Using All Three Are Outperforming Teams Picking Just One",
+          "url": "https://thenewstack.io/ai-coding-tool-stack/",
+          "tldr": "A new The New Stack analysis finds that in mid-2026, engineering teams are no longer choosing a single AI coding tool — they're running a three-tool stack where each tool occupies a different job. Claude Code owns complex reasoning, long refactors, and multi-file architectural work where context depth matters most. Cursor owns IDE-integrated flow: autocomplete, in-line edits, Bugbot PR review, and the new Design Mode. Codex owns CI/batch work: running in GitHub Actions, generating test suites, and handling scheduled autonomous jobs. The convergence is happening at the infrastructure layer — MCP servers, shared codebase context, and common LLM APIs mean all three tools can access the same underlying intelligence, but each tool's harness, UX, and pricing model is optimized for a different latency and context pattern.",
+          "why_it_matters": "The three-tool stack observation has direct budget implications: a single AI coding license rarely covers all three job categories, and teams that route all work through one tool are either paying too much for simple tasks (if they use Claude Code for autocomplete) or missing quality on complex tasks (if they use Cursor for large refactors). The LogRocket power rankings confirm the fragmentation: Claude Code leads at enterprise teams doing complex architecture work (75% adoption at small companies), while GitHub Copilot dominates at large enterprises for compliance reasons, and Cursor leads for IDE-native developers who want speed over depth. The practical design principle: budget your AI coding investment across three categories — interactive reasoning (Claude Code or equivalent), in-flow IDE assistance (Cursor), and background/batch processing (Codex or equivalent API calls). The per-category cost optimization is dramatically different: background Codex tasks use Batch API at 50% off; Cursor's flat subscription covers unlimited autocomplete; Claude Code consumption billing scales with task complexity.",
+          "traction": "medium",
+          "traction_evidence": [
+            "The New Stack analysis based on LogRocket power rankings covering 906 Pragmatic Engineer survey respondents",
+            "Claude Code: 46% 'most loved' in February 2026 survey, #1 at companies under 50 engineers (75%)",
+            "Cursor 3.7: Agents Window, Bugbot, Design Mode — interface optimized for multi-tool workflow management",
+            "Codex + GPT-5.5: 83.4% Terminal-Bench 2.1, #1 for batch CI coding tasks"
+          ],
+          "use_cases": [
+            "Audit your team's current AI tool usage by job type: are you routing complex multi-file refactors to Claude Code or to Cursor? The quality gap between them for tasks over 5K tokens is significant enough to justify the routing overhead",
+            "Set up Codex in GitHub Actions for CI-triggered autonomous coding tasks (test generation, dependency updates, documentation sync) where you pay per-task rather than a flat subscription, making it the cheapest option for scheduled batch work",
+            "Use Cursor's Bugbot for PR review instead of triggering Claude Code for every review — Bugbot is specialized, 3x faster after the June 10 update, and costs significantly less per review than a Claude Code session",
+            "Design your MCP server configuration once and share it across all three tools: Claude Code, Cursor, and Codex all read from the same MCP server registry, so your internal tool integrations (database schemas, API specs, internal docs) only need to be wired up once"
+          ],
+          "tags": ["Claude Code", "Cursor", "Codex", "DevTools", "Workflow", "AI Coding Stack"],
+          "links": [
+            {"url": "https://thenewstack.io/ai-coding-tool-stack/", "label": "The New Stack: Cursor, Claude Code, and Codex Are Merging Into One AI Coding Stack Nobody Planned"},
+            {"url": "https://blog.logrocket.com/ai-dev-tool-power-rankings/", "label": "LogRocket: AI Dev Tool Power Rankings — June 2026"},
+            {"url": "https://newsletter.pragmaticengineer.com/p/ai-tooling-2026", "label": "Pragmatic Engineer: AI Tooling for Software Engineers in 2026"},
+            {"url": "https://www.morphllm.com/best-ai-coding-agents-2026", "label": "MorphLLM: Best AI Coding Agents June 2026 — Scored Leaderboard"},
+            {"url": "https://dev.to/danishashko/the-best-llms-for-agentic-coding-in-2026-real-world-not-just-benchmarks-96n", "label": "DEV Community: The Best LLMs for Agentic Coding in 2026 — Real-World Results"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Netflix Headroom: The Open-Source LLM Token Compressor with 39K Stars That Cuts API Bills 60-95% as a Local Proxy — $700K Saved, Apache 2.0",
+          "url": "https://letsdatascience.com/news/netflix-engineer-open-sources-headroom-to-cut-ai-token-costs-8f10c68d",
+          "tldr": "Netflix senior engineer Tejas Chopra open-sourced Headroom in January 2026, a local proxy server that compresses LLM context before it reaches any model API — meaning Headroom runs on your machine and the model API sees a much smaller (but semantically equivalent) prompt. Since launch, it has saved users an estimated $700K and recovered 200 billion tokens, and the GitHub repository sits at 39,000-40,000 stars. The compression techniques target the highest-volume context sources in agentic workflows: server logs are compressed by up to 90%, redundant JSON by up to 70%, and MCP tool outputs, file trees, documentation chunks, and DOM content by varying rates. The tool is available as a Python package, npm package, Docker image, and a Hugging Face model for its local text compression engine. Current version: 0.22, Apache 2.0 license.",
+          "why_it_matters": "Headroom targets the token waste that engineers rarely measure directly but that accounts for a large share of production AI bills: structured outputs that are verbose by nature (server logs, JSON responses, MCP tool results) getting passed into LLM context at full length because no middleware was trimming them. With AI token costs hitting $2,000/engineer/month at large companies — and engineering teams running Claude Code, Cursor, or Codex against real codebases that generate MCP outputs in the tens of thousands of tokens — a lossless-accuracy compression layer between the agent harness and the model API is one of the highest-leverage cost levers available without changing models or architectures. The proxy design means Headroom is model-agnostic: it works between your agent and Claude, GPT-5.5, Gemini, or any OpenAI-compatible endpoint without changes to your application code. The local-only execution means no data leaves your machine before the (compressed) request reaches the model provider. The 60-95% range reflects real variance by content type: the gains on server logs (90%) are much larger than on code (which is already compact), so the ROI depends heavily on your workload mix. Teams using MCP servers that return large tool outputs — database query results, file tree expansions, API response dumps — will see the largest gains.",
+          "traction": "high",
+          "traction_evidence": [
+            "39,000-40,000 GitHub stars as of June 2026, climbing — one of the fastest-growing AI engineering tools this year",
+            "$700K in estimated user savings since January 2026, 200 billion tokens recovered",
+            "Apache 2.0 license — Python package, npm, Docker image, and Hugging Face model for local compression engine",
+            "Featured in Open Source For You, The Register, AI Weekly, LetsDatScience, pbxscience, Dealroom, and One-Man-Company as a viral hot repo",
+            "Version 0.22 — actively maintained with CacheAligner, AST compression, JSON compression, DOM compression, and CCR (Compress Cache and Retrieve) techniques"
+          ],
+          "use_cases": [
+            "Drop Headroom in as a local proxy between your Claude Code session and the Anthropic API — point the ANTHROPIC_BASE_URL to localhost:8080 (Headroom's default port) and your MCP tool outputs, file reads, and shell command outputs are compressed before billing",
+            "Compress CI/CD pipeline logs before passing them to an LLM for analysis: server logs compress by up to 90% under Headroom, meaning a 100K-token log analysis becomes a 10K-token call — a 90% cost reduction with no accuracy loss on log parsing tasks",
+            "Install as an npm proxy for JavaScript agent frameworks (LangChain, Mastra, OpenCode) that use the OpenAI-compatible API format — works without changing application code by intercepting the HTTP request between your agent and the model provider",
+            "Evaluate which context sources in your production agent generate the most token waste: instrument your Headroom proxy to log compression ratios by source type, then prioritize fixing the highest-ratio sources (usually JSON responses and file tree expansions)"
+          ],
+          "tags": ["Netflix", "Open Source", "Token Compression", "LLM Cost", "Apache 2.0", "DevTools", "Proxy"],
+          "links": [
+            {"url": "https://letsdatascience.com/news/netflix-engineer-open-sources-headroom-to-cut-ai-token-costs-8f10c68d", "label": "Let's Data Science: Netflix Engineer Open-Sources Headroom to Cut AI Token Costs"},
+            {"url": "https://aiweekly.co/alerts/netflix-headroom-proxy-cuts-llm-api-bills-by-90", "label": "AI Weekly: Netflix Headroom Proxy Cuts LLM API Bills by 90%"},
+            {"url": "https://www.theregister.com/ai-ml/2026/05/31/netflix-wiz-creates-app-to-slash-ai-bills-then-open-sources-it/5248702", "label": "The Register: Netflix Wiz Creates App to Slash AI Bills, Then Open-Sources It"},
+            {"url": "https://andrew.ooo/posts/headroom-context-compression-llm-agents-review/", "label": "andrew.ooo: Headroom Review — 60-95% LLM Token Compression (2026)"},
+            {"url": "https://www.opensourceforu.com/2026/06/netflix-engineer-open-sources-ai-cost-cutting-tool/", "label": "Open Source For You: Netflix Engineer Open-Sources AI Cost-Cutting Tool"},
+            {"url": "https://news.one-man-company.com/news/hot-repo-headroom-token-compression", "label": "OMC News: Hot Repo — Netflix's $700K Token-Saver Just Went Open Source"}
+          ]
+        },
+        {
+          "title": "Cursor Bugbot Now 3x Faster and 22% Cheaper: /review Before Push Ships in Cursor 3.7, Composer 2.5 Cuts Average Review to 90 Seconds",
+          "url": "https://cursor.com/blog/bugbot-updates-june-2026",
+          "tldr": "Cursor released a major Bugbot upgrade on June 10, 2026, available in Cursor 3.7+. The changes: average review time dropped from approximately 5 minutes to approximately 90 seconds, with 90% of runs now completing in under 3 minutes. Cost dropped 22%. Bug detection rate improved 10%. Two new capabilities landed alongside the speed improvements: /review lets you run Bugbot and Security Review in the same command before pushing (previously only available post-push via GitHub/GitLab integration), and incremental review mode lets Bugbot review only changes since the last review rather than the full diff. The performance gains come from Composer 2.5, a model trained specifically on Bugbot data that now powers all Bugbot reviews. The update is live at cursor.com/agents and available via CLI (with full CLI support coming shortly).",
+          "why_it_matters": "The shift from 5-minute to 90-second average review time changes Bugbot's ergonomics from 'background task you start and forget' to 'fast enough to block your push flow.' That's a different workflow: teams can now use /review as a pre-push gate similar to `npm test` rather than as an async check that reports in later. The /review command's ability to run Bugbot and Security Review together is particularly useful for teams that want code quality and security signals in a single pass rather than two separate agent invocations. The 22% cost reduction compounds on the speed improvement — faster reviews running in shorter sessions means less compute consumption per PR, which matters for teams where Bugbot is running on every developer's commits. The Composer 2.5 improvement is notable because it shows Cursor's model training flywheel working: more Bugbot usage generates better training data, which produces a faster and more accurate model, which makes Bugbot more attractive to use. For engineering teams evaluating whether to adopt Bugbot over manual PR review processes or external tools like CodeRabbit or GitHub Copilot code review, the June 10 update shifts the quality-to-cost ratio significantly in Bugbot's favor.",
+          "traction": "high",
+          "traction_evidence": [
+            "Released June 10, 2026 in Cursor 3.7+ — live at cursor.com/agents",
+            "90% of Bugbot runs finish in under 3 minutes (down from ~5 minutes average) — 3x throughput improvement",
+            "22% cost reduction per review, 10% more bugs found per pass — both from Composer 2.5 model improvements",
+            "/review command now integrates Bugbot + Security Review before push, syncing with GitHub and GitLab",
+            "Forum post: 'Bugbot is now 3x faster' — 162,980 thread ID on forum.cursor.com"
+          ],
+          "use_cases": [
+            "Add /review to your Cursor workflow as a pre-push step: with 90-second average completion, it fits inside the time you'd spend writing a commit message and switching to GitHub to open a PR",
+            "Use incremental review mode on large long-lived branches: configure Bugbot to review only commits since the last review pass, keeping feedback focused on your latest changes rather than re-litigating earlier reviewed code",
+            "Route /review-security separately from /review-bugbot when you want targeted scans: the split commands give you the option to run security review on files touching auth or data handling while running Bugbot on the full diff",
+            "Evaluate Bugbot vs. CodeRabbit or Copilot code review on a 2-week trial: pick 20 real PRs from your backlog, run all three reviewers, and measure bugs caught vs. false positive rate — the June 10 improvements make Bugbot competitive enough that the comparison is no longer one-sided"
+          ],
+          "tags": ["Cursor", "Bugbot", "Code Review", "AI Agents", "DevTools", "PR Review"],
+          "links": [
+            {"url": "https://cursor.com/blog/bugbot-updates-june-2026", "label": "Cursor Blog: Bugbot Is Now Over 3x Faster, 22% Cheaper, and Finds 10% More Bugs"},
+            {"url": "https://www.digitalapplied.com/blog/cursor-bugbot-90-second-reviews-june-2026-release", "label": "DigitalApplied: Cursor Bugbot Reviews in 90 Seconds — The June Update"},
+            {"url": "https://forum.cursor.com/t/bugbot-is-now-3x-faster/162980", "label": "Cursor Community Forum: Bugbot Is Now 3x Faster (announcement thread)"},
+            {"url": "https://releasebot.io/updates/cursor", "label": "Releasebot: Cursor Release Notes — June 2026 Latest Updates"},
+            {"url": "https://cursor.com/changelog", "label": "Cursor Changelog: What's New — Latest Updates and Release Notes"}
+          ]
+        },
+        {
+          "title": "LangGraph 0.4 vs. CrewAI 0.105 in 2026: The JetBrains Decision Guide After Both April Updates",
+          "url": "https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/",
+          "tldr": "LangGraph 0.4 (April 2026) sharpened state persistence, HITL checkpoint controls, and streaming APIs, cementing it as the production standard for stateful, auditable agentic workflows. CrewAI 0.105 (March 2026) added enterprise observability dashboards and built-in scheduling, making it viable for teams that need structured role-based agents with production monitoring. JetBrains published a June 2026 guide identifying the core split: LangGraph wins on production control (cycles, branching, retries, human approval gates, crash recovery), while CrewAI wins on prototype speed (a working multi-agent demo in 2-4 hours, role-based modeling that maps directly to business processes). The guide includes a decision tree based on team maturity, production requirements, and HITL needs — LangGraph is the framework to commit to for anything going to customers; CrewAI is the fastest path from idea to demo.",
+          "why_it_matters": "The most common mistake in 2026 agentic framework selection is using CrewAI for production (it lacks mature HITL and state recovery) or using LangGraph for initial prototyping (it requires 3-5 days of scaffolding versus CrewAI's afternoon). LangGraph 0.4's improvements to HITL checkpoints are specifically relevant for teams building agents that need human approval in the loop — the new interrupt/resume API makes it possible to pause a multi-step workflow, surface a decision to a human, and resume from the exact state without re-running prior steps. This is the pattern required by most enterprise AI workflows (expense approvals, content moderation, legal review triggers). CrewAI 0.105's observability dashboard closes its biggest production gap — teams can now monitor role-agent performance and alert on failures without building custom instrumentation. For engineering teams currently evaluating which framework to standardize on, the practical advice is: build your first agent in CrewAI to validate the product concept, then port to LangGraph when you have confirmed user demand and need to ship to production. The porting cost is non-trivial but the operational cost of running a CrewAI agent in production without proper state management is higher.",
+          "traction": "medium",
+          "traction_evidence": [
+            "LangGraph 0.4 released April 2026 — state persistence and HITL sharpened; part of LangChain 1.0 GA with 90M monthly downloads",
+            "CrewAI 0.105 added enterprise observability and scheduling — March 2026",
+            "JetBrains June 2026 guide cited across multiple engineering newsletters and community discussions",
+            "LangGraph is the production agentic standard in enterprise — adopted alongside LangChain at Microsoft, Databricks, and in the Claude Agent SDK's orchestration layer"
+          ],
+          "use_cases": [
+            "Use the JetBrains decision tree: if your agent needs cycles (retry on failure), human approval gates, or crash recovery — use LangGraph; if you need a role-based multi-agent prototype working by end of day — use CrewAI",
+            "Upgrade to LangGraph 0.4 if you're running an older LangGraph version: the HITL checkpoint improvements in 0.4 fix the most common production issue (an agent reaching a decision point and having no mechanism to pause and wait for input without losing state)",
+            "Add CrewAI 0.105's observability dashboard before shipping any CrewAI-based agent to production: the built-in monitoring is now good enough to catch role-agent failures and task latency spikes without additional tooling",
+            "When porting from CrewAI to LangGraph, start from the workflow graph (decision points, branches, loops) rather than from the role definitions — LangGraph's mental model is graph-first, not role-first, and mapping roles directly to nodes without rethinking the control flow is the most common porting mistake"
+          ],
+          "tags": ["LangGraph", "CrewAI", "Agentic Frameworks", "Production", "Multi-Agent", "LangChain"],
+          "links": [
+            {"url": "https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/", "label": "JetBrains Blog: Top Agentic Frameworks for Building Applications 2026"},
+            {"url": "https://gurusup.com/blog/best-multi-agent-frameworks-2026", "label": "GuruSup: Best Multi-Agent Frameworks in 2026 — LangGraph, CrewAI, and More"},
+            {"url": "https://pecollective.com/blog/ai-agent-frameworks-compared/", "label": "PEC Collective: AI Agent Frameworks Compared — LangGraph vs CrewAI vs AutoGen"},
+            {"url": "https://uvik.net/blog/agentic-ai-frameworks/", "label": "Uvik: Agentic AI Frameworks 2026 — LangGraph vs CrewAI vs OpenAI SDK"},
+            {"url": "https://pub.towardsai.net/langgraph-vs-crewai-vs-autogen-which-ai-agent-framework-should-your-enterprise-use-in-2026-3a9ebb407b09", "label": "Towards AI: LangGraph vs CrewAI vs AutoGen — Which AI Agent Framework for Enterprise in 2026?"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "MLflow's 2026 Production AI Agent Guide: The Architecture, Tracing, and Evaluation Stack for Agents That Actually Ship",
+          "url": "https://mlflow.org/articles/building-production-ready-ai-agents-in-2026/",
+          "tldr": "MLflow published 'Building Production-Ready AI Agents in 2026,' a comprehensive guide covering the four decisions that separate demo-quality agents from production systems: modular multi-agent architecture (one agent per responsibility boundary), span-based tracing that captures token counts, latency, and cost metadata inline for every tool call and LLM completion, LLM-as-a-Judge automated evaluation that runs quality assessment against factual accuracy and completeness without manual review, and drift detection that feeds production signals back into the development cycle. MLflow is open-source and model-agnostic — the guide covers LangGraph, LangChain, and MCP integrations without vendor lock-in. The GitHub repo has broad enterprise adoption.",
+          "why_it_matters": "The MLflow guide identifies the production failure mode most engineering teams hit at the same point: they build observability (traces, latency dashboards) but stop before closing the feedback loop between what they observe in production and how they improve prompts, architectures, and evaluation criteria. An agent that traces every call but never uses those traces to catch quality regressions or inform prompt iteration is operating with one eye closed. The LLM-as-a-Judge evaluation layer is the specific gap the guide fills: instead of manually reviewing samples of agent outputs, you configure an evaluator model to score outputs on factual accuracy, logical correctness, and sycophancy avoidance at scale. When production outputs start drifting from your evaluation thresholds, MLflow's drift detection alerts before users notice. The span-based tracing architecture is particularly valuable for multi-agent systems where a single user-facing action might trigger 15-30 internal agent calls, each with its own token cost and latency contribution — traditional APM tools aggregate these into a single request duration without the per-call breakdown needed to diagnose quality or cost issues. MLflow integrates with OpenTelemetry GenAI semantic conventions (the emerging production standard), so the instrumentation work transfers between tools.",
+          "traction": "medium",
+          "traction_evidence": [
+            "MLflow is an open-source platform with major enterprise adoption (listed alongside Weights & Biases, Arize AI, and LangSmith as a top LLM observability platform in 2026)",
+            "Guide published June 2026 alongside 'LLM Observability with the Best UI: A 2026 Engineer's Guide' and 'Setting Up LLM Observability Pipelines in 2026'",
+            "MLflow GitHub: widely adopted with active maintenance — integrates with LangGraph, LangChain, and MCP servers",
+            "Covers OpenTelemetry GenAI semantic conventions, which became the production observability standard convergence point in June 2026"
+          ],
+          "use_cases": [
+            "Instrument your agent with MLflow's span-based tracing: wrap each tool call and LLM completion with a span, and you automatically get token count, latency, and cost metadata in a unified trace view — no custom instrumentation code required for LangChain and LangGraph integrations",
+            "Set up LLM-as-a-Judge evaluation on your top 10 agent output types: define quality criteria (factual accuracy, task completion, no hallucination) as evaluation prompts, run them against a sample of production outputs weekly, and alert when scores drop below threshold",
+            "Use MLflow's drift detection to catch prompt regression after model updates: when OpenAI or Anthropic updates an underlying model, your prompt performance may shift without warning — drift detection running against your evaluation criteria catches this before users report issues",
+            "Adopt the modular multi-agent architecture pattern from the guide before scaling: decompose your current monolithic agent into one agent per responsibility boundary (retrieval, generation, verification, tool execution) so each component can be tested, traced, and improved independently"
+          ],
+          "tags": ["MLflow", "Observability", "Production", "AI Agents", "Tracing", "LLM Evaluation", "Open Source"],
+          "links": [
+            {"url": "https://mlflow.org/articles/building-production-ready-ai-agents-in-2026/", "label": "MLflow: Building Production-Ready AI Agents in 2026"},
+            {"url": "https://mlflow.org/articles/llm-observability-with-the-best-ui-a-2026-engineers-guide/", "label": "MLflow: LLM Observability with the Best UI — A 2026 Engineer's Guide"},
+            {"url": "https://mlflow.org/articles/setting-up-llm-observability-pipelines-in-2026/", "label": "MLflow: Setting Up LLM Observability Pipelines in 2026"},
+            {"url": "https://github.com/mlflow/mlflow", "label": "GitHub: mlflow/mlflow — Open Source AI Platform for Agents, LLMs, and ML Models"},
+            {"url": "https://mlflow.org/articles/what-is-agent-observability-a-2026-developer-guide/", "label": "MLflow: What Is Agent Observability? A 2026 Developer Guide"}
+          ]
+        },
+        {
+          "title": "AI Production Monitoring Has Three Layers — And Teams Stopping at Layer 2 Are Blind to the Quality Drift That Kills User Trust",
+          "url": "https://www.digitalapplied.com/blog/ai-agent-observability-2026-tracing-monitoring-stack-guide",
+          "tldr": "The 2026 AI production monitoring stack has crystallized into three distinct layers that require different tooling and address different failure modes. Layer 1 (infrastructure metrics): GPU utilization, latency, uptime, and throughput — covered by traditional APM tools like Datadog, Prometheus, or CloudWatch. Layer 2 (LLM telemetry): token counts, costs, traces, model routing, and cache hit rates — covered by tools like Helicone, Portkey, and OpenTelemetry-native platforms. Layer 3 (quality evaluation): factual accuracy, hallucination rate, logical correctness, sycophancy detection, and task completion rates — covered by tools like Braintrust, DeepEval, Confident AI, and MLflow's evaluator framework. Most teams in production have layer 1 and are partially on layer 2. Almost none have layer 3. Investment in LLM observability is rising from 15% of GenAI deployments in early 2026 to a projected 50% by 2028.",
+          "why_it_matters": "The quality layer (layer 3) is where the failure modes that traditional observability misses live. An agent can have zero infrastructure errors, perfect latency, and correct token billing while still producing factually incorrect outputs on 20% of user queries — and you will not know unless you have quality evaluation running. The 78% of AI failures that are silent (a finding from multiple 2026 production surveys) are almost entirely layer-3 failures: the model responded, the trace shows success, the token count billed correctly, but the answer was wrong. The practical reason most teams stop at layer 2 is that quality evaluation requires ground-truth labels or LLM-as-a-Judge systems — it's more complex to set up than metric instrumentation. But the teams that have made the investment report that it transforms how they iterate: production quality scores become a leading indicator of user satisfaction, and prompt changes can be validated against quality metrics before deployment rather than after complaints arrive. The OpenTelemetry GenAI semantic conventions (reaching convergence in June 2026) are the key that makes layer 2 portable — if you adopt them now, your LLM telemetry transfers between tools without vendor lock-in.",
+          "traction": "medium",
+          "traction_evidence": [
+            "LLM observability investment rising from 15% to projected 50% of GenAI deployments by 2028 — cited across TrueFoundry, Confident AI, and MLflow observability guides",
+            "78% of AI production failures are silent (layer-3 failures invisible to layer-1 and layer-2 tooling) — confirmed by Datadog State of AI Engineering 2026 and Pragmatic Engineer survey",
+            "OpenTelemetry GenAI semantic conventions reaching production standard convergence June 2026 — making layer 2 portable",
+            "Braintrust, DeepEval (50+ metrics, 15K+ GitHub stars), Confident AI, and MLflow all shipping quality evaluation tooling in Q2 2026"
+          ],
+          "use_cases": [
+            "Audit your current monitoring stack against the three layers: if you have Datadog/Prometheus (layer 1) and Helicone or LangSmith (layer 2) but nothing for quality evaluation (layer 3), you are running blind on the failure mode most likely to generate user complaints",
+            "Start layer-3 evaluation with DeepEval (Apache 2.0, 15K+ stars) as the lowest-friction entry point: it ships 50+ quality metrics out of the box, integrates with pytest so you can run evaluations in your existing test pipeline, and doesn't require a cloud account",
+            "Adopt OpenTelemetry GenAI semantic conventions for your LLM telemetry now before picking a layer-2 vendor: the conventions mean your instrumentation code works across Helicone, Portkey, LangSmith, and MLflow without rewriting — pick the visualization layer separately",
+            "Set a quality SLO before shipping an agent to production: define minimum acceptable scores for factual accuracy and task completion rate on your evaluation set, and treat a score below that threshold as a deploy blocker the same way you treat a failing integration test"
+          ],
+          "tags": ["Observability", "Production", "LLM", "OpenTelemetry", "Quality Evaluation", "MLflow", "Braintrust", "DeepEval"],
+          "links": [
+            {"url": "https://www.digitalapplied.com/blog/ai-agent-observability-2026-tracing-monitoring-stack-guide", "label": "DigitalApplied: AI Agent Observability 2026 — Tracing and Monitoring Stack Guide"},
+            {"url": "https://mlflow.org/articles/top-llm-observability-tools-in-2026-a-pro-guide/", "label": "MLflow: Top LLM Observability Tools in 2026 — A Pro Guide"},
+            {"url": "https://www.confident-ai.com/knowledge-base/compare/10-llm-observability-tools-to-evaluate-and-monitor-ai-2026", "label": "Confident AI: 10 LLM Observability Tools to Evaluate and Monitor AI in 2026"},
+            {"url": "https://www.truefoundry.com/blog/best-ai-observability-platforms-for-llms-in-2026", "label": "TrueFoundry: 10 Best AI Observability Platforms for LLMs in 2026"},
+            {"url": "https://valuestreamai.com/blog/ai-monitoring-in-production-guide-2026", "label": "ValueStreamAI: AI Monitoring in Production 2026 — LLM Observability and Drift Detection"}
+          ]
+        },
+        {
+          "title": "Ask HN: What Is Your AI Dev Stack in 2026? — The Community's Real-World Answers Reveal Three Distinct Engineering Archetypes",
+          "url": "https://news.ycombinator.com/item?id=48413629",
+          "tldr": "A recent 'Ask HN: What is your AI dev tech stack/workflow?' thread collected hundreds of detailed engineering stack descriptions, revealing three distinct archetypes. Solo developers and small teams: Claude Code as the primary reasoning layer, Cursor for IDE flow, Ollama for private local inference on internal code, Langfuse for basic tracing. Enterprise teams: GitHub Copilot (compliance and single-vendor IT policy), Cursor for IDE, internal fine-tuned models behind a gateway (Bifrost, Helicone) for compliance-sensitive workloads. Infrastructure engineers: local vLLM self-hosting (50M+ tokens/month breakeven), OpenTelemetry for observability, Prometheus for metrics, custom harnesses rather than commercial tools. The thread is notable because HN's senior engineering audience is among the most skeptical of AI tool hype — their actual production choices carry more signal than survey data.",
+          "why_it_matters": "The HN thread reveals the tool selection principles that practitioners have converged on after two years of using AI coding tools in production. The most consistent finding: the model matters less than the harness. Multiple senior engineers report that the same underlying model (Claude Sonnet 4.6, GPT-5.5) can swing 30-50 percentage points in productivity depending on which tool wraps it — Claude Code's harness versus a basic API call produces dramatically different outcomes on multi-step tasks. The second consistent finding: local inference has reached a practical threshold. Engineers running Ollama with Qwen3-Coder or GLM-5.2 quantized models report cost savings of 80-90% on repetitive coding tasks (boilerplate, test generation, documentation) compared to cloud API calls, at acceptable quality. The third finding: observability adoption is bifurcating between teams that care about quality metrics (Langfuse, Braintrust, DeepEval) and teams that only track cost and latency (Helicone, Portkey). The former group reports catching quality regressions before users; the latter group only discovers problems through support tickets.",
+          "traction": "medium",
+          "traction_evidence": [
+            "HN 'Ask HN: What is your AI dev stack?' thread with hundreds of detailed engineering replies — community.ycombinator.com item ID 48413629",
+            "Represents HN's senior, skeptical engineering audience — historically the most reliable leading indicator of which tools earn sustained adoption",
+            "Three archetype pattern (solo/small, enterprise, infra) confirmed across multiple community signals including LogRocket power rankings and Pragmatic Engineer survey"
+          ],
+          "use_cases": [
+            "Benchmark your current stack against the three archetypes: if you're a small team using GitHub Copilot (the enterprise default), you may be leaving significant quality and cost improvements on the table compared to the solo-dev Claude Code + Cursor combination",
+            "Follow the 'harness matters more than model' principle when evaluating AI tools: before switching models, evaluate whether a different harness (tool wrapper) for your current model produces better results — Claude Code wrapping Sonnet 4.6 consistently outperforms raw Sonnet 4.6 API calls on multi-step tasks",
+            "Calculate your local inference breakeven: if you're processing 50M+ tokens/month on repetitive coding tasks (boilerplate, test generation, docs), self-hosting vLLM with a quantized open-weight model can deliver 80-90% cost savings at acceptable quality — the HN thread includes specific hardware configurations with cost breakdowns",
+            "Add quality metrics to your observability stack even if you're only tracking cost and latency: the HN thread's clearest signal is that teams with quality observability catch regressions before users, while cost/latency-only teams discover problems through support tickets 2-3 weeks later"
+          ],
+          "tags": ["Community", "DevTools", "Workflow", "Hacker News", "AI Stack", "Local Inference", "Observability"],
+          "links": [
+            {"url": "https://news.ycombinator.com/item?id=48413629", "label": "Hacker News: Ask HN — What is your AI dev tech stack / workflow?"},
+            {"url": "https://www.developersdigest.tech/blog/what-hacker-news-gets-right-about-ai-coding-agents-2026", "label": "Developers Digest: What Hacker News Gets Right About AI Coding Agents in 2026"},
+            {"url": "https://blog.mean.ceo/hacker-news-trends-june-2026/", "label": "Mean.ceo: Hacker News Trends — June 2026 (Startup Edition)"},
+            {"url": "https://www.developersdigest.tech/guides/ai-agent-frameworks-compared", "label": "Developers Digest: AI Agent Frameworks Compared — LangGraph vs CrewAI vs Mastra vs CopilotKit"},
+            {"url": "https://www.the-ai-corner.com/p/ai-coding-tools-complete-guide-2026", "label": "The AI Corner: AI Coding Tools 2026 — Complete Guide to Every Tool, Pricing, and Workflow"}
+          ]
+        }
+      ]
+    }
+  ]
+}
