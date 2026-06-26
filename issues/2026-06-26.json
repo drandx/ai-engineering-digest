@@ -1,0 +1,222 @@
+{
+  "highlights": [
+    {
+      "text": "OpenAI and Broadcom unveiled Jalapeño, OpenAI's first custom LLM inference chip — 50% cheaper per token than Blackwell GPUs, nine-month tape-out, targeting late 2026 deployment",
+      "anchor": "ai-tools-and-models-0"
+    },
+    {
+      "text": "GitHub Copilot's metered billing is live and the cost shock is real — $39/month Pro+ plans have hit $750+ in agentic workflows, with devs reporting 10x-50x cost increases",
+      "anchor": "developer-tools-and-frameworks-0"
+    },
+    {
+      "text": "NVIDIA Nemotron 3 Ultra 550B ships as open weights under the Linux Foundation — hybrid Mamba-Transformer MoE delivers 5x throughput and 1M token context with ~30% lower cost than proprietary alternatives",
+      "anchor": "ai-tools-and-models-3"
+    },
+    {
+      "text": "Grok 4.3 joins Amazon Bedrock as the cheapest US frontier reasoning model at $1.25/MTok with a new Mantle inference engine separate from the standard Bedrock Converse API",
+      "anchor": "ai-tools-and-models-2"
+    },
+    {
+      "text": "Fable 5 Day 14: Anthropic staff confirm zero traffic — viral 'it's back' reports from Claude Code v2.1.190 were a UI bug; July 8 biometric gate is now the official first restoration milestone",
+      "anchor": "ai-tools-and-models-1"
+    },
+    {
+      "text": "New research: 93% of devs use AI tools, but measured productivity gains plateau at ~10% — the bottleneck has shifted from code generation to verification and review capacity",
+      "anchor": "developer-tools-and-frameworks-1"
+    }
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "OpenAI and Broadcom Unveil Jalapeño: A Purpose-Built LLM Inference Chip Targeting 50% Cheaper Tokens by Late 2026",
+          "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip/",
+          "tldr": "OpenAI and Broadcom revealed Jalapeño, OpenAI's first custom inference ASIC, on June 24. Built in nine months — claimed to be the fastest ASIC development cycle in high-performance semiconductors — it targets 50% lower per-token cost than current Nvidia Blackwell GPUs and is on pace for small prototype deployment in late 2026 with production ramp in 2027.",
+          "why_it_matters": "If Jalapeño delivers on its cost claims, OpenAI's inference pricing could drop dramatically in 2027. Engineers building products on OpenAI APIs should factor in a structural cost reduction in 18-24 months; enterprises committing to GPU infrastructure for OpenAI-model inference may want to revisit those build-vs-buy decisions.",
+          "traction": "high",
+          "traction_evidence": [
+            "Announced June 24 with simultaneous coverage from TechCrunch, CNBC, Tom's Hardware, and The Decoder",
+            "Official co-announcement from Broadcom's investor relations page",
+            "Early lab testing shows performance parity with Nvidia Blackwell and Google TPUs"
+          ],
+          "use_cases": [
+            "Benchmarking current Blackwell-based inference costs against projected 2027 Jalapeño pricing to decide whether to lock in GPU contracts now or wait",
+            "Understanding that OpenAI used its own models to accelerate chip design — a signal that AI-assisted hardware design is now production-viable"
+          ],
+          "tags": ["Infrastructure", "Hardware", "OpenAI", "Cost"],
+          "links": [
+            {"url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip/", "label": "OpenAI Blog"},
+            {"url": "https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/", "label": "TechCrunch"},
+            {"url": "https://www.cnbc.com/2026/06/24/openai-and-broadcom-reveal-jalapeno-first-ai-chip-in-partnership.html", "label": "CNBC"}
+          ]
+        },
+        {
+          "title": "Fable 5 Day 14: Anthropic Confirms Zero Traffic — Viral 'It's Back' Reports Were a UI Bug, July 8 Is the First Real Gate",
+          "url": "https://isfableback.org/",
+          "tldr": "After a wave of X posts claimed Claude Code v2.1.190 users could access Fable 5, Anthropic staff debunked every report on June 25, confirming exactly zero Fable or Mythos traffic is being served. The model has been offline since a US government export-control directive on June 12. The first official restoration milestone is Anthropic's July 8 biometric government-ID verification rollout; a full unrestricted path runs through the August 1 executive order deadline.",
+          "why_it_matters": "Teams relying on Fable 5 in production — particularly those running Claude Code agent workflows — need a clear migration runway rather than false hope from social media. The two-gate structure (July 8 for US-verified users, August 1 for broader access) is now the official planning framework from Anthropic's own communications.",
+          "traction": "high",
+          "traction_evidence": [
+            "Multiple Anthropic staff publicly debunked viral access claims on June 25",
+            "Polymarket has live prediction markets tracking restoration probability for July 8 and August 1 dates",
+            "The incident is tracked at isfableback.org with real-time Anthropic API status monitoring"
+          ],
+          "use_cases": [
+            "Planning model fallback routing: Claude Opus 4.8 and Sonnet 4.6 are the drop-in replacements for Fable 5 API access until July 8",
+            "Using the July 8 / August 1 date structure to set team expectations for restoring Fable-5-dependent workflows"
+          ],
+          "tags": ["Anthropic", "Fable 5", "Export Control", "Production Planning"],
+          "links": [
+            {"url": "https://isfableback.org/", "label": "Is Fable Back? (Live Status)"},
+            {"url": "https://www.anthropic.com/news/fable-mythos-access", "label": "Anthropic Statement"},
+            {"url": "https://www.explainx.ai/blog/is-fable-5-back-2026", "label": "explainx.ai Analysis"}
+          ]
+        },
+        {
+          "title": "Grok 4.3 Lands on Amazon Bedrock — $1.25/MTok, Lowest Hallucination Rate Among Frontier Models, New Mantle Inference Path",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/06/grok-amazon-bedrock/",
+          "tldr": "Grok 4.3 became available on Amazon Bedrock on June 15 as the first xAI model on the platform, making xAI the third independent lab on Bedrock alongside Anthropic and OpenAI. At $1.25/$2.50 per million input/output tokens, it is the cheapest US-lab frontier reasoning model in the Bedrock catalog. It ships with a new high-throughput inference engine called Mantle that uses a separate `bedrock-mantle` endpoint — not the standard Converse API.",
+          "why_it_matters": "For teams already running AWS infrastructure, Grok 4.3 on Bedrock is the lowest-friction path to testing a frontier-tier reasoner without standing up a separate API integration. The $1.25/MTok price point — roughly 7x cheaper than Claude Opus 4.8's input rate — makes it viable for high-volume classification, extraction, and summarization workloads where per-call cost is the primary constraint.",
+          "traction": "medium",
+          "traction_evidence": [
+            "Featured in AWS Weekly Roundup (June 22, 2026) alongside the NY Summit recap",
+            "Official AWS What's New announcement with full documentation page",
+            "Artificial Analysis reports Grok 4.3 holds the #1 spot on the Omniscience benchmark and lowest hallucination rate among frontier models"
+          ],
+          "use_cases": [
+            "Replacing GPT-4-class inference in high-volume Bedrock pipelines where cost-per-call matters and reasoning quality must remain frontier-tier",
+            "Testing xAI's configurable reasoning effort levels (none, low, medium, high) to tune inference cost vs. accuracy for specific task categories"
+          ],
+          "tags": ["AWS", "xAI", "Grok", "Bedrock", "Cost"],
+          "links": [
+            {"url": "https://aws.amazon.com/about-aws/whats-new/2026/06/grok-amazon-bedrock/", "label": "AWS What's New"},
+            {"url": "https://artificialanalysis.ai/articles/xai-launches-grok-4-3-with-improved-agentic-performance-and-lower-pricing", "label": "Artificial Analysis"},
+            {"url": "https://www.digitalapplied.com/blog/grok-4-3-amazon-bedrock-enterprise-launch-2026-guide", "label": "Digital Applied Guide"}
+          ]
+        },
+        {
+          "title": "NVIDIA Nemotron 3 Ultra 550B: Open-Weight Hybrid Mamba-Transformer MoE With 5x Throughput and 1M Context Under Linux Foundation License",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models",
+          "tldr": "Released June 4, NVIDIA's Nemotron 3 Ultra is a 550B-parameter MoE model with 55B active parameters per token, built on a Mamba-Transformer hybrid architecture instead of a pure Transformer. The hybrid design uses Mamba layers for linear-scaling long-context handling and sparse Attention layers for precise recall, delivering over 300 output tokens/second — approximately 5x the throughput of comparable Transformer-only models — at ~30% lower cost. Weights, training data, and recipes ship under a permissive Linux Foundation license.",
+          "why_it_matters": "The Mamba-Transformer hybrid architecture directly addresses the two biggest costs in serving frontier models at scale: KV cache memory growth and attention compute at long contexts. For teams self-hosting models for long-document tasks, multi-turn agents, or codebases with large context windows, Nemotron 3 Ultra's architecture could change the infrastructure math significantly versus running a pure-Transformer model at 1M tokens.",
+          "traction": "medium",
+          "traction_evidence": [
+            "NVIDIA Newsroom announcement; weights live on Hugging Face at nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-NVFP4",
+            "MarkTechPost technical analysis; featured in AI Flash Report model release timeline",
+            "Full training data and recipe release — not just weights — signals NVIDIA's commitment to enabling reproducibility and fine-tuning"
+          ],
+          "use_cases": [
+            "Self-hosted agentic workflows with very long context windows where Transformer KV-cache memory is the bottleneck",
+            "Replacing proprietary model calls for document-intensive pipelines (legal, financial, code review) where the Linux Foundation license removes IP concerns"
+          ],
+          "tags": ["Open Source", "NVIDIA", "LLM", "Infrastructure", "Self-Hosted"],
+          "links": [
+            {"url": "https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models", "label": "NVIDIA Newsroom"},
+            {"url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-NVFP4", "label": "Hugging Face Weights"},
+            {"url": "https://www.marktechpost.com/2026/06/04/nvidia-ai-releases-nemotron-3-ultra-an-open-550b-mixture-of-experts-hybrid-mamba-transformer-for-long-running-agents/", "label": "MarkTechPost"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "GitHub Copilot Metered Billing Is Live — Real-World Numbers Show $750+ Monthly Bills for Agentic Workflows That Used to Cost $39",
+          "url": "https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/",
+          "tldr": "As of June 1, all GitHub Copilot plans now measure token consumption and convert usage into AI Credits at one cent per credit. Code completions remain free; chat, code review, CLI, Spaces, and agent workflows all consume credits. Developers report burning through a month of Pro+ ($39) credits in two hours; projections in community threads show teams hitting $750-$3,000/month under the same workflows they ran cheaply before.",
+          "why_it_matters": "Teams running Copilot in agentic coding workflows — especially those using Copilot Spaces, `@github` in Claude Code, or multi-file review loops — need to audit their credit burn rates immediately. Microsoft's stated reason is that 'Copilot powers far more complex, agentic workflows that consume far more compute' than the flat-rate model anticipated. This is the first major public admission that unlimited AI coding subscriptions are economically unsustainable at agentic scale.",
+          "traction": "high",
+          "traction_evidence": [
+            "TechCrunch headline coverage; The Register reported developer exodus threats; Visual Studio Magazine ran a 'Billing Shock' story",
+            "GitHub Discussion #192948 has hundreds of developer reports with specific dollar figures",
+            "Polymarket and Reddit threads show this as the most-discussed developer tools story of the first week of June"
+          ],
+          "use_cases": [
+            "Setting per-developer monthly credit budgets via the new Copilot Usage Dashboard before the next billing cycle",
+            "Comparing Copilot's effective per-token cost against Claude API, Cursor, and Codex direct API access to find the cheapest path for your specific workflow mix"
+          ],
+          "tags": ["GitHub", "Copilot", "Pricing", "DevTools", "Agentic"],
+          "links": [
+            {"url": "https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/", "label": "TechCrunch"},
+            {"url": "https://github.blog/changelog/2026-06-01-updates-to-github-copilot-billing-and-plans/", "label": "GitHub Changelog"},
+            {"url": "https://www.theregister.com/ai-and-ml/2026/06/02/github-copilot-users-threaten-exit-as-metered-billing-kicks-in/5249826", "label": "The Register"},
+            {"url": "https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals", "label": "GitHub Docs"}
+          ]
+        },
+        {
+          "title": "93% of Developers Use AI Tools Weekly, But Measured Productivity Gains Plateau at ~10% — The Verification Bottleneck Has Replaced the Generation Bottleneck",
+          "url": "https://shiftmag.dev/this-cto-says-93-of-developers-use-ai-but-productivity-is-still-10-8013/",
+          "tldr": "Multiple 2026 surveys converge on a paradox: AI tool adoption is near-universal (93% use it, 75% use it for half or more of their work) yet controlled studies show sustained productivity gains of roughly 10% above pre-AI baselines. The METR 2025 study found developers using AI actually take 19% longer on unfamiliar open-source codebases. The emerging consensus is that code generation is no longer the bottleneck — verification, review, and context-building are.",
+          "why_it_matters": "The 10% ceiling is an engineering architecture problem, not a tool quality problem. Teams that just added AI to their existing workflows got the 10%. Teams hitting 2-3x productivity gains restructured around AI-native task decomposition: smaller, verifiable PR units; mandatory automated test generation before agent commits; lightweight human checkpoints after every agent loop iteration. The bottleneck isn't writing code — it's knowing when to trust what was written.",
+          "traction": "medium",
+          "traction_evidence": [
+            "Findings cited across Second Talent CTO survey, Pragmatic Engineer 2026 AI Tooling issue, and Index.dev productivity statistics compilation",
+            "METR controlled study with experienced open-source developers is the most rigorous data point; published July 2025 but circulating widely in 2026 discussions",
+            "93% adoption figure from a survey of 4,800 developers; multiple independent sources corroborating the 10% plateau finding"
+          ],
+          "use_cases": [
+            "Restructuring sprint workflows: shrink PR size targets, require AI-generated test stubs before merge, add explicit 'verify agent output' steps in Definition of Done",
+            "Using the METR study's 'unfamiliar codebase' framing to identify where AI adds risk vs. value on your team (greenfield high value; legacy unfamiliar code → lower gains)"
+          ],
+          "tags": ["Productivity", "Research", "AI Tools", "Engineering Process"],
+          "links": [
+            {"url": "https://shiftmag.dev/this-cto-says-93-of-developers-use-ai-but-productivity-is-still-10-8013/", "label": "Shift Mag"},
+            {"url": "https://www.secondtalent.com/resources/ai-developer-productivity-tools-2026/", "label": "Second Talent Report"},
+            {"url": "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/", "label": "METR Study"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "New Relic AI Coding Observability Goes GA: Open-Source IDE-Level Monitoring for Agentic Developer Workflows",
+          "url": "https://newrelic.com/blog/news/new-relic-now-june-2026-round-up",
+          "tldr": "At New Relic Now on June 23, New Relic announced general availability of AI Coding Observability — an open-source solution that extends production-grade monitoring directly into the IDE. It captures which AI tools generated which code, tracks that code's production behavior, and creates an audit trail linking AI-assisted commits to runtime incidents. A companion feature, ChatGPT Apps Monitoring, adds performance and reliability dashboards for custom ChatGPT App deployments.",
+          "why_it_matters": "With 26.9% of production code now AI-generated and only 29% of developers trusting AI output without manual review, the gap between 'AI wrote it' and 'we can debug it in production' has become a genuine engineering liability. AI Coding Observability is the first GA solution that closes this loop by attributing production incidents back to their AI-assisted origin commit — something no existing APM platform did before.",
+          "traction": "medium",
+          "traction_evidence": [
+            "Announced as GA at New Relic Now (June 23, 2026), covered by BigDATAwire and Help Net Security",
+            "New Relic's 2026 State of AI Coding report published alongside the announcement with data from production deployments",
+            "New Relic is pursuing FedRAMP High + DoD IL4 authorization, signaling enterprise and government appetite for governed AI coding pipelines"
+          ],
+          "use_cases": [
+            "Attributing a production regression to a specific AI-assisted commit and identifying which model/tool generated the responsible code — closing the 'who wrote this?' gap in AI-heavy teams",
+            "Building a governed, auditable AI coding pipeline for regulated environments (finance, healthcare, government) where AI-generated code must be traceable"
+          ],
+          "tags": ["Observability", "DevTools", "Production", "AI Coding", "Open Source"],
+          "links": [
+            {"url": "https://newrelic.com/blog/news/new-relic-now-june-2026-round-up", "label": "New Relic Now Roundup"},
+            {"url": "https://www.helpnetsecurity.com/2026/06/08/new-relic-ai-coding-observability/", "label": "Help Net Security"},
+            {"url": "https://newrelic.com/platform/ai-observability", "label": "New Relic AI Observability"}
+          ]
+        },
+        {
+          "title": "The Scaffold Is the Model: Research Paper Shows Same LLM Weights Swing 30-50% on Terminal-Bench Depending on Agent Harness — Not Intelligence",
+          "url": "https://arxiv.org/abs/2603.05344",
+          "tldr": "A March 2026 paper from the Terminal-Bench team, 'Building Effective AI Coding Agents for the Terminal,' quantifies something practitioners suspected: on Terminal-Bench 2.0, identical model weights can vary 30-50 percentage points depending solely on the agent harness wrapping them. The architectural split between 'scaffolding' (pre-prompt assembly) and 'harness' (runtime tool dispatch, context management, safety enforcement) is now a first-class engineering variable — not an implementation detail. A companion GitHub repository, `ai-boost/awesome-harness-engineering`, has emerged as the community's canonical reference for harness patterns.",
+          "why_it_matters": "If your team is evaluating models by running them through a thin script, you are measuring the harness, not the model. Conversely, if you're running a well-engineered harness but picking a second-tier model for cost reasons, you may be leaving more performance on the table from harness improvements than from model upgrades. This reframes the model-vs-cost tradeoff: invest in harness quality first, then choose the cheapest model that meets your quality bar within that harness.",
+          "traction": "emerging",
+          "traction_evidence": [
+            "Paper published on arxiv (2603.05344), cited in Artificial Analysis's Terminal-Bench methodology notes",
+            "The `ai-boost/awesome-harness-engineering` GitHub repository has gained traction as a reference for production agent builders",
+            "The 30-50 percentage point harness gap is referenced across multiple Terminal-Bench 2.1 leaderboard analyses in June 2026"
+          ],
+          "use_cases": [
+            "Running the same benchmark prompt suite through your existing harness with two different models before deciding to upgrade — if results are within 5%, the harness is your bottleneck",
+            "Using the scaffolding/harness taxonomy from the paper to audit your current agent architecture: where are you losing tokens to poor context assembly vs. poor model reasoning?"
+          ],
+          "tags": ["Agents", "Benchmarks", "Research", "Architecture", "LLM"],
+          "links": [
+            {"url": "https://arxiv.org/abs/2603.05344", "label": "arXiv Paper"},
+            {"url": "https://github.com/ai-boost/awesome-harness-engineering", "label": "awesome-harness-engineering (GitHub)"},
+            {"url": "https://www.digitalapplied.com/blog/swe-bench-terminal-bench-benchmark-guide-2026", "label": "Terminal-Bench Benchmark Guide"}
+          ]
+        }
+      ]
+    }
+  ]
+}
