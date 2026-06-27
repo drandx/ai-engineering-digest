@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 27, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 27, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://kiro.dev/blog/introducing-kiro/">AWS Kiro rewrites AI coding: prompts become structured specs before any code is generated — free without an AWS account, Kiro Pro Max unlocks Claude Opus 4.8 for $100/month</a></li>
+      <li><a href="https://www.axios.com/2026/06/25/trump-administration-openai-gpt-model-release">GPT-5.6 restricted to 20 vetted partners at White House request — first US government preemptive model gating, Amazon Bedrock is the first distribution route for approved orgs</a></li>
+      <li><a href="https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-teampcp-supply-chain-campaign/">LiteLLM PyPI supply chain attack: a poisoned Trivy scanner in CI/CD exfiltrated the PYPI_PUBLISH token and deployed a systemd backdoor to 95M monthly downloads for 40 minutes</a></li>
+      <li><a href="https://venturebeat.com/orchestration/openais-codex-update-lets-agents-build-interactive-enterprise-workspaces-via-sites-and-role-specific-plugins">OpenAI Codex Sites plugin deploys interactive dashboards and internal tools from natural language — 5M weekly users, DigitalOcean Droplet workspaces GA</a></li>
+      <li><a href="https://digital-strategy.ec.europa.eu/en/library/proposal-cloud-and-ai-development-act-cada">EU Cloud and AI Development Act (CADA): four-tier cloud sovereignty framework published June 3 will redraw where European enterprises can legally run AI workloads</a></li>
+      <li><a href="https://huggingface.co/nex-agi/Nex-N2-Pro">Nex-N2-Pro: 397B MoE built for agentic coding loops — Apache 2.0, free on OpenRouter, closes within 3 points of frontier closed-source agentic benchmarks</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://kiro.dev/blog/introducing-kiro/">AWS Kiro: Spec-Driven Agentic IDE Converts Prompts to Structured Specs Before Writing Code — Free to Use, No AWS Account Required</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Announced at AWS Summit on June 17, Kiro is AWS's new agentic IDE built on Amazon Bedrock. Unlike every other AI coding tool, Kiro requires you to generate a structured specification — covering requirements, architecture, and implementation plan — before any code generation begins. The IDE, CLI, and web app are free without an AWS account; Kiro Pro Max at $100/month adds Claude Opus 4.8 access with 5,000 monthly credits. An open-source GitHub repository has also been published.</p>
+      <div class="article-meta">
+        <span class="tag">AWS</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">AI Coding</span>
+        <span class="tag">Spec-Driven</span>
+        <span class="tag">Agentic</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Kiro directly addresses the core critique of vibe coding: that AI-generated code is hard to reason about, review, and maintain because there is no design artifact connecting requirements to implementation. By making the spec a first-class artifact that the agent maintains alongside the code, Kiro creates a reviewable and diffable record of intent — something none of its competitors (Cursor, Claude Code, Codex) currently produce. Teams struggling with AI-generated code that passes tests but fails business logic may find the spec-first constraint more productive than pure chat-to-code flows.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running a spec-driven workflow on a greenfield feature: let Kiro generate requirements and architecture first, then use those artifacts as the review checklist after code generation completes</li>
+          <li>Using Kiro Pro Max ($100/month with Opus 4.8) for large-scale refactors where you need the spec to document the intended behavior before the agent touches existing code</li>
+          <li>Replacing informal PRD-to-ticket pipelines: Kiro's spec output can serve as a machine-readable source of truth that both the agent and human reviewers reference</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced at AWS Summit June 17 with dedicated AWS Builder Center documentation and re:Post coverage</li>
+          <li>Open-source IDE repository published at github.com/kirodotdev/Kiro with growing contributor activity</li>
+          <li>The New Stack published a hands-on review; byteiota.com described it as replacing Amazon Q Developer entirely</li>
+          <li>Free no-account access removes the usual AWS onboarding barrier, accelerating adoption among individual developers</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://kiro.dev/blog/introducing-kiro/">Kiro Blog</a></li>
+          <li><a href="https://github.com/kirodotdev/Kiro">GitHub Repo</a></li>
+          <li><a href="https://thenewstack.io/aws-kiro-testing-an-ai-ide-with-a-spec-driven-approach/">The New Stack Review</a></li>
+          <li><a href="https://byteiota.com/aws-kiro-the-spec-driven-ai-coding-ide-that-fixes-vibe-coding/">byteiota Deep-Dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.axios.com/2026/06/25/trump-administration-openai-gpt-model-release">GPT-5.6 Restricted to 20 Vetted Partners at White House Request — First US Government Preemptive Model Gating, Bedrock Is First Distribution Route</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">On June 25, Axios and CNN reported that the Trump administration — through the Office of the National Cyber Director and Office of Science and Technology Policy — asked OpenAI to restrict GPT-5.6's launch to approximately 20 government-vetted partner organizations, with Amazon Bedrock listed as one approved distribution route. CEO Sam Altman confirmed the arrangement to staff, describing a case-by-case customer approval process during the preview period. This is the first time the US government has preemptively asked an American AI lab to restrict a model release before deployment.</p>
+      <div class="article-meta">
+        <span class="tag">OpenAI</span>
+        <span class="tag">GPT-5.6</span>
+        <span class="tag">Regulation</span>
+        <span class="tag">API Access</span>
+        <span class="tag">US Government</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is a structural shift, not a delay. The 'launch window' framing that described GPT-5.6's June absence as a scheduling issue is now obsolete: access will be gated by a government vetting process with no published timeline for broader rollout. For engineering teams that have been waiting on GPT-5.6's 1.5M token context window or alignment improvements to build production features, the planning horizon just became indefinite. The Bedrock route — for orgs already in the approved set — suggests AWS enterprise agreements may accelerate access faster than direct OpenAI API applications.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If your org has an enterprise AWS agreement, check with your Bedrock account team now — Bedrock is listed as an approved distribution route and may offer a faster path than a direct OpenAI application</li>
+          <li>Update internal roadmap timelines that assumed GPT-5.6 API access in Q3 2026: plan around Claude Opus 4.8 or Gemini 2.5 Pro as your 1.5M+ token context alternative until vetting opens further</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Axios exclusive; simultaneously confirmed by CNN Business, Yahoo Finance, and QZ on June 25</li>
+          <li>Polymarket prediction markets for GPT-5.6 June launch collapsed from ~83% to ~18% odds after the reporting</li>
+          <li>MarketScreener and Windows Forum published follow-up analyses within 12 hours of the Axios report</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.axios.com/2026/06/25/trump-administration-openai-gpt-model-release">Axios Exclusive</a></li>
+          <li><a href="https://www.cnn.com/2026/06/25/tech/openai-limit-release-white-house">CNN Business</a></li>
+          <li><a href="https://windowsforum.com/threads/gpt-5-6-delayed-preview-government-gated-ai-launch-signals-new-security-era.430994/">Windows Forum Analysis</a></li>
+          <li><a href="https://qz.com/trump-administration-openai-gpt-56-staggered-release-062626">QZ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://venturebeat.com/orchestration/openais-codex-update-lets-agents-build-interactive-enterprise-workspaces-via-sites-and-role-specific-plugins">OpenAI Codex Sites Plugin: Deploy Dashboards and Internal Tools from Natural Language — DigitalOcean Workspace and Remote GA Also Ship</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">In a June 2 update, OpenAI shipped three significant additions to Codex: the Sites plugin (preview) lets Codex create, deploy, and share web dashboards, planners, project boards, and internal tools hosted by OpenAI — shareable via URL with anyone in your workspace. The DigitalOcean Droplet Workspace plugin provisions a cloud dev environment and connects it to Codex. Codex Remote reached general availability with QR-based mobile-to-host pairing. Codex now serves 5 million weekly users.</p>
+      <div class="article-meta">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Codex</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">Deployment</span>
+        <span class="tag">Internal Tools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Sites closes the gap between 'Codex wrote an analysis' and 'Codex shipped a tool your team can use.' Previously, getting an AI-generated report into a shareable, interactive format required a separate deployment step. Now that step is inside the agent workflow. For teams running Codex for knowledge work — sprint planning, release notes, QA dashboards — this removes the last handoff. The DigitalOcean integration is significant for teams that don't want to provision their own dev container but need a cloud-hosted environment with full SSH access.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Ask Codex to take a sprint retrospective document and generate an interactive team health dashboard deployable to a shareable Sites URL — no front-end code or separate hosting needed</li>
+          <li>Use the DigitalOcean plugin to provision a cloud workspace for Codex Remote sessions on a mobile device, eliminating the need to leave a local machine running as a Codex host</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>VentureBeat coverage; OpenAI changelog published June 2 with full feature descriptions</li>
+          <li>5 million weekly Codex users confirmed in the same announcement</li>
+          <li>ChatGPT Business workspaces include Sites by default; Enterprise admins get RBAC control — signals OpenAI is treating this as production infrastructure, not a demo</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://venturebeat.com/orchestration/openais-codex-update-lets-agents-build-interactive-enterprise-workspaces-via-sites-and-role-specific-plugins">VentureBeat</a></li>
+          <li><a href="https://openai.com/index/codex-for-every-role-tool-workflow/">OpenAI Blog</a></li>
+          <li><a href="https://developers.openai.com/codex/changelog">Codex Changelog</a></li>
+          <li><a href="https://nerova.ai/news/openai-codex-plugins-sites-knowledge-work-june-2-2026">Nerova.ai Breakdown</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-teampcp-supply-chain-campaign/">LiteLLM PyPI Supply Chain Compromise: A Poisoned Trivy Scanner Put a Systemd Backdoor Inside 95M Monthly Downloads for 40 Minutes</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">On March 24, 2026, threat actor group TeamPCP published two malicious LiteLLM versions (v1.82.7 and v1.82.8) to PyPI. The attack originated in LiteLLM's CI/CD pipeline: a compromised Trivy security-scanner action exfiltrated the PYPI_PUBLISH GitHub Actions token, enabling the attackers to publish directly. The malicious packages were live for approximately 40 minutes, contained a .pth file that ran on every Python process startup, and executed a three-stage payload: credential harvest, Kubernetes lateral movement, and a persistent systemd backdoor. LiteLLM serves as the LLM gateway for CrewAI, DSPy, Microsoft GraphRAG, and dozens of other agent frameworks.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">Supply Chain</span>
+        <span class="tag">LiteLLM</span>
+        <span class="tag">PyPI</span>
+        <span class="tag">CI/CD</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>LiteLLM is load-bearing infrastructure for the AI engineering ecosystem — not an application library but a network-level proxy that often runs with production credentials and cloud-provider keys. If your CI/CD pulled a LiteLLM update between 10:39 and ~11:19 UTC on March 24, you may have deployed the backdoor. The attack vector — poisoning the dependency used in the security scanner itself — is particularly insidious because it bypasses the very check designed to catch it. The NHS England and Datadog Security Labs post-mortems are the authoritative guides for incident response.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your CI/CD for any LiteLLM install between March 24 10:39 UTC and 11:19 UTC; check for litellm_init.pth in site-packages and active systemd units named with random hex strings</li>
+          <li>Pin all CI/CD security-scanner dependencies (Trivy, Grype, etc.) to exact versions and verify their checksums — the attack exploited an unpinned `apt` pull of Trivy during the build pipeline</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Datadog Security Labs published a full campaign attribution report linking LiteLLM to two other TeamPCP incidents</li>
+          <li>Snyk published a technical deep-dive on the poisoned Trivy scanner mechanism</li>
+          <li>NHS England Digital issued a cyber alert (CC-4761); Trend Micro published enterprise guidance</li>
+          <li>Cycode and Arthur AI published remediation guides specifically for AI pipeline operators</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-teampcp-supply-chain-campaign/">Datadog Security Labs</a></li>
+          <li><a href="https://snyk.io/blog/poisoned-security-scanner-backdooring-litellm/">Snyk Post-Mortem</a></li>
+          <li><a href="https://docs.litellm.ai/blog/security-update-march-2026">LiteLLM Security Update</a></li>
+          <li><a href="https://www.arthur.ai/column/litellm-supply-chain-attack-pypi-compromise-2026">Arthur AI Remediation Guide</a></li>
+          <li><a href="https://digital.nhs.uk/cyber-alerts/2026/cc-4761">NHS England Cyber Alert</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.developersdigest.tech/blog/ai-coding-tools-pricing-june-2026">AI Coding Tools June 2026 Pricing Breakdown: What Cursor, Claude Code, Codex, and Copilot Actually Cost Per Engineering Pattern</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">After GitHub Copilot's move to usage-based billing on June 1, Developers Digest published a head-to-head cost analysis for June 2026. Key findings: Cursor Pro ($20/month) with Composer 2.5 remains the best fixed-cost option for completion-heavy workflows; Claude Code on Opus 4.8 (Fable 5 unavailable) averages $45-90/month for engineers doing 50-70% of their work through the agent; Codex Pro (included in ChatGPT Pro at $20/month) is cheapest for chatGPT-native workflows but burns credits faster in agentic mode; Copilot Pro+ hits $200-750+ for teams running agent loops.</p>
+      <div class="article-meta">
+        <span class="tag">Pricing</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">Copilot</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Codex</span>
+        <span class="tag">Cost Optimization</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The billing models for AI coding tools have changed significantly in the past 60 days — Copilot's credit system, Fable 5's suspension changing Claude Code's effective rate, and Codex's new Sites/Remote features all affect the per-engineer cost. Engineering leaders who set budget allocations in Q1 based on flat-rate assumptions need a June recalculation. The analysis surfaces a pattern: teams doing primarily code completion pay 3-5x less than teams running multi-step agent workflows with the same tool at the same subscription tier.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Classify your team's workflow mix into 'completion-heavy' vs. 'agent-heavy' before setting monthly per-engineer budgets — the pricing spread between the two patterns is 3-5x on every major platform</li>
+          <li>Consider using Cursor Pro as the fixed-cost floor for your team and add Claude API credits only for engineers doing heavy agentic multi-file work, rather than giving everyone the same tool at the same tier</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published by Developers Digest after receiving the highest-ever reader engagement on their Copilot billing story</li>
+          <li>Referenced in multiple developer Reddit threads following the Copilot billing shock</li>
+          <li>Lushbinary published a parallel comparison (AI Coding Agents 2026: Pricing & Features Compared) corroborating the per-pattern cost structure</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.developersdigest.tech/blog/ai-coding-tools-pricing-june-2026">Developers Digest</a></li>
+          <li><a href="https://lushbinary.com/blog/ai-coding-agents-comparison-cursor-windsurf-claude-copilot-kiro-2026/">Lushbinary Comparison</a></li>
+          <li><a href="https://www.morphllm.com/best-ai-coding-agents-2026">MorphLLM Rankings</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://huggingface.co/nex-agi/Nex-N2-Pro">Nex-N2-Pro: 397B MoE Built Specifically for Agentic Coding Loops — Apache 2.0, Free on OpenRouter, Within 3 Points of Frontier Closed Models</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Nex AGI's Nex-N2-Pro, released June 2-8 on Hugging Face and ModelScope under Apache 2.0, is a 397B-parameter MoE model (17B active per token) post-trained on top of Qwen3.5-397B-A17B. It is built around an 'Agentic Thinking' framework that unifies reasoning, tool use, and environment execution into a single closed loop, covering requirement understanding, task planning, code implementation, debugging, and iterative self-correction. Multiple hosted providers offered it free at launch, including OpenRouter's free tier and SiliconFlow.</p>
+      <div class="article-meta">
+        <span class="tag">Open Source</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Agentic</span>
+        <span class="tag">MoE</span>
+        <span class="tag">Self-Hosted</span>
+        <span class="tag">Coding</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most open-weight coding models are optimized for single-turn code generation or chat; Nex-N2-Pro is explicitly designed for the full agentic loop: plan → code → execute → observe → debug → iterate. At 17B active parameters, it can run on a single A100 while covering the same use cases as frontier closed models in controlled agentic benchmarks. For teams that need a self-hosted agentic coding model for privacy or cost reasons — and found that Qwen3.6 or GLM-5.2 were optimized for different task profiles — Nex-N2-Pro is a dedicated agentic alternative worth testing.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosting an agentic coding assistant for air-gapped or compliance-restricted environments where frontier cloud APIs cannot be used — at 17B active params it fits within a standard inference server budget</li>
+          <li>Running parallel coding agents in CI pipelines (code generation, debugging, test writing) where the Apache 2.0 license removes IP concerns about model output ownership</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Apache 2.0 license with weights on Hugging Face and ModelScope; free hosting on OpenRouter and SiliconFlow at launch</li>
+          <li>NVIDIA Developer Forums thread noting it as one of the first production-grade agentic models built on the Qwen3.5 base</li>
+          <li>Hackernoon published a beginner's guide; felloai.com benchmarked it against GPT-5.5 agentic tasks</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://huggingface.co/nex-agi/Nex-N2-Pro">Hugging Face Weights</a></li>
+          <li><a href="https://artificialanalysis.ai/models/nex-n2-pro">Artificial Analysis Benchmarks</a></li>
+          <li><a href="https://hackernoon.com/a-beginners-guide-to-the-nex-n2-pro-model-by-nex-agi-on-huggingface">HackerNoon Guide</a></li>
+          <li><a href="https://felloai.com/nex-n2-pro/">FelloAI Benchmark Breakdown</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://developers.redhat.com/articles/2026/06/24/optimizing-distributed-ai-inference-advanced-deployment-patterns">Red Hat's Distributed AI Inference Deep-Dive: Prefill/Decode Disaggregation, EAGLE 3.1, and KV-Cache-Aware Routing on Kubernetes</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Red Hat Developer published a two-part series on June 22-24 covering advanced distributed AI inference patterns for teams self-hosting LLMs in production. Part 1 covers the foundational split between prefill (compute-bound) and decode (memory-bound) phases and why disaggregating them onto separate node pools is now a standard practice for frontier-scale deployments. Part 2 covers three concrete optimization levers: prefill/decode disaggregation, KV cache tiering strategy, and speculative decoding via EAGLE 3.1, orchestrated through a Kubernetes stack of KServe + LLMInferenceService + vLLM + llm-d.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Inference</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">vLLM</span>
+        <span class="tag">KServe</span>
+        <span class="tag">Speculative Decoding</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As teams move from prototype to production self-hosted inference, the cost and latency characteristics of a naively deployed vLLM instance become unacceptable at scale. The prefill/decode disaggregation pattern — routing prefill-heavy requests (long prompts, RAG context) to compute-optimized nodes and decode-heavy requests (long generation) to memory-optimized nodes — can cut per-request cost by 30-50% on bursty mixed workloads. The EAGLE 3.1 speculative decoding numbers in the series (up to 6x speedup on dense models at identical output quality) are some of the strongest reported in a production context.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Auditing whether your current vLLM deployment is handling prefill and decode on the same node pool — if yes, disaggregating to separate pools is likely your highest-leverage infrastructure optimization</li>
+          <li>Testing EAGLE 3.1 speculative decoding on your largest deployed model: if you're running Qwen3.6 or a comparable dense model for interactive coding tasks, EAGLE 3.1 can cut p99 latency without changing output quality or model weights</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published June 22-24 on Red Hat Developer with full code samples; Red Hat AI Inference is a GA product, not a preview</li>
+          <li>Companion article on combining KServe and llm-d was published April 21, indicating this is part of an ongoing production engineering series</li>
+          <li>SiliconAngle covered Red Hat's broader AI inference strategy in May 2026 as a GA enterprise product launch</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://developers.redhat.com/articles/2026/06/24/optimizing-distributed-ai-inference-advanced-deployment-patterns">Red Hat: Advanced Patterns</a></li>
+          <li><a href="https://developers.redhat.com/articles/2026/06/22/designing-distributed-ai-inference-core-concepts-and-scaling-dimensions">Red Hat: Core Concepts</a></li>
+          <li><a href="https://developers.redhat.com/articles/2026/06/16/red-hat-ai-inference-amazon-eks-kubernetes-resources">Red Hat AI Inference on EKS</a></li>
+          <li><a href="https://developers.redhat.com/articles/2026/04/21/kserve-llm-d-optimized-gen-ai-inference">KServe + llm-d Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://digital-strategy.ec.europa.eu/en/library/proposal-cloud-and-ai-development-act-cada">EU Cloud and AI Development Act (CADA): Four-Tier Cloud Sovereignty Framework Will Reshape Where European Enterprises Can Run AI Workloads</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">On June 3, 2026, the European Commission published the proposal for the Cloud and AI Development Act (CADA). The regulation introduces a four-tier cloud sovereignty classification — based on infrastructure location, ownership, operational control, and personnel — that public-sector bodies must use when procuring cloud and AI services. The act also targets tripling the EU's data center capacity within five to seven years. The Computer & Communications Industry Association (CCIA) immediately filed objections, warning of 'severe market fragmentation' if the framework is adopted as proposed.</p>
+      <div class="article-meta">
+        <span class="tag">Regulation</span>
+        <span class="tag">EU</span>
+        <span class="tag">Cloud</span>
+        <span class="tag">Compliance</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">AI Governance</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>CADA's most immediate impact is on public-sector procurement, but its sovereignty tiers will cascade into private-sector AI deployments in regulated industries (banking, healthcare, critical infrastructure) and set a precedent that other jurisdictions will watch. Engineers building EU-facing AI products need to understand which tier their current cloud and model providers fall into — AWS, Azure, and GCP are likely in Tier 3 (non-EU ownership), while EU-native providers like OVHcloud, Hetzner, or Deutsche Telekom are likely Tier 1 or 2. The implications for which model APIs are usable in EU public contracts are significant and will unfold over the 12-18 month legislative process.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Map your current AI infrastructure stack against the four sovereignty tiers now — before the regulation is final — to identify which components would require migration or exemption under a Tier 2 or Tier 1 compliance scenario</li>
+          <li>Use CADA's sovereignty framework as a structured checklist for enterprise customer conversations about EU data residency: it gives you a vocabulary for explaining exactly which aspects of cloud and AI control your architecture addresses</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published on ec.europa.eu with official Commission endorsement; Lawfare, IAPP, Wilson Sonsini, and Global Policy Watch all published analysis in June 2026</li>
+          <li>CCIA filed formal objections citing 'discriminatory' provisions that disadvantage non-EU providers</li>
+          <li>InsideGlobalTech.com published a detailed breakdown of all four tiers on June 11, 2026</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://digital-strategy.ec.europa.eu/en/library/proposal-cloud-and-ai-development-act-cada">European Commission Proposal</a></li>
+          <li><a href="https://www.lawfaremedia.org/article/the-eu-cloud-and-ai-development-act">Lawfare Analysis</a></li>
+          <li><a href="https://www.insideglobaltech.com/2026/06/11/the-eu-cloud-and-ai-development-act-in-depth/">InsideGlobalTech Deep-Dive</a></li>
+          <li><a href="https://ccianet.org/news/2026/06/discriminatory-eu-cloud-and-ai-development-act-risks-severe-market-fragmentation/">CCIA Objection</a></li>
+          <li><a href="https://iapp.org/news/a/europe-s-cloud-and-ai-development-act-grand-ambition-fragile-foundations">IAPP Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
