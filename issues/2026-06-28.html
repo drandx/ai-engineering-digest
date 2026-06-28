@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 28, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 28, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://simonwillison.net/2026/jun/17/glm-52/">GLM-5.2: Z.AI's 753B MIT-licensed MoE beats GPT-5.5 on SWE-bench Pro at 1/6 the cost — 1M context window trained on long-horizon agentic coding trajectories, weights on Hugging Face</a></li>
+      <li><a href="https://github.com/openclaw/openclaw">OpenClaw reaches 247K GitHub stars in 60 days, overtakes React as most-starred GitHub project — NVIDIA ships NemoClaw security layer, creator Peter Steinberger joins OpenAI</a></li>
+      <li><a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/">Google kills Gemini CLI on June 18 for free/Pro/Ultra users — closed-source Go-based Antigravity CLI takes over, enterprise Gemini Code Assist licenses unaffected</a></li>
+      <li><a href="https://www.minimax.io/blog/minimax-m3">MiniMax M3: first open-weight model combining frontier coding (59.0% SWE-bench Pro), 1M context (MSA architecture, 15x decode speedup), and native computer use (70.06% OSWorld-Verified)</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/">Microsoft designates AutoGen maintenance-only and launches unified Microsoft Agent Framework — AG2 community fork preserves v0.2 GroupChat lineage under Apache 2.0</a></li>
+      <li><a href="https://newrelic.com/blog/news/new-relic-now-june-2026-round-up">New Relic ships Autopilot (autonomous SRE agents), Ground Truth (telemetry quality layer), and free AI Coding Observability — all GA as of June 23</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://simonwillison.net/2026/jun/17/glm-52/">GLM-5.2: Z.AI's 753B MIT-Licensed MoE Beats GPT-5.5 on SWE-bench Pro at One-Sixth the Cost — 1M Context Window, Agentic Trajectory Training</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Z.AI (formerly Zhipu AI) released GLM-5.2 on June 16-17, 2026 under the MIT license: a 753B-parameter Mixture-of-Experts model with a 1M-token context window (5x GLM-5.1's 200K), 128K max single-turn output, and only 8 of 256 routed experts active per token. It scores 62.1% on SWE-bench Pro against GPT-5.5's 58.6%, and trails Claude Opus 4.8 by only 0.7 points on FrontierSWE (74.4% vs 75.1%). Weights are hosted at zai-org/GLM-5.2 on Hugging Face; the API is OpenAI-format compatible. Z.AI's agent training specifically covered 1M-context agentic trajectories: full codebase implementation, automated research, performance optimization, and complex multi-step debugging.</p>
+      <div class="article-meta">
+        <span class="tag">Open Source</span>
+        <span class="tag">LLM</span>
+        <span class="tag">MoE</span>
+        <span class="tag">Coding</span>
+        <span class="tag">Agentic</span>
+        <span class="tag">Z.AI</span>
+        <span class="tag">GLM</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>GLM-5.2 is the first open-weight model to beat GPT-5.5 on SWE-bench Pro while available for self-hosting under a fully permissive MIT license — removing the IP ambiguity that made earlier open-weight coding models problematic for enterprise use. The 1M context window is not just bolted on: Z.AI trained on agentic trajectories at that context length, meaning the model understands multi-step debugging and cross-file reasoning at scale in a way that most 1M-window models do not. For teams that need a frontier-class agentic coding model they can audit, self-host, or fine-tune without cloud API dependencies, GLM-5.2 closes the last meaningful performance gap versus closed proprietary models.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosting a frontier-class agentic coding assistant in an air-gapped or compliance environment where closed-source APIs are prohibited — 8 active experts per forward pass makes it economical on A100 clusters relative to dense 753B models</li>
+          <li>Replacing GPT-5.5 in agentic coding pipelines using the OpenAI-compatible API format with zero code changes — the SWE-bench Pro benchmark advantage now favors the open-weight alternative</li>
+          <li>Using the 1M context window for full repository ingestion during agentic debugging tasks: load the entire codebase plus conversation history without chunking or retrieval, and let the model navigate the codebase directly</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>MIT license with weights published on Hugging Face at zai-org/GLM-5.2 — fully permissive, no commercial restrictions</li>
+          <li>Simon Willison published a detailed breakdown on June 17; Labellerr, StableLearn, Eigent, and Danilchenko.dev all published independent reviews within 48 hours</li>
+          <li>62.1% on SWE-bench Pro exceeds GPT-5.5 (58.6%) — verified independently by Artificial Analysis</li>
+          <li>API available via Z.ai with OpenAI-compatible endpoint format for drop-in testing without code changes</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://simonwillison.net/2026/jun/17/glm-52/">Simon Willison Breakdown</a></li>
+          <li><a href="https://huggingface.co/zai-org/GLM-5.2">Hugging Face Weights</a></li>
+          <li><a href="https://www.labellerr.com/blog/glm-5-2-open-weight-ai-model/">Labellerr Review</a></li>
+          <li><a href="https://stable-learn.com/en/glm-5-2-open-source-release/">StableLearn Deep-Dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.minimax.io/blog/minimax-m3">MiniMax M3: First Open-Weight Model to Combine Frontier Coding, 1M Context, and Native Computer Use — MSA Architecture Delivers 15x Decoding Speedup at 1M Tokens</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">MiniMax released M3 on June 1, 2026 as the first open-weight model to unify three capabilities simultaneously: frontier coding (59.0% SWE-bench Pro, beating GPT-5.5 and Gemini 3.1 Pro), a 1M-token context window via the new MSA (MiniMax Sparse Attention) architecture, and native multimodal computer use (70.06% on OSWorld-Verified for autonomous UI interaction). MSA delivers over 9x prefill and 15x decoding speedup at 1M-token contexts versus M2, at 1/20th the per-token compute. The API is live via MiniMax Code and the MiniMax Token Plan; weights are scheduled within 10 days of the API launch.</p>
+      <div class="article-meta">
+        <span class="tag">Open Source</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Computer Use</span>
+        <span class="tag">Multimodal</span>
+        <span class="tag">MiniMax</span>
+        <span class="tag">1M Context</span>
+        <span class="tag">Agentic</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Every prior frontier-class model forced a tradeoff: choose two of frontier coding, long context, or computer use. MiniMax M3 eliminates that tradeoff with a purpose-built sparse attention architecture. For engineering teams building agentic workflows that need to browse the web, manipulate UIs, analyze large codebases, and generate code in the same session, M3 is the first deployment that avoids routing between specialized models for different subtasks. The 15x decoding speedup at 1M tokens is particularly significant for agentic loops where many tokens are consumed per iteration.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building a single agentic loop that spans code generation, web browsing, and UI automation without model-switching: M3's native computer use avoids the tool-call overhead of routing to a separate vision model for screen understanding</li>
+          <li>RAG over extremely large codebases: at 1M context with 15x decode speedup, M3 can ingest a full monorepo in a single pass and generate substantive refactors without chunked retrieval pipelines</li>
+          <li>Self-hosting a multimodal computer-use agent for internal tooling automation once weights release — the OSWorld benchmark performance justifies evaluating it as an alternative to hosted computer-use APIs</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>API live at launch on June 1 via MiniMax Code; developer guide and MSA technical report published on release day</li>
+          <li>MarkTechPost, Codersera, DataNorth, FelloAI, and SaaSCity all published independent reviews within 24 hours of launch</li>
+          <li>59.0% SWE-bench Pro score verified by independent evaluators — exceeds both GPT-5.5 and Gemini 3.1 Pro on the same benchmark</li>
+          <li>70.06% on OSWorld-Verified for computer use — above GPT-4o and Claude 3.7 on autonomous GUI navigation</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.minimax.io/blog/minimax-m3">MiniMax Blog</a></li>
+          <li><a href="https://www.marktechpost.com/2026/06/01/minimax-releases-minimax-m3-with-msa-architecture-supporting-1m-token-context-native-multimodality-and-agentic-coding/">MarkTechPost</a></li>
+          <li><a href="https://felloai.com/minimax-m3/">FelloAI Benchmarks</a></li>
+          <li><a href="https://saascity.io/blog/minimax-m3-review-open-weight-model-2026">SaaSCity Review</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/">Google Kills Gemini CLI for Free and Consumer Users on June 18 — Closed-Source Antigravity CLI Is the Replacement, Enterprise Licenses Unaffected</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">On June 18, 2026, Google shut off Gemini CLI and Gemini Code Assist IDE extensions for all free, Google AI Pro, and Google AI Ultra tier users. Enterprise customers with Gemini Code Assist Standard or Enterprise licenses retain full access unchanged. The replacement is Antigravity CLI, built in Go for faster execution, which orchestrates multiple agents for complex tasks in background sessions — but is not open-source, reversing one of Gemini CLI's differentiators. 1:1 feature parity between the two tools is not guaranteed at launch.</p>
+      <div class="article-meta">
+        <span class="tag">Google</span>
+        <span class="tag">CLI</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">AI Coding</span>
+        <span class="tag">Migration</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Antigravity</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Gemini CLI's free tier (60 req/min, 1,000 req/day with a personal Google account, plus Gemini 2.5 Pro's 1M token context) was the most generous free AI coding tool available to individual developers. That access is now gone for all non-enterprise users. Antigravity CLI's background multi-agent session model is architecturally different from Gemini CLI's interactive terminal UX — it's not a drop-in replacement, and the closed-source nature breaks any workflows that relied on Gemini CLI's open-source extensibility. Teams that built shell script integrations or CI pipeline steps around gemini-cli need to migrate.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your team's Gemini CLI usage: individual free/Pro/Ultra users need to switch to Gemini API via Google AI Studio (still free at lower rate limits) or evaluate Claude Code, Codex CLI, or OpenClaw as replacements</li>
+          <li>If you're on Google Workspace, verify whether your org holds a Gemini Code Assist Standard or Enterprise license — those retain full access to both Gemini CLI and IDE extensions unchanged</li>
+          <li>Antigravity CLI's background multi-agent session model is worth evaluating for long-running refactors: it can run large-scale operations without locking the terminal, which is architecturally better for CI-integrated agentic tasks even if it lacks open-source extensibility</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Google Developers Blog announcement with specific June 18 sunset date; no community override available</li>
+          <li>The Register, OSTechNix, SecurityOnline, and Virtualization Review all published coverage in May-June 2026</li>
+          <li>AIBuilderClub and InventiveHQ published migration guides, indicating active developer community response</li>
+          <li>The New Stack published a hands-on comparison showing Antigravity CLI's fundamentally different workflow model from Gemini CLI</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/">Google Developers Blog</a></li>
+          <li><a href="https://www.theregister.com/ai-ml/2026/05/20/bye-bye-gemini-cli-google-nudges-devs-toward-antigravity/5243605">The Register</a></li>
+          <li><a href="https://thenewstack.io/gemini-cli-antigravity-replacement/">The New Stack Comparison</a></li>
+          <li><a href="https://inventivehq.com/blog/gemini-cli-deprecated-antigravity-cli-migration">Migration Guide</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.com/openclaw/openclaw">OpenClaw: 247K GitHub Stars in 60 Days, Overtakes React — NVIDIA Ships NemoClaw Security Layer, Creator Peter Steinberger Joins OpenAI</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenClaw, launched in November 2025 as 'Clawdbot' by Austrian developer Peter Steinberger, surpassed 250,000 GitHub stars by March 2026 — overtaking React to become GitHub's most-starred project in roughly 60 days. It's an MIT-licensed personal AI agent that runs locally across any OS, connects AI models to local files and messaging apps (WhatsApp, Discord), and runs persistent background tasks on a heartbeat loop with 50+ integrations. NVIDIA formally endorsed OpenClaw at GTC March 2026, shipping NemoClaw (a policy-based security layer) and an Agent Toolkit combining OpenShell, AI-Q blueprints, and Nemotron models for enterprise deployments. Steinberger was subsequently hired by OpenAI; the project continues under community governance.</p>
+      <div class="article-meta">
+        <span class="tag">Open Source</span>
+        <span class="tag">Agentic</span>
+        <span class="tag">AI Agent</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">OpenClaw</span>
+        <span class="tag">Local</span>
+        <span class="tag">Background Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>OpenClaw's trajectory mirrors the ChatGPT launch moment — a solo side project that became enterprise infrastructure consideration within weeks. The NVIDIA NemoClaw contribution is significant: it adds an enterprise-grade security layer (model isolation, data access controls, code verification) to a project that originally had none. The key mental model shift for engineering teams: OpenClaw is not a chatbot you query but a background worker daemon that monitors and acts autonomously — more like a cron-powered agent loop than Cursor or Claude Code. The 50+ integrations (GitHub, cron, webhooks) and persistent heartbeat make it capable of running developer-facing operations 24/7 without human polling.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running OpenClaw as a persistent background coding agent that monitors GitHub repos, processes incoming webhook events, and opens PRs while you sleep — replacing ad-hoc cron scripts with a structured agent loop that surfaces only decisions requiring human input</li>
+          <li>Using NVIDIA NemoClaw in production environments to enforce model isolation policies and audit agent data access — lets compliance teams approve OpenClaw deployments without custom security reviews</li>
+          <li>Wiring OpenClaw to Discord or Slack for async team notifications when agent tasks complete: the heartbeat architecture means agents report to the team channel rather than requiring humans to poll status</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>247K+ GitHub stars by March 2026, overtaking React as the most-starred project on GitHub — an unprecedented velocity for an open-source developer tool</li>
+          <li>NVIDIA formal endorsement at GTC 2026 with NemoClaw security contribution and Nemotron model integration — signals enterprise readiness pathway</li>
+          <li>Creator Peter Steinberger hired by OpenAI to work on next-generation agents post-viral growth — strong signal of model org validation</li>
+          <li>MLQ.ai compared viral adoption to ChatGPT launch; NextPlatform published enterprise infrastructure analysis</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/openclaw/openclaw">GitHub Repository</a></li>
+          <li><a href="https://blogs.nvidia.com/blog/what-openclaw-agents-mean-for-every-organization/">NVIDIA NemoClaw Blog</a></li>
+          <li><a href="https://inbounter.com/blog/openclaw-2026-timeline">OpenClaw 2026 Timeline</a></li>
+          <li><a href="https://www.nextplatform.com/ai/2026/03/17/nvidia-says-openclaw-is-to-agentic-ai-what-gpt-was-to-chattybots/5209428">NextPlatform Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/">Microsoft Marks AutoGen Maintenance-Only, Launches Unified Agent Framework — Community Forks AutoGen v0.2 as AG2 Under Apache 2.0</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">In early 2026, Microsoft officially designated the Microsoft Agent Framework as the primary platform for enterprise agent development, unifying AutoGen and Semantic Kernel into a single SDK. AutoGen is now in maintenance mode and will receive no new features. Original AutoGen v0.2 creators Chi Wang and Qingyun Wu (who left Microsoft) forked the project as AG2 under MIT/Apache 2.0 dual license, maintaining full backward compatibility with the GroupChat multi-agent style that made AutoGen popular. Microsoft has published a formal AutoGen-to-Agent-Framework migration guide on Microsoft Learn.</p>
+      <div class="article-meta">
+        <span class="tag">Microsoft</span>
+        <span class="tag">AutoGen</span>
+        <span class="tag">AG2</span>
+        <span class="tag">Agentic</span>
+        <span class="tag">Frameworks</span>
+        <span class="tag">Semantic Kernel</span>
+        <span class="tag">Python</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Any team running AutoGen GroupChat patterns in production must now choose: migrate to Microsoft Agent Framework (Microsoft-supported, includes checkpointing and observability, may require API changes) or adopt AG2 (community-governed, backward-compatible with v0.2, Apache 2.0). AG2 is the minimal-disruption path for existing AutoGen code; Microsoft Agent Framework is the long-term vendor-supported path, especially for teams already using Semantic Kernel or Azure AI Foundry. The maintenance announcement means security patches for AutoGen v0.3+ may slow; teams should audit their version and dependency exposure.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your current AutoGen code for v0.3+ breaking changes: if you're on v0.2 GroupChat patterns, AG2 is a drop-in fork migration with no required code changes and continued feature development from the original authors</li>
+          <li>Choose Microsoft Agent Framework if your team uses Semantic Kernel and wants a unified SDK with enterprise observability features and Microsoft support SLAs — the unified SDK eliminates the two-library management overhead</li>
+          <li>Review the Microsoft Learn migration guide before Q3 2026 — as AutoGen enters maintenance, security patches may stop being backported; assess your version's exposure and timeline for switching</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Microsoft Learn published the official AutoGen-to-Agent-Framework migration guide — a formal deprecation signal, not a roadmap hint</li>
+          <li>AG2 GitHub repository at ag2ai/ag2 has active commit history and a Discord community with original framework authors maintaining it</li>
+          <li>JetBrains June 2026 agentic framework guide lists both Microsoft Agent Framework and AG2 as distinct, production-ready options</li>
+          <li>Alice Labs published a 7-framework comparison in June 2026 treating the two paths as separate choices for different team contexts</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/">Microsoft Learn Migration Guide</a></li>
+          <li><a href="https://github.com/ag2ai/ag2">AG2 GitHub</a></li>
+          <li><a href="https://github.com/microsoft/autogen">AutoGen GitHub</a></li>
+          <li><a href="https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026">Alice Labs Framework Comparison</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://code.claude.com/docs/en/agent-sdk/overview">Claude Agent SDK Ships Runtime MCP Server Management and Typed Task Notifications — add_mcp_server() Lets Agents Dynamically Connect Tools Mid-Session</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Recent Claude Agent SDK updates (Python: claude-agent-sdk-python; TypeScript: @anthropic-ai/claude-agent-sdk) added first-class runtime MCP server management: add_mcp_server(), remove_mcp_server(), and a typed McpServerStatus for real-time connection monitoring. A new event model adds TaskStarted, TaskProgress, and TaskNotification message subclasses for type-safe handling of long-running task events. The SDK wraps the same tool loop and context model powering Claude Code, with support for file editing, bash execution, web search, subagent delegation, persistent sessions, and human-in-the-loop checkpoints. The latest release adds Claude Opus 4.8 as a supported model.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">MCP</span>
+        <span class="tag">SDK</span>
+        <span class="tag">Agentic</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Python</span>
+        <span class="tag">DevTools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The add_mcp_server()/remove_mcp_server() API is a meaningful shift in how MCP integration works: instead of declaring MCP server configurations statically at session start, agents can now connect and disconnect tool servers at runtime based on what the task requires. This enables adaptive agentic workflows — a coding agent that starts with file-system tools can attach a database MCP server when it detects a schema query, then detach when done, without restarting the session. Combined with typed TaskProgress notifications, this makes the Agent SDK competitive with hand-rolled agent harnesses for production deployments where observability and dynamic tool management matter.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building agents that connect to customer-specific databases on-demand: use add_mcp_server() to attach a read-only Postgres MCP server at task start, query the schema, then detach when done — keeping credentials scoped to the minimum necessary window</li>
+          <li>Streaming TaskProgress notifications to a WebSocket front-end during long agent runs, replacing polling patterns with push-based progress updates for multi-minute agentic tasks</li>
+          <li>Composing subagents with different MCP tool sets: a parent orchestration agent can spawn child agents each pre-configured with domain-specific MCP servers for database, API, and file system operations — tools are scoped to the agent that needs them</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Active weekly changelog on GitHub for both Python and TypeScript packages — not a preview feature, actively maintained</li>
+          <li>Totalum, MorphLLM, TechPlained, and LetDataScience all published guides citing runtime MCP features as new in May-June 2026</li>
+          <li>SDK powers Claude Code's own tool loop — bugs in the SDK are bugs in the flagship product, creating a strong reliability incentive</li>
+          <li>MintMCP published an enterprise deployment guide specifically for the add_mcp_server API pattern and credential scoping</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://code.claude.com/docs/en/agent-sdk/overview">Agent SDK Docs</a></li>
+          <li><a href="https://github.com/anthropics/claude-agent-sdk-python">Python Package</a></li>
+          <li><a href="https://github.com/anthropics/claude-agent-sdk-typescript/releases">TypeScript Releases</a></li>
+          <li><a href="https://www.morphllm.com/claude-agent-sdk">MorphLLM Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/">JetBrains June 2026 Agentic Framework Guide: LangGraph, CrewAI, AG2, Semantic Kernel, and LlamaIndex Ranked for Production — Persistence Model Is the Key Decision Axis</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">JetBrains published a comprehensive June 2026 guide ranking the top agentic frameworks for production applications. Key findings: LangGraph wins for deterministic stateful workflows with human-in-the-loop requirements; CrewAI wins for high-level role-based multi-agent abstractions without graph programming; AG2 (the AutoGen v0.2 community fork) wins for GroupChat-style collaborative multi-agent patterns; Semantic Kernel wins for Microsoft Azure enterprise stacks; LlamaIndex wins for knowledge-heavy RAG-centric agents. The guide identifies the persistence model — stateless vs. stateful checkpointed — as the primary decision axis, not the agent style.</p>
+      <div class="article-meta">
+        <span class="tag">Frameworks</span>
+        <span class="tag">Agentic</span>
+        <span class="tag">LangGraph</span>
+        <span class="tag">CrewAI</span>
+        <span class="tag">AG2</span>
+        <span class="tag">LlamaIndex</span>
+        <span class="tag">JetBrains</span>
+        <span class="tag">Python</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The agentic framework landscape has consolidated enough that switching costs are now real. LangGraph's state graph model and CrewAI's role abstraction are not interoperable; picking the wrong framework for your persistence requirements means a full rewrite, not a refactor. The JetBrains guide is valuable because it's vendor-neutral and addresses the question most intro guides skip: stateless frameworks (default CrewAI, early LlamaIndex) lose all context when sessions end, while stateful frameworks (LangGraph with checkpointing, Microsoft Agent Framework) can pause and resume multi-day tasks — a critical difference for production agentic workflows that run longer than a single API call.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use the persistence model decision tree first: if your agent needs to pause mid-task and resume hours or days later, narrow your choice to LangGraph, Microsoft Agent Framework, or Temporal-based orchestration — all other frameworks require rebuilding state from scratch on resume</li>
+          <li>For greenfield agentic projects starting in July 2026: AG2 and LangGraph are the two highest-traction community frameworks; start with AG2 if your team knows AutoGen GroupChat, LangGraph if you think in state machines and need fine-grained graph control</li>
+          <li>If you're integrating with Azure AI Foundry and Microsoft 365: Semantic Kernel's native bindings eliminate custom adapter work that every other framework in the comparison requires</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published on JetBrains Blog — audience is professional PyCharm and IntelliJ users, a strong signal for enterprise Python adoption trends</li>
+          <li>Hands-on code examples for all five frameworks, not a conceptual overview — reflects current production patterns</li>
+          <li>Multiple Awesome-AI-Agents-2026 GitHub repositories (300+ resources each) converge on the same five frameworks as the canonical comparison set</li>
+          <li>Alice Labs and AnalyticsVidhya published parallel comparisons in June 2026 reaching similar framework rankings</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.jetbrains.com/pycharm/2026/06/top-agentic-frameworks-for-building-applications-2026/">JetBrains Guide</a></li>
+          <li><a href="https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026">Alice Labs Comparison</a></li>
+          <li><a href="https://github.com/Zijian-Ni/awesome-ai-agents-2026">Awesome AI Agents 2026</a></li>
+          <li><a href="https://blog.logrocket.com/ai-dev-tool-power-rankings/">LogRocket Dev Tool Power Rankings</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://newrelic.com/blog/news/new-relic-now-june-2026-round-up">New Relic Ships Autopilot (Autonomous SRE Agents), Ground Truth (Telemetry Quality Layer), and Free AI Coding Observability — All GA June 23</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">New Relic's June 23 announcement introduced three production capabilities: Autopilot (an autonomous SRE agent that starts triaging incidents the moment an alert fires, performs root-cause analysis, and proposes remediation paths for Kubernetes, Kafka, and cross-stack failures); Ground Truth (a telemetry quality layer that labels and contextualizes signals before Autopilot or third-party AI agents like GitHub Copilot and Claude Code act on them); and AI Coding Observability (an open-source extension that tracks, analyzes, and audits AI-assisted coding activities at no additional cost). All three reached GA on June 23.</p>
+      <div class="article-meta">
+        <span class="tag">Observability</span>
+        <span class="tag">SRE</span>
+        <span class="tag">Monitoring</span>
+        <span class="tag">New Relic</span>
+        <span class="tag">AI Coding</span>
+        <span class="tag">Production</span>
+        <span class="tag">Agentic</span>
+        <span class="tag">Autopilot</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>New Relic Autopilot's distinguishing claim is Ground Truth — the argument that autonomous SRE agents are only as reliable as the data they act on, and that most observability stacks produce too much noise for an autonomous agent to act on safely without a semantic filter. This is a credible position: production AI agent incidents have frequently traced back to low-quality telemetry inputs rather than model failures. The free AI Coding Observability extension addresses an emerging compliance need: audit trails of which code was AI-generated, enabling post-incident analysis that distinguishes 'human mistake' from 'AI-introduced bug.'</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Configure Ground Truth to filter incident signals before they reach Autopilot: reduces false-positive autonomous remediation actions by ensuring the agent acts only on confirmed high-confidence alerts, not noise</li>
+          <li>Use AI Coding Observability to generate an audit report showing which code was AI-generated vs. human-written before a post-incident review — helps distinguish 'the developer made a mistake' from 'the AI-generated code introduced the regression'</li>
+          <li>Connect New Relic's MCP server to Claude Code or GitHub Copilot so coding agent sessions have live production context: the agent can see current service error rates and p99 latency before proposing a fix</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced at New Relic Now June 2026; TechCrunch, HPC Wire, APMdigest, and Help Net Security all published coverage</li>
+          <li>New Relic Autopilot was in preview since November 2025 — June 23 marks GA after a six-month preview cycle, indicating production readiness</li>
+          <li>AI Coding Observability ships as an open-source feature at zero additional cost, removing the main adoption barrier for teams already running New Relic</li>
+          <li>Microsoft Build 2026 partnership: Azure and GitHub Copilot integrations that feed observability data as context to AI coding agents — signals platform-level positioning, not a one-off feature</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://newrelic.com/blog/news/new-relic-now-june-2026-round-up">New Relic June 2026 Round-Up</a></li>
+          <li><a href="https://techcrunch.com/2026/02/24/new-relic-launches-new-ai-agent-platform-and-opentelemetry-tools/">TechCrunch</a></li>
+          <li><a href="https://www.apmdigest.com/new-relic-introduces-ai-coding-observability">APMdigest</a></li>
+          <li><a href="https://www.helpnetsecurity.com/2026/06/08/new-relic-ai-coding-observability/">Help Net Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.analyticsvidhya.com/blog/2026/06/agent-observability-with-langsmith-langfuse-arize/">LLM Observability Has Split Into Three Camps in 2026: APM Add-Ons, AI-Native Tracers, and AI Gateways — A Decision Framework for Production Teams</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The LLM observability market has crystallized into three distinct categories in 2026: (1) APM add-ons — Datadog AI Observability, New Relic AI, and Honeycomb LLM — which bolt LLM tracing onto existing infrastructure monitoring; (2) AI-native tracers — LangSmith (deepest LangChain/LangGraph integration, node-by-node execution graphs, minimal overhead), Langfuse (open-source, self-hostable, ClickHouse-backed, multi-framework), and Arize Phoenix (production monitoring, drift detection, cohort analysis, alerting); and (3) AI gateways — Helicone and Portkey — which sit in the network path and add logging, cost tracking, and model routing. Gartner projects 50% of GenAI deployments will use formal evaluation and observability platforms by 2028, up from 18% in 2025.</p>
+      <div class="article-meta">
+        <span class="tag">Observability</span>
+        <span class="tag">LangSmith</span>
+        <span class="tag">Langfuse</span>
+        <span class="tag">Arize</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Production</span>
+        <span class="tag">Monitoring</span>
+        <span class="tag">Datadog</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Teams that chose their observability tool in early 2025 during the LangChain experimentation era may now be in the wrong camp for their production maturity. Langfuse or LangSmith chosen as 'tracing tools' during development lack the drift detection and alerting capabilities needed for production monitoring. Conversely, teams paying for full Datadog who only need prompt tracing and cost visibility are over-buying. The three-camp model is a practical audit framework: evaluate what your current tool actually covers at your production stage, not what it covers on paper.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If your team builds on LangGraph or LangChain: start with LangSmith — the node-by-node state diff and agent execution graph visualization are not replicable in other camps without custom instrumentation</li>
+          <li>If you need to self-host observability for data sovereignty (HIPAA, EU CADA tier compliance): Langfuse running on ClickHouse in your own VPC is the only fully self-hostable option in the AI-native tracer camp</li>
+          <li>If your agents are in production and showing unexplained quality degradation: move to Arize Phoenix's drift detection (prompt drift, embedding drift, output quality shift over time) — it's designed for monitoring regressions, not development-time tracing</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Analytics Vidhya hands-on comparison published June 2026 with reproducible code samples for all three camps</li>
+          <li>MLflow, Confident AI, Braintrust, and Converra all published parallel analyses independently reaching the same three-category taxonomy</li>
+          <li>Gartner projection (50% adoption by 2028 vs. 18% in 2025) indicates this is a fast-moving market requiring re-evaluation every 6 months</li>
+          <li>Langfuse maintains 25K+ GitHub stars with active development; LangSmith handles production traffic for LangChain commercial customers at scale</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.analyticsvidhya.com/blog/2026/06/agent-observability-with-langsmith-langfuse-arize/">Analytics Vidhya Comparison</a></li>
+          <li><a href="https://mlflow.org/top-5-agent-observability-tools/">MLflow Guide</a></li>
+          <li><a href="https://www.confident-ai.com/knowledge-base/compare/best-ai-agent-observability-tools-2026">Confident AI Top 6</a></li>
+          <li><a href="https://www.braintrust.dev/articles/best-ai-observability-tools-2026">Braintrust Buyer's Guide</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
