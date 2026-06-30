@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — June 30, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">June 30, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/">MCP ships its largest spec revision ever: the 2026-07-28 release candidate drops sessions entirely, mandates OAuth 2.1, and gives servers a 12-month deprecation window — every MCP server/client needs to validate against it before July 28</a></li>
+      <li><a href="https://github.com/DeusData/codebase-memory-mcp">codebase-memory-mcp hits 22.1k GitHub stars: a single static binary indexes the Linux kernel (28M LOC) in 3 minutes and cuts agent token usage 120x by replacing grep-the-repo with graph queries</a></li>
+      <li><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.191">Claude Code 2.1.191 ships /rewind, retrying MCP OAuth flows, and a 37% CPU cut during streaming — quiet but immediately useful for anyone running it all day</a></li>
+      <li><a href="https://github.com/stablyai/orca">Orca (9.4k stars, MIT) and Cognee (25.9k stars, Apache-2.0) are both trending hard this week — one orchestrates fleets of coding agents in isolated worktrees, the other gives agents persistent cross-session memory</a></li>
+      <li><a href="https://replit.com/blog/package-firewall">Replit's Package Firewall has blocked ~8,000 malicious package installs per day since launch a week ago — including 'slopsquats,' packages attackers register under names LLMs hallucinate</a></li>
+      <li><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/">Microsoft's MXC and Microsoft's own ASSERT framework both push agent trust down to the platform layer — OS-level sandboxing with OpenAI/Nvidia/Manus already on board, and an MIT-licensed eval harness that turns policy docs into executable tests</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/">MCP 2026-07-28 Release Candidate: Sessions Are Gone, OAuth 2.1 Is Mandatory — The Biggest Protocol Revision Since Launch</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">The release candidate for the next Model Context Protocol spec removes the initialize/initialized handshake and the Mcp-Session-Id header entirely — protocol version, client info, and capabilities now travel inline on every request, so any server instance can serve any request behind a plain round-robin load balancer. It also hardens authorization with six SEPs aligning MCP to OAuth 2.1/OIDC, adds MCP Apps (server-rendered sandboxed UI) and a redesigned Tasks extension, and moves the missing-resource error code from a custom -32002 to the JSON-RPC standard -32602. Roots, Sampling, and Logging are deprecated with a guaranteed 12-month removal window. The final spec ships July 28, 2026; the RC is live now for a 10-week SDK validation window.</p>
+      <div class="article-meta">
+        <span class="tag">MCP</span>
+        <span class="tag">Protocol</span>
+        <span class="tag">OAuth</span>
+        <span class="tag">AgentInfra</span>
+        <span class="tag">BreakingChange</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>If you run or build against any remote MCP server, this is a forced migration, not an optional upgrade. The stateless core is genuinely good news for anyone who's fought sticky-session bugs or shared session stores in production MCP gateways — but anyone who shipped against the experimental 2025-11-25 Tasks API has real migration work, and any client code matching on the old -32002 error code will silently break. Teams running MCP behind their own auth need to validate against the new OAuth 2.1/OIDC alignment now, not in week 9 of the window.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit any MCP server code for session-ID-based routing or sticky-session assumptions before July 28 — replace with explicit handle-passing between tool calls</li>
+          <li>Grep client code for hardcoded -32002 error handling and update to -32602 ahead of the cutover</li>
+          <li>If you built on the experimental Tasks API, budget migration time now — the new lifecycle is not backward compatible</li>
+          <li>Use the new caching signals (ttlMs, cacheScope) to cut redundant tool-call round trips once Tier 1 SDKs land support</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official spec blog post from the Model Context Protocol maintainers, with a published draft spec and changelog</li>
+          <li>Joint US government guidance on MCP security (NSA/CISA, published June 2026) is already referencing the protocol's authorization model</li>
+          <li>Tier 1 SDK maintainers (per the MCP SDK tier system) are committed to shipping support within the 10-week RC window</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/">MCP Spec Blog</a></li>
+          <li><a href="https://workos.com/blog/mcp-2026-spec-agent-authentication">WorkOS: Auth Changes Explained</a></li>
+          <li><a href="https://modelcontextprotocol.io/specification/draft/changelog">Draft Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/DeusData/codebase-memory-mcp">codebase-memory-mcp: 22.1k Stars for the Static Binary That Turns 'grep the Whole Repo' Into a Graph Query</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">codebase-memory-mcp is an MCP server that indexes a codebase into a persistent knowledge graph of functions, classes, call chains, HTTP routes, and cross-service links using tree-sitter AST parsing across 158 languages, enhanced with semantic type resolution for the dozen most common languages. It full-indexes an average repo in milliseconds and the Linux kernel (28M LOC, 75K files) in about 3 minutes, then answers structural queries in under 1ms. It ships as a single static binary for macOS/Linux/Windows with zero dependencies, and the installer auto-configures Claude Code, Codex CLI, Gemini CLI, Zed, Aider, KiloCode, VS Code, OpenClaw, Kiro, and more.</p>
+      <div class="article-meta">
+        <span class="tag">MCP</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">CodeIntelligence</span>
+        <span class="tag">AgentInfra</span>
+        <span class="tag">OpenSource</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Every coding agent today burns tokens re-discovering the same repo structure via repeated grep/read cycles, especially on large or unfamiliar codebases. The maintainers' own numbers — 5 structural queries at ~3,400 tokens versus ~412,000 tokens via file-by-file search — point at a real bottleneck for anyone running agents against monorepos or legacy code. A zero-dependency static binary that auto-wires into a dozen existing tools is also a meaningfully lower-friction adoption path than the typical Docker-and-config-file MCP server.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Wire into Claude Code or Codex CLI on a large monorepo to cut the token cost of multi-file refactors and impact analysis</li>
+          <li>Use the dead-code detection and cross-service HTTP linking tools to map undocumented service boundaries before a migration</li>
+          <li>Run the 3D graph visualization during onboarding to give new engineers (or new agent sessions) a structural map instead of a README</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>22.1k GitHub stars, MIT license, active releases (v0.8.1 shipped June 12, 2026)</li>
+          <li>Auto-detects and configures 11+ coding agents/IDEs out of the box, evidence of broad real-world integration testing</li>
+          <li>Cited in multiple independent dev blogs (russ.cloud, themenonlab) as a practical fix for 'stop telling your agent to grep the whole repo'</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/DeusData/codebase-memory-mcp">GitHub Repo</a></li>
+          <li><a href="https://deusdata.github.io/codebase-memory-mcp/">Project Site</a></li>
+          <li><a href="https://www.russ.cloud/2026/05/10/codebase-memory-mcp-giving-claude-code-and-codex-a-map/">Field Report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.191">Claude Code 2.1.191: /rewind Resumes Past /clear, MCP OAuth Now Retries, Streaming CPU Use Down 37%</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Anthropic's June 25 release adds /rewind, which lets you resume an in-flight conversation thread from before a /clear was run, rather than falling back to /resume's saved-session snapshot. MCP server capability discovery (tools/list, prompts/list, resources/list) now retries transient network errors with backoff, and MCP OAuth discovery/token requests get one automatic retry on transient failure, with headless environments skipping the browser popup entirely in favor of a paste-the-URL prompt. Separately, CPU usage during streaming responses dropped about 37% via 100ms text-update coalescing.</p>
+      <div class="article-meta">
+        <span class="tag">ClaudeCode</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">MCP</span>
+        <span class="tag">CLI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>None of this is flashy, but it's the kind of fix that matters once you're running an agent CLI for hours a day: /clear has been a one-way door that lost in-flight context, and flaky MCP OAuth/discovery has been a recurring source of 'why did my tools just disappear' reports. The CPU reduction is a real quality-of-life win on laptops running Claude Code alongside everything else during a workday.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use /rewind instead of /resume when you over-clear mid-task and need the actual in-flight thread back, not just the last checkpoint</li>
+          <li>Rely on the new OAuth retry behavior in CI/headless agent runners where a single transient network blip used to kill an MCP connection for the session</li>
+          <li>Notice lower battery/fan impact on long Claude Code streaming sessions on laptops</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official GitHub release (anthropics/claude-code v2.1.191, June 25, 2026) with changelog detail</li>
+          <li>Documented against open GitHub issues from users hitting MCP OAuth reconnect failures, suggesting the fix targets reported pain points directly</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.191">GitHub Release</a></li>
+          <li><a href="https://code.claude.com/docs/en/changelog">Official Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.com/stablyai/orca">Orca: 9.4k-Star Open-Source ADE Runs Claude Code, Codex, and Cursor Side-by-Side in Isolated Git Worktrees</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Orca is an MIT-licensed Agent Development Environment for running a fleet of coding agents in parallel — each task spins up in its own isolated git worktree with its own terminal, browser tab, and context, so there's no stashing or branch juggling to run multiple agents at once. It works with Claude Code, Codex, OpenCode, Grok, and other agent CLIs interchangeably, runs natively on macOS/Windows/Linux, and ships a mobile companion app (iOS/Android) for monitoring agent status, usage, and account switching remotely.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">AgentOrchestration</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">ClaudeCode</span>
+        <span class="tag">Codex</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Running 3-4 coding agents in parallel on different tasks is becoming a normal workflow, but doing it by hand means juggling worktrees, terminals, and context manually. Orca productizes that pattern instead of leaving every team to build their own scripts around it, and the bring-your-own-subscription model (versus a per-seat SaaS) keeps it usable for individual engineers, not just funded teams.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run the same task through two different agents (e.g. Claude Code and Codex) in parallel worktrees to compare diffs before merging</li>
+          <li>Kick off a long-running refactor from Orca's mobile app, then check progress and approve risky steps from your phone</li>
+          <li>Use Design Mode to click an element in an embedded browser and drop its HTML/CSS/screenshot straight into an agent's prompt for UI fixes</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>9.4k GitHub stars, MIT license, active development</li>
+          <li>Featured on Product Hunt with positive independent reviews from multiple dev blogs (DEV Community, EveryDev.ai)</li>
+          <li>Multi-agent support confirmed across at least 5 distinct coding agent CLIs, not locked to one vendor</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/stablyai/orca">GitHub Repo</a></li>
+          <li><a href="https://www.onorca.dev/">Product Site</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/topoteretes/cognee">Cognee: 25.9k-Star Open-Source Memory Layer Gives Agents a Self-Hosted Knowledge Graph Across Sessions</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Cognee is an Apache-2.0 platform that ingests data in any format and continuously builds a self-hosted knowledge graph combining vector embeddings, graph reasoning, and ontology generation, giving agents persistent long-term memory across sessions instead of starting from scratch every conversation. It supports pluggable backends (Neo4j, FalkorDB, KuzuDB, NetworkX for graphs; Redis, Qdrant, Weaviate for vectors; SQLite/Postgres for relational metadata) and processes data through an ECL (Extract, Cognify, Load) pipeline.</p>
+      <div class="article-meta">
+        <span class="tag">AgentMemory</span>
+        <span class="tag">KnowledgeGraph</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">RAG</span>
+        <span class="tag">DevTools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most agent frameworks treat memory as a vector-search afterthought, which loses the relational structure between facts. Cognee's graph-plus-vector approach targets the specific failure mode where an agent 'remembers' a fact but not how it connects to other facts it learned in a different session — relevant for any team building agents that need to accumulate domain knowledge over weeks, not just within a single chat.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Give a customer-support agent a self-hosted memory layer that recalls a specific customer's history across sessions without a third-party memory API</li>
+          <li>Build a coding agent that accumulates architecture decisions and gotchas about a specific codebase over months of sessions</li>
+          <li>Run fully local (Ollama + local vector backend) for memory in regulated environments where data can't leave the network</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>25.9k GitHub stars, Apache-2.0 license, adoption across 200-300 downstream projects per maintainer reporting</li>
+          <li>Graduated GitHub's Secure Open Source Program, indicating it passed external security review</li>
+          <li>Pluggable backend support for 6+ established graph/vector databases signals production-oriented design, not a toy demo</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/topoteretes/cognee">GitHub Repo</a></li>
+          <li><a href="https://www.cognee.ai/">Product Site</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-06-02-cloud-and-local-sandboxes-for-github-copilot-now-in-public-preview/">GitHub Copilot Sandboxes Hit Public Preview: Isolated Local and Cloud Execution for Copilot's Tool Calls</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">GitHub Copilot can now run its tool execution — filesystem access, shell commands, network calls — inside secure isolated sandboxes, available both locally and in the cloud, governed by policies developers define. The feature is in public preview and targets the specific risk class where an agent's tool-calling loop touches the host filesystem or network in ways the developer didn't explicitly approve.</p>
+      <div class="article-meta">
+        <span class="tag">GitHubCopilot</span>
+        <span class="tag">Security</span>
+        <span class="tag">Sandboxing</span>
+        <span class="tag">AgentInfra</span>
+        <span class="tag">DevTools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As agentic coding tools gain more autonomy to run commands without per-step approval, the blast radius of a bad tool call (or a prompt-injected one, as seen in this year's Agentjacking attacks) grows with it. Sandboxing tool execution by default — rather than relying on the model to 'be careful' — is the same architectural shift other vendors (Microsoft's MXC, Replit's Auto-Protect) are converging on, and it's a meaningful signal that the major coding-agent vendors now treat unsandboxed tool execution as a defect, not a feature.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Turn on cloud sandboxing for Copilot agent tasks that need to run install scripts or build commands against untrusted dependencies</li>
+          <li>Define a local sandbox policy that denies network access for Copilot sessions working on offline-only codebases</li>
+          <li>Use sandboxed execution as a mitigation layer against prompt-injection attacks delivered through tool outputs (e.g. error messages, search results) that an agent might otherwise act on unsupervised</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official GitHub Changelog public preview announcement</li>
+          <li>Released in the same window as comparable platform-level sandboxing moves from Microsoft (MXC) and Replit (Auto-Protect), suggesting industry-wide convergence rather than a one-off feature</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-06-02-cloud-and-local-sandboxes-for-github-copilot-now-in-public-preview/">GitHub Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/">Microsoft MXC: An OS-Level Sandbox for AI Agents, With OpenAI, Nvidia, and Manus Already Building On It</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">MXC (Microsoft Execution Containers) is a kernel-enforced, OS-level sandbox SDK built into Windows and WSL that lets developers and IT declare exactly what an AI agent can access — files, network, apps — and enforce that policy at runtime. Its key feature is session isolation: separating an agent's execution from the user's desktop, clipboard, UI, and input devices, which directly blocks UI spoofing, input injection, and cross-session data leakage. It offers a 'composable sandbox spectrum' from lightweight process isolation up to micro-VMs and full Windows 365 cloud instances. Launch partners include OpenAI, Nvidia, Manus, Nous Research, and OpenClaw.</p>
+      <div class="article-meta">
+        <span class="tag">AgentSecurity</span>
+        <span class="tag">Sandboxing</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Windows</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most agent-security efforts so far have been bolted onto individual products (a vendor's own sandbox, a vendor's own permission model). MXC is a platform play: it's infrastructure other vendors build their own agent products on top of, which means engineers shipping agents on Windows get OS-enforced isolation without building it themselves. The launch partner list — direct competitors like OpenAI and Nvidia building on the same Microsoft-owned layer — is a strong signal this becomes a de facto standard rather than a Microsoft-only feature.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run an untrusted or third-party coding agent inside an MXC session-isolated sandbox to prevent it from reading your clipboard or spoofing UI dialogs</li>
+          <li>Use the composable sandbox spectrum to right-size isolation cost — lightweight process isolation for low-risk agent tasks, micro-VMs for agents touching sensitive files</li>
+          <li>Evaluate MXC as the underlying isolation layer before building a custom sandboxing solution for a Windows-targeted agent product</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced at Microsoft Build 2026 with named launch partners spanning model vendors (OpenAI), hardware (Nvidia), and agent platforms (Manus, Nous Research, OpenClaw)</li>
+          <li>Official Windows Developer Blog technical deep-dive on the architecture, not just a press release</li>
+          <li>Positioned alongside Microsoft's MAI model family launch, indicating it's a strategic platform bet, not a side project</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/">Windows Developer Blog</a></li>
+          <li><a href="https://venturebeat.com/security/microsoft-launches-mxc-an-os-level-sandbox-for-ai-agents-with-openai-and-nvidia-already-on-board">VentureBeat Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://replit.com/blog/package-firewall">Replit's Package Firewall Blocks ~8,000 Malicious Installs a Day — Including Packages Named After LLM Hallucinations</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Replit launched Package Firewall, built with supply-chain security company Socket, on by default for every builder with no setup required. When an install command (npm install, pip install, etc.) runs — whether typed by a developer or executed by Replit's Agent — the request is checked against Socket's threat database, and flagged installs are blocked before any code reaches the environment, with a clear message explaining what was stopped and why. In its first week, it's blocked roughly 8,000 packages per day. It specifically targets typosquats (one-keystroke-off package names), 'slopsquats' (real attacker-registered packages matching names LLMs hallucinate), and stale recommendations (real packages with disclosed vulnerabilities that an agent suggests because they were known-good before its training cutoff).</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">SupplyChain</span>
+        <span class="tag">Replit</span>
+        <span class="tag">AgentSecurity</span>
+        <span class="tag">SlopSquatting</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Slopsquatting is a new and specifically AI-engineering problem: agentic coding tools regularly hallucinate plausible-sounding package names, and attackers have started registering those exact names and waiting. This follows a string of real supply-chain incidents this year (including the LiteLLM PyPI compromise) and shows where the industry is heading — defaults that protect against an agent's own mistakes, not just human ones. The 8,000/day figure is a useful gut-check on how often this actually happens in the wild, not a hypothetical risk.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you're not on Replit, replicate the pattern: wire Socket (or an equivalent) into your own CI/agent install step rather than trusting an agent's package suggestions directly</li>
+          <li>Audit existing dependency lists for packages an AI tool may have suggested, specifically checking for slight misspellings or suspiciously-perfect-match names you don't recognize</li>
+          <li>Treat 'this package looks right but I don't remember adding it' as a real incident class now, not paranoia, when reviewing agent-generated diffs</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Replit product blog with concrete, measured numbers (~8,000 blocks/day) rather than marketing claims</li>
+          <li>Built in partnership with Socket, an established supply-chain security vendor, not an in-house heuristic</li>
+          <li>On by default for all builders — opt-out rather than opt-in adoption, meaning the usage numbers reflect near-total platform coverage rather than a self-selected subset</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://replit.com/blog/package-firewall">Replit Blog</a></li>
+          <li><a href="https://docs.replit.com/references/security/package-firewall">Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/responsibleai/ASSERT">Microsoft Open-Sources ASSERT: Turning Plain-Text Agent Policies Into Executable Test Suites</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">ASSERT, built by Microsoft's Responsible AI org and released MIT-licensed at Build 2026, is a requirement-driven evaluation harness that converts plain-text behavior specs into executable test cases for AI agents and LLM applications. It generates single- and multi-turn test cases derived from stated behavior categories, runs them against any target (hosted models, callable wrappers, OTel-traced agents), and scores results with an LLM judge that reaches 80-90% agreement with human annotators. It's framework-agnostic, supporting LangChain, CrewAI, AutoGen, OpenAI Agents SDK, DSPy, LlamaIndex, and Semantic Kernel, and reaches 100+ model endpoints via LiteLLM.</p>
+      <div class="article-meta">
+        <span class="tag">AgentEval</span>
+        <span class="tag">Testing</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">ResponsibleAI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most teams currently eval agents with a hand-built set of test cases that grows ad hoc and rarely maps cleanly back to the actual policy the agent is supposed to follow. ASSERT's research validation — about 1.2x the behavior-space coverage and 1.5x more inspection-worthy cases found versus an in-house baseline — is a credible signal that spec-derived test generation catches real gaps manual test-writing misses. It's early (171 stars as of this week) but worth watching given the framework-agnostic design and Microsoft's backing.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Convert an existing internal 'agent must never do X' policy doc directly into a CI-gated regression test suite instead of hand-writing test cases</li>
+          <li>Use the LLM-judge scoring to catch multi-turn policy violations that simple single-turn unit tests miss</li>
+          <li>Run ASSERT against an OTel-traced production agent to mine real conversation logs for behavior gaps before they become incidents</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>MIT-licensed and released by Microsoft's Responsible AI organization at Build 2026, with a published technical methodology</li>
+          <li>Reported 1.2x behavior-space coverage and 1.5x more flagged cases versus an in-house evaluation baseline in Microsoft's own benchmarking</li>
+          <li>Framework-agnostic support spanning 7 major agent frameworks and 100+ model endpoints via LiteLLM — broad compatibility despite still being early-stage by star count</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/responsibleai/ASSERT">GitHub Repo</a></li>
+          <li><a href="https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/">Microsoft Foundry Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
