@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — July 01, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">July 01, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Claude Fable 5 and Mythos 5 are back today (July 1) after 19 days offline — the US lifted its export control order and Anthropic agreed to proactively detect model security issues and report malicious activity to the government</a></li>
+      <li><a href="https://openai.com/index/previewing-gpt-5-6-sol/">OpenAI previews GPT-5.6 Sol, Terra, and Luna: Sol launches on Cerebras at 750 tok/s in July, the fastest frontier-class inference speed announced to date — currently limited to select API partners</a></li>
+      <li><a href="https://resources.anthropic.com/2026-agentic-coding-trends-report">Anthropic's 2026 Agentic Coding Trends Report: agents now average 20 autonomous actions before requiring human input — that number doubled in six months — and 27% of AI-assisted work is entirely new work that didn't previously exist</a></li>
+      <li><a href="https://openai.com/index/work-with-codex-from-anywhere/">Codex Remote hits GA on all ChatGPT plans with QR-relay mobile approvals and a DigitalOcean plugin that provisions a cloud Droplet as a Codex workspace in one step</a></li>
+      <li><a href="https://www.requesty.ai/blog/ai-agent-cost-optimization-how-to-cut-llm-spend-by-80-percent-with-routing">LLM routing is cutting production AI bills 40-86% — routing 70% of requests to cheaper models drops average cost from $15 to ~$2 per million tokens with rule-based overhead under 1ms</a></li>
+      <li><a href="https://github.com/langfuse/langfuse">Langfuse v4 goes OTEL-native and ships ClickHouse-backed infrastructure — the leading open-source LLM observability platform now integrates via standard OpenTelemetry at 26.6k stars and Fortune 50 scale</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Claude Fable 5 and Mythos 5 Are Back — Restored Today After 19-Day US Export Control Suspension</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">After 19 days offline under a US government export control directive triggered by an Amazon-discovered jailbreak, Claude Fable 5 and Mythos 5 returned to Claude.ai, Claude Platform, Claude Code, and Claude Cowork on July 1. The Trump administration lifted the export control order on June 30, conditional on Anthropic agreeing to proactively detect and address security risks in the models, work with the government on protocols for future releases, and report any malicious activity found. Fable 5 is available to Pro, Max, Team, and select Enterprise plans for up to 50% of weekly usage limits through July 7, then full access resumes.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">ClaudeCode</span>
+        <span class="tag">Fable5</span>
+        <span class="tag">ModelRelease</span>
+        <span class="tag">PolicyRisk</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Fable 5 is Anthropic's most capable publicly available model — built for demanding reasoning and long-horizon agentic work, with a 1M-token context window, 128k output tokens per request, and significantly stronger multi-agent performance than prior Claude models. The 19-day suspension was a hard lesson: a government-triggered jailbreak response can pull an entire model family offline with no notice, and Anthropic had no reliable real-time nationality check to limit the shutdown to affected regions. The reinstatement conditions are also worth noting for any engineer building on Anthropic APIs — the agreement to report malicious model activity to Commerce represents a new category of compliance exposure for model providers.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Resume any agentic workflows that required Fable 5's long-horizon reasoning (e.g., large-repo refactors, multi-agent pipelines via Claude Code) — access is capped at 50% of weekly limits until July 7, so schedule the heaviest tasks after that</li>
+          <li>If you're building products on top of Fable 5 or Mythos 5 API access, review Anthropic's new government-reporting agreement to understand what incident-reporting obligations may cascade to you as a downstream builder</li>
+          <li>Consider designing your application to fall back gracefully to Claude Opus 4.8 or Sonnet 5 when Fable 5 is unavailable — this outage showed model-family-level unavailability is now a real operational risk class, not a theoretical one</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Covered by CNBC, The Hacker News, Al Jazeera, 9to5Mac, CoinDesk, Security Boulevard, and Beincrypto simultaneously on June 30 – July 1</li>
+          <li>Official Anthropic model page and Claude Platform docs updated to reflect restoration and access rules</li>
+          <li>US Commerce Department Secretary Howard Lutnick confirmed the lift publicly, making this the first publicly documented government-mandated AI model reinstatement with explicit compliance conditions</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Anthropic Announcement</a></li>
+          <li><a href="https://thehackernews.com/2026/07/anthropic-restores-claude-fable-5-after.html">The Hacker News Coverage</a></li>
+          <li><a href="https://www.cnbc.com/2026/06/30/anthropic-says-trump-admin-has-lifted-export-controls-on-claude-fable-5-and-mythos-5.html">CNBC: Export Controls Lifted</a></li>
+          <li><a href="https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5">Platform Docs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://openai.com/index/previewing-gpt-5-6-sol/">OpenAI Previews GPT-5.6 Sol, Terra, and Luna — Sol Launches on Cerebras at 750 Tokens per Second in July</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI previewed its next model family on June 26: Sol (speed-focused, 750 tok/s on Cerebras hardware), Terra (reasoning-focused), and Luna (smaller, efficient). Sol launches on Cerebras in July with access initially limited to select customers; broader ChatGPT, Codex, and API availability follows. The family brings stronger coding, reasoning, biology, and cybersecurity performance, a new ultra reasoning mode, tougher safety protections, updated pricing, and more predictable prompt caching behavior. Sol is positioned as the primary model for latency-sensitive agentic work where waiting on a frontier model is the bottleneck.</p>
+      <div class="article-meta">
+        <span class="tag">OpenAI</span>
+        <span class="tag">GPT</span>
+        <span class="tag">LLM</span>
+        <span class="tag">ModelRelease</span>
+        <span class="tag">Inference</span>
+        <span class="tag">Cerebras</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>750 tokens per second on a frontier-class model is a qualitative shift for agentic workflows — it changes the math on what's feasible to run in a synchronous user-facing loop versus what has to be queued async. For comparison, typical hosted GPT-5.5 throughput is around 100-150 tok/s. If the Cerebras deployment holds at claimed speeds, Sol becomes the fastest commercially available frontier model inference by a significant margin, which opens up conversational multi-turn agent patterns that were previously only viable with smaller, weaker models.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If your agent loop is latency-bound (e.g., a code-review step that blocks a CI pipeline), sign up for Sol early access — 750 tok/s could make previously async steps viable inline</li>
+          <li>Evaluate Terra for workloads that currently route to OpenAI's o-series reasoning models — Terra targets the same reasoning-heavy category at GPT-5.6 quality levels</li>
+          <li>Benchmark Sol versus Claude Fable 5 (also back today) on your specific agentic evals — both target long-horizon agentic work, and July 1 is the first day both are simultaneously available</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official OpenAI blog preview announcement, with a named hardware partner (Cerebras) and stated July launch window</li>
+          <li>HN thread on the preview announcement reached the front page with active discussion on the Cerebras throughput claim</li>
+          <li>VentureBeat, DataCamp, and Kie.ai all covered the Sol/Terra/Luna family breakdown, with sourced pricing and capability comparisons against GPT-5.5</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openai.com/index/previewing-gpt-5-6-sol/">OpenAI Preview Announcement</a></li>
+          <li><a href="https://venturebeat.com/technology/openai-unveils-gpt-5-6-sol-terra-and-luna-models-but-only-accessible-to-limited-preview-partners-for-now-per-us-gov">VentureBeat Coverage</a></li>
+          <li><a href="https://www.datacamp.com/blog/gpt-5-6-sol-luna-terra">DataCamp: Model Family Breakdown</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://resources.anthropic.com/2026-agentic-coding-trends-report">Anthropic's 2026 Agentic Coding Trends Report: Context Engineering Is Now the Load-Bearing Skill</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Anthropic's 2026 report, drawn from Claude Code usage data and developer surveys, identifies context engineering — structuring the information agents work with — as the skill that now most separates high-performing from low-performing engineering teams. Key numbers: 95% of professional developers use AI tools weekly; 78% of Claude Code sessions involve multi-file edits; agents now complete an average of 20 autonomous actions before requiring human input (a figure that doubled in six months); teams with well-maintained context files see 40% fewer agent errors and complete tasks 55% faster; and approximately 27% of AI-assisted work is entirely new work that previously wasn't worth doing.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">ClaudeCode</span>
+        <span class="tag">ContextEngineering</span>
+        <span class="tag">AgentWorkflows</span>
+        <span class="tag">Survey</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 27% figure is the one that changes the engineering economics conversation. Most productivity arguments around AI coding tools assume a fixed pool of existing work done faster. The data suggests a meaningful fraction of AI-assisted engineering hours are generating entirely new output — fixing papercuts, building internal dashboards, running experiments — that was previously left undone because the cost wasn't justified. This reframes the ROI question from 'does AI make my existing work faster' to 'does AI expand what work I can do at all.' The 20-autonomous-action average also signals that the 'agent escaping human review' concern is already a practical reality in mainstream usage, not a future hypothetical.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your team's CLAUDE.md or equivalent context files for completeness — the 40% fewer errors / 55% faster completion data is a direct ROI case for investing 2-3 hours in context documentation</li>
+          <li>Use the '20 autonomous actions before human input' benchmark as a starting point for calibrating your own agent checkpointing policies — if your agent tasks average 30+ actions, you're likely operating outside the range where current models self-correct reliably</li>
+          <li>If you're making an internal case for AI tool investment, the 27% new-work-creation statistic directly addresses the 'we'd just replace headcount' objection — it's the clearest data point yet that AI expands engineering capacity rather than substituting it</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Anthropic report with stated methodology (Claude Code usage data + developer surveys), not a marketing deck</li>
+          <li>Independently summarized by Pathmode, HiveTrail, Byteiota, NYU Shanghai RITS, and LinkedIn with consistent data points, suggesting the report is circulating broadly in engineering management and developer communities</li>
+          <li>The 'context engineering' framing is being adopted independently in dev blogs and hiring specs, suggesting the term is becoming industry standard</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://resources.anthropic.com/2026-agentic-coding-trends-report">Full Report</a></li>
+          <li><a href="https://hivetrail.com/blog/anthropic-2026-agentic-coding-report/">HiveTrail: Engineering Team Implications</a></li>
+          <li><a href="https://pathmode.io/blog/orchestration-era-needs-intent">Pathmode: Context Engineering Deep-Dive</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://openai.com/index/work-with-codex-from-anywhere/">Codex Remote Goes GA on All ChatGPT Plans — QR-Relay Mobile Approvals and DigitalOcean Cloud Workspaces</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">OpenAI's Codex Remote — which lets you start or monitor agent tasks on a connected Mac or Windows host from the ChatGPT mobile app — reached general availability on all plans on June 27. The update hardens security with authenticated one-to-one QR pairing between each device and each host, replacing the previous open relay. A new DigitalOcean plugin lets Codex provision a Droplet, configure SSH access, and connect it to the Codex App as a cloud workspace without manual setup. Connections made since June 8 remain paired; older connections need to re-pair.</p>
+      <div class="article-meta">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Codex</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">RemoteDev</span>
+        <span class="tag">CloudWorkspace</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Codex Remote GA changes the access model for running long-horizon coding agent tasks: you no longer need to be at your dev machine. The combination of QR-relay security (no open relays that could be hijacked) and cloud workspace provisioning via DigitalOcean means a developer can kick off a multi-hour refactor from any device, approve tool calls from their phone, and have the work land in a clean ephemeral cloud environment rather than on their laptop. For teams already on DigitalOcean, this is a zero-config path to remote agent workspaces.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Kick off a long-running Codex agent task (e.g., a large test suite generation run) from your laptop, then switch to your phone to review progress and approve risky steps while commuting or in meetings</li>
+          <li>Spin up a DigitalOcean Droplet as a Codex workspace for agent tasks that need cloud network access or specific compute — avoids exposing your local dev environment</li>
+          <li>Teams using OpenAI's Codex on paid ChatGPT plans can now standardize remote approvals without any self-hosted relay infrastructure</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official OpenAI blog post and changelog entry confirming GA status on all ChatGPT plans</li>
+          <li>TechTimes and TheRouter.ai both covered the QR relay security update as a meaningful security model change, not just a feature bump</li>
+          <li>DigitalOcean plugin is a named partner integration, confirming real infrastructure partnership rather than a documentation example</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openai.com/index/work-with-codex-from-anywhere/">OpenAI Announcement</a></li>
+          <li><a href="https://developers.openai.com/codex/remote-connections">Remote Connections Docs</a></li>
+          <li><a href="https://www.techtimes.com/articles/319201/20260627/openai-codex-remote-goes-live-all-plans-phone-control-now-secured-qr-relay.htm">TechTimes: QR Relay Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/google-labs-code/design.md">design.md: Google Labs Proposes a Machine-Readable Design System Spec for Coding Agents</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Google Labs released design.md (April 2026, open-source), a format specification for describing a visual identity to coding agents. A DESIGN.md file has two parts: YAML frontmatter with machine-readable design tokens (colors, typography, spacing, breakpoints) and a markdown body with human-readable rationale and guidance. The project ships a CLI, a spec linter that catches unresolved token references and circular dependencies, and examples covering real-world design systems. The goal: give coding agents a persistent, structured understanding of a design system so stylistic choices stay consistent across sessions and between different agents.</p>
+      <div class="article-meta">
+        <span class="tag">GoogleLabs</span>
+        <span class="tag">DesignSystems</span>
+        <span class="tag">CodingAgents</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">OpenSource</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Today's coding agents routinely clobber design systems. They'll generate UI that works but uses the wrong blue, the wrong font size, or ignores the spacing scale entirely — because they have no durable way to ingest and apply a design system across sessions. DESIGN.md is a direct attempt to fix that by standardizing how design context is packaged for agents. It's also notable that Kiro (AWS's spec-driven IDE) already uses a design.md document as part of its three-document spec-to-code workflow (requirements.md, design.md, tasks.md), suggesting this format has a chance at becoming a cross-tool standard rather than a Google-only artifact.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Create a DESIGN.md for your product at project root — any coding agent that supports reading project context (Claude Code, Kiro, Cursor) will pick up your token values and style rationale without per-session re-explanation</li>
+          <li>Use the design.md linter in CI to catch design-token regressions when agents generate new UI components — fail the PR if the generated code uses hardcoded hex values that override your token system</li>
+          <li>If you're building a coding agent product yourself, use DESIGN.md as a documented input format rather than inventing a proprietary design-context schema — you get tool compatibility for free</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released open-source by Google Labs Code (google-labs-code GitHub org), with a formal spec document and working CLI/linter</li>
+          <li>Kiro (AWS's agentic IDE, GA March 2026) generates a design.md as part of its spec-driven workflow, giving the format an independent second implementation from a major vendor</li>
+          <li>Medium Design Bootcamp featured a write-up on it as a potential industry standard, citing the agent-first framing as the key differentiator from existing design-token formats (Theo/W3C)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/google-labs-code/design.md">GitHub Repo</a></li>
+          <li><a href="https://github.com/google-labs-code/design.md/blob/main/docs/spec.md">Spec Document</a></li>
+          <li><a href="https://medium.com/design-bootcamp/google-makes-design-md-open-source-on-its-way-to-become-a-industry-standard-16119f2368dd">Medium: Industry Standard Case</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.requesty.ai/blog/ai-agent-cost-optimization-how-to-cut-llm-spend-by-80-percent-with-routing">LLM Routing in 2026: How Production Teams Are Cutting AI Bills 40-86% Without Sacrificing Quality</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">The 2026 LLM pricing landscape has a ~100x spread between the cheapest usable model (~$0.44/M tokens for DeepSeek V4) and the most capable frontier models (~$30/M for GPT-5.5-pro). LLM routers sit between your application and model providers to route each request to the cheapest model capable of handling it — routing 70% of requests to a cheap model can drop average cost from $15 to ~$2.10 per million tokens, an 86% reduction. Routing overhead: rule-based under 1ms, embedding-based ~5ms, semantic routing 50-100ms. Leading tools: LiteLLM (self-hosted open-source), Bifrost (11μs overhead, fastest), Portkey (enterprise compliance), OpenRouter (623+ models, largest marketplace), and ClawRouters (BYOK, cost-focused).</p>
+      <div class="article-meta">
+        <span class="tag">LLMRouting</span>
+        <span class="tag">CostOptimization</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">LiteLLM</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>For any team running AI agents in production at scale, model spend is now a first-class engineering problem. The peer-reviewed RouteLLM result (85% cost savings while retaining 95% of GPT-4 quality) shows routing isn't just a budget hack — it's a legitimate quality-cost tradeoff that holds up under scrutiny. The practical constraint engineers underestimate is routing overhead: semantic routing at 50-100ms is a single-digit percentage of a 500-2000ms LLM response, which is fine for async workflows but meaningful in latency-sensitive loops. Choosing the wrong router for the use case is a common early mistake.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Implement a simple rule-based router for your agent: use the cheapest capable model for structured extraction, classification, and formatting tasks; reserve frontier models for reasoning, ambiguous debugging, and multi-file refactors</li>
+          <li>Drop LiteLLM as a self-hosted proxy in front of your model calls to get unified logging, fallback routing, and cost tracking across all providers with minimal code changes</li>
+          <li>Evaluate Bifrost (11μs routing overhead) if your agent loop is latency-sensitive and you can't afford even 5ms of embedding-based routing overhead — the throughput numbers are significantly better than gateway-based alternatives</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>RouteLLM, the peer-reviewed paper behind the routing approach, documented 85% cost savings at 95% quality retention — this is the most cited quantitative backing for LLM routing</li>
+          <li>Multiple independent 2026 buyer's guides (ClawRouters, Maxim AI, Digital Applied, Inworld AI) converged on the same 5-6 tool recommendations with consistent scoring criteria</li>
+          <li>The 100x cost spread between cheapest and frontier models is documented from current live pricing across major providers, making routing a structural necessity rather than an optimization</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.requesty.ai/blog/ai-agent-cost-optimization-how-to-cut-llm-spend-by-80-percent-with-routing">Requesty: 80% Cost Reduction Guide</a></li>
+          <li><a href="https://www.clawrouters.com/blog/best-llm-routers-2026">ClawRouters: 11 Tools Tested</a></li>
+          <li><a href="https://www.digitalapplied.com/blog/llm-model-routing-2026-cost-quality-optimization-engineering-guide">Digital Applied: Engineering Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/langfuse/langfuse">Langfuse v4 Goes OTEL-Native — 26.6k Stars, ClickHouse-Backed, and Used by 19 of Fortune 50</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Langfuse, the MIT-licensed open-source LLM observability platform, shipped v4 of its Python and TypeScript SDKs in March 2026 with a full rewrite: the new OTEL-native SDK is a thin layer over the official OpenTelemetry client that auto-converts emitted spans into Langfuse observations with first-class helpers for token usage, cost tracking, prompt linking, and LLM-as-a-judge scoring. In January 2026, ClickHouse acquired the company (a YC W23 graduate), giving the project database-level infrastructure backing. Feature set: hierarchical trace spans, LLM judge evaluation, human annotation queues, prompt management with versioning and edge caching, experiment A/B comparison, CI/CD integration, custom dashboards, and full self-hosting.</p>
+      <div class="article-meta">
+        <span class="tag">LLMObservability</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">Langfuse</span>
+        <span class="tag">OpenTelemetry</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The OTEL-native approach is the critical architectural decision. Using Langfuse v4 means your LLM telemetry flows through the same instrumentation standard as your existing APM and distributed tracing stack (Datadog, Honeycomb, Grafana Tempo, etc.) — you get LLM-specific features (token cost, prompt linking, judge scoring) without forking your observability architecture. The ClickHouse acquisition brings the team that built one of the fastest OLAP databases on earth directly into the product roadmap, which is relevant when a single production agent might generate millions of spans per day.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Drop the Langfuse OTEL SDK into an existing OTel-instrumented Python or TypeScript service to get LLM-specific cost, latency, and quality tracing without changing your APM vendor or adding a second trace backend</li>
+          <li>Use Langfuse's prompt management with edge caching to version-control your prompts and A/B test changes in production, with the eval harness running LLM judges on sampled traces automatically</li>
+          <li>Run Langfuse fully self-hosted on your own ClickHouse instance for regulated environments — the ClickHouse-backed team now actively supports this deployment pattern</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>26.6k GitHub stars, MIT license, active releases — one of the highest-starred LLM observability projects on GitHub</li>
+          <li>Acquired by ClickHouse in January 2026, confirming enterprise-level investment in the infrastructure behind the project</li>
+          <li>Used by 19 of Fortune 50 companies per maintainer reporting, and cited as the recommended self-hosted option in multiple independent 2026 LLM observability buyer's guides (Confident AI, Braintrust, MLflow)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/langfuse/langfuse">GitHub Repo</a></li>
+          <li><a href="https://langfuse.com/integrations/native/opentelemetry">OTEL Integration Docs</a></li>
+          <li><a href="https://toolbrain.net/blog/langfuse-review-2026/">2026 Review & Feature Breakdown</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://temporal.io/solutions/ai">Temporal + LangGraph Is the 2026 Production Pattern for Durable AI Agent Pipelines</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">A two-layer orchestration pattern has emerged as the production standard for complex AI systems in 2026: Temporal handles macro-orchestration — durability, retries, state management, human-in-the-loop steps, multi-region failover — while LangGraph handles the micro-level agent logic (graph traversal, tool calls, short-horizon reasoning loops) within individual workflow steps. Temporal Nexus (cross-namespace workflow connections) and Multi-Region Replication both reached GA this year, adding 99.99% SLA durability and cross-team isolation. New Ruby and .NET SDKs are in pre-release/beta.</p>
+      <div class="article-meta">
+        <span class="tag">Temporal</span>
+        <span class="tag">LangGraph</span>
+        <span class="tag">AgentOrchestration</span>
+        <span class="tag">DurableExecution</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The failure mode Temporal solves is agent work that takes minutes to hours and crosses reliability boundaries — an LLM step that needs to resume after a transient API error, an approval gate that blocks for hours waiting on a human, a multi-step pipeline that has to survive a cloud region going down. LangGraph alone gives you a well-typed graph for short agent loops; Temporal alone gives you durable execution without native graph-agent semantics. The two-layer pattern gives you both, and it's mature enough in 2026 that the engineering community has converged on it as the reference architecture for production agentic systems, not just one option among many.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use LangGraph to define the agent's tool-calling loop and decision graph, then wrap the entire graph execution as a single Temporal activity — you get agent flexibility and durable-execution guarantees without rewriting the agent</li>
+          <li>Model human approval gates as Temporal signals: the workflow blocks on an external signal from Slack/email, the human approves, and the workflow resumes automatically — no polling, no manual state management</li>
+          <li>For multi-team agent pipelines, use Temporal Nexus (now GA) to connect workflows across isolated namespaces — each team owns their agent namespace independently, and Nexus handles the cross-team calls without shared state</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Temporal Nexus GA and Multi-Region GA with a 99.99% SLA are confirmed releases from Temporal's own platform blog, not previews</li>
+          <li>Independent technical posts from IntuitionLabs, Spheron, and DEV Community all describe the two-layer Temporal + LangGraph pattern as their production architecture, with measured reliability data</li>
+          <li>Gartner projects 40% of enterprise apps will embed AI agents by end of 2026 — the demand for durable agent orchestration is growing into this pattern, not the other way around</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://temporal.io/solutions/ai">Temporal for AI</a></li>
+          <li><a href="https://dev.to/akki907/temporal-workflow-orchestration-building-reliable-agentic-ai-systems-3bpm">DEV Community: Production Architecture Guide</a></li>
+          <li><a href="https://aiworkflowlab.dev/article/ai-workflow-orchestration-in-production-building-durable-agent-pipelines-with-langgraph-and-temporal">AI Workflow Lab: LangGraph + Temporal</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
