@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — July 02, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">July 02, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.anthropic.com/news/claude-sonnet-5">Claude Sonnet 5 is now the default across all Claude plans — $2/$10 per M tokens intro pricing through August 31 makes it the best-value option for agentic workloads today</a></li>
+      <li><a href="https://www.anthropic.com/news/claude-science-ai-workbench">Anthropic launches Claude Science in beta: AI workbench with 60+ scientific databases, 3D protein/genome/chemistry rendering, SSH/HPC support, and $30K compute grants available through July 15</a></li>
+      <li><a href="https://techcrunch.com/2026/06/16/spacex-to-acquire-cursor-for-60b-in-stock-days-after-blockbuster-ipo/">SpaceX acquires Cursor for $60B in the largest startup deal in history — Cursor's market share fell from 41% to 26% before the deal closed, with Anthropic now commanding ~50% of the AI coding tools market</a></li>
+      <li><a href="https://thenewstack.io/cursor-acquires-continue-coding/">Continue.dev shuts down after Cursor acquisition — July 15 data export deadline, Apache 2.0 codebase handed to community; OpenCode (172K stars, MIT) is the leading alternative</a></li>
+      <li><a href="https://ai.google.dev/gemini-api/docs/models">Gemini 3.1 Flash Image and 3 Pro Image reach GA — video-to-image, 4K generation, and Google Search grounding now live in the Gemini API after preview deprecation June 25</a></li>
+      <li><a href="https://www.ai.engineer/worldsfair/2026">AI Engineer World's Fair 2026 closes today — 6,000 practitioners converged on 'context engineering,' 'harness engineering,' and 'autoresearch' as the discipline taxonomy for the next 18 months</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.anthropic.com/news/claude-sonnet-5">Claude Sonnet 5 Launches as New Default Model — $2/$10 per M Tokens, 1M Context, New Tokenizer</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Released June 30, 2026. Claude Sonnet 5 is now the default model for Free and Pro plans and available across Max, Team, and Enterprise. Introductory pricing is $2 input / $10 output per million tokens through August 31, 2026, then moves to standard $3/$15. The model uses a new tokenizer that produces approximately 30% more tokens for the same text compared to earlier models. 1M token context window at standard pricing. With prompt caching (up to 90% off) and batch processing (50% off), effective per-call cost for typical agentic loops drops significantly. Model ID: claude-sonnet-5.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">ClaudeCode</span>
+        <span class="tag">ModelRelease</span>
+        <span class="tag">Pricing</span>
+        <span class="tag">AgentWorkflows</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The pricing reduction combined with the new tokenizer is what matters most for production AI engineering teams. Claude Sonnet 4 was $3/$15; Sonnet 5 at introductory pricing is 33% cheaper on both dimensions and competes directly with GPT-5.6 Terra ($2.50/$15). For long-context agent workloads, the 30% more tokens per request from the new tokenizer increases cache hit rates on system prompts and codebase context, compounding the already-cheaper price. Teams spending even modest sums on Claude Sonnet API will see immediate savings with a model ID swap — no architecture changes required. The capability gap between Sonnet 5 and Opus 4.8 has also narrowed, which makes Sonnet 5 the correct default for the majority of coding agent tasks before reaching for more expensive models.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Do a literal model ID swap from claude-sonnet-4 (or claude-sonnet-4-5) to claude-sonnet-5 in your agent harness today — the introductory pricing saves 33% per call through August 31 with no architecture changes</li>
+          <li>Enable prompt caching on high-repetition system prompts in Sonnet 5 — the new tokenizer's 30% higher token count pushes more context over the 1,024-token minimum cache threshold, so prompts that previously fell just under caching eligibility now qualify</li>
+          <li>Run a parallel A/B eval on your specific task distribution (code review, test generation, multi-file refactor) before fully committing — Sonnet 5's new tokenizer changes how context is structured, and subtle regression on niche tasks is worth catching before the introductory pricing period ends</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Default model across all Claude plans (Free, Pro, Max, Team, Enterprise) — the most direct indicator of Anthropic's confidence in the model quality</li>
+          <li>Official Anthropic blog announcement, Anthropic release notes, and platform pricing page updated simultaneously on June 30</li>
+          <li>Covered by Quartz ('Anthropic is making AI agents cheaper to run'), PYMNTS, Requesty, LumiChats, and multiple API pricing trackers on release day</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.anthropic.com/news/claude-sonnet-5">Anthropic Announcement</a></li>
+          <li><a href="https://platform.claude.com/docs/en/about-claude/pricing">Current Pricing</a></li>
+          <li><a href="https://qz.com/anthropic-claude-sonnet-5-ai-agents-pricing-070126">Quartz: Agent Cost Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.anthropic.com/news/claude-science-ai-workbench">Anthropic Launches Claude Science Beta — Scientific AI Workbench with 60+ Databases, 3D Rendering, SSH/HPC Support</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Launched June 30, 2026, Claude Science is a macOS/Linux app and SSH-accessible remote environment that integrates 60+ scientific databases (genomics, proteomics, structural biology, single-cell, cheminformatics) with Claude's reasoning and coding capabilities. Native rendering for 3D protein structures, genome browser tracks, and chemical structure drawings — not external viewers, rendered inside the app. Full reproducibility metadata ships with every generated figure: exact code, environment hash, and full message history. Available in beta for Pro, Max, Team, and Enterprise users. Compute grants: up to $30K per project available, applications open through July 15, 2026, projects run September–December 2026.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">ClaudeCode</span>
+        <span class="tag">ScientificAI</span>
+        <span class="tag">Bioinformatics</span>
+        <span class="tag">HPC</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Scientific computing workflows are typically fragmented across 5-10 tools: a Jupyter environment, BioPython, a structural visualization tool like PyMOL, a genome browser, one or more database download scripts, and a figure-making library. Claude Science bundles that stack inside a single environment with an AI that understands what the outputs mean — not just how to generate the code. The SSH/HPC integration is the critical engineering detail: most biological and genomics compute still runs on cluster nodes, not local laptops, and the typical workaround is copying data locally or setting up complex tunnels. The reproducibility metadata is also notable: every generated figure ships with its exact generating code, making AI-assisted scientific output defensible in publications and peer review without reverse-engineering what the model did.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Apply for the $30K compute grant program through July 15 if you're building scientific AI tooling or doing active research — the bar is 'AI for Science' projects, not just academic publications, which includes applied ML teams working on drug discovery, materials science, or genomics pipelines</li>
+          <li>Use Claude Science's SSH remote mode to connect to an existing HPC login node rather than setting up a separate local environment — this avoids the data transfer bottleneck for large genomics datasets while still getting the full workbench interface</li>
+          <li>For bioinformatics teams: test whether Claude Science's pre-configured PDB, UniProt, and single-cell database connectors can replace custom ETL scripts — the 60+ native connectors are the fastest path to eliminating bespoke data download infrastructure</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Anthropic product page at claude.com/product/claude-science — a dedicated product URL signals Anthropic's commitment beyond a feature release</li>
+          <li>Covered by TechCrunch ('Anthropic bets on workflow, not a new model'), The New Stack, HPC Wire, and Business Standard on the same day, indicating broad reach beyond just the AI press</li>
+          <li>Compute grant program with a named infrastructure partner (Modal providing up to $2,000 per project) confirms real institutional support, not just marketing</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.anthropic.com/news/claude-science-ai-workbench">Anthropic Announcement</a></li>
+          <li><a href="https://claude.com/product/claude-science">Claude Science Product Page</a></li>
+          <li><a href="https://techcrunch.com/2026/06/30/anthropics-claude-science-bets-on-workflow-not-a-new-model-to-win-over-scientists/">TechCrunch: Workflow Strategy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://ai.google.dev/gemini-api/docs/models">Gemini 3.1 Flash Image and Gemini 3 Pro Image Reach GA — Video-to-Image, 4K Generation, and Google Search Grounding in the API</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The preview versions (gemini-3.1-flash-image-preview, gemini-3-pro-image-preview) were deprecated June 25, 2026, and both GA models are now live in Google AI Studio and the Gemini API. Gemini 3.1 Flash Image (speed-optimized, high-volume tier) adds: video-to-image generation (pass a video file, get thumbnails, movie posters, or summary infographics), multiple reference image processing, and Google Image Search grounding for knowledge-anchored generation. Gemini 3 Pro Image (premium tier) delivers 4K generation, brand consistency across regenerations, precision creative control, and advanced localization.</p>
+      <div class="article-meta">
+        <span class="tag">Google</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">ImageGeneration</span>
+        <span class="tag">MultimodalAPI</span>
+        <span class="tag">ContentPipelines</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The video-to-image feature on 3.1 Flash Image is the most practically relevant for AI engineers building content pipelines — it gives you a direct path from unstructured video to structured visual assets at API speed, without a separate video analysis step. Google Image Search grounding is also significant: image generation that is anchored to real-world entities lets you prompt for brand-consistent or event-specific images without extensive reference injection. Both models sitting on the same Gemini API endpoint as Google's text and code models means one SDK, one authentication flow, and one billing relationship covers multimodal output — a meaningful reduction in integration surface compared to maintaining a separate image generation dependency like DALL-E 3 or Stable Diffusion API.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use 3.1 Flash Image's video-to-image endpoint to auto-generate thumbnails for video content as part of a publishing pipeline — pass the raw video with a prompt, get a production-ready thumbnail image at the same API call latency as text generation</li>
+          <li>Replace separate image generation API dependencies (DALL-E 3, Stable Diffusion API) with the Gemini image endpoint if you're already using Gemini for text or code — reduces API surface, authentication complexity, and billing vendors</li>
+          <li>Use 3 Pro Image's brand consistency feature for regenerating product visuals across marketing campaigns — the model maintains visual identity across multiple generations from the same reference, replacing manual iteration in a design tool</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Google AI developer docs updated with dedicated model pages (ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image), indicating GA rather than preview status</li>
+          <li>Preview model deprecation notice issued June 25 with a hard shutdown date, forcing migration to the GA models — this is Google's standard production readiness signal</li>
+          <li>Available immediately at no cost via Google AI Studio for experimentation, with Vertex AI access for production workloads</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://ai.google.dev/gemini-api/docs/models">Gemini API Model List</a></li>
+          <li><a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image">3.1 Flash Image Docs</a></li>
+          <li><a href="https://ai.google.dev/gemini-api/docs/image-generation">Image Generation Guide</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://techcrunch.com/2026/06/16/spacex-to-acquire-cursor-for-60b-in-stock-days-after-blockbuster-ipo/">SpaceX Acquires Cursor for $60 Billion — The Largest Startup Acquisition in History, Closing Q3 2026</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">On June 16, 2026 — two days after SpaceX's record $75B IPO (the largest in history) — SpaceX agreed to acquire Anysphere (maker of Cursor) for $60B in an all-stock deal. Cursor runs on ~50% of Fortune 500 developer machines and had ~$4B in annualized revenue ($2.6B enterprise B2B) at the time of the deal. But Cursor's market share had slipped from ~41% to ~26% in the 12 months before the deal, as Claude's coding tools grew. xAI, which SpaceX merged with earlier in 2026, already rented data center capacity to Cursor and had hired senior Cursor engineers. The deal faces antitrust scrutiny in the US and EU and is expected to close Q3 2026.</p>
+      <div class="article-meta">
+        <span class="tag">Cursor</span>
+        <span class="tag">SpaceX</span>
+        <span class="tag">xAI</span>
+        <span class="tag">M&A</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">MarketStructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This deal changes the risk calculus for any engineer building Cursor-centric AI workflows. A tool that was a VC-backed, developer-focused startup is now a subsidiary of Musk's vertically integrated AI+infrastructure+space stack, with product direction serving xAI's competitive goals rather than Cursor's developer base. The market share data tells the actual story: Cursor was already losing ground to Claude Code before this acquisition — the deal is as much an exit strategy as an expansion. For engineers choosing an AI coding platform today, the key question isn't 'which tool is best today?' but 'which tool has the strongest independent trajectory?' Anthropic's ~50% coding market share suggests the answer is increasingly Claude Code. The antitrust review timeline also adds uncertainty: platform feature development typically slows during pending acquisition review as companies manage regulatory risk.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Review your Cursor enterprise contracts now, before deal close: data handling provisions were written when Anysphere was independent, and the xAI integration may alter what happens to code sent to Cursor's backend — understanding your data rights before Q3 is worth the legal review time</li>
+          <li>Hedge platform risk by abstracting AI coding tool calls behind an interface in your CI/CD and agent harnesses — this lets you swap between Claude Code, OpenCode, or other alternatives if Cursor's pricing or terms shift post-acquisition</li>
+          <li>If you're evaluating new AI coding tool deployments for teams, treat the antitrust review period (now through ~Q3 2026) as a reason to evaluate Claude Code or Kiro in parallel before committing to expanded Cursor licenses</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced June 16, 2026, covered simultaneously by CNBC, TechCrunch, Bloomberg, Forbes, CBS News, and DevOps.com — the most widely covered AI acquisition of the year</li>
+          <li>Cursor ran on ~50% of Fortune 500 developer machines at the time of the deal, making this acquisition directly relevant to enterprise AI coding infrastructure</li>
+          <li>Deal structure (SpaceX stock at volume-weighted average price over 7 trading days) was publicly disclosed in the CNBC announcement, confirming transaction terms</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://techcrunch.com/2026/06/16/spacex-to-acquire-cursor-for-60b-in-stock-days-after-blockbuster-ipo/">TechCrunch: Deal Details</a></li>
+          <li><a href="https://www.cnbc.com/2026/06/16/spacex-spcx-cursor-acquisition-ipo.html">CNBC: Initial Report</a></li>
+          <li><a href="https://www.digitalapplied.com/blog/spacex-acquires-cursor-anysphere-60b-ai-coding-2026">Digital Applied: What It Means for Engineers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://thenewstack.io/cursor-acquires-continue-coding/">Continue.dev Shuts Down After Cursor Acquisition — July 15 Data Export Deadline, Apache 2.0 Codebase Handed to Community</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">On June 18-19, 2026 — two days after the SpaceX/Cursor announcement — Cursor quietly acquired Continue (YC S23), the most popular open-source coding assistant plugin for VS Code and JetBrains. Continue shipped a final v2.0.0 release covering the VS Code extension, CLI, and JetBrains plugin, then the continuedev/continue GitHub repository went read-only. Continue had 34,300 stars, 4,800 forks, ~$5M raised, and was the leading BYOK (bring your own key) alternative to GitHub Copilot. Users have until July 15, 2026 (13 days from today) to export their data. The Apache 2.0 codebase has been handed to the community.</p>
+      <div class="article-meta">
+        <span class="tag">Continue</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">BYOK</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">IDEPlugins</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Continue was the go-to tool for engineers who specifically wanted an open-source, privacy-first coding assistant — the kind you could point at a local Ollama instance and ensure no code left your machine. Its acquisition and immediate shutdown follows a classic acqui-hire pattern: Cursor absorbed the team and shut the product rather than running it as a competing offering or integrating it. For the engineering community, this matters because it removes the primary open-source, IDE-native alternative to proprietary coding assistants and pushes developers toward tools with commercial lock-in. The Apache 2.0 handover preserves the code, but community continuation is uncertain. With OpenCode (MIT, 172K stars, terminal-native) as the most direct alternative and Cline (VS Code plugin, open-source) as the IDE-native replacement, the open-source coding assistant ecosystem is reconfiguring.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you use Continue.dev: export your data before July 15 using the export function in Settings — this includes custom slash commands, context providers, and model configuration</li>
+          <li>Evaluate OpenCode (github.com/opencode-ai/opencode, 172K stars, MIT license, terminal-native) as the most feature-rich open-source BYOK alternative — it supports 75+ model providers, has an LSP feedback loop for live compiler error routing, and runs against local Ollama instances</li>
+          <li>If you specifically need a VS Code/JetBrains plugin with full open-source BYOK: watch the continuedev/continue fork ecosystem for community-maintained continuations, or evaluate Cline (VS Code plugin, Apache 2.0) as the closest IDE-native replacement</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>The New Stack, DigitalToday, CI/CD News, and WebDeveloper.com all covered the acquisition, and the HN discussion thread (news.ycombinator.com/item?id=48548758) reached the front page with significant community reaction</li>
+          <li>The final GitHub release tag (v2.0.0-vscode, June 19, 2026) is verifiable on the now-read-only continuedev/continue repository</li>
+          <li>July 15 export deadline was explicitly communicated to users, confirming the hard shutdown rather than a gradual wind-down</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://thenewstack.io/cursor-acquires-continue-coding/">The New Stack: Acquisition Details</a></li>
+          <li><a href="https://news.ycombinator.com/item?id=48548758">HN Discussion Thread</a></li>
+          <li><a href="https://cicd.deployment.to/cursor-acquires-continue-coding-assistant/">CI/CD News: July 15 Deadline</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.ai.engineer/worldsfair/2026">AI Engineer World's Fair 2026 Closes Today — 'Harness Engineering' and 'Autoresearch' Join 'Context Engineering' as 2026's Defining Terms</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">AI Engineer World's Fair 2026 (June 29–July 2, Moscone West, San Francisco) concludes today with 6,000+ engineers, 300 speakers, and 29 parallel tracks across four days. The four daily themes — Software Factories, Coding Agents, Autoresearch, Harness Engineering — defined new vocabulary. Key practitioner debate on Day 4: Mike Krieger (ex-Instagram CTO) argued to 'build frontier-far' (invest in frontier model capability headroom in your design), while Theo Browne countered to 'delete your AGENT.md' (simplify, reduce ceremony, avoid over-engineering context). Two Anthropic talks and a closing keynote block rounded out the final day.</p>
+      <div class="article-meta">
+        <span class="tag">AIEWF</span>
+        <span class="tag">ContextEngineering</span>
+        <span class="tag">HarnessEngineering</span>
+        <span class="tag">Autoresearch</span>
+        <span class="tag">Conferences</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>AIEWF is the primary venue where the working vocabulary for AI engineering practice solidifies among the practitioners who actually ship. When 6,000 engineers at a single event converge on 'harness engineering' and 'autoresearch' as their framing, those terms propagate quickly into job descriptions, team structures, tool categories, and conference talk titles. The Krieger vs. Browne debate is the most useful artifact from this year's event: it names the tension every engineering team is navigating right now. Teams solving recurring, structured problems in a specific domain (e.g., enterprise code review, scientific data extraction) benefit from Krieger's approach — investing in frontier model capability and context infrastructure pays off at scale. Teams handling high-volume, diverse tasks with short-horizon requests are finding themselves more aligned with Browne: the AGENT.md files and elaborate context systems add overhead without proportional benefit for simple, varied work.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Watch the Day 4 'Harness Engineering' keynote (recording at ai.engineer) — it's the most condensed practitioner discussion of what production AI engineering looks like in mid-2026, covering the specific failure modes teams are solving after 18 months of agentic deployments</li>
+          <li>Use the 'build frontier-far vs. delete your AGENT.md' frame to audit your team's context engineering investment: if your CLAUDE.md or equivalent file is growing to 10,000+ tokens, ask whether that complexity is solving a recurring structured problem or adding ceremony to one-shot tasks</li>
+          <li>If you're using AI hiring criteria: 'harness engineering' experience (designing the scaffolding, orchestration, evaluation, and safety layers around LLM calls in production) is now a distinct, recognized discipline — it's worth explicitly listing it in JDs and looking for it in candidate backgrounds</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>6,000+ in-person attendees and 300 speakers at Moscone West — the largest AI engineering practitioner conference of 2026</li>
+          <li>Day 1 YouTube stream (htM02KMNZnk) and daily StartupHub.ai recaps indicate significant distributed viewership for engineers who couldn't attend in person</li>
+          <li>The 'llms.md' format presented at the event (ai.engineer/worldsfair/2026/llms.md) already has adoption signals from multiple framework maintainers as a standard for encoding LLM context for agent workflows</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.ai.engineer/worldsfair/2026">Event Site & Schedule</a></li>
+          <li><a href="https://www.startuphub.ai/ai-news/artificial-intelligence/2026/ai-engineer-world-s-fair-2026-concludes-main-stage-programming">Event Conclusion Recap</a></li>
+          <li><a href="https://chatforest.com/builders-log/ai-engineer-worlds-fair-2026-aiewf-builder-watch-guide/">Builder's Watch Guide</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://presenc.ai/research/coding-agent-benchmarks-2026">The 37% Production Gap: AI Coding Agent Benchmark Scores vs. Real-World PR Acceptance Rates</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The 2026 benchmark landscape for AI coding agents has a structural accuracy problem: SWE-Bench Verified top scores now reach 74-78%, but real-world PR acceptance rates — the fraction of AI-generated pull requests that human reviewers actually merge without rework — are estimated at 35-50% for the same top agents. Enterprise deployments show a 37% median gap between lab benchmark scores and production performance, with 50x variation in per-task cost for equivalent accuracy. Every agent tested performs significantly worse on existing codebases than on greenfield projects. The root cause: real codebases carry implicit conventions, undocumented architectural decisions, and reviewer style expectations that no current benchmark captures.</p>
+      <div class="article-meta">
+        <span class="tag">AgentEvaluation</span>
+        <span class="tag">SWEBench</span>
+        <span class="tag">Production</span>
+        <span class="tag">BenchmarkGap</span>
+        <span class="tag">ContextEngineering</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>If your team is evaluating AI coding agents on published benchmark scores and then deploying them against a production codebase, you are working from metrics that systematically overestimate real performance. The 37% gap is not model-specific — it reflects a category failure of benchmark design, where controlled test environments strip the very things that make real software development hard. The practical engineering consequence is that SWE-Bench scores are useful for comparing models against each other on the same task type, but they are unreliable predictors of how an agent will perform on YOUR code. Context files (CLAUDE.md, AGENT.md, rules.md), architecture documentation, and comprehensive test coverage are the established mechanisms for closing this gap — they transfer the implicit knowledge benchmarks don't capture. Teams that have invested in structured context documentation consistently report better agent task acceptance than teams using the same models with default context.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run your own greenfield-vs-production calibration before relying on agent output: take 10 representative tasks from your production backlog and 10 structurally similar greenfield tasks, run the same agent against both, and use the ratio as your personal benchmark adjustment factor</li>
+          <li>Use this gap as the ROI case for investing in CLAUDE.md or equivalent context files — document the implicit conventions that a new engineer joining your team would need explained: naming patterns, architectural decisions, testing standards, deprecated patterns to avoid. Anthropic's data shows a 40% error reduction for well-documented contexts</li>
+          <li>When evaluating AI coding agent vendors, explicitly ask for PR acceptance rate data on existing codebases rather than or in addition to SWE-Bench scores — the delta between those two numbers is the most reliable predictor of real-world performance on your codebase</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Presenc.ai's 2026 coding agent benchmark analysis is the most detailed public quantification of the greenfield-to-production gap, with per-agent PR acceptance rate estimates alongside benchmark scores</li>
+          <li>Consistent finding across multiple 2026 agent evaluation studies: every tool performed significantly worse on existing codebases than on greenfield projects (AIAgentSquare, plus8soft, Kili Technology all document this independently)</li>
+          <li>The 37% enterprise deployment gap is the most-cited figure in 2026 discussions of AI agent production readiness — it appears in multiple buyer's guides and deployment frameworks</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://presenc.ai/research/coding-agent-benchmarks-2026">Presenc AI: 2026 Benchmark Analysis</a></li>
+          <li><a href="https://aiagentsquare.com/blog/ai-agent-benchmarks-2026.html">AIAgentSquare: Benchmarks vs. Real Performance</a></li>
+          <li><a href="https://kili-technology.com/blog/ai-benchmarks-guide-the-top-evaluations-in-2026-and-why-theyre-not-enough">Kili Technology: Why Benchmarks Aren't Enough</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.digitalapplied.com/blog/spacex-acquires-cursor-anysphere-60b-ai-coding-2026">AI Coding Tool Market Structure Mid-2026: Claude at ~50%, Cursor Falling — What This Means for Platform Selection</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">As of mid-2026, Anthropic's Claude-based tools (Claude Code, Claude Cowork, API coding integrations) command approximately 50% of the AI coding tools market. Cursor's share fell from ~41% to ~26% in the 12 months preceding the SpaceX acquisition. GitHub Copilot continues its transition from flat-rate to AI Credits billing (metered on agentic usage), which is reshaping cost calculations for enterprise teams. The consolidation picture: Cursor (xAI/SpaceX), Continue.dev (Cursor/shut down), OpenCode (independent, MIT, 172K stars), Claude Code (Anthropic), and Codex Remote (OpenAI) are now the primary survivors in a market that had more fragmentation 12 months ago.</p>
+      <div class="article-meta">
+        <span class="tag">MarketStructure</span>
+        <span class="tag">ClaudeCode</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">GitHubCopilot</span>
+        <span class="tag">PlatformRisk</span>
+        <span class="tag">DevTools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Platform selection in 2026 is a different decision than it was in 2025. The competitive pressure that pushed coding tools to improve rapidly has partly consolidated into a market with three dominant platforms — Claude Code, Cursor/xAI, Codex/OpenAI — each now tightly integrated with their parent AI provider's model access and infrastructure. Choosing a platform now means implicitly betting on a model provider's roadmap, pricing trajectory, and governance stance, not just on today's feature set. Claude Code's ~50% share reflects the compounding advantage of Anthropic's consistent improvement in coding model quality (Sonnet 5 GA today, Fable 5 back July 1). GitHub Copilot's metered billing shift is creating friction in its enterprise installed base, which is driving evaluation cycles that benefit the alternatives. For engineers building agent workflows that rely on a specific IDE or coding tool, this is the time to ensure those workflows are abstracted enough to survive a platform switch.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Treat coding tool selection as a portfolio decision: if your team runs three different AI coding tools (common in 2026 at larger orgs), ensure you know which workflows are tool-specific and which are portable — tool-specific workflows compound platform lock-in risk</li>
+          <li>If you're on GitHub Copilot enterprise contracts being renewed in H2 2026, benchmark the effective per-engineer cost under metered AI Credits billing against Claude Code flat-rate pricing for your actual usage pattern before auto-renewing</li>
+          <li>For engineering orgs evaluating new AI coding tool rollouts: weight the provider's model improvement trajectory alongside current feature parity — Claude Code's underlying model improved more between June 2025 and June 2026 than any other platform's, and that trajectory is visible in public benchmark data</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Cursor market share decline from ~41% to ~26% is sourced from the SpaceX/Cursor CNBC acquisition reporting, which cited these figures as part of the deal rationale</li>
+          <li>Anthropic's ~50% coding tools market share figure comes from The Motley Fool's analysis of the SpaceX/Cursor deal, citing independent market research</li>
+          <li>GitHub Copilot's AI Credits billing transition (metered from flat-rate) was covered in depth in the June 16 edition of this digest and is generating ongoing community discussion about actual cost impacts</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.digitalapplied.com/blog/spacex-acquires-cursor-anysphere-60b-ai-coding-2026">Digital Applied: Market Analysis</a></li>
+          <li><a href="https://www.fool.com/investing/2026/06/29/spacexs-60-billion-cursor-deal-changes-everything/">Motley Fool: Market Share Analysis</a></li>
+          <li><a href="https://www.efficientlyconnected.com/spacex-cursor-acquisition-enterprise-ai-coding-tools/">Enterprise AI Coding Tools Landscape</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
