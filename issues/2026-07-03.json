@@ -1,0 +1,170 @@
+{
+  "highlights": [
+    {"text": "Claude Fable 5 switches to usage-credits billing on July 7 — $10/$50 per M tokens after the free window closes; today through Sunday is the last time Pro/Max/Team/Enterprise subscribers can use Fable 5 without extra charges", "anchor": "ai-tools-and-models-0"},
+    {"text": "Cursor iOS public beta launched June 29 — launch always-on cloud agents or remote-control desktop agents from iPhone with Live Activities on the lock screen; 75% off promotion expires July 5", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "OpenClaw hits 355K GitHub stars and 138 CVEs — the fastest-growing open-source AI agent in GitHub history is also 2026's first major AI agent security crisis, with RCE flaws, ClawHub supply-chain attacks, and 135K+ publicly exposed instances", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "NVIDIA Vera CPU — the first processor purpose-built for AI agent orchestration — began first deliveries to Anthropic, OpenAI, Oracle Cloud, and SpaceXAI, alongside the open-source NVIDIA Agent Toolkit for production agent deployment", "anchor": "infrastructure-and-production-0"},
+    {"text": "Apple Foundation Models opens to Claude and Gemini via Swift's unified API, ships Python SDK via pip, and pledges to open-source the framework this summer — free Private Cloud Compute access for apps under 2M downloads", "anchor": "ai-tools-and-models-1"},
+    {"text": "AI observability in 2026 has split into three distinct camps: APM-with-LLM-tabs, AI-native tracing tools, and AI gateways — Braintrust's production buyer's guide maps which fits each team type", "anchor": "infrastructure-and-production-1"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Fable 5 Switches to Usage Credits on July 7 — Your Four-Day Window to Use It for Free",
+          "url": "https://www.digitalapplied.com/blog/claude-fable-5-usage-credits-july-7-pricing-guide-2026",
+          "tldr": "On July 7, 2026, Claude Fable 5 access inside Pro, Max, Team, and Enterprise plans transitions from the current flat-rate 50%-of-weekly-limits model to metered usage credits. The API rate that defines the credit cost is confirmed at $10 per million input tokens and $50 per million output tokens — the same pricing as the direct API, applied on top of your subscription. Between now and the switch, Fable 5 access draws from your standard weekly limits at no additional charge. After July 7, every Fable 5 request draws from a credit balance rather than subscription limits. Subscribers are reacting strongly — PCWorld reports community fury over the restrictions — and Anthropic has clarified the model is not leaving subscriptions, only the billing model changes.",
+          "why_it_matters": "For engineers using Fable 5 via subscription plans (Pro, Max, Team, Enterprise), this weekend is the last time you can run Fable 5 at no additional cost. After July 7, the same agent workflow that today costs nothing extra will draw from credits at $10/$50 per million tokens — on a par with the raw API rate, with no subscription discount. The practical consequence depends on your usage volume: light interactive use may remain affordable, but automated agentic loops that run Fable 5 at scale will see a meaningful cost jump. The pricing structure change also signals that Anthropic is repositioning Fable 5 as a premium, metered tier rather than a standard subscription model — consistent with how usage-credit pricing has been applied to Opus 4.8 and Mythos 5 since their respective launches.",
+          "traction": "high",
+          "traction_evidence": [
+            "PCWorld, BleepingComputer, MindStudio, and Apidog all covered the July 7 billing change with subscriber reaction, indicating broad community awareness and impact",
+            "Anthropic confirmed the credit billing structure in the platform pricing docs update, with Digital Applied, Fable5.app, and Claude.fast all sourcing directly from the official platform page",
+            "Subscriber forums on Reddit and Claude community show active discussion about whether to burn usage this weekend or shift workloads to Sonnet 5 before the switch"
+          ],
+          "use_cases": [
+            "Front-load your heaviest Fable 5 tasks to this weekend (July 3–6): large-repo refactors, long-horizon research agent runs, and multi-step agentic evaluations all benefit from running before the July 7 metered switch",
+            "After July 7, use Fable 5 selectively for tasks where its reasoning headroom is measurably better than Sonnet 5 — run a quick parallel eval this weekend on your top 5 task types to identify which are worth the credit premium and which Sonnet 5 handles equivalently",
+            "If you're on the API directly (not a subscription plan), this change does not affect you — Fable 5 API pricing was already $10/$50 per M tokens; the change only applies to subscription-plan users who previously got Fable 5 against their weekly limits"
+          ],
+          "tags": ["Anthropic", "Fable5", "Pricing", "UsageCredits", "AgentWorkflows"],
+          "links": [
+            {"url": "https://www.digitalapplied.com/blog/claude-fable-5-usage-credits-july-7-pricing-guide-2026", "label": "Digital Applied: July 7 Guide"},
+            {"url": "https://www.digitalapplied.com/blog/claude-fable-5-before-july-7-six-day-window-playbook", "label": "Six-Day Window Playbook"},
+            {"url": "https://www.pcworld.com/article/3181897/claude-subscribers-are-furious-over-fables-new-restrictions.html", "label": "PCWorld: Subscriber Reaction"},
+            {"url": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-isnt-permanently-leaving-subscriptions-anthropic-says/", "label": "BleepingComputer: Anthropic Clarification"}
+          ]
+        },
+        {
+          "title": "Apple Foundation Models Opens to Claude and Gemini via Swift — Python SDK on pip, Free Tier for Small Apps, Open Source Framework Coming",
+          "url": "https://developer.apple.com/documentation/foundationmodels",
+          "tldr": "At WWDC 2026 (June 9), Apple overhauled the Foundation Models framework across three dimensions relevant to developers: (1) Unified third-party model access — Anthropic and Google each publish Swift packages that plug into the same Foundation Models API surface, letting you swap between Apple's on-device model, Claude, and Gemini without changing application logic. (2) Python SDK — apple/python-apple-fm-sdk ships via pip (Python 3.10+, Xcode required, Apple Silicon only) with the fm CLI pre-installed on macOS. (3) Dynamic Profiles — a declarative API for multi-agent iOS workflows where tool sets, model targets, and instructions swap per-handoff without tearing down the session context. Free Private Cloud Compute access for developers on apps with under 2 million total App Store downloads. Framework to go open source 'later this summer.'",
+          "why_it_matters": "The provider-agnostic API surface is the most structurally significant change: Apple has moved from a closed on-device model silo to an abstraction layer that treats Claude and Gemini as first-class alternatives via the same Swift API. For iOS/macOS developers already using the Foundation Models framework for on-device AI tasks, this removes the integration cost of calling third-party LLMs for use cases that exceed on-device capability. The Python SDK (pip install apple-fm-sdk) is notable for a different reason: it gives ML engineers and server-side developers access to Apple's on-device model via Python, opening up use cases like running Apple Intelligence on a Mac server or mixing Apple model outputs with standard Python ML pipelines. Dynamic Profiles addressing the context-teardown problem in multi-agent mobile apps is the right pattern for agent handoffs — this will influence how iOS agent frameworks structure sessions.",
+          "traction": "high",
+          "traction_evidence": [
+            "Official Apple Newsroom release, WWDC 2026 sessions (session IDs 241, 334, 339), and Apple ML Research publication simultaneously — the broadest official rollout Apple has done for a developer AI feature",
+            "github.com/apple/python-apple-fm-sdk is live and installable, with official documentation at apple.github.io/python-apple-fm-sdk — the SDK is production-available, not a preview",
+            "MacRumors, NYU Shanghai AI Blog, and ByteIota all covered the WWDC announcement, and the third-party provider support (Claude + Gemini via Swift) was widely called out as the major architectural shift"
+          ],
+          "use_cases": [
+            "iOS developers: replace direct Anthropic/Google API calls in Swift apps with Foundation Models provider packages — Anthropic's Swift package and Google's Swift package plug into the same API surface, and you route to on-device for simple tasks and third-party models for complex ones with a single line change",
+            "Python developers on Apple Silicon: pip install apple-fm-sdk and use the fm CLI or Python bindings to integrate Apple's on-device model into Python ML pipelines — useful for offline inference tasks where you want local execution without Ollama or a separate model runtime",
+            "Mobile multi-agent builders: use Dynamic Profiles to architect agent sessions that transition between task types (research → summarization → translation) without losing context — the single-session multi-agent pattern avoids the cold-start cost of rebuilding context at each handoff"
+          ],
+          "tags": ["Apple", "FoundationModels", "iOS", "MultiAgent", "PythonSDK", "CrossProvider"],
+          "links": [
+            {"url": "https://developer.apple.com/documentation/foundationmodels", "label": "Apple Foundation Models Docs"},
+            {"url": "https://github.com/apple/python-apple-fm-sdk", "label": "Python SDK on GitHub"},
+            {"url": "https://developer.apple.com/videos/play/wwdc2026/241/", "label": "WWDC26: What's New in Foundation Models"},
+            {"url": "https://www.apple.com/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools/", "label": "Apple Newsroom Announcement"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Cursor iOS Public Beta: Remote-Control AI Coding Agents from iPhone — 75% Off Ends July 5",
+          "url": "https://cursor.com/blog/ios-mobile-app",
+          "tldr": "Cursor for iOS launched in public beta on June 29, 2026, available on all paid plans (iOS 26.0+, English, Apple Silicon). Two primary modes: (1) Cloud Agents — launch always-on agents in the cloud from the mobile app, pick any frontier model, and describe tasks by voice with slash commands; (2) Remote Control — direct agents already running on your desktop machine from your phone. Lock screen Live Activities and push notifications alert you when an agent finishes, needs input, or is ready for review. Cursor is offering 75% off Composer 2.5 runs in the mobile app through July 5, 2026. Android is planned but not yet available.",
+          "why_it_matters": "The architectural shift that matters here is not 'coding on your phone' — it's cloud agent continuity. The Cursor iOS app is designed for the workflow where a developer launches an agent on desktop, steps away, and can then monitor and redirect that agent from their phone without needing to return to a laptop. This closes the gap between desktop agent orchestration and mobile monitoring that has been a friction point for engineers running longer-horizon tasks. Live Activities on the lock screen for agent status is the right UX pattern: it surfaces the agent's progress without requiring you to open an app or stay at a screen. The 75% Composer 2.5 discount ending July 5 (Sunday) is the most actionable short-term detail — if you're a Cursor subscriber who hasn't tried the iOS app yet, this weekend is the time.",
+          "traction": "medium",
+          "traction_evidence": [
+            "Public beta announced on cursor.com/blog/ios-mobile-app with changelog at cursor.com/changelog/ios-mobile-app — official release from Anysphere, not a third-party report",
+            "StartupHub.ai, Pulse2.com, TestingCatalog.com, and TechGenyz all covered the launch on or shortly after June 29, indicating the release reached AI tool tracking publications quickly",
+            "75% off Composer 2.5 runs promotion is a promotional signal of Cursor pushing adoption before the SpaceX acquisition closes — the pricing incentive is real and active through this Sunday"
+          ],
+          "use_cases": [
+            "Long-running agent workflows: start a Cursor cloud agent on a large refactor task at your desk, then monitor its progress from your phone during your commute or meeting — redirect it if it goes off course via the Remote Control mode without needing your laptop",
+            "Use voice input in the Cursor iOS app to dictate agent instructions or describe a new task in natural language — the speech-to-slash-command flow is faster than typing on mobile and useful for capturing task ideas when you're away from a keyboard",
+            "Take advantage of the 75% off Composer 2.5 promotion before it expires Sunday July 5 — if you have Cursor tasks you've been queuing, mobile-launched cloud agents this weekend offer the best per-run cost you'll see before the SpaceX acquisition closes"
+          ],
+          "tags": ["Cursor", "iOS", "MobileAgents", "CloudAgents", "DevTools"],
+          "links": [
+            {"url": "https://cursor.com/blog/ios-mobile-app", "label": "Cursor Blog: iOS Launch"},
+            {"url": "https://cursor.com/changelog/ios-mobile-app", "label": "Cursor Changelog"},
+            {"url": "https://www.startuphub.ai/ai-news/artificial-intelligence/2026/cursor-ios-app-breaks-free-from-desktops", "label": "StartupHub: Coverage"}
+          ]
+        },
+        {
+          "title": "OpenClaw: 355K GitHub Stars, 138 CVEs, and What the First AI Agent Security Crisis Teaches Engineers",
+          "url": "https://hivesecurity.gitlab.io/blog/openclaw-ai-agent-security-crisis-2026/",
+          "tldr": "OpenClaw — a self-hosted, open-source AI agent that connects to WhatsApp, Telegram, Discord, email, and local files — became the fastest-growing open-source project in GitHub history, reaching 355K stars and 3.2 million active users in under five months. It also became 2026's first major AI agent security crisis. By the time CVE-2026-25253 (CVSS 8.8, one-click RCE via a malicious URL) was publicly disclosed, researchers had already found 135K+ OpenClaw instances exposed on public IPs. In total, 138 CVEs have been tracked across the project, including two CVSS 9.9 vulnerabilities enabling admin control without credentials. Supply chain attacks via ClawHub (OpenClaw's public skill marketplace) distributed 335 malicious skills — including keyloggers and Atomic Stealer on macOS — using professional documentation and innocuous skill names.",
+          "why_it_matters": "OpenClaw is the first case study in what happens when a personal AI agent achieves mass adoption before security infrastructure matures. The vulnerabilities — RCE via link processing, prompt injection via browsed web content, privilege escalation without credentials, supply chain attacks via the skill registry — are not edge cases. They are predictable consequences of designing an agent that can read files, run code, access OAuth tokens, and browse the web, without the security hardening that would make those capabilities safe to expose on a public IP. For AI engineers, the relevant lesson is architectural: any agent with similar capabilities (browser automation, file access, external API connections) faces the same threat surface. The indirect prompt injection attack (hidden instructions in web content that the agent reads and follows) is particularly important — this is not a hypothetical threat model; it was executed against real OpenClaw instances in the wild. The ClawHub supply chain attack is a direct parallel to the npm registry malware problem: a low-barrier public marketplace with minimal code review is a distribution channel for malware, regardless of the underlying technology.",
+          "traction": "high",
+          "traction_evidence": [
+            "138 CVEs across 18 pages on OpenCVE, including two CVSS 9.9 vulnerabilities — the highest possible severity rating — are publicly documented and independently verifiable",
+            "IBM X-Force, Cisco, Microsoft Security Blog, Dark Reading, and Hive Security have all published independent OpenClaw security analyses, indicating this reached enterprise security teams and major vendor research programs",
+            "github.com/joylarkin/openclaw-security-news tracks government warnings, vendor advisories, and headlines about OpenClaw security — the volume of entries confirms sustained, multi-month security community attention"
+          ],
+          "use_cases": [
+            "If you're running OpenClaw or evaluating it: apply the patches for CVE-2026-25253 immediately and audit whether your instance is publicly accessible — the specific attack vector (malicious URL causes RCE) requires network exposure to exploit, and removing public IP access eliminates the primary remote attack surface",
+            "Use OpenClaw's security crisis as the architecture review template for any agent you're building that browses web content: treat all externally-fetched content as untrusted and pass it through a scrubber layer before the LLM sees it — this directly prevents the indirect prompt injection attack class that executed successfully against OpenClaw in the wild",
+            "When evaluating public skill or plugin registries for any agent platform (ClawHub, Claude MCP registries, VS Code extensions): check publication dates and star counts as basic hygiene, and prefer skills from verified organizations or those with long track records — the 335 malicious ClawHub skills used innocuous names and professional docs to pass casual review"
+          ],
+          "tags": ["OpenClaw", "Security", "AgentSecurity", "PromptInjection", "SupplyChain", "CVE"],
+          "links": [
+            {"url": "https://hivesecurity.gitlab.io/blog/openclaw-ai-agent-security-crisis-2026/", "label": "Hive Security: Full Crisis Analysis"},
+            {"url": "https://www.ibm.com/think/x-force/what-openclaw-reveals-about-agentic-ai-security-risks", "label": "IBM X-Force: Agentic AI Security Risks"},
+            {"url": "https://thehackernews.com/2026/05/four-openclaw-flaws-enable-data-theft.html", "label": "The Hacker News: Four CVEs Explained"},
+            {"url": "https://www.proarch.com/blog/threats-vulnerabilities/openclaw-rce-vulnerability-cve-2026-25253", "label": "CVE-2026-25253 RCE Details"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "NVIDIA Vera CPU and Agent Toolkit: Purpose-Built Agentic Hardware Begins First Deliveries to Anthropic, OpenAI, SpaceXAI",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-launches-vera-cpu-purpose-built-for-agentic-ai",
+          "tldr": "NVIDIA Vera — the first CPU designed specifically for AI agent orchestration — has entered production and first units have been hand-delivered to Anthropic, OpenAI, Oracle Cloud Infrastructure, and SpaceXAI. Vera ships with 88 custom Olympus cores and delivers 1.8x the performance of equivalent x86 CPUs for agent coordination workloads (model serving routing, multi-agent state management, tool dispatch, memory retrieval). Alongside Vera, NVIDIA released the open-source NVIDIA Agent Toolkit, which includes OpenShell runtime and NemoClaw orchestration layer — CPU-only components for managing autonomous agents in production without requiring GPU inference on the orchestration path. Both announced at GTC Taipei June 1; first deliveries confirmed in NVIDIA's 'Vera Arrives' blog post.",
+          "why_it_matters": "The Vera CPU addresses a specific production problem: in current agentic AI stacks, the CPU orchestration layer is a bottleneck that slows the GPU inference path. In a typical multi-agent loop, the LLM inference happens on GPU, but the coordination — deciding which agent runs next, routing tool calls, managing shared memory, aggregating results — runs on CPU. Standard x86 CPUs were not designed for this pattern, and teams have been compensating with more GPU time to hide orchestration latency. Vera's architecture optimizes for the agent coordination patterns (many small parallel tasks, high-frequency state transitions, low-latency tool dispatch) rather than the throughput-optimized designs of server CPUs like AMD EPYC. For most engineers today, Vera is infrastructure-layer context rather than something to deploy directly. The practical actionable angle is the NVIDIA Agent Toolkit (open source): OpenShell runtime and NemoClaw are available now and designed to run on standard x86 hardware, with Vera providing a performance upgrade path when available.",
+          "traction": "high",
+          "traction_evidence": [
+            "NVIDIA Newsroom, NVIDIA investor relations, and NVIDIA Technical Blog all published simultaneously on first deliveries — official, sourced production confirmation from NVIDIA directly",
+            "Named recipients (Anthropic, OpenAI, Oracle Cloud Infrastructure, SpaceXAI) are the leading frontier AI labs and cloud providers, confirming enterprise-tier production deployment rather than a lab experiment",
+            "AndroidHeadlines, EnterpriseDNA, and CallSphere.ai all covered the Vera delivery with technical specifications, indicating the story reached both hardware and AI-specific press"
+          ],
+          "use_cases": [
+            "Evaluate the NVIDIA Agent Toolkit (OpenShell + NemoClaw, open source) as an orchestration layer for production multi-agent systems running on standard x86 servers now — these components do not require Vera hardware and provide the production management patterns (monitoring, rollback, safe execution) that are currently missing from most custom agent orchestration implementations",
+            "If you're designing infrastructure for a large-scale agentic workload (e.g., hundreds of concurrent agent sessions), track Vera CPU availability via NVIDIA Cloud Infrastructure partners — the 1.8x orchestration performance gain means you can run significantly more concurrent agent coordination loops on the same rack footprint compared to x86",
+            "Use Vera's existence as the argument for separating orchestration compute from inference compute in your architecture: even on standard hardware today, isolating agent coordination to CPU-only paths (routing, memory, tool dispatch) and reserving GPU exclusively for model inference produces measurable throughput improvements at scale"
+          ],
+          "tags": ["NVIDIA", "Vera", "CPU", "AgentInfrastructure", "Hardware", "Production"],
+          "links": [
+            {"url": "https://nvidianews.nvidia.com/news/nvidia-launches-vera-cpu-purpose-built-for-agentic-ai", "label": "NVIDIA: Vera CPU Launch"},
+            {"url": "https://blogs.nvidia.com/blog/vera-cpu-delivery/", "label": "NVIDIA Blog: Vera Arrives"},
+            {"url": "https://callsphere.ai/blog/nvidia-agent-toolkit-2026-autonomous-enterprise-ai-agents-guide", "label": "NVIDIA Agent Toolkit Guide"},
+            {"url": "https://developer.nvidia.com/blog/nvidia-vera-cpu-sets-a-new-standard-for-agentic-workloads-in-ai-factories/", "label": "NVIDIA Technical Blog: Architecture Details"}
+          ]
+        },
+        {
+          "title": "AI Observability in 2026: Three Camps, One Production Decision",
+          "url": "https://www.braintrust.dev/articles/best-ai-observability-tools-2026",
+          "tldr": "The AI observability market has split into three architecturally distinct camps: (1) APM platforms adding LLM tabs — traditional APM tools (Datadog, New Relic) that track tokens and latency but treat LLM calls as another service endpoint, with no AI-specific quality scoring; (2) AI-native tracing tools — Langfuse, LangSmith, Braintrust, Phoenix, and Arize, which go deeper on trace capture, add evaluation scores to trace views, and support annotation queues for human review; (3) AI gateways — Helicone, Portkey, and LLMLite, which sit as a proxy layer in front of LLM API calls for cost routing, caching, and multi-provider switching. The category leader among AI-native tools depends on the team's workflow: LangSmith for LangChain/LangGraph teams, Braintrust for eval-integrated observability with native scoring in trace views, Helicone for lightweight cost visibility via single endpoint change.",
+          "why_it_matters": "The three-camp split matters because buying the wrong category creates a gap: APM platforms give you uptime and latency, but they cannot tell you whether your LLM output quality degraded after a prompt change. AI-native tools give you quality signals (eval scores, annotation queues, drift detection) but require SDK integration and can add latency overhead on the trace path. AI gateways give you cost and routing insight at near-zero integration cost but don't score output quality. In 2026, the teams running AI at production scale increasingly report that logging traces without evaluating them creates a haystack problem: you're recording everything and understanding nothing. The most effective 2026 setup uses a gateway for cost/routing (Helicone or Portkey, one endpoint change) plus an evaluation tool for quality (Braintrust or Phoenix, SDK integration on the paths that matter) — running both rather than picking one covers both cost and quality observability without full overlap.",
+          "traction": "high",
+          "traction_evidence": [
+            "Braintrust published a dedicated buyer's guide ('AI observability tools: A buyer's guide to monitoring AI agents in production') covering all three camps with specific tool comparisons — independent, comprehensive, and sourced from a vendor with production data at scale",
+            "MLflow, ConfidentAI, TrueFoundry, LangWatch, and OnPage each published their own 2026 LLM observability roundups, and all independently identify the same three-camp structure with consistent tool rankings",
+            "Gartner's projection: 60% of software engineering teams will use AI evaluation and observability platforms by 2028 (up from 18% in 2025), indicating this is a category in the adoption acceleration phase, not early exploration"
+          ],
+          "use_cases": [
+            "Use the three-camp framework to audit your current observability stack: if you're relying solely on an APM platform for AI monitoring, you have cost/latency visibility but zero output quality signal — add Helicone as a one-endpoint gateway for immediate multi-provider cost tracking without SDK changes",
+            "If you're evaluating AI-native tools: Braintrust is the correct choice when evals are already part of your workflow (CI gates, dataset-driven prompt testing), because eval scores are native to trace views rather than bolted on; LangSmith is the correct choice if your team lives in LangChain/LangGraph and wants native graph visualization; Langfuse (covered in Tuesday's issue: OTEL-native v4) is the correct choice for open-source deployments requiring ClickHouse-backed infrastructure at Fortune 50 scale",
+            "Run the two-layer stack: set Helicone (or Portkey) as your proxy layer for all LLM calls first — it's a single endpoint change, captures cost/latency/routing for every call, and takes under an hour to deploy. Then add Braintrust or Phoenix SDK integration only on the user-facing paths where output quality matters — this limits instrumentation overhead to the code paths worth evaluating"
+          ],
+          "tags": ["LLMObservability", "Production", "Braintrust", "Helicone", "LangSmith", "Langfuse", "EvalOps"],
+          "links": [
+            {"url": "https://www.braintrust.dev/articles/best-ai-observability-tools-2026", "label": "Braintrust: Production Buyer's Guide"},
+            {"url": "https://mlflow.org/articles/top-llm-observability-tools-in-2026-a-pro-guide/", "label": "MLflow: Top LLM Observability Tools"},
+            {"url": "https://www.confident-ai.com/knowledge-base/compare/10-llm-observability-tools-to-evaluate-and-monitor-ai-2026", "label": "Confident AI: 10 Tools Compared"},
+            {"url": "https://langwatch.ai/blog/4-best-tools-for-monitoring-llm-agentapplications-in-2026", "label": "LangWatch: Agent Monitoring Guide"}
+          ]
+        }
+      ]
+    }
+  ]
+}
