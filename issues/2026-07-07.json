@@ -1,0 +1,219 @@
+{
+  "highlights": [
+    {"text": "Kimi K2.7 Code entered GitHub Copilot's model picker July 1 — first open-weight model in a mainstream managed IDE, giving Copilot users a lower-cost coding alternative without any API setup", "anchor": "ai-tools-and-models-0"},
+    {"text": "Action required in 2 days: gemini-2.5-flash-preview-09-2025 is deprecated July 9 — grep your codebase for 'flash-preview' and migrate to gemini-2.5-flash before Wednesday or your app breaks", "anchor": "ai-tools-and-models-2"},
+    {"text": "Google ADK 2.0 hits GA in 5 languages (Python, TypeScript, Go, Java, Kotlin) with one-command GCP deploy and Cloud Trace observability built in — first multi-language agent framework at enterprise GA", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "PydanticAI V2 went stable June 23: harness-first redesign ships in 160 lines vs 280 for LangGraph, catches 23 more pre-deployment bugs, and costs $390 to test vs $1,088 for equivalent CrewAI", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Eval-Driven Development (EDD) is crystallizing as the standard engineering methodology for AI quality — Red Hat, Microsoft ASSERT, and Confident AI all published canonical EDD frameworks in H1 2026, driven by 32% of production teams citing quality as their #1 barrier", "anchor": "infrastructure-and-production-0"},
+    {"text": "78% of AI system failures are invisible to traditional monitoring — Dynatrace, Braintrust, and LogicMonitor all predict observability becomes the primary control plane for production AI in 2026, not just a debugging tool", "anchor": "infrastructure-and-production-1"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Kimi K2.7 Code in GitHub Copilot: First Open-Weight Model in a Mainstream IDE's Model Picker",
+          "url": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/",
+          "tldr": "GitHub added Kimi K2.7 Code to the Copilot model picker on July 1, 2026 — making it the first open-weight model selectable in a mainstream managed IDE without any API configuration. Kimi K2.7-Code was released by Moonshot AI on June 12, 2026; GitHub's integration makes it directly accessible from the Copilot interface. The model offers a lower-cost option for coding workflows compared to closed alternatives (GPT-5.5, Claude, Gemini) currently in the picker.",
+          "why_it_matters": "The Kimi K2.7 Copilot integration is a milestone in the normalization of open-weight models in enterprise developer workflows. Previously, using an open-weight coding model required either self-hosting (Ollama, llama.cpp) or configuring a third-party API key — both steps that filter out most developers in managed corporate environments. GitHub distributing an open-weight model through the Copilot interface removes that friction entirely. Developers in organizations with Copilot licenses can now switch to an open-weight model without additional setup, policy changes, or IT approvals. If GitHub expands the open-weight picker to include Qwen3-Coder-Next, GLM-5.2, and others in coming months, it represents a structural shift in how enterprise developers access AI coding assistance — and a meaningful cost lever for engineering organizations.",
+          "traction": "high",
+          "traction_evidence": [
+            "Published in the official GitHub Changelog on July 1, 2026 — confirmed distribution through GitHub's own infrastructure, not a third-party plugin or API-key configuration",
+            "Kimi K2.7-Code was production-released by Moonshot AI on June 12, 2026, well before the Copilot integration — model was tested and stable before this distribution expansion",
+            "NxCode, WindowsForum, and Explainx all published July 2026 analysis of the open-weight-in-IDE implications — developer community independently identified this as a distribution model shift, not just a new model option"
+          ],
+          "use_cases": [
+            "GitHub Copilot users in cost-sensitive organizations: switch the model picker to Kimi K2.7 Code for high-volume repetitive coding tasks (boilerplate generation, test writing, docstring completion) — measure cost and quality over one sprint before deciding on a team-wide routing policy",
+            "Benchmark Kimi K2.7 Code against GPT-5.5 and Claude directly in Copilot on your specific task distribution (language, codebase size, task type) to build an evidence-based routing policy before more open-weight models are added to the picker",
+            "Watch the GitHub Copilot changelog for additional open-weight models — if Qwen3-Coder-Next or GLM-5.2 are added in the next 60 days, the open-weight picker becomes the cost-optimization default for most enterprise coding use cases at no infrastructure overhead"
+          ],
+          "tags": ["Kimi", "GitHub", "Copilot", "OpenWeight", "IDE", "MoonshotAI", "CodingAgent"],
+          "links": [
+            {"url": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/", "label": "GitHub Changelog: Kimi K2.7 Code in Copilot"},
+            {"url": "https://www.kimi.com/ai-models/kimi-k2-6", "label": "Moonshot AI: Kimi K2.6 Tech Breakdown"},
+            {"url": "https://www.nxcode.io/resources/news/open-weight-coding-models-managed-ides-kimi-k2-7-copilot-2026", "label": "NxCode: Open-Weight Models in Managed IDEs"},
+            {"url": "https://www.explainx.ai/blog/kimi-k2-7-github-copilot-open-weight-model-2026", "label": "Explainx: Kimi K2.7 Copilot Integration Guide"}
+          ]
+        },
+        {
+          "title": "Qwen3-Coder-Next: Apache 2.0 Coding Agent with 80B Parameters, Only 3B Active — Runs on a Consumer GPU",
+          "url": "https://github.com/QwenLM/Qwen3-Coder",
+          "tldr": "Qwen3-Coder-Next is an open-weight model from Alibaba's Qwen team (February 2026, Apache 2.0) using a Mixture-of-Experts architecture with 80 billion total parameters but only 3 billion active per forward pass. It achieves performance comparable to models with 10-20x more active compute, runs on a consumer GPU with 16GB VRAM via Ollama, and supports a 256k context window — large enough for multi-file repository-scale tasks. The larger Qwen3-Coder 480B variant (35B active) matches Claude Sonnet 4 on agentic coding benchmarks and was trained on 7.5 trillion tokens (70% code).",
+          "why_it_matters": "Qwen3-Coder-Next closes the performance-to-hardware gap that has made local AI models impractical for serious development work. The 80B/3B MoE architecture is the key: 3B active parameters means inference speed comparable to small dense models, while 80B total parameters provide the knowledge capacity for complex reasoning. For engineering teams evaluating self-hosted AI: Qwen3-Coder-Next via Ollama is the first configuration where 'run a capable coding agent on available hardware without a cloud API' is not a research project — it's a weekend setup. The Apache 2.0 license removes commercial use restrictions that block many enterprise self-hosting evaluations. Combined with the 256k context window (enough for full repository context), this is the most practical open-weight coding agent available for air-gapped, privacy-first, or cost-constrained deployments.",
+          "traction": "high",
+          "traction_evidence": [
+            "Published on GitHub (QwenLM/Qwen3-Coder) and HuggingFace under Apache 2.0 with full weights — model is in production and available immediately via Ollama, not a preview",
+            "SitePoint, DEV Community, and RemoteOpenClaw each published independent Qwen3-Coder-Next deployment guides in 2026 — practitioner documentation ecosystem signals active real-world adoption",
+            "Qwen3-Coder 480B (35B active) matches Claude Sonnet 4 on agentic coding benchmarks per Alibaba's published evals; the Qwen3 family is independently cited as 'the open-source story of 2026' in multiple developer surveys including the GitHub Best AI Tools community thread"
+          ],
+          "use_cases": [
+            "Deploy for free via Ollama: `ollama pull qwen3-coder-next`, then connect it to OpenCode, Continue.dev, or any OpenAI-compatible client — zero API cost, 256k context, runs on a 16GB VRAM consumer workstation",
+            "Use the 480B variant via OpenRouter or Together AI API for agentic coding tasks requiring Claude Sonnet 4-level reasoning: at significantly lower per-token cost than frontier closed models, it's worth a parallel eval run against your current workflows before committing to a routing policy",
+            "The Apache 2.0 license enables fine-tuning on proprietary codebases without commercial restrictions — for teams with 10K+ internal code examples, fine-tuning Qwen3-Coder-Next on your patterns and conventions is a realistic path to a domain-specialized coding assistant"
+          ],
+          "tags": ["Qwen3", "Alibaba", "OpenWeight", "MoE", "LocalAI", "CodingAgent", "Apache2", "Ollama"],
+          "links": [
+            {"url": "https://github.com/QwenLM/Qwen3-Coder", "label": "QwenLM/Qwen3-Coder on GitHub"},
+            {"url": "https://huggingface.co/Qwen/Qwen3-Coder-Next", "label": "Hugging Face: Qwen3-Coder-Next Weights"},
+            {"url": "https://dev.to/sienna/qwen3-coder-next-the-complete-2026-guide-to-running-powerful-ai-coding-agents-locally-1k95", "label": "DEV Community: Complete 2026 Local Deployment Guide"},
+            {"url": "https://www.sitepoint.com/qwen3codernext-local-deployment-a-complete-developer-guide-2026/", "label": "SitePoint: Local Deployment Developer Guide (2026)"}
+          ]
+        },
+        {
+          "title": "Action Required in 2 Days: gemini-2.5-flash-preview-09-2025 Deprecated July 9 — Migrate to gemini-2.5-flash",
+          "url": "https://ai.google.dev/gemini-api/docs/changelog",
+          "tldr": "Google is retiring the `gemini-2.5-flash-preview-09-2025` model identifier on July 9, 2026. Applications calling that specific model string will receive API errors after deprecation. Migration: replace `gemini-2.5-flash-preview-09-2025` with `gemini-2.5-flash` (GA, full capability including thinking) or `gemini-2.5-flash-lite` (lower cost, slightly lower capability). Both are generally available on the Gemini API, Vertex AI, and Google AI Studio. Gemini 2.5 Flash GA adds controllable 'thinking budget' — the first Flash model with reasoning capability — and is free with rate limits for personal use.",
+          "why_it_matters": "Preview model deprecation is a high-incidence production incident pattern: teams that integrated during the preview period often never update the model string because the preview worked and upgrading felt like unnecessary risk. When the preview is retired, the app fails — and if the code wasn't written to handle model-not-found errors gracefully, the failure can cascade silently. The 2-day window is real: any production code still using the `09-2025` preview string breaks on Wednesday. The GA `gemini-2.5-flash` is not just a safe replacement — it's an upgrade: thinking capabilities (controllable reasoning budget), GA-level SLA, and production hardening since the preview period. Gemini Code Assist has already migrated internally, confirming the retirement is on schedule.",
+          "traction": "high",
+          "traction_evidence": [
+            "Published on the official Google AI for Developers changelog at ai.google.dev/gemini-api/docs/changelog — canonical deprecation notice from Google, not a rumor",
+            "Gemini 2.5 Flash GA confirmed simultaneously on Vertex AI, Gemini API, and Google AI Studio — the replacement is production-available across all platforms where the preview was accessible",
+            "Gemini Code Assist release notes confirm internal Google products have already migrated to GA Gemini 2.5 Flash — the preview retirement is confirmed to be on schedule for July 9"
+          ],
+          "use_cases": [
+            "Run this grep across your entire codebase right now: `grep -r 'flash-preview' --include='*.py' --include='*.ts' --include='*.js' --include='*.go' --include='*.yaml' --include='*.json' .` — replace every match with `gemini-2.5-flash`; don't forget .env files, Kubernetes ConfigMaps, Lambda env vars, and IaC configs where model strings frequently hide",
+            "After migrating to `gemini-2.5-flash`, test the thinking budget feature: set `thinkingConfig.thinkingBudget` to control how much reasoning the model does per request — higher budgets improve quality on complex tasks, lower (or zero) budgets reduce latency and cost, giving you a quality/cost dial that the preview didn't expose",
+            "Add a model deprecation check to your CI pipeline: grep for any `preview` or dated model strings (regex: `[a-z]+-\\d{2}-\\d{4}`) in config files and fail the build if any are found — this prevents the preview-string-forgotten-forever pattern from recurring"
+          ],
+          "tags": ["Gemini", "Google", "API", "Deprecation", "FlashModel", "Migration", "Deadline", "VertexAI"],
+          "links": [
+            {"url": "https://ai.google.dev/gemini-api/docs/changelog", "label": "Google AI: Gemini API Changelog (Deprecation Notice)"},
+            {"url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash", "label": "Google AI: Gemini 2.5 Flash GA Model Docs"},
+            {"url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-2-5-flash-lite-flash-pro-ga-vertex-ai", "label": "Google Cloud: Gemini 2.5 Flash GA on Vertex AI"},
+            {"url": "https://developers.googleblog.com/gemini-2-5-flash-pro-live-api-veo-2-gemini-api/", "label": "Google Developers Blog: Flash/Pro GA Announcement"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Google ADK 2.0 Hits GA: 5-Language Agent Framework with One-Command GCP Deploy and Built-In Cloud Trace",
+          "url": "https://adk.dev/2.0/",
+          "tldr": "Google's Agent Development Kit (ADK) 2.0 reached General Availability on June 30, 2026, with full production support across Python, TypeScript/JavaScript, Go, Java, and Kotlin. ADK is a code-first framework for multi-agent systems with two orchestration modes: workflow agents (deterministic, testable pipelines) and dynamic agents (LLM-driven routing for adaptive behavior). For GCP deployments: one command (`adk deploy`) pushes to Agent Runtime with automatic Cloud Trace observability, built-in auth, and enterprise-grade security. Self-hosting: containerize and run on any infrastructure. ADK natively supports MCP tool integrations.",
+          "why_it_matters": "ADK 2.0 is the first Google-maintained agent framework to reach enterprise GA across five production languages simultaneously. The Go GA is particularly significant: Go is the language of high-throughput backend services at companies running Kubernetes, and it has been the last major backend language without a production-ready LLM agent framework — LangChain is Python-first, LangGraph has no Go support. ADK fills this gap with official Google support and enterprise SLA. The architectural distinction that matters: ADK separates workflow agents (deterministic, easier to test) from dynamic agents (LLM-driven routing, more flexible), letting teams choose the right control model per workflow rather than committing to one paradigm system-wide. The one-command GCP deploy with Cloud Trace built in eliminates the 'instrument your agent' step that most frameworks leave entirely to the engineer.",
+          "traction": "high",
+          "traction_evidence": [
+            "ADK Go 2.0 released for General Availability June 30, 2026 per adk.dev/2.0/ — GA across 5 languages is a production milestone, not a preview; Google is providing enterprise support SLAs",
+            "Futurum Group published 'Google ADK Is Not a Toolkit — It Is an Agent Execution Framework' in June 2026, identifying ADK as architecturally distinct from LangChain/LangGraph in its execution model — practitioner analysis from an independent infrastructure analyst",
+            "The New Stack published a full architectural tour of ADK with technical breakdown — engineering-community coverage from a high-credibility infrastructure-focused publication that tracks production tooling adoption"
+          ],
+          "use_cases": [
+            "Go teams building LLM-powered backend services: import the ADK Go library to add agent orchestration to an existing Go service without switching languages — define agent functions in idiomatic Go and deploy alongside your existing Kubernetes or Cloud Run setup using `adk deploy`",
+            "Python teams evaluating ADK vs LangGraph: ADK's workflow vs. dynamic agent separation maps more cleanly to deterministic business logic + LLM reasoning tasks; benchmark both on your actual task distribution, particularly on how each handles partial failures in multi-step pipelines",
+            "For GCP-hosted teams: use `adk deploy` to Agent Runtime for automatic Cloud Trace integration and enterprise auth — fastest path from agent prototype to production-observable GCP deployment, measured in hours rather than days compared to manual observability setup"
+          ],
+          "tags": ["GoogleADK", "AgentFramework", "Go", "Python", "TypeScript", "Java", "GCP", "MultiAgent", "MCP"],
+          "links": [
+            {"url": "https://adk.dev/2.0/", "label": "Google ADK 2.0 GA Release Notes"},
+            {"url": "https://github.com/google/adk-python", "label": "GitHub: google/adk-python"},
+            {"url": "https://futurumgroup.com/insights/google-adk-is-not-a-toolkit-it-is-an-agent-execution-framework/", "label": "Futurum: ADK as Execution Framework, Not Toolkit"},
+            {"url": "https://thenewstack.io/what-is-googles-agent-development-kit-an-architectural-tour/", "label": "The New Stack: ADK Architectural Tour"}
+          ]
+        },
+        {
+          "title": "PydanticAI V2 Stable: Type-Safe Agents in 160 Lines vs 280 for LangGraph, Catching 23 More Bugs Pre-Deployment",
+          "url": "https://pydantic.dev/docs/ai/overview/",
+          "tldr": "PydanticAI V2 went stable on June 23, 2026, with a harness-first redesign and model-agnostic capabilities primitive. Built by the Pydantic team (maintainers of the most-downloaded Python data validation library), it prioritizes type safety and software-engineering ergonomics over agentic expressiveness. Key benchmarks: 160 lines vs 280 for LangGraph and 420 for CrewAI; caught 23 bugs during development that would have reached production in competing frameworks; $390 in testing vs $1,088 for CrewAI equivalents. 17K GitHub stars as of mid-2026. Production adopters include Lema AI (autonomous security risk engineer) and Datalayer (multi-protocol AI data analysis for Jupyter).",
+          "why_it_matters": "PydanticAI fills the gap between writing raw OpenAI SDK calls and adopting a full LangChain orchestration stack. The core insight: it treats agent code like regular Python software — if your type checker sees an agent call, it validates inputs and outputs at development time, before the model ever runs. The practical result is catching the most common agent bug category (malformed structured outputs) before deployment rather than in production. The 23-bug difference in the benchmark is plausible: LangChain and CrewAI use dynamic typing in their agent interfaces, so bad output structures only surface at runtime. PydanticAI's V2 stable signals a full production iteration cycle is complete — the harness-first redesign reflects feedback from production teams who found V1's ergonomics rough in real deployments. For Python-native teams that live in mypy and pyright, PydanticAI is now the lowest-friction path to production-grade agent code.",
+          "traction": "medium",
+          "traction_evidence": [
+            "17K GitHub stars (pydantic/pydantic-ai) as of mid-2026, V2 stable released June 23 — the stable release signals production-readiness from a team that shipped Pydantic v2, the most-downloaded Python library",
+            "Lema AI adopted PydanticAI for production autonomous security investigation (Agentic Risk Engineer), citing structured output validation and intuitive API design — named enterprise case study from a funded startup, not a testimonial",
+            "AgentMarketCap.ai, xpay.sh, and AliceLabs.ai each independently published PydanticAI production adoption analyses in Q2 2026 with consistent findings on the type-safety advantage over LangGraph and CrewAI"
+          ],
+          "use_cases": [
+            "Replace dict-typed LLM outputs with Pydantic model validation: define a `BaseModel` subclass for each expected agent output, pass it as the `result_type` parameter — your type checker and runtime both enforce the schema, and invalid model outputs retry automatically rather than silently corrupting downstream state",
+            "Use PydanticAI's dependency injection for deterministic agent testing: inject mock tools and model responses at test time using the same interface as production — enables unit tests of agent logic without real LLM API calls, reducing testing costs and enabling CI/CD gating on agent behavior",
+            "For teams on FastAPI or Django REST Framework: use a single Pydantic `BaseModel` as both the agent output schema and the API response schema — PydanticAI integrates natively with both, maintaining schema consistency across the stack without duplication"
+          ],
+          "tags": ["PydanticAI", "Python", "TypeSafe", "AgentFramework", "Pydantic", "Production", "Testing"],
+          "links": [
+            {"url": "https://pydantic.dev/docs/ai/overview/", "label": "PydanticAI V2 Official Docs"},
+            {"url": "https://github.com/pydantic/pydantic-ai", "label": "GitHub: pydantic/pydantic-ai (17K stars)"},
+            {"url": "https://agentmarketcap.ai/blog/2026/04/06/pydanticai-python-agent-framework-langgraph-crewai-comparison", "label": "AgentMarketCap: PydanticAI vs LangGraph vs CrewAI"},
+            {"url": "https://www.youngju.dev/blog/ai-platform/2026-04-12-pydanticai-practical-guide.en", "label": "Chaos and Order: PydanticAI Production Practical Guide"}
+          ]
+        },
+        {
+          "title": "n8n AI Agent Builder: Self-Hosted Workflow Automation with LLM Routing, Eval Tooling, and 400+ Integrations",
+          "url": "https://n8n.io/ai-agents/",
+          "tldr": "n8n is an open-source workflow automation platform with a visual AI Agent builder that lets teams design context-aware agents using a drag-and-drop canvas that already handles 400+ real-world integrations (APIs, databases, SaaS tools). In 2026, n8n added LLM routing (route simple queries to GPT-4o-mini, complex queries to Claude/Gemini based on rules), evaluation tooling (regression tests for AI workflows, prompt drift detection, cross-version model comparison), and multi-agent patterns (orchestrator-workers, sequential agents, parallel task execution). Self-hosted deployment means sensitive data never leaves your infrastructure; Ollama integration enables fully on-premises AI workflows.",
+          "why_it_matters": "n8n occupies the space between pure no-code AI tools (Zapier AI) and code-first agent frameworks (LangGraph, PydanticAI). The key insight: n8n's AI agents run inside a workflow canvas that already handles 400+ real-world integrations — so an agent that needs to query a database, write to Salesforce, and send a Slack message doesn't require writing any API client code. The LLM routing feature in particular: intelligent routing between cheap and capable models is a non-trivial engineering problem when built from scratch (requires prompt classification, routing logic, fallback handling), but n8n provides it as a configuration option with measurable cost impact. The evaluation tooling is the most mature eval capability available in a no-code AI platform — for teams not yet ready to build a custom EDD pipeline, n8n's regression testing provides a first approximation of quality discipline without code. For privacy-sensitive industries (healthcare, finance, legal): self-hosted n8n + local Ollama means AI-powered workflows with no external data transmission.",
+          "traction": "medium",
+          "traction_evidence": [
+            "n8n consistently cited in 2026 open-source developer adoption lists alongside LangChain and Ollama — DEV Community, Medium, and AnalyticsInsight all independently named n8n in their 2026 workflow automation rankings",
+            "n8n blog published 'We need to re-learn what AI agent development tools are in 2026' — confident market positioning piece, not reactive; signals a stable and growing user base",
+            "Jotform, Hatchworks, and Chronexa all published independent n8n AI agent feature guides in 2026 — practitioner documentation ecosystem at this scale reflects active adoption, not theoretical interest"
+          ],
+          "use_cases": [
+            "Build an AI agent that monitors GitHub PRs and Slack in under an hour: use n8n's AI Agent node with GitHub and Slack integration nodes — the agent classifies incoming events and decides responses using existing n8n actions; no API client code required",
+            "Implement LLM routing in 15 minutes: in n8n's AI Agent node, configure routing rules to send short structured tasks (classification, simple extraction) to GPT-4o-mini and longer reasoning-heavy tasks to Claude or Gemini — compare token costs before and after to quantify the savings",
+            "For privacy-sensitive workflows: deploy n8n self-hosted with Ollama + Qwen3-Coder-Next for document analysis, PII extraction, and internal knowledge queries that must stay on-premises — n8n's Ollama integration node connects the workflow canvas to the local model with no external API calls"
+          ],
+          "tags": ["n8n", "WorkflowAutomation", "AIAgents", "LLMRouting", "SelfHosted", "NoCode", "Ollama", "MultiAgent"],
+          "links": [
+            {"url": "https://n8n.io/ai-agents/", "label": "n8n: AI Agents Platform"},
+            {"url": "https://blog.n8n.io/we-need-re-learn-what-ai-agent-development-tools-are-in-2026/", "label": "n8n Blog: Re-Learning AI Agent Tools in 2026"},
+            {"url": "https://hatchworks.com/blog/ai-agents/n8n-guide/", "label": "Hatchworks: n8n 2026 Deep Dive"},
+            {"url": "https://chronexa.io/blog/n8n-ai-agent-features-2026", "label": "Chronexa: n8n AI Agent Features 2026"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Eval-Driven Development (EDD): The Standard Engineering Methodology for AI Quality Is Crystallizing in H1 2026",
+          "url": "https://developers.redhat.com/articles/2026/03/23/eval-driven-development-build-evaluate-ai-agents",
+          "tldr": "Eval-Driven Development (EDD) is a software engineering methodology adapted from TDD for AI agents: build a golden dataset from real failures, write an LLM judge calibrated against human annotations, gate CI on quality scores, and maintain a measurement loop as models and prompts change. In H1 2026, EDD crystallized as a named practice through independent publications from Red Hat (canonical developer guide, March 2026), Microsoft Research (ASSERT — Adaptive Spec-driven Scoring for Evaluation and Regression Testing, announced at Build 2026), and Confident AI, Braintrust, and Augment Code. The trigger: 57% of organizations now have agents in production, but only 52% run offline evals, and 32% cite output quality as their top production barrier (LangChain State of AI Agents 2026).",
+          "why_it_matters": "Quality is the #1 production barrier for AI agents, but only half of organizations with production agents run offline evals — meaning the majority are flying blind on quality metrics. EDD treats agent quality measurement as infrastructure, not an audit. The core insight: LLM outputs are non-deterministic and change whenever the model, prompt, or context changes; without a measurement loop that runs before each change ships, quality regressions are invisible until users report them. The required tooling is now standard: a golden dataset of 50-200 representative inputs with expected outputs; an LLM judge with a rubric calibrated against human ratings; CI integration that fails builds when scores drop below threshold. Microsoft's ASSERT adds a policy-driven approach that scales across multiple agent types in an organization. The key EDD insight: calibrate your LLM judge against human gold sets before trusting it — an uncalibrated judge can give high scores to bad outputs if the rubric is underspecified.",
+          "traction": "high",
+          "traction_evidence": [
+            "Red Hat Developer published a canonical EDD methodology guide in March 2026 — Red Hat's enterprise developer platform reaching engineering teams in regulated industries at scale",
+            "Microsoft Research announced ASSERT at Microsoft Build 2026 — a policy-driven evaluation framework for regression testing across agent types; independent from Red Hat's framing but convergent on the same EDD methodology",
+            "LangChain's 2026 State of AI Agents report provides the quantified industry gap: 57% in production, 32% cite quality as top barrier, only 52% run offline evals — the highest-credibility data on the agent quality measurement deficit, from the leading agentic framework maintainer"
+          ],
+          "use_cases": [
+            "Start your golden dataset with real failures: export the last 30 days of agent outputs where users took corrective action or left negative feedback, manually annotate correct vs. incorrect outputs, and use this as your initial eval set — real failures produce a more diagnostic dataset than synthetic examples, and annotation builds team consensus on what 'good' looks like",
+            "Calibrate your LLM judge before trusting it in CI: take 50 examples from your golden dataset, have two engineers independently score them, run your LLM judge on the same set, then measure Cohen's kappa between judge and human scores — aim for >0.7; below that, your rubric is underspecified and the judge will give misleading CI signals",
+            "Gate PRs on eval scores: after each PR that changes a prompt, system message, model, or retrieval config, trigger an eval run and fail the PR if the pass rate drops more than 3-5 percentage points — this prevents quality regressions from shipping the same way test gates prevent functional regressions"
+          ],
+          "tags": ["EDD", "EvalDrivenDevelopment", "AgentQuality", "Testing", "CI", "LLMJudge", "Production", "ASSERT"],
+          "links": [
+            {"url": "https://developers.redhat.com/articles/2026/03/23/eval-driven-development-build-evaluate-ai-agents", "label": "Red Hat Developer: EDD Canonical Guide"},
+            {"url": "https://devblogs.microsoft.com/foundry/build-2026-open-trust-stack-ai-agents/", "label": "Microsoft Foundry: ASSERT Framework at Build 2026"},
+            {"url": "https://www.confident-ai.com/knowledge-base/compare/best-ai-evaluation-tools-2026", "label": "Confident AI: Best AI Evaluation Tools 2026"},
+            {"url": "https://www.digitalapplied.com/blog/ai-agent-evaluation-pipeline-2026-testing-methodology", "label": "Digital Applied: AI Agent Evaluation Pipeline Methodology"}
+          ]
+        },
+        {
+          "title": "78% of AI Failures Are Invisible: Observability Is Becoming the Control Plane for Production AI, Not Just a Debugging Tool",
+          "url": "https://www.braintrust.dev/articles/agent-observability-complete-guide-2026",
+          "tldr": "An estimated 78% of AI system failures are invisible to traditional APM monitoring — the model produces wrong outputs, but no exception is raised, no 5xx is logged, and no latency spike appears. In 2026, AI observability has expanded beyond tracing LLM calls to encompass agent decision tracing, multi-step workflow visibility, LLM-as-judge automated quality scoring, and real-time cost attribution per agent and task. Dynatrace's 2026 prediction: 'observability will evolve from a reactive troubleshooting function into the primary control plane for AI-driven applications and agentic systems.' LogicMonitor: 96% of IT leaders expect observability spending to increase in the next 12-24 months. Current platform landscape: Braintrust (eval-first, experiment tracking + production monitoring), Langfuse (open-source, self-hostable, full trace/prompt versioning), Arize Phoenix (open-source ML + LLM monitoring), Maxim AI (enterprise compliance-first).",
+          "why_it_matters": "The 78% invisible failure rate is why AI observability is non-optional for production systems. When a model returns a confidently wrong answer, traditional monitoring sees a successful 200 response — the failure is in the content, not the status code. Every AI production system has a failure mode that's invisible to all existing monitoring infrastructure unless you specifically instrument for content quality. The shift from 'debugging tool' to 'control plane' reflects how the role has expanded: observability now needs to detect quality drift, cost anomalies, prompt regressions after model updates, and agent loop inefficiencies — not just errors and latency. Platform selection guidance: Braintrust for teams doing eval-driven development (production tracing + experiment tracking + eval comparison in one tool); Langfuse for teams needing self-hosted observability for data privacy (full source, Docker deploy, all major frameworks); Arize Phoenix for teams with existing ML monitoring setups extending to LLMs.",
+          "traction": "high",
+          "traction_evidence": [
+            "Braintrust published its complete agent observability guide and AI observability buyer's guide for 2026 at braintrust.dev/articles — the most detailed practitioner-oriented observability content currently available from the platform with the broadest AI engineering team adoption",
+            "Dynatrace's six 2026 observability predictions put 'observability as AI control plane' as its #1 prediction — Dynatrace operates enterprise APM at scale and its predictions carry weight with infrastructure engineering leaders",
+            "LogicMonitor's 2026 Observability & AI Outlook: 96% of IT leaders expect observability spending to hold steady or grow in the next 12-24 months, 62% planning increases — cross-industry budget signal from a monitoring platform with enterprise-scale deployment data"
+          ],
+          "use_cases": [
+            "Instrument your LLM calls with structured trace metadata before adding any model functionality: tag each call with agent name, task type, user ID, and session ID — this baseline enables cost attribution, quality correlation, and failure root-cause analysis from day one; Langfuse, Braintrust, and Arize Phoenix all ingest this metadata from a single decorator or wrapper",
+            "Add an LLM-as-judge quality signal to your production traces: after each agent response, run a fast judge call (GPT-4o-mini or Gemini Flash) that scores the output against a rubric and logs the score as a trace attribute — this converts the 78% invisible failure mode into a measurable metric that appears in your monitoring dashboards",
+            "Set cost alert thresholds per agent per day: when a specific agent's daily spend exceeds 150% of its 7-day rolling average, alert the owning team — cost anomalies in production AI are typically caused by context window blowout, infinite tool call loops, or model routing misconfiguration, all of which appear as cost spikes before they appear as quality failures"
+          ],
+          "tags": ["AIObservability", "Braintrust", "Langfuse", "ArizePhoenix", "Tracing", "Production", "LLMMonitoring", "Dynatrace"],
+          "links": [
+            {"url": "https://www.braintrust.dev/articles/agent-observability-complete-guide-2026", "label": "Braintrust: Agent Observability Complete Guide 2026"},
+            {"url": "https://www.braintrust.dev/articles/best-ai-observability-tools-2026", "label": "Braintrust: AI Observability Buyer's Guide 2026"},
+            {"url": "https://www.dynatrace.com/news/blog/six-observability-predictions-for-2026/", "label": "Dynatrace: Six 2026 Observability Predictions"},
+            {"url": "https://www.logicmonitor.com/resources/2026-observability-ai-trends-outlook", "label": "LogicMonitor: 2026 Observability & AI Outlook"}
+          ]
+        }
+      ]
+    }
+  ]
+}
