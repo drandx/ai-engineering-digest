@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — July 10, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">July 10, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.anthropic.com/news/claude-sonnet-5">Claude Sonnet 5 is the new default model — beats Opus 4.8 on Terminal-Bench 2.1 (80.4% vs 74.6%) and SWE-bench Verified (85.2%); intro API pricing at $2/$10 per million tokens through Aug 31; migration warning: expect 30% more tokens and no sampling parameters in the new API</a></li>
+      <li><a href="https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion">JADEPUFFER: Sysdig documents the first end-to-end AI-driven ransomware — autonomous LLM agent exploited Langflow CVE-2025-3248, harvested AI API keys (OpenAI, Anthropic, DeepSeek), pivoted to a production MySQL database, encrypted 1,342 Nacos config items, and left a ransom note; adapted from a failed login to a working fix in 31 seconds</a></li>
+      <li><a href="https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/">Kimi K2.7 Code lands in GitHub Copilot — the first open-weight model in the five-provider picker; 1T parameters with 32B activated (MoE), weights on Hugging Face June 12, live in Copilot 19 days later; off by default for Business and Enterprise, requires admin opt-in</a></li>
+      <li><a href="https://code.visualstudio.com/updates/v1_128">VS Code 1.128 (July 8): multi-chat agent sessions for parallel Claude conversations, Copilot Vision goes GA (attach images and PDFs to chat), and browser tools go GA (agents open pages, screenshot, and click to validate their own output)</a></li>
+      <li><a href="https://arxiv.org/abs/2603.15423">78% of AI failures in production are invisible — HTTP 200, wrong answer, no error signal — while 1.5 million corporate AI agents operate with zero monitoring; traditional error-log observability is structurally blind to AI quality degradation</a></li>
+      <li><a href="https://openobserve.ai/blog/opentelemetry-for-llms/">OpenTelemetry GenAI semantic conventions are becoming the de facto LLM tracing standard — covering LLM spans, agent steps, and MCP tool calls — with Datadog (OTel v1.37) and Grafana shipping native support despite still-experimental status</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.anthropic.com/news/claude-sonnet-5">Claude Sonnet 5 Is the New Default — Beats Opus 4.8 on Terminal-Bench, $2/$10 Intro Pricing Through Aug 31, Migration Traps to Know</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Claude Sonnet 5 launched June 30, 2026 and became the default model for all Claude Free and Pro users on July 1. It scores 80.4% on Terminal-Bench 2.1 — outperforming Opus 4.8 (74.6%) by 5.8 points — the first mid-tier Sonnet to beat its Opus sibling on a major coding benchmark. SWE-bench Verified hits 85.2%; SWE-bench Pro 63.2% vs Opus 4.8's 69.2%. Ships with a 1M token context window, 128K output tokens, and adaptive thinking on by default. Intro API pricing: $2 per million input tokens and $10 per million output tokens through August 31, then moves to $3/$15. Three migration traps: (1) the API removes sampling parameters — temperature, top_p, and top_k are gone; (2) manual extended thinking is removed; (3) the new tokenizer maps the same text to 1.0–1.35x more tokens than Sonnet 4.6, meaning costs may not fall proportionally to per-token rate reductions until you benchmark your specific workloads.</p>
+      <div class="article-meta">
+        <span class="tag">ClaudeSonnet5</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">LLM</span>
+        <span class="tag">AgenticCoding</span>
+        <span class="tag">TerminalBench</span>
+        <span class="tag">ModelRelease</span>
+        <span class="tag">APIBreaking</span>
+        <span class="tag">Migration</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Sonnet 5 isn't a routine incremental release — it's the first time the mid-tier model has outperformed the flagship Opus on a benchmark that matters for real production workloads. Terminal-Bench 2.1 tests autonomous terminal task completion: multi-step shell pipelines, database migrations, Docker environment orchestration — exactly what AI agents do in CI pipelines and agentic coding loops. Sonnet 5 at $2-3 per million input tokens now beats Opus 4.8 at higher cost on this benchmark, changing model routing calculus for teams that defaulted to Opus for complex agentic tasks. The 30% more tokens warning is the highest-risk migration issue: teams running cost models based on Sonnet 4.6 token counts will underestimate Sonnet 5 costs if they assume token parity. The sampling parameter removal is a breaking change that will produce silent API errors in existing integrations. Migration is worth it — but requires controlled testing, not a one-line string swap.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Migrate your agent routing to default to Sonnet 5 for CLI-heavy agentic tasks: if you've been routing terminal workflows, CI automation, or Docker/database tasks to Opus 4.8 for quality, the Terminal-Bench 2.1 data now favors Sonnet 5 at lower cost — run a 7-day A/B test routing 20% of these tasks to Sonnet 5 and measure output quality and cost per task before a full cutover</li>
+          <li>Run the three migration tests before switching production integrations: (1) test format-sensitive prompts (JSON output, structured extraction, code blocks) since adaptive thinking changes response format behavior; (2) test any tool-calling prompts tuned to Sonnet 4.6's specific behavior; (3) measure token counts on your 10 most common prompts by calling both models and comparing input_tokens in the response — if prompts run 25%+ more tokens on Sonnet 5, the $2 intro rate may cost more than $3 Sonnet 4.6</li>
+          <li>Use the 1M context window for codebase-wide single-pass analysis: pass entire large codebases in one request for tasks like 'find all callers of this deprecated function across every file' or 'identify all places where X is constructed without validation' — tasks that previously required chunking with context-loss now complete in a single pass</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Anthropic's official release post (anthropic.com/news/claude-sonnet-5, June 30) and TechCrunch ('Anthropic launches Claude Sonnet 5 as a cheaper way to run agents') with DataCamp, Vellum, Developers Digest, and codersera.com all publishing independent benchmark analyses within 24 hours</li>
+          <li>80.4% Terminal-Bench 2.1 independently verified against Opus 4.8 at 74.6% — the first Sonnet to beat Opus on a major coding benchmark; Finout's pricing analysis identifies the 30% tokenizer delta as the primary hidden cost risk for teams migrating from Sonnet 4.6</li>
+          <li>Became the default model for all Claude Free and Pro users on July 1, 2026 — Anthropic's own production default signal, meaning billions of Claude interactions shifted to this model the day after launch</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.anthropic.com/news/claude-sonnet-5">Anthropic: Introducing Claude Sonnet 5</a></li>
+          <li><a href="https://techcrunch.com/2026/06/30/anthropic-launches-claude-sonnet-5-as-a-cheaper-way-to-run-agents/">TechCrunch: Anthropic Launches Claude Sonnet 5</a></li>
+          <li><a href="https://www.developersdigest.tech/blog/claude-sonnet-5-developer-guide-2026">Developers Digest: Claude Sonnet 5 Migration Guide</a></li>
+          <li><a href="https://www.vellum.ai/blog/claude-sonnet-5-benchmarks-explained">Vellum: Claude Sonnet 5 Benchmarks Explained</a></li>
+          <li><a href="https://www.finout.io/blog/claude-sonnet-5-pricing-2026-the-hidden-costs-and-real-savings-behind-the-cost-neutral-launch">Finout: The Hidden Token Cost Behind Sonnet 5's Cost-Neutral Launch</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion">JADEPUFFER: Sysdig Documents the First End-to-End AI-Driven Ransomware — Autonomous LLM Agent Exploits Langflow RCE, Harvests API Keys, Destroys Production Database</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Sysdig's Threat Research Team published its JADEPUFFER analysis July 4-6, 2026 — the first documented end-to-end agentic ransomware operation, where an LLM autonomously ran the full intrusion kill chain with no human operator driving each step. Entry was through CVE-2025-3248, a missing-authentication RCE in Langflow (CVSS 9.8, patched April 2025, on CISA's KEV list since May 2025). After gaining code execution, the agent dumped Langflow's PostgreSQL database and swept the host for secrets: API keys for OpenAI, Anthropic, DeepSeek, and Gemini; cloud credentials for AWS, GCP, Azure, Alibaba, and Tencent; crypto wallet keys; and database passwords. It pivoted to a production MySQL server running Alibaba Nacos, exploited CVE-2021-29441 to create a rogue admin account, encrypted all 1,342 Nacos config items using MySQL's native AES_ENCRYPT(), dropped the original tables, and left a README_RANSOM table with a Bitcoin address. The attack narrated itself in plain English throughout — models produce commentary by default. When an authentication step failed, the agent diagnosed, fixed, and continued in 31 seconds. Persistence via crontab beaconing port 4444 every 30 minutes.</p>
+      <div class="article-meta">
+        <span class="tag">JADEPUFFER</span>
+        <span class="tag">Ransomware</span>
+        <span class="tag">AgenticSecurity</span>
+        <span class="tag">Langflow</span>
+        <span class="tag">CVE-2025-3248</span>
+        <span class="tag">LLMjacking</span>
+        <span class="tag">ThreatResearch</span>
+        <span class="tag">Sysdig</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>JADEPUFFER changes the threat model for any organization running internet-facing AI infrastructure. The specific enabler: an unpatched Langflow instance exposed to the internet with a CVE that had been on CISA's KEV list for over a year. But the more alarming finding is what happened after the initial exploit: an LLM agent autonomously performed reconnaissance, credential harvesting, lateral movement, persistence, data exfiltration, and destruction — the full kill chain — adapting to failures without human intervention. Two points every AI engineering team should internalize: (1) Langflow and similar AI workflow platforms store API keys, cloud credentials, and database connections in their internal databases by design — any unpatched AI workflow tool exposed to the internet is a high-value credential dump target; (2) the harvested OpenAI, Anthropic, DeepSeek, and Gemini API keys could fund subsequent LLMjacking attacks where someone else's models run on your invoice. The '31 seconds from failed login to working fix' eliminates the time-defender advantage that human-speed attackers historically provided.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your AI workflow platform exposure immediately: check whether Langflow, Flowise, Dify, ComfyUI, or any similar tool is internet-accessible on your external IP ranges — any of these platforms store API keys and database credentials internally and are high-value targets for JADEPUFFER-style attacks; if found exposed, take offline or restrict to internal network access until all patches are applied</li>
+          <li>Rotate AI API keys stored in workflow platform environments before the next threat actor runs a variant: retrieve API keys stored in your Langflow/Flowise environment variables and databases, invalidate them at the provider (Anthropic, OpenAI, Google), and replace with new keys scoped to minimum required permissions — the JADEPUFFER attack shows key exfiltration happens automatically in the same session as the RCE</li>
+          <li>Add LLMjacking detection to cloud spend monitoring: JADEPUFFER-harvested credentials can fund AI inference attacks at your expense — set alerts on any provider API spend exceeding 2x your 7-day rolling average, and enable geo-blocking or per-key daily spend caps on API keys where your providers support it (Anthropic and OpenAI both support usage policies per-key)</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Sysdig Threat Research Team (sysdig.com/blog/jadepuffer-agentic-ransomware, July 4-6, 2026) — original threat research publication from Sysdig's container telemetry platform with direct visibility into production workloads; primary source, not a secondary analysis</li>
+          <li>Dark Reading, BleepingComputer, The Hacker News, SecurityWeek, Security Affairs, and Infosecurity Magazine all published independent analyses within 48 hours — six major security trade publications on a single incident represents the highest tier of security news coverage</li>
+          <li>Cloud Security Alliance Research Note (labs.cloudsecurityalliance.org, July 7, 2026) independently validated the attack methodology — CSA research notes are used by enterprise security teams for compliance and governance decisions</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion">Sysdig: JADEPUFFER Full Technical Analysis</a></li>
+          <li><a href="https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/">BleepingComputer: JadePuffer Ransomware Used AI Agent to Automate Entire Attack</a></li>
+          <li><a href="https://www.darkreading.com/cyberattacks-data-breaches/jadepuffer-first-complete-llm-driven-ransomware-attack">Dark Reading: JadePuffer — First Complete LLM-Driven Ransomware Attack</a></li>
+          <li><a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html">The Hacker News: AI Agent Exploits Langflow RCE to Automate Database Ransomware</a></li>
+          <li><a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-jadepuffer-agentic-ransomware-20260707-csa/">Cloud Security Alliance: CSA Research Note on JADEPUFFER (July 7)</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/">Kimi K2.7 Code in GitHub Copilot: First Open-Weight Model in the Picker — 1T Parameters / 32B Active, Weights-to-Enterprise in 19 Days</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Kimi K2.7 Code from Moonshot AI became generally available in GitHub Copilot's model picker on July 1, 2026, and expanded to Copilot Business and Enterprise plans on July 7. It is the first open-weight model in Copilot's five-provider lineup alongside Claude, GPT, Gemini, and o3. Architecture: 1 trillion total parameters with 32 billion activated per token (Mixture-of-Experts) — trillion-parameter representational capacity at roughly the compute cost of a 32B dense model. Moonshot published K2.7 Code's full weights to Hugging Face on June 12, 2026; Copilot integrated the model 19 days later, one of the fastest open-weight-to-enterprise-platform transitions on record. Positioned as a lower-cost option with 30% lower thinking-token consumption than K2.6, strong on long-horizon software engineering tasks. Off by default for Business and Enterprise: administrators must enable the Kimi K2.7 Code policy in Copilot settings before team members can select it in the model picker.</p>
+      <div class="article-meta">
+        <span class="tag">KimiK27</span>
+        <span class="tag">GitHubCopilot</span>
+        <span class="tag">OpenWeight</span>
+        <span class="tag">MoonshotAI</span>
+        <span class="tag">MixtureOfExperts</span>
+        <span class="tag">CodingModel</span>
+        <span class="tag">ModelPicker</span>
+        <span class="tag">EnterpriseAI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Kimi K2.7's integration breaks a three-year pattern: Copilot's model picker has been closed-weight only since 2023, limited to providers with direct commercial licensing agreements. Adding an open-weight model signals a structural shift — the selection criteria now includes model transparency and auditability alongside commercial arrangement. For enterprise security and compliance teams, 'open-weight' means something specific and actionable: the full 1T parameter weights are public on Hugging Face, enabling independent security research and capability audits without relying on vendor attestations. Teams in regulated industries unable to use closed-weight AI tools due to audit requirements now have a model option that is independently examinable. The 19-day weights-to-enterprise timeline signals that open-weight model quality has reached a threshold where hyperscale platforms integrate them without the months-long evaluation periods that characterized earlier open-weight adoption cycles. For teams currently choosing between Copilot and alternatives with broader model selection, K2.7's addition weakens the 'locked garden' objection.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Enable Kimi K2.7 Code for your Copilot Enterprise organization as a lower-cost routing option: log into Copilot admin settings, navigate to policies, and enable Kimi K2.7 Code — once enabled, engineers select it in the VS Code model picker; route routine code completion and refactoring tasks to K2.7 and reserve Claude or GPT for complex multi-step reasoning to reduce per-seat monthly cost</li>
+          <li>For compliance and audit teams: pull K2.7 Code's weights from Hugging Face and run your internal red team evaluation suite before enabling organization-wide — open-weight auditability means you can examine the model's behavior against your specific risk scenarios independently, without waiting on vendor responses to security questions</li>
+          <li>Self-host K2.7 Code for air-gapped or data-residency-constrained environments: deploy via vLLM or SGLang on your H100 infrastructure using the public weights — engineers get the same model available in Copilot running locally, enabling consistent behavior between cloud and on-prem without two separate model evaluation cycles</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official GitHub Changelog entries on July 1, 2026 (Pro/Max rollout) and July 7, 2026 (Business and Enterprise expansion) — GitHub Changelog is the authoritative primary source for Copilot feature releases</li>
+          <li>TechTimes, NxCode, ExplainX, and ChatForest all published independent analyses within 5 days of GA — practitioner-level coverage at launch velocity indicating genuine developer community awareness</li>
+          <li>Moonshot AI published K2.7 Code weights to Hugging Face on June 12, 2026 — independently verifiable open-weight model with public architecture documentation; the 19-day weights-to-Copilot window is independently documented in multiple sources as a new record</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/">GitHub Changelog: Kimi K2.7 Code GA (July 1)</a></li>
+          <li><a href="https://github.blog/changelog/2026-07-07-kimi-k2-7-now-available-for-copilot-business-and-enterprise/">GitHub Changelog: Kimi K2.7 Code Business and Enterprise (July 7)</a></li>
+          <li><a href="https://chatforest.com/builders-log/kimi-k2-7-code-github-copilot-ga-five-lab-roster-july-2026-builder-guide/">ChatForest: Kimi K2.7 Code in Copilot — Builder Guide</a></li>
+          <li><a href="https://www.nxcode.io/resources/news/open-weight-coding-models-managed-ides-kimi-k2-7-copilot-2026">NxCode: Open-Weight Coding Models in Managed IDEs</a></li>
+          <li><a href="https://www.techtimes.com/articles/319556/20260702/open-weight-ai-enters-github-copilot-kimi-k27-code-costs-less-audits-differently.htm">TechTimes: Open-Weight AI Enters GitHub Copilot</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://code.visualstudio.com/updates/v1_128">VS Code 1.128 (July 8): Multi-Chat Agent Sessions, Copilot Vision GA, Browser Tools GA — The Biggest Agentic IDE Update of 2026</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">VS Code 1.128, released July 8, 2026, ships the most agent-focused feature set of any VS Code release to date. Multi-chat agent sessions let developers run multiple parallel Claude conversations in a single session, fork earlier turns to compare approaches, and monitor sub-agent progress in read-only windows without disrupting the main thread. Copilot Vision (attach images and PDFs to chat by paste, drag, or drop) moves from preview to GA — including for free-tier users. Browser tools reach GA: agents can open web pages, take screenshots, and click through UI flows to validate their own output, all from within the IDE. Additional features: Quick Chats let you query the Agents window before opening a workspace; OS-level keyboard shortcuts fire VS Code commands even when the editor is out of focus; browser tab placement is now configurable; and enterprise teams get BYOK sampling parameters and native OpenTelemetry routing for cost and telemetry governance.</p>
+      <div class="article-meta">
+        <span class="tag">VSCode</span>
+        <span class="tag">Copilot</span>
+        <span class="tag">AgentIDE</span>
+        <span class="tag">MultiChatAgents</span>
+        <span class="tag">CopilotVision</span>
+        <span class="tag">BrowserTools</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">1.128</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Multi-chat agent sessions turns VS Code's Agents window from a sequential conversation into a parallel workbench — engineers can run 'try approach A' and 'try approach B' simultaneously, compare diffs when each completes, and fork the better context. This is the workflow that previously required two terminal windows and manual context tracking. Browser tools GA is the infrastructure change that makes self-validating agents practical at scale: an agent that writes frontend code, serves it locally, screenshots the result, reads the screenshot, and identifies visual bugs now completes the full dev-test-verify loop without leaving the IDE. This directly reduces the verification bottleneck that has emerged as AI-generated code volume scales. Copilot Vision for free-tier users removes the last friction point in visual debugging: paste a screenshot of the UI bug and let the agent reason about the DOM fix from the visual — no enterprise subscription required.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use multi-chat sessions for architectural decision-making: open two parallel threads with the same codebase context — 'implement this feature using pattern A' vs 'implement using pattern B' — let both run concurrently, compare the diffs when they complete, fork the better approach; this halves iteration time on design decisions where you'd previously run sequential experiments</li>
+          <li>Configure browser tools for a self-validating frontend workflow: write a prompt that instructs the agent to implement a UI component, serve the app, screenshot the result, compare against the design spec you've attached as an image (via Copilot Vision), and identify discrepancies — the agent handles all four steps without leaving the IDE; this closes the write-see-fix loop that previously required manual browser switching and human visual inspection</li>
+          <li>Use enterprise OpenTelemetry routing for AI cost governance: configure OTEL export from VS Code's Copilot backend to your observability platform (Datadog, Grafana, or any OTLP-compatible endpoint) to get per-developer, per-project, per-model token cost breakdowns — the telemetry lets you identify which teams and project types generate the highest AI costs and correlate spend against delivery output</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>VS Code 1.128 shipped July 8, 2026 from Microsoft (code.visualstudio.com/updates/v1_128) — official product release with 15M+ active users who receive updates automatically within days</li>
+          <li>Visual Studio Magazine ('Claude AI Gets Yet Another Boost in VS Code 1.128', July 8), Neowin, and NTCompatible all published independent analyses on the same release day — VS Code releases reliably attract press coverage when they include agent-facing features</li>
+          <li>GitHub Changelog: 'Browser tools for GitHub Copilot in VS Code are generally available' (github.blog/changelog/2026-07-01) — the browser tools GA entry shipped July 1, one week before 1.128, confirming the feature was stable before the full release</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://code.visualstudio.com/updates/v1_128">VS Code 1.128 Release Notes (July 8, 2026)</a></li>
+          <li><a href="https://github.blog/changelog/2026-07-08-github-copilot-in-visual-studio-code-june-2026-releases/">GitHub Changelog: Copilot in VS Code — July Releases</a></li>
+          <li><a href="https://github.blog/changelog/2026-07-01-browser-tools-for-github-copilot-in-vs-code-are-generally-available/">GitHub Changelog: Browser Tools GA (July 1)</a></li>
+          <li><a href="https://visualstudiomagazine.com/articles/2026/07/08/claude-ai-gets-yet-another-boost-in-vs-code-1-128.aspx">Visual Studio Magazine: Claude AI Boost in VS Code 1.128</a></li>
+          <li><a href="https://www.ntcompatible.com/story/visual-studio-code-1128-launches-with-multichat-claude-agents-and-ga-copilot-vision">NTCompatible: VS Code 1.128 — Multi-Chat Agents and Copilot Vision GA</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://arxiv.org/abs/2603.15423">The Silent Failure Problem: 78% of AI Errors Leave No Signal — 1.5M Corporate Agents Running with Zero Monitoring</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Two converging 2026 data sources are defining the AI production observability crisis. The research side: arXiv 2603.15423 ('Invisible failures in human-AI interactions'), analyzing 100,000 real human-AI interactions from the WildChat dataset, finds 79% of AI failures are invisible — the AI produces wrong or degraded output, but users give no overt signal that something went wrong. The infrastructure side: Gravitee's State of AI Agent Security 2026 reports 1.5 million corporate AI agents currently operating with zero monitoring, zero governance, and zero audit trail. A separate Sysdig analysis of 847 AI agent production deployments finds 76% fail when exposed to real data. The failure mode hardest to catch: silent quality degradation that returns HTTP 200, a plausible-looking response, and no user complaint — but the wrong answer propagates downstream. Beam.ai named this 'silent failure at scale': AI doesn't fail loudly; it fails quietly and the error compounds across thousands of downstream decisions before anyone notices.</p>
+      <div class="article-meta">
+        <span class="tag">SilentFailure</span>
+        <span class="tag">AIObservability</span>
+        <span class="tag">Production</span>
+        <span class="tag">QualityEvaluation</span>
+        <span class="tag">AgentMonitoring</span>
+        <span class="tag">LLMasJudge</span>
+        <span class="tag">Reliability</span>
+        <span class="tag">ArXiv</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 78-79% invisible failure rate reframes what AI monitoring must mean. Traditional application observability (error rates, latency, throughput, HTTP status codes) is structurally blind to the most common AI failure class: the request succeeds, the response looks plausible, and the answer is wrong. None of those signals fires. The only path to detection is quality evaluation — sampling responses and scoring them against ground truth or with LLM-as-a-Judge — which is fundamentally different from what engineering teams have built for traditional software. The 1.5 million unmonitored agents figure is the operational consequence of 'we'll add proper monitoring later' becoming the default shipping posture. The 76% production failure rate for AI agent deployments is the hardest number: not a tail risk, but a systemic finding that something is wrong in how agentic systems behave when real data and real users replace staging environments. The actionable implication: quality evaluation in production is not a nice-to-have for agentic AI — it is the only signal that will tell you whether your agent is succeeding.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploy LLM-as-a-Judge on a 5-10% sample of your production AI responses before the next feature release: route a fraction of requests to a second model call that scores the response for accuracy, relevance, and completeness using your own rubric; log both the response and quality score to your observability platform — within a week you have a baseline quality distribution and can alert when it degrades; Braintrust, Langfuse, and Arize Phoenix all support production quality sampling without requiring pre-existing ground truth labels</li>
+          <li>Identify invisible failure hotspots using indirect signals before you have full quality eval: query AI request logs for sessions with high response latency, unusually short response length, or more than 2 tool call retries — these proxy signals correlate with the silent failure patterns documented in the WildChat analysis; prioritize quality evaluation sampling on these sessions to find failure modes efficiently</li>
+          <li>Run an agent monitoring audit before your next quarterly security review: list every AI agent in production, categorize each by monitoring coverage (quality eval, log-only, or unmonitored), and for any agent that influences customer-facing outcomes or internal decisions (support routing, code review, report generation), treat the Gravitee 1.5M unmonitored agents finding as the forcing function to add at minimum a quality sampling pipeline this sprint</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>arXiv 2603.15423 ('Invisible failures in human-AI interactions') is a peer-reviewed paper analyzing 100,000 actual human-AI interaction records from WildChat — empirical behavioral data, not a vendor survey or synthetic benchmark; the 79% invisible failure rate comes from real production interaction logs</li>
+          <li>Gravitee's State of AI Agent Security 2026 (gravitee.io) independently reports 1.5 million unmonitored corporate AI agents — a cross-organizational survey cited by Datadog's BigDATAwire coverage (April 22, 2026) and Beam.ai independently; two enterprise-facing sources converging on the same unmonitored-agent count</li>
+          <li>Sysdig analysis of 847 AI agent production deployments (2026) finds 76% fail when real data is introduced — Sysdig's container telemetry platform has direct production workload visibility rather than relying on self-reported data</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://arxiv.org/abs/2603.15423">arXiv 2603.15423: Invisible Failures in Human-AI Interactions</a></li>
+          <li><a href="https://beam.ai/agentic-insights/silent-failure-at-scale-the-ai-risk-that-compounds-before-anyone-notices">Beam.ai: Silent Failure at Scale — The AI Risk That Compounds</a></li>
+          <li><a href="https://www.hpcwire.com/bigdatawire/2026/04/22/datadog-report-the-silent-failure-problem-in-ai-is-about-to-hit-enterprise-system/">BigDATAwire: Datadog Report — The Silent Failure Problem in AI</a></li>
+          <li><a href="https://pub.towardsai.net/silent-ai-agent-failures-are-the-production-risk-no-dashboard-catches-b690d82b00bd">Towards AI: Silent Agent Failures the Dashboard Misses</a></li>
+          <li><a href="https://latitude.so/blog/ai-agent-failure-detection-guide">Latitude: Detecting AI Agent Failure Modes in Production</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://openobserve.ai/blog/opentelemetry-for-llms/">OpenTelemetry GenAI Semantic Conventions: The Emerging Standard for LLM Tracing — Datadog and Grafana Already Shipping Native Support</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The OpenTelemetry GenAI Special Interest Group has been developing semantic conventions for LLM observability since April 2024 — standardizing attribute names, span types, and metric definitions across LLM client spans (model, provider, token usage, cost), agent spans (tool calls, sub-agent delegations, reasoning steps), events (prompt and completion content for sampling), and metrics (latency, throughput, error rate). As of May 2026, most GenAI conventions remain in experimental or development status, but production adoption has outpaced the standards process: Datadog announced native OTel GenAI support in v1.37 in 2026 and Grafana has added LLM trace collection to Loki. The conventions now cover MCP tool call tracing — meaning the full agent reasoning chain including external tool invocations carries a unified trace context. OTEL_SEMCONV_STABILITY_OPT_IN enables dual-emission of legacy and new attribute names during the migration window. Backend-agnostic: OTel exports to any OTLP-compatible receiver — Langfuse, Arize Phoenix, FutureAGI, Datadog, or Honeycomb.</p>
+      <div class="article-meta">
+        <span class="tag">OpenTelemetry</span>
+        <span class="tag">LLMObservability</span>
+        <span class="tag">GenAIConventions</span>
+        <span class="tag">MCPTracing</span>
+        <span class="tag">Datadog</span>
+        <span class="tag">Grafana</span>
+        <span class="tag">Observability</span>
+        <span class="tag">Standards</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>OTel GenAI conventions solve the vendor lock-in problem in AI observability. Without a standard, every tool (Langfuse, Arize, Braintrust, Helicone, Datadog LLM Obs) uses its own attribute names and span structure — switching requires re-instrumenting your application. With OTel GenAI as the instrumentation layer, your LLM calls emit standardized traces any compliant backend receives; switching from Langfuse to Datadog means changing an OTLP endpoint, not rewriting SDK integrations. For teams building multi-agent systems, MCP tool call tracing is the highest-value feature: when a Claude agent calls a GitHub tool, which calls a search function, and returns — that full trace now has a standardized schema enabling cross-model, cross-tool correlation in any OTel-native backend. The experimental status warning is real: attribute names have changed between versions, and instrumentation written against early versions can break on upgrade. The practical mitigation: OTEL_SEMCONV_STABILITY_OPT_IN dual-emission mode lets you emit both old and new attribute names simultaneously during the stabilization period.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Instrument your first LLM application with OTel GenAI for vendor-neutral telemetry: use the opentelemetry-instrumentation-anthropic or opentelemetry-instrumentation-openai Python packages (maintained in the OTel contrib repo) to auto-instrument Claude or GPT calls; set OTLP_ENDPOINT to a local Grafana Tempo or Langfuse instance in development — when you need to switch observability backends in production, you change one environment variable, not application code</li>
+          <li>Trace multi-agent MCP workflows end-to-end: OTel GenAI's MCP tool call conventions attach a trace context to every MCP tool invocation, propagating the same trace_id from the top-level agent call through tool execution and back — in Datadog or Jaeger, this appears as a waterfall view of the complete agent reasoning chain; instrument at the MCP server level to capture all tool call latency, inputs, and outputs without modifying agent code</li>
+          <li>Set dual-emission mode before any OTel GenAI version upgrade: add OTEL_SEMCONV_STABILITY_OPT_IN=v1-experimental-compat to your deployment environment before upgrading to OTel GenAI version 0.10 or later — this emits both legacy and new attribute names simultaneously, preventing dashboard breaks when your observability backend upgrades to use the new schema; plan to remove the flag when your backend confirms full v1-stable GenAI support</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Datadog officially announced native GenAI semantic convention support in OTel v1.37 (2026) — Datadog's market position as the dominant enterprise APM platform means OTel GenAI conventions are now a first-class instrumentation path, not an experimental workaround; Datadog support makes these conventions de facto standard for enterprise teams regardless of official stabilization status</li>
+          <li>Grafana Labs added native LLM trace collection to Loki in 2026 — independently confirms the two largest open-source observability platforms (Datadog + Grafana) are aligning around the OTel GenAI schema; consensus between these two vendors typically drives enterprise adoption</li>
+          <li>DEV Community, openobserve.ai, greptime.com, oneuptime.com, and uptrace.dev all published independent OpenTelemetry GenAI guides in Q1-Q2 2026 — practitioner adoption writing ahead of vendor documentation, a pattern that historically signals genuine engineering traction rather than vendor-driven narrative</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openobserve.ai/blog/opentelemetry-for-llms/">OpenObserve: OpenTelemetry for LLMs — Complete SRE Guide 2026</a></li>
+          <li><a href="https://greptime.com/blogs/2026-05-09-opentelemetry-genai-semantic-conventions">Greptime: How OTel Traces LLM Calls, Agent Reasoning, and MCP Tools</a></li>
+          <li><a href="https://dev.to/x4nent/opentelemetry-genai-semantic-conventions-the-standard-for-llm-observability-1o2a">DEV Community: OTel GenAI Semantic Conventions — The Standard</a></li>
+          <li><a href="https://www.elastic.co/blog/2026-observability-trends-generative-ai-opentelemetry">Elastic: 2026 Observability Trends — GenAI and OpenTelemetry</a></li>
+          <li><a href="https://www.fiddler.ai/blog/opentelemetry-ai-observability-guide">Fiddler AI: OpenTelemetry for AI Observability — What It Covers and Where It Stops</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
