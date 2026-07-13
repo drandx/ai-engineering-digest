@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — July 13, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">July 13, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://github.blog/changelog/2026-07-07-kimi-k2-7-now-available-for-copilot-business-and-enterprise/">Kimi K2.7 Code is in GitHub Copilot as of July 7: first open-weight 1T-param MoE model in Copilot's picker — MIT-licensed, full weights on Hugging Face, admin-controlled rollout for enterprise; changes the audit and portability story for every team on Copilot</a></li>
+      <li><a href="https://thenewstack.io/merge-gate-coding-agents/">The merge gate is now the #1 engineering bottleneck: LinearB's 8.1M-PR analysis finds AI-generated PRs wait 4.6x longer for review, PR review time is up 91%, and teams feel 20% faster but are actually 19% slower — the bottleneck moved from writing to verifying</a></li>
+      <li><a href="https://code.visualstudio.com/updates/v1_128">VS Code 1.128 ships multi-chat agent sessions on July 8: run parallel agents to compare approaches without context bleeding between sessions, fork from any turn, send turns concurrently; Copilot Vision (images + PDFs in chat) now GA</a></li>
+      <li><a href="https://techcrunch.com/2026/07/08/sambanova-draws-1b-at-11b-valuation-in-series-f-first-close/">SambaNova closes $1B Series F at $11B with JPMorgan Chase as inference customer: on-prem LLM inference gets its first major Wall Street win and a credible Nvidia alternative for regulated industries ahead of SN50 chip shipments in H2 2026</a></li>
+      <li><a href="https://infotechlead.com/software/tcs-to-deploy-up-to-8900-ai-engineers-targets-acquisitions-to-accelerate-enterprise-ai-growth-97076">TCS deploys up to 8,900 forward-deployed AI engineers starting today: the largest dedicated enterprise AI deployment force in the IT services industry — the clearest signal yet that implementation capacity, not model capability, is the binding constraint on enterprise AI adoption</a></li>
+      <li><a href="https://www.anthropic.com/news/fable-safeguards-jailbreak-framework">Anthropic publishes CJS jailbreak severity scale (CJS-0 to CJS-4): the first public framework for rating AI jailbreak severity, released with Fable 5 cybersecurity classifiers that allow security research while blocking ransomware, wipers, C2, and defense evasion</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-07-07-kimi-k2-7-now-available-for-copilot-business-and-enterprise/">Kimi K2.7 Code in GitHub Copilot: First Open-Weight Model in the Model Picker, MIT License, 1T Params on Hugging Face</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Kimi K2.7 Code from Moonshot AI became generally available in GitHub Copilot on July 1, 2026 for Pro/Pro+/Max plans, and expanded to Copilot Business and Enterprise on July 7. It is the first open-weight model offered in Copilot's model picker — the full 1 trillion parameter weights are MIT-licensed and publicly available on Hugging Face; GitHub runs a hosted copy on Microsoft Azure infrastructure. The architecture is Mixture-of-Experts: 1T total parameters, 32B active per token, delivering frontier-level representational capacity at roughly dense-32B compute cost. For Copilot Business and Enterprise plans, Kimi K2.7 Code is off by default — an organization administrator must explicitly enable the Kimi K2.7 Code policy in Copilot settings before any team member can select it. Billing is at provider list pricing under usage-based billing, not included in the flat Copilot subscription. Kimi K2.7 Code joins Claude (Fable 5, Sonnet 5), GPT-5.6 Sol/Terra/Luna, Gemini 3.5 Pro, and o4-mini in Copilot's five-lab model roster.</p>
+      <div class="article-meta">
+        <span class="tag">KimiK27</span>
+        <span class="tag">GitHubCopilot</span>
+        <span class="tag">OpenWeight</span>
+        <span class="tag">MoE</span>
+        <span class="tag">MoonshortAI</span>
+        <span class="tag">MIT</span>
+        <span class="tag">HuggingFace</span>
+        <span class="tag">CopilotBusiness</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Open weights in a managed IDE is a structural change to the AI developer tools market. Before Kimi K2.7, every model in GitHub Copilot was a black box: you couldn't audit the weights, you couldn't run the same model on your own infrastructure, and you had no option for portability if GitHub changed pricing or availability. Kimi K2.7 Code changes all three: the MIT license means you can download the weights from Hugging Face, audit them, fine-tune them, and host them yourself with no restrictions. The admin-controlled rollout is the enterprise safety valve — organizations that are not yet ready to enable an open-weight model (for compliance, data governance, or vendor risk reasons) stay on their existing model roster until an administrator actively enables Kimi K2.7. The MoE architecture is the engineering reason to care beyond the open-weight story: 1T total parameters activate only 32B per token, which means the model has the representational breadth of a 1T parameter model but the inference cost profile of a 32B dense model. On benchmarks, this translates to competitive performance on coding tasks at meaningfully lower serving cost than dense frontier models — the primary reason to route cost-sensitive coding workloads to it instead of Claude Sonnet 5 or GPT-5.6 Terra.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Enable Kimi K2.7 Code in Copilot Business/Enterprise and run a 1-week cost comparison: once an org admin enables the policy, switch a team of 5-10 developers to Kimi K2.7 Code as their default Copilot model and track usage-based billing vs. your previous flat-rate consumption on the same tasks; the MoE architecture's 32B active parameter cost profile should reduce per-token cost on autocomplete and chat tasks relative to dense frontier models at comparable quality — measure whether the savings on everyday coding tasks (autocomplete, short explanations, docstrings) are meaningful enough to offset any quality delta on complex tasks</li>
+          <li>Download the Kimi K2.7 Code weights from Hugging Face and run an internal benchmark before enabling for production use: with 1T weights and an MIT license, you can run the model on your own inference infrastructure (vLLM or SGLang with multi-GPU) and test against your production coding prompts; this tells you the quality delta between the GitHub-hosted Azure version and a self-hosted version using the same weights, and confirms whether Kimi K2.7's performance on your tasks justifies routing Copilot workloads to it</li>
+          <li>Use the open weights as a fine-tuning base for domain-specific coding tasks: MIT licensing means you can fine-tune Kimi K2.7 Code on your internal codebase, proprietary APIs, or company-specific patterns; if you have recurring coding tasks that need strong institutional context (auto-completing calls to internal SDKs, generating test fixtures for your data models, enforcing team coding conventions in completions), a fine-tuned open-weight model on your own infrastructure is a compliance-safe path that closed-weight models cannot offer</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official GitHub Changelog entries on July 1 (GA for Pro/Pro+/Max) and July 7 (GA for Business/Enterprise) — primary source product announcements from GitHub, not third-party reporting; the two-step rollout (consumer plans first, then enterprise) follows GitHub's standard new-model deployment pattern and confirms planned, staged adoption</li>
+          <li>AlphaSignal, TechTimes, NxCode, Windows Forum, Explainx, ChatForest, and LetsDatScience all published independent analyses within 48 hours of the July 7 Business/Enterprise announcement — breadth of practitioner-oriented coverage confirms the developer community is paying attention to this as a meaningful model-roster change, not just a feature addition</li>
+          <li>MIT license on Hugging Face is verifiable: the full 1T weights are publicly downloadable — this is a testable fact, not a marketing claim; the license terms are in the Hugging Face model card; any team evaluating the model for regulated workloads (HIPAA, FedRAMP, GDPR data residency) can independently verify the license terms before enabling the admin policy</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/">GitHub Changelog: Kimi K2.7 Code GA in Copilot (July 1)</a></li>
+          <li><a href="https://github.blog/changelog/2026-07-07-kimi-k2-7-now-available-for-copilot-business-and-enterprise/">GitHub Changelog: Kimi K2.7 Now Available for Business and Enterprise (July 7)</a></li>
+          <li><a href="https://chatforest.com/builders-log/kimi-k2-7-code-github-copilot-ga-five-lab-roster-july-2026-builder-guide/">ChatForest: Kimi K2.7 in Copilot — Builder Guide</a></li>
+          <li><a href="https://www.techtimes.com/articles/319556/20260702/open-weight-ai-enters-github-copilot-kimi-k27-code-costs-less-audits-differently.htm">TechTimes: Open-Weight AI Enters Copilot — Costs Less, Audits Differently</a></li>
+          <li><a href="https://www.nxcode.io/resources/news/open-weight-coding-models-managed-ides-kimi-k2-7-copilot-2026">NxCode: Open-Weight Coding Models Go Mainstream</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://tokenmix.ai/blog/glm-4-7-flash-review-pricing-benchmark-2026">GLM-4.7-Flash: Free MIT-Licensed 31B MoE Coding Model, 94.2% HumanEval, Runs in Ollama Today</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Zhipu AI's GLM-4.7-Flash is a 31B-parameter Mixture-of-Experts model that activates only 3B parameters per token, ships under an MIT license, and is free to call on Zhipu's own inference platform with no API key cost. Benchmark performance: 94.2% on HumanEval (the standard Python coding benchmark), 73.8% on SWE-bench, which is competitive with Claude Sonnet 4.5 on real-world software engineering tasks. The model supports a 200K token context window — large enough for full codebase context in most projects — and uses Interleaved Thinking with Preserved Thinking, a reasoning approach that retains all previous reasoning blocks across turns rather than reinitializing chain-of-thought per request. GLM-4.7-Flash is available on Ollama today (`ollama pull glm-4.7`), enabling local CPU/GPU inference with no cloud dependency. The full GLM-4.7 model (approximately 360B parameters) is a separate model at frontier capability; GLM-4.7-Flash is the deployable variant at practical hardware requirements. Zhipu AI makes GLM-4.7-Flash available at zero cost on its platform, with the rationale that volume on the free tier funds the infrastructure for the commercial full model.</p>
+      <div class="article-meta">
+        <span class="tag">GLM47</span>
+        <span class="tag">ZhipuAI</span>
+        <span class="tag">OpenWeight</span>
+        <span class="tag">MIT</span>
+        <span class="tag">HumanEval</span>
+        <span class="tag">SWEbench</span>
+        <span class="tag">Ollama</span>
+        <span class="tag">FreeTier</span>
+        <span class="tag">MoE</span>
+        <span class="tag">CodingModel</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Free MIT-licensed API access to a model with 94.2% HumanEval performance changes the cost floor for coding agent deployments. At zero API cost for routine tasks, GLM-4.7-Flash is competitive with Haiku 4.5 ($0.25/$1.25 per million tokens) and Luna ($1/$6) for high-volume, lower-complexity coding tasks — without paying per token at all. The 73.8% SWE-bench score at zero cost is the comparison that matters: current free-tier alternatives at comparable performance either have smaller context windows, more restrictive licenses, or significantly lower benchmark scores. The 3B active parameters on 31B total (MoE architecture) means inference is fast on modest hardware — Ollama's GLM-4.7-Flash runs usably on 16GB RAM Apple Silicon or equivalent, making it viable for developer laptop tooling. The Preserved Thinking feature is the architectural differentiator from most open-weight models: it maintains the full chain-of-thought history across multi-turn conversations instead of summarizing or discarding it, which preserves coherence in long agentic coding sessions. For teams with significant API costs on routine coding tasks (test generation, docstrings, simple code explanations), routing those requests to GLM-4.7-Flash on Zhipu's free tier is a zero-risk evaluation with no upfront cost.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Route your high-volume, low-complexity coding tasks to GLM-4.7-Flash at zero API cost: identify your top 5 workloads by request volume (docstring generation, code explanation, simple test generation, format conversion, variable renaming) and test them against GLM-4.7-Flash on Zhipu's free tier; for tasks where the model's output meets your quality bar, switching to GLM-4.7-Flash at zero cost vs. Haiku 4.5 ($0.25/M) or Luna ($1/M) produces immediate savings proportional to your volume — at 10M daily requests, the difference is $2,500–$10,000 per day</li>
+          <li>Add GLM-4.7-Flash to your local Claude Code or Cursor setup via Ollama for offline development: install Ollama, pull `glm-4.7`, and configure it as a local provider in your AI coding tool; for sessions without internet access, on-device work with sensitive codebases, or situations where API latency is a constraint, a local 3B-active-parameter model that runs on laptop hardware is immediately useful as a fallback — compare its output on your common queries against the cloud model to calibrate where the quality difference is acceptable</li>
+          <li>Evaluate GLM-4.7's Preserved Thinking for multi-turn coding sessions: in your existing test cases for multi-turn agentic coding, compare output coherence between GLM-4.7-Flash (Preserved Thinking) and a standard open-weight model on sessions with 10+ turns; if the model maintains architectural context, variable naming, and design decisions from early in the session better than alternatives, it's worth routing your long coding sessions to it even if single-turn quality is comparable to alternatives</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GLM-4.7-Flash appears on Ollama's official library (`ollama.com/library/glm-4.7`) — verified live in the library as of early July 2026; Ollama addition requires community or official submission and indicates real practitioner interest in local deployment</li>
+          <li>BenchLM.ai, TECHSY, and TokenMix all published independent GLM-4.7 benchmark analyses in July 2026, citing the 94.2% HumanEval and 73.8% SWE-bench figures; SoftwareSeni published a direct three-way comparison with Qwen3-Coder-Next and DeepSeek-V3.2 for coding agent selection — this level of comparative coverage signals the developer community is evaluating it seriously as a production option</li>
+          <li>The MIT license is confirmed in the official Zhipu Z.AI developer documentation (docs.z.ai/guides/llm/glm-4.7) and the Hugging Face model card — the license terms are publicly verifiable; MIT licensing with a 200K context window and free API access is the rarest combination in the open-weight space, which is why it's attracting evaluation attention despite being a newer model</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://tokenmix.ai/blog/glm-4-7-flash-review-pricing-benchmark-2026">TokenMix: GLM-4.7-Flash Review — Pricing, Benchmarks 2026</a></li>
+          <li><a href="https://benchlm.ai/models/glm-4-7">BenchLM: GLM-4.7 Benchmarks, Pricing & Speed</a></li>
+          <li><a href="https://docs.z.ai/guides/llm/glm-4.7">Z.AI Developer Docs: GLM-4.7 Overview</a></li>
+          <li><a href="https://ollama.com/library/glm-4.7">Ollama: GLM-4.7 Library Page</a></li>
+          <li><a href="https://www.softwareseni.com/qwen3-coder-next-deepseek-v3-2-and-glm-4-7-which-open-weight-model-wins-for-coding-agents/">SoftwareSeni: Qwen3-Coder-Next vs DeepSeek-V3.2 vs GLM-4.7 for Coding Agents</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://code.visualstudio.com/updates/v1_128">VS Code 1.128: Multi-Chat Agent Sessions — Run Parallel Agents, Fork from Any Turn, Copilot Vision Now GA</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Visual Studio Code 1.128, released July 8, 2026, adds multi-chat agent sessions as a first-class feature: a single session can now hold multiple parallel chats, each with its own history, title, and model selection. You can create new chats, fork from any prior turn in an existing chat, switch between peer chats with a dedicated keyboard shortcut, and send turns across multiple chats concurrently — all within a single Copilot session that restores correctly after restart. Quick chats allow asking questions in the Agents window without opening a workspace first. Copilot Vision — attaching images and PDFs to chat by pasting, dragging, or dropping — reached general availability in 1.128. OS-level keyboard shortcuts let you trigger VS Code commands with keybindings even when VS Code is not the focused window. The browser tools for agents (agents can open pages, take screenshots, and click through to validate their own work) that shipped as a preview in VS Code 1.127 (July 1) are now generally available in 1.128.</p>
+      <div class="article-meta">
+        <span class="tag">VSCode</span>
+        <span class="tag">VSCode1128</span>
+        <span class="tag">MultiChat</span>
+        <span class="tag">AgentSessions</span>
+        <span class="tag">CopilotVision</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">BrowserTools</span>
+        <span class="tag">IDEUpdate</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Multi-chat agent sessions solve the most common productivity problem in AI-assisted development: once you start a coding session with an agent, branching to compare two different approaches or exploring a second thread of work requires either a new window, a new workspace, or losing the context of the first session. In 1.128, you can fork from any turn in a conversation — ask the agent to implement the same feature two different ways from the same starting point, review both approaches in parallel, and keep the context chain of each intact. The concurrent turn sending is the latency feature: if you have two independent tasks in an agent session, you can send both to the agent without waiting for the first response before dispatching the second. Copilot Vision reaching GA is the multimodal enablement: attaching a screenshot of a UI bug, a PDF of a specification, or an image of a system architecture diagram to a chat is now stable and production-supported across all Copilot plans. The OS-level keyboard shortcut feature is a workflow integration milestone: you can invoke VS Code agent commands from any context without alt-tabbing back to the editor — useful for triggering code generation or search from a browser, terminal, or document without context switching.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use multi-chat forking to evaluate competing implementation approaches without starting a new session: when a design decision requires choosing between two patterns (e.g., callback vs. async/await, REST vs. GraphQL, ORM vs. raw SQL for a specific query), describe the problem to the agent in a single session, fork from that turn, and ask each fork to implement the approach you're evaluating; compare the two implementations side-by-side in the same VS Code window without duplicating context or managing multiple windows — the fork preserves the full prior context in each branch</li>
+          <li>Attach screenshots of runtime errors or UI anomalies to Copilot Vision chat to diagnose visual bugs: when a frontend bug produces a visual regression or layout issue that's difficult to describe in text, paste the screenshot directly into the chat input (or drag it from your screenshot tool); the agent reads the image as part of the problem statement and can diagnose CSS issues, layout mismatches, or error screen messages directly from the visual — now GA across all Copilot plans without preview flags</li>
+          <li>Configure OS-level keyboard shortcuts to trigger agent commands from browser-based workflows: if your workflow involves switching between a browser (for tickets, specs, or API docs) and VS Code (for implementation), assign an OS-level keyboard shortcut to 'Open Copilot Chat' or 'Start New Agent Session'; the shortcut fires even when your browser is focused, reducing the context-switch overhead of moving between planning context and coding context throughout the day</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>VS Code 1.128 release notes are published on code.visualstudio.com/updates/v1_128 — official Microsoft release documentation is the primary source; VS Code 1.128 is the shipping release, not a preview or beta</li>
+          <li>Visual Studio Magazine ('Claude AI Gets Yet Another Boost in VS Code 1.128'), NTCompatible ('VS Code 1.128 Launches with Multi-Chat Claude Agents and GA Copilot Vision'), Neowin ('Microsoft releases Visual Studio Code 1.128 with OS-level keyboard shortcuts'), and Developers Digest ('VS Code 1.128 Multi-Chat Claude Sessions Developer Guide 2026') all published same-day coverage of the July 8 release — VS Code release notes coverage at this breadth is normal for the most-used IDE in the world, but the focus on multi-chat specifically across all four outlets indicates practitioners identified it as the headline feature</li>
+          <li>VS Code 1.127 (July 1) introduced browser tools for agents in preview; 1.128 (July 8) promoted them to GA — one-week turnaround from preview to GA indicates the preview had no blocking issues found in production, which is the fastest validation cycle for a new VS Code agent feature in 2026</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://code.visualstudio.com/updates/v1_128">VS Code: Release Notes for 1.128 (July 2026)</a></li>
+          <li><a href="https://visualstudiomagazine.com/articles/2026/07/08/claude-ai-gets-yet-another-boost-in-vs-code-1-128.aspx">Visual Studio Magazine: Claude AI Gets Another Boost in VS Code 1.128</a></li>
+          <li><a href="https://www.ntcompatible.com/story/visual-studio-code-1128-launches-with-multichat-claude-agents-and-ga-copilot-vision">NTCompatible: VS Code 1.128 — Multi-Chat Claude Agents and GA Copilot Vision</a></li>
+          <li><a href="https://www.neowin.net/news/microsoft-releases-visual-studio-code-1128-with-os-level-keyboard-shortcuts/">Neowin: VS Code 1.128 — OS-Level Keyboard Shortcuts</a></li>
+          <li><a href="https://www.developersdigest.tech/blog/vscode-1-128-multi-chat-claude-developer-guide-2026">Developers Digest: VS Code 1.128 Multi-Chat Developer Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://thenewstack.io/merge-gate-coding-agents/">The Merge Gate: AI-Generated PRs Wait 4.6x Longer — Code Review Is Now the #1 Engineering Bottleneck</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">LinearB's 2026 analysis of 8.1 million pull requests across 4,800+ engineering organizations finds that AI coding agents have inverted the classic productivity bottleneck: AI-generated PRs wait 4.6x longer before a reviewer picks them up compared to human-authored PRs; once picked up, AI PRs are reviewed 2x faster — but the initial wait dominates total cycle time. The net effect: developers using AI complete 21% more tasks and merge 98% more PRs, but PR review time has increased 91% across the same organizations. LinearB's headline finding: teams feel 20% faster but are actually 19% slower — a 39-percentage-point gap between perceived and measured productivity. Only 32.7% of AI-generated code clears review without modification, versus 84.4% of human-authored code. GitHub's own data shows Copilot code review reached 60 million completed reviews by March 2026 — up 10x from April 2025's launch — with actionable feedback in 71% of reviews. The New Stack's analysis synthesizes these findings into a structural observation: the bottleneck has moved from writing speed to verification capacity, and engineering team structures have not yet reorganized around the new constraint.</p>
+      <div class="article-meta">
+        <span class="tag">CodeReview</span>
+        <span class="tag">MergeGate</span>
+        <span class="tag">AIProductivity</span>
+        <span class="tag">LinearB</span>
+        <span class="tag">GitHubCopilot</span>
+        <span class="tag">PRBottleneck</span>
+        <span class="tag">VerificationCapacity</span>
+        <span class="tag">DevMetrics</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 4.6x review wait time is the operationally important finding, not the overall productivity number. When an engineer submits an AI-generated PR, the bottleneck is not the code quality (AI PRs are reviewed faster once picked up) — it's that reviewers are systematically deprioritizing PRs they didn't generate, either because they trust them less, they have more PRs to process, or the PRs require more cognitive load to evaluate than familiar human-authored code. The 32.7% vs 84.4% pass-through rate (AI vs human code that passes review unchanged) is the concrete quality signal: reviewers find issues in 67% of AI PRs vs. 16% of human PRs. This is not a reason to stop using AI coding agents — it's a signal to change the verification infrastructure around them. The teams The New Stack identifies as adapting fastest are doing three things: (1) investing in automated CI/CD gates that catch the most common AI code failure patterns before human review, (2) reserving human review attention for high-risk or architecturally significant changes rather than applying the same review process to all PRs, and (3) building feedback loops from code review findings back into the prompting templates used to generate code. The practical gap is clear: teams that generate more code with AI but don't change their review process are creating a larger queue with no additional reviewers — verification capacity is now the engineering investment that unlocks the AI productivity gain.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Triage your PR queue to identify the AI-generated PRs waiting longest and diagnose why they're stalled: pull your last 30 days of PRs, tag the ones generated or substantially written by AI coding agents (by author flag, branch naming convention, or commit message pattern), and measure their average time-to-first-review vs. human-authored PRs; if you see a 3x+ gap, the bottleneck is reviewer psychology or capacity, not PR quality — address it by creating an explicit 'AI-assisted PR' review protocol that sets clear expectations for review depth and timeline rather than letting AI PRs sit in an undifferentiated queue</li>
+          <li>Build an automated pre-review gate for AI-generated PRs to reduce the modification rate at human review: the 67% modification rate for AI PRs (vs 16% for human PRs) means reviewers spend most of their AI-PR review time finding issues that automated tools could catch first; add static analysis (Semgrep rules for your common error patterns), type checking, a coverage threshold check, and an LLM-based code review pass (GitHub Copilot code review or Coderabbit) as required CI checks that must pass before the PR enters the human review queue; reviewers then see only AI PRs that passed automated gates, reducing the cognitive load of the review</li>
+          <li>Implement a two-tier review policy for AI-generated code: define criteria for 'high-risk changes' (touches authentication, payment, database migrations, security controls, external API integrations) and 'routine changes' (new tests, documentation updates, non-critical feature additions, internal tooling); require full senior-engineer review for high-risk AI-generated changes and allow merge-on-CI-pass for routine AI-generated changes with asynchronous review; this halves the review load on your senior engineers while maintaining safety for the changes that matter most</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>LinearB's analysis is based on 8.1 million pull requests across 4,800+ real organizations in 2026 — this is production telemetry at a scale that makes it among the largest empirical studies of AI coding tool impact on engineering workflows ever conducted; the 4.6x review wait time and 32.7% pass-through rate are not survey estimates but measurements from actual PR data</li>
+          <li>The New Stack's 'Merge Gate' article synthesizes LinearB, GitHub (60M Copilot code reviews), and Cursor (30% of PRs now auto-submitted by AI) data in a single analytical framework — three independent data sources pointing at the same bottleneck pattern; Codacy, Bryan Finster (Google/DORA contributor), byteiota, DEV Community, and Shiplight AI all published independent corroborating analyses in June-July 2026 covering the same bottleneck dynamic</li>
+          <li>GitHub reported 60 million Copilot code reviews by March 2026 (10x from April 2025 launch in 11 months) — the volume growth in AI code review is a primary source metric from GitHub directly, and the 71% actionable feedback rate is a product-level signal that reviewers (human or AI) are consistently finding real issues in the code they review, not rubber-stamping it</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://thenewstack.io/merge-gate-coding-agents/">The New Stack: 85% Say Code Review Is the New Bottleneck</a></li>
+          <li><a href="https://byteiota.com/ai-code-verification-bottleneck-96-dont-trust-output-2/">ByteIota: AI Code Verification Bottleneck — 96% Don't Trust Output</a></li>
+          <li><a href="https://blog.codacy.com/ai-breaking-code-review-how-engineering-teams-survive-pr-bottleneck/">Codacy: AI Is Breaking Code Review — How Teams Survive the PR Bottleneck</a></li>
+          <li><a href="https://devops.com/the-bottleneck-isnt-coding-anymore-its-verification/">DevOps.com: The Bottleneck Isn't Coding Anymore — It's Verification</a></li>
+          <li><a href="https://www.developersdigest.tech/blog/what-hacker-news-gets-right-about-ai-coding-agents-2026">Developers Digest: What Hacker News Gets Right About AI Coding Agents in 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://techcrunch.com/2026/07/08/sambanova-draws-1b-at-11b-valuation-in-series-f-first-close/">SambaNova $1B Series F at $11B Valuation: JPMorgan Chase Deploys SN50 On-Prem — Nvidia's First Serious Inference Challenger in the Enterprise</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">SambaNova completed the first close of a $1 billion Series F financing at an $11 billion post-money valuation on July 8, 2026, led by General Atlantic with T. Rowe Price, Capital Group, BlackRock, Vista Equity Partners, Intel Capital, Qatar Investment Authority, and others participating. The anchor customer announcement came with the funding: JPMorgan Chase named SambaNova as its on-premises inference provider for 'demanding enterprise AI workloads.' SambaNova's next-generation SN50 chip, unveiled February 2026, is set to begin shipping to customers in H2 2026, with SoftBank as its first confirmed deployment partner. SambaNova's architecture differentiates from GPU-based inference (Nvidia H100/H200) through its Reconfigurable Dataflow Architecture: the chip dynamically reorganizes data flow paths to minimize memory bottlenecks during LLM inference, which the company claims delivers significantly lower latency and higher throughput for frontier-model inference compared to GPU clusters at equivalent cost. At $11B valuation, SambaNova is the highest-valued AI inference hardware startup that does not have 'GPU' in its architecture.</p>
+      <div class="article-meta">
+        <span class="tag">SambaNova</span>
+        <span class="tag">OnPremInference</span>
+        <span class="tag">SN50</span>
+        <span class="tag">JPMorgan</span>
+        <span class="tag">AIInfrastructure</span>
+        <span class="tag">SeriesF</span>
+        <span class="tag">GeneralAtlantic</span>
+        <span class="tag">EnterpriseAI</span>
+        <span class="tag">NvidiaAlternative</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>JPMorgan Chase's selection of SambaNova as an on-prem inference provider is the most significant enterprise validation of non-GPU AI inference hardware to date. JPMorgan is not a technology startup betting on experimental hardware — it is one of the world's largest financial institutions deploying SambaNova to handle actual production LLM workloads. For regulated industries (financial services, healthcare, government, defense), 'on-prem inference' is not a preference — it is often a regulatory requirement: data cannot leave the organization's controlled infrastructure, latency and throughput must be predictable, and vendor lock-in to cloud providers creates unacceptable concentration risk. SambaNova's market is the set of enterprises that cannot send their data to Anthropic's, OpenAI's, or Google's API endpoints for compliance reasons, but need frontier-model capability. The SN50 chip targeting H2 2026 shipments means this is not a roadmap item — it's a production delivery window. For infrastructure engineers making H2 2026 and 2027 planning decisions about AI inference infrastructure: SambaNova is the alternative to evaluate if your use case requires on-prem, your budget allows for specialized hardware, and you need the throughput characteristics of dedicated LLM inference silicon rather than general-purpose GPU clusters.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Evaluate SambaNova's on-prem inference hardware against GPU cluster alternatives if you have a regulatory data residency or latency requirement: request an SN50 benchmark from SambaNova for your specific frontier-model inference workload (model size, batch size, sequence length, throughput target) and compare against the cost and latency profile of an equivalent H100 cluster; for organizations in financial services, healthcare, or government, the compliance simplification of on-prem AI inference (no data leaving your network boundary) may justify hardware investment vs. cloud API pricing, particularly for high-volume or long-horizon model inference</li>
+          <li>Track the SN50 H2 2026 shipment timeline as a planning signal for your 2027 AI infrastructure budget: if SambaNova ships SN50 to SoftBank and JPMorgan Chase on schedule in H2 2026, it demonstrates operational production readiness — at that point, the hardware is available for enterprise procurement rather than early-access partnership; SambaNova's pricing for on-prem deployment has historically been negotiated on a per-seat or per-workload basis rather than public list pricing, so a direct engagement with their sales team is the correct path for a budget estimate</li>
+          <li>If you're a financial services or healthcare engineering leader evaluating AI deployment options: the JPMorgan Chase announcement is the relevant precedent for your risk committee — the world's largest bank (by assets) has made a production commitment to on-prem AI inference hardware from a non-Nvidia vendor; use this as a comparable-organization reference point to support an evaluation or pilot of SambaNova's technology in your own regulatory risk assessment for frontier AI model deployment</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>TechCrunch, Bloomberg, CNBC, General Atlantic's official announcement, QZ, and Tech Startups all reported the $1B Series F first close and $11B valuation on July 8, 2026 — simultaneous coverage across Tier 1 financial and technology press from a verified venture round with named institutional investors (General Atlantic, T. Rowe Price, BlackRock, Intel Capital, QIA) is a primary-source verifiable event</li>
+          <li>JPMorgan Chase as anchor customer is a named strategic partner in the official General Atlantic press release (generalatlantic.com) — a major bank is not willing to be named as a vendor's deployment partner without confirmed production commitment; the AI Insider, TechStartups, and CNBC all specifically reported the JPMorgan announcement as the key new commercial detail distinguishing this round from earlier SambaNova funding</li>
+          <li>SoftBank as SN50 first deployment partner (announced February 2026) has since been joined by JPMorgan Chase as a confirmed H2 2026 customer — two named enterprise customers at different stages of deployment confirms a real commercial pipeline, not a single lighthouse customer; the $11B valuation (5 months after a prior mega round per TechCrunch's framing) indicates investor confidence in revenue trajectory, not just technology potential</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://techcrunch.com/2026/07/08/sambanova-draws-1b-at-11b-valuation-in-series-f-first-close/">TechCrunch: SambaNova Draws $1B at $11B Valuation in Series F First Close</a></li>
+          <li><a href="https://www.cnbc.com/2026/07/08/sambanova-ai-chip-funding-valuation.html">CNBC: SambaNova Hits $11B Valuation as Investors Back Nvidia Chip Challengers</a></li>
+          <li><a href="https://www.generalatlantic.com/media-article/sambanova-completes-first-close-of-1-billion-financing-at-11-billion-valuation/">General Atlantic: SambaNova Completes First Close of $1B Financing</a></li>
+          <li><a href="https://theaiinsider.tech/2026/07/08/sambanova-secures-b-at-11b-valuation-lands-jpmorgan-chase-as-inference-partner/">AI Insider: SambaNova Secures $1B, Lands JPMorgan Chase as Inference Partner</a></li>
+          <li><a href="https://techstartups.com/2026/07/08/ai-chip-startup-sambanova-raises-1-billion-at-11-billion-valuation-to-expand-ai-inference-infrastructure/">Tech Startups: SambaNova Raises $1B at $11B to Expand AI Inference Infrastructure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://infotechlead.com/software/tcs-to-deploy-up-to-8900-ai-engineers-targets-acquisitions-to-accelerate-enterprise-ai-growth-97076">TCS Deploys 8,900 Forward-Deployed AI Engineers: Enterprise AI Implementation Is Now a Bigger Hiring Priority Than Software Development</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Tata Consultancy Services announced on July 12-13, 2026 that it is building a dedicated group of up to 8,900 forward-deployed engineers (FDEs) — engineers who embed with enterprise clients to accelerate AI adoption and tailor AI tools to specific business workflows. TCS CEO K Krithivasan stated the FDE group would be 1–1.5% of the company's total workforce, calculated from TCS's end-June headcount of roughly 590,000 employees. The company has not specified whether the FDEs will be external hires or retraining of existing staff. Simultaneously, TCS is evaluating acquisitions in AI, data security, and cybersecurity — a reversal of its long-standing organic-growth-only posture. The forward-deployed engineer model was pioneered in AI by Palantir, then adopted by OpenAI, Anthropic, and Microsoft as a way to help enterprise clients move from AI pilot programs to production deployments. TCS's entry represents the first major IT services firm to formalize and scale this model — pitting one of the world's largest IT employers against AI labs directly in the enterprise implementation market.</p>
+      <div class="article-meta">
+        <span class="tag">TCS</span>
+        <span class="tag">ForwardDeployedEngineers</span>
+        <span class="tag">EnterpriseAI</span>
+        <span class="tag">FDE</span>
+        <span class="tag">ITServices</span>
+        <span class="tag">AIImplementation</span>
+        <span class="tag">TataConsultancy</span>
+        <span class="tag">AIWorkforce</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 8,900 FDE target is a market structure signal, not just a hiring announcement. TCS has 590,000 employees and serves thousands of global enterprises — its FDE program will touch a scale of enterprise AI deployments that OpenAI's and Anthropic's own FDE teams, each in the hundreds to low thousands, cannot reach. If the program succeeds at scale, it establishes that enterprise AI implementation is a sustainable market that the existing IT services industry can own — rather than one that stays with the model providers. For AI engineers, this signals where the implementation talent market is heading: the job description of an 'AI forward-deployed engineer' (client-site deployment, integration with legacy enterprise systems, measurement of AI ROI, change management alongside technical work) is distinct from both traditional software engineering and AI research. The TCS announcement confirms this role is becoming an enterprise labor category at scale, not just a service tier at AI labs. For teams currently trying to deploy AI in large organizations and running into organizational friction: TCS's decision to create 8,900 people-sized capacity for 'AI implementation' quantifies the gap — large organizations need outside help deploying AI not because the technology is unavailable, but because the institutional change required to use it is hard, and that hard work is where the demand is.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you are a platform or tooling company building for enterprise AI deployment: TCS's 8,900 FDE program is your distribution channel opportunity — a human at a client site who implements AI tools needs those tools to be deployable, auditable, and supportable by a non-AI-specialist team; design your product's enterprise deployment experience (documentation, audit logs, role-based access, support tooling) for the FDE persona who deploys your product at a client site rather than the AI engineer at a startup who installs it themselves</li>
+          <li>Use the TCS announcement to calibrate your enterprise AI project timeline: if TCS is building a dedicated 8,900-person team to solve the 'AI implementation' problem for enterprise clients, the scale of the gap between AI capability and enterprise deployment readiness is larger than most organizations internally acknowledge; if your team is currently in a pilot phase and wondering why production deployment is taking longer than expected, the answer is that the friction is real and industry-wide — budget the implementation effort as a project comparable in scope to any major software rollout, not as a configuration task</li>
+          <li>Evaluate forward-deployed engineering as a business model if you are building enterprise AI tools: the TCS announcement, combined with Palantir's established FDE model and OpenAI/Anthropic's recent FDE expansion, confirms that enterprise clients will pay significant professional services fees for dedicated implementation support; if your product targets enterprise deployment and your sales cycle stalls at the 'pilot to production' step, adding an FDE-style implementation tier (a dedicated implementation engineer who lives with the client through deployment) may convert more enterprise deals than any product feature improvement</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>TCS CEO K Krithivasan made the forward-deployed engineer announcement directly to Reuters on July 12-13, 2026 — C-suite statements to wire services are primary source disclosures; Reuters is a verified news source, and the announcement was independently reported by Business Standard, InfotechLead, CryptoBriefing, IndianWeb2, Manila Times (July 13), TECHi, and Khaleej Times within 24 hours</li>
+          <li>The 1–1.5% of workforce figure (which Krithivasan explicitly cited) maps to 5,900–8,900 people at TCS's current headcount — the calculation is verifiable against TCS's publicly reported headcount as of June 2026; this is not a 'we will hire some AI people' statement, it is a workforce planning commitment with a quantified target anchored to a specific percentage of the total employee base</li>
+          <li>TCS's pivot to acquisitions (announced alongside the FDE plan) reverses a multi-year policy of organic-only growth — the company publicly shunned acquisitions until late 2025; reversing this stance while announcing an FDE program signals that TCS leadership has concluded it cannot build all the needed AI capability organically fast enough, which is the strongest organizational signal of urgency available from a publicly traded company</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://infotechlead.com/software/tcs-to-deploy-up-to-8900-ai-engineers-targets-acquisitions-to-accelerate-enterprise-ai-growth-97076">InfotechLead: TCS to Deploy Up to 8,900 AI Engineers, Targets Acquisitions</a></li>
+          <li><a href="https://www.business-standard.com/companies/news/tcs-plans-up-to-8-900-ai-deployment-engineers-seeks-ai-acquisitions-126071200332_1.html">Business Standard: TCS Plans Up to 8,900 AI Deployment Engineers, Seeks Acquisitions</a></li>
+          <li><a href="https://www.manilatimes.net/2026/07/13/business/foreign-business/indias-tata-consultancy-services-plans-up-to-8900-ai-deployment-engineers-seeks-ai-acquisitions/2382961">Manila Times: TCS Plans Up to 8,900 AI Deployment Engineers (July 13, 2026)</a></li>
+          <li><a href="https://www.techi.com/tcs-forward-deployed-ai-engineers/">TECHi: TCS Plans Up to 8,900 Forward-Deployed AI Engineers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://www.anthropic.com/news/fable-safeguards-jailbreak-framework">Anthropic's CJS Jailbreak Severity Scale: The First Public Framework for Rating AI Security Risk from CJS-0 to CJS-4</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Anthropic published a technical and policy update on July 1, 2026 detailing the cybersecurity safeguards for Claude Fable 5 and releasing an early draft of the Claude Jailbreak Severity (CJS) framework — the first publicly documented rating scale for AI jailbreak severity. The CJS scale runs from CJS-0 (Informational: no security uplift, no policy violation) to CJS-4 (Critical: enables mass-casualty or catastrophic-scale harm). The scale is logarithmic — each tier represents substantially greater risk than the one below. The framework is designed in partnership with Glasswing, a cybersecurity-focused VC firm. Fable 5's cybersecurity classifiers sort all cybersecurity-related inputs into four categories rather than blocking all security activity: (1) Prohibited — ransomware development, wipers, malware C2 infrastructure, defense evasion techniques, cyber-physical sabotage — always blocked; (2) Dual-use — capabilities that can be used defensively or offensively, permitted with context; (3) Security research — explicitly permitted with appropriate context; (4) Education — permitted. The release followed a June 2026 security incident in which Fable 5 was temporarily suspended due to US export control concerns, then redeployed on July 1 with the new safeguards in place.</p>
+      <div class="article-meta">
+        <span class="tag">Anthropic</span>
+        <span class="tag">CJS</span>
+        <span class="tag">JailbreakFramework</span>
+        <span class="tag">Fable5</span>
+        <span class="tag">AISecurity</span>
+        <span class="tag">Cybersecurity</span>
+        <span class="tag">ExportControls</span>
+        <span class="tag">CybersecurityPolicy</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The CJS framework matters because it is the first public attempt to create a shared vocabulary for a problem that has no standard terminology: how dangerous is a specific AI jailbreak? Without a scale, every reported jailbreak is treated as equivalent — whether it caused a model to explain how to pick a lock (low harm) or generate bioweapon synthesis routes (catastrophic harm). The CJS scale creates a quantified severity tier that allows security teams, researchers, regulators, and vendors to communicate about specific jailbreaks at a common level of precision. For engineers building on top of Anthropic models: the four-category classifier system (Prohibited / Dual-use / Research / Education) gives you visibility into how Fable 5 handles the security domain that no previous model version provided. If your product uses Claude in a security context (penetration testing tools, vulnerability disclosure systems, security education, CTF platforms), the classifier taxonomy tells you which types of requests your users are likely to have blocked, which will be permitted with context, and how to structure your system prompts to route requests into the correct category. The context of the June 2026 incident (a US export control action that temporarily suspended Fable 5 globally) is the real-world signal: frontier AI models are now treated as controlled technology, and the cybersecurity guardrails around them are evaluated by government actors, not just enterprise procurement teams.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Review your system prompt for security-domain applications against the CJS four-category taxonomy: if your product uses Claude for any security-adjacent task (pentest assistance, vulnerability scanning, incident response, security training), categorize the types of requests your users make into Prohibited / Dual-use / Research / Education; for requests in the dual-use category, your system prompt should include explicit context about the professional or educational nature of the use case — Fable 5's classifier uses context signals from the system prompt to make the Dual-use category decision, and ambiguous context is more likely to result in a refusal</li>
+          <li>Use the CJS severity scale in your internal AI security policy: if your organization has or is drafting a policy for responsible use of AI in security work, adopting the CJS-0 to CJS-4 scale as the severity taxonomy in your policy aligns your internal definitions with the framework that model providers are building toward — this reduces the translation burden when communicating AI security incidents internally and to your model providers</li>
+          <li>If you build security tools on top of Claude: monitor the CJS framework's evolution from early draft to final version through the Anthropic developer changelog and Glasswing partnership announcements; as the framework matures, Anthropic may tie specific CJS thresholds to API-level policy enforcement (e.g., requests that would generate CJS-3 or CJS-4 outputs are automatically blocked at the API layer) — understanding where those thresholds are set before they're finalized gives you a planning window to adjust your product's input handling before a blocking policy takes effect</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published directly on anthropic.com/news on July 1, 2026 with the title 'More details on Fable 5's cyber safeguards and our jailbreak framework' — primary source official Anthropic publication, not a third-party report; the document is Anthropic's direct technical and policy communication to developers and security practitioners</li>
+          <li>CyberSecurityNews, CyberPress, GBHackers, CryptoBriefing, MarkTechPost, Mallory AI, and Priority Pixels all published independent cybersecurity-focused analyses of the CJS framework within 48 hours of the July 1 release — security-community coverage at this breadth for a vendor policy document is unusual and indicates practitioners in the cybersecurity domain found the framework technically substantive enough to analyze and distribute</li>
+          <li>The framework is in 'early draft' status with explicit intent to solicit feedback from the security research community — Anthropic is not presenting CJS as final; the public drafting process creates community engagement and signals the company is treating this as an evolving standard rather than a static policy, which is the governance pattern that tends to produce durable industry frameworks (analogous to how CVSS evolved)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.anthropic.com/news/fable-safeguards-jailbreak-framework">Anthropic: More Details on Fable 5 Cyber Safeguards and Our Jailbreak Framework</a></li>
+          <li><a href="https://www.anthropic.com/news/redeploying-fable-5">Anthropic: Redeploying Claude Fable 5</a></li>
+          <li><a href="https://cybersecuritynews.com/anthropic-claude-fable-5-cybersecurity/">CyberSecurityNews: Anthropic Details Fable 5 Cybersecurity Safeguards</a></li>
+          <li><a href="https://www.marktechpost.com/2026/07/01/anthropic-redeploys-claude-fable-5-on-july-1-after-us-export-controls-lift-adds-new-cybersecurity-classifier/">MarkTechPost: Anthropic Redeploys Fable 5 with New Cybersecurity Classifier</a></li>
+          <li><a href="https://gbhackers.com/anthropic-unveils-cyber-jailbreak-severity-framework/">GBHackers: Anthropic Unveils Cyber Jailbreak Severity Framework</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
