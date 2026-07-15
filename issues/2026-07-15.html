@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — July 15, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">July 15, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost">Z.ai's GLM-5.2 becomes the top open-weight coding model: 753B MoE, MIT license, 1M context, $1.40/$4.40 per million tokens, 62.1 SWE-bench Pro — beats GPT-5.5 at 1/6th the API cost with an Anthropic-compatible endpoint that drops into Claude Code, Cline, and OpenCode without code changes</a></li>
+      <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Gemini 3.5 Pro targets GA in 2 days (July 17): Google scrapped the Gemini 2.5 Pro base entirely and rebuilt from scratch — 2M context window, Deep Think reasoning layer, cleaner frontend/SVG generation; $15/$60 per million tokens with Deep Think gated to Ultra at $250/month</a></li>
+      <li><a href="https://pydantic.dev/articles/pydantic-ai-v2">PydanticAI V2 ships production-stable with 'capabilities' as the core primitive: a capability bundles tools, hooks, instructions, and model settings into one composable unit; native MCP support, durable agents across failures, human-in-loop tool approval — v2.9.1 released July 14</a></li>
+      <li><a href="https://cryptobriefing.com/openai-gpt-56-cerebras-inference-breakthrough/">GPT-5.6 Sol runs on Cerebras wafer-scale hardware at 750 tokens per second — 5-18x faster than GPU-served frontier models on the same task; select Cerebras customers in July 2026; changes the latency math for agentic pipelines that currently stall on slow output speed</a></li>
+      <li><a href="https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability">ClickHouse acquired Langfuse in January 2026 with an explicit no-lockdown pledge: MIT license stays, no new pricing gates, and large-scale query performance has improved; self-hosting LLM observability at production scale is now viable without SaaS per-seat pricing</a></li>
+      <li><a href="https://www.yottalabs.ai/post/vllm-vs-sglang-which-inference-engine-should-you-use-in-2026">Hugging Face put TGI in maintenance in December 2025 — teams now pick between vLLM and SGLang; SGLang's RadixAttention delivers 29% higher H100 throughput and up to 6.4x gains on prefix-heavy agent and RAG workloads vs. vLLM</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost">GLM-5.2: Z.ai's MIT Open-Weight Model Beats GPT-5.5 on Coding at 1/6th the Cost — 753B MoE, 1M Context, $1.40/$4.40</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Z.ai (formerly Zhipu AI) released GLM-5.2 on June 13, 2026 — a 753B-parameter Mixture-of-Experts model with 40B active parameters per token, MIT license, and open weights on Hugging Face. The 1-million-token context window is 5x larger than GLM-5.1, and IndexShare — a new architectural optimization that reuses the same attention index across every four sparse layers — cuts per-token compute FLOPs by 2.9x at maximum context. GLM-5.2 scores 62.1 on SWE-bench Pro (vs. GPT-5.5 at 58.6 and Grok 4.5 at 64.7) and 81.0 on Terminal-Bench 2.1 — the top open-weight model on Artificial Analysis's Intelligence Index. API pricing: $1.40 per million input tokens and $4.40 per million output tokens — roughly 1/6th the cost of GPT-5.5 at comparable benchmark performance. It connects via an Anthropic-compatible endpoint, meaning Claude Code, Cline, OpenCode, and any tool that accepts an Anthropic-format API can point at GLM-5.2 without a code change.</p>
+      <div class="article-meta">
+        <span class="tag">GLM52</span>
+        <span class="tag">Zai</span>
+        <span class="tag">ZhipuAI</span>
+        <span class="tag">OpenWeight</span>
+        <span class="tag">MoE</span>
+        <span class="tag">MIT</span>
+        <span class="tag">CodingAgent</span>
+        <span class="tag">1MContext</span>
+        <span class="tag">AnthropicCompatible</span>
+        <span class="tag">SWEbench</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>GLM-5.2 breaks the pattern where open-weight models lag frontier closed models by one generation. At 62.1 SWE-bench Pro, GLM-5.2 is within 2.6 points of Grok 4.5 (64.7%) — the best pricing/performance model released this month — while costing $1.40 input vs. Grok 4.5's $2.00. For teams building agentic coding pipelines on cost-sensitive workloads, the combination of frontier-adjacent benchmark performance, MIT licensing, and an Anthropic-compatible endpoint is a routing decision that merits evaluation today. The MIT license is the structural story: any team that cannot send code to a third-party API (data residency, compliance, IP sensitivity) can download GLM-5.2's weights from Hugging Face and run it on their own infrastructure — vLLM or SGLang both support MoE architectures — without licensing restrictions. The Anthropic-compatible endpoint matters for adoption speed: there is no SDK migration, no provider-specific tool format to learn. A team using Claude Code or Cline today can point those tools at GLM-5.2's API endpoint and run the same prompts with no change to the tool configuration other than the base URL and API key. The 1M-token context is the agentic enabler: for repository-wide refactors, full test suite analysis, or documentation generation across a large codebase, a 1M-token window allows single-pass processing rather than chunked multi-turn sessions that lose coherence across boundaries.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replace GPT-5.5 with GLM-5.2 in your cost-sensitive agentic coding pipeline: redirect your existing Cline or Claude Code configuration to the GLM-5.2 Anthropic-compatible endpoint (update base_url and api_key in your tool config, keep the rest unchanged), run the same benchmark suite you use to evaluate your current model on a 5-10% traffic sample, and measure quality delta vs. cost delta; the Anthropic-compatible endpoint means no code changes, only config changes</li>
+          <li>Self-host GLM-5.2 for IP-sensitive or data-residency-constrained workloads: download the MIT-licensed weights from Hugging Face, deploy with vLLM (MoE is supported on multi-GPU setups with tensor parallelism) or SGLang, and configure your coding agents to point at the local endpoint; this gives you frontier-adjacent coding performance on your own infrastructure with no data leaving your network and no per-token billing</li>
+          <li>Use GLM-5.2's 1M-token context for full-repository analysis tasks that fail on smaller windows: load your entire repository (average mid-size production codebase is 200-400K tokens including tests and docs) into a single GLM-5.2 request and ask for cross-repository consistency checks (naming conventions, error handling patterns, API contract validation); compare output quality and cost to a chunked multi-turn approach with a smaller context model — the IndexShare architecture's 2.9x compute reduction at 1M tokens is what makes this cost-practical</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>VentureBeat published a full technical analysis titled 'Z.ai's open-weights GLM-5.2 beats GPT-5.5 on multiple long-horizon coding benchmarks for 1/6th the cost' — VentureBeat's enterprise AI readership is the primary signal of practitioner-level interest; the headline's specific benchmark and cost claims are confirmed independently by BitsMinds, Technology.org, Emergent.sh, and Tosea.ai</li>
+          <li>20+ third-party deployment guides and benchmark analyses published within 30 days of the June 13 release — LushBinary, Codersera, TECHSY, Verdent.ai, Eigent.ai, Kainjoo Tech, and AI Weekly all published independent developer guides; deployment guide volume at this scale indicates developers are actively installing and evaluating the model, not just reading about it</li>
+          <li>Anthropic-compatible endpoint confirmed in the Z.ai API documentation and cited across multiple third-party guides — the endpoint compatibility means integration friction is near-zero for any team already using Anthropic-format tools; this is a measurable adoption accelerator, not a marketing claim</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost">VentureBeat: GLM-5.2 Beats GPT-5.5 at 1/6th the Cost</a></li>
+          <li><a href="https://felloai.com/glm-5-2/">FelloAI: What Is GLM 5.2? Z.ai's 1M-Context Open Model</a></li>
+          <li><a href="https://www.bitsminds.com/news/glm-5-2-review-benchmarks-2026">BitsMinds: GLM-5.2 Review — The Open Model That Out-Codes GPT-5.5</a></li>
+          <li><a href="https://tech.kainjoo.com/glm-5-2-open-weight-coding-model/">KainJoo Tech: GLM-5.2 Explained — Z.ai's Open-Weight Coding Model</a></li>
+          <li><a href="https://tosea.ai/blog/glm-5-2-complete-guide">Tosea.ai: How to Use GLM-5.2 — Complete Developer Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Gemini 3.5 Pro: July 17 GA Target After Full Architecture Rebuild — 2M Context, Deep Think Reasoning, SVG/Frontend Leap</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Google DeepMind is targeting July 17, 2026 (two days from today) to launch Gemini 3.5 Pro after scrapping the Gemini 2.5 Pro base model entirely and rebuilding from scratch. The rebuilt model features a 2-million-token context window, a Deep Think reasoning layer for multi-step problem-solving, significantly improved mathematical reasoning, and markedly better SVG and frontend code generation — with multiple enterprise testers reporting cleaner layouts and one-shot game generation quality above any prior Gemini version. Expected pricing from enterprise preview reports: $15 per million input tokens and $60 per million output tokens, with Deep Think access gated behind the Ultra subscription tier at $250/month. A fallback date of July 24 has been cited in case the July 17 launch slips. As of July 14, Gemini 3.5 Pro remains in limited Vertex AI enterprise preview and has not been generally available. Google has not officially confirmed the July 17 date, pricing, or specifications; all figures come from enterprise preview participants and leaked internal materials.</p>
+      <div class="article-meta">
+        <span class="tag">Gemini35Pro</span>
+        <span class="tag">Google</span>
+        <span class="tag">DeepMind</span>
+        <span class="tag">2MContext</span>
+        <span class="tag">DeepThink</span>
+        <span class="tag">FrontendGen</span>
+        <span class="tag">SVG</span>
+        <span class="tag">ArchitectureRebuild</span>
+        <span class="tag">FrontierModel</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The architecture rebuild is the unusual detail: Google had an existing Gemini 2.5 Pro base model and chose to discard it and start over. That decision signals that the team identified fundamental architectural limitations in the prior base that couldn't be addressed through fine-tuning or RLHF — the kind of structural investment that typically produces step-change improvements rather than incremental ones. The 2M context window is the largest in any frontier model at launch (Grok 4.5 has 500K, GPT-5.6 Sol has 1M per enterprise tester reports, Fable 5 has 1M). For teams working with large private document corpora, multi-file software projects, or long-horizon research tasks, 2M tokens changes what a single-pass analysis can hold. The Deep Think reasoning layer is Google's response to the pattern Claude Fable 5 and GPT-5.6 Sol set: a deliberate multi-step reasoning mode that improves performance on math, code, and complex reasoning tasks at the cost of latency and token count. The SVG and frontend generation improvements are the most differentiated claim relative to Claude Fable 5 and GPT-5.6 Sol: if the enterprise tester reports hold at GA, Gemini 3.5 Pro may have a genuine quality advantage on visual frontend tasks specifically — a workload that has historically been a weak point for Google's models. Engineers building frontend generation tools or UI-to-code pipelines should evaluate this claim on their own prompts at GA.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>When Gemini 3.5 Pro launches July 17, immediately run your hardest frontend generation prompts against it before benchmarking against Fable 5 and GPT-5.6 Sol: the SVG and frontend quality claims are the most differentiated aspect of the rebuild; if your team generates UI mockups, SVG diagrams, or UI components via LLM, run your standard test prompts through Gemini 3.5 Pro on day one and compare the output quality to your current primary model — that's the fastest way to validate whether the architectural improvements produce real-world differentiation on your task type</li>
+          <li>Evaluate Deep Think for your hardest multi-step reasoning tasks, but gate it behind a task complexity classifier: Deep Think will be slower and more expensive than standard Gemini 3.5 Pro output; build a lightweight pre-classifier that routes simple requests (single-step code generation, factual lookups, format conversions) to standard mode and routes complex requests (debugging sessions with multiple error types, architectural design, multi-constraint optimization) to Deep Think mode; the classification step pays for itself in latency and cost reduction on the majority of requests that don't need deep reasoning</li>
+          <li>Use the 2M-token context for document-intensive engineering workflows: software architecture reviews that need the full codebase plus all related docs, legal or compliance analysis of 500+ page contracts, long-running research synthesis across many papers — load the full context once and run multiple analytical passes on it within the same session; at 2M tokens, the entire corpus of a medium-large software project (code, tests, docs, ADRs, issue history) fits in a single window without chunking</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>TechTimes published 'Gemini 3.5 Pro Targets July 17 After Full Rebuild: Every Spec Remains Unconfirmed' on July 13 — a widely distributed tech publication citing multiple independent enterprise preview participants; the July 17 target date is corroborated by Memeburn, Enterprise DNA, Geeky Gadgets, FindSkill.ai, and DEV Community, all publishing independent analyses in the July 8-14 window; consistent cross-publication citation of the same date from non-coordinated sources is the strongest pre-launch credibility signal</li>
+          <li>Developers Digest published a full 'Gemini 3.5 Pro Developer Guide: 2M Context Window and Deep Think Mode' on July 13 — a pre-launch developer guide at this level of detail indicates enterprise preview participants are evaluating the model on real workloads and sharing what they found; deployment guides written before a model's GA release typically reflect hands-on experience, not speculation</li>
+          <li>Google's official Gemini blog confirmed the Gemini 3.5 family announcement on blog.google — the model family is official, even though the July 17 GA date and all specs remain unconfirmed; the full architecture rebuild claim originates from multiple separately sourced enterprise tester accounts, not a single leak, which increases its credibility</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Google Blog: Gemini 3.5: Frontier Intelligence with Action</a></li>
+          <li><a href="https://www.techtimes.com/articles/320308/20260713/gemini-35-pro-targets-july-17-after-full-rebuild-every-spec-remains-unconfirmed.htm">TechTimes: Gemini 3.5 Pro Targets July 17 After Full Rebuild</a></li>
+          <li><a href="https://www.developersdigest.tech/blog/gemini-3-5-pro-developer-guide-2026">Developers Digest: Gemini 3.5 Pro Developer Guide — 2M Context and Deep Think</a></li>
+          <li><a href="https://dev.to/akaranjkar08/gemini-35-pro-2m-context-deep-think-and-the-post-fable-5-frontier-2p60">DEV Community: Gemini 3.5 Pro — 2M Context, Deep Think, Post-Fable-5 Frontier</a></li>
+          <li><a href="https://enterprisedna.co/resources/news/gemini-35-pro-july-17-rebuild-vs-deepseek-v4-2026/">Enterprise DNA: Gemini 3.5 Pro July 17 Launch After Google's Full Rebuild</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://pydantic.dev/articles/pydantic-ai-v2">PydanticAI V2: 'Capabilities' as Core Primitive — One Composable Unit for Tools, Hooks, Instructions, and Model Settings</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Pydantic AI V2 shipped stable on June 23, 2026 with a complete redesign of the agent architecture. The central change: a capability is now the core primitive — a single composable unit that bundles an agent's tools, lifecycle hooks, instructions (system prompt segments), and model settings together. An agent is no longer defined by a flat list of parameters; it is composed by assembling capabilities. The Harness library ships alongside V2, providing pre-built capabilities for memory management, guardrails, and coding agent patterns. Native MCP (Model Context Protocol) support is built in: MCP(url=...) runs a server locally by default, and native=True opts into the model provider's own MCP routing. Human-in-the-loop tool approval lets specific tools require explicit user confirmation before execution. Durable agents preserve progress across transient API failures and restarts without application-level checkpointing. V2.9.1 was released on July 14, 2026, with active weekly version bumps throughout July. Production/Stable status was classified by PyPI in June 2026.</p>
+      <div class="article-meta">
+        <span class="tag">PydanticAI</span>
+        <span class="tag">PydanticAIV2</span>
+        <span class="tag">Python</span>
+        <span class="tag">AgentFramework</span>
+        <span class="tag">Capabilities</span>
+        <span class="tag">MCP</span>
+        <span class="tag">HumanInTheLoop</span>
+        <span class="tag">DurableAgents</span>
+        <span class="tag">TypeSafe</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The capabilities primitive solves a real composition problem in multi-feature agents: before V2, adding a memory system to an agent meant weaving memory-related tools, instructions, hooks, and settings throughout the agent's definition, making it difficult to isolate or swap. A capability encapsulates all of that into one composable unit: you add a memory capability by passing it in one place, and it installs its tools, hooks, instructions, and settings automatically. This makes feature flags — testing with and without memory, with and without guardrails, with and without a specific coding toolkit — straightforward rather than error-prone. The native MCP integration is the inter-operability story: any MCP server (a database tool, a search tool, a code execution sandbox) plugs into PydanticAI V2 via the standard MCP protocol without custom adapter code. The local-by-default MCP server execution keeps credentials and tracing under your control rather than delegating to a model provider's hosted MCP runtime. The Thoughtworks Technology Radar recently classified PydanticAI in 'Trial' — the radar's tier for tools that are ready to be evaluated on real projects — which is a practitioner-community signal that this framework has moved past the experimentation phase. The weekly release cadence (2.6.0 on July 8, 2.7.0 on July 9, 2.8.0 on July 10, 2.9.0 on July 11, 2.9.1 on July 14) is the maintenance commitment signal: a framework releasing that frequently is under active development with a team responding quickly to community issues.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Refactor your existing multi-feature PydanticAI V1 agent into V2 capabilities: identify each major feature group in your agent (memory, guardrails, external tool access, coding tools), convert each to a standalone Capability class that bundles its tools + hooks + instructions, then compose them in your agent definition as capabilities=[memory_capability, guardrails_capability, code_capability]; this refactoring makes it possible to A/B test individual features by toggling capabilities on and off in different agent configurations without touching the core agent logic</li>
+          <li>Use PydanticAI V2's human-in-the-loop tool approval for high-stakes tool calls: identify the tools in your agent that have irreversible consequences (file writes, database mutations, email sends, API calls with side effects) and mark them as requiring approval; deploy the agent with a review queue where a human confirms or rejects the tool call before PydanticAI executes it; this gives you an audit trail for agent actions and a natural checkpoint for catching incorrect tool calls before they execute</li>
+          <li>Connect domain-specific data sources to PydanticAI V2 agents via the native MCP client: stand up an MCP server for your internal database or documentation system (the MCP spec has server implementations for PostgreSQL, Notion, Confluence, GitHub, Slack, and custom endpoints), then add MCP(url='http://localhost:8000') to your agent's capabilities list; PydanticAI runs the MCP server locally by default, so your credentials never leave your infrastructure — this is the lowest-friction path to giving your agent access to private data without building custom tool implementations</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Thoughtworks Technology Radar classifies PydanticAI in 'Trial' — the radar tier for tools recommended for evaluation on real projects (below 'Adopt', above 'Assess'); Thoughtworks only places tools in Trial based on practitioner usage across client engagements, not marketing claims; this is an independent, practitioner-derived credibility signal from one of the most trusted technology assessment organizations in software engineering</li>
+          <li>34-comment r/LangChain thread titled 'LangGraph, ADK, Strands, PydanticAI: how do you actually choose in 2026?' at 26 upvotes (reported by MCP.directory blog) — subreddit discussion at this volume with no consensus answer indicates that developers are actively choosing between PydanticAI and alternatives in real projects, not just reading documentation; controversy in framework choice threads is a reliable indicator of genuine production use</li>
+          <li>AlphaSignal published 'Pydantic AI v2 Ships a Single Primitive That Rebuilds How Agents Work' — AlphaSignal's coverage is algorithmically curated from developer community signals (GitHub activity, social amplification, developer discussion) and tends to surface tools with genuine engineering community traction rather than press-release-driven announcements</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://pydantic.dev/articles/pydantic-ai-v2">Pydantic Blog: Pydantic AI v2 — Capabilities, a Leaner Core, and the Harness</a></li>
+          <li><a href="https://alphasignal.ai/news/pydantic-ai-v2-ships-a-single-primitive-that-rebuilds-how-agents-work">AlphaSignal: Pydantic AI v2 Ships a Single Primitive That Rebuilds How Agents Work</a></li>
+          <li><a href="https://byteiota.com/pydantic-ai-v2-capabilities-harness/">ByteIota: Pydantic AI V2 — Build Python Agents With Capabilities</a></li>
+          <li><a href="https://mcp.directory/blog/pydantic-ai-v2-harness-2026">MCP.Directory: Pydantic AI V2 Capabilities and Harness Guide</a></li>
+          <li><a href="https://www.thoughtworks.com/radar/languages-and-frameworks/pydantic-ai">Thoughtworks Technology Radar: PydanticAI (Trial)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://simonwillison.net/2026/Jul/2/llm-coding-agent/">Simon Willison's llm-coding-agent 0.1a0: A Minimal Claude Code-Style Agent in 300 Lines, Built Entirely by Fable 5</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Simon Willison (creator of Datasette, co-creator of Django) released llm-coding-agent 0.1a0 on July 2, 2026 — a minimal, open-source Claude Code-style terminal coding agent built on his LLM command-line tool. The agent implements the core coding agent loop in approximately 300 lines of Python: read and edit files, execute shell commands, and iterate on errors. It was almost entirely written by Claude Fable 5. The project is an alpha (0.1a0) and not intended for production use, but it is notable as an educational example of how the Claude Code-style agentic coding loop works internally — and as a demonstration of Fable 5's ability to write functional, self-contained software in a single agentic session. The source is on GitHub under simonw/llm-coding-agent.</p>
+      <div class="article-meta">
+        <span class="tag">SimonWillison</span>
+        <span class="tag">llmcodingagent</span>
+        <span class="tag">CodingAgent</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">Python</span>
+        <span class="tag">LLMLibrary</span>
+        <span class="tag">Fable5</span>
+        <span class="tag">MinimalAgent</span>
+        <span class="tag">Terminal</span>
+        <span class="tag">Educational</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>llm-coding-agent matters for two reasons. First, as an implementation: the source code is ~300 lines of Python implementing the same core loop that Claude Code, Cline, and OpenCode use — read files, edit files, run commands, observe output, iterate — without any framework abstraction. Reading it is one of the fastest ways to understand exactly what a coding agent is doing mechanically when it runs. For engineers who want to build a custom coding agent for a specialized workflow (a documentation agent, a test-generator agent, a migration agent), the source is a minimal, hackable starting point with no framework dependency. Second, as a demonstration: Fable 5 wrote the agent almost entirely in one session. Willison's blog post documents the prompt structure and how he guided the session. This is a concrete, reproducible example of Fable 5-level agentic coding capability on a real software task — not a benchmark, but an actual shipped piece of software. Engineers evaluating whether to use Fable 5 for their own greenfield projects can read the llm-coding-agent source as an example of what Fable 5 produces when given a design goal and minimal constraints.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Read the llm-coding-agent source code as a fast path to understanding the coding agent loop: the 300-line implementation contains the same core patterns (tool-call loop, file read/write tools, shell execution, error observation) that power Claude Code, Cline, and OpenCode; reading it takes 30-45 minutes and gives you a complete mental model of what any coding agent is doing at the protocol level, which makes you a better consumer and debugger of larger agent tools</li>
+          <li>Fork llm-coding-agent as a starting point for a domain-specific coding agent: if you need a coding agent that follows your organization's specific conventions (always run a linter after edits, always update a changelog, always add a specific comment header to new files), starting from a 300-line implementation is much easier to customize than forking Claude Code or Cline; add your organization-specific tools to the tool loop and define the system prompt to encode your conventions</li>
+          <li>Use the Fable 5 session that built llm-coding-agent as a reference for structuring your own agentic coding sessions with Fable 5: Willison's blog post documents how he prompted Fable 5 to write a complete, working Python package from a design goal; if you have a similar greenfield Python tool to build, his prompting approach — design goal, iterative refinement, explicit feedback on what to fix — is a concrete template for getting high-quality agentic output from Fable 5 on a real implementation task</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Simon Willison's blog (simonwillison.net) is consistently one of the most-read technical sources in the Python and web development communities — his releases routinely surface on Hacker News front page and reach practitioners directly; the 0.1a0 post is a primary source from a practitioner with deep credibility in the open-source community</li>
+          <li>GitHub repository simonw/llm-coding-agent is indexed and receiving star activity following the blog post — early star velocity on Simon Willison's projects has historically been a reliable leading indicator of practitioner interest, given his community reach</li>
+          <li>Release sits at the intersection of three simultaneously trending topics — Fable 5's agentic coding capabilities, the 'loop engineering' conversation at WeAreDevelopers World Congress (July 13-14), and the general interest in understanding coding agent internals — which amplifies its organic discovery and sharing</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://simonwillison.net/2026/Jul/2/llm-coding-agent/">Simon Willison: Release llm-coding-agent 0.1a0</a></li>
+          <li><a href="https://github.com/simonw/llm-coding-agent">GitHub: simonw/llm-coding-agent</a></li>
+          <li><a href="https://simonwillison.net/tags/agentic-engineering/">Simon Willison: Agentic Engineering Posts</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://cryptobriefing.com/openai-gpt-56-cerebras-inference-breakthrough/">GPT-5.6 Sol on Cerebras: 750 Tokens Per Second for Frontier Intelligence — 5-18x Faster Than GPU-Served Models</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI launched GPT-5.6 Sol on Cerebras wafer-scale hardware in July 2026, achieving inference throughput of up to 750 tokens per second — compared to 40-120 tokens per second typical of frontier models on conventional GPU clusters. Cerebras's architecture integrates compute and memory on a single 46,000 mm² silicon wafer, eliminating the inter-chip bandwidth bottleneck that limits GPU inference throughput for large models. The estimated deployment scale is 70-100 Cerebras wafers per serving instance. Model scale estimates from analysts: approximately 3 trillion total parameters with 150 billion active, 70 layers — consistent with an undisclosed MoE-style architecture at a scale OpenAI has not publicly confirmed. Access starts limited to select Cerebras customers as capacity expands; not a general rollout on day one. GPT-5.6 Sol on Cerebras is separate from and complements the standard GPU-served GPT-5.6 Sol already GA on July 9.</p>
+      <div class="article-meta">
+        <span class="tag">GPT56Sol</span>
+        <span class="tag">Cerebras</span>
+        <span class="tag">WaferScale</span>
+        <span class="tag">InferenceSpeed</span>
+        <span class="tag">750Toks</span>
+        <span class="tag">LLMInfrastructure</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Latency</span>
+        <span class="tag">AgentPipeline</span>
+        <span class="tag">Throughput</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Current frontier model output speed (40-120 tok/s) is the primary latency bottleneck in agentic pipelines. A coding agent that generates a 500-token code block at 80 tok/s waits about 6 seconds per generation step; at 750 tok/s, the same block takes under 1 second. In a typical agentic loop with 10-20 generation steps per task (plan, edit file 1, edit file 2, run tests, fix error, etc.), the difference between 80 tok/s and 750 tok/s compresses wall-clock time from 60-120 seconds to 7-15 seconds per complete task iteration. This changes agentic workflows from batch-feel to interactive-feel — which has second-order effects on how developers use agents. At interactive speed, developers prompt, observe, and refine in real time rather than batching work and checking back. The 6-9x speed improvement also changes the economics of streaming output: at 750 tok/s, streaming the full response of a complex task completes before the user would context-switch away, reducing the mental overhead of managing agent sessions in parallel. The bottleneck Cerebras solves is architectural: GPU inference requires coordinating memory reads across many chips connected via high-bandwidth interconnects; even with NVLink, inter-chip traffic creates a bandwidth ceiling. Cerebras's wafer-scale integration keeps all memory on-wafer with native access latency, bypassing the interconnect. The limitation is that wafer-scale hardware is expensive and scarce, which is why this is select-customer access today rather than a general API endpoint change.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Request Cerebras-served GPT-5.6 Sol access and benchmark it on your highest-latency agentic tasks: identify the 3-5 task types in your agent pipeline where users currently wait the longest (multi-file refactors, long test generation runs, complex debugging sessions) and run a side-by-side comparison of those tasks on standard GPU-served Sol vs. Cerebras-served Sol; measure wall-clock time, user drop-off rate (if you have it), and task completion quality — the 750 tok/s serves no benefit if your tasks are bottlenecked elsewhere (tool execution, retrieval latency, or human review), so identifying your real latency bottleneck first clarifies whether Cerebras access is worth the likely premium pricing</li>
+          <li>Design your agent loop for sub-second generation steps if you have Cerebras-level output speed: at 750 tok/s, a 500-token generation completes in under 1 second — this allows you to add inline verification steps (run type checker after each file edit, evaluate diff quality with a fast classifier) that would feel too slow at 80 tok/s but are acceptable at interactive speed; redesign your loop to do more small generation steps with more frequent verification rather than fewer large generation steps with deferred verification</li>
+          <li>Evaluate whether output speed or output quality is the real bottleneck in your agentic workflow before prioritizing access: measure the time distribution across your agent loop stages (model generation time, tool execution time, human review time, post-processing time); if model generation is only 20-30% of total task time, switching to 750 tok/s hardware reduces total task time by 14-21% at best — significant but perhaps not transformative; if model generation is 60-70% of total time, the same switch reduces total time by 42-49%; this analysis determines whether Cerebras access is a tier-1 priority or a phase-2 optimization for your team</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Multiple independent technical analyses confirm the 750 tok/s figure and the Cerebras wafer-scale deployment: CryptoBriefing, 36kr (in English), KuCoin Flash, BigGo Finance, ValueAdd Pulse, AesopAcademy, and ByteIota all published independent analyses with consistent technical details; the breadth of independent coverage from non-coordinated sources with consistent technical parameters confirms this is a real deployment measurement, not a marketing estimate</li>
+          <li>OpenAI announced the GPT-5.6 Sol / Cerebras partnership publicly, naming specific infrastructure details (Cerebras hardware, token-per-second targets) — a public named partnership with Cerebras is a verifiable business relationship; Cerebras's published case study with OpenAI (available on cerebras.ai) corroborates the 750 tok/s figure and the wafer-scale deployment parameters</li>
+          <li>GPT-5.6 Sol on Cerebras was covered in the Latent Space AI News July 9 issue as one of the week's major infrastructure stories — Latent Space's AI engineering-focused audience represents a high-signal readership; coverage there indicates the AI engineering community has identified this as a meaningful infrastructure milestone rather than a marketing announcement</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://cryptobriefing.com/openai-gpt-56-cerebras-inference-breakthrough/">CryptoBriefing: OpenAI's GPT-5.6 Achieves Inference Breakthrough Powered by Cerebras Wafer-Scale Compute</a></li>
+          <li><a href="https://eu.36kr.com/en/p/3888326681000449">36kr: GPT-5.6 Launch — 750 Tokens/s Inference Speed Surge & Suspected 100-Wafer Scaling Breakthrough</a></li>
+          <li><a href="https://blog.codercops.com/blog/gpt-5-6-sol-cerebras-wafer-scale-inference-2026">CoderCops: GPT-5.6 Sol on Cerebras — What 750 Tokens a Second Actually Changes for Product Teams</a></li>
+          <li><a href="https://byteiota.com/cerebras-gpt-5-6-sol-750-tok-s-changes-your-agent-latency/">ByteIota: Cerebras + GPT-5.6 Sol — 750 tok/s Changes Your Agent Latency</a></li>
+          <li><a href="https://valueaddvc.com/pulse/cerebras-openai-gpt-5-6-sol-750-tokens-2026">Value Add Pulse: Cerebras Runs GPT-5.6 Sol at 750 Tokens per Second, Setting New Frontier-Model Speed Record</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability">ClickHouse Acquires Langfuse: MIT License Stays, Open-Source LLM Observability Gets a Query Engine Backbone</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">ClickHouse acquired Langfuse — the leading open-source platform for LLM observability, tracing, evaluations, and prompt management — in January 2026, with an explicit post-acquisition commitment: MIT license stays, no new pricing gates, no feature lockdowns. Six months in, the integration is delivering: ClickHouse's column-oriented analytics engine now backs Langfuse's trace storage and query layer, improving large-scale query performance on high-volume production deployments. Langfuse's platform covers nested LLM trace capture, automatic token and cost tracking, prompt versioning with diff history, LLM-as-judge evaluations, dataset management, and self-hosting under the MIT license. Self-hosted production deployments can now handle significantly larger trace volumes without the query latency degradation that plagued the prior PostgreSQL-backed implementation at scale. ClickHouse's integration is live in the open-source Langfuse release — teams running self-hosted Langfuse can upgrade to get the ClickHouse query backend.</p>
+      <div class="article-meta">
+        <span class="tag">Langfuse</span>
+        <span class="tag">ClickHouse</span>
+        <span class="tag">LLMObservability</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">MIT</span>
+        <span class="tag">SelfHosted</span>
+        <span class="tag">Tracing</span>
+        <span class="tag">Evaluation</span>
+        <span class="tag">LLMasJudge</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Langfuse before the acquisition was the best open-source LLM observability tool in the market, but its primary production pain point was query performance at scale: as trace volume grew (millions of LLM calls per day), the PostgreSQL-backed query layer slowed down dashboard queries and evaluation runs. ClickHouse's columnar storage and vectorized query engine eliminates this bottleneck — the same trace volume that took PostgreSQL seconds to query returns in milliseconds on ClickHouse. The no-lockdown pledge matters for teams that have built production observability infrastructure on self-hosted Langfuse: the acquisition risk for open-source tools is usually that a corporate acquirer locks key features behind a paid tier after gaining distribution. ClickHouse's explicit public commitment to maintain MIT licensing removes that risk for new adopters deciding whether to invest in Langfuse integration now. For teams currently paying for closed observability platforms (Datadog, LangSmith Pro, Arize) primarily because of query performance concerns with self-hosted alternatives: the ClickHouse backend removes the primary technical objection to self-hosting. The LLM observability market is consolidating around two tiers: managed SaaS (Datadog, Arize, Patronus) and self-hosted open-source (Langfuse, Phoenix). The ClickHouse acquisition strengthens the self-hosted tier's technical foundation significantly.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploy self-hosted Langfuse with the ClickHouse backend as your LLM observability stack: run the Langfuse docker-compose or Kubernetes helm chart with the CLICKHOUSE=true environment flag (added in recent releases), point it at your organization's ClickHouse cluster or a fresh ClickHouse deployment, and capture LLM traces via the Langfuse SDK (OpenAI, Anthropic, and LangChain integrations are built in); within a day you'll have a production-grade dashboard showing per-call latency, token cost, trace timelines, and LLM-as-judge evaluation scores — at zero per-seat cost</li>
+          <li>Use Langfuse's LLM-as-judge evaluation to gate production deployments: define a set of evaluation criteria for your agent's outputs (faithfulness to retrieved context, response coherence, instruction following), configure a small fast judge model (luna or Haiku 4.5 for cost efficiency) to score outputs on each criterion after each trace completes, and set up Langfuse's scoring dashboard to alert when score averages drop below threshold; link this to your CI/CD pipeline so a score regression blocks deployment to production</li>
+          <li>Migrate from a managed SaaS observability tool to self-hosted Langfuse with ClickHouse if per-seat or per-trace costs are scaling faster than your team's budget: calculate your current observability spend (per-seat × seat count, or per-trace × monthly trace volume) and compare it to the infrastructure cost of a self-hosted Langfuse instance backed by ClickHouse (ClickHouse Cloud starts at ~$50/month for small deployments, ClickHouse on your own hardware is free); for teams with 10+ engineers or 5M+ traces per month, self-hosting typically breaks even vs. SaaS within 3-6 months</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>ClickHouse's official acquisition blog post at clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability is the primary source — a ClickHouse corporate blog post about an acquisition is a verifiable business event with public documentation; the explicit MIT-license-stays commitment is in the blog post text and constitutes a public pledge from the acquiring entity</li>
+          <li>MLflow's article 'Top LLM Observability Tools in 2026' (mlflow.org) and Monte Carlo's '17 Best AI Observability Tools in July 2026' (montecarlo.ai) both list Langfuse as a top-tier tool with the ClickHouse backend improvement cited — independent tool roundups from major ML infrastructure platforms (MLflow, Monte Carlo) are credibility signals for production adoption, as both focus on tools they have seen used in real enterprise environments</li>
+          <li>PyImageSearch published two independent Langfuse self-hosting guides in May 2026 ('LLM Observability with Self-Hosted Langfuse and vLLM' and 'Manual Tracing, Scores, and Evaluation with Langfuse') — tutorial content at this depth indicates practitioners are actively deploying Langfuse in production; PyImageSearch's audience is primarily ML engineers rather than bloggers, making its tutorials a reliable indicator of real deployment activity</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability">ClickHouse Blog: ClickHouse Welcomes Langfuse — The Future of Open-Source LLM Observability</a></li>
+          <li><a href="https://langfuse.com/">Langfuse: Open-Source LLM Engineering Platform</a></li>
+          <li><a href="https://github.com/langfuse/langfuse">GitHub: langfuse/langfuse — LLM Evals, Observability, Prompt Management</a></li>
+          <li><a href="https://mlflow.org/articles/top-llm-observability-tools-in-2026-a-pro-guide/">MLflow: Top LLM Observability Tools in 2026</a></li>
+          <li><a href="https://pyimagesearch.com/2026/05/18/llm-observability-with-self-hosted-langfuse-and-vllm/">PyImageSearch: LLM Observability with Self-Hosted Langfuse and vLLM</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://www.yottalabs.ai/post/vllm-vs-sglang-which-inference-engine-should-you-use-in-2026">The Post-TGI Fork: vLLM vs. SGLang Is Now the Default Infrastructure Choice for Self-Hosted LLM Inference</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Hugging Face put Text Generation Inference (TGI) into maintenance mode in December 2025, redirecting all new deployments to either vLLM or SGLang. For teams building new self-hosted LLM inference stacks in 2026, the decision is now binary: vLLM for breadth and ecosystem coverage, SGLang for throughput on prefix-heavy and agent workloads. Key benchmark data on H100 hardware: SGLang's RadixAttention delivers 16,200 tokens per second vs. vLLM's 12,500 — a 29% throughput advantage overall, with up to 6.4x gains on workloads with high prefix reuse (RAG pipelines, multi-turn chat, agent loops with stable system prompts). vLLM leads on hardware compatibility (broader GPU vendor support beyond H100, including AMD and Intel Gaudi), ecosystem integrations (the largest community, Ray Serve integration, broadest model format support), and documentation depth. SGLang leads on throughput for structured outputs, RadixAttention prefix caching, and MoE model serving efficiency. Both are production-ready with active release cadences.</p>
+      <div class="article-meta">
+        <span class="tag">vLLM</span>
+        <span class="tag">SGLang</span>
+        <span class="tag">TGI</span>
+        <span class="tag">LLMInference</span>
+        <span class="tag">RadixAttention</span>
+        <span class="tag">H100</span>
+        <span class="tag">SelfHosted</span>
+        <span class="tag">InferenceEngine</span>
+        <span class="tag">Throughput</span>
+        <span class="tag">KVCache</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>TGI's transition to maintenance mode resolves a 3-way decision that teams spent significant evaluation time on. The vLLM vs. SGLang fork is now the definitive choice for self-hosted inference, and the decision criteria are clear enough to make a team-level call in under a day. The 29% throughput edge SGLang holds on H100 hardware is not a minor improvement — at the scale where inference cost is a significant operational expense (10M+ tokens per day), a 29% throughput improvement means either 29% fewer GPUs at the same traffic volume or 29% more capacity at the same hardware cost. RadixAttention is the specific feature that drives this: by caching the KV state of common prefixes (system prompts, context headers, RAG retrieved chunks) rather than recomputing them on every request, SGLang avoids recomputing 30-60% of input tokens on typical agentic and RAG workloads. vLLM has prefix caching too (enabled by default in V1/0.18.0+), but SGLang's RadixAttention implementation is more aggressive in its reuse strategy and produces larger practical throughput gains on prefix-heavy traffic. The tactical advice is straightforward: if your workload is dominated by structured output generation (JSON, code with specific syntax), multi-turn agent loops (stable system prompts, growing conversation context), or RAG pipelines (repeated retrieval preambles), SGLang's RadixAttention is the stronger default. If you need the broadest hardware support or the largest community for troubleshooting, vLLM is the lower-risk choice.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Choose SGLang over vLLM as your default self-hosted inference engine if your workload is RAG, multi-turn chat, or agentic coding: verify the match by measuring your traffic's prefix reuse rate — if your requests share a system prompt longer than 2,000 tokens or a common RAG context preamble, RadixAttention will cache that prefix KV state and skip recomputing it for every request; on an H100 with heavy prefix reuse, the 6.4x throughput gain reduces your GPU cost by up to 84% vs. no-cache baseline</li>
+          <li>Choose vLLM if you need broad hardware support or are running on AMD or Intel Gaudi hardware: SGLang's highest-performance optimizations (RadixAttention, custom CUDA kernels) are H100/A100-first; on AMD ROCm or Gaudi hardware, vLLM's more hardware-agnostic architecture typically produces better practical throughput; if you're evaluating Cerebras or Groq hardware for self-hosted inference, check each engine's hardware compatibility before committing to a serving stack</li>
+          <li>Migrate from TGI to vLLM or SGLang using the OpenAI-compatible REST API both provide: TGI, vLLM, and SGLang all expose an OpenAI-compatible /v1/completions and /v1/chat/completions endpoint, so your model client code doesn't change — only the server URL; run the migration in staging first, measure per-request latency and throughput on your specific models and traffic patterns, and use the empirical data to validate which engine fits your workload before switching production; plan for 2-4 hours of migration work for a typical production deployment</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>YottaLabs published two independent benchmark articles ('Best LLM Inference Engines in 2026: vLLM, SGLang & TensorRT-LLM' and 'vLLM vs SGLang in 2026: Speed, Throughput, and Cost Compared') with specific H100 benchmark figures — YottaLabs is an ML infrastructure company whose benchmark publications are based on production hardware experiments, making the 16,200 vs. 12,500 tok/s figures empirically grounded rather than theoretical</li>
+          <li>Hugging Face TGI maintenance mode is verifiable in the TGI GitHub repository and Hugging Face's official documentation redirect — a major infrastructure framework's transition to maintenance mode is a binary, verifiable state change that constitutes an explicit architectural forcing function for the developer community; multiple 2026 deployment guides now explicitly begin with 'choose vLLM or SGLang, not TGI'</li>
+          <li>TECHSY, Spheron, Particula, and DEV Community all published independent vLLM vs. SGLang comparisons in 2026 with H100 benchmark data — the convergence on SGLang's 29% throughput advantage and 6.4x prefix-cache gains across independent benchmark runs from different organizations with different testing methodologies is the most reliable signal of a consistent, reproducible performance difference</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.yottalabs.ai/post/vllm-vs-sglang-which-inference-engine-should-you-use-in-2026">YottaLabs: vLLM vs SGLang in 2026 — Speed, Throughput, and Cost Compared</a></li>
+          <li><a href="https://www.yottalabs.ai/post/best-llm-inference-engines-in-2026-vllm-tensorrt-llm-tgi-and-sglang-compared">YottaLabs: Best LLM Inference Engines in 2026 — vLLM, SGLang & TensorRT-LLM</a></li>
+          <li><a href="https://techsy.io/en/blog/vllm-vs-sglang">TECHSY: vLLM vs SGLang 2026 — H100 Benchmarks Inside</a></li>
+          <li><a href="https://particula.tech/blog/sglang-vs-vllm-inference-engine-comparison">Particula: SGLang vs vLLM in 2026 — Benchmarks, Architecture, and When to Use Each</a></li>
+          <li><a href="https://www.spheron.network/blog/vllm-vs-tensorrt-llm-vs-sglang-benchmarks/">Spheron Blog: vLLM vs TensorRT-LLM vs SGLang — H100 Benchmarks 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
