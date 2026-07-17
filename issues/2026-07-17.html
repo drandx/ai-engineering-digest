@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — July 17, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">July 17, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-07-16/google-gemini-launch-delayed-as-tech-falls-short-of-internal-goals">Gemini 3.5 Pro misses its third launch deadline — Bloomberg and 9to5Google confirm Google is now eyeing a Gemini 3.6 Flash stopgap while Gemini 3.5 Pro's coding regression (training data update in late June that 'disappointed') remains unresolved; prediction markets at 73% for August 7</a></li>
+      <li><a href="https://x.ai/news/grok-4-5">Grok 4.5 + Grok Build launched July 8: xAI's first IDE-partnership-trained frontier model scores 64.7% SWE-bench Pro and 83.3% Terminal-Bench 2.1 at $2/$6 per million tokens; joint Cursor training is the first public case of IDE-integrated dataset contaminating benchmark reporting — xAI disclosed and removed the data</a></li>
+      <li><a href="https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/">Kimi K2.7 Code is now in GitHub Copilot — the first open-weight model (1T params, 32B active, MIT license) ever in the platform's model picker; hosted on Azure so weights are auditable but data never leaves Microsoft infrastructure; off by default for Business/Enterprise with admin-controlled rollout</a></li>
+      <li><a href="https://blog.jetbrains.com/junie/2026/06/junie-coding-agent-out-of-beta/">JetBrains Junie exits beta as the #1 model-harness on SWE-Rebench at 61.6% (72.7% pass@5) — the only top-ranked coding agent that runs inside the real IDE debugger without external tool connections, making it the lowest-overhead entry point for IntelliJ/PyCharm/WebStorm teams</a></li>
+      <li><a href="https://github.com/openclaw/openclaw">OpenClaw 2026.7.2 ships remote cloud coding sessions — run Control UI on cloud workers, open Codex and Claude catalog sessions in terminals on their owning hosts, and resume OpenCode and Pi sessions directly; the most-starred GitHub repo ever (360K+) becomes a cloud-native personal agent platform</a></li>
+      <li><a href="https://opentelemetry.io/blog/2026/genai-observability/">OpenTelemetry GenAI Semantic Conventions are the production-adoption inflection point for standardized LLM observability: Datadog natively supports them, LangChain/CrewAI/AutoGen emit OTel-compliant spans, and MLflow documents the attribute schema — the fragmented era of vendor-specific LLM tracing is ending</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.bloomberg.com/news/articles/2026-07-16/google-gemini-launch-delayed-as-tech-falls-short-of-internal-goals">Gemini 3.5 Pro Misses Third Deadline: Bloomberg Confirms Coding Regression, Google Eyes Gemini 3.6 Flash Stopgap</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Gemini 3.5 Pro has missed its launch target three consecutive times — June, then July 17, and now beyond. Bloomberg reported on July 16 that Google's rebuilt model is 'falling short of internal goals,' with 9to5Google detailing the specific failure: Google updated Gemini's training data in late June specifically to fix coding performance, but 'the results were disappointing.' The model continues to show frequent hallucinations and inconsistent real-world workflow outputs. With the July 17 date now passed, prediction markets put August 7 at 73% likelihood for the next launch. Meanwhile, Google has registered model names including 'Gemini 3.6 Flash' and 'Gemini 3.5 Flash Light,' pointing to a stopgap Flash-family release designed to buy time for the flagship Pro development. The original architecture rebuild (scrapping Gemini 2.5 Pro entirely to start over) remains the stated reason for the delays.</p>
+      <div class="article-meta">
+        <span class="tag">Gemini35Pro</span>
+        <span class="tag">Google</span>
+        <span class="tag">DeepMind</span>
+        <span class="tag">ModelDelay</span>
+        <span class="tag">Gemini36Flash</span>
+        <span class="tag">Bloomberg</span>
+        <span class="tag">FrontierModel</span>
+        <span class="tag">CodingRegression</span>
+        <span class="tag">StopgapRelease</span>
+        <span class="tag">July2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Three missed deadlines on a flagship model that required a full architecture rebuild is the most significant public AI development setback of 2026 — and it matters to engineers for two concrete reasons. First, teams that were holding routing decisions (which frontier model to use for frontier-level tasks) pending Gemini 3.5 Pro can now stop waiting and proceed with evaluation of available options. The probability-weighted launch date is now after August 7, not July 17. Second, the nature of the failure — a June training data update targeting coding that 'disappointed' — is informative about what went wrong. Gemini 3.5 Pro's full rebuild from the Gemini 2.5 Pro base has apparently created a model that excels in areas other than coding, and the attempt to patch that with training data changes has not worked. For engineers building coding agents or code-intensive workflows, this means Gemini 3.5 Pro's headline 2M context window and Deep Think capabilities will remain unavailable for those specific use cases longer than any previously published timeline suggested. The stopgap strategy — Gemini 3.6 Flash — is the near-term Google inference story: if Flash ships before Pro, it indicates Google is prioritizing maintaining competitive presence over waiting for the more capable model. Flash-class models at Gemini pricing have historically offered strong throughput-per-dollar for inference-intensive applications, so a 3.6 Flash release would still be worth evaluating for teams that need Google's multimodal capabilities or Vertex AI integration on a workload where frontier-model quality isn't required.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Stop waiting for Gemini 3.5 Pro and finalize your frontier model selection now: with August 7 as the probability-weighted next target date (prediction markets at 73%), engineering teams that deferred model routing decisions to evaluate Gemini 3.5 Pro should make interim decisions using available models — GLM-5.2 for cost-sensitive coding at frontier-adjacent quality, Grok 4.5 for coding-intensive workloads at $2/$6 input/output, Fable 5 for quality-first tasks; plan a re-evaluation gate once Gemini 3.5 Pro actually ships</li>
+          <li>If a stopgap Gemini 3.6 Flash launches, evaluate it specifically for multimodal and throughput-heavy workloads rather than frontier coding tasks: Flash-family releases from Google have historically offered strong tokens-per-dollar performance on classification, extraction, summarization, and multimodal understanding tasks where the Pro tier's reasoning depth isn't required; if your team uses Gemini for those workloads, Gemini 3.6 Flash may be worth switching to on day one — it's likely to be cheaper and faster than Gemini 3.5 Pro would have been at equivalent input quality</li>
+          <li>For teams building Vertex AI integrations that depend on Gemini 3.5 Pro, update your internal launch-dependency timeline to assume no earlier than August 7 and build with what's available: Gemini 3.1 Pro Preview is the current highest-capability Gemini model in the public API; scope your Vertex AI pipeline to function with current available models and add Gemini 3.5 Pro as an upgrade switch once it reaches GA, rather than blocking on a launch date Google has missed three times</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Bloomberg published 'Google Gemini Launch Delayed as Tech Falls Short of Internal Goals' on July 16, 2026 — Bloomberg's technology news desk has enterprise readership and does not publish flagship model development stories without multiple primary source confirmations; this article is the authoritative source of record for the third missed deadline and the 'falls short of internal goals' characterization</li>
+          <li>9to5Google published 'Gemini 3.5 Pro delays due to coding performance, upgraded Flash model in testing' on July 16 — a separate independently sourced story providing the specific technical detail (coding performance regression from the late June training data update) that Bloomberg's broader business-focused story did not cover; two independently sourced stories publishing the same day from different outlets with complementary technical and business detail is the strongest journalistic signal of a real, multi-source-confirmed event</li>
+          <li>Geeky Gadgets confirmed registered model names 'Gemini 3.6 Flash' and 'Gemini 3.5 Flash Light' in a story titled 'Stopgap Gemini 3.6 Flash May Launch During Gemini 3.5 Pro Delay' — model name registration is a verifiable technical act (Google registers model names with its API infrastructure before launch); the presence of Flash-family names confirms Google is actively preparing releases in the interim period</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.bloomberg.com/news/articles/2026-07-16/google-gemini-launch-delayed-as-tech-falls-short-of-internal-goals">Bloomberg: Google Gemini Launch Delayed as Tech Falls Short of Internal Goals</a></li>
+          <li><a href="https://9to5google.com/2026/07/16/gemini-3-5-pro-delays/">9to5Google: Gemini 3.5 Pro Delays Due to Coding Performance, Upgraded Flash Model in Testing</a></li>
+          <li><a href="https://www.techtimes.com/articles/320736/20260716/rebuilt-gemini-35-pro-misses-third-deadline-google-eyes-stopgap-release.htm">TechTimes: Rebuilt Gemini 3.5 Pro Misses Third Deadline: Google Eyes Stopgap Release</a></li>
+          <li><a href="https://www.geeky-gadgets.com/gemini-3-5-pro-delayed-again/">Geeky Gadgets: Stopgap Gemini 3.6 Flash May Launch During Gemini 3.5 Pro Delay</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://x.ai/news/grok-4-5">Grok 4.5 + Grok Build: First IDE-Partnership-Trained Frontier Model — 64.7% SWE-bench Pro, $2/$6/M, Cursor Training Disclosure</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">xAI launched Grok 4.5 on July 8, 2026 as the company's strongest model to date — trained jointly with Cursor in what xAI calls the 'first frontier model built with an IDE integration partner from the ground up.' Training included trillions of tokens of Cursor interaction data capturing user-codebase interactions. Benchmark results: 64.7% on SWE-bench Pro, 83.3% on Terminal-Bench 2.1, and 62.0% on DeepSWE 1.0. Pricing is $2/M input and $6/M output tokens with configurable reasoning effort (low, medium, high; default high). Grok 4.5 is available in Grok Build (xAI's coding agent), Cursor on all plans, and the SpaceXAI API. A critical disclosure: an earlier snapshot of the Cursor codebase was accidentally included in training, giving Grok 4.5 a data advantage on CursorBench specifically. xAI disclosed this publicly, excluded CursorBench from published charts, and says the data is removed for future models. CursorBench is being redesigned. Grok 4.5 is not available in the EU.</p>
+      <div class="article-meta">
+        <span class="tag">Grok45</span>
+        <span class="tag">GrokBuild</span>
+        <span class="tag">xAI</span>
+        <span class="tag">SpaceXAI</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">SWEbench</span>
+        <span class="tag">TerminalBench</span>
+        <span class="tag">CodingAgent</span>
+        <span class="tag">IDEPartnership</span>
+        <span class="tag">BenchmarkContamination</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The joint xAI/Cursor training approach is the most structurally novel thing about Grok 4.5 — and the training disclosure is the most important thing that happened to benchmark credibility this week. The benefit of co-training with an IDE: a model that has 'seen' trillions of real developer-IDE interactions (tab completions accepted and rejected, code changes triggered by error messages, file edit sequences across a session) learns programming behavior in context rather than from static code corpora alone. The 83.3% Terminal-Bench 2.1 score is the operational signal: Terminal-Bench evaluates end-to-end task completion in a real terminal environment, not isolated code generation quality. Grok 4.5's Terminal-Bench performance at $2/M input is a meaningful price-performance point in the current market: GLM-5.2 scores 81.0 at $1.40/M, Grok 4.5 scores 83.3 at $2/M. The CursorBench contamination disclosure is why this story matters beyond the product launch: it's the first publicly documented case of IDE-integrated training data providing a benchmark advantage on IDE-sourced evaluations. Cursor is redesigning CursorBench specifically to prevent this, which will become the new standard for evaluating coding agents trained on IDE data. For teams evaluating Grok 4.5 on their own workloads, the implication is to run your evaluations on task types that are not well-represented in Cursor interaction data — novel codebases, unusual tool chains, non-mainstream languages — rather than standard web application coding tasks where the contamination advantage might persist.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Evaluate Grok 4.5 on Terminal-Bench-style end-to-end coding tasks as a cost alternative to Fable 5 for agentic coding: configure Grok 4.5 in your existing agentic coding pipeline (Grok Build for standalone, or the xAI API at $2/$6 per million tokens), run your standard task suite including multi-file refactors, test generation, and debugging sessions, and compare pass rates and cost-per-task against your current primary model; Grok 4.5's 83.3% Terminal-Bench 2.1 score at $2/M input is the data point to validate on your specific workload before committing</li>
+          <li>Use Grok 4.5 in Cursor as a supplementary model for high-throughput coding tasks within your existing subscription: Grok 4.5 is included in first-party model pool on all Cursor plans; in sessions where you have many repetitive coding tasks (generating boilerplate, adding type annotations, writing unit tests for existing code), route those to Grok 4.5 and reserve Fable 5 or your primary model for architectural decisions and complex debugging — this extends your effective model budget without changing your Cursor subscription</li>
+          <li>When designing coding agent benchmarks involving IDE data, require held-out test sets from codebases not represented in your training data: the Grok 4.5 CursorBench contamination is the worked example of why this matters; if you're evaluating models for a coding agent that will work on your proprietary codebase, evaluate on samples from that codebase specifically — not on public benchmarks that may share characteristics with any model's training data — and require the model vendor to disclose whether your codebase or similar repositories appeared in training</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Axios published 'Scoop: SpaceXAI launches new model, Grok 4.5' on July 8 as a primary news scoop — Axios scoops on AI model launches require embedded source relationships at the company; the scoop coverage indicates a pre-briefed launch with coordinated independent verification, not a marketing release</li>
+          <li>Cursor published an official Grok 4.5 integration blog post at cursor.com/blog/grok-4-5 with the contamination disclosure explicitly included — Cursor disclosing the CursorBench contamination on their own blog rather than waiting for third parties to discover it is the integrity signal that makes the disclosure itself trustworthy; the contamination acknowledgment is the most credible part of the launch, not the benchmark numbers</li>
+          <li>CIO Dive, DataCamp, Appwrite, and multiple other practitioner-facing publications covered Grok 4.5 with technical depth within 48 hours of launch — CIO Dive's enterprise technology audience and DataCamp's practitioner ML audience indicate that the model is being evaluated for real deployment, not just noted as an announcement</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://x.ai/news/grok-4-5">SpaceXAI: Introducing Grok 4.5</a></li>
+          <li><a href="https://cursor.com/blog/grok-4-5">Cursor Blog: Introducing Grok 4.5</a></li>
+          <li><a href="https://www.axios.com/2026/07/08/spacexai-grok-new-model">Axios Scoop: SpaceXAI Launches Grok 4.5</a></li>
+          <li><a href="https://www.ciodive.com/news/xAI-coding-agents-Grok-Build/820422/">CIO Dive: xAI Joins Crowded Coding Agent Race with Grok Build</a></li>
+          <li><a href="https://benchlm.ai/models/grok-4-5">BenchLM: Grok 4.5 Benchmarks, Pricing & Speed (July 2026)</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/">Kimi K2.7 Code Lands in GitHub Copilot: The First Open-Weight Model in the Platform — MIT License, Azure-Hosted, Enterprise Admin Controls</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">GitHub made Moonshot AI's Kimi K2.7 Code generally available in the Copilot model picker on July 1, 2026 — the first time an open-weight model has appeared in the platform's five-year history. The model uses a mixture-of-experts architecture: 1 trillion total parameters, 32 billion active per token. Weights are MIT-licensed and publicly available on Hugging Face. Inference is hosted by GitHub on Microsoft Azure — data never flows to Moonshot AI's infrastructure. Kimi K2.7 Code is available immediately for Copilot Pro, Pro+, and Max. For Business and Enterprise plans (available since July 7), it is off by default and requires plan administrators to explicitly enable it in Copilot settings before users can select it. IDE support spans VS Code, JetBrains, Xcode, Eclipse, and the Copilot CLI. The model is billed at provider list pricing under usage-based billing rather than as part of included seat credits.</p>
+      <div class="article-meta">
+        <span class="tag">KimiK27</span>
+        <span class="tag">GitHubCopilot</span>
+        <span class="tag">MoonshotAI</span>
+        <span class="tag">OpenWeight</span>
+        <span class="tag">MIT</span>
+        <span class="tag">Azure</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">ModelPicker</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">CopilotBusiness</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>GitHub adding an open-weight model to Copilot's model picker is a category shift in how the platform frames model choice for enterprise developers. Every prior Copilot model addition — OpenAI models, Claude, Gemini — has been proprietary: architecture undisclosed, weights unavailable, compliance based entirely on the vendor's attestations. Kimi K2.7 Code breaks that pattern. The MIT license means any organization can download and inspect exactly what model their developers are using, verify that the architecture matches what GitHub claims to be running, and run a private deployment if they later need to. The Azure hosting is the enterprise compliance piece: even though the weights are public, data flows only through Microsoft's Azure infrastructure — the same data processing agreements enterprises already have for Microsoft 365 and GitHub Enterprise apply here. For enterprise security teams that have been blocking all third-party AI model integration because of unclear data governance, Kimi K2.7 Code in Copilot is the first open-weight option that comes with Microsoft's data processing agreements attached. The admin-controlled rollout (off by default for Business/Enterprise, requires explicit policy enablement) is designed for exactly this use case: it lets enterprise security and AI governance teams evaluate the model in a controlled rollout before exposing it to the broader organization. For individual developers on Pro/Pro+/Max who are looking for a lower-cost model for routine coding tasks (boilerplate generation, test scaffolding, documentation) while preserving their premium model budget for complex work, Kimi K2.7 Code's architecture (32B active parameters from a MoE design) makes it responsive for straightforward tasks at lower cost than the full frontier models.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Enable Kimi K2.7 Code in your Copilot Business or Enterprise plan and use it for high-volume routine coding tasks to manage premium model costs: in Copilot settings, navigate to 'Models & Policies' and enable the Kimi K2.7 Code policy for your organization; route boilerplate generation, docstring writing, unit test scaffolding, and code formatting suggestions to Kimi K2.7 Code by selecting it in the model picker, reserving your higher-context premium models for debugging sessions, architectural decisions, and complex cross-file refactors; the 32B active parameter MoE architecture makes Kimi K2.7 fast and responsive for these routine tasks</li>
+          <li>Use Kimi K2.7 Code's MIT-licensed weights for compliance audits and AI governance: download the model weights from Hugging Face and inspect the architecture with your AI governance team; verify that the model being run in Copilot matches the architecture you downloaded (by checking Moonshot AI's model card against what GitHub's Copilot API reports as the active model version); this is the audit path that proprietary Copilot models have never provided — you can now confirm not just that Microsoft hosts the inference, but that the model itself matches the published, inspectable weights</li>
+          <li>For developers on Copilot Pro/Pro+/Max, use Kimi K2.7 Code to extend the effective range of your premium model budget: treat the model picker as a task router — switch to Kimi K2.7 Code for code-completion-style tasks (finishing functions, generating test cases, adding error handling) and switch back to your primary model for tasks requiring deep contextual understanding (debugging multi-file regressions, designing new features, code review); this doubles your effective usage of premium models by reserving them for tasks where the quality difference is measurable</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official GitHub Changelog entry at github.blog/changelog/2026-07-01 documents the general availability announcement — the GitHub Changelog is the authoritative primary source for all Copilot feature releases; a Changelog entry constitutes official product documentation, not a press release; the follow-up July 7 changelog confirming Business/Enterprise availability is a second official source confirming the rollout progressed on schedule</li>
+          <li>AlphaSignal published 'GitHub Drops Moonshot AI's Open-Weight Kimi K2.7 Into Copilot's Model Picker' — AlphaSignal's curation algorithm surfaces releases with verified engineering community interest (GitHub activity signals, developer forum discussion); coverage on AlphaSignal indicates the open-weight addition generated substantial developer reaction, not just enterprise PR attention</li>
+          <li>TechTimes, Enterprise DNA, and Windows Forum all published independent analyses in the July 1-7 window specifically focusing on the enterprise and compliance implications of the first open-weight Copilot model — independent enterprise-focused coverage within the first 48 hours indicates that the compliance and governance dimensions of this release are generating practitioner discussion, which is the signal of real enterprise evaluation activity rather than curiosity</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/">GitHub Changelog: Kimi K2.7 Code Is Generally Available in GitHub Copilot</a></li>
+          <li><a href="https://github.blog/changelog/2026-07-07-kimi-k2-7-now-available-for-copilot-business-and-enterprise/">GitHub Changelog: Kimi K2.7 Now Available for Copilot Business and Enterprise</a></li>
+          <li><a href="https://alphasignal.ai/news/github-drops-moonshot-ai-s-open-weight-kimi-k2-7-into-copilot-s-model-picker">AlphaSignal: GitHub Drops Moonshot AI's Open-Weight Kimi K2.7 Into Copilot's Model Picker</a></li>
+          <li><a href="https://www.techtimes.com/articles/319556/20260702/open-weight-ai-enters-github-copilot-kimi-k27-code-costs-less-audits-differently.htm">TechTimes: Open-Weight AI Enters GitHub Copilot — Kimi K2.7 Code Costs Less, Audits Differently</a></li>
+          <li><a href="https://enterprisedna.co/resources/news/kimi-k2-7-github-copilot-open-weight-enterprise-developers-2026/">Enterprise DNA: The First Open-Weight AI Model Just Landed in GitHub Copilot</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/junie/2026/06/junie-coding-agent-out-of-beta/">JetBrains Junie Exits Beta: #1 on SWE-Rebench at 61.6%, Runs the Real IDE Debugger, Zero External Tool Connections Required</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">JetBrains' AI coding agent Junie left beta in June 2026, with a July 2026 state-of-play assessment placing it as the top model-harness on SWE-Rebench (the independent successor to SWE-bench for agent-harness evaluation) at 61.6% resolved and 72.7% pass@5. Junie is architecturally distinct from terminal-based agents like Claude Code, Grok Build, and OpenCode: it runs entirely inside JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm, GoLand, Rider) with direct access to the IDE's file tree, build system, run configurations, test runner, version control, and — critically — the real debugger. Junie plans before coding (generates a structured edit plan before making file changes), debugs using the IDE's actual debug step-through rather than print statements or error text, reviews PRs with full project context, and handles long background tasks while the developer focuses on other work. No external MCP server setup, no tool connection configuration — Junie's tooling is the IDE itself.</p>
+      <div class="article-meta">
+        <span class="tag">JetBrains</span>
+        <span class="tag">Junie</span>
+        <span class="tag">IntelliJ</span>
+        <span class="tag">PyCharm</span>
+        <span class="tag">AIAgent</span>
+        <span class="tag">SWERebench</span>
+        <span class="tag">IDEAgent</span>
+        <span class="tag">Debugger</span>
+        <span class="tag">CodeReview</span>
+        <span class="tag">OutOfBeta</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Junie's architectural bet — run the agent inside the IDE rather than in a terminal alongside it — resolves a real pain point that terminal-based agents have. When Claude Code or Grok Build hits a runtime error, it reads the error message in text and tries to infer what went wrong. When Junie hits a runtime error, it can set a breakpoint and step through the call stack in the actual IntelliJ debugger, reading variable state directly rather than inferring from log output. This distinction matters most for debugging tasks: a terminal agent that can only observe error text has to write diagnostic code to expose the state it can't see; a debugger-connected agent can inspect it directly. The 61.6% SWE-Rebench result is notable because SWE-Rebench is a harness-evaluation — it scores the full model-plus-agent combination, not just the model alone. Junie's performance is therefore a compound signal: strong enough model capability (JetBrains hasn't published which underlying model powers Junie), strong enough IDE integration, and strong enough planning behavior to rank #1 on an agent-harness evaluation. For the large population of engineers who already use IntelliJ-family IDEs as their primary environment — especially Java, Kotlin, Python, and Go developers who have deeply customized IntelliJ project setups — Junie is the path of least resistance to production-quality AI-assisted coding: no new CLI tools, no second terminal session, no MCP configuration. The plugin installs from JetBrains Marketplace and the agent is aware of your existing project configuration immediately.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Install Junie from JetBrains Marketplace and use it for your hardest debugging sessions instead of your terminal coding agent: when you have a failing test or runtime error that requires understanding internal state (not just reading the error message), use Junie to step through the call stack in IntelliJ's real debugger; Junie can set breakpoints, observe variable values at each frame, and iterate on code changes within the same debugger session — this is the task type where a native IDE agent provides the most concrete advantage over terminal agents that can only read error text</li>
+          <li>Use Junie's planning mode for multi-file refactors before execution: Junie generates a structured edit plan that lists each file it intends to change and what change it will make before executing; review the plan for correctness (checking that the right files are in scope, that the change description matches your intent) before approving execution; this review step catches scope errors (editing files you didn't intend to modify) before any code changes are made, which is the most common cause of agent-assisted refactor failures</li>
+          <li>For PR reviews with JetBrains, let Junie run the review with full project context: Junie has access to your project's build system, type system, and test runner during PR review — it can validate that a change compiles, run the affected test suite, and evaluate the change against the project's existing patterns in a way that a language model reviewing the raw diff cannot; use Junie's PR review output as a first pass that catches build-breaking changes and test regressions, then apply your own judgment to the design and logic questions</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>JetBrains published the out-of-beta announcement at blog.jetbrains.com/junie in June 2026 — an official JetBrains blog post announcing production availability is the primary source of record; JetBrains is a publicly known company with a 30M-developer user base across IntelliJ-family IDEs, and a production release from JetBrains reaches a large, established developer audience by default</li>
+          <li>SWE-Rebench #1 harness ranking at 61.6% (72.7% pass@5) is cited independently by MCP.Directory, VibecodingHub, and JetBrains Junie's official documentation — the ranking appears consistently across independent sources; SWE-Rebench is the benchmark successor to the original SWE-bench, with an independent evaluation methodology that prevents self-reported numbers from single vendors</li>
+          <li>EveryDev.ai, Pickuma.com, SingularityMoments.com, and VibecodingHub.org each published independent Junie reviews and guides in July 2026, all noting the IDE-native debugger access as the differentiating feature over terminal agents — the convergence on the same feature as the primary differentiator across independently written reviews indicates practitioners who have used Junie identify debugger access as the concrete advantage, not a marketing claim</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.jetbrains.com/junie/2026/06/junie-coding-agent-out-of-beta/">JetBrains Blog: Junie — The AI Coding Agent Leaves Beta</a></li>
+          <li><a href="https://www.jetbrains.com/junie/">JetBrains: Junie — The AI Coding Agent</a></li>
+          <li><a href="https://plugins.jetbrains.com/plugin/26104-junie-the-ai-coding-agent-by-jetbrains">JetBrains Marketplace: Junie Plugin</a></li>
+          <li><a href="https://mcp.directory/blog/junie-jetbrains-coding-agent-2026">MCP.Directory: Junie by JetBrains — AI Coding Agent (2026)</a></li>
+          <li><a href="https://pickuma.com/for-dev/jetbrains-junie-review-intellij-native-ai-agent/">Pickuma: JetBrains Junie Review — IntelliJ's Native AI Coding Agent, Tested</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/openclaw/openclaw">OpenClaw 2026.7.2: The Most-Starred GitHub Repo Ever Gets Remote Cloud Coding Sessions and Expanded Provider Support</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenClaw — the open-source personal AI assistant that in April 2026 became the most-starred repository in GitHub history at 347,000+ stars (now 360,000+) — shipped its 2026.7.2 release in July with the headline feature of remote cloud coding sessions: you can now run Control UI sessions on cloud workers, open Codex and Claude catalog sessions in terminals on their owning hosts, and resume OpenCode and Pi sessions directly in a terminal. The 2026.7.1 release (shipping alongside) added major updates to official iOS, Android, and macOS apps, expanded model and provider support including GPT-5.6 compatibility, Tencent Hy3, and Meta Muse Spark 1.1, and strengthened Codex and Claude-connected coding-agent workflows. OpenClaw is a self-hosted personal AI agent you run across your own devices — it connects to messaging channels (Telegram, Slack, Discord, Apple Messages), runs local and remote LLMs, executes shell commands, and manages files — without sending data to a centralized service.</p>
+      <div class="article-meta">
+        <span class="tag">OpenClaw</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">SelfHosted</span>
+        <span class="tag">PersonalAI</span>
+        <span class="tag">CloudCoding</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">RemoteAgent</span>
+        <span class="tag">CodingAgent</span>
+        <span class="tag">LocalLLM</span>
+        <span class="tag">MostStarred</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>OpenClaw's trajectory — from zero to most-starred GitHub repository in history in approximately 60 days — is the most dramatic open-source AI adoption story of 2026 and reflects a genuine developer demand: a self-hosted AI assistant that you can run everywhere (your Mac, your Linux server, your phone) without a SaaS subscription or your data leaving your infrastructure. The 2026.7.2 remote coding session feature is where OpenClaw becomes interesting for AI engineering workflows specifically: by running OpenClaw Control UI on a cloud worker, you can initiate coding sessions (Codex, Claude Code-style catalog sessions) that run on the cloud host rather than your local machine, persist across local network interruptions, and are accessible from your phone or any device running the OpenClaw app. This is the 'coding agent as infrastructure' pattern: rather than running a terminal agent session locally that dies when your laptop closes, you spin up a persistent remote session through OpenClaw that runs independently and you can reconnect to. The 360K+ stars are the real-traction signal, but the model here is adoption-through-simplicity: OpenClaw installs without configuration overhead, connects to models you already have access to, and integrates with messaging channels developers already use. The Discord server at 180,000 members and r/openclaw at 450,000+ members are the community scale signals that validate the star count isn't an artifact of gaming. For teams evaluating self-hosted personal AI tooling as an alternative to managed ChatGPT or Claude Pro subscriptions, OpenClaw is the most mature option in the space.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use OpenClaw 2026.7.2's remote coding sessions to run persistent cloud-hosted agent sessions: install OpenClaw on a cloud worker (AWS EC2, DigitalOcean Droplet, GCP VM), start a Control UI session, and open a Codex or Claude catalog session in a terminal on that host; the session persists independently of your local machine — you can start a long-running coding task (a large refactor, a test suite migration), close your laptop, and reconnect from your phone or another machine to check progress and give feedback; this pattern converts your cloud VM into a persistent coding agent host rather than a laptop-dependent ephemeral terminal session</li>
+          <li>Set up OpenClaw to handle coding-related Slack or Discord notifications autonomously: connect OpenClaw to your team Slack or project Discord, configure it with a system prompt that defines what kinds of requests it should handle (creating GitHub issues from bug reports, looking up documentation, running test commands and reporting results), and let it operate as a background agent for your team's messaging channels; OpenClaw 2026.7.2's improved Slack threading, card handling, and reaction support makes it the most capable version yet for production team use</li>
+          <li>Replace a managed AI subscription with self-hosted OpenClaw for personal development use: install OpenClaw on your personal machine or a small VPS, connect it to your existing API keys (Anthropic, OpenAI, or local Ollama models), and access it from your iPhone/Android via the OpenClaw mobile app; you get a persistent AI assistant that knows your project context, has access to your local files, and runs on models you control — at API cost rather than subscription cost; for power users making 50,000+ tokens per day of requests, self-hosted OpenClaw typically breaks even against a Claude Pro or ChatGPT Plus subscription within the first month</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>OpenClaw became the most-starred repository in GitHub history in April 2026 — GitHub star counts are tracked server-side by GitHub's infrastructure and are publicly verifiable at the repository URL; 360,000+ stars is a verifiable fact at github.com/openclaw/openclaw, not an estimate; this is the most objective traction signal available for an open-source project</li>
+          <li>Discord server at 180,000 members and r/openclaw at 450,000+ members as of April 2026 — community membership at this scale is proportionally consistent with the star count and represents an active user base, not passive observers; Discord members and subreddit members are communities that engage daily, not passive followers</li>
+          <li>DigitalOcean published an official 'What is OpenClaw?' explainer article at digitalocean.com — DigitalOcean only publishes explainer articles for tools with verifiable developer adoption on their infrastructure; publication by a cloud infrastructure provider is an independent signal of real deployment activity rather than GitHub star collection</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/openclaw/openclaw">GitHub: openclaw/openclaw — Your Own Personal AI Assistant</a></li>
+          <li><a href="https://openclaw.ai/">OpenClaw.ai — Personal AI Assistant</a></li>
+          <li><a href="https://releasebot.io/updates/openclaw">Releasebot: OpenClaw Release Notes — July 2026</a></li>
+          <li><a href="https://www.gradually.ai/en/changelogs/openclaw/">Gradually.ai: OpenClaw Changelog (July 2026)</a></li>
+          <li><a href="https://www.digitalocean.com/resources/articles/what-is-openclaw">DigitalOcean: What is OpenClaw? Your Open-Source AI Assistant for 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://opentelemetry.io/blog/2026/genai-observability/">OpenTelemetry GenAI Semantic Conventions: The Emerging Standard for LLM, Agent, and MCP Observability — Datadog Native Support, LangChain/CrewAI/AutoGen Emit OTel Spans</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">OpenTelemetry graduated from the CNCF in May 2026 with its GenAI Semantic Conventions reaching production maturity — a standardized attribute schema for capturing LLM calls, agent orchestration traces, MCP tool invocations, and AI quality metrics within the OTel span model. The conventions specify: gen_ai.request.model (the model being called), gen_ai.usage.input_tokens and gen_ai.usage.output_tokens, gen_ai.response.finish_reasons, gen_ai.tool.name and gen_ai.tool.call.id for tool invocations, and opt-in content capture (full prompt and completion text) via events rather than span attributes. Datadog published native OTel GenAI Semantic Convention support in a July 2026 blog post. LangChain, CrewAI, AutoGen, and AG2 now emit OTel-compliant spans natively or via instrumentation packages. MLflow documents OTel GenAI conventions in its official tracing documentation. Greptime published a technical deep-dive on how the conventions trace LLM calls, agent reasoning, and MCP tool calls in a unified span model.</p>
+      <div class="article-meta">
+        <span class="tag">OpenTelemetry</span>
+        <span class="tag">GenAI</span>
+        <span class="tag">SemanticConventions</span>
+        <span class="tag">LLMObservability</span>
+        <span class="tag">CNCF</span>
+        <span class="tag">Datadog</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">MCP</span>
+        <span class="tag">AgentTracing</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The fragmentation problem in LLM observability has been real: every observability vendor (Langfuse, Arize, LangSmith, Datadog, Honeycomb) has used proprietary span formats for LLM traces, meaning that switching vendors or adding a second tool requires re-instrumenting your application. OpenTelemetry GenAI Semantic Conventions end this: once your application emits OTel-compliant GenAI spans, any OTel-compatible backend (Datadog, Honeycomb, Grafana, Jaeger, your own collector) can receive and query those traces without application changes. The framework-level emission is the adoption accelerant: if you use LangChain, CrewAI, AutoGen, or AG2, you are likely already emitting OTel-compliant spans in your current version without any configuration — the frameworks added instrumentation packages that do it automatically. The MCP tool tracing coverage is the AI engineering-specific advance: OTel GenAI conventions now standardize how MCP tool call initiation, tool response, and tool error are captured within agent traces; you can see exactly which MCP tool was called, with what arguments, what it returned, and how long it took, in the same trace view as the LLM calls that triggered it. For teams building multi-agent systems where a request flows across multiple model calls and MCP tool invocations, a single unified trace that covers the entire path — from user request through agent reasoning through tool calls through final response — is the operational visibility primitive that makes debugging production agents tractable.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Add OTel GenAI tracing to your LangChain or CrewAI agent in under 30 minutes with zero code changes: install the opentelemetry-instrumentation-langchain or opentelemetry-instrumentation-crewai package for your framework, configure an OTel exporter pointing at your preferred backend (Datadog, Honeycomb, or a self-hosted collector), and restart your application; the instrumentation package automatically wraps all LLM calls and agent steps with OTel spans using the GenAI Semantic Conventions; you'll immediately see gen_ai.usage.input_tokens, gen_ai.usage.output_tokens, and gen_ai.response.finish_reasons in your trace data without modifying a single line of application code</li>
+          <li>Build a unified trace view for multi-agent, multi-tool pipelines using OTel GenAI spans: if your production agent calls multiple LLMs and multiple MCP tools in sequence, configure each component (the LLM client, the MCP tool executor, the agent orchestrator) to emit OTel spans with a shared trace ID propagated via OTel's W3C trace context headers; the resulting trace will show the complete request path as a single tree — user request at root, agent reasoning spans as children, LLM call spans as grandchildren, MCP tool call spans as great-grandchildren — with latency, token counts, and errors captured at each level; this is the observability primitive you need to diagnose why a specific agent invocation took 3x longer than average</li>
+          <li>Use OTel GenAI's opt-in content capture to build a debugging dataset for failed agent runs: configure your OTel exporter to capture events (which include the full prompt and completion text when opted in) for agent invocations where finish_reason is 'error' or 'tool_call_error'; route those events to a separate storage backend (an S3 bucket, a Langfuse dataset, a ClickHouse table) and use them as the raw material for your adversarial eval set; real production failures captured with full context (the prompt, the tool call that failed, the error message, the model's reasoning) are higher-quality eval data than synthetically generated failure cases</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>OpenTelemetry graduated from CNCF in May 2026 — CNCF graduation is a formal process requiring demonstrated production adoption across multiple organizations, a documented governance model, and passing a security audit; CNCF graduation is the standard signal that an open-source infrastructure project has moved from 'early adopter' to 'production standard'</li>
+          <li>Datadog published 'Datadog Agent Observability natively supports OpenTelemetry GenAI Semantic Conventions' at datadoghq.com — Datadog publishes native-support blog posts only when a standard is production-stable and has sufficient enterprise customer demand to justify the engineering investment; Datadog's native support is the enterprise adoption signal that a standard has crossed from emerging to mainstream</li>
+          <li>MLflow, LangChain, CrewAI, AutoGen, and AG2 all emit OTel GenAI spans natively as of mid-2026 — when five independently maintained AI frameworks adopt the same observability standard without coordination in the same release cycle, the convergence indicates practitioner demand rather than coordination by a single standards body</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://opentelemetry.io/blog/2026/genai-observability/">OpenTelemetry Blog: Inside the LLM Call — GenAI Observability with OpenTelemetry</a></li>
+          <li><a href="https://www.datadoghq.com/blog/llm-otel-semantic-convention/">Datadog Blog: Agent Observability Natively Supports OpenTelemetry GenAI Semantic Conventions</a></li>
+          <li><a href="https://greptime.com/blogs/2026-05-09-opentelemetry-genai-semantic-conventions">Greptime: How OpenTelemetry Traces LLM Calls, Agent Reasoning, and MCP Tools</a></li>
+          <li><a href="https://mlflow.org/docs/latest/genai/tracing/opentelemetry/genai-semconv/">MLflow: OpenTelemetry GenAI Semantic Conventions</a></li>
+          <li><a href="https://dev.to/x4nent/opentelemetry-genai-semantic-conventions-the-standard-for-llm-observability-1o2a">DEV Community: OpenTelemetry GenAI Semantic Conventions — The Standard for LLM Observability</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://stateofopensource.ai/">The Most-Watched AI Infra Benchmark of Q3: Terminal-Bench 2.1 Is Now the Industry Standard for End-to-End Agent Evaluation</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">As of July 2026, Terminal-Bench 2.1 has emerged as the primary benchmark for evaluating AI coding agents — both models and agent-harness combinations — on end-to-end task completion in a real terminal environment. The benchmark runs agents against real software engineering tasks in a live Linux terminal with actual codebases, real test runners, and real build systems, measuring whether the agent achieves the intended outcome (all tests pass, the build succeeds, the feature works) rather than whether generated code looks correct in isolation. The July 2026 top scores: Grok 4.5 at 83.3%, Claude Fable 5 at ~80%, OpenCode with GLM-5.2 at 81.0%, JetBrains Junie at 61.6% (SWE-Rebench). The Thoughtworks Technology Radar, the State of Open Source AI report, and multiple practitioner surveys now reference Terminal-Bench 2.1 as the benchmark to check first when evaluating coding agents for production use.</p>
+      <div class="article-meta">
+        <span class="tag">TerminalBench</span>
+        <span class="tag">SWEbench</span>
+        <span class="tag">CodingAgent</span>
+        <span class="tag">Benchmarks</span>
+        <span class="tag">AgentEval</span>
+        <span class="tag">EndToEnd</span>
+        <span class="tag">ProductionAI</span>
+        <span class="tag">ModelEvaluation</span>
+        <span class="tag">AIInfrastructure</span>
+        <span class="tag">July2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The proliferation of AI coding benchmarks (HumanEval, MBPP, SWE-bench original, SWE-bench Pro, Terminal-Bench 1.x, DeepSWE, SWE-Rebench, CursorBench) has created a credibility problem: vendors publish the benchmark where their model scores best, and engineers are left without a single shared reference point for 'which agent actually completes real coding tasks.' Terminal-Bench 2.1 has resolved this through a combination of design properties that competitors haven't matched: it tests in a real Linux environment (not sandboxed Python execution), it requires end-to-end task completion (not just generating a diff), it uses a fresh codebase per task (preventing memorization), and it measures pass@1 (first attempt success) which is the metric that matters for production agentic workloads where retrying a 5-minute task is costly. The convergence of the AI engineering community on Terminal-Bench 2.1 as the primary evaluation reference — cited independently by Thoughtworks, the State of Open Source AI report, LogRocket, and multiple practitioner guides in the same month — is the benchmark credibility signal. For teams building their own internal coding agent evaluations, the Terminal-Bench design principles (live environment, end-to-end task completion, pass@1 measurement, fresh codebases) are the quality standards to match when building your own benchmark for your specific workload.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use Terminal-Bench 2.1 scores as your first filter when evaluating coding agents: sort by Terminal-Bench 2.1 score to get the initial ranking (Grok 4.5 83.3%, Fable 5 ~80%, GLM-5.2 81.0%, Junie 61.6% harness-only), then narrow to your cost bracket (GLM-5.2 at $1.40/M for cost-sensitive, Fable 5 at $10/M for quality-first), then run your own evaluation on tasks from your specific codebase and language stack; Terminal-Bench 2.1 tells you baseline end-to-end completion capability, but your workload distribution may favor a different ranking</li>
+          <li>Build your internal coding agent benchmark with Terminal-Bench design principles: use a live terminal environment (Docker container with your standard dev environment), require end-to-end task completion (tests pass, build succeeds), measure pass@1 (first attempt only, no retries), and use fresh task variants for each evaluation run (no cached task state between evaluations); these four properties eliminate the confounders (sandboxed execution, code-only evaluation, retry allowances, test set memorization) that make most synthetic benchmarks poor predictors of real production performance</li>
+          <li>When a vendor's coding agent benchmark exceeds Terminal-Bench 2.1 scores significantly on a proprietary benchmark, check for training data overlap: the Grok 4.5/CursorBench contamination case establishes the failure mode — a model can score anomalously high on a benchmark whose evaluation tasks share characteristics with its training data; when a model scores 15%+ above its Terminal-Bench 2.1 performance on a proprietary benchmark, the first hypothesis to investigate is training-eval overlap, not genuine capability advantage</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Grok 4.5 (83.3%), Claude Fable 5 (~80%), and GLM-5.2 (81.0%) all report Terminal-Bench 2.1 as a primary benchmark in their official launch materials — when three independently launched frontier models from different vendors all cite the same benchmark as a primary evaluation metric, the benchmark has achieved the status of industry standard by practitioner adoption, not by committee designation</li>
+          <li>The State of Open Source AI V1.0 July 2026 report (stateofopensource.ai) and the Thoughtworks Technology Radar both reference Terminal-Bench 2.1 as the benchmark for evaluating AI coding agent performance — independent citation in both a practitioner community report and an enterprise technology assessment report indicates adoption across both individual developer and enterprise evaluation workflows</li>
+          <li>LogRocket's July 2026 AI Dev Tool Power Rankings use Terminal-Bench 2.1 scores alongside WebDev Arena Elo as the primary quantitative benchmarks — LogRocket's practitioner-focused rankings are the most cited monthly AI tool comparison; adoption as a LogRocket ranking input is the commercial practitioner adoption signal</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://stateofopensource.ai/">State of Open Source AI — V1.0 July 2026</a></li>
+          <li><a href="https://x.ai/news/grok-4-5">SpaceXAI: Grok 4.5 — 83.3% Terminal-Bench 2.1</a></li>
+          <li><a href="https://benchlm.ai/models/grok-4-5">BenchLM: Grok 4.5 Benchmarks, Pricing & Speed</a></li>
+          <li><a href="https://blog.logrocket.com/ai-dev-tool-power-rankings/">LogRocket: AI Dev Tool Power Rankings — July 2026</a></li>
+          <li><a href="https://www.thoughtworks.com/radar/languages-and-frameworks/pydantic-ai">Thoughtworks Technology Radar (July 2026)</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
