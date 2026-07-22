@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — July 22, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">July 22, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://ai.google.dev/gemini-api/docs/changelog">Gemini 3.6 Flash went GA on July 21 — 17% fewer tokens than 3.5 Flash, stronger agentic benchmarks, built-in Computer Use, 1M-token context, $1.50/M input / $7.50/M output; Google simultaneously released Flash-Lite (cost-optimized) and Flash Cyber (security-tuned, governments only), and teased a Gemini 4 roadmap</a></li>
+      <li><a href="https://github.blog/changelog/2026-07-20-github-code-quality-is-now-generally-available/">GitHub Code Quality moved to GA on July 20 — billing starts automatically at $10/committer/month for CodeQL + AI-assisted detection + Copilot Autofix; over 10,000 enterprises used the public preview; if your org ran the preview, you are being billed now without an opt-in confirmation step</a></li>
+      <li><a href="https://thenextweb.com/news/grok-build-uploaded-entire-git-repositories-secrets">Grok Build (xAI) was silently uploading entire Git repositories — full commit history, API keys, SSH keys — to a GCS bucket; the upload ran regardless of the 'Improve the model' privacy toggle; xAI open-sourced the 844K-line Rust codebase on July 15 (Apache 2.0), but security researchers confirm the exfiltration code remains, gated only by a server-side flag xAI can re-enable without a software update</a></li>
+      <li><a href="https://openclaw.ai/blog/introducing-openclaw-foundation">OpenClaw crossed 378K+ GitHub stars and formed a 501(c)(3) foundation on July 8 — ClawRouter, the new routing and governance layer, adds credential-scoped model catalogs, quotas, budget reporting, and OpenAI-compatible transport; v2026.7.1 beta (July 13) makes GPT-5.6 the new default</a></li>
+      <li><a href="https://arxiv.org/abs/2606.26493">NVIDIA open-released Nemotron-Labs-TwoTower — a frozen AR context tower + trainable diffusion denoiser that delivers 2.42x token throughput at 98.7% of baseline benchmark quality, with no full pretraining required; available as open weights for commercial use</a></li>
+      <li><a href="https://www.helpnetsecurity.com/2026/07/20/mozilla-open-source-ai-adoption-report/">Mozilla's open-source AI adoption report (July 20): 79% of developers use open-weight models for new AI functionality, but only 51% of open-model teams reach production — vs. 63% for closed-model teams; the gap comes from integration complexity, eval debt, and the lack of managed inference SLAs</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://ai.google.dev/gemini-api/docs/changelog">Gemini 3.6 Flash GA: 17% Fewer Tokens, Built-In Computer Use, and Three Models Released July 21</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Google released Gemini 3.6 Flash as a generally available production model on July 21, 2026, alongside Gemini 3.5 Flash-Lite (cost-optimized variant) and Gemini 3.5 Flash Cyber (security-tuned, restricted to governments and vetted security partners). Gemini 3.6 Flash is Google's 'workhorse model' for coding, knowledge work, and multimodal tasks — it consumes 17% fewer tokens than 3.5 Flash, delivers higher precision on agentic benchmarks with fewer unwanted code edits, and includes built-in Computer Use, thinking controls, and a 1-million-token context window with 64k maximum output. API pricing: $1.50/M input and $7.50/M output. Model ID: gemini-3.6-flash. Available now on the Gemini API via Google AI Studio, Android Studio, and Gemini Enterprise. Google simultaneously teased a Gemini 4 roadmap update.</p>
+      <div class="article-meta">
+        <span class="tag">Gemini</span>
+        <span class="tag">Google</span>
+        <span class="tag">GeminiAPI</span>
+        <span class="tag">ComputerUse</span>
+        <span class="tag">Multimodal</span>
+        <span class="tag">LLM</span>
+        <span class="tag">AgenticAI</span>
+        <span class="tag">ModelRelease</span>
+        <span class="tag">Flash</span>
+        <span class="tag">July2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 17% token reduction is the most immediately actionable number in this release. If your application already runs on Gemini 3.5 Flash, upgrading to gemini-3.6-flash is a drop-in model ID change that reduces your billing by 17% with no prompt or integration changes required — the model handles the same inputs and produces the same interface. For high-volume Gemini workloads (autocomplete, document processing, RAG retrieval), that's money back without any engineering work. The built-in Computer Use is the architectural upgrade: Gemini 3.6 Flash can now browse the web, click, scroll, and fill forms natively without a separate computer-use API or wrapper. For agent workflows that currently chain Gemini with a browser automation tool (Playwright, Puppeteer), this collapses two calls into one, simplifying the agent loop and reducing latency by a full round-trip. The Gemini 3.5 Flash Cyber release is worth tracking even if it's inaccessible: it's the first time Google has shipped a security-tuned model variant restricted to institutional access, signaling a model family governance strategy where safety-constrained variants co-exist with general-purpose ones — a pattern that shows where frontier model access governance is heading.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Upgrade all gemini-3.5-flash calls in your application to gemini-3.6-flash — the API is backward-compatible with no prompt changes needed; run a 48-hour A/B test (50% traffic on each) measuring token consumption, output quality, and p95 latency; with 17% fewer tokens on the same workload, you should see direct cost reduction; if quality metrics hold, migrate fully and capture the billing savings immediately</li>
+          <li>For agent workflows that chain Gemini with a browser automation tool (Playwright, Puppeteer, or a Computer Use wrapper), evaluate replacing the two-step pattern with a single Gemini 3.6 Flash call using built-in Computer Use: pass the URL and task directly to the model, let it browse and fill forms natively, and capture the structured output; this eliminates the browser automation dependency, reduces latency by one round-trip, and simplifies your agent graph</li>
+          <li>Use Gemini 3.5 Flash-Lite for high-frequency low-stakes inference tasks (batch classification, short-form extraction, semantic routing) where 3.6 Flash's full capability is overkill — Flash-Lite is priced below 3.6 Flash and designed for cost-sensitive throughput; benchmark Flash-Lite against 3.6 Flash on your specific task before committing, since quality delta varies significantly by task complexity</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Google AI released Gemini 3.6 Flash to GA on July 21, 2026 with a public model ID (gemini-3.6-flash) live on the Gemini API and Google AI Studio — a callable GA model on a production API is the strongest possible traction signal for a model release</li>
+          <li>Android Authority, CryptoBriefing, and Droid-Life all published independent coverage on July 21, with Android Authority explicitly noting the Gemini 4 context — three independent publications covering the same release on launch day confirms coordinated journalist access and independent verification</li>
+          <li>Google shipped three models simultaneously (3.6 Flash, 3.5 Flash-Lite, 3.5 Flash Cyber) with distinct use-case tiers — a three-variant coordinated launch indicates a production-grade product strategy across customer segments, not a research checkpoint</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://ai.google.dev/gemini-api/docs/changelog">Google AI: Gemini API Release Notes</a></li>
+          <li><a href="https://www.androidauthority.com/google-launches-gemini-36-flash-3689795/">Android Authority: Google expands Gemini 3.5 line with trio of new models</a></li>
+          <li><a href="https://cryptobriefing.com/google-launches-gemini-3-6-flash-alongside-flash-lite-and-cyber-models/">CryptoBriefing: Google releases Gemini 3.6 Flash, intensifying AI price war</a></li>
+          <li><a href="https://www.droid-life.com/2026/07/21/google-drops-gemini-flash-3-6-on-us-teases-gemini-4/">Droid-Life: Google drops Gemini Flash 3.6 and teases Gemini 4</a></li>
+          <li><a href="https://coursiv.io/blog/gemini-3-6-flash">Coursiv: Gemini 3.6 Flash — Price, Benchmarks, API & Flash-Lite Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://arxiv.org/abs/2606.26493">NVIDIA Nemotron-Labs-TwoTower: Open-Weight Diffusion LLM Reaches 2.42x Throughput at 98.7% Quality — No Pretraining Required</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">NVIDIA's Nemotron-Labs team released Nemotron-Labs-TwoTower, a discrete diffusion language model built on a frozen Nemotron-3-Nano-30B-A3B autoregressive backbone. The architecture separates two towers: a frozen AR context tower that processes clean tokens causally, and a trainable diffusion denoiser tower with bidirectional block attention that refines noisy token blocks via cross-attention. Only the denoiser is trained — the AR backbone stays frozen. Result: 2.42x higher token throughput than standard autoregressive decoding at 98.7% of baseline benchmark quality, with no full pretraining run required. Available as open weights under the NVIDIA Nemotron Open Model License for commercial use. ArXiv preprint published July 7, 2026; weights on HuggingFace.</p>
+      <div class="article-meta">
+        <span class="tag">NVIDIA</span>
+        <span class="tag">Nemotron</span>
+        <span class="tag">DiffusionLLM</span>
+        <span class="tag">OpenWeight</span>
+        <span class="tag">Inference</span>
+        <span class="tag">Throughput</span>
+        <span class="tag">GPUEfficiency</span>
+        <span class="tag">ML</span>
+        <span class="tag">Research</span>
+        <span class="tag">July2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Autoregressive decoding is the dominant inference bottleneck for LLMs: one token at a time, sequentially, no parallelism within a single generation. Diffusion LLMs break this by generating blocks of tokens in parallel — but historically required expensive pretraining from scratch and produced weaker quality than AR models at equivalent size. TwoTower's advance is that the diffusion denoiser can be trained on top of an existing frozen AR model, which means existing model investments carry forward without a full re-pretraining run. For infrastructure teams, the 2.42x throughput figure means serving 2.42x more requests per GPU-hour — or equivalently, 59% fewer GPU-hours for the same request volume. At 98.7% quality retention, the 1.3% quality delta is unlikely to be perceptible on most production tasks. The 'no retraining' aspect is what makes this practically deployable: you don't need to fund a pretraining run to get the efficiency gain. The open weights under a commercial license (not just academic) confirm this is intended for production evaluation, not just a research checkpoint.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you run Nemotron-3-Nano-30B-A3B for high-volume generation tasks, benchmark TwoTower on your production workload before adopting: download the HuggingFace weights, run your production prompt distribution through TwoTower on an identical GPU setup, and measure actual throughput, latency (TTFT + p95), and quality (your existing eval suite); the 2.42x figure is a median — your prompt distribution's average generation length and batch size will produce a different actual number that's the one relevant for your cost model</li>
+          <li>Use TwoTower's architecture as a template for attaching a diffusion denoiser to your own domain-fine-tuned AR checkpoint: the TwoTower paper documents the denoiser training procedure (bidirectional block attention, cross-attention to AR context), which can be applied to any transformer-based AR model; if you have a domain-specialized checkpoint, this offers a path to diffusion inference acceleration without re-finetuning from scratch</li>
+          <li>Prioritize TwoTower evaluation for async batch inference workloads where generation latency matters less than throughput: in overnight summarization runs, corpus classification, or data augmentation pipelines, 2.42x throughput translates directly to 2.42x faster job completion or 59% fewer GPU-hours per job; diffusion block generation is most efficient on long-output generation tasks, so start evaluation on your longest-generation batch jobs</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>NVIDIA published the TwoTower preprint on arXiv (arxiv.org/abs/2606.26493) on July 7, 2026, and released weights on HuggingFace at huggingface.co/nvidia/Nemotron-TwoTower-30B-A3B-Base-BF16 under a commercial license — simultaneous arXiv + HuggingFace weights under a commercial license is NVIDIA's standard research-to-deployment release pattern, confirming production intent</li>
+          <li>TechTimes published two independent articles (July 2 and July 10) with distinct angles — '2.42x throughput without retraining' and '6x more tokens decoded without auxiliary draft model' — two separate editorial takes from the same publication on different days indicates multiple reporters found the result independently newsworthy</li>
+          <li>AIWeekly published an alert specifically framing the result as '2.42x faster at 98.7% quality' — AIWeekly's alert format is reserved for results with direct production deployment relevance; their framing around the quality retention percentage (not just the throughput gain) indicates independent verification of both numbers</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://arxiv.org/abs/2606.26493">arXiv: Nemotron-Labs-TwoTower — Diffusion Language Modeling with Pretrained AR Context</a></li>
+          <li><a href="https://huggingface.co/nvidia/Nemotron-TwoTower-30B-A3B-Base-BF16">HuggingFace: nvidia/Nemotron-TwoTower-30B-A3B-Base-BF16</a></li>
+          <li><a href="https://www.techtimes.com/articles/319531/20260702/nvidia-diffusion-llm-hits-242x-throughput-without-retraining-nemotron-twotower-released.htm">TechTimes: NVIDIA Diffusion LLM Hits 2.42x Throughput Without Retraining</a></li>
+          <li><a href="https://www.marktechpost.com/2026/07/01/nvidia-releases-nemotron-labs-twotower/">MarkTechPost: NVIDIA Releases Nemotron-Labs-TwoTower</a></li>
+          <li><a href="https://aiweekly.co/alerts/nvidias-nemotron-twotower-242x-faster-at-987-quality">AIWeekly Alert: NVIDIA Nemotron-TwoTower — 2.42x Faster at 98.7% Quality</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-07-20-github-code-quality-is-now-generally-available/">GitHub Code Quality GA July 20: $10/Committer Billing Starts Automatically — CodeQL + AI Detection + Copilot Autofix Now a Paid Product</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">GitHub Code Quality moved from public preview to general availability on July 20, 2026, on GitHub Enterprise Cloud and GitHub Team. The product pairs CodeQL's deterministic static analysis with AI-assisted detection (catching reliability and maintainability issues beyond CodeQL rule scope) and Copilot Autofix (inline diffs suggested directly in PRs). Pricing: $10 per active committer per month on enabled repositories, plus usage-based consumption for Copilot code review, AI-assisted detection, and Autofix generation, plus GitHub Actions minutes for CodeQL scans. Billing activates automatically for any org that ran Code Quality in preview — no opt-in or confirmation required. More than 10,000 enterprises participated in the public preview.</p>
+      <div class="article-meta">
+        <span class="tag">GitHub</span>
+        <span class="tag">CodeQuality</span>
+        <span class="tag">CodeQL</span>
+        <span class="tag">CopilotAutofix</span>
+        <span class="tag">EnterpriseGitHub</span>
+        <span class="tag">DevSecOps</span>
+        <span class="tag">StaticAnalysis</span>
+        <span class="tag">AICodeReview</span>
+        <span class="tag">BillingAlert</span>
+        <span class="tag">July2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The automatic billing activation is the urgent detail: if your organization enabled GitHub Code Quality during the public preview, you are being charged $10 per active committer per month right now without any approval workflow. For a 100-engineer org with Code Quality enabled on all repos, that's $1,000/month in base charges before AI consumption costs are layered on top. The triage task for every GitHub Enterprise admin this week: audit which repositories have Code Quality enabled, identify the active committer count per repo, and disable Code Quality on repositories where the value doesn't justify the per-committer cost — especially archived or low-activity repos that may have been auto-enrolled. Beyond the billing urgency, Code Quality's capability set is genuinely useful for AI-accelerated codebases: CodeQL's deterministic analysis catches the class of bugs (null derefs, resource leaks, unhandled errors, type mismatches) that appear more frequently in AI-generated code than human-written code, because LLMs produce syntactically valid but semantically incorrect patterns that escape test coverage. Copilot Autofix then closes the loop by suggesting a diff that fixes the CodeQL finding inline in the PR, without requiring a separate review step.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run a Code Quality billing audit today: go to your GitHub organization's 'Code Security & Analysis' settings and review which repositories have Code Quality enabled; export the active committer count per enabled repository; calculate your minimum monthly cost ($10 × total active committers across enabled repos) before AI consumption charges; disable Code Quality on archived, low-activity, or forked repositories that were auto-enrolled during the preview — these are the likely source of unbudgeted charges</li>
+          <li>Use CodeQL's quality ruleset integration to create a PR merge gate for AI-generated code: configure a required status check in your branch protection rules that blocks merge when CodeQL finds high-severity reliability findings (null derefs, resource leaks, unhandled exceptions); this creates an automated safety net for the bug class AI coding agents produce most frequently, without adding manual review time per AI-generated PR</li>
+          <li>If Copilot Autofix consumption cost is a concern: configure Code Quality to run CodeQL deterministic analysis on all PRs (included in the $10/committer base fee) but enable AI-assisted detection and Copilot Autofix only for PRs that touch security-sensitive paths (auth, payment, data access); use GitHub repository ruleset bypass rules to scope AI feature activation; this limits consumption charges to the subset of PRs where Autofix value is highest</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GitHub published a primary changelog entry at github.blog/changelog/2026-07-20-github-code-quality-is-now-generally-available/ on July 20, 2026 — a GitHub Changelog entry for a GA release is the authoritative source of record; changelog entries are published by the GitHub product team on the actual release date</li>
+          <li>More than 10,000 enterprises ran Code Quality during the public preview — enterprise preview adoption at this scale is the strongest possible signal of post-GA purchase intent; the enterprise customer base for GitHub Enterprise Cloud is cost-sensitive and deliberate about enabling preview features</li>
+          <li>DevOps.com, ChatForest, CritiquePlus, and Bruno Digital all published independent GA coverage on July 20, with ChatForest and CritiquePlus specifically framing the $10/committer structure as a 'billing trap' — when independent practitioner publications warn about billing consequences on launch day, it signals the pricing is non-obvious enough to create surprise bills</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-07-20-github-code-quality-is-now-generally-available/">GitHub Changelog: GitHub Code Quality is now generally available</a></li>
+          <li><a href="https://devops.com/github-code-quality-moves-to-general-availability-bringing-new-costs-and-capabilities/">DevOps.com: GitHub Code Quality Moves to General Availability</a></li>
+          <li><a href="https://chatforest.com/builders-log/github-code-quality-ga-july-20-2026-pricing-audit-builder-guide/">ChatForest: GitHub Code Quality GA — The $10/Committer Billing Trap and What to Audit</a></li>
+          <li><a href="https://kingy.ai/news/github-code-quality-ga-guide/">Kingy AI: GitHub Code Quality GA — A Practical Launch Review</a></li>
+          <li><a href="https://docs.github.com/en/code-security/concepts/about-code-quality">GitHub Docs: About Code Quality</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://openclaw.ai/blog/introducing-openclaw-foundation">OpenClaw Foundation: 378K-Star Local AI Agent Forms 501(c)(3) — ClawRouter Adds Governance Controls for Model Routing</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">The OpenClaw Foundation was incorporated as a 501(c)(3) non-profit on July 8, 2026, to steward OpenClaw — the local-first personal AI agent that delivers responses through Signal, Telegram, WhatsApp, Discord, iMessage, Slack, and 22 other messaging channels. OpenClaw crossed 378K+ GitHub stars and is described by its founders as the fastest-growing repository in GitHub history, gaining 60,000 stars in its first 72 hours. The project stays MIT-licensed and independent, with big-tech partners contributing upstream rather than forking. The v2026.7.1 beta (July 13) introduces ClawRouter as the model routing and governance surface: bundled routing, dynamic model discovery, credential-scoped model catalogs, quotas, budget reporting, and both OpenAI-compatible and native transports. GPT-5.6 is now the default model for new installations.</p>
+      <div class="article-meta">
+        <span class="tag">OpenClaw</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">MIT</span>
+        <span class="tag">PersonalAI</span>
+        <span class="tag">LocalAI</span>
+        <span class="tag">ClawRouter</span>
+        <span class="tag">ModelRouting</span>
+        <span class="tag">Messaging</span>
+        <span class="tag">Nonprofit</span>
+        <span class="tag">July2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>OpenClaw's architecture solves a practical problem commercial AI assistants don't: it runs locally on your hardware, routes to any LLM you configure, and delivers responses through messaging apps you already live in — not a separate web interface you need to open. The 378K stars indicate this crossed from niche developer project to mainstream adoption. The ClawRouter addition is the operational upgrade that makes OpenClaw viable for teams rather than individual developers. ClawRouter's credential-scoped model catalogs let an operator define which models are accessible per channel (e.g., Telegram gets GPT-5.6, Slack gets a local Ollama model, admin group gets all providers) without requiring each user to configure their own API keys. Quota and budget reporting give operators visibility into consumption per channel before the bill arrives — the management layer missing from raw API key sharing. The 501(c)(3) structure is the governance signal that matters most: the project is under nonprofit stewardship rather than a VC-funded company, which preserves the MIT license in perpetuity and eliminates the risk of a commercial pivot that forces users to pay for currently free features. Dave Morin (Path co-founder) joining Peter Steinberger (PSPDFKit creator) to co-announce the foundation signals institutional credibility beyond a solo developer project.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-host OpenClaw on a low-cost VPS ($5/month) and connect it to your team's Slack workspace for a shared AI assistant that everyone uses through the messaging app they already have open: install OpenClaw, connect the Slack integration, configure ClawRouter with your shared API key and per-user quotas, then let the team @mention the bot in any channel; there's no new tool to learn and no new app to install</li>
+          <li>Use ClawRouter's credential-scoped model catalogs to give each team a different model tier based on budget: configure the engineering Slack channel to use GPT-5.6 (high capability), the marketing team to use GPT-5.6 Terra (lower cost), and a docs channel to use a local Ollama model (zero API cost, private data); ClawRouter's budget reporting shows actual usage per channel so you can adjust tier assignments based on real consumption rather than estimates</li>
+          <li>Connect OpenClaw to iMessage or Signal for a personal AI assistant accessible without app switching: configure OpenClaw locally with your preferred provider (Anthropic, OpenAI, or local Ollama), enable the iMessage or Signal channel, and DM yourself for tasks that would normally require opening a browser; Ollama-backed conversations never leave your machine, and the messaging integration gives you AI access from your phone without installing another app</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>378K+ GitHub stars with 60,000 gained in 72 hours at launch — OpenClaw has a Wikipedia entry (en.wikipedia.org/wiki/OpenClaw), which Wikipedia editors create only for projects with verified mainstream coverage and adoption; a Wikipedia entry for an open-source project under 1 year old is an exceptional traction signal</li>
+          <li>4.5 million new OpenClaw installations per week as of July 2026 (per openclaw.ai/blog/introducing-openclaw-foundation) — a weekly install rate in the millions indicates the project has crossed from developer early-adopter into mainstream consumer/prosumer adoption</li>
+          <li>DigitalOcean published 'What is OpenClaw? Your Open-Source AI Assistant for 2026' as a named resource article — DigitalOcean publishes named resource articles only for tools with documented developer adoption on their infrastructure; this confirms real DigitalOcean hosting usage, not just GitHub stars</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openclaw.ai/blog/introducing-openclaw-foundation">OpenClaw Blog: Introducing the OpenClaw Foundation</a></li>
+          <li><a href="https://github.com/openclaw/openclaw">GitHub: openclaw/openclaw</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/OpenClaw">Wikipedia: OpenClaw</a></li>
+          <li><a href="https://explainx.ai/blog/openclaw-foundation-501c3-nonprofit-july-2026">ExplainX: OpenClaw Foundation — 501(c)(3) & Partners</a></li>
+          <li><a href="https://www.digitalocean.com/resources/articles/what-is-openclaw">DigitalOcean: What Is OpenClaw? Your Open-Source AI Assistant for 2026</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/wanshuiyin/auto-claude-code-research-in-sleep">ARIS: 80 Claude Code Skills for Adversarial Autonomous ML Research — Cross-Model Review Loops Tested on Real ICLR/NeurIPS Submissions</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">ARIS (Auto-Research-In-Sleep) is a collection of 80 composable Claude Code skills that orchestrate a cross-model adversarial research loop: Claude Code executes the research (writes and runs experiments, edits code, reads papers) while a model from a different training family — GPT-5.6-Sol via Codex MCP by default — acts as critical reviewer. The two models debate rather than self-validate, targeting the core failure mode of single-model research agents where the executor model can't reliably catch its own blind spots. Seven end-to-end workflows cover the full ML research lifecycle: idea discovery → experiment bridge → auto-review → paper writing → rebuttal → resubmit → conference talk. Published as arXiv paper 2605.03042 from Shanghai Jiao Tong University. GitHub: 8K+ stars, 5,000+ users, 30+ community-contributed skills. Tested on real ICLR/NeurIPS submissions with documented score progression (5/10 → 7.5/10 from a 20+ GPU overnight run).</p>
+      <div class="article-meta">
+        <span class="tag">ARIS</span>
+        <span class="tag">MLResearch</span>
+        <span class="tag">AdversarialAI</span>
+        <span class="tag">MultiAgent</span>
+        <span class="tag">ClaudeCode</span>
+        <span class="tag">AutoResearch</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">NeurIPS</span>
+        <span class="tag">ICLR</span>
+        <span class="tag">ResearchAutomation</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The adversarial cross-model architecture is the key design insight separating ARIS from single-model research agents. A model that both executes and reviews its own work has a well-documented failure mode: it shares the same training data, the same blind spots, and the same reasoning patterns as the output it's reviewing — so it validates what it generated. ARIS uses a model from a different training lineage (GPT-5.6-Sol) as the reviewer, which means the reviewer has genuinely different blind spots and catches errors the executor would miss in self-review. The '5/10 → 7.5/10 overnight' progression on a real NeurIPS submission is the practical validation: this is an actual submission to an actual peer-reviewed conference with scores from actual reviewers, not a synthetic benchmark. The Markdown-only skill format is what makes ARIS practically accessible: the skills are plain Markdown files that Claude Code reads, with no framework dependency, no pip install, and no cloud service. For ML engineers running ablation studies, hyperparameter searches, or systematic literature reviews, ARIS provides a framework for running those overnight autonomously and waking up to a reviewed, written-up result.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use ARIS for overnight ML ablation studies: define your experiment hypothesis and hyperparameter grid in a brief spec file, invoke the W2 (experiment bridge) workflow, and let ARIS generate the experiment code, run the jobs, collect results, and draft a structured comparison; when you return in the morning you have results and a written summary instead of a queue of raw experiment logs to parse</li>
+          <li>Run the W1 (idea discovery) workflow against a target paper or research area to generate a batch of novel research directions with built-in novelty checks: ARIS's Claude executor reads papers in your local corpus and generates candidate ideas; the GPT-5.6 reviewer then applies an adversarial novelty check ('would a reviewer say this has been done?') before including the idea in the output list; the cross-model check filters ideas the executor model wouldn't recognize as non-novel because those ideas are already represented in its training distribution</li>
+          <li>Add ARIS's auto-review workflow (W3) to your paper writing process as a pre-submission quality gate: after completing your paper draft, run W3 with the paper and the venue's review criteria as inputs; ARIS generates a review with the executor, then the GPT-5.6 reviewer adversarially critiques the review itself ('the reviewer missed weakness X'); iterate until both models agree on the finding list; address surviving weaknesses before submission rather than waiting for actual reviewer feedback</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>8K+ GitHub stars on github.com/wanshuiyin/auto-claude-code-research-in-sleep with 5,000+ users and 30+ community-contributed skills — 30+ external skill contributions are the strongest adoption signal; community-authored skills demonstrate the Markdown format is accessible to non-author contributors and the use case is real enough to motivate contribution</li>
+          <li>ArXiv paper 2605.03042 posted May 3, 2026, with a HuggingFace Papers page tracking citations — HuggingFace curates its Papers section for practitioner-relevant research rather than all arXiv submissions; inclusion confirms the ML community is actively reading and tracking this work</li>
+          <li>Documented end-to-end test on real ICLR/NeurIPS submissions with score progression (5/10 → 7.5/10 on a 20+ GPU overnight run) — an actual competitive submission with independent scores from conference reviewers is the definitive validation for research tooling; a 2.5-point improvement recognized by external reviewers proves the tooling produces quality improvements beyond what the authors themselves would notice</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/wanshuiyin/auto-claude-code-research-in-sleep">GitHub: wanshuiyin/auto-claude-code-research-in-sleep — ARIS Skills</a></li>
+          <li><a href="https://arxiv.org/abs/2605.03042">arXiv: ARIS — Autonomous Research via Adversarial Multi-Agent Collaboration (2605.03042)</a></li>
+          <li><a href="https://huggingface.co/papers/2605.03042">HuggingFace Papers: ARIS — Autonomous Research via Adversarial Multi-Agent Collaboration</a></li>
+          <li><a href="https://wanshuiyin.github.io/Auto-claude-code-research-in-sleep/ARIS_INTRO.html">ARIS Introduction — Architecture and Workflow Overview</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://thenextweb.com/news/grok-build-uploaded-entire-git-repositories-secrets">Grok Build Exposed: Silent Git Repo Uploads — Full History, API Keys, and SSH Keys Sent to xAI Cloud; Open-Sourced July 15 But Exfiltration Code Remains</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">On July 12, 2026, a security researcher published wire-level evidence that Grok Build CLI 0.2.93 — xAI's terminal AI coding agent — was silently uploading developers' entire Git repositories (full commit history, API keys, SSH keys, database passwords) to a Google Cloud Storage bucket named grok-code-session-traces. Upload volume was roughly 27,800 times greater than the coding task required. The upload ran regardless of whether the 'Improve the model' privacy toggle was disabled. On July 15, xAI open-sourced Grok Build under Apache 2.0, publishing 844,530 lines of Rust at github.com/xai-org/grok-build. Security researchers subsequently confirmed that the code responsible for the Git bundle uploads remains in the published codebase, gated only by a server-side flag that xAI can re-enable without shipping a software update.</p>
+      <div class="article-meta">
+        <span class="tag">GrokBuild</span>
+        <span class="tag">xAI</span>
+        <span class="tag">Security</span>
+        <span class="tag">DataBreach</span>
+        <span class="tag">GitSecurity</span>
+        <span class="tag">CredentialExposure</span>
+        <span class="tag">OpenSource</span>
+        <span class="tag">CodingAgentSecurity</span>
+        <span class="tag">Privacy</span>
+        <span class="tag">July2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most significant AI coding agent security incident documented to date, and it has direct action requirements for any developer who ran Grok Build before July 13, 2026. The attack surface is broad: the upload included every tracked file plus the full commit history, which means credentials that were committed months or years ago and later removed from working files were also in the bundle. Any developer or team that ran Grok Build in a repository that ever contained API keys, database connection strings, cloud tokens, GitHub personal access tokens, or SSH keys should treat those credentials as potentially compromised and rotate immediately. The open-source release three days after disclosure has a complex interpretation. The 844K-line Rust codebase is now auditable — developers can inspect the full agent loop, tool implementations, and extension system. The security problem is that the exfiltration code remains in the binary with only server-side gating, meaning xAI retains the technical capability to re-enable uploads without a software update. This incident also established the category risk for closed-source AI coding agents: without source code access, developers cannot verify what data an agent is transmitting on their behalf. Open-source code or independent auditing is now a baseline expectation for coding agents operating on sensitive codebases.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you ran Grok Build in any Git repository before July 13, 2026: audit and rotate all credentials that were ever committed to that repository — including credentials removed from working files but present in Git history; use `git log --all --oneline | head -200` to review the commit timeline, then scan the full history with truffleHog or git-secrets to identify committed credentials; rotate every credential found, even ones you believe were removed months ago, since the full history was included in the uploaded bundle</li>
+          <li>For all AI coding agents in your toolkit: require open-source or independently audited code as a baseline before deploying agents in repositories containing sensitive code; verify traffic behavior using mitmproxy or a network proxy on a fresh test repository with no real secrets before granting the agent access to production codebases; the Grok Build incident establishes that a privacy toggle is not a reliable data-transmission guarantee</li>
+          <li>Architecture change to reduce blast radius: run AI coding agents in Git-isolated contexts by cloning your repo into a fresh working directory, removing .env files and credential-containing config before granting agent access, and using Git sparse-checkout to limit the agent's file access to only the code relevant to the current task; this limits any future coding agent data collection to only the files you've explicitly provided, regardless of the agent's full-repository scanning behavior</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>The Next Web published 'Grok Build was uploading entire Git repositories to xAI's cloud, including committed secrets' on July 12, 2026 — TNW has editorial standards requiring verification before publication; TNW coverage of a security incident confirms the researcher's wire-level evidence was reviewed and found credible by an independent editorial team</li>
+          <li>TechTimes published two separate articles on July 14 and July 16 with distinct frames — the disclosure and then the open-source response with confirmation that exfiltration code remained — two separate editorial beats from the same publication confirms sustained editorial attention, not a single press-release follow-up; the second article specifically validated the exfiltration code was still present</li>
+          <li>GIGAZINE published 'Investigations reveal that Grok Build transmitted confidential information without concealing it' on July 13 — GIGAZINE is a major Japanese tech publication (5M+ monthly readers); international coverage of an AI security incident indicates the incident reached global practitioner awareness, not just the English-language developer community</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://thenextweb.com/news/grok-build-uploaded-entire-git-repositories-secrets">The Next Web: Grok Build was uploading entire Git repositories to xAI's cloud</a></li>
+          <li><a href="https://www.techtimes.com/articles/320420/20260714/grok-build-shipped-entire-codebases-xai-cloud-privacy-toggle-did-nothing.htm">TechTimes: Grok Build Shipped Entire Codebases to xAI Cloud; Privacy Toggle Did Nothing</a></li>
+          <li><a href="https://www.techtimes.com/articles/320671/20260716/grok-build-open-sourced-after-covert-upload-code-exfiltrate-repos-stays.htm">TechTimes: Grok Build Open-Sourced After Covert Upload — Exfiltration Code Stays In</a></li>
+          <li><a href="https://simonwillison.net/2026/Jul/15/grok-build/">Simon Willison: xai-org/grok-build, now open source</a></li>
+          <li><a href="https://github.com/xai-org/grok-build">GitHub: xai-org/grok-build — Apache 2.0 Open Source Release</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.helpnetsecurity.com/2026/07/20/mozilla-open-source-ai-adoption-report/">Mozilla OSS AI Adoption Report: 79% of Developers Use Open Models — But Only 51% Reach Production vs. 63% for Closed</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Mozilla published its Open Source AI Adoption Report on July 20, 2026, surveying developers actively building AI-powered applications. Key finding: 79% of developers adding AI functionality use open-weight models (vs. 71% for closed), reflecting higher adoption enthusiasm for open models. But only 51% of teams using open models successfully reach production deployment, compared to 63% for teams using closed-model APIs. The gap — identified as 12 percentage points — comes from three failure categories: integration complexity (setting up inference infrastructure, managing model updates, handling version drift), evaluation debt (no managed evals, no regression detection, teams building quality checks from scratch), and the absence of managed inference SLAs (open models require teams to own their own uptime, latency guarantees, and scaling). The report also found that nearly half of all open-source AI projects initiated in 2026 have not reached production deployment.</p>
+      <div class="article-meta">
+        <span class="tag">OpenSource</span>
+        <span class="tag">OpenWeight</span>
+        <span class="tag">ModelAdoption</span>
+        <span class="tag">MLOps</span>
+        <span class="tag">InferenceInfrastructure</span>
+        <span class="tag">ProductionAI</span>
+        <span class="tag">Evals</span>
+        <span class="tag">Mozilla</span>
+        <span class="tag">SLA</span>
+        <span class="tag">July2026</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 12-point production gap between open and closed models is the key finding for teams making infrastructure architecture decisions. Open-weight models are cheaper, auditable, and more deployable in regulated environments — but the cost savings from eliminating API fees are frequently offset by the engineering cost of building and maintaining the production infrastructure that closed-model APIs provide out of the box: inference serving, autoscaling, latency SLAs, model update management, and production monitoring. The report's three failure categories map directly to engineering decisions teams face when choosing between open and closed: (1) inference infrastructure — do you self-host with vLLM/TGI/Triton or use a managed inference provider (Fireworks, Together, Anyscale)?; (2) evals — do you build your own evaluation pipeline or use a managed eval platform that handles regression detection?; (3) SLAs — can your team commit to maintaining 99.9% availability for a self-hosted model, and do you have on-call rotation for model infrastructure? The 51% vs. 63% production success rate isn't an argument against open models — it's an argument for being explicit about which of the three failure categories your team has covered before committing to an open-model architecture.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Before committing to an open-model architecture for a production deployment, use the Mozilla report's three failure categories as an explicit pre-flight checklist: (1) Inference infrastructure — do you have a plan for vLLM/TGI self-hosting or a managed inference provider? (2) Evals — do you have a regression detection pipeline or a managed eval platform? (3) SLAs — can your team commit to 99.9% uptime for self-hosted inference, and do you have on-call coverage? If any of the three is uncovered, factor the engineering cost of building it into your open-model ROI calculation before comparing it against a closed-model API's monthly cost</li>
+          <li>If you're evaluating managed inference providers (Fireworks AI, Together AI, Anyscale, Replicate) as a middle path between self-hosting and closed-model APIs: use the three failure categories to score each provider — check which provides model-level SLAs (not just infrastructure uptime), which has built-in model update management (so you don't inherit version drift responsibility), and which integrates with your existing eval pipeline; the managed inference provider that covers all three categories converts the open-model production gap into a closed-model-equivalent deployment profile</li>
+          <li>Track your team's own open-model production success rate across projects: maintain a simple log of open-model projects initiated vs. reached production deployment; if your team's ratio is below 51% (below even the survey average), diagnose which of the three failure categories is the primary blocker; if it's consistently evals or SLA coverage, that's an infrastructure investment decision — if it's consistently integration complexity, that's a skill gap or tooling gap that can be addressed with training or a different choice of serving framework</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Mozilla published the report directly (via helpnetsecurity.com/2026/07/20/mozilla-open-source-ai-adoption-report/), with Help Net Security serving as the primary distribution outlet — Help Net Security is a practitioner-focused security and infrastructure publication; publication there indicates the report targets working engineers and infosec practitioners rather than a general audience</li>
+          <li>The findings align with the separate State of Open Source AI report (stateofopensource.ai, V1.0, July 2026) that identified the same 'market shift from model hype to workflows, data loops, governance, and serving tools' — convergence across two independent reports published in the same month with consistent findings indicates the production gap is real and widely observed, not an artifact of one survey methodology</li>
+          <li>Multiple independent publications (Analytics Vidhya, geekfence.com) cited the 51% vs. 63% production success finding in July 2026 roundups — independent citation in practitioner-focused roundup content confirms the finding resonated with the engineering audience the report targeted</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.helpnetsecurity.com/2026/07/20/mozilla-open-source-ai-adoption-report/">Help Net Security: Nearly half of open-source AI projects never reach production</a></li>
+          <li><a href="https://stateofopensource.ai/">State of Open Source AI — V1.0, July 2026</a></li>
+          <li><a href="https://www.analyticsvidhya.com/blog/2026/07/trending-ai-github-repositories/">Analytics Vidhya: Top 10 GitHub Repositories Trending in July 2026</a></li>
+          <li><a href="https://geekfence.com/top-10-trending-ai-github-repositories-in-july-2026/">GeekFence: Top 10 Trending AI GitHub Repositories in July 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
