@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — July 23, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">July 23, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/">Google ships Gemini 3.6 Flash with 17% fewer output tokens than 3.5 Flash, plus Flash-Lite at 350 tok/s and Flash Cyber for code security — all tuned for agentic workflows at scale</a></li>
+      <li><a href="https://explainx.ai/blog/poolside-laguna-s-2-1-open-weights-coding-model-july-2026">Poolside releases Laguna S 2.1: a 118B MoE coding model (8B active params) scoring 70.2% on Terminal-Bench 2.1, beating DeepSeek-V4-Pro-Max — open weights, free on OpenCode, runs on a single DGX Spark</a></li>
+      <li><a href="https://blog.jetbrains.com/ai/2026/07/introducing-jetbrains-context-repository-intelligence-for-coding-agents/">JetBrains launches Context: repository intelligence layer for Claude Code, Codex CLI, and Junie — gives agents the codebase understanding JetBrains spent decades building for humans</a></li>
+      <li><a href="https://www.sonarsource.com/blog/introducing-sonarqube-server-2026-4/">SonarQube 2026.4 ships a 'Sonar way for Agentic AI' quality gate with stricter security/dependency checks calibrated for AI-generated code risk profiles</a></li>
+      <li><a href="https://netflixtechblog.medium.com/in-house-llm-serving-at-netflix-a5a8e799ea2c">Netflix publishes its full in-house LLM serving architecture: vLLM on Triton, Java control plane, structured output via XGrammar, and the production trade-offs managed APIs don't expose</a></li>
+      <li><a href="https://www.prnewswire.com/news-releases/kata-containers-4-0-cements-the-projects-role-as-the-open-source-standard-for-sandboxing-ai-agents-302832233.html">Kata Containers 4.0 becomes the default sandbox for AI agents in Kubernetes — new Rust runtime, VM-level isolation, adopted by Agent Sandbox under K8s SIG Apps</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/">Google Ships Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber — Efficiency-First Models for Agentic Workflows</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Google released three new Gemini models on July 21. Gemini 3.6 Flash reduces output token usage by 17% vs 3.5 Flash (up to 65% on DeepSWE) while improving coding and multimodal quality. Gemini 3.5 Flash-Lite delivers 350 output tokens/second — the fastest Flash-class model yet — and significantly outperforms prior Flash-Lite on agentic workflows. Gemini 3.5 Flash Cyber ships inside CodeMender, a specialized code security agent. Google also confirmed Gemini 3.5 Pro is testing with partners and the team has begun pre-training Gemini 4.</p>
+      <div class="article-meta">
+        <span class="tag">Google</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">3.6 Flash</span>
+        <span class="tag">Flash-Lite</span>
+        <span class="tag">Flash Cyber</span>
+        <span class="tag">Agentic AI</span>
+        <span class="tag">Token Efficiency</span>
+        <span class="tag">Code Security</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 3.6 Flash release targets the cost problem that matters most in production: output token volume. A 17% reduction in output tokens at the same or better quality directly cuts API bills for agentic workflows where each task chains dozens of LLM calls. Flash-Lite at 350 tok/s is the speed tier for high-volume, latency-sensitive tasks like autocomplete and inline suggestions — the kind of work where sub-second response matters more than peak reasoning. Flash Cyber paired with CodeMender is notable because it's a purpose-built model+agent combination for security scanning, not a general model prompted for security — this vertical specialization pattern is how the model market is stratifying in 2026. The Gemini 4 pre-training announcement signals Google's next frontier push is underway.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Switch agentic pipelines from 3.5 Flash to 3.6 Flash for an immediate 17% output token cost reduction with no workflow changes — the model is a drop-in upgrade</li>
+          <li>Use Flash-Lite as the fast-path model for autocomplete, inline suggestions, and quick classification tasks where you need sub-100ms latency at minimal cost</li>
+          <li>Evaluate Flash Cyber + CodeMender for automated security review in CI — a purpose-built security model+agent is likely to outperform a general model prompted for security scanning</li>
+          <li>Factor Gemini 4 timeline into model strategy planning — Google confirmed pre-training has started, making it a 2026/early-2027 delivery</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Google AI Blog announcement — July 21, 2026</li>
+          <li>Artificial Analysis Index: 3.6 Flash uses 17% fewer output tokens than 3.5 Flash</li>
+          <li>DeepSWE benchmark by Datacurve: up to 65% output token reduction on coding tasks</li>
+          <li>Flash-Lite: 350 tokens/second per Artificial Analysis Index — fastest Flash-class model</li>
+          <li>Gemini 4 pre-training confirmed as started</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/">Google AI Blog: Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber</a></li>
+          <li><a href="https://artificialanalysis.ai/models/gemini-3-6-flash">Artificial Analysis: Gemini 3.6 Flash benchmark index</a></li>
+          <li><a href="https://deepswe.datacurve.ai/">Datacurve DeepSWE: coding benchmark showing up to 65% token reduction</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://explainx.ai/blog/poolside-laguna-s-2-1-open-weights-coding-model-july-2026">Poolside Laguna S 2.1: 118B Open-Weight Coding Model Beats DeepSeek-V4-Pro-Max on Terminal-Bench</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Poolside released Laguna S 2.1 on July 22 — a 118B MoE model with only 8B active parameters per token, a 1M-token context window, and separate thinking/no-thinking modes. It scores 70.2% on Terminal-Bench 2.1, beating DeepSeek-V4-Pro-Max. The model requires ~71GB of memory, runs at 50-77 tok/s on a single NVIDIA DGX Spark, was trained in under 9 weeks on 30 trillion tokens, and is free to use on OpenCode with full 1M context.</p>
+      <div class="article-meta">
+        <span class="tag">Poolside</span>
+        <span class="tag">Laguna S 2.1</span>
+        <span class="tag">Open Weights</span>
+        <span class="tag">Coding Model</span>
+        <span class="tag">MoE</span>
+        <span class="tag">Terminal-Bench</span>
+        <span class="tag">Self-Hosting</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Laguna S 2.1 is the first open-weight coding model to beat a major closed competitor on a real agentic coding benchmark while remaining practical to self-host. The 118B/8B MoE split means you get frontier coding quality at the inference cost of an 8B model — this is the architecture pattern that makes self-hosting economically viable. Running on a single DGX Spark with no multi-node complexity means a team can deploy this without distributed inference infrastructure. The 1M context window handles entire repository-scale tasks. Free availability on OpenCode means any developer can test it today without hosting anything.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Evaluate Laguna S 2.1 as a self-hosted coding model: at 8B active params and ~71GB memory, it's the best quality-per-compute coding model available for teams that need to keep code off external APIs</li>
+          <li>Use the thinking mode for complex multi-file refactoring and no-thinking mode for fast completions — the dual-mode architecture lets you route by task complexity within the same model</li>
+          <li>Test via OpenCode first before committing to self-hosting: free access with full 1M context lets you benchmark against your actual codebase tasks before investing in GPU infrastructure</li>
+          <li>Compare against your current coding model on Terminal-Bench tasks: if you're paying for a closed model that scores below 70.2%, Laguna S 2.1 may deliver better results at lower cost</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>70.2% on Terminal-Bench 2.1 — ahead of DeepSeek-V4-Pro-Max</li>
+          <li>Released July 22, 2026 — open weights, permissive license</li>
+          <li>Free on OpenCode with full 1M context window, same-day integration</li>
+          <li>Runs on single NVIDIA DGX Spark at 50-77 tok/s — no multi-node setup required</li>
+          <li>Coverage: ExplainX, Poolside blog, OpenCode integration announcement</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://explainx.ai/blog/poolside-laguna-s-2-1-open-weights-coding-model-july-2026">ExplainX: Poolside Laguna S 2.1 — 118B open-weight coding model analysis</a></li>
+          <li><a href="https://poolside.ai">Poolside: official site and model documentation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.marktechpost.com/2026/07/21/cisco-foundation-ai-releases-antares-350m-and-1b-open-weight-models-that-localize-known-vulnerabilities-inside-real-codebases/">Cisco Antares: Open-Weight Security Models That Localize Vulnerabilities in Real Codebases at 1B Parameters</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Cisco Foundation AI released Antares — 350M and 1B parameter open-weight models (Apache 2.0) built for one task: given a vulnerability description and a repository, find the files containing the flaw. The 1B model reaches 0.209 File F1, approaching GPT-5.5's 0.229 while being small enough to run on a laptop. Cisco also shipped VLoc Bench, a 500-task agentic evaluation benchmark, under the same license. Models are initialized from IBM Granite 4.0 checkpoints.</p>
+      <div class="article-meta">
+        <span class="tag">Cisco</span>
+        <span class="tag">Antares</span>
+        <span class="tag">Security</span>
+        <span class="tag">Vulnerability Localization</span>
+        <span class="tag">Open Weights</span>
+        <span class="tag">Small Language Models</span>
+        <span class="tag">AppSec</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Antares demonstrates that vulnerability localization — the expensive first-triage step in security response — can be handled by a 1B model at near-frontier quality. A security model this small runs on commodity hardware, which means it can operate inside your CI pipeline without GPU costs or API latency. The Apache 2.0 license and VLoc Bench together mean teams can fine-tune on their own codebases and evaluate results with a standardized benchmark. This is the specialization pattern: instead of prompting GPT-5.5 for security scanning at $15/M input tokens, run a purpose-built 1B model at negligible cost for the same triage quality.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Add Antares-1B to your CI pipeline as a vulnerability triage step: when a CVE is disclosed, automatically scan your repo to identify affected files before a human reviewer looks at it</li>
+          <li>Fine-tune on your organization's codebase: Apache 2.0 license means you can specialize Antares on your code patterns, naming conventions, and dependency structures for higher accuracy</li>
+          <li>Use VLoc Bench to evaluate your current security scanning tools: the standardized 500-task benchmark lets you compare Antares against whatever you're currently using for vulnerability localization</li>
+          <li>Run on developer laptops for local security checks: at 350M-1B parameters, Antares runs without GPU — developers can scan before pushing without waiting for CI</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released by Cisco Foundation AI — July 21, 2026</li>
+          <li>1B model achieves 0.209 File F1 vs GPT-5.5's 0.229 — 91% of frontier quality at <0.1% the parameters</li>
+          <li>Open weights on Hugging Face under Apache 2.0 license</li>
+          <li>VLoc Bench: 500-task agentic evaluation benchmark released alongside</li>
+          <li>Coverage: MarkTechPost, InfoWorld, Cisco AI Blog</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.marktechpost.com/2026/07/21/cisco-foundation-ai-releases-antares-350m-and-1b-open-weight-models-that-localize-known-vulnerabilities-inside-real-codebases/">MarkTechPost: Cisco Foundation AI releases Antares for vulnerability localization</a></li>
+          <li><a href="https://www.infoworld.com/article/4200143/ciscos-new-ai-model-tells-code-reviewers-where-to-look-for-vulnerabilities.html">InfoWorld: Cisco's new AI model tells code reviewers where to look</a></li>
+          <li><a href="https://huggingface.co/fdtn-ai/antares-1b">Hugging Face: Antares-1B model weights</a></li>
+          <li><a href="https://cisco-foundation-ai.github.io/vulnerability-localization-benchmark/">VLoc Bench: 500-task vulnerability localization benchmark</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/ai/2026/07/introducing-jetbrains-context-repository-intelligence-for-coding-agents/">JetBrains Context: Repository Intelligence Layer for Claude Code, Codex CLI, and Junie</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">JetBrains launched Context on July 20 — a repository intelligence layer that gives coding agents the deep codebase understanding JetBrains built for human developers over two decades. Available in early access with JetBrains AI subscriptions, it integrates with Claude Code, Codex CLI, and Junie CLI, and works from JetBrains IDEs, Air, VS Code, and other editors. Context provides agents with API knowledge, dependency graphs, implementation patterns, and engineering conventions — the unwritten institutional knowledge that separates mediocre agent output from code that fits the codebase.</p>
+      <div class="article-meta">
+        <span class="tag">JetBrains</span>
+        <span class="tag">Context</span>
+        <span class="tag">Repository Intelligence</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Codex CLI</span>
+        <span class="tag">Coding Agents</span>
+        <span class="tag">IDE</span>
+        <span class="tag">Developer Tools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Context attacks the biggest practical limitation of coding agents in large codebases: they don't understand your project's conventions, architecture, or API surface beyond what fits in the context window. JetBrains has spent decades building code intelligence (autocomplete, navigation, analysis) — Context packages that intelligence for agents instead of humans. The multi-agent integration (Claude Code, Codex CLI, Junie) means this isn't locked to a single tool — it's a context layer that improves any compatible agent. This is the emerging pattern of 'agent infrastructure': instead of making agents smarter, make the environment they operate in richer. For teams where agent-generated code consistently misses project conventions, this directly addresses the quality gap.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Enable Context for your team's Claude Code or Codex CLI workflow: agents that understand your API surface, naming conventions, and dependency patterns will generate code that requires less manual correction</li>
+          <li>Use Context in onboarding workflows: new team members using coding agents get the benefit of institutional codebase knowledge immediately, reducing the ramp-up period for productive AI-assisted development</li>
+          <li>Evaluate whether Context improves agent output on your largest repos: the quality difference is most visible in enterprise-scale codebases where agents currently miss cross-module dependencies and project conventions</li>
+          <li>Compare agent output quality with and without Context on the same task: this gives you a concrete measurement of how much context quality affects code generation quality in your specific codebase</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official JetBrains announcement — July 20, 2026</li>
+          <li>Integrates with Claude Code, Codex CLI, and Junie CLI on day one</li>
+          <li>Works across JetBrains IDEs, Air, VS Code — not IDE-locked</li>
+          <li>Part of JetBrains AI for Teams and Organizations rollout</li>
+          <li>Coverage: JetBrains Blog, multiple developer community discussions</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.jetbrains.com/ai/2026/07/introducing-jetbrains-context-repository-intelligence-for-coding-agents/">JetBrains Blog: Introducing JetBrains Context — repository intelligence for coding agents</a></li>
+          <li><a href="https://blog.jetbrains.com/blog/2026/07/07/jetbrains-ai-for-teams-and-organizations-from-fragmented-ai-usage-to-coordinated-software-development/">JetBrains Blog: AI for Teams and Organizations rollout</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.sonarsource.com/blog/introducing-sonarqube-server-2026-4/">SonarQube 2026.4: Quality Gates Purpose-Built for AI-Generated Code</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">SonarQube Server 2026.4 ships a new 'Sonar way for Agentic AI' quality gate calibrated for AI-generated code. It's stricter on security, reliability, and new dependencies — where AI code risk concentrates — and more permissive on minor maintainability issues that don't carry real risk. New supply chain conditions detect agents pulling in typosquatted, hallucinated, or vulnerable packages. Agentic AI quality profiles now cover JavaScript, TypeScript, Python, and Java with rules focused on where AI-introduced risk actually lives.</p>
+      <div class="article-meta">
+        <span class="tag">SonarQube</span>
+        <span class="tag">Code Quality</span>
+        <span class="tag">Agentic AI</span>
+        <span class="tag">Quality Gate</span>
+        <span class="tag">Security</span>
+        <span class="tag">Supply Chain</span>
+        <span class="tag">Verification</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As AI generates a larger share of production code, the verification layer needs to recalibrate. SonarQube's new gate acknowledges that AI code has a different risk profile than human code: agents rarely produce sloppy style, but they introduce dependency risk and security gaps at higher rates. The supply chain conditions are timely — the Mastra npm attack from June showed that agents can be vectors for pulling in malicious packages. The permissive stance on minor maintainability issues is pragmatic: blocking a PR because an AI-generated function has slightly verbose naming is not worth the developer friction. This is the first major code quality tool to ship an AI-specific verification mode, and it sets the pattern for how the industry will differentiate human vs. machine code review.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Switch to the 'Sonar way for Agentic AI' quality gate for repos where AI generates >30% of new code — the calibrated risk profile catches real issues without blocking on cosmetic ones</li>
+          <li>Enable the supply chain conditions in CI to catch AI agents pulling in hallucinated or typosquatted packages — this directly mitigates the attack vector demonstrated by the Mastra npm compromise</li>
+          <li>Use the agentic AI quality profiles as the baseline for evaluating AI coding tool output quality — track which tools and models produce code that consistently passes the stricter security checks</li>
+          <li>Run both human and agentic quality gates on the same repo and compare block rates: this gives you data on how AI-generated code risk differs from human-generated code risk in your specific stack</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Sonar announcement — July 22, 2026</li>
+          <li>SonarQube is the dominant code quality platform with millions of enterprise users</li>
+          <li>Covers JS, TS, Python, Java — the four most common languages for AI-assisted development</li>
+          <li>Supply chain detection for typosquatted, hallucinated, and vulnerable packages</li>
+          <li>First major code quality tool with an AI-specific quality gate</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.sonarsource.com/blog/introducing-sonarqube-server-2026-4/">Sonar Blog: Introducing SonarQube Server 2026.4 — verification for the agentic era</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://dev.to/jarynagent/spacex-just-open-sourced-a-coding-agent-and-it-hit-17k-stars-in-24-hours-1g2g">SpaceX Open-Sources grok-build: Terminal-Native Visual Coding Agent Hits 17K Stars in 24 Hours</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">SpaceXAI released grok-build, a Rust-built terminal coding agent with a fullscreen, mouse-interactive TUI that combines a file tree, code editor, and AI chat in a single terminal window. It supports GPT-4o, Claude, Grok, and local models via Ollama, and includes a plugin system for custom agents. The project hit 17K GitHub stars within 24 hours of release and trended #1 globally. Early testing shows competitive performance with Claude Code on structured coding tasks, with faster iteration due to the visual layout.</p>
+      <div class="article-meta">
+        <span class="tag">SpaceX</span>
+        <span class="tag">grok-build</span>
+        <span class="tag">Rust</span>
+        <span class="tag">TUI</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Terminal</span>
+        <span class="tag">Multi-Model</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>grok-build represents a third category of coding tool: terminal-native but visual. IDE extensions like Cursor are embedded in VS Code. Terminal REPLs like Claude Code and Aider are text-only. grok-build gives you an IDE-like visual experience — file tree, editor, chat panel — without leaving the terminal or depending on an IDE. The Rust build means fast compilation with no npm dependency chain. The multi-model support and plugin architecture make it tool-agnostic. SpaceX's engineering reputation and the 17K-star first-day reception signal that the terminal-visual hybrid approach has real demand among developers who work primarily in the terminal but want more visual structure than a REPL provides.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Try grok-build as an alternative to Cursor for developers who prefer terminal workflows: the visual TUI provides file navigation and split-pane editing without the overhead of a full IDE</li>
+          <li>Use the plugin system to build custom coding agents for your team's specific workflows — the extensible architecture means you can add project-specific tools without forking the codebase</li>
+          <li>Run with local models via Ollama for air-gapped or sensitive codebases: the multi-model support means you get the visual coding experience without sending code to external APIs</li>
+          <li>Compare against Claude Code on your actual tasks: the visual layout may reduce context-switching overhead for tasks that require frequent file navigation</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>17,000+ GitHub stars within 24 hours of release — trended #1 globally</li>
+          <li>Released by SpaceXAI — July 18, 2026</li>
+          <li>Built in Rust — no npm/Node.js dependencies, fast compilation</li>
+          <li>Multi-model support: GPT-4o, Claude, Grok, Ollama local models</li>
+          <li>Coverage: DEV Community, multiple developer blogs, GitHub trending</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://dev.to/jarynagent/spacex-just-open-sourced-a-coding-agent-and-it-hit-17k-stars-in-24-hours-1g2g">DEV Community: SpaceX just open-sourced a coding agent — 17K stars in 24 hours</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://devops.com/openais-codex-context-cut-puts-enterprise-ai-coding-workflows-on-notice/">OpenAI Cuts Codex Context Window by 27% — Signals Shift Toward Multi-Agent Architectures</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">OpenAI quietly reduced GPT-5.6's default context window in Codex CLI from 372K to 272K tokens — a 27% cut surfaced in a GitHub PR. The change forces Codex into compaction mode (summarizing/dropping earlier history) sooner during long sessions. Analysts point to the well-documented 'lost in the middle' problem: studies show 30%+ accuracy drops for information placed mid-context in long inputs. The reduction may reflect OpenAI acknowledging that more tokens doesn't equal better results, and that multi-agent workflows with focused contexts outperform single-agent monolithic sessions.</p>
+      <div class="article-meta">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Codex</span>
+        <span class="tag">Context Window</span>
+        <span class="tag">GPT-5.6</span>
+        <span class="tag">Multi-Agent</span>
+        <span class="tag">Architecture</span>
+        <span class="tag">Lost in the Middle</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This context cut is a concrete signal that the 'bigger context window is always better' assumption is wrong in practice. Research consistently shows that models lose track of information in the middle of long contexts. By cutting the window, OpenAI is implicitly endorsing the multi-agent pattern: instead of one agent with a massive context handling everything, use multiple focused agents with smaller contexts handling specific sub-tasks. For teams designing agentic workflows, this means context management strategy matters more than raw context size. Compaction mode also has practical implications: if your workflow depends on early conversation context being faithfully preserved, a smaller window means earlier information gets summarized or dropped sooner.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit your Codex workflows for context-dependent assumptions: if tasks rely on information from early in long sessions, the 27% smaller window means that information may be compacted away sooner</li>
+          <li>Redesign long-running agent sessions as multi-agent pipelines with focused contexts: instead of one agent accumulating 300K+ tokens, use orchestration to spawn sub-agents with 50-100K context budgets per sub-task</li>
+          <li>Implement context summarization checkpoints in your agent workflows: proactively summarize completed work into structured state before compaction forces lossy compression</li>
+          <li>Benchmark your critical tasks at different context sizes: test whether reducing your own context limits improves output quality by avoiding the 'lost in the middle' degradation</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GitHub PR to openai/codex — context window reduced from 372K to 272K tokens</li>
+          <li>DevOps.com analysis published July 22, 2026</li>
+          <li>Active discussion on Reddit and X within days of the change</li>
+          <li>Supported by published research on 'lost in the middle' effect across 18 frontier models</li>
+          <li>Codex CLI at 101K+ GitHub stars — change affects a large user base</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://devops.com/openais-codex-context-cut-puts-enterprise-ai-coding-workflows-on-notice/">DevOps.com: OpenAI's Codex context cut puts enterprise AI coding workflows on notice</a></li>
+          <li><a href="https://github.com/openai/codex/pull/34009">GitHub: Codex CLI PR reducing context window to 272K tokens</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://netflixtechblog.medium.com/in-house-llm-serving-at-netflix-a5a8e799ea2c">Netflix Publishes Its Full In-House LLM Serving Architecture: vLLM, Triton, Java Control Plane, and Production Trade-Offs</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Netflix's AI Platform team published a detailed engineering blog on their in-house LLM serving stack. They run vLLM on NVIDIA Triton Inference Server with a Java control plane handling deployment, versioning, health checking, autoscaling, and multi-region rollout. The architecture supports both a gRPC path through their unified JVM serving system and a direct HTTP path for LLM applications. Small CPU models run in-process; GPU models route to a shared Model Scoring Service. The post covers engine selection, model packaging, API surface design, deployment strategy, and structured output enforcement — including trade-offs only visible under production load.</p>
+      <div class="article-meta">
+        <span class="tag">Netflix</span>
+        <span class="tag">LLM Serving</span>
+        <span class="tag">vLLM</span>
+        <span class="tag">Triton</span>
+        <span class="tag">Self-Hosting</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Production</span>
+        <span class="tag">Architecture</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most detailed production LLM serving architecture published by a major tech company in 2026. Netflix chose to run the full inference stack in-house rather than using managed APIs — and they explain why. The architecture reveals patterns that apply to any team at scale: a unified serving layer that handles routing and A/B testing, a shared inference backend that supports multiple model types behind one interface, and a control plane that manages deployment complexity. The emphasis on trade-offs revealed under production load is the most valuable part — design-time assumptions about batching, scaling, and output constraints behave differently when real users hit the system. For teams evaluating self-hosted vs. managed inference, Netflix's architecture provides a concrete reference for what 'running it yourself' actually requires.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use Netflix's architecture as a reference design for your own self-hosted inference stack: the unified serving system, shared Model Scoring Service, and Java control plane pattern is proven at Netflix scale</li>
+          <li>Evaluate their engine selection rationale (vLLM on Triton) against your requirements: Netflix's production experience with batching, GPU scheduling, and model loading may inform your own engine choice</li>
+          <li>Adopt their structured output enforcement approach (XGrammar) if your LLM outputs feed into downstream systems: Netflix found that unconstrained outputs break production pipelines at scale</li>
+          <li>Compare their self-hosting total cost against your managed API spend: Netflix's disclosure of the infrastructure required gives you a realistic picture of what self-hosting actually costs beyond GPU hours</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Netflix Technology Blog — published July 2026</li>
+          <li>Netflix: one of the largest production AI deployments globally</li>
+          <li>Covers full stack: vLLM, Triton, Java control plane, multi-region rollout</li>
+          <li>Includes production trade-offs not typically disclosed in architecture posts</li>
+          <li>Netflix Tech Blog averages millions of readers per post</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://netflixtechblog.medium.com/in-house-llm-serving-at-netflix-a5a8e799ea2c">Netflix Tech Blog: In-house LLM serving at Netflix</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.prnewswire.com/news-releases/kata-containers-4-0-cements-the-projects-role-as-the-open-source-standard-for-sandboxing-ai-agents-302832233.html">Kata Containers 4.0: Rust Runtime Becomes Default for Sandboxing AI Agents in Kubernetes</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Kata Containers 4.0 ships a new Rust-based runtime as the default implementation, delivering memory safety and performance for isolating AI agents. Each workload runs inside its own lightweight VM rather than sharing the host kernel, preventing a compromised agent from seeing another agent's memory or moving laterally across a cluster. Kata Containers is now a supported runtime for Agent Sandbox, a project under the Kubernetes SIG Apps umbrella. The release includes expanded hardware support and a hardened supply chain.</p>
+      <div class="article-meta">
+        <span class="tag">Kata Containers</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Agent Sandbox</span>
+        <span class="tag">Rust</span>
+        <span class="tag">VM Isolation</span>
+        <span class="tag">Security</span>
+        <span class="tag">OpenInfra</span>
+        <span class="tag">Container Runtime</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>AI agents carry a fundamentally different risk profile than traditional microservices: their execution paths shift based on tools, memory, and prompts, making them harder to trust by default. Kata Containers solves this with VM-level isolation per agent — the strongest isolation available in Kubernetes without dedicated hardware. The Rust rewrite addresses memory safety in the runtime itself, removing an entire class of exploitable bugs. The adoption as a supported Agent Sandbox runtime means Kata is becoming the standard isolation layer for the emerging Kubernetes agent orchestration ecosystem. For any team running agents that have access to tools, APIs, or file systems, VM-level isolation prevents a prompt injection or compromised agent from escalating beyond its sandbox.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploy Kata Containers 4.0 as the runtime for AI agent workloads in Kubernetes: VM-level isolation prevents a compromised agent from accessing other agents' memory or moving laterally</li>
+          <li>Use the Rust-based runtime for security-critical agent sandboxing: memory safety in the runtime eliminates an entire category of escape vulnerabilities that affect C-based container runtimes</li>
+          <li>Integrate with Agent Sandbox for standardized agent lifecycle management: Kubernetes SIG Apps adoption means the orchestration patterns will be supported by the broader K8s ecosystem</li>
+          <li>Evaluate Kata Containers for CI/CD pipelines that run AI agents: if agents in your pipeline have tool access or network capabilities, VM isolation prevents a supply chain attack from escaping the build environment</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official OpenInfra Foundation announcement — Kata Containers 4.0</li>
+          <li>Adopted as supported runtime for Agent Sandbox under Kubernetes SIG Apps</li>
+          <li>Rust-based default runtime — memory safety for the isolation layer itself</li>
+          <li>Used across multi-tenant Kubernetes, secure CI/CD, and AI infrastructure</li>
+          <li>Coverage: PRNewswire, OpenInfra Foundation, Kubernetes SIG Apps</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.prnewswire.com/news-releases/kata-containers-4-0-cements-the-projects-role-as-the-open-source-standard-for-sandboxing-ai-agents-302832233.html">PRNewswire: Kata Containers 4.0 — open source standard for sandboxing AI agents</a></li>
+          <li><a href="https://katacontainers.io/">Kata Containers: official project site</a></li>
+          <li><a href="https://github.com/kata-containers/kata-containers/releases">GitHub: Kata Containers 4.0 release</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://modelplane.ai/blog/open-control-plane-for-inference">Modelplane: Open-Source Control Plane for Multi-Cluster AI Inference Fleets</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Modelplane is a newly open-sourced control plane for AI inference built on Crossplane. It manages GPU clusters as a single inference fleet: provisioning clusters, placing models across them, autoscaling replicas, caching weights, and routing requests through an OpenAI-compatible gateway. It runs any model on any serving engine (vLLM, SGLang, TensorRT-LLM) on any infrastructure, from a single GPU to disaggregated multi-node serving. The project addresses the fleet problem — inference almost never stays in one cluster, and the hard problems are above the cluster level: model placement, cross-region failover, and capacity optimization.</p>
+      <div class="article-meta">
+        <span class="tag">Modelplane</span>
+        <span class="tag">Inference</span>
+        <span class="tag">Control Plane</span>
+        <span class="tag">Crossplane</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">GPU Fleet</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Multi-Cluster</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most open-source inference tooling focuses on serving within a single cluster. Modelplane fills the gap above: managing inference as a fleet across hardware types, providers, and regions. This is the operational layer that self-hosting teams need as they scale beyond one GPU box or one cluster. The Crossplane foundation means it integrates with existing Kubernetes infrastructure patterns. The OpenAI-compatible gateway means application code doesn't need to know which cluster or engine is serving a request. For teams running inference across multiple environments — on-prem + cloud, multiple regions, different GPU types — Modelplane provides the orchestration layer that currently requires custom scripts or manual management.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploy Modelplane if you're running inference across more than one cluster or provider: it replaces the custom scripts and manual model placement that most teams use to manage multi-cluster inference</li>
+          <li>Use the OpenAI-compatible gateway to abstract your serving infrastructure from application code: if you move models between clusters, regions, or engines, your application doesn't need to change</li>
+          <li>Implement automated failover for inference workloads: Modelplane handles cross-cluster failover and model placement, which is the operational gap most self-hosted inference stacks have</li>
+          <li>Evaluate Modelplane alongside your existing Crossplane infrastructure: if you already use Crossplane for cloud resource management, Modelplane extends the same patterns to inference fleet management</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Newly open-sourced — addresses a gap no existing open-source project covers</li>
+          <li>Built on Crossplane — integrates with the established Kubernetes ecosystem</li>
+          <li>Supports vLLM, SGLang, TensorRT-LLM — all major serving engines</li>
+          <li>OpenAI-compatible gateway — transparent to application code</li>
+          <li>Targets the specific fleet-management problem that Netflix, Uber, and similar scale teams have described</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://modelplane.ai/blog/open-control-plane-for-inference">Modelplane Blog: Open-source control plane for AI inference</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
