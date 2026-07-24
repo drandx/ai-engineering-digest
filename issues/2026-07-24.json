@@ -1,92 +1,68 @@
 {
   "highlights": [
-    {"text": "Moonshot AI releases Kimi K3 — the world's largest open-source model at 2.8 trillion parameters, rivaling Claude Fable 5 and GPT-5.6 Sol on frontier benchmarks; full open weights drop July 27", "anchor": "ai-tools-and-models-0"},
-    {"text": "OpenAI ships GPT-Live: full-duplex voice that listens and speaks simultaneously, delegating complex reasoning to GPT-5.5 in the background — the first consumer voice product to decouple conversational tempo from reasoning depth", "anchor": "ai-tools-and-models-1"},
-    {"text": "OpenAI launches Presence, a fully managed enterprise platform for deploying AI agents across voice and chat with built-in guardrails, escalation rules, and continuous improvement loops — no self-service tier, deployed by Forward Deployed Engineers", "anchor": "developer-tools-and-frameworks-0"},
-    {"text": "Strix, the open-source AI pentesting agent that reasons like a human attacker, hits 39K GitHub stars and #1 trending — runs autonomous agent teams that chain tools and produce working proof-of-concept exploits", "anchor": "developer-tools-and-frameworks-1"},
-    {"text": "Anthropic publishes Zero Trust for AI Agents: a three-tier security framework addressing prompt injection, tool poisoning, identity abuse, and memory poisoning — the first structural defense blueprint for enterprise agent deployments", "anchor": "infrastructure-and-production-0"},
-    {"text": "Perplexity open-sources Bumblebee: a zero-dependency Go binary that scans npm, PyPI, Go modules, MCP servers, and editor extensions for supply chain threats — without executing anything", "anchor": "infrastructure-and-production-1"}
+    {"text": "Gemini 3.6 Flash lands in GitHub Copilot on July 21 — 1M context, 17% fewer output tokens, configurable reasoning effort, parallel tool use for agentic tasks; available across all Copilot tiers at $1.50/$7.50 per million tokens", "anchor": "ai-tools-and-models-0"},
+    {"text": "GitHub Code Quality goes GA on July 20: CodeQL deterministic analysis + AI-assisted detection + Copilot Autofix on every PR, $10/active committer/month — 10,000+ enterprises ran it in preview", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Mozilla's inaugural State of Open Source AI V1.0: 79% of developers use open models but only 51% deploy to production vs. 63% for closed models; performance gap has narrowed to 3–3.3%", "anchor": "ai-tools-and-models-1"},
+    {"text": "OfficeCLI hits 10,800 GitHub stars: the first CLI for AI agents to programmatically read, edit, and automate .docx, .xlsx, and .pptx — zero dependencies, renders to HTML/PNG for agent inspection, works with Claude Code, Cursor, and Copilot via MCP", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "OpenClaw surpasses 355K GitHub stars and 3.2M active users: a local LLM control plane connecting Claude, GPT, DeepSeek, and Gemini to Signal, Telegram, WhatsApp, Discord, and iMessage — built by PSPDFKit founder Peter Steinberger in under an hour", "anchor": "developer-tools-and-frameworks-2"},
+    {"text": "SKILL.md is becoming the standard for composable agent behaviors across Codex and Claude Code — YAML-frontmatter instruction files that turn repeated prompts into reusable, shareable, chainable agent capabilities", "anchor": "developer-tools-and-frameworks-3"}
   ],
   "sections": [
     {
       "name": "AI Tools & Models",
       "articles": [
         {
-          "title": "Moonshot AI Releases Kimi K3: 2.8 Trillion Parameter Open-Source Model Rivals Fable and GPT-5.6 Sol on Frontier Benchmarks",
-          "url": "https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems/",
-          "tldr": "Moonshot AI publicly released Kimi K3 on July 16, 2026 — a 2.8 trillion parameter sparse Mixture-of-Experts model that is the largest open-source model ever released. Built on Kimi Delta Attention (KDA) and Attention Residuals (AttnRes), it activates 16 of 896 experts using the Stable LatentMoE framework. Features include a 1-million-token context window, native visual understanding, and an always-on thinking mode. In LMArena blind testing, developers ranked it above leading closed models for front-end coding. Full open weights under permissive license arrive July 27. The White House OSTP Director publicly accused Moonshot AI of distilling Anthropic's Fable model to build K3.",
-          "why_it_matters": "Kimi K3 breaks the assumption that frontier-class models require frontier-class budgets. At 2.8T total parameters with sparse activation, the model delivers Fable/Sol-competitive quality while being fully open-weight — meaning teams can self-host, fine-tune, and audit the model without API dependency. The architecture innovations (KDA, AttnRes, Stable LatentMoE) are all published, giving the community new techniques for scaling sparse models. The distillation accusation from the White House adds a geopolitical dimension: if validated, it raises questions about the defensibility of closed-model advantages when open-weight alternatives can match them through distillation. For engineering teams, the practical question is whether K3's July 27 open weights deliver on the benchmark promises when tested on real-world codebases and workflows.",
+          "title": "Gemini 3.6 Flash Lands in GitHub Copilot: 17% Fewer Tokens, 1M Context, Configurable Reasoning Effort",
+          "url": "https://github.blog/changelog/2026-07-21-gemini-3-6-flash-is-now-available-in-github-copilot/",
+          "tldr": "Google released Gemini 3.6 Flash on July 21, 2026 — a 1M-context model at $1.50/$7.50 per million input/output tokens that arrived in GitHub Copilot the same day. Built for agentic and coding tasks, it features configurable reasoning effort (thinking tokens) and parallel tool use across complex workflows. It takes fewer steps and tool calls to complete multi-step workflows, producing roughly 17% fewer output tokens than Gemini 3.5 Flash. Available to all paid Copilot tiers (Pro, Pro+, Max, Business, Enterprise) through the model picker.",
+          "why_it_matters": "The 17% token efficiency gain is both a cost and a latency story for agentic workflows. Fewer tool calls to finish the same task means faster completion and fewer failure points. Configurable reasoning effort is the differentiating feature: you can tune how much thinking the model applies per task, routing simple autocomplete to low-reasoning mode and reserving high-reasoning for complex multi-file changes. At $1.50/$7.50 per million tokens, Gemini 3.6 Flash undercuts Claude Sonnet 5 introductory pricing ($2/$10) while offering a 1M context window. The Copilot model picker integration means A/B testing against Claude or GPT models requires no infrastructure changes — switch models and measure task outcomes in your existing workflow.",
           "traction": "high",
           "traction_evidence": [
-            "VentureBeat, CNBC, Fortune, TechRepublic all published independent coverage on July 16-17",
-            "LMArena blind testing ranked K3 above leading closed models for front-end coding",
-            "2.8T parameters — largest open-source model ever released",
-            "Wikipedia entry exists for Kimi chatbot with K3 coverage",
-            "White House OSTP Director publicly commented on K3's training methodology"
+            "Official GitHub Changelog — July 21, 2026, same-day Copilot availability",
+            "GitHub's official X post confirmed 'higher task-completion rates and better token efficiency than Gemini 3.5 Flash'",
+            "DataNorth, AlphaSignal, ByteIota, and Agentpedia published independent technical coverage",
+            "Available immediately across all paid Copilot tiers without waitlist",
+            "17% output token reduction measured across coding and agentic workflows in Google's early testing"
           ],
           "use_cases": [
-            "When K3 open weights drop July 27, benchmark against your production coding tasks to see if the LMArena front-end coding advantage holds on your specific codebase — this determines whether K3 is a viable self-hosted alternative to Fable or Sol API calls",
-            "Evaluate K3's 1M-token context window for repository-scale tasks: codebase migration, large refactoring, or cross-file dependency analysis where the full project needs to fit in context",
-            "If you're considering self-hosting frontier-class models, K3's architecture papers provide the MoE scaling techniques needed to run 2.8T params efficiently — study the Stable LatentMoE framework for your own deployment planning"
+            "Add Gemini 3.6 Flash to your Copilot model rotation and measure actual token consumption on your top task types — the 17% efficiency claim is an average, so collect 1–2 weeks of per-task cost data before making it your default",
+            "Use configurable reasoning effort to build tiered task routing: low-reasoning mode for autocomplete and simple refactors where speed matters, high-reasoning for multi-file changes and debugging where quality matters",
+            "Test parallel tool use on multi-step agent workflows that currently bottleneck on sequential tool calls — Gemini 3.6 Flash is designed to call multiple tools concurrently when task steps are independent, cutting end-to-end latency for workflows with many independent tool invocations"
           ],
-          "tags": ["Moonshot AI", "Kimi K3", "Open Source", "MoE", "Frontier Model", "2.8T Parameters", "Self-Hosting"],
+          "tags": ["Google", "Gemini 3.6 Flash", "GitHub Copilot", "Agentic AI", "Token Efficiency", "Model Picker", "Reasoning"],
           "links": [
-            {"url": "https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems/", "label": "VentureBeat: China's Moonshot AI releases Kimi K3"},
-            {"url": "https://www.cnbc.com/2026/07/17/moonshot-ai-kimi-k3-model-openai-anthropic-china.html", "label": "CNBC: Moonshot AI Kimi K3 rivals OpenAI, Anthropic"},
-            {"url": "https://fortune.com/2026/07/16/moonshots-kimi-k3-pushes-chinese-ai-into-fable-level-territory/", "label": "Fortune: Kimi K3 pushes Chinese AI into Fable-level territory"},
-            {"url": "https://huggingface.co/blog/ResterChed/kimi-k3-model-overview-mxfp4-quantization-open-wei", "label": "HuggingFace: Kimi K3 model overview and MXFP4 quantization"}
+            {"url": "https://github.blog/changelog/2026-07-21-gemini-3-6-flash-is-now-available-in-github-copilot/", "label": "GitHub Changelog: Gemini 3.6 Flash is now available in GitHub Copilot"},
+            {"url": "https://datanorth.ai/news/google-releases-gemini-3-6-flash", "label": "DataNorth: Google releases Gemini 3.6 Flash"},
+            {"url": "https://alphasignal.ai/news/google-s-gemini-3-6-flash-hits-github-copilot-faster-and-17-cheaper", "label": "AlphaSignal: Gemini 3.6 Flash hits Copilot — faster and 17% cheaper"},
+            {"url": "https://byteiota.com/gemini-36-flash-github-copilot-token-efficiency/", "label": "ByteIota: Gemini 3.6 Flash — 17% fewer tokens, live in Copilot"},
+            {"url": "https://agentpedia.codes/blog/gemini-3-6-flash-developer-guide", "label": "Agentpedia: Gemini 3.6 Flash developer guide — API, pricing, benchmarks"}
           ]
         },
         {
-          "title": "OpenAI Ships GPT-Live: Full-Duplex Voice Model That Delegates Complex Reasoning to GPT-5.5 in the Background",
-          "url": "https://openai.com/index/introducing-gptlive/",
-          "tldr": "OpenAI launched GPT-Live on July 8, 2026 — a full-duplex voice model family that listens and speaks simultaneously, making speak/listen/pause/interrupt decisions many times per second. The architecture is a two-layer system: a continuous interaction layer managing the conversation, and a delegation layer that hands complex tasks (web search, deep reasoning) to GPT-5.5 in the background while keeping you talking. Two variants launched globally: GPT-Live-1 for paid users and GPT-Live-1 mini for free users. The delegation pattern decouples conversational tempo from reasoning depth for the first time in a consumer voice product.",
-          "why_it_matters": "GPT-Live's delegation architecture is the design pattern worth studying. Previous voice assistants forced a choice: fast responses with shallow reasoning, or slow responses with deep reasoning. The two-layer architecture eliminates this trade-off by keeping the conversation flowing at human pace while complex work happens asynchronously. For engineers building voice-enabled AI products, this is a reference architecture for how to handle the latency mismatch between conversational interaction and deep inference. The full-duplex capability (listening while speaking, with real-time interrupt handling) sets a new baseline for voice AI UX — users will expect this from any voice agent built after GPT-Live.",
+          "title": "Mozilla State of Open Source AI V1.0: 51% Production Deploy Rate vs. 63% for Closed Models — Performance Gap Narrowed to 3.3%",
+          "url": "https://stateofopensource.ai/",
+          "tldr": "Mozilla published its inaugural State of Open Source AI V1.0 on July 14, 2026, authored by Mozilla CTO Raffi Krikorian. Key findings: 79% of developers use open-source AI models, but only 51% deploy them to production — compared to 63% for proprietary models. The performance gap between open and closed models has narrowed to 3–3.3%. Open models support 33% of active AI applications but capture just 4% of global AI market revenue. The deployment barrier is not model capability but operational tooling: infrastructure cost, security, compliance, maintenance, and deployment complexity. 'Eval debt' — failing to build evaluation pipelines alongside models — is identified as one of the three top reasons open-source AI projects never reach production.",
+          "why_it_matters": "The Mozilla data reframes the open vs. closed model decision. At a 3.3% performance gap on standard benchmarks, open models are practically equivalent for most tasks. The 51% vs. 63% production deployment rate is where the real divergence lives — and the root cause is not quality but operational infrastructure. Closed-model vendors have solved enterprise deployment (auth, compliance, SLAs, support); open-model teams haven't. The enterprise-scale data makes this concrete: open model production rates rise from 53% at small companies to just 57% at enterprise, while closed model rates climb from 54% to 73%. Eval debt is the most actionable finding: teams that skip evaluation pipelines during development can't quantify production readiness, can't detect regression after deployment, and can't safely update models. The inverse — building eval pipelines during development — is what moves teams from the 62% piloting to the 4% at full maturity.",
           "traction": "high",
           "traction_evidence": [
-            "Official OpenAI launch — July 8, 2026, globally available in ChatGPT",
-            "Simon Willison published a detailed analysis on launch day",
-            "Coverage: Technology Org, BuildFastWithAI, ExplainX, Memeburn, FelloAI",
-            "Two variants (GPT-Live-1, GPT-Live-1 mini) — both free and paid tiers covered",
-            "First consumer voice product with full-duplex + background reasoning delegation"
+            "Published by Mozilla CTO Raffi Krikorian — official V1.0 canonical report, July 14, 2026",
+            "Coverage: Help Net Security, UC Today, Business Standard, Open Source For You, Northeast Times, Time Magazine, Digital Journal",
+            "Time Magazine: 'Mozilla Wants to Build a Rebel Alliance for Open-Source AI' — high-profile placement",
+            "Official canonical site stateofopensource.ai — dedicated report landing page",
+            "Cross-referenced by 5+ independent tech blogs tracking developer tooling trends in July 2026"
           ],
           "use_cases": [
-            "Use GPT-Live's delegation architecture as a reference pattern for your own voice AI products: separate the conversational interaction layer (fast, lightweight) from the reasoning layer (slow, powerful) and connect them with async task handoff",
-            "Evaluate GPT-Live-1 for internal voice interfaces: customer support, field service, or hands-free developer workflows where the user needs to stay in conversation while the system performs multi-step reasoning",
-            "Test GPT-Live's interrupt handling for latency-sensitive voice applications: the full-duplex architecture handles mid-sentence corrections, which is critical for production voice UX where users frequently change direction"
+            "Use the 3.3% performance gap as your benchmark threshold: if your task tolerance accepts less than 5% quality delta, the performance argument for closed models is statistically marginal — your decision becomes an operational readiness question, not a model quality question",
+            "Before committing to open-model deployment, audit against Mozilla's barrier categories: infrastructure cost, security, compliance, maintenance, and deployment complexity — score each dimension to identify which barriers would block production deployment before starting the evaluation",
+            "Treat eval debt as a first-class engineering concern: define your quality metrics and build evaluation pipelines into your staging environment before any model reaches production — teams that deploy without this capability can't respond to quality regression or safely update models"
           ],
-          "tags": ["OpenAI", "GPT-Live", "Voice AI", "Full-Duplex", "GPT-5.5", "Delegation", "Architecture"],
+          "tags": ["Mozilla", "Open Source AI", "Open Models", "Deployment Gap", "Eval Debt", "Production AI", "Research", "Market Data"],
           "links": [
-            {"url": "https://kie.ai/blog/gpt-live-full-duplex-voice-model-deep-dive", "label": "Kie.ai: GPT-Live deep dive — full-duplex voice model"},
-            {"url": "https://simonwillison.net/2026/Jul/8/introducing-gptlive/", "label": "Simon Willison: Introducing GPT-Live"},
-            {"url": "https://www.technology.org/2026/07/09/openai-gpt-live-full-duplex-voice-models/", "label": "Technology Org: OpenAI launches GPT-Live voice AI models"},
-            {"url": "https://mer.vin/2026/07/gpt-live-explained-full-duplex-chatgpt-voice-with-gpt-5-5-delegation/", "label": "Mervin Praison: GPT-Live explained with GPT-5.5 delegation"}
-          ]
-        },
-        {
-          "title": "GitHub Copilot Adds Kimi K2.7 Code: First Open-Weight Model in the Five-Lab Roster, Priced at $0.95/M Input Tokens",
-          "url": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/",
-          "tldr": "GitHub made Kimi K2.7 Code generally available in Copilot's model picker on July 1, 2026 — the first open-weight model offered as a selectable option alongside closed models from OpenAI, Anthropic, Google, and Microsoft. K2.7 Code is MIT-licensed with 1T total parameters (32B active per token via MoE), supports 256K context, and is priced at $0.95 per million input tokens. GitHub runs a hosted copy on Azure; full weights are public on HuggingFace. This completes a five-lab roster: OpenAI, Anthropic, Google, Microsoft, and Moonshot AI.",
-          "why_it_matters": "This is the first time an open-weight model sits alongside proprietary models in a major coding tool's model picker, and the pricing tells the story: $0.95/M input tokens vs. significantly higher rates for closed models doing equivalent work. For enterprises evaluating Copilot, K2.7 Code offers a lower-cost option with full auditability — the MIT-licensed weights on HuggingFace mean security teams can inspect exactly what runs behind the API. The five-lab roster also signals GitHub's model-agnostic strategy: Copilot is becoming a multi-model IDE layer rather than an OpenAI frontend. For teams with regulatory requirements around model auditability, K2.7 Code is the only Copilot option where the full model weights are publicly available.",
-          "traction": "high",
-          "traction_evidence": [
-            "Official GitHub Changelog announcement — July 1, 2026",
-            "First open-weight model in Copilot's model picker — milestone event",
-            "Coverage: Windows Forum, Enterprise DNA, TechTimes, ChatForest, AlphaSignal",
-            "Completes five-lab roster: OpenAI, Anthropic, Google, Microsoft, Moonshot AI",
-            "$0.95/M input tokens — lowest-cost option in the Copilot model picker"
-          ],
-          "use_cases": [
-            "Switch cost-sensitive Copilot workflows to K2.7 Code: at $0.95/M input tokens, it's the cheapest option in the picker — benchmark it on your actual tasks before committing, since the quality delta vs. Claude or GPT varies by task type",
-            "For regulated industries requiring model auditability: K2.7 Code is the only Copilot model where full weights are publicly available on HuggingFace for security and compliance review",
-            "Use Copilot's model picker to A/B test K2.7 Code against closed models on the same codebase: this gives you data on where open-weight models match or exceed closed models for your specific development patterns"
-          ],
-          "tags": ["GitHub", "Copilot", "Kimi K2.7", "Open Weight", "Moonshot AI", "MoE", "Model Picker", "Cost Optimization"],
-          "links": [
-            {"url": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/", "label": "GitHub Changelog: Kimi K2.7 Code is generally available in Copilot"},
-            {"url": "https://www.techtimes.com/articles/319556/20260702/open-weight-ai-enters-github-copilot-kimi-k27-code-costs-less-audits-differently.htm", "label": "TechTimes: Open-weight AI enters GitHub Copilot"},
-            {"url": "https://chatforest.com/builders-log/kimi-k2-7-code-github-copilot-ga-five-lab-roster-july-2026-builder-guide/", "label": "ChatForest: Kimi K2.7 Code — first open-weight model in five-lab roster"},
-            {"url": "https://alphasignal.ai/news/github-drops-moonshot-ai-s-open-weight-kimi-k2-7-into-copilot-s-model-picker", "label": "AlphaSignal: GitHub drops Moonshot AI's Kimi K2.7 into Copilot"}
+            {"url": "https://stateofopensource.ai/", "label": "State of Open Source AI V1.0 — Official Report"},
+            {"url": "https://blog.mozilla.org/en/mozilla/mozilla-state-of-open-source-ai-report/", "label": "Mozilla Blog: Inaugural State of Open Source AI Report"},
+            {"url": "https://www.helpnetsecurity.com/2026/07/20/mozilla-open-source-ai-adoption-report/", "label": "Help Net Security: Nearly half of open-source AI projects never reach production"},
+            {"url": "https://www.uctoday.com/productivity-automation/mozilla-state-of-open-source-ai-2026-report/", "label": "UC Today: Open models match closed AI, but deployment remains the real hurdle"},
+            {"url": "https://time.com/article/2026/07/13/open-source-ai-mozilla-rebel-alliance/", "label": "Time Magazine: Mozilla Wants to Build a 'Rebel Alliance' for Open-Source AI"}
           ]
         }
       ]
@@ -95,81 +71,110 @@
       "name": "Developer Tools & Frameworks",
       "articles": [
         {
-          "title": "OpenAI Launches Presence: Fully Managed Enterprise Platform for Deploying AI Agents Across Voice and Chat",
-          "url": "https://openai.com/index/introducing-openai-presence/",
-          "tldr": "OpenAI launched Presence on July 22, 2026 — an enterprise platform for deploying AI agents across voice and chat channels with built-in guardrails. Presence bundles company policies, permission controls, escalation rules, and pre-deployment simulations into a single deployment framework. It uses Codex to analyze production signals and propose agent updates, creating a continuous improvement loop. Deployments are led by OpenAI Forward Deployed Engineers and select systems integrators — no self-service tier. BBVA Mexico and SoftBank Corp. are early customers. Target use cases span customer support, sales, procurement, IT services, and HR.",
-          "why_it_matters": "Presence represents OpenAI's shift from model-as-a-service to agent-as-a-service for enterprises. The no-self-service model is deliberate: OpenAI is pricing and positioning Presence as consulting-led deployment, similar to Palantir's Forward Deployed Engineer model. For enterprises evaluating agent deployment, Presence's architecture reveals what OpenAI considers the minimum viable governance layer: policy enforcement, permission scoping, escalation rules, and simulation testing. The Codex-powered continuous improvement loop — where production conversation signals feed back into agent updates with human approval gates — is a pattern any team building production agents should study, regardless of whether they use Presence. The key limitation for build-vs-buy decisions: no self-service tier means you're dependent on OpenAI's deployment cadence and engineering availability.",
+          "title": "GitHub Code Quality Goes GA July 20: CodeQL + AI Detection + Copilot Autofix on Every PR, $10/Active Committer",
+          "url": "https://github.blog/changelog/2026-07-20-github-code-quality-is-now-generally-available/",
+          "tldr": "GitHub Code Quality moved from public preview to general availability on July 20, 2026. It pairs CodeQL's deterministic static analysis with AI-assisted detection to catch maintainability and reliability issues in pull requests, then uses Copilot Autofix to suggest fixes for developers to review before merging. Pricing: $10/active committer/month on enabled repositories, plus consumption-based billing for AI-powered capabilities (code review, AI-assisted detection, Autofix). New GA features include organization-wide deployment, quality dashboards, code coverage enforcement via rulesets, and repository- and org-level quality scoring. Over 10,000 enterprises participated in the public preview. Billing activates automatically at GA.",
+          "why_it_matters": "GitHub Code Quality collapses three separate tools — SAST scanner, code quality linter, AI code reviewer — into a single PR workflow. For teams running separate tools for each function, this consolidation simplifies both the toolchain and the developer experience. The $10/committer/month pricing is the key decision variable: calculate your current cost for CodeQL licenses + linting CI + Copilot code review before comparing. The org-wide quality dashboard is the capability most enterprise teams don't have today: a single view of quality trends across all repositories, enabling engineering leadership to identify which teams have the highest defect density. The 10,000-enterprise preview adoption provides strong signal that this solves real problems in production, not just in demos. Copilot Autofix operating at the PR level — suggesting fixes inline rather than generating a report — changes how developers engage with quality issues: the friction of opening a separate tool and navigating to a fix is eliminated.",
           "traction": "high",
           "traction_evidence": [
-            "Official OpenAI announcement — July 22, 2026",
-            "Coverage: VentureBeat, SiliconANGLE, Help Net Security, CX Today, TechGenyz, Ground News",
-            "BBVA Mexico and SoftBank Corp. as named enterprise customers",
-            "Deployed by OpenAI Forward Deployed Engineers — consulting-model pricing",
-            "Bundles voice and chat agent deployment with governance — first integrated platform from OpenAI"
+            "Official GitHub Changelog GA announcement — July 20, 2026",
+            "10,000+ enterprises participated in the public preview",
+            "GitHub pre-announced the GA date in June 16 changelog — unusual advance notice for enterprise procurement planning",
+            "Billing activates automatically at GA — GitHub had paying customers ready, not just preview users",
+            "Coverage: DevOps.com, ChatForest, CritiquePlus, Kingy AI — multiple independent pricing and ROI analyses"
           ],
           "use_cases": [
-            "If you're evaluating enterprise agent platforms, use Presence's architecture as a requirements checklist: policy enforcement, permission scoping per task, escalation rules, pre-deployment simulation, and continuous improvement loops — any platform you choose should cover these five capabilities",
-            "For customer support or sales teams considering AI agents: evaluate Presence against building with the raw Realtime API — Presence handles governance, monitoring, and improvement loops that would otherwise require months of custom engineering",
-            "Study the Codex-powered improvement loop for your own agent deployments: the pattern of analyzing production signals, proposing updates, and requiring human approval before rollout is implementable with any LLM + human-in-the-loop workflow, not just Presence"
+            "Audit your existing SAST + code quality + review toolchain cost before enabling Code Quality: at $10/active committer/month, the breakeven against separate tools depends on your current stack — compare (CodeQL subscription + linting CI compute + Copilot code review usage) vs. $10/committer before committing",
+            "Use Code Quality's org-wide dashboard to identify highest-risk repositories: cross-repository quality scoring reveals which codebases have the worst defect density — prioritize enabling Code Quality in those repositories first to get the highest ROI",
+            "Configure Copilot Autofix to require human review before applying suggested fixes: run a 30-day sample where engineers rate each suggestion as 'applied as-is', 'applied with modification', or 'rejected', then use that data to calibrate how much you can trust automated fixes in your specific codebase before adjusting review workflows"
           ],
-          "tags": ["OpenAI", "Presence", "Enterprise", "AI Agents", "Voice", "Governance", "Deployment", "Consulting"],
+          "tags": ["GitHub", "Code Quality", "CodeQL", "Copilot Autofix", "SAST", "Developer Tools", "Code Review", "GA"],
           "links": [
-            {"url": "https://openai.com/index/introducing-openai-presence/", "label": "OpenAI: Introducing Presence"},
-            {"url": "https://venturebeat.com/orchestration/openai-unveils-presence-a-new-platform-that-lets-enterprises-launch-and-manage-realtime-voice-agents-and-chatbots", "label": "VentureBeat: OpenAI unveils Presence for enterprise voice agents"},
-            {"url": "https://siliconangle.com/2026/07/22/openai-introduces-presence-help-enterprises-build-ai-agents/", "label": "SiliconANGLE: OpenAI introduces Presence for enterprise agent deployment"},
-            {"url": "https://www.helpnetsecurity.com/2026/07/22/openai-presence-ai-agent-platform/", "label": "Help Net Security: OpenAI Presence connects agents to enterprise data with guardrails"}
+            {"url": "https://github.blog/changelog/2026-07-20-github-code-quality-is-now-generally-available/", "label": "GitHub Changelog: Code Quality is now generally available"},
+            {"url": "https://devops.com/github-code-quality-moves-to-general-availability-bringing-new-costs-and-capabilities/", "label": "DevOps.com: GitHub Code Quality GA — new costs and capabilities"},
+            {"url": "https://chatforest.com/builders-log/github-code-quality-ga-july-20-2026-pricing-audit-builder-guide/", "label": "ChatForest: GitHub Code Quality GA — the $10 billing trap and what to audit"},
+            {"url": "https://docs.github.com/en/code-security/tutorials/improve-code-quality/fix-findings-in-prs", "label": "GitHub Docs: Fixing code quality findings before merging pull requests"},
+            {"url": "https://kingy.ai/news/github-code-quality-ga-guide/", "label": "Kingy AI: Should You Try GitHub Code Quality GA? A practical review"}
           ]
         },
         {
-          "title": "Strix: Open-Source AI Pentesting Agent Hits 39K GitHub Stars — Autonomous Agent Teams That Produce Working Exploits",
-          "url": "https://github.com/usestrix",
-          "tldr": "Strix is an open-source (Apache 2.0) autonomous penetration testing tool that replaces static scanners with AI agent teams that reason about targets, chain tools together, and produce working proof-of-concept exploits. The agents perform HTTP proxy manipulation, browser-driven client-side testing (XSS, CSRF), terminal sessions for command injection, and custom Python exploit development. Strix hit 39.4K GitHub stars and #1 on GitHub Trending on July 3, 2026 with +2,137 stars in a single day, gaining 10,300+ stars per week through July.",
-          "why_it_matters": "Strix represents the shift from rule-based security scanning to agentic security testing. Traditional scanners match patterns against known vulnerability signatures. Strix's agents reason about the target application — exploring paths, chaining attack vectors, and adapting their approach based on what they discover, similar to how a human pentester works. The Apache 2.0 license and the proof-of-concept exploit output are what differentiate it from commercial alternatives: you can run Strix in your CI pipeline, audit the agent's reasoning, and get reproducible exploits rather than just finding descriptions. The 39K-star growth rate signals that the developer community considers autonomous pentesting practical, not just a research demo.",
-          "traction": "high",
-          "traction_evidence": [
-            "39.4K GitHub stars, 4K forks as of July 2026",
-            "#1 on GitHub Trending July 3, 2026 — +2,137 stars in one day",
-            "10,300+ stars per week growth rate through July",
-            "Coverage: Help Net Security, AlphaMatch, Wavise OpenLLM, Protego review",
-            "Apache 2.0 license — free for commercial and internal use"
-          ],
-          "use_cases": [
-            "Add Strix to your pre-release security testing pipeline: run it against staging environments before deployment to discover vulnerabilities that static scanners miss — Strix's agent reasoning can chain attack vectors (e.g., CSRF + XSS) that pattern-based tools evaluate in isolation",
-            "Use Strix's proof-of-concept exploit output to prioritize vulnerability remediation: working exploits demonstrate actual risk severity, which helps security teams and developers prioritize fixes over theoretical findings",
-            "Run Strix against your public-facing applications as a continuous security audit: the autonomous agent approach means it can explore your application surface like an external attacker without requiring manual configuration for each new feature"
-          ],
-          "tags": ["Strix", "Pentesting", "Security", "Open Source", "AI Agent", "Vulnerability", "Exploit", "AppSec"],
-          "links": [
-            {"url": "https://github.com/usestrix", "label": "GitHub: usestrix — Strix open-source AI pentesting"},
-            {"url": "https://www.helpnetsecurity.com/2025/11/17/strix-open-source-ai-agents-penetration-testing/", "label": "Help Net Security: Strix open-source AI agents for pentesting"},
-            {"url": "https://www.alphamatch.ai/blog/strix-ai-penetration-testing-2026", "label": "AlphaMatch: Strix — AI-powered penetration testing in 2026"},
-            {"url": "https://openllm.wavise.com/blog/strix-ai-penetration-testing", "label": "Wavise OpenLLM: Strix AI pentesting with 39K stars"}
-          ]
-        },
-        {
-          "title": "Perplexity Open-Sources Bumblebee: Zero-Dependency Supply Chain Scanner for npm, PyPI, MCP Servers, and Editor Extensions",
-          "url": "https://explainx.ai/blog/bumblebee-supply-chain-security-scanner-2026",
-          "tldr": "Perplexity AI open-sourced Bumblebee in May 2026 under Apache 2.0 — a read-only supply chain scanner that ships as a single Go binary with zero external dependencies. It scans npm, PyPI, Go modules, RubyGems, Composer packages, MCP server configurations, and editor extensions for malicious or suspicious dependencies. Bumblebee reads only metadata (lockfiles and manifests) without executing install scripts, lifecycle hooks, or package manager commands. Critically, it covers MCP configuration files — a new attack surface that almost no other security tool addresses.",
-          "why_it_matters": "Bumblebee addresses the growing attack surface created by the AI tooling explosion. MCP servers, editor extensions, and AI coding agent plugins are now installed as casually as npm packages, but few security tools scan them for compromise. The May 2026 npm/PyPI supply chain attack that compromised 160+ packages demonstrated this gap. Bumblebee's zero-dependency design is itself a security statement: a scanner with zero third-party dependencies has zero supply chain risk in the tool itself. The read-only, metadata-only approach means it can run in CI without the risk of triggering malicious install scripts. For teams running MCP servers or AI agent tooling, Bumblebee is currently the only open-source scanner that covers these surfaces.",
+          "title": "OfficeCLI: Open-Source CLI for AI Agents to Read, Edit, and Automate Word, Excel, and PowerPoint — 10,800 GitHub Stars",
+          "url": "https://github.com/iOfficeAI/OfficeCLI",
+          "tldr": "OfficeCLI is an open-source Office suite purpose-built for AI agents to programmatically read, edit, and automate .docx, .xlsx, and .pptx files without installing Microsoft Office. It ships as a single self-contained binary for macOS, Linux, and Windows with zero external dependencies. Agents interact through CLI commands and can render documents to HTML or PNG to inspect output rather than guessing from raw XML. It integrates with Claude Code, Cursor, Windsurf, and GitHub Copilot through MCP. The project reached 10,800+ GitHub stars after launching in early July 2026.",
+          "why_it_matters": "OfficeCLI fills a concrete gap: AI agents can generate structured content but have had no reliable way to write it into Office documents without depending on Microsoft 365 APIs (requiring auth and subscription) or python-docx (requiring a Python runtime and complex XML knowledge). OfficeCLI solves this with a single binary any agent can invoke from a shell command. The render-to-HTML/PNG capability is what most competitive tools miss: an agent that writes a table to Excel and can then inspect a rendered visual of what it produced can verify output and iterate, closing the generate → inspect → fix loop that makes document automation agents reliable. The zero-dependency binary design works in CI pipelines, Docker containers, and air-gapped environments where Python runtimes and Office installations are unavailable. For teams building agents that need to populate reports, generate contracts, or update spreadsheets, OfficeCLI is the missing tool-use primitive connecting LLMs to the Office ecosystem.",
           "traction": "medium",
           "traction_evidence": [
-            "Released by Perplexity AI — May 2026, Apache 2.0 license",
-            "Coverage: Help Net Security, ExplainX, OpenTools, Coding Nexus, ByteIota",
-            "Featured in GitHub trending repositories roundups for July 2026",
-            "Addresses MCP configuration scanning — a surface no other tool covers",
-            "Zero external dependencies — built with Go standard library only"
+            "10,800+ GitHub stars within weeks of July 2026 launch",
+            "Coverage: Winbuzzer, Gigazine, CoddyKit, Quasa.io, NxCode, NateCue, KnightLi",
+            "MCP integration documented for Claude Code, Cursor, Windsurf, and GitHub Copilot",
+            "Zero-dependency single binary — adopted in CI/CD and Docker environments",
+            "GitHub: iOfficeAI/OfficeCLI — 'first and best Office suite purpose-built for AI agents'"
           ],
           "use_cases": [
-            "Add Bumblebee to your CI pipeline alongside existing dependency scanners: it covers MCP server configurations and editor extensions that tools like Snyk, Dependabot, and npm audit don't scan — run it as an additional check that takes seconds",
-            "Scan developer workstations for compromised MCP servers and VS Code extensions: developers installing AI tools and MCP integrations are creating new attack surfaces that traditional endpoint security doesn't monitor",
-            "Use Bumblebee's zero-dependency architecture as a template for building security tools: the single Go binary with no third-party dependencies eliminates supply chain risk in the scanner itself — a design pattern worth adopting for any security-critical tooling"
+            "Add OfficeCLI to your MCP configuration to enable document automation from your coding assistant: when an agent finishes a data analysis, it can write results to Excel and render a visual preview — closing the generate → inspect → fix loop without leaving the agent workflow",
+            "Use OfficeCLI in CI for automated document generation: report population, contract templating, data export to Excel — the zero-dependency binary runs in any Docker container without Microsoft 365 credentials or Python runtime",
+            "Build a document-processing agent that reads .docx contracts, extracts key clauses, and writes summaries back to the file: OfficeCLI's read + write + render capabilities make this feasible without custom Python scripting or Graph API integration"
           ],
-          "tags": ["Bumblebee", "Perplexity", "Supply Chain", "Security", "MCP", "Open Source", "Go", "Scanner"],
+          "tags": ["OfficeCLI", "Open Source", "Office Documents", "AI Agents", "CLI", "Word", "Excel", "PowerPoint", "MCP", "Document Automation"],
           "links": [
-            {"url": "https://explainx.ai/blog/bumblebee-supply-chain-security-scanner-2026", "label": "ExplainX: Perplexity's Bumblebee — open-source supply chain security scanner"},
-            {"url": "https://opentools.ai/news/perplexity-open-sources-bumblebee-security-scanner", "label": "OpenTools: Perplexity open-sources Bumblebee security scanner"},
-            {"url": "https://medium.com/coding-nexus/bumblebee-protection-against-supply-chain-attacks-993ea50a425e", "label": "Coding Nexus: Bumblebee — protection against supply chain attacks"},
-            {"url": "https://www.developersdigest.tech/blog/perplexity-bumblebee-supply-chain-scanner-developer-guide-2026", "label": "Developers Digest: Bumblebee developer guide"}
+            {"url": "https://github.com/iOfficeAI/OfficeCLI", "label": "GitHub: iOfficeAI/OfficeCLI — open-source Office suite for AI agents"},
+            {"url": "https://www.coddykit.com/pages/blog-detail?id=512903&slug=officecli-the-open-source-office-suite-that-gives-ai-agents-full-control-over-wo", "label": "CoddyKit: OfficeCLI — 10,800+ stars, full Office control through CLI commands"},
+            {"url": "https://gigazine.net/gsc_news/en/20260708-officecli/", "label": "Gigazine: OfficeCLI allows you to control Word, Excel, and PowerPoint with any AI agent"},
+            {"url": "https://winbuzzer.com/2026/07/07/officecli-gives-ai-agents-a-command-line-for-office-files-xcxwbn/", "label": "Winbuzzer: OfficeCLI gives AI agents a command line for Office files"},
+            {"url": "https://knightli.com/en/2026/07/12/officecli-ai-agent-word-excel-powerpoint-local-automation-guide/", "label": "KnightLi: OfficeCLI — local automation guide for Word, Excel, and PowerPoint"}
+          ]
+        },
+        {
+          "title": "OpenClaw: 355K GitHub Stars, 3.2M Users — The Local LLM Control Plane Connecting Claude and GPT to Signal, Telegram, and iMessage",
+          "url": "https://openclaw.ai/",
+          "tldr": "OpenClaw is an open-source local AI agent runtime created by PSPDFKit founder Peter Steinberger in November 2025. It functions as a control plane connecting any LLM — Claude, GPT, DeepSeek, Gemini, or local Ollama models — to the messaging apps you already use: Signal, Telegram, WhatsApp, Discord, and iMessage. OpenClaw is fully self-hosted with local data storage, handles message routing and conversation history, and triggers automations through natural language. It surpassed 355,000 GitHub stars and 3.2 million active users across 500,000+ running instances — faster than any open-source AI agent in GitHub history. In February 2026, Steinberger joined OpenAI and established the OpenClaw Foundation for independent project stewardship.",
+          "why_it_matters": "OpenClaw solved the distribution problem that every LLM product encounters: rather than requiring users to adopt a new app, it routes AI into the messaging channels they already use daily. A team using Signal gets Claude as a participant in existing channels — no new onboarding, no new workflow. The 355K-star trajectory (3.2M users in under 5 months) is the fastest verified adoption curve for any open-source AI agent tool. The architecture pattern — LLM → routing layer → messaging adapter — is a reusable template for connecting AI capabilities to any existing communication surface without changing user behavior. The OpenClaw Foundation structure is also worth noting: it's one of the first cases where a creator committed to open governance at the moment of joining a major AI lab, creating a model for how high-value open-source AI projects can maintain independence when their creators move to commercial organizations.",
+          "traction": "high",
+          "traction_evidence": [
+            "355,000+ GitHub stars — fastest-growing open-source AI agent in GitHub history",
+            "3.2 million active users across 500,000+ running instances (November 2025 to mid-2026)",
+            "Coverage: DigitalOcean, Neurohive, Data Science Collective (Medium), Wikipedia — multi-outlet verification",
+            "OpenClaw Foundation established February 2026 — formal independent governance",
+            "Supports 5 messaging platforms: Signal, Telegram, WhatsApp, Discord, iMessage"
+          ],
+          "use_cases": [
+            "Deploy OpenClaw internally to give your team LLM access through existing messaging channels: the control plane manages API keys centrally, team members interact through their existing workflow, and conversation history is stored locally — no per-user subscription required",
+            "Use OpenClaw's architecture as a template for messaging-embedded AI features in your own product: the LLM → routing layer → messaging adapter pattern eliminates the distribution problem; if your users live in Discord or Telegram, meeting them there with AI capabilities avoids the adoption friction of a new interface",
+            "Self-host with Ollama for privacy-sensitive environments: OpenClaw + Ollama keeps both the interface and the model inference on your hardware — no data leaves your infrastructure, suitable for regulated industries where API data processing agreements are a blocker"
+          ],
+          "tags": ["OpenClaw", "Open Source", "LLM", "Messaging", "Signal", "Telegram", "WhatsApp", "Discord", "iMessage", "AI Agent", "Self-Hosted", "Local AI"],
+          "links": [
+            {"url": "https://openclaw.ai/", "label": "OpenClaw: Personal AI Assistant — official site"},
+            {"url": "https://neurohive.io/en/guides/openclaw-the-lobster-that-took-over-the-world-how-one-developer-built-the-most-popular-open-source-ai-agent-in-history/", "label": "Neurohive: How one developer built the most popular open-source AI agent in history"},
+            {"url": "https://www.digitalocean.com/resources/articles/what-is-openclaw", "label": "DigitalOcean: What is OpenClaw?"},
+            {"url": "https://medium.com/data-science-collective/355k-github-stars-in-5-months-17-defense-rate-the-complete-honest-guide-to-openclaw-28d2f59598e1", "label": "Data Science Collective: 355K GitHub stars in 5 months — the complete honest guide to OpenClaw"},
+            {"url": "https://en.wikipedia.org/wiki/OpenClaw", "label": "Wikipedia: OpenClaw"}
+          ]
+        },
+        {
+          "title": "SKILL.md Is Becoming the Standard for Composable Agent Behaviors Across Codex and Claude Code",
+          "url": "https://developers.openai.com/blog/skills-agents-sdk",
+          "tldr": "SKILL.md is a structured instruction format — YAML frontmatter with name and description metadata, plus a Markdown body with step-by-step agent instructions — that defines reusable, composable behaviors for AI agents. OpenAI published a post on using skills for OSS maintenance through the Agents SDK. Both Codex and Claude Code treat SKILL.md files as first-class configuration. The Codex changelog shows bundled skills updated in July 2026 with GPT-5.6 model resolution guidance. A community skill marketplace at agentskills.io has emerged for sharing skills. SKILL.md enables extending agents beyond code generation to information gathering, writing, multi-step problem solving, and workflow automation.",
+          "why_it_matters": "SKILL.md signals a platform shift: AI coding agents are evolving from tools you prompt ad hoc to tools you configure with persistent, reusable capabilities. This is the agent equivalent of defining npm scripts or Makefile targets — instead of repeating the same prompt every time you want a specific behavior, you define it once as a SKILL.md and it's available in any session. The practical opportunity is to standardize the prompting patterns your team already repeats — code review checklists, deployment runbooks, incident investigation flows — into SKILL.md files that any team member can invoke consistently. Cross-platform support (Codex + Claude Code) means skills you define today work across both agent environments. The community agentskills.io marketplace means pre-built skills for common tasks (PR review, documentation generation, OSS issue triage) are available without custom prompt engineering.",
+          "traction": "emerging",
+          "traction_evidence": [
+            "OpenAI official Agents SDK blog post: 'Using skills to accelerate OSS maintenance'",
+            "Community marketplace agentskills.io active with shareable skills",
+            "Codex changelog July 2026: bundled skill updates with GPT-5.6 model resolution guidance",
+            "The Prompt Index published a comprehensive SKILL.md guide in July 2026 covering both Codex and Claude Code",
+            "First-class support in both Claude Code (.claude/agents/*.md) and Codex skill ecosystems"
+          ],
+          "use_cases": [
+            "Convert your team's 5 most-repeated prompts into SKILL.md files: identify prompts every engineer types weekly (PR review, deploy checklist, test generation, incident triage), encode each as a SKILL.md with a clear name and step-by-step instructions, and publish them to your repo so any team member invokes them consistently",
+            "Check agentskills.io for pre-built skills before writing your own: community skills for engineering tasks (OSS issue triage, documentation generation, security review) may already be better-tested than a first-draft skill you'd write in 30 minutes",
+            "Define a SKILL.md for your deployment runbook: encode the exact steps your team follows for production deploys (pre-flight checks, migration steps, rollback criteria) — any engineer can then trigger the full runbook through their coding agent without needing to recall the sequence or look it up in documentation"
+          ],
+          "tags": ["SKILL.md", "Agent Skills", "Codex", "Claude Code", "OpenAI", "Agents SDK", "Composable", "Developer Workflow", "Automation"],
+          "links": [
+            {"url": "https://developers.openai.com/blog/skills-agents-sdk", "label": "OpenAI Developers: Using skills to accelerate OSS maintenance"},
+            {"url": "https://www.thepromptindex.com/how-to-use-ai-agent-skills-the-complete-guide.html", "label": "The Prompt Index: AI Agent Skills Guide — SKILL.md, Claude Code, Codex, and Security"},
+            {"url": "https://developers.openai.com/codex/changelog", "label": "Codex Changelog: July 2026 updates including bundled skill revisions"},
+            {"url": "https://codex.danielvaughan.com/2026/03/27/codex-cli-skills-ecosystem/", "label": "Codex Knowledge Base: The Codex CLI Skills Ecosystem and agentskills.io"}
           ]
         }
       ]
@@ -178,82 +183,81 @@
       "name": "Infrastructure & Production",
       "articles": [
         {
-          "title": "Anthropic Publishes Zero Trust for AI Agents: Three-Tier Security Framework for Enterprise Agent Deployments",
-          "url": "https://claude.com/blog/zero-trust-for-ai-agents",
-          "tldr": "Anthropic released Zero Trust for AI Agents — a comprehensive security framework for deploying autonomous AI agents in enterprises. The framework addresses four threat categories: prompt injection, tool poisoning, identity abuse, and memory poisoning. It defines a three-tier architecture (Foundation, Advanced, Optimized) mapped to organizational maturity, an eight-phase implementation workflow, and agentic SOAR (Security Orchestration, Automation, and Response). Core principles: cryptographically rooted agent identity, per-task permission scoping, memory poisoning protection, and defensive operations at the speed of autonomous attackers. Multiple enterprise security vendors (Akeyless, Varonis, Securiti) have published implementation guides.",
-          "why_it_matters": "As AI agents gain tool access, network capabilities, and persistent memory, they inherit the full attack surface of the systems they interact with — plus new attack vectors unique to LLMs (prompt injection, memory poisoning). Anthropic's framework is the first structural defense blueprint from a major model provider. The three-tier maturity model gives teams a concrete path: start with Foundation (identity + basic access control), advance to Advanced (per-task permissions + memory protection), reach Optimized (automated defense at agent speed). The fact that Akeyless, Varonis, and Securiti have already published implementation guides means the framework is being adopted as an industry standard, not just an Anthropic recommendation. For any team deploying agents with tool access, this framework provides the security checklist that regulators and auditors will expect.",
-          "traction": "high",
-          "traction_evidence": [
-            "Official Anthropic publication — available at claude.com/blog and as downloadable PDF",
-            "Implementation guides published by Akeyless, Varonis, Securiti, IDSA",
-            "Adversa AI included it in top agentic AI security resources for July 2026",
-            "Three-tier framework with eight-phase implementation — production-grade specificity",
-            "Addresses four threat categories specific to agentic AI: prompt injection, tool poisoning, identity abuse, memory poisoning"
-          ],
-          "use_cases": [
-            "Use the three-tier maturity model to assess your current agent security posture: map your existing controls against Foundation tier requirements (cryptographic identity, basic access control) and identify gaps before advancing to Advanced tier (per-task permissions, memory protection)",
-            "Implement cryptographically rooted agent identity for all production agents: each agent should have a verifiable identity that can be audited, revoked, and scoped — this is the Foundation tier requirement and the minimum viable security for agents with tool access",
-            "Add memory poisoning detection to agents with persistent state: the framework identifies memory poisoning as a unique agentic threat — an attacker can inject false information into agent memory that influences future decisions; implement memory integrity checks as part of your agent's read path"
-          ],
-          "tags": ["Anthropic", "Zero Trust", "Security", "AI Agents", "Enterprise", "Framework", "Prompt Injection", "Identity"],
-          "links": [
-            {"url": "https://claude.com/blog/zero-trust-for-ai-agents", "label": "Anthropic: Zero Trust for AI Agents"},
-            {"url": "https://www.akeyless.io/blog/anthropic-defined-the-framework-runtime-authority-enforces-it/", "label": "Akeyless: Enforcing Anthropic's Zero Trust framework"},
-            {"url": "https://www.varonis.com/blog/zero-trust-for-ai-agents", "label": "Varonis: Zero Trust for AI Agents implementation guide"},
-            {"url": "https://securiti.ai/blog/what-anthropic-zero-trust-ai-agents-means-data-layer/", "label": "Securiti: What Zero Trust for AI Agents means for the data layer"},
-            {"url": "https://adversa.ai/blog/top-agentic-ai-security-resources-july-2026/", "label": "Adversa AI: Top agentic AI security resources — July 2026"}
-          ]
-        },
-        {
-          "title": "Claude Code Overtakes GitHub Copilot Among Senior Engineers: 46% 'Most Loved' vs. 9% for Copilot",
-          "url": "https://newsletter.pragmaticengineer.com/p/ai-tooling-2026",
-          "tldr": "Multiple 2026 surveys converge on a market shift in AI coding tools. The Pragmatic Engineer's February 2026 survey found 46% of senior engineers named Claude Code their 'most loved' tool, vs. 19% for Cursor and 9% for GitHub Copilot. JetBrains' January 2026 data shows Claude Code with a 91% CSAT and 54 NPS — the highest in the category. GitHub Copilot's workplace share dropped from 67% to 51%, while Claude Code grew 6x. However, the tools measure productivity differently: Copilot in keystrokes saved, Claude Code in hours eliminated (2-4 hours/week on complex tasks). At 18% workplace adoption each, Cursor and Claude Code are tied — but Claude Code leads among senior engineers at tech-forward companies.",
-          "why_it_matters": "The Claude Code vs. Copilot data reveals a market stratification: Copilot dominates in total user count (26M+) and workplace adoption breadth, but Claude Code wins on depth of engagement and satisfaction among the engineers who influence tooling decisions at tech companies. The 'keystrokes saved vs. hours eliminated' distinction is the key insight — these tools solve fundamentally different problems. Copilot accelerates line-by-line coding. Claude Code eliminates entire task categories (debugging, refactoring, code review). For engineering leaders evaluating AI tool spend, the question isn't which tool is 'better' but which productivity dimension matters most for your team's bottleneck. The 6x growth trajectory suggests Claude Code is still in its rapid adoption phase, while Copilot's share decline indicates market maturation.",
-          "traction": "high",
-          "traction_evidence": [
-            "Pragmatic Engineer survey — February 2026, focused on senior engineers",
-            "JetBrains survey — January 2026, CSAT and NPS data",
-            "LogRocket AI dev tool power rankings — July 2026",
-            "Multiple independent comparison articles: Uvik, Lycore, Orbilontech, Tech-Insider",
-            "GitHub Copilot share decline from 67% to 51% confirmed across multiple sources"
-          ],
-          "use_cases": [
-            "If your team uses Copilot for completion-style coding, evaluate Claude Code for the higher-leverage tasks: debugging sessions, multi-file refactoring, and code review — the 2-4 hours/week savings is concentrated in these categories, not in line-by-line coding where Copilot excels",
-            "Use the 91% CSAT / 54 NPS data point to justify a Claude Code pilot with your team: these satisfaction metrics are from JetBrains (a neutral party), not Anthropic's own marketing — present them alongside your team's actual task breakdown to show where the tool would have the highest impact",
-            "Run a structured 2-week evaluation: assign the same complex tasks (debugging a production issue, refactoring a module, reviewing a PR) to engineers using Copilot and Claude Code, then compare time-to-completion — this gives you org-specific data rather than relying on aggregate survey results"
-          ],
-          "tags": ["Claude Code", "GitHub Copilot", "Cursor", "Developer Productivity", "Survey", "Market Share", "AI Coding Tools"],
-          "links": [
-            {"url": "https://newsletter.pragmaticengineer.com/p/ai-tooling-2026", "label": "Pragmatic Engineer: AI Tooling for Software Engineers in 2026"},
-            {"url": "https://blog.logrocket.com/ai-dev-tool-power-rankings/", "label": "LogRocket: AI dev tool power rankings — July 2026"},
-            {"url": "https://uvik.net/blog/claude-code-vs-cursor-vs-copilot-vs-codex-2026/", "label": "Uvik: Claude Code vs Cursor vs Copilot vs Codex 2026"},
-            {"url": "https://pasqualepillitteri.it/en/news/3392/github-copilot-cursor-claude-code-ai-coding-showdown-2026", "label": "Copilot Under Pressure: Cursor and Claude Code are eating its lunch"}
-          ]
-        },
-        {
-          "title": "Ludicity's 'AI Mania Is Eviscerating Global Decision-Making' Goes Viral: 300 Conversations, Zero Successful AI Projects",
-          "url": "https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making/",
-          "tldr": "On July 18, 2026, consultant Nik Suresh (pen name Ludicity) published an essay claiming that across roughly 300 professional conversations over 18 months, every observed AI project failed. The essay's central allegation: leaders increasingly reward visible AI adoption over useful outcomes, creating a decision-making failure mode where 'AI strategy' answers every question regardless of the problem. The essay hit #1 on Hacker News with 103+ points and 40+ comments within hours. Simon Willison amplified it as 'an entertaining perspective packed with spicy anecdotes.' Northeast Times covered the essay's viral trajectory on July 19.",
-          "why_it_matters": "The essay crystallized a growing tension in the engineering community between AI capability and AI deployment reality. The claim — zero successful AI projects across 300 conversations — is deliberately provocative, but it resonated because many engineers recognize the pattern: leadership mandating AI adoption without clear problem definitions, leading to projects that demo well but never reach production (consistent with Mozilla's finding that 49% of open-source AI projects never deploy). For engineers navigating AI project mandates, the essay provides a framework for the conversation that needs to happen: what specific problem does AI solve here, what's the success metric, and what happens when the project doesn't meet it? The viral reception (Hacker News #1, Simon Willison signal boost, Northeast Times coverage) confirms this is a live tension in the industry, not a contrarian take from the margins.",
+          "title": "AI Observability 2026: Quality + Cost + Latency Are Now an Inseparable Triad — OpenTelemetry Extending to AI Workloads",
+          "url": "https://www.elastic.co/blog/2026-observability-trends-generative-ai-opentelemetry",
+          "tldr": "The 2026 AI observability landscape has matured beyond logging latency and error rates to monitoring an inseparable triad: quality, cost, and latency. Traditional APM tools (Datadog, New Relic) are blind to AI-specific failure modes — hallucination rate, semantic drift, task completion, and output relevance. OpenTelemetry is extending its semantic conventions to include AI spans and LLM-specific attributes, creating a standard instrumentation layer for AI workloads. Elastic's 2026 trends report and Braintrust's AI observability buyer's guide both identify the same pattern: teams that build AI without quality metrics in production can't detect drift, can't respond to regression, and can't prove their agents are working correctly.",
+          "why_it_matters": "The observability gap for AI systems is structural. When an LLM agent starts drifting semantically — returning subtly wrong answers to the same question over time because of input distribution shift — no latency metric or error rate will detect it. Only quality metrics can. OpenTelemetry's extension to AI spans is the event that signals this becoming infrastructure-grade: once OTel has standard AI span types, every observability vendor will add AI workload support, collapsing the fragmented AI-specific tool market into standard observability pipelines. For teams instrumenting AI now, the order of operations matters: start with trace collection (what's flowing through your system), add cost attribution (what each trace costs), then add quality evaluation (are those responses correct). Quality evaluation without traces gives scores without context; traces without quality evaluation give context without scores.",
           "traction": "medium",
           "traction_evidence": [
-            "#1 on Hacker News — 103+ points, 40+ comments within hours",
-            "Simon Willison shared and commented on July 19, calling it 'entertaining' with 'spicy anecdotes'",
-            "Northeast Times published coverage of the viral trajectory on July 19",
-            "Picked up by daily.dev, Remio.ai, and multiple developer blogs",
-            "Author identified: Nik Suresh, runs Hermit Tech consulting — not anonymous"
+            "Elastic published official 2026 observability trends on GenAI + OpenTelemetry integration",
+            "Braintrust published AI observability buyer's guide for production teams in 2026",
+            "OpenTelemetry AI span semantic conventions working group active in 2026",
+            "LogicMonitor 2026 survey: 85% of orgs use GenAI for observability tasks",
+            "Arize Phoenix and Maxim AI shipped autonomous SRE agent capabilities in July 2026"
           ],
           "use_cases": [
-            "Use the essay's framework when evaluating AI project proposals at your org: before committing engineering resources, require a specific problem statement, measurable success criteria, and a definition of what happens if the AI approach doesn't outperform the current solution",
-            "Share with leadership as a conversation starter about AI adoption strategy: the essay is well-written enough for non-technical readers and raises the right questions about outcome-driven vs. hype-driven AI decisions",
-            "Track your own org's AI project success rate: maintain a log of AI projects initiated vs. projects that reached production and delivered measurable value — compare against the Mozilla report's 51% production success rate to calibrate your expectations"
+            "Instrument in this order: traces (every prompt and response with unique ID, timestamp, model metadata) → cost (token counts and API cost attached to each trace) → quality (post-call hook scoring each response on your task-specific criteria) — getting the order wrong means you'll have scores without context or context without scores",
+            "Add OTel AI span attributes to your existing instrumentation as the spec stabilizes: standard attributes for LLM calls (model, input, output, token counts, latency) make your traces compatible with all OTel-compatible observability backends going forward",
+            "Run a monthly semantic drift check: export 100 production responses from each of the last 4 weeks and score them through your quality evaluator; a downward trend in the average quality score without a model change indicates input distribution drift — add a drift monitor to your production pipeline once you identify the pattern"
           ],
-          "tags": ["AI Hype", "Decision-Making", "Ludicity", "Hacker News", "Community", "Enterprise AI", "Strategy"],
+          "tags": ["Observability", "OpenTelemetry", "AI Production", "Quality Metrics", "Semantic Drift", "LLM Monitoring", "Elastic", "Braintrust", "OTel"],
           "links": [
-            {"url": "https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making/", "label": "Ludicity: AI Mania Is Eviscerating Global Decision-Making"},
-            {"url": "https://news.ycombinator.com/item?id=48964185", "label": "Hacker News: AI Mania Is Eviscerating Global Decision-Making — discussion"},
-            {"url": "https://simonwillison.net/2026/Jul/19/ai-mania/", "label": "Simon Willison: AI Mania essay"},
-            {"url": "https://northeasttimes.com/2026/07/19/a-tech-consultant-s-ai-essay-went-viral-here-s-why/", "label": "Northeast Times: A tech consultant's AI essay went viral"}
+            {"url": "https://www.elastic.co/blog/2026-observability-trends-generative-ai-opentelemetry", "label": "Elastic: 2026 Observability Trends — GenAI and OpenTelemetry reshape the landscape"},
+            {"url": "https://www.braintrust.dev/articles/best-ai-observability-tools-2026", "label": "Braintrust: AI Observability Buyer's Guide — monitoring AI agents in production 2026"},
+            {"url": "https://www.logicmonitor.com/blog/observability-ai-trends-2026", "label": "LogicMonitor: 5 Observability & AI Trends for 2026"},
+            {"url": "https://horovits.medium.com/observability-for-ai-workloads-a-new-paradigm-for-a-new-era-b8972ba1b6ba", "label": "Dotan Horovits: Observability for AI Workloads — a new paradigm for a new era"}
+          ]
+        },
+        {
+          "title": "Only 4% of Organizations Reach Full AI Production Maturity — 62% Are Still Piloting in 2026",
+          "url": "https://www.logicmonitor.com/resources/2026-observability-ai-trends-outlook",
+          "tldr": "LogicMonitor's 2026 Observability & AI Outlook found a stark production readiness gap: 62% of organizations are piloting AI, but only 4% have reached full production maturity. The same survey found 85% of organizations use GenAI for observability tasks — a higher adoption rate for observability tooling than for the production systems being observed. Mozilla's State of Open Source AI V1.0 independently confirms this pattern, identifying 'eval debt' — failing to build evaluation pipelines during development — as one of the three top reasons AI projects never reach production. The consistent thread across both reports: the barrier to production is not model capability but operational infrastructure and measurement practices.",
+          "why_it_matters": "The 4% full-maturity figure gives engineering teams a calibration point. If you're not in the 4%, you're in good company — but the data is specific about what separates them: evaluation pipelines, quality metrics in production, rollback procedures, and governance controls. The eval debt concept is the most actionable finding. Teams that skip evaluation pipelines during development can't quantify production readiness, can't detect regression after deployment, and can't safely update models — creating a compounding technical debt that eventually halts production. The inverse is also true: teams that build eval pipelines during development move through production deployment faster because they can prove readiness. The 85% GenAI-for-observability vs. 4% production-maturity gap reveals a specific irony: teams use AI to watch their systems but haven't yet built the systems they need to watch.",
+          "traction": "medium",
+          "traction_evidence": [
+            "LogicMonitor 2026 Observability & AI Outlook — structured survey of IT and engineering leaders",
+            "62%/4% production maturity split — specific survey numbers from infrastructure monitoring vendor",
+            "85% GenAI for observability — unusually high cross-adoption rate signals category maturity",
+            "Mozilla V1.0 report independently confirms 'eval debt' as a top-3 production failure mode",
+            "Consistent with Mozilla's 51% open-model production deployment rate — cross-validated finding"
+          ],
+          "use_cases": [
+            "Use the 4% maturity characteristics as a production-readiness checklist: evaluation pipelines, quality metrics in production, documented rollback triggers, and governance ownership — score your current AI systems against each criterion to identify which gaps block production promotion",
+            "Build your eval pipeline before deployment, not after: define quality metrics (task completion rate, hallucination rate, user satisfaction proxy) and build the evaluation pipeline into staging before pushing to production — this is the single practice that most strongly separates the 4% from the 62%",
+            "Set a production-readiness gate for each AI system: define the minimum scores on quality, cost predictability, monitoring coverage, and rollback capability required before a pilot moves to production — use it to prevent pilots from lingering indefinitely without a clear promotion or kill decision"
+          ],
+          "tags": ["AI Production", "Production Maturity", "Eval Debt", "Piloting", "Governance", "LogicMonitor", "Mozilla", "Deployment Gap", "MLOps"],
+          "links": [
+            {"url": "https://www.logicmonitor.com/resources/2026-observability-ai-trends-outlook", "label": "LogicMonitor: 2026 Observability & AI Trends Outlook"},
+            {"url": "https://www.logicmonitor.com/blog/observability-ai-trends-2026", "label": "LogicMonitor: 5 Observability & AI Trends Making Way for Autonomous IT in 2026"},
+            {"url": "https://www.helpnetsecurity.com/2026/07/20/mozilla-open-source-ai-adoption-report/", "label": "Help Net Security: Nearly half of open-source AI projects never reach production"},
+            {"url": "https://stateofopensource.ai/", "label": "State of Open Source AI V1.0: eval debt as a top production failure mode"}
+          ]
+        },
+        {
+          "title": "July 2026 GitHub Trending: 7 Open-Source AI Infrastructure Projects — 650K+ Stars Across Ollama, vLLM, Browser Use, CrewAI, and More",
+          "url": "https://www.analyticsvidhya.com/blog/2026/07/trending-ai-github-repositories/",
+          "tldr": "Analytics Vidhya's July 2026 GitHub trending report identifies seven open-source AI infrastructure projects that have collectively surpassed 650,000 GitHub stars: Ollama (local LLM inference), Open WebUI (browser UI for local LLMs), Browser Use (web automation for agents), vLLM (high-throughput LLM serving), Unsloth (efficient fine-tuning), CrewAI (multi-agent orchestration), and Continue (open-source AI coding assistant). Each addresses a distinct infrastructure layer — local inference, serving, fine-tuning, orchestration, web automation, and IDE integration — and all have documented production deployments beyond developer tooling. Collectively they represent a community-validated reference stack for the full AI infrastructure lifecycle.",
+          "why_it_matters": "The convergence of the community on these seven projects signals that the AI infrastructure tooling market is past the experimentation phase. Rather than evaluating dozens of tools per category, engineering teams now have a clear signal: these are the projects with the most production traction and community investment. The seven tools are complementary, not competing: Ollama for local dev inference, Open WebUI for the interface layer, vLLM for high-throughput production serving, Unsloth for fine-tuning within hardware constraints, Browser Use for web automation in agent tasks, CrewAI for multi-agent orchestration, and Continue for open-source IDE integration. Together they form a reference architecture: local dev with Ollama + Open WebUI + Continue, production serving with vLLM, fine-tuning with Unsloth, agent orchestration with CrewAI, browser tasks with Browser Use. The 650K+ collective star count represents sustained usage, not launch spikes.",
+          "traction": "high",
+          "traction_evidence": [
+            "650,000+ collective GitHub stars across seven projects as of July 2026",
+            "Analytics Vidhya report identifies these as the top trending AI repositories in July 2026",
+            "vLLM, Ollama, and Open WebUI all have documented production enterprise deployments",
+            "CrewAI 1.14 released in 2026 — active major version cadence indicates production-grade development",
+            "Continue positioned as the open-source alternative to Copilot — validated in multiple developer surveys"
+          ],
+          "use_cases": [
+            "Use this seven-project reference architecture as your evaluation shortlist for each infrastructure layer: before evaluating 20 LLM serving frameworks, benchmark vLLM on your hardware and throughput requirements — community convergence means you'll find more integration guides and production examples than for alternatives",
+            "Build a local dev environment with Ollama + Open WebUI + Continue as your baseline: this combination gives every developer local LLM inference, a browser UI for testing, and IDE integration — all open-source, self-hostable, no API keys required; validate which model size works for your tasks before committing to cloud API spend",
+            "Evaluate Browser Use for agent workflows requiring web interaction: if your agents need to read dynamic web content, fill forms, or interact with web UIs, Browser Use is the most-adopted open-source solution in this category; test it against Playwright-based alternatives on your specific target sites before building custom tooling"
+          ],
+          "tags": ["Open Source", "GitHub Trending", "Ollama", "vLLM", "CrewAI", "Browser Use", "Unsloth", "Open WebUI", "Continue", "AI Infrastructure"],
+          "links": [
+            {"url": "https://www.analyticsvidhya.com/blog/2026/07/trending-ai-github-repositories/", "label": "Analytics Vidhya: Top 10 GitHub Repositories Trending in July 2026"},
+            {"url": "https://blog.mean.ceo/open-source-ai-news-july-2026/", "label": "Mean CEO: Open Source AI News — July 2026 Startup Edition"},
+            {"url": "https://www.kunalganglani.com/blog/open-source-ai-projects-developers-2026", "label": "Kunal Ganglani: 7 Open-Source AI Projects Developers Need in 2026"},
+            {"url": "https://jagadishwrites.com/blog/best-open-source-ai-projects-to-watch-in-2026-the-top-tools-reshaping-development", "label": "Jagadish Writes: Best Open-Source AI Projects to Watch in 2026"}
           ]
         }
       ]
