@@ -18,11 +18,11 @@
     <h2>Today's Highlights</h2>
     <ul>
       <li><a href="https://www.anthropic.com/news/claude-opus-5">Anthropic releases Claude Opus 5 — tops Fable 5 on Frontier-Bench and ARC-AGI 3 at half the price; new state-of-the-art on coding and knowledge work evaluations, available in GitHub Copilot on day one</a></li>
-      <li><a href="https://www.marktechpost.com/2026/07/23/andrew-ng-just-released-openworker-an-open-source-local-first-desktop-ai-coworker-that-returns-finished-deliverables-instead-of-chat/">Andrew Ng releases OpenWorker: an open-source, local-first desktop AI coworker that returns finished deliverables instead of chat — built on aisuite with a 30-model matrix and full MCP support</a></li>
-      <li><a href="https://tokio.rs/blog/2026-07-22-announcing-topcoat">Tokio team announces Topcoat: a batteries-included Rust framework for full-stack reactive web apps — argues AI erases programming language productivity gaps, making Rust viable for web development</a></li>
+      <li><a href="https://www.sitepoint.com/claude-opus-5-medium-effort-frontiercode-benchmark/">FrontierCode v1.1 benchmark: Claude Opus 5 at medium effort delivers near-max accuracy at ~1.5x compute vs. ~3x at high effort — the 2x per-task cost reduction that teams blanket-using max effort are leaving on the table</a></li>
       <li><a href="https://www.sonarsource.com/blog/introducing-sonarqube-server-2026-4/">SonarQube Server 2026.4 ships a quality gate purpose-built for AI-generated code — stricter on security and supply chain, more permissive on style, with dedicated agentic threat detection rules</a></li>
       <li><a href="https://github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification/">MCP protocol goes stateless on July 28 — sessions and initialize removed, easier scaling, GitHub MCP Server already supports the next spec ahead of official release</a></li>
       <li><a href="https://netflixtechblog.medium.com/in-house-llm-serving-at-netflix-a5a8e799ea2c">Netflix publishes its in-house LLM serving architecture — running the full stack from model deployment through inference on their own GPUs with vLLM, Triton, and a Java control plane</a></li>
+      <li><a href="https://www.sysdig.com/blog/jadepuffer-evolves-the-agentic-threat-actor-deploys-ransomware-built-to-destroy-ai-models/">ENCFORGE ransomware purpose-built for AI infrastructure encrypts model weights, SafeTensors, GGUF/GGML files, and FAISS indexes via Langflow CVE-2025-3248 (CVSS 9.8) — patch Langflow immediately if internet-accessible, add model directories to backup procedures</a></li>
     </ul>
   </section>
 
@@ -72,6 +72,50 @@
     </div>
     <div class="article" id="ai-tools-&-models-1">
       <div class="article-header">
+        <h3><a href="https://www.sitepoint.com/claude-opus-5-medium-effort-frontiercode-benchmark/">Claude Opus 5 FrontierCode v1.1: Medium Effort Is the Sweet Spot — Near-Max Accuracy at Half the Compute Cost</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">FrontierCode v1.1 benchmark data published July 25 reveals Claude Opus 5 peaks at medium reasoning effort — delivering nearly identical scores to max effort at ~1.5x baseline compute versus ~3x for high effort. On FrontierCode v1.1 Main, Opus 5 scores 53.4% at medium effort, essentially tied with max effort at roughly twice the compute cost. This changes the cost model for teams deploying Opus 5: blanket high effort doubles your bill without a proportional quality gain. Independent analyses from SitePoint, Vellum, Codersera, and BenchLM confirm the same curve — medium effort is the correct default for production pipelines, with max effort reserved for tasks where benchmark-adjacent accuracy is the primary constraint.</p>
+      <div class="article-meta">
+        <span class="tag">Claude Opus 5</span>
+        <span class="tag">FrontierCode</span>
+        <span class="tag">Cost Optimization</span>
+        <span class="tag">Reasoning Effort</span>
+        <span class="tag">Benchmarks</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Production AI</span>
+        <span class="tag">API</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Reasoning effort is the Opus 5 API parameter most likely to be misconfigured in production. Most integrations either pick an effort level at setup and never revisit it, or assume max effort is always better. The FrontierCode v1.1 data shows the opposite: for Opus 5, max effort costs ~3x baseline compute while medium effort costs ~1.5x and delivers essentially the same accuracy on engineering tasks. The practical implication is a 2x cost reduction on the effort dimension alone — which compounds across millions of API calls in production pipelines. The finding also affects latency: lower effort means fewer thinking tokens, which means faster time-to-first-token and faster total completion time. For agentic workflows where Opus 5 orchestrates multiple sequential tool calls, reducing effort from max to medium on intermediate steps cuts both cost and end-to-end latency without a measurable quality penalty on those steps.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Switch your default Opus 5 effort level from max to medium and run A/B traffic for one week: measure pass rates, user satisfaction proxies, and per-task costs at both settings — FrontierCode v1.1 predicts essentially the same accuracy at ~50% lower compute cost; verify this holds on your specific task distribution before making it permanent</li>
+          <li>Build a two-tier effort routing layer in your agent pipeline: assign medium effort to all intermediate steps (tool call synthesis, response formatting, retrieval summarization) and max effort only to the final output step where accuracy is critical — this cuts per-pipeline cost by 30–50% on typical multi-step workflows without degrading the output users see</li>
+          <li>Use the effort API parameter as a dynamic cost dial: for pipelines with strict cost SLAs, medium effort is the correct default; only escalate to high effort on retry after a medium-effort attempt fails — this turns effort into a cost-management lever rather than a static configuration</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>FrontierCode v1.1 benchmark results published July 25, 2026 — day-after Opus 5 launch independent analysis</li>
+          <li>SitePoint: 'Claude Opus 5 Is Most Efficient at Medium Effort: FrontierCode Benchmark Data Explained'</li>
+          <li>Vellum, Codersera, AIToolsReview, BenchLM.ai all published independent effort-level breakdowns within 24 hours of Opus 5 launch</li>
+          <li>Applies across all deployment paths: Anthropic API, AWS Bedrock, Google Vertex AI, GitHub Copilot</li>
+          <li>Finding validated by multiple independent benchmarkers — not just Anthropic's own numbers</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.sitepoint.com/claude-opus-5-medium-effort-frontiercode-benchmark/">SitePoint: Claude Opus 5 Is Most Efficient at Medium Effort — FrontierCode Benchmark Data Explained</a></li>
+          <li><a href="https://www.vellum.ai/blog/claude-opus-5-benchmarks-explained">Vellum: Claude Opus 5 Benchmarks Explained</a></li>
+          <li><a href="https://codersera.com/blog/claude-opus-5-benchmarks-explained-2026/">Codersera: Claude Opus 5 Benchmarks — Frontier-Bench, ARC-AGI-3 and SWE-bench</a></li>
+          <li><a href="https://benchlm.ai/models/claude-opus-5">BenchLM.ai: Claude Opus 5 — Benchmarks, Pricing & Speed</a></li>
+          <li><a href="https://www.anthropic.com/news/claude-opus-5">Anthropic: Claude Opus 5 official announcement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
         <h3><a href="https://www.marktechpost.com/2026/07/23/andrew-ng-just-released-openworker-an-open-source-local-first-desktop-ai-coworker-that-returns-finished-deliverables-instead-of-chat/">Andrew Ng Releases OpenWorker: Open-Source Desktop AI Coworker That Returns Finished Deliverables Instead of Chat</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
       </div>
@@ -111,7 +155,7 @@
         </ul>
       </div>
     </div>
-    <div class="article" id="ai-tools-&-models-2">
+    <div class="article" id="ai-tools-&-models-3">
       <div class="article-header">
         <h3><a href="https://venturebeat.com/orchestration/agentic-coding-goes-hands-free-as-openai-brings-gpt-lives-full-duplex-voice-control-to-codex-and-chatgpt-on-the-desktop">OpenAI Brings GPT-Live Voice to Codex and ChatGPT Desktop: Hands-Free Agentic Coding Goes Live</a></h3>
         <span class="traction-badge traction-high">High Traction</span>
@@ -400,6 +444,52 @@
         <ul>
           <li><a href="https://news.ycombinator.com/item?id=49023016">Hacker News: Startup founders urge U.S. not to shut off Chinese open-weight AI (1,042 points)</a></li>
           <li><a href="https://news.ycombinator.com/item?id=48960218">Hacker News: The Kimi K3 Moment (636 points)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-3">
+      <div class="article-header">
+        <h3><a href="https://www.sysdig.com/blog/jadepuffer-evolves-the-agentic-threat-actor-deploys-ransomware-built-to-destroy-ai-models/">ENCFORGE Ransomware Targets AI Model Weights and Vector Indexes — A New Category of Attack Purpose-Built for AI Infrastructure</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Sysdig's Threat Research Team documented JADEPUFFER, an agentic threat actor, deploying ENCFORGE ransomware specifically designed to encrypt AI model artifacts rather than generic business data. ENCFORGE targets roughly 180 file extensions chosen for AI coverage: Hugging Face SafeTensors, PyTorch and TensorFlow checkpoints, llama.cpp GGUF and GGML weights, and FAISS vector indexes. The attack vector is CVE-2025-3248 in Langflow — a critical RCE vulnerability with CVSS 9.8, in the CISA Known Exploited Vulnerabilities catalog since May 2025. JADEPUFFER first hit a Langflow instance on July 1; Sysdig documented a return attack around July 21 where ENCFORGE was deployed after JADEPUFFER swept for cloud API keys and database credentials. After the initial payload delivery failed, the operator autonomously developed and deployed six Python scripts in under five minutes to complete the attack.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">Ransomware</span>
+        <span class="tag">ENCFORGE</span>
+        <span class="tag">JADEPUFFER</span>
+        <span class="tag">Langflow</span>
+        <span class="tag">CVE-2025-3248</span>
+        <span class="tag">AI Infrastructure</span>
+        <span class="tag">Model Weights</span>
+        <span class="tag">Vector Store</span>
+        <span class="tag">Production Security</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>ENCFORGE represents the first documented ransomware variant purpose-built for AI infrastructure — targeting the artifacts that make AI systems operational rather than generic business data. Traditional enterprise ransomware encrypts documents and databases; ENCFORGE encrypts the model weights, vector indexes, and training data your AI systems depend on. Recovery from an ENCFORGE attack means re-downloading multi-gigabyte model weights, rebuilding vector indexes from scratch, and restoring training datasets — potentially days of downtime and lost fine-tuning investment. The autonomous attack development is also notable: JADEPUFFER iterated through six Python delivery scripts in five minutes after initial failure. This pattern — an agentic operator that autonomously debugs its own attack code in real time — is a new category of threat that static signatures and rule-based detection won't catch. The vulnerability being exploited (CVE-2025-3248, CVSS 9.8) has been in CISA's KEV catalog since May 2025 — over two months before ENCFORGE was deployed. If you're running Langflow with internet exposure and haven't patched, treat your instance as potentially compromised.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Patch Langflow immediately if you're running it with internet exposure: CVE-2025-3248 (CVSS 9.8) is actively exploited — if your Langflow instance is accessible from the internet and unpatched, treat it as compromised and audit all cloud credentials, API keys, and database connection strings that were visible to it</li>
+          <li>Add AI model artifact directories to your backup and recovery procedures: model weights, FAISS indexes, training datasets, and SafeTensors files are high-value ransomware targets that most backup strategies don't explicitly cover — verify your backup policy includes these paths and that you can actually recover from a tested restore of a multi-GB weight file</li>
+          <li>Network-isolate AI workflow tools from the internet: Langflow, LangSmith, n8n, or any AI workflow orchestrator should be behind VPN or private network access — if it needs to call external APIs, use outbound-only egress filtering and block all inbound internet access to eliminate the RCE attack surface</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Sysdig TRT primary technical disclosure — July 21, 2026 (second attack on same Langflow instance after July 1 first incident)</li>
+          <li>Coverage: The Hacker News, BleepingComputer, Help Net Security, Infosecurity Magazine, GBHackers — simultaneous cross-security-media coverage</li>
+          <li>CVE-2025-3248 (CVSS 9.8) actively exploited, in CISA Known Exploited Vulnerabilities catalog since May 2025</li>
+          <li>ENCFORGE targets 180+ file extensions specifically chosen for AI model artifacts — clear evidence of purpose-built AI attack tooling</li>
+          <li>Repeat attack on same Langflow instance after first disclosure — persistent, motivated threat actor</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.sysdig.com/blog/jadepuffer-evolves-the-agentic-threat-actor-deploys-ransomware-built-to-destroy-ai-models/">Sysdig: JADEPUFFER evolves — ransomware built to destroy AI models</a></li>
+          <li><a href="https://thehackernews.com/2026/07/new-encforge-ransomware-targets-ai.html">The Hacker News: New ENCFORGE Ransomware Targets AI Model Files in Langflow RCE Attack</a></li>
+          <li><a href="https://www.bleepingcomputer.com/news/security/jadepuffer-agentic-attacks-now-target-ai-model-data-with-ransomware/">BleepingComputer: JadePuffer agentic attacks now target AI model data with ransomware</a></li>
+          <li><a href="https://www.helpnetsecurity.com/2026/07/21/jadepuffer-encforge-ransomware/">Help Net Security: JadePuffer returns with ransomware built to target AI models</a></li>
+          <li><a href="https://gbhackers.com/jadepuffer-deploys-encforge-ransomware/">GBHackers: JADEPUFFER Deploys ENCFORGE Ransomware Built to Destroy AI Models and Training Data</a></li>
         </ul>
       </div>
     </div>
