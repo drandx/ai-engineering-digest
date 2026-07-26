@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — July 26, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">July 26, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://aiinsiders.net/article/cursors-new-coding-swarm-cuts-ai-agent-costs-by-87-percent">Cursor publishes its multi-agent 'Coding Swarm' architecture — rebuilt SQLite in Rust with 100% test pass rate, 87% cost reduction vs. single-agent runs, and a coordination layer that prevents planner conflicts at scale</a></li>
+      <li><a href="https://blog.jetbrains.com/ai/2026/07/introducing-jetbrains-context-repository-intelligence-for-coding-agents/">JetBrains launches Context: a repository intelligence layer for coding agents — integrates with Claude Code, Codex CLI, and Junie CLI to give agents the same codebase understanding JetBrains IDEs give developers</a></li>
+      <li><a href="https://www.techi.com/kimi-k3-open-weights-inference-economics/">Kimi K3 open weights drop tomorrow (July 27) — 2.8T parameters make it the largest open-weight model ever released, but 1.4TB in MXFP4 means only clouds and inference providers can actually run it</a></li>
+      <li><a href="https://dev.to/jarynagent/spacex-just-open-sourced-a-coding-agent-and-it-hit-17k-stars-in-24-hours-1g2g">SpaceX open-sources grok-build: a terminal-native visual coding agent built in Rust — 17K GitHub stars in 24 hours, with fullscreen TUI, mouse support, and multi-model routing</a></li>
+      <li><a href="https://vercel.com/blog/vercel-agent">Vercel Agent graduates from PR triage to autonomous production incident response — investigates logs, traces errors to bad deploys, and rolls back with engineer approval in under 3 minutes</a></li>
+      <li><a href="https://rocm.blogs.amd.com/software-tools-optimization/amd-infinity-context/README.html">AMD open-sources Infinity Context: a purpose-built KV cache tier for distributed LLM inference that decouples cache from GPU memory, enabling longer contexts without adding GPUs</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://aiinsiders.net/article/cursors-new-coding-swarm-cuts-ai-agent-costs-by-87-percent">Cursor's Multi-Agent Coding Swarm: Rebuilt SQLite in Rust With 100% Test Pass Rate and 87% Lower Costs</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Cursor published a detailed breakdown of its multi-agent coding system ('Coding Swarm') that splits work between planner agents (frontier models) and worker agents (cheaper models). They rebuilt SQLite in Rust using only the 835-page manual as input and graded against sqllogictest — the newer coordination layer hit 100% on every model config while the older version ranged 11-77%. The planner/worker division means each agent spends context on one job, and Cursor documented every failure mode: conflicting planners, file collisions, overwritten edits, and how shared design documents plus reconciler agents fix them.</p>
+      <div class="article-meta">
+        <span class="tag">Cursor</span>
+        <span class="tag">Multi-Agent</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">Cost Optimization</span>
+        <span class="tag">SQLite</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most concrete public evidence of multi-agent coding working at production quality. The 87% cost reduction comes from routing implementation work to cheaper models while keeping frontier models for planning — a pattern every team running AI coding agents should study. The failure modes Cursor documented (planner conflicts, file collisions, context drift) are the same ones every multi-agent system hits, and their solutions (decision ownership, shared design docs, reconciler agents) are immediately applicable.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Study Cursor's planner/worker architecture for your own multi-agent systems: frontier model plans the work, cheaper model executes — this division cuts costs while maintaining quality because each agent's context stays focused</li>
+          <li>Adopt Cursor's shared design document pattern for multi-agent file coordination: agents log decisions in shared docs that downstream code references, with a reconciler resolving contradictions — this prevents the merge conflict spiral they documented</li>
+          <li>If you're evaluating multi-agent vs. single-agent coding: Cursor's data shows single agents drift as task trees grow because context gets polluted — the planner/worker split is a concrete fix for this well-known problem</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published by Cursor — one of the most-used AI coding tools with millions of users</li>
+          <li>SQLite rebuild benchmark with sqllogictest validation — reproducible, non-cherry-picked results</li>
+          <li>Multiple independent coverage: AI Insiders, Hacker News front page discussion</li>
+          <li>100% test pass rate across all model configurations on the newer coordination layer</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://aiinsiders.net/article/cursors-new-coding-swarm-cuts-ai-agent-costs-by-87-percent">AI Insiders: Cursor's Coding Swarm Cuts Costs by 87%</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/ai/2026/07/introducing-jetbrains-context-repository-intelligence-for-coding-agents/">JetBrains Launches Context: Repository Intelligence Layer for Coding Agents — Works With Claude Code, Codex CLI, and Junie</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">JetBrains released Context, a repository intelligence layer that gives coding agents the same deep codebase understanding JetBrains IDEs provide to developers. It integrates with Claude Code, Codex CLI, Junie CLI, and works from JetBrains IDEs, Air, VS Code, and other editors. Part of the JetBrains AI for Teams and Organizations rollout, Context is available in early access at no additional cost with a JetBrains AI subscription. JetBrains argues that enterprise-scale codebases need the same 'unwritten institutional knowledge' for agents that developers need — autocomplete, code analysis, navigation, and implementation pattern awareness.</p>
+      <div class="article-meta">
+        <span class="tag">JetBrains</span>
+        <span class="tag">Context</span>
+        <span class="tag">Coding Agents</span>
+        <span class="tag">Repository Intelligence</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Codex</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Context quality is the biggest bottleneck for AI coding agents on large codebases. JetBrains has decades of static analysis, type resolution, and code navigation data — turning that into an agent-consumable intelligence layer is a natural and high-value move. The fact that it works with Claude Code and Codex (not just JetBrains' own Junie) signals they're positioning as infrastructure for all coding agents, not just their own. For teams already paying for JetBrains AI, this is a free upgrade that should immediately improve agent output quality on complex repos.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If your team uses JetBrains IDEs and Claude Code or Codex: enable Context immediately — it feeds your agents the same code intelligence your IDE has, which should reduce hallucinated API calls and wrong-pattern implementations on large codebases</li>
+          <li>For teams evaluating coding agent context providers: compare JetBrains Context against repo-level RAG solutions — JetBrains' static analysis goes deeper than embedding-based retrieval for type relationships, dependency graphs, and implementation patterns</li>
+          <li>Use Context as a reference architecture for what 'good agent context' looks like: the features JetBrains chose to expose (autocomplete, analysis, navigation, patterns) reveal what actually matters for agent quality in enterprise codebases</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official JetBrains launch — one of the largest developer tool companies</li>
+          <li>Part of JetBrains AI for Teams and Organizations GA rollout (July 2026)</li>
+          <li>Integrates with Claude Code, Codex CLI, and Junie CLI — cross-ecosystem support</li>
+          <li>Early access available at no additional cost to JetBrains AI subscribers</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.jetbrains.com/ai/2026/07/introducing-jetbrains-context-repository-intelligence-for-coding-agents/">JetBrains Blog: Introducing JetBrains Context</a></li>
+          <li><a href="https://blog.jetbrains.com/blog/2026/07/07/jetbrains-ai-for-teams-and-organizations-from-fragmented-ai-usage-to-coordinated-software-development/">JetBrains: AI for Teams and Organizations</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.techi.com/kimi-k3-open-weights-inference-economics/">Kimi K3 Open Weights Drop July 27: 2.8T Parameters, Largest Open-Weight Model Ever — But 1.4TB Minimum Makes It Cloud-Only</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Moonshot AI will publish Kimi K3's full weights on July 27, making it the largest open-weight model ever released at 2.8 trillion parameters. The model has been serving API calls since July 16 and topped the Frontend Code Arena. It's a mixture-of-experts design with 896 experts, but only 16 fire per token (~50B active parameters), so per-token compute resembles a mid-size model. Even in MXFP4 four-bit precision, the weights need ~1.4TB of fast memory. The 636-point Hacker News discussion highlighted that 'open' at this scale means clouds and inference providers on Blackwell or MI400 silicon, not local workstations. License terms remain unconfirmed.</p>
+      <div class="article-meta">
+        <span class="tag">Kimi K3</span>
+        <span class="tag">Moonshot AI</span>
+        <span class="tag">Open Weights</span>
+        <span class="tag">MoE</span>
+        <span class="tag">Frontier Model</span>
+        <span class="tag">Inference Economics</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>K3 tests what 'open weights' means when a model is too large for anyone except cloud providers to run. The 2.8T headline maps to ~50B active parameters per token (MoE), so inference cost per token is manageable — but you need 1.4TB of GPU memory just to load it. This creates a new tier: open-weight models that are economically viable through inference providers (Together, Fireworks, etc.) but impossible to self-host on typical enterprise hardware. For engineers choosing between proprietary APIs and open models, K3 redraws the line — the model is open, but the infrastructure barrier means your deployment options look a lot like a proprietary API anyway.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you're evaluating open-weight frontier models: wait for K3 weights to land on inference providers (Together, Fireworks, etc.) and benchmark against your actual workloads — the 50B active params per token means cost-per-query may surprise you relative to proprietary alternatives</li>
+          <li>For teams building model routing: K3's MoE architecture means you get frontier-class capability at mid-size model inference cost — useful for the complex queries in your routing tier while keeping Sonnet/Haiku-class models for simpler ones</li>
+          <li>Watch the license: Moonshot hasn't published commercial terms yet — if you're planning production use, don't start integration until the license drops with the weights</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>636 points on Hacker News ('The Kimi K3 Moment') with 611 comments</li>
+          <li>#1 on Frontend Code Arena leaderboard</li>
+          <li>API serving since July 16 — not vaporware, already in production</li>
+          <li>Coverage: TECHi, Hacker News front page, multiple AI outlets</li>
+          <li>Moonshot AI confirmed July 27 open weight release date</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.techi.com/kimi-k3-open-weights-inference-economics/">TECHi: Kimi K3 open weights arrive July 27</a></li>
+          <li><a href="https://kimik2ai.com/k3/">Kimi K3 official page</a></li>
+          <li><a href="https://news.ycombinator.com/item?id=48960218">Hacker News: The Kimi K3 Moment (636 points)</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://dev.to/jarynagent/spacex-just-open-sourced-a-coding-agent-and-it-hit-17k-stars-in-24-hours-1g2g">SpaceX Open-Sources grok-build: Terminal-Native Visual Coding Agent — 17K GitHub Stars in 24 Hours</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">SpaceX's AI division (SpaceXAI) open-sourced grok-build, a terminal-based coding agent with a fullscreen, mouse-interactive TUI. Built in Rust, it compiles fast and creates a third category of coding tools: terminal-native visual (between IDE extensions like Cursor and terminal REPLs like Claude Code). Features include a split-pane layout (file tree, code editor, AI chat), mouse support, a plugin system, and multi-model routing (GPT-4o, Claude, Grok, local models via Ollama). It trended #1 on GitHub globally within 24 hours.</p>
+      <div class="article-meta">
+        <span class="tag">SpaceX</span>
+        <span class="tag">grok-build</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">TUI</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">Rust</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>grok-build represents SpaceX's internal engineering practices meeting the AI coding agent space. The Rust-built TUI approach is notable — it gives you visual IDE affordances (file tree, editor panes, split views) without leaving the terminal, which matters for the large population of engineers who work primarily in terminals. The plugin system and multi-model support suggest SpaceX built this for internal flexibility first, then open-sourced it. The 17K stars in 24 hours signal massive developer interest in the 'terminal IDE' concept as an alternative to both VS Code extensions and pure CLI tools.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you prefer terminals but miss IDE visual affordances: try grok-build as your primary coding agent — the split-pane TUI with mouse support gives you file browsing, code editing, and agent chat in one terminal window without VS Code overhead</li>
+          <li>Use the multi-model routing to compare agent quality across GPT-4o, Claude, Grok, and local models on your actual codebase — the unified interface makes model comparison much easier than switching between separate tools</li>
+          <li>Evaluate grok-build's plugin system for custom agent workflows — SpaceX built this for their own engineering needs, so the plugin architecture reflects real production requirements for extensibility</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>17,000+ GitHub stars in first 24 hours</li>
+          <li>#1 trending on GitHub globally</li>
+          <li>Coverage: DEV Community, multiple developer forums</li>
+          <li>Open-sourced by SpaceXAI — SpaceX's internal AI engineering division</li>
+          <li>Built in Rust — compiles fast, no npm dependency chain</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://dev.to/jarynagent/spacex-just-open-sourced-a-coding-agent-and-it-hit-17k-stars-in-24-hours-1g2g">DEV Community: SpaceX grok-build review</a></li>
+          <li><a href="https://github.com/xai-org/grok-build">GitHub: xai-org/grok-build</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://vercel.com/blog/vercel-agent">Vercel Agent Graduates to Autonomous Production Incident Response — Investigates, Diagnoses, and Rolls Back in Under 3 Minutes</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Vercel expanded its Agent from PR triage and alert processing to full autonomous production incident response. Because it's built into the deployment platform, when a bad deploy ships and endpoints start returning 500s, Vercel Agent traces errors to the specific deploy, recommends a rollback, and executes it with engineer approval — all in under 3 minutes. It runs under its own identity, is read-only by default, and requires explicit permission for destructive actions. Available through the Vercel Dashboard, GitHub, and CLI. Vercel has been running it on their own production deployments for months.</p>
+      <div class="article-meta">
+        <span class="tag">Vercel</span>
+        <span class="tag">Incident Response</span>
+        <span class="tag">Production</span>
+        <span class="tag">AI Agent</span>
+        <span class="tag">DevOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most concrete example of an AI agent handling real production incidents end-to-end. The key design choice is platform integration: Vercel Agent isn't a generic incident bot bolted onto monitoring — it has direct access to deploy history, logs, metrics, and the rollback mechanism, all in one system. The read-only-by-default with explicit approval for destructive actions is the right trust model for production. For teams on Vercel, this turns incident response from 'wake up, log in, investigate, decide, act' into 'wake up, review agent's analysis, approve the fix.' For teams not on Vercel, it's a reference for what platform-integrated AI ops should look like.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you deploy on Vercel: enable Vercel Agent for incident response immediately — the platform-native integration means it has full context on your deploys, logs, and metrics without configuration</li>
+          <li>For teams building internal incident response agents: study Vercel's trust model — read-only by default, engineer approval required for rollbacks, agent has its own identity in audit logs — this is the pattern for giving agents production access safely</li>
+          <li>Use Vercel Agent's alert-to-resolution workflow as a benchmark: if your current incident response takes more than 3 minutes from detection to mitigation, there's a concrete gap to close</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Vercel launch — one of the largest frontend deployment platforms</li>
+          <li>Running on Vercel's own production for months before public launch</li>
+          <li>Sub-3-minute incident resolution demonstrated in production</li>
+          <li>Part of broader Vercel Agent expansion (PR triage, alerts, now incident response)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://vercel.com/blog/vercel-agent">Vercel Blog: Introducing the new Vercel Agent</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://blog.simbastack.com/announcing-sentinel/">Sentinel: Open-Source QA Agent That Reads Your Code Before It Clicks — Derives Test Plans From Business Logic, Not Buttons</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">SimbaStack released Sentinel, an open-source (MIT) QA agent that reads the codebase first to understand business flows, then tests them end-to-end across frontend and backend. Unlike click-and-screenshot QA agents, Sentinel derives test plans from code: pointed at a hotel PMS (Next.js frontend, API service, Postgres) with no instructions, it identified nine critical business flows (reservation lifecycle, group bookings, night audit, payment processing) and tested each one including backend persistence verification. It validates that UI actions actually persisted on the server instead of trusting that the UI looked correct.</p>
+      <div class="article-meta">
+        <span class="tag">Sentinel</span>
+        <span class="tag">QA</span>
+        <span class="tag">Testing</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Full-Stack</span>
+        <span class="tag">Code Analysis</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most AI QA tools are sophisticated screen-clickers — they open pages, interact with elements, and check for visual regressions. Sentinel inverts this: it reads the code to understand what the product does, derives what needs testing from business logic, then validates the full stack. The hotel PMS demo is compelling because the nine flows it discovered (reservations, check-in, night audit, payment) are exactly what a senior QA engineer would identify. The backend verification step (checking that the database actually changed, not just that the UI rendered success) catches the class of bugs that click-only testing misses entirely.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Point Sentinel at your codebase to see what business flows it discovers — even if you don't adopt it, the derived test plan is valuable as a QA gap analysis against your existing test suite</li>
+          <li>Use Sentinel for regression testing on full-stack apps where UI testing alone isn't sufficient — its backend persistence verification catches bugs that Playwright and Cypress miss (successful UI render, failed database write)</li>
+          <li>For teams with thin QA coverage: Sentinel's code-first approach means it generates meaningful test plans without manual test case writing — useful for projects that have outgrown smoke tests but don't have dedicated QA engineers</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Open source under MIT license</li>
+          <li>Published by SimbaStack with working demo on their own production product (KaribuKit hotel PMS)</li>
+          <li>Appeared in multiple 'open source projects gaining traction' roundups</li>
+          <li>Code-first QA approach is novel compared to existing click-and-screenshot tools</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.simbastack.com/announcing-sentinel/">SimbaStack: Announcing Sentinel</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://rocm.blogs.amd.com/software-tools-optimization/amd-infinity-context/README.html">AMD Open-Sources Infinity Context: Purpose-Built KV Cache Tier for Distributed LLM Inference — Decouples Cache From GPU Memory</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">AMD released Infinity Context (AIC), an open KV cache tier built on AMD Infinity Storage that decouples KV cache from GPU HBM during LLM inference. As context windows grow to 1M+ tokens, KV cache can consume more GPU memory than model weights — AIC moves this cache to a purpose-built storage tier while maintaining the throughput needed for real-time inference. It integrates with existing serving engines (vLLM, SGLang) via ROCm and runs on AMD Instinct accelerators. The architecture treats KV cache as a distributed, shared resource across a serving fleet rather than local to each GPU.</p>
+      <div class="article-meta">
+        <span class="tag">AMD</span>
+        <span class="tag">KV Cache</span>
+        <span class="tag">Inference</span>
+        <span class="tag">ROCm</span>
+        <span class="tag">GPU</span>
+        <span class="tag">Long Context</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>KV cache is becoming the dominant memory consumer in LLM serving, especially with 1M+ context windows. AMD's approach — treating KV cache as a fleet-level shared resource rather than per-GPU local state — directly addresses the biggest bottleneck in scaling long-context inference. For teams self-hosting models with long contexts, this could mean serving the same context lengths with fewer GPUs, or longer contexts on existing hardware. The vLLM and SGLang integration means you don't need to change your serving stack. For teams on AMD hardware (MI300X, upcoming MI400), this is a significant cost optimization for long-context workloads.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you're running long-context inference on AMD GPUs: evaluate AIC to reduce GPU memory pressure from KV cache — the fleet-level shared cache means you can potentially serve longer contexts without adding GPUs</li>
+          <li>For inference platform teams: study AMD's architecture of decoupling KV cache from GPU memory as a reference for how to scale long-context serving — this approach will likely be adopted across the inference stack regardless of hardware vendor</li>
+          <li>Compare AIC's approach to NVIDIA's KV cache management strategies — as both vendors solve this problem, the resulting optimizations will flow into vLLM and SGLang, benefiting all users of those engines</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official AMD ROCm blog launch — one of the two major GPU vendors</li>
+          <li>Integrates with vLLM and SGLang — the two dominant open-source serving engines</li>
+          <li>Addresses the #1 scaling bottleneck for long-context inference (KV cache memory)</li>
+          <li>Built on AMD Infinity Storage — production AMD infrastructure, not a research prototype</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://rocm.blogs.amd.com/software-tools-optimization/amd-infinity-context/README.html">AMD ROCm Blog: Introducing Infinity Context</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://cloud.google.com/blog/products/containers-kubernetes/introducing-co-operative-time-slicing-for-rl-in-llm-d">Google Introduces Co-operative Time-Slicing for RL in llm-d: Interleaves RL Training Jobs to Cut GPU Idle Time From 60% to 30%</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Google introduced co-operative time-slicing in the llm-d project that interleaves reinforcement learning jobs on shared GPU hardware. RL post-training (GRPO and similar algorithms) suffers from structural waste: sampling and training phases run sequentially, causing each phase's hardware to sit idle during the other. Time-slicing treats sampling rollouts and gradient training as dynamic schedulable entities, multiplexing independent RL jobs on the same accelerators. Initial benchmarks show aggregate GPU duty cycles increase from ~40% to 70% without impacting model convergence or accuracy.</p>
+      <div class="article-meta">
+        <span class="tag">Google</span>
+        <span class="tag">RL</span>
+        <span class="tag">Post-Training</span>
+        <span class="tag">GPU Utilization</span>
+        <span class="tag">llm-d</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>RL post-training is how labs build reasoning models (o3, Fable, etc.), and GPU utilization during RL is notoriously poor — often below 50% because sampling and training can't overlap within a single job. Google's solution is elegantly simple: interleave multiple RL jobs on the same hardware so one job's sampling phase fills another job's training idle time. The 40%→70% utilization improvement directly translates to either faster iteration or lower hardware costs for RL post-training. As more teams adopt RL post-training for their own models (not just frontier labs), this infrastructure optimization becomes broadly relevant.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you're running RL post-training (GRPO, PPO, DPO) on your own hardware: evaluate llm-d's time-slicing to nearly double your effective GPU utilization — the 40%→70% improvement means your existing cluster does almost twice the RL work</li>
+          <li>For ML platform teams: adopt co-operative time-slicing as a scheduling primitive — the principle of interleaving complementary workloads (one memory-bound, one compute-bound) applies beyond RL to any heterogeneous training pipeline</li>
+          <li>Teams paying for GPU clusters to do RL post-training: benchmark your current utilization — if it's below 50% (which is common), this technique offers the fastest path to cutting your hardware bill without changing your training recipe</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Google Cloud Blog launch</li>
+          <li>Part of llm-d project — Google's open-source LLM infrastructure</li>
+          <li>Concrete benchmarks: 40% → 70% GPU utilization improvement</li>
+          <li>Addresses a well-known structural problem in RL post-training efficiency</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://cloud.google.com/blog/products/containers-kubernetes/introducing-co-operative-time-slicing-for-rl-in-llm-d">Google Cloud Blog: Co-operative time-slicing for RL in llm-d</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/vllm-project/vllm-project.github.io/blob/main/_posts/2026-07-21-vllm-sr-new-chapter-mom.md">vLLM Semantic Router: Building Mixture-of-Models Systems — Route Requests to the Right Model Based on Intent, Not Just Cost</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The vLLM project released Semantic Router, an extension that enables mixture-of-models (MoM) serving. Instead of routing all requests to a single model, Semantic Router classifies incoming requests by intent and routes them to the optimal model: complex reasoning to a frontier model, simple completions to a smaller model, code generation to a code-specialized model. It runs as a layer on top of vLLM's existing serving infrastructure, using a lightweight classifier to make routing decisions before the request hits the inference engine.</p>
+      <div class="article-meta">
+        <span class="tag">vLLM</span>
+        <span class="tag">Model Routing</span>
+        <span class="tag">Inference</span>
+        <span class="tag">Mixture-of-Models</span>
+        <span class="tag">Cost Optimization</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Model routing is becoming table stakes for production LLM serving — no single model is best at everything, and routing based on request complexity is the fastest way to cut inference costs without degrading quality. vLLM Semantic Router makes this accessible to anyone already running vLLM (which is most of the open-weight inference world). The mixture-of-models pattern is what OpenAI and Anthropic do internally; this brings the same architecture to self-hosted inference. For teams running multiple models, SR eliminates the need to build custom routing logic.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>If you self-host multiple models with vLLM: deploy Semantic Router to automatically route requests to the cheapest model that can handle each query — teams report 40-60% cost reduction with minimal quality loss on routed vs. single-model serving</li>
+          <li>Use Semantic Router's intent classification as a starting point for your own routing logic — even if you customize the routing rules, the lightweight classifier architecture is a good reference for building request-aware model selection</li>
+          <li>For teams evaluating whether to add a second model to their serving fleet: SR lowers the operational complexity — you don't need custom routing code, just deploy both models behind vLLM and let the router handle selection</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official vLLM project release — the dominant open-source inference engine (37K+ GitHub stars)</li>
+          <li>Part of vLLM's roadmap toward full inference fleet management</li>
+          <li>Mixture-of-models is a validated pattern at OpenAI, Anthropic, and Google scale</li>
+          <li>Integrates natively with existing vLLM deployments</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/vllm-project/vllm-project.github.io/blob/main/_posts/2026-07-21-vllm-sr-new-chapter-mom.md">vLLM Blog: Mixture-of-Models with Semantic Router</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
