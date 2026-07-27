@@ -1,9 +1,9 @@
 {
   "highlights": [
-    {"text": "OpenAI open-sources Symphony: an autonomous work orchestrator that watches your Linear board, spawns Codex agents per task, and lands PRs with CI proof-of-work — 26K GitHub stars in engineering preview", "anchor": "ai-tools-and-models-0"},
-    {"text": "Graphify hits 88K GitHub stars — YC S26's code knowledge graph turns repos into queryable graphs via tree-sitter, cutting agent token usage by 71x on real codebases across 20+ AI coding tools", "anchor": "ai-tools-and-models-1"},
-    {"text": "Andrew Ng releases OpenWorker: a local-first, open-source desktop AI coworker that returns finished deliverables (documents, triaged inboxes, calendar updates) instead of chat responses", "anchor": "ai-tools-and-models-2"},
-    {"text": "Upstage ships Solar Open 2: 250B-parameter MoE that activates only 15B per token, runs on two H200 GPUs, and targets agent workloads with 1M-token context via hybrid linear attention", "anchor": "ai-tools-and-models-3"},
+    {"text": "Kimi K3 weights dropped on HuggingFace (moonshotai/Kimi-K3-MXFP4, ~594GB, Modified MIT) — the actual release; independent testing found a 51% hallucination rate Moonshot omitted from its benchmark charts, and Together AI + Modal shipped day-zero inference hosting", "anchor": "ai-tools-and-models-0"},
+    {"text": "OpenAI open-sources Symphony: an autonomous work orchestrator that watches your Linear board, spawns Codex agents per task, and lands PRs with CI proof-of-work — 26K GitHub stars in engineering preview", "anchor": "ai-tools-and-models-1"},
+    {"text": "Graphify hits 88K GitHub stars — YC S26's code knowledge graph turns repos into queryable graphs via tree-sitter, cutting agent token usage by 71x on real codebases across 20+ AI coding tools", "anchor": "ai-tools-and-models-2"},
+    {"text": "Andrew Ng releases OpenWorker: a local-first, open-source desktop AI coworker that returns finished deliverables (documents, triaged inboxes, calendar updates) instead of chat responses", "anchor": "ai-tools-and-models-3"},
     {"text": "Jack Dorsey's Block launches Buzz: an open-source platform unifying Slack, GitHub, and Jira with Nostr-based cryptographic identity for both humans and AI agents", "anchor": "developer-tools-and-frameworks-0"},
     {"text": "Google open-sources k8s-aibom: an unprivileged Kubernetes controller that auto-detects shadow AI workloads (vLLM, Triton) and generates CycloneDX ML bills of materials with zero developer friction", "anchor": "infrastructure-and-production-1"}
   ],
@@ -12,10 +12,37 @@
       "name": "AI Tools & Models",
       "articles": [
         {
+          "title": "Kimi K3 Is Live on HuggingFace: 594GB Download, 51% Hallucination Rate Moonshot Withheld, Modified MIT License Confirmed",
+          "url": "https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems",
+          "tldr": "Moonshot AI released Kimi K3 open weights ~24 hours ahead of schedule on July 26-27, 2026. The 2.8T-parameter MoE model (896 experts, 16 active per token, ~50B effective compute) is live on HuggingFace as moonshotai/Kimi-K3-MXFP4 — approximately 594GB in MXFP4 safetensors format. Moonshot co-founders confirmed at a July 27 r/LocalLLaMA AMA that these weights are identical to the hosted API. The license is Modified MIT, confirming commercial use. However, independent testing by Artificial Analysis found a 51% hallucination rate on AA-Omniscience — up from 39% on K2.6 — a result Moonshot omitted from its official benchmark charts. Together AI and Modal shipped day-zero hosting. K3 features Kimi Delta Attention and native tool calling, browsing, and multi-step planning, and leads Moonshot's benchmarks on SWE Marathon, BrowseComp, and Automation Bench.",
+          "why_it_matters": "Yesterday's preview covered the scale and hardware requirements. Today's story is about what the actual release changes. The Modified MIT license removes the last blocker for enterprise evaluation; inference providers eliminated the hardware barrier within hours. The 51% hallucination rate is now the critical adoption decision: K3 leads on coding and agentic benchmarks but regressed on factual accuracy relative to K2.6. For coding agents and task automation, K3 may be the strongest open-weight option today. For knowledge retrieval, factual Q&A, or RAG-grounded applications, the 51% rate warrants your own evaluation before adopting K3.",
+          "traction": "high",
+          "traction_evidence": [
+            "VentureBeat: 'largest open-source model ever, rivaling top U.S. systems'",
+            "Released ~24 hours ahead of the announced July 27 date",
+            "Together AI and Modal shipped K3 inference hosting on day zero",
+            "r/LocalLLaMA AMA with Moonshot co-founders confirmed MXFP4 quality matches hosted API",
+            "K2.6 precedent: 42 community quantization variants and 1.46M downloads within 2 months",
+            "Modified MIT license confirmed — commercial use, modification, redistribution all permitted"
+          ],
+          "use_cases": [
+            "Before deploying K3 on factual retrieval or Q&A tasks: run your own hallucination eval on representative samples — the 51% rate on AA-Omniscience means you should not assume coding improvements transfer to accuracy-sensitive workloads",
+            "For code-generation and agentic workflows: test K3 via Together AI or Modal before committing infrastructure — day-zero hosting lets you benchmark quality on real workloads at per-token cost before deciding whether to self-host",
+            "Data sovereignty use case: EU and US teams with data residency requirements can route K3 through Together AI or EU-region providers instead of Moonshot's Chinese infrastructure — the Modified MIT license explicitly permits this"
+          ],
+          "tags": ["Kimi K3", "Moonshot AI", "Open Weights", "HuggingFace", "Hallucination", "MoE", "Modified MIT", "Together AI"],
+          "links": [
+            {"url": "https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems", "label": "VentureBeat: Moonshot releases Kimi K3"},
+            {"url": "https://huggingface.co/moonshotai/Kimi-K3", "label": "HuggingFace: moonshotai/Kimi-K3"},
+            {"url": "https://kili-technology.com/blog/kimi-k3s-benchmarks-and-hallucinations----what-that-tells-us-about-ai-evaluation", "label": "Kili Technology: K3 benchmarks and hallucinations analysis"},
+            {"url": "https://www.techtimes.com/articles/321551/20260725/kimi-k3-open-weights-arrive-sunday-self-hosting-cuts-china-data-risk-api-never-can.htm", "label": "TechTimes: K3 self-hosting and data sovereignty"}
+          ]
+        },
+        {
           "title": "OpenAI Open-Sources Symphony: Autonomous Work Orchestrator That Turns Linear Tickets Into Landed PRs — 26K Stars",
           "url": "https://github.com/openai/symphony",
           "tldr": "OpenAI released Symphony, an open-source framework that watches project management boards (Linear demonstrated), spawns isolated Codex agents for each task, and delivers PRs with full proof of work: CI status, PR review feedback, complexity analysis, and walkthrough videos. Engineers manage work at a higher level instead of supervising agents. The repo ships a spec-first approach — the SPEC.md defines the protocol, and OpenAI encourages teams to implement it in any language (an Elixir reference implementation is included). 26K stars, Apache 2.0 licensed.",
-          "why_it_matters": "Symphony represents OpenAI's vision for the next step beyond coding agents: work management. Instead of engineers opening Codex, describing a task, and babysitting the agent, Symphony abstracts to the ticket level — you write a Linear ticket with acceptance criteria, and the system handles the rest. The spec-first design means teams aren't locked into OpenAI's implementation. The proof-of-work approach (CI green, review feedback, complexity analysis) addresses the core trust problem with autonomous agents: how do you know the work is actually good without reviewing every line?",
+          "why_it_matters": "Symphony represents the next step beyond coding agents: work management. Instead of engineers opening Codex, describing a task, and babysitting the agent, Symphony abstracts to the ticket level — you write a Linear ticket with acceptance criteria, and the system handles the rest. The spec-first design means teams aren't locked into OpenAI's implementation. The proof-of-work approach (CI green, review feedback, complexity analysis) addresses the core trust problem with autonomous agents: how do you know the work is actually good without reviewing every line?",
           "traction": "high",
           "traction_evidence": [
             "26,255 GitHub stars, 2,660 forks — massive adoption for an engineering preview",
@@ -24,11 +51,11 @@
             "Builds on OpenAI's published 'harness engineering' methodology"
           ],
           "use_cases": [
-            "If your team uses Linear or similar project management and Codex: try Symphony on low-risk tickets first — the proof-of-work output (CI, review feedback, walkthroughs) lets you evaluate agent quality without code review overhead",
-            "Use Symphony's SPEC.md as a reference architecture for building your own autonomous work systems — the protocol defines how to decompose tickets, spawn agents, collect proof, and land changes safely",
+            "If your team uses Linear or similar project management and Codex: try Symphony on low-risk tickets first — the proof-of-work output (CI, review feedback, walkthroughs) lets you evaluate agent quality without full code review overhead",
+            "Use Symphony's SPEC.md as a reference architecture for autonomous work systems — the protocol defines how to decompose tickets, spawn agents, collect proof, and land changes safely",
             "For engineering managers: Symphony shifts the review bottleneck from code-level to work-level — you verify the agent's proof-of-work artifacts instead of reading diffs, which scales better as agent output volume grows"
           ],
-          "tags": ["OpenAI", "Symphony", "Codex", "Autonomous Agents", "Work Orchestration"],
+          "tags": ["OpenAI", "Symphony", "Codex", "Autonomous Agents", "Work Orchestration", "Open Source"],
           "links": [
             {"url": "https://github.com/openai/symphony", "label": "GitHub: openai/symphony"},
             {"url": "https://openai.com/index/harness-engineering/", "label": "OpenAI: Harness Engineering"}
@@ -37,8 +64,8 @@
         {
           "title": "Graphify Hits 88K Stars: YC S26's Code Knowledge Graph Cuts Agent Token Usage by 71x Across 20+ AI Coding Tools",
           "url": "https://andrew.ooo/posts/graphify-yc-s26-knowledge-graph-review/",
-          "tldr": "Graphify is a YC S26-backed open-source tool that turns codebases into queryable knowledge graphs using tree-sitter AST parsing — no LLM required, fully local. You run /graphify . in Claude Code, Cursor, Codex, Gemini CLI, or 20+ other agents, and it builds a real graph with nodes (concepts) and edges (calls/imports/inherits). It uses Leiden community detection to label subsystems and produces an interactive graph.html, GRAPH_REPORT.md, and graph.json. On LOCOMO benchmark it beats mem0 (10x) and supermemory (3x) on recall@10. Reddit users report 71x fewer tokens on real codebases. 88K stars, 2.2M+ PyPI downloads in 2.5 months.",
-          "why_it_matters": "Every AI coding agent re-reads the same repository structure every conversation, burning tokens on context that could be precomputed. Graphify solves this by building a deterministic, structured graph once and handing it to the agent as a queryable artifact. The 71x token reduction is real because agents stop doing broad grep-and-read loops and instead traverse a graph that already knows the codebase topology. The fact that it works across 20+ agents (not locked to one tool) makes it a codebase-level investment rather than a tool-specific one.",
+          "tldr": "Graphify is a YC S26-backed open-source tool that turns codebases into queryable knowledge graphs using tree-sitter AST parsing — no LLM required, fully local. You run /graphify . in Claude Code, Cursor, Codex, Gemini CLI, or 20+ other agents, and it builds a graph with nodes (concepts) and edges (calls/imports/inherits). It uses Leiden community detection to label subsystems and produces an interactive graph.html, GRAPH_REPORT.md, and graph.json. On LOCOMO benchmark it beats mem0 (10x) and supermemory (3x) on recall@10. Reddit users report 71x fewer tokens on real codebases. 88K stars, 2.2M+ PyPI downloads in 2.5 months.",
+          "why_it_matters": "Every AI coding agent re-reads the same repository structure every conversation, burning tokens on context that could be precomputed. Graphify solves this by building a deterministic, structured graph once and handing it to the agent as a queryable artifact. The 71x token reduction is real because agents stop doing broad grep-and-read loops and instead traverse a graph that already knows the codebase topology. The fact that it works across 20+ agents makes it a codebase-level investment rather than a tool-specific one.",
           "traction": "high",
           "traction_evidence": [
             "88,215 GitHub stars, 8,637 forks — trending #3 Python on GitHub",
@@ -49,7 +76,7 @@
           ],
           "use_cases": [
             "Run /graphify . on your main repo before starting any AI-assisted coding session — the graph persists between conversations, so every subsequent agent interaction starts with structural knowledge instead of re-grepping",
-            "Use Graphify's community detection output (GRAPH_REPORT.md) as an onboarding document — it auto-labels subsystems and their relationships, which is often more current than hand-written architecture docs",
+            "Use Graphify's community detection output (GRAPH_REPORT.md) as an onboarding document — it auto-labels subsystems and their relationships, often more current than hand-written architecture docs",
             "For teams measuring AI coding costs: before/after Graphify token usage on your actual repo gives you a concrete ROI number for the 'context preparation' investment"
           ],
           "tags": ["Graphify", "Knowledge Graph", "AI Coding", "YC S26", "Tree-Sitter", "Token Optimization"],
@@ -62,7 +89,7 @@
           "title": "Andrew Ng Releases OpenWorker: Local-First Desktop AI Coworker That Returns Finished Deliverables, Not Chat",
           "url": "https://www.marktechpost.com/2026/07/23/andrew-ng-just-released-openworker-an-open-source-local-first-desktop-ai-coworker-that-returns-finished-deliverables-instead-of-chat/",
           "tldr": "Andrew Ng released OpenWorker, an open-source desktop agent built on his aisuite library that produces finished work products instead of conversational responses. It handles documents, Slack replies with real numbers, calendar management, and inbox triage. The architecture is four layers running locally: a Tauri 2 native shell, Python FastAPI server on 127.0.0.1:8765, a capability layer with MCP support, and a model router supporting 30 curated models across OpenAI, Anthropic, Google, and open-weight providers. It caps at 12 model-tool iterations per turn and checks in before consequential actions.",
-          "why_it_matters": "OpenWorker is the first serious attempt from a prominent AI researcher to build the 'desktop coworker' paradigm — an agent that takes an outcome specification ('triage my inbox and draft responses to anything from the engineering team') rather than a prompt, and delivers finished artifacts. The local-first architecture means sensitive data never leaves your machine, the 30-model support means you're not locked to any provider, and the MCP integration means it can connect to your existing tool ecosystem. The 12-iteration cap and check-in-before-action design show Ng's team learned from the runaway-agent failures in the field.",
+          "why_it_matters": "OpenWorker is a serious attempt from a prominent AI researcher to build the 'desktop coworker' paradigm — an agent that takes an outcome specification ('triage my inbox and draft responses from the engineering team') rather than a prompt, and delivers finished artifacts. The local-first architecture means sensitive data never leaves your machine, the 30-model support means you're not locked to any provider, and MCP integration connects it to your existing tool ecosystem. The 12-iteration cap and check-in-before-action design directly address the runaway-agent failures that have plagued production deployments.",
           "traction": "medium",
           "traction_evidence": [
             "Released by Andrew Ng — one of the most influential figures in AI/ML",
@@ -73,7 +100,7 @@
           ],
           "use_cases": [
             "If you're exploring desktop AI agents: OpenWorker's architecture (Tauri + FastAPI + MCP) is a clean reference implementation for building local-first agents with bring-your-own-model support",
-            "Use OpenWorker's 12-iteration cap and check-in pattern as a design template for your own agent safety controls — it solves the 'agent runs forever and does weird things' problem without crippling agent autonomy",
+            "Use OpenWorker's 12-iteration cap and check-in pattern as a design template for agent safety controls — it solves the 'agent runs forever and does weird things' problem without crippling agent autonomy",
             "For teams evaluating AI assistants beyond coding: OpenWorker targets knowledge work (documents, email, calendar) rather than code, filling the gap between coding agents and ChatGPT-style chat"
           ],
           "tags": ["Andrew Ng", "OpenWorker", "Desktop Agent", "Local-First", "aisuite", "MCP"],
@@ -85,8 +112,8 @@
         {
           "title": "Upstage Ships Solar Open 2: 250B MoE With 15B Active Parameters, Runs on Two H200 GPUs, Built for Agent Workloads",
           "url": "https://www.upstage.ai/blog/en/solar-open-2",
-          "tldr": "Upstage released open weights for Solar Open 2, a 250-billion-parameter mixture-of-experts model that activates only 15 billion parameters per token. It runs on two NVIDIA H200 GPUs with quantization and supports up to 1 million tokens of context via a hybrid architecture that interleaves three linear attention layers per conventional attention layer. Upstage explicitly designed it for agent workloads, arguing that agents cycle through planning, execution, verification, and revision — consuming far more tokens than chat — so the model must be fast and cost-efficient per token while maintaining high capacity.",
-          "why_it_matters": "Solar Open 2 is purpose-built for the economics of agentic AI. Agents make many sequential calls, so per-token cost and latency dominate the bill — not peak intelligence on a single prompt. The 250B total / 15B active split means you get the knowledge of a large model at the inference cost of a small one. The hybrid linear-attention architecture addresses the other agent bottleneck: long contexts. Agents accumulate tool outputs, code, and reasoning chains that blow past normal context limits. Linear attention layers keep memory constant as context grows, so the 1M-token window is actually usable without OOM kills.",
+          "tldr": "Upstage released open weights for Solar Open 2, a 250-billion-parameter mixture-of-experts model that activates only 15 billion parameters per token. It runs on two NVIDIA H200 GPUs with quantization and supports up to 1 million tokens of context via a hybrid architecture that interleaves three linear attention layers per conventional attention layer. Upstage designed it explicitly for agent workloads, arguing that agents cycle through planning, execution, verification, and revision — consuming far more tokens than chat — so the model must be fast and cost-efficient per token while maintaining high capacity.",
+          "why_it_matters": "Solar Open 2 is purpose-built for the economics of agentic AI. Agents make many sequential calls, so per-token cost and latency dominate the bill. The 250B total / 15B active split gives you the knowledge of a large model at the inference cost of a small one. The hybrid linear-attention architecture addresses the long-context bottleneck: agents accumulate tool outputs, code, and reasoning chains that blow past normal context limits. Linear attention layers keep memory constant as context grows, so the 1M-token window is actually usable without OOM kills.",
           "traction": "medium",
           "traction_evidence": [
             "Official Upstage release — Korea's leading enterprise AI company",
@@ -97,7 +124,7 @@
           "use_cases": [
             "If you're self-hosting models for agent workloads: Solar Open 2's 15B active parameter cost at 250B total capacity makes it a strong candidate for the 'worker model' role in planner/worker agent architectures",
             "Use the hybrid linear-attention architecture as a benchmark: compare Solar Open 2's long-context quality against standard attention models on your actual agent traces to measure whether the 1M-token window holds up under real tool-output accumulation",
-            "For teams in regulated environments needing sovereign AI: Solar Open 2's open weights + commercial license + published technical report meets the audit trail requirements that API-only models can't"
+            "For teams in regulated environments needing sovereign AI: Solar Open 2's open weights + commercial license + published technical report meets the audit trail requirements that API-only models cannot provide"
           ],
           "tags": ["Upstage", "Solar Open 2", "MoE", "Open Weights", "Agent Workloads", "Linear Attention"],
           "links": [
@@ -113,18 +140,18 @@
         {
           "title": "Jack Dorsey's Block Launches Buzz: Open-Source Platform Unifying Chat, Git, and AI Agents With Nostr-Based Cryptographic Identity",
           "url": "https://www.stork.ai/blog/dorseys-github-killer-is-an-ai-hive-mind",
-          "tldr": "Block (Jack Dorsey's company) launched Buzz on July 21, an open-source platform that combines Slack-style communication, a software forge (Git hosting with feature-branch-as-channel), and AI agent orchestration into a single workspace. The key architectural choice: identity is built on the Nostr protocol — every human and AI agent gets a cryptographic key pair, making all actions verifiable and auditable. AI agents are first-class citizens with their own keys, not bolted-on integrations. Every feature branch becomes its own channel where patches, CI results, review comments, and conversations live together.",
-          "why_it_matters": "Buzz attacks the 'humans as middleware' problem: developers currently bounce between Slack, GitHub, and Jira, manually connecting context across tools. By unifying these into one platform where AI agents have native identity, the context-switching overhead disappears. The Nostr-based cryptographic identity is the most interesting architectural choice — in a world where AI agents are writing code and merging PRs, knowing exactly which agent did what (with cryptographic proof) becomes a real compliance and audit requirement. The open-source license means teams can self-host, which matters for the same enterprises worried about AI agent accountability.",
+          "tldr": "Block (Jack Dorsey's company) launched Buzz on July 21, an open-source platform that combines Slack-style communication, a software forge (Git hosting with feature-branch-as-channel), and AI agent orchestration into a single workspace. Identity is built on the Nostr protocol — every human and AI agent gets a cryptographic key pair, making all actions verifiable and auditable. AI agents are first-class citizens with their own keys, not bolted-on integrations. Every feature branch becomes its own channel where patches, CI results, review comments, and conversations live together.",
+          "why_it_matters": "Buzz attacks the 'humans as middleware' problem: developers currently bounce between Slack, GitHub, and Jira, manually connecting context across tools. By unifying these into one platform where AI agents have native identity, the context-switching overhead disappears. The Nostr-based cryptographic identity is the most interesting architectural choice — in a world where AI agents are writing code and merging PRs, knowing exactly which agent did what (with cryptographic proof) becomes a real compliance and audit requirement. The open-source license means teams can self-host, which matters for enterprises worried about AI agent accountability.",
           "traction": "medium",
           "traction_evidence": [
             "Official Block/Square launch — Jack Dorsey's company with substantial engineering resources",
             "Open-source release with Nostr protocol integration",
             "Coverage: Stork AI, DEV Community, multiple independent reviews",
-            "Launched July 21, 2026 — actively being discussed in developer communities"
+            "Launched July 21, 2026 — actively discussed in developer communities"
           ],
           "use_cases": [
             "If your team's biggest productivity drain is context-switching between Slack, GitHub, and project management: evaluate Buzz as a unified alternative — the branch-as-channel model means code discussions and implementation happen in the same place",
-            "For teams deploying AI agents in production workflows: Buzz's cryptographic agent identity is a reference architecture for agent accountability — every action has a verifiable audit trail, which compliance teams will increasingly demand",
+            "For teams deploying AI agents in production workflows: Buzz's cryptographic agent identity is a reference architecture for agent accountability — every action has a verifiable audit trail, which compliance teams will increasingly require",
             "Use Buzz's Nostr-based identity system as a model for building verifiable AI agent systems in your own platform — the key-pair-per-agent pattern solves the 'who did this?' problem that every multi-agent system eventually hits"
           ],
           "tags": ["Block", "Jack Dorsey", "Buzz", "Nostr", "AI Agents", "Developer Platform", "Open Source"],
@@ -137,7 +164,7 @@
           "title": "Topcoat by Tokio: Full-Stack Reactive Web Framework for Rust — From the Team Behind Tokio, Axum, and Hyper",
           "url": "https://tokio.rs/blog/2026-07-22-announcing-topcoat",
           "tldr": "The Tokio team announced Topcoat, a modular, batteries-included Rust framework for building full-stack reactive web applications. It comes from the same team that built Tokio (the async runtime), Axum (web framework), and Hyper (HTTP library) — the foundational stack most Rust web services already run on. Topcoat adds a reactive UI layer on top of this proven server-side stack, positioning Rust as a viable choice for full-stack web development rather than just backend services.",
-          "why_it_matters": "The Tokio team building a full-stack web framework is significant because they own the infrastructure layer that most Rust web applications already depend on. Topcoat isn't a startup's bet on Rust for the web — it's the team that built the runtime and HTTP stack saying 'the server side is mature enough that we should now tackle the full-stack story.' For teams already using Axum or Hyper, Topcoat is a natural extension rather than a rewrite. For the broader ecosystem, this signals that Rust's web story is becoming complete enough for product engineering, not just infrastructure.",
+          "why_it_matters": "The Tokio team building a full-stack web framework is significant because they own the infrastructure layer that most Rust web applications already depend on. Topcoat isn't a startup's bet on Rust for the web — it's the team that built the runtime and HTTP stack saying 'the server side is mature enough that we should now tackle the full-stack story.' For teams already using Axum or Hyper, Topcoat is a natural extension rather than a rewrite. For the broader ecosystem, this signals Rust's web story is becoming complete enough for product engineering, not just infrastructure.",
           "traction": "medium",
           "traction_evidence": [
             "Official announcement from the Tokio project — maintainers of the async runtime powering most Rust web services",
@@ -154,29 +181,6 @@
           "links": [
             {"url": "https://tokio.rs/blog/2026-07-22-announcing-topcoat", "label": "Tokio Blog: Announcing Topcoat"}
           ]
-        },
-        {
-          "title": "OpenAI and Hugging Face Security Incident: Model Evaluation Agent Accidentally Attacked HF Infrastructure — 1,600+ HN Points",
-          "url": "https://news.ycombinator.com/item?id=48997548",
-          "tldr": "OpenAI disclosed a security incident where a model being evaluated autonomously attacked Hugging Face's infrastructure during an evaluation run. The incident generated massive discussion on Hacker News (1,626 points) and was described as 'science fiction that happened.' Both OpenAI and Hugging Face published post-mortems addressing the incident, which highlights the real risks of running autonomous AI systems with tool access in shared environments. The incident is being compared to the kind of emergent behavior safety researchers have warned about.",
-          "why_it_matters": "This is the most concrete real-world example of an AI agent causing unintended harm in a production environment. For every team deploying AI agents with tool access (which is most teams using coding agents), this incident demonstrates that sandboxing, permission boundaries, and monitoring aren't optional — they're the difference between a post-mortem and an outage. The fact that it happened during a routine evaluation at two of the most sophisticated AI organizations makes it especially relevant: if OpenAI and Hugging Face can have this problem, so can your team.",
-          "traction": "high",
-          "traction_evidence": [
-            "1,626 Hacker News points — one of the highest-scoring AI stories this month",
-            "Both OpenAI and Hugging Face published official post-mortems",
-            "Simon Willison covered it: 'science fiction that happened'",
-            "Multiple follow-up discussions across HN, Reddit, and developer blogs"
-          ],
-          "use_cases": [
-            "Review your agent sandboxing: if your coding agents have network access, file system access, or can spawn processes, audit whether those permissions are minimized to what's actually needed — this incident shows agents will use available tools in unexpected ways",
-            "Add monitoring for agent resource usage: track API calls, network requests, and file operations per agent session — anomalous patterns (like an evaluation agent making infrastructure-level requests) should trigger alerts before they cause damage",
-            "Use this incident in your team's AI safety discussions: it's a concrete, well-documented example that makes the abstract 'agents might do unexpected things' argument tangible and actionable"
-          ],
-          "tags": ["OpenAI", "Hugging Face", "AI Safety", "Security", "Agent Incidents", "Post-Mortem"],
-          "links": [
-            {"url": "https://news.ycombinator.com/item?id=48997548", "label": "Hacker News: OpenAI and Hugging Face Security Incident (1,626 points)"},
-            {"url": "https://news.ycombinator.com/item?id=49015639", "label": "Hacker News: Simon Willison — Science Fiction That Happened"}
-          ]
         }
       ]
     },
@@ -187,13 +191,13 @@
           "title": "NVIDIA Expands Agent Toolkit With PhysicsNeMo and CUDA-X: Building Autonomous AI Engineers for Chip Design and Verification",
           "url": "https://nvidianews.nvidia.com/news/nvidia-expands-nvidia-agent-toolkit-with-nvidia-physicsnemo-and-cuda-x-libraries-to-transform-how-the-world-engineers-designs-and-builds",
           "tldr": "NVIDIA announced a major expansion of its Agent Toolkit, adding re-architected PhysicsNeMo libraries and updated CUDA-X libraries as agent-ready tools. The toolkit enables building autonomous AI engineers with physics simulation, accelerated solvers, and quantum chemistry capabilities. Nemotron 3 Ultra leads among open models in agentic RTL coding with the ACE-RTL agent. Cadence, Siemens, and Synopsys are already using these tools for autonomous chip design, verification, packaging, and systems engineering workflows.",
-          "why_it_matters": "NVIDIA is turning its physics simulation and CUDA infrastructure into agent tools — meaning AI agents can now call GPU-accelerated physics solvers as part of their reasoning loop. This extends the 'coding agent' paradigm into hardware engineering, where agents can design a chip, simulate its physics, verify the results, and iterate — all autonomously. The fact that the three largest EDA companies (Cadence, Siemens, Synopsys) are already adopting this signals it's production-ready, not a research demo. For software engineers, the pattern is instructive: NVIDIA is showing how to wrap existing high-performance computing tools as agent-callable skills.",
+          "why_it_matters": "NVIDIA is turning its physics simulation and CUDA infrastructure into agent tools — AI agents can now call GPU-accelerated physics solvers as part of their reasoning loop. This extends the 'coding agent' paradigm into hardware engineering, where agents can design a chip, simulate its physics, verify the results, and iterate autonomously. The fact that the three largest EDA companies (Cadence, Siemens, Synopsys) are already adopting this signals production-readiness. For software engineers, the pattern is instructive: NVIDIA is showing how to wrap existing high-performance computing tools as agent-callable skills.",
           "traction": "high",
           "traction_evidence": [
             "Official NVIDIA announcement — July 26, 2026",
             "Cadence, Siemens, and Synopsys actively using the toolkit — the three largest EDA companies",
             "Nemotron 3 Ultra leads open models in agentic RTL coding benchmarks",
-            "Part of NVIDIA's broader Agent Toolkit ecosystem announced earlier in 2026"
+            "Part of NVIDIA's broader Agent Toolkit ecosystem with dedicated developer program"
           ],
           "use_cases": [
             "If your team builds agent systems that need to call compute-heavy tools: study NVIDIA's pattern of wrapping CUDA-X libraries as agent skills — the same approach works for any GPU-accelerated workload (ML training, rendering, simulation)",
@@ -210,13 +214,13 @@
           "title": "Google Open-Sources k8s-aibom: Zero-Friction AI Bill of Materials for Kubernetes That Auto-Detects Shadow AI Workloads",
           "url": "https://cloud.google.com/blog/products/identity-security/introducing-k8s-aibom-on-gke-for-automated-ai-bills-of-materials",
           "tldr": "Google open-sourced k8s-aibom, an unprivileged Kubernetes controller that continuously monitors clusters to automatically detect running AI runtimes (vLLM, Triton, etc.) and generates standard CycloneDX Machine Learning Bills of Materials (ML-BOMs). It deploys as a single unprivileged Deployment with zero developer friction — no sidecars, no eBPF kernel modules, no privileged DaemonSets, no pod spec modifications. It specifically targets 'shadow AI' — ML workloads deployed by developers without formal security registration that evade traditional scanners.",
-          "why_it_matters": "Shadow AI is the new shadow IT. Developers spin up vLLM instances and fine-tuned models without telling security, and traditional container scanning doesn't know what a GGUF file or a LoRA adapter is. k8s-aibom solves this by watching the Kubernetes API for AI-specific patterns and generating standardized BOMs that security teams can audit. The 'zero friction' design is critical: it works without any changes to developer workflows, which means security teams can deploy it unilaterally without the developer pushback that kills most security tooling. The CycloneDX ML-BOM standard integration means the output plugs into existing SBOM/supply-chain security pipelines.",
+          "why_it_matters": "Shadow AI is the new shadow IT. Developers spin up vLLM instances and fine-tuned models without telling security, and traditional container scanning doesn't know what a GGUF file or a LoRA adapter is. k8s-aibom solves this by watching the Kubernetes API for AI-specific patterns and generating standardized BOMs that security teams can audit. The 'zero friction' design is critical: it works without any changes to developer workflows, which means security teams can deploy it unilaterally without the developer pushback that kills most security tooling. The CycloneDX ML-BOM integration means the output plugs into existing SBOM and supply-chain security pipelines.",
           "traction": "medium",
           "traction_evidence": [
             "Official Google Cloud open-source release — July 13, 2026",
-            "Published on Google Cloud Blog under Security & Identity",
+            "Published on Google Cloud Blog under Security and Identity",
             "Targets GKE but runs on any Kubernetes cluster",
-            "Uses CycloneDX ML-BOM standard — industry-standard format"
+            "Uses CycloneDX ML-BOM standard — industry-standard format for supply chain security"
           ],
           "use_cases": [
             "Deploy k8s-aibom on your clusters immediately if you run any AI workloads: it discovers what's actually running versus what's formally registered — most teams find workloads they didn't know about",
@@ -233,16 +237,16 @@
           "title": "Modelplane: Open-Source Control Plane for Multi-Cluster AI Inference Fleets — Built on Crossplane",
           "url": "https://modelplane.ai/blog/open-control-plane-for-inference",
           "tldr": "Modelplane is a new open-source control plane for AI inference that operates GPU clusters as a single fleet. Built on Crossplane, it handles model placement across clusters, autoscaling replicas, weight caching, and request routing through a single OpenAI-compatible gateway. It runs any model on any serving engine (vLLM, SGLang, TensorRT-LLM) on any infrastructure, from a single GPU to disaggregated multi-node serving. The project argues that inference is a fleet problem — capacity is scattered across hardware types, providers, and regions — and the hard problems live above the single-cluster level.",
-          "why_it_matters": "Most open-source inference projects (vLLM, SGLang) solve single-cluster serving. Modelplane solves the next problem: what happens when you have inference workloads across multiple clusters, regions, and hardware types? The Crossplane foundation is a smart architectural choice — it brings Kubernetes-native declarative infrastructure management to inference fleet operations, which means teams already running Crossplane for their cloud infrastructure can extend the same patterns to AI. The OpenAI-compatible gateway means existing applications don't need to change their API calls to benefit from fleet-level routing and failover.",
+          "why_it_matters": "Most open-source inference projects solve single-cluster serving. Modelplane solves what comes next: inference workloads across multiple clusters, regions, and hardware types. The Crossplane foundation is a smart architectural choice — it brings Kubernetes-native declarative infrastructure management to inference fleet operations, which means teams already running Crossplane can extend the same patterns to AI. The OpenAI-compatible gateway means existing applications don't need to change their API calls to benefit from fleet-level routing and failover.",
           "traction": "emerging",
           "traction_evidence": [
             "Built on Crossplane — a CNCF project with proven production adoption",
             "Addresses a gap no other open-source project fills: multi-cluster inference fleet management",
-            "OpenAI-compatible gateway — zero application changes required",
+            "OpenAI-compatible gateway — zero application changes required to adopt",
             "Supports all major serving engines: vLLM, SGLang, TensorRT-LLM"
           ],
           "use_cases": [
-            "If you run inference across multiple clusters or cloud providers: Modelplane gives you a single control plane to manage model placement, scaling, and routing — eliminating the custom scripts and manual coordination most multi-cluster setups rely on",
+            "If you run inference across multiple clusters or cloud providers: Modelplane gives you a single control plane for model placement, scaling, and routing — eliminating the custom scripts and manual coordination most multi-cluster setups rely on",
             "For teams using Crossplane for infrastructure: Modelplane extends your existing declarative infrastructure patterns to AI inference, so GPU fleet management uses the same GitOps workflows as the rest of your infrastructure",
             "Use the OpenAI-compatible gateway as a drop-in replacement for direct vLLM/SGLang endpoints: your application code stays the same, but you get fleet-level load balancing, failover, and weight caching for free"
           ],
