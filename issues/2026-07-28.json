@@ -2,8 +2,9 @@
   "highlights": [
     {"text": "Celeris-1 ships a diffusion-based LLM claiming near-GPT-5 reasoning at 15x faster response times — parallel generation replaces autoregressive decoding", "anchor": "ai-tools-and-models-0"},
     {"text": "SpaceX acquires Cursor for $60B in the largest AI coding tool deal ever, reshaping the competitive landscape", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "MCP 2026-07-28 final spec lands today: protocol goes fully stateless (sessions removed), ships MCP Apps for server-rendered UIs, and hardens auth to OAuth 2.1 — largest revision since launch", "anchor": "developer-tools-and-frameworks-4"},
     {"text": "Netflix publishes its production LLM serving architecture built on Triton + vLLM, with hard-won lessons on version pinning and custom model support", "anchor": "infrastructure-and-production-0"},
-    {"text": "NVIDIA open-sources Molt — an 8,600-line agentic RL training framework that scales to trillion-parameter models", "anchor": "ai-tools-and-models-1"},
+    {"text": "Grafana Labs AI Week: six tools reach GA including agentic Investigations, Automations, and a hosted MCP server so any AI agent can query your Grafana Cloud telemetry", "anchor": "infrastructure-and-production-3"},
     {"text": "SonarQube 2026.4 introduces a purpose-built quality gate for AI-generated code, targeting supply chain attacks from autonomous agents", "anchor": "developer-tools-and-frameworks-2"}
   ],
   "sections": [
@@ -93,6 +94,17 @@
           "links": [{"url": "https://www.sonarsource.com/blog/now-available-sonarqube-plugin-for-antigravity/", "label": "Antigravity plugin"}]
         },
         {
+          "title": "MCP 2026-07-28 Final Spec Ships: Protocol Goes Stateless, Adds MCP Apps and Tasks Extension — Largest Revision Since Launch",
+          "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/",
+          "tldr": "The 2026-07-28 MCP specification removes the stateful session handshake entirely — no more initialize, no session headers, no sticky routing. New additions: MCP Apps (server-rendered interactive HTML UIs in sandboxed iframes), a Tasks extension for long-running async work via handles, OAuth 2.1/OIDC alignment positioning MCP servers as formal resource servers, and a deprecation policy for the three removed features.",
+          "why_it_matters": "Every team building with MCP needs to plan a migration. The stateless redesign is the most operationally significant change: MCP servers can now scale horizontally behind a round-robin load balancer instead of requiring sticky sessions and shared session stores — a change that eliminates the hardest infrastructure constraint. MCP Apps opens a new category: forms, tables, and charts that render inside the agent conversation, making MCP servers interactive without a separate frontend. The OAuth 2.1 hardening means MCP is now the right choice for enterprise deployments that need formal authorization chains.",
+          "traction": "high",
+          "traction_evidence": ["Final spec ships July 28, 2026 — the date was announced months in advance, signaling planned adoption", "Beta SDKs published by the MCP team for the RC", "Microsoft, GitHub, WorkOS, and Arcade.dev all published migration guides before the spec landed", "The Register and TechTimes covered it as breaking protocol news"],
+          "use_cases": ["If you maintain any MCP server: run the beta SDK against your existing implementation this week — session removal is a breaking change and session-bound patterns need to be rebuilt before clients upgrade to the new spec", "Update your load balancer config to drop sticky routing for MCP servers: stateless MCP can now scale behind any round-robin balancer, cutting infra complexity and enabling standard Kubernetes autoscaling", "Use MCP Apps to add interactive UI to parameter-heavy tools: instead of prompting the agent to ask for each argument, render a form in the conversation and let the user fill it in directly"],
+          "tags": ["MCP", "protocol", "stateless", "OAuth", "developer-tools"],
+          "links": [{"url": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/", "label": "MCP Blog: 2026-07-28 RC"}, {"url": "https://www.digitalapplied.com/blog/mcp-2026-07-28-spec-stateless-migration-guide", "label": "Migration guide"}, {"url": "https://workos.com/blog/mcp-2026-spec-agent-authentication", "label": "WorkOS: Auth changes"}]
+        },
+        {
           "title": "Mastra Factory: From GitHub Issue to Production Deploy, Run by Agents With Explicit Stage Gates",
           "url": "https://mastra.ai/blog/announcing-mastra-factory",
           "tldr": "Mastra launched Factory, a system where specialized agents triage issues, write code, validate, release, update docs, and monitor production — with explicit stage gates around each SDLC phase to keep the process auditable.",
@@ -129,6 +141,17 @@
           "use_cases": ["Deploying AI-generated prototypes to the cloud without writing infrastructure config", "Giving coding agents the ability to deploy and test their own output", "Rapid iteration on full-stack apps where deployment feedback is part of the development loop"],
           "tags": ["deployment", "cloud", "PaaS", "AI-assisted"],
           "links": [{"url": "https://usw-1.sealos.io?openapp=system-brain", "label": "Sealos public beta"}]
+        },
+        {
+          "title": "Grafana Labs AI Week: Six Agentic Ops Tools Reach GA, Including Investigations, Automations, and an MCP Server for External AI Agents",
+          "url": "https://grafana.com/blog/grafanacon-2026-announcements/",
+          "tldr": "Grafana Labs shipped six AI capabilities during its inaugural AI Week (July 27-28): Grafana Assistant Investigations (hypothesis-driven root cause analysis on incidents), Assistant Workspace (natural language telemetry queries), Assistant Automations (scheduled investigation reports to Slack), a hosted Grafana Cloud MCP server, gcx CLI (connects any external AI agent to Grafana Cloud), and Grafana Agent Observability.",
+          "why_it_matters": "Grafana is the observability standard for most engineering teams, and this release turns it into an agentic operations platform. The Grafana Cloud MCP server is the most significant addition: any external AI agent — Claude Code, Codex, a custom agent — can now call Grafana tools directly via MCP to query metrics, search traces, investigate alerts, and kick off workflows. This means coding agents can check production health as part of debugging a PR, or deploy agents that gate on Grafana signals before and after releases. Investigations solves the hardest on-call problem: at 2AM with a new alert you've never seen, the agent now generates a structured hypothesis-driven report so you know where to look.",
+          "traction": "high",
+          "traction_evidence": ["Grafana is used by 20M+ users and 3,000+ enterprise customers globally", "Six capabilities shipped to GA simultaneously during inaugural AI Week", "Grafana Cloud MCP server integrates with any MCP-compatible agent via the standard protocol", "bigdatawire.com and Yahoo Finance both covered the simultaneous GA launch"],
+          "use_cases": ["Add the Grafana Cloud MCP server to your Claude Code or Codex configuration: your coding agent can query production metrics, deployment history, and active alerts as part of any debugging session without leaving the agent context", "Set up Grafana Assistant Automations to run nightly investigations on your highest-traffic services and deliver structured reports to your on-call Slack channel — shifts from reactive paging to proactive monitoring with context", "Use gcx CLI in CI/CD pipelines to deploy agents that check Grafana health signals before and after releases, automatically rolling back if error rate exceeds a threshold"],
+          "tags": ["observability", "Grafana", "agentic-ops", "MCP", "production"],
+          "links": [{"url": "https://grafana.com/blog/automatically-discover-and-remediate-root-causes-with-grafana-assistant-investigations/", "label": "Grafana Assistant Investigations"}, {"url": "https://grafana.com/products/cloud/ai-observability/", "label": "Grafana AI Observability"}]
         },
         {
           "title": "PortSwigger Launches Burp AT: Agentic AI Pentesting Inside Burp Suite — Public Beta for Pro Users",
