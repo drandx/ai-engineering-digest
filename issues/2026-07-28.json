@@ -1,0 +1,147 @@
+{
+  "highlights": [
+    {"text": "Celeris-1 ships a diffusion-based LLM claiming near-GPT-5 reasoning at 15x faster response times — parallel generation replaces autoregressive decoding", "anchor": "ai-tools-and-models-0"},
+    {"text": "SpaceX acquires Cursor for $60B in the largest AI coding tool deal ever, reshaping the competitive landscape", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Netflix publishes its production LLM serving architecture built on Triton + vLLM, with hard-won lessons on version pinning and custom model support", "anchor": "infrastructure-and-production-0"},
+    {"text": "NVIDIA open-sources Molt — an 8,600-line agentic RL training framework that scales to trillion-parameter models", "anchor": "ai-tools-and-models-1"},
+    {"text": "SonarQube 2026.4 introduces a purpose-built quality gate for AI-generated code, targeting supply chain attacks from autonomous agents", "anchor": "developer-tools-and-frameworks-2"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Celeris-1: Diffusion-Based LLM Delivers Near-GPT-5 Intelligence at 15x Faster Response Times",
+          "url": "https://www.prnewswire.com/news-releases/celeris-unveils-celeris-1-unlocking-real-time-ai-through-diffusion-based-language-generation-302835273.html",
+          "tldr": "Celeris, an AI research lab, unveiled Celeris-1 — the first production-grade diffusion LLM that generates entire responses in parallel rather than token-by-token, achieving frontier-level reasoning with dramatically lower latency.",
+          "why_it_matters": "If diffusion decoding works at scale, it breaks the fundamental latency-throughput tradeoff that makes real-time agent loops expensive. Engineers building interactive AI features should watch whether this architecture holds up under adversarial eval.",
+          "traction": "emerging",
+          "traction_evidence": ["Announced July 27 via PR Newswire", "Claims near-GPT-5 benchmark performance", "Novel architecture attracting ML research attention"],
+          "use_cases": ["Real-time conversational agents with sub-100ms response requirements", "Latency-sensitive agentic pipelines where autoregressive decoding is the bottleneck", "Interactive coding assistants that need to feel instant"],
+          "tags": ["AI", "LLM", "diffusion", "inference"],
+          "links": [{"url": "https://celeris.ai/", "label": "Celeris"}]
+        },
+        {
+          "title": "NVIDIA Open-Sources Molt: Agentic RL Training Framework That Scales to Trillion-Parameter Models in 8,600 Lines",
+          "url": "https://www.techtimes.com/articles/321742/20260727/nvidia-molt-open-sources-agentic-rl-training-that-scales-trillion-parameter-models.htm",
+          "tldr": "NVIDIA NeMo Labs released Molt, a PyTorch-native agentic RL framework that replaces human-preference RLHF with external verifiers (test suites, tool execution, LLM-as-judge) while matching Megatron-scale throughput in a fraction of the codebase.",
+          "why_it_matters": "Agentic RL — where reward comes from code execution and tool use rather than human annotations — is how the next generation of coding agents will be trained. Molt makes that research accessible without a Megatron-sized team.",
+          "traction": "medium",
+          "traction_evidence": ["Released July 22 by NVIDIA NeMo Labs", "Featured on HuggingFace Papers", "ArXiv paper 2607.21653", "8,600 lines vs. verl's 62,000"],
+          "use_cases": ["Training coding agents that learn from test suite pass/fail signals", "Fine-tuning models with tool-use reward signals", "Researching agentic RL without production-scale infrastructure"],
+          "tags": ["AI", "RL", "training", "NVIDIA", "open-source"],
+          "links": [{"url": "https://github.com/NVIDIA-NeMo/labs-molt", "label": "GitHub"}, {"url": "https://arxiv.org/abs/2607.21653", "label": "ArXiv"}]
+        },
+        {
+          "title": "JetBrains Open-Sources KotlinLLM: Smart Macros That Delegate Runtime Logic to LLMs From Kotlin Code",
+          "url": "https://blog.jetbrains.com/research/2026/07/kotlinllm-open-source/",
+          "tldr": "JetBrains Research released KotlinLLM, an IntelliJ plugin that adds 'Smart macros' to Kotlin — function calls whose bodies are LLM-generated Kotlin source code that updates as your application hits new runtime scenarios.",
+          "why_it_matters": "This is the first serious attempt to make LLM-generated logic a first-class language feature rather than a separate API call. The asLlm<F,T>() and mockLlm<T>() primitives blur the line between compile-time and runtime code generation.",
+          "traction": "medium",
+          "traction_evidence": ["Published today (July 28) by JetBrains Research", "Presented at KotlinConf 2026", "Open-sourced on GitHub"],
+          "use_cases": ["Parsing unstructured data into typed Kotlin values without writing custom parsers", "Auto-generating test doubles that adapt to runtime behavior", "Rapid prototyping where rigid schemas don't exist yet"],
+          "tags": ["Kotlin", "JetBrains", "LLM", "developer-tools"],
+          "links": [{"url": "https://github.com/JetBrains-Research/kotlinllm-plugin", "label": "GitHub"}, {"url": "https://kotlinconf.com/talks/1085233/", "label": "KotlinConf talk"}]
+        },
+        {
+          "title": "Hermes Agent Crosses 214K GitHub Stars as Open Agent Runtimes Build a Credible Switching Path",
+          "url": "https://startupfortune.com/hermes-agent-crosses-214000-github-stars-as-developers-abandon-commercial-ai-agent-frameworks/",
+          "tldr": "Nous Research's Hermes Agent, launched in February under MIT license, has reached 220K+ GitHub stars with persistent memory, auto-generated skills, scheduling, and multi-backend sandboxing — establishing itself as the de facto open-source agent runtime.",
+          "why_it_matters": "The agent framework layer is consolidating around open runtimes. If you're evaluating agent infrastructure, Hermes now has the ecosystem gravity that makes it a safe default — similar to how React became the safe frontend choice.",
+          "traction": "high",
+          "traction_evidence": ["220K+ GitHub stars as of late July 2026", "MIT license", "123+ Atlas-tracked ecosystem projects", "Multi-backend support: local, Docker, SSH, Singularity, Modal"],
+          "use_cases": ["Building production agent systems with persistent state across sessions", "Replacing commercial agent frameworks with an open-source alternative", "Running sandboxed agent workloads across heterogeneous infrastructure"],
+          "tags": ["AI", "agents", "open-source", "infrastructure"],
+          "links": [{"url": "https://hermesatlas.com/reports/state-of-hermes-july-2026", "label": "Hermes Atlas July report"}]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "SpaceX Acquires Cursor for $60B — The Largest AI Coding Tool Deal in History Reshapes the Market",
+          "url": "https://neuralwired.com/2026/07/24/elon-musk-spacex-cursor-acquisition/",
+          "tldr": "SpaceX paid $60 billion for Cursor while Amazon kills Q Developer and Google retires Gemini CLI — the AI coding tools market is consolidating violently, and engineering teams that picked a tool 18 months ago may find it gone.",
+          "why_it_matters": "This is the clearest signal yet that AI coding tools are becoming strategic infrastructure, not developer utilities. Teams need to evaluate vendor lock-in risk and consider how much of their workflow depends on a single tool's continued existence.",
+          "traction": "high",
+          "traction_evidence": ["$60B acquisition price", "Concurrent shutdowns of Amazon Q Developer and Google Gemini CLI", "Widely covered across tech press July 24-28"],
+          "use_cases": ["Evaluating AI coding tool vendor risk for enterprise adoption", "Planning migration strategies away from deprecated tools", "Understanding the strategic value of developer workflow data"],
+          "tags": ["acquisitions", "developer-tools", "AI-coding"],
+          "links": [{"url": "https://neuralwired.com/2026/07/24/elon-musk-spacex-cursor-acquisition/", "label": "NeuralWired"}]
+        },
+        {
+          "title": "Vercel Scriptc: TypeScript-to-Native Compiler That Ships Binaries Without a JavaScript Engine",
+          "url": "https://news.ycombinator.com/item?id=49063175",
+          "tldr": "Vercel Labs released Scriptc, a compiler that turns TypeScript directly into native binaries — no V8, no Bun, no Node.js runtime bundled. The HN discussion is contentious but the technical approach is novel.",
+          "why_it_matters": "If TypeScript can compile to native without a JS engine, it opens CLI tools, embedded systems, and serverless cold-start optimization to the TypeScript ecosystem. The debate is whether Vercel will maintain this beyond a tech demo.",
+          "traction": "medium",
+          "traction_evidence": ["Front page of Hacker News July 26-27", "Active HN discussion with hundreds of comments", "Built by Vercel Labs team"],
+          "use_cases": ["Building zero-dependency CLI tools in TypeScript", "Reducing serverless cold-start times by eliminating the JS runtime", "Shipping TypeScript-based developer tools as single native binaries"],
+          "tags": ["TypeScript", "compiler", "Vercel", "native"],
+          "links": [{"url": "https://news.ycombinator.com/item?id=49063175", "label": "HN discussion"}]
+        },
+        {
+          "title": "SonarQube 2026.4 Ships a Quality Gate Purpose-Built for AI-Generated Code — Including Supply Chain Attack Detection",
+          "url": "https://www.sonarsource.com/blog/introducing-sonarqube-server-2026-4/",
+          "tldr": "SonarQube Server 2026.4 introduces 'Sonar way for Agentic AI,' a quality gate calibrated for AI-generated code that's stricter on security and dependencies while more permissive on style — plus detection for typosquatted and hallucinated packages.",
+          "why_it_matters": "As AI agents autonomously pull in dependencies, supply chain attacks become the primary risk vector. This is the first major code quality tool to ship rules specifically targeting what agents get wrong: hallucinated packages, unnecessary dependencies, and security gaps.",
+          "traction": "high",
+          "traction_evidence": ["SonarQube has millions of enterprise users", "Released July 22", "Includes Antigravity integration plugin", "Agentic AI profiles for JS, TS, Python, Java"],
+          "use_cases": ["Adding an AI-aware verification layer to CI/CD pipelines", "Detecting hallucinated or typosquatted npm/pip packages in agent-generated PRs", "Monitoring whether quality gates are holding as agent-written code volume increases"],
+          "tags": ["code-quality", "security", "CI/CD", "agentic-AI"],
+          "links": [{"url": "https://www.sonarsource.com/blog/now-available-sonarqube-plugin-for-antigravity/", "label": "Antigravity plugin"}]
+        },
+        {
+          "title": "Mastra Factory: From GitHub Issue to Production Deploy, Run by Agents With Explicit Stage Gates",
+          "url": "https://mastra.ai/blog/announcing-mastra-factory",
+          "tldr": "Mastra launched Factory, a system where specialized agents triage issues, write code, validate, release, update docs, and monitor production — with explicit stage gates around each SDLC phase to keep the process auditable.",
+          "why_it_matters": "The 'software factory' pattern — agents handling the full SDLC with human oversight at gate points — is becoming the dominant architecture for AI-assisted development. Mastra's staged approach avoids the 'goal-mode' failure modes of fully autonomous agents.",
+          "traction": "medium",
+          "traction_evidence": ["Announced July 27", "Integrates with GitHub, Linear, and Slack", "Built on Mastra's existing agent framework with production adoption"],
+          "use_cases": ["Automating issue triage and initial code generation for well-defined tickets", "Building auditable agent-driven CI/CD pipelines with human approval gates", "Reducing PR review bottlenecks with context-aware review agents"],
+          "tags": ["agents", "SDLC", "automation", "developer-tools"],
+          "links": [{"url": "https://factory.mastra.ai/", "label": "Mastra Factory"}]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Netflix Details Its Production LLM Serving Architecture: Triton + vLLM, Version Pinning Pain, and Custom Model Integration",
+          "url": "https://www.infoq.com/news/2026/07/netflix-llm-platform/",
+          "tldr": "Netflix published a deep dive on running LLM inference in production, covering how they layer vLLM inside Triton for GPU serving, the operational pain of mismatched versions preventing deployments, and why Hugging Face compatibility wasn't enough for custom models.",
+          "why_it_matters": "This is a rare production-grade case study from a company running LLMs at Netflix scale. The version pinning and custom model integration lessons will save teams weeks of debugging when building their own inference platforms.",
+          "traction": "high",
+          "traction_evidence": ["Published on Netflix Tech Blog", "Covered by InfoQ", "Netflix scale: real-time + batch across CPU and GPU"],
+          "use_cases": ["Designing a multi-model serving platform that handles both small CPU models and large GPU models", "Planning vLLM + Triton integration with version compatibility testing", "Building custom model support beyond Hugging Face's standard architectures"],
+          "tags": ["inference", "MLOps", "Netflix", "vLLM", "production"],
+          "links": [{"url": "https://netflixtechblog.medium.com/in-house-llm-serving-at-netflix-a5a8e799ea2c", "label": "Netflix Tech Blog"}]
+        },
+        {
+          "title": "Sealos 2.0 Public Beta: Give It a GitHub Repo, Get a Running Full-Stack App With AI-Assisted Cloud Deployment",
+          "url": "https://sealos.io/blog/sealos-public-beta-ai-assisted-deployment/",
+          "tldr": "Sealos 2.0 reads a GitHub repository, builds the image, provisions PostgreSQL/Redis/storage, deploys everything, and hands back a public URL — with an agent that stays in context if deployment fails so you can debug conversationally.",
+          "why_it_matters": "AI coding tools made generating code fast; deployment is now the bottleneck. Sealos bridges that gap by carrying context from code generation into infrastructure provisioning, and it integrates with Codex and Claude Code so the same agent session can do both.",
+          "traction": "emerging",
+          "traction_evidence": ["Public beta launched July 28", "Integrates with Codex and Claude Code", "Handles full-stack deployment including databases and networking"],
+          "use_cases": ["Deploying AI-generated prototypes to the cloud without writing infrastructure config", "Giving coding agents the ability to deploy and test their own output", "Rapid iteration on full-stack apps where deployment feedback is part of the development loop"],
+          "tags": ["deployment", "cloud", "PaaS", "AI-assisted"],
+          "links": [{"url": "https://usw-1.sealos.io?openapp=system-brain", "label": "Sealos public beta"}]
+        },
+        {
+          "title": "PortSwigger Launches Burp AT: Agentic AI Pentesting Inside Burp Suite — Public Beta for Pro Users",
+          "url": "https://portswigger.net/blog/introducing-burp-at",
+          "tldr": "Burp AT adds agentic AI to Burp Suite Professional, letting agents pursue investigation tasks using Burp's tools, your project context, and purpose-built pentesting skills — with scope boundaries the model cannot bypass.",
+          "why_it_matters": "Security testing is one of the highest-value applications of AI agents because it requires both reasoning and tool use in adversarial conditions. Burp AT's approach of constraining agents within Burp's existing tool boundaries is a model for how to deploy agents in sensitive domains.",
+          "traction": "high",
+          "traction_evidence": ["PortSwigger is the maker of Burp Suite, the industry-standard web security tool", "Public beta launched July 27", "Built with PortSwigger Research methodology", "Available to all Burp Suite Professional users"],
+          "use_cases": ["Scaling pentest coverage by delegating investigation threads to agents", "Exploring unfamiliar attack surfaces while focusing manual effort on high-value targets", "Running continuous security validation against web applications"],
+          "tags": ["security", "pentesting", "agents", "Burp Suite"],
+          "links": [{"url": "https://portswigger.net/burp/burp-at", "label": "Burp AT beta"}]
+        }
+      ]
+    }
+  ]
+}
