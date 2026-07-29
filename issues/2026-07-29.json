@@ -1,0 +1,137 @@
+{
+  "highlights": [
+    {"text": "Cursor reveals its agent swarm architecture: frontier models plan, cheap models code, custom VCS handles 1,000 commits/second — the planner/worker split may define how agent systems scale", "anchor": "ai-tools-and-models-0"},
+    {"text": "Google ships environment hooks for Gemini Managed Agents — block, lint, or audit any tool call inside the sandbox, with free tier access and Gemini 3.6 Flash as the new default", "anchor": "ai-tools-and-models-1"},
+    {"text": "JetBrains launches Context: a repository intelligence layer that feeds codebase structure, conventions, and API knowledge to Claude Code, Codex CLI, and Junie — free with JetBrains AI subscription", "anchor": "ai-tools-and-models-2"},
+    {"text": "Remix 3 beta drops React entirely for web-standard primitives — Fetch API routes, imperative state via this.update(), and server-rendered 'frames' that observers compare to HTMX", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Modelplane open-sources a Crossplane-based control plane for AI inference — one gateway to manage model placement, autoscaling, and routing across multi-cluster GPU fleets", "anchor": "infrastructure-and-production-0"},
+    {"text": "TanStack supply chain post-mortem reveals how 84 malicious npm versions shipped in 6 minutes with valid SLSA provenance, compromising OpenAI and Mistral AI downstream", "anchor": "infrastructure-and-production-2"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Cursor Reveals Agent Swarm Architecture: Frontier Models Plan, Cheap Models Code, Custom VCS Handles 1,000 Commits/Second",
+          "url": "https://the-decoder.com/cursors-agent-swarm-suggests-cheaper-models-can-handle-most-coding-when-frontier-models-plan-the-work/",
+          "tldr": "Cursor published details of its agent swarm system that splits work into planner agents (frontier models that decompose goals into tasks) and worker agents (cheaper models that execute code changes). The system hit 1,000 commits per second, forcing Cursor to build its own version control system because Git couldn't handle the throughput. A 'split-brain' problem where planners duplicated work was solved with shared design documents linked at compile time.",
+          "why_it_matters": "This is the clearest evidence yet that the future of AI coding isn't one big model doing everything — it's orchestrated swarms where intelligence is allocated by task type. The planner/worker split reduces cost by routing most work to cheap models while frontier models handle architecture decisions. If you're building agent systems, this pattern will likely become standard.",
+          "traction": "high",
+          "traction_evidence": ["Published July 26 by The Decoder with deep technical detail from Cursor", "Builds on earlier Cursor browser swarm that generated significant community discussion", "Demonstrates production-scale agent coordination beyond any public system", "Introduces novel concepts: compile-time design document linking, neutral merge agents"],
+          "use_cases": ["Architecting multi-agent coding systems with cost-optimized model routing", "Understanding the planner/worker pattern for any agent orchestration — not just coding", "Evaluating whether your team's agent workflow could benefit from splitting planning and execution models"],
+          "tags": ["Cursor", "agent-swarm", "multi-agent", "coding-agents", "architecture"],
+          "links": [{"url": "https://the-decoder.com/cursors-agent-swarm-suggests-cheaper-models-can-handle-most-coding-when-frontier-models-plan-the-work/", "label": "The Decoder"}]
+        },
+        {
+          "title": "Google Ships Environment Hooks for Gemini Managed Agents: Block, Lint, or Audit Tool Calls Inside the Sandbox",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api-3-6-flash-hooks/",
+          "tldr": "Google's Managed Agents in the Gemini API now default to Gemini 3.6 Flash, and ship three major features: environment hooks that intercept and gate tool calls inside the agent sandbox, budget controls to cap spend per interaction, and free tier access. Hooks let you block, lint, or audit any action the agent takes before it executes — a policy layer between the model and the sandbox.",
+          "why_it_matters": "Agent governance is the unsolved problem in production AI. Google's hook system is the first major API-level primitive that lets teams enforce policies on what agents can do, not just what they output. Budget controls address the runaway-cost problem that's kept many teams from deploying agents. Free tier lowers the barrier to experimentation.",
+          "traction": "high",
+          "traction_evidence": ["Official Google DeepMind blog post July 28", "Part of Gemini API production rollout, not a preview", "Builds on previous Managed Agents release with background tasks and remote MCP", "Free tier access announced"],
+          "use_cases": ["Adding compliance gates to agent workflows — e.g., blocking file writes to production directories", "Implementing spend caps on agent interactions before rolling out to teams", "Prototyping managed agent workflows at zero cost before committing to production billing"],
+          "tags": ["Google", "Gemini", "managed-agents", "hooks", "governance"],
+          "links": [{"url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api-3-6-flash-hooks/", "label": "Google Blog"}, {"url": "https://ai.google.dev/gemini-api/docs/agents", "label": "Managed Agents docs"}]
+        },
+        {
+          "title": "JetBrains Launches Context: Repository Intelligence That Feeds Codebase Knowledge to Claude Code, Codex, and Junie",
+          "url": "https://blog.jetbrains.com/ai/2026/07/introducing-jetbrains-context-repository-intelligence-for-coding-agents/",
+          "tldr": "JetBrains Context is a new repository intelligence layer that analyzes codebases and feeds structured context — APIs, dependencies, implementation patterns, engineering conventions — to coding agents like Claude Code, Codex CLI, and Junie CLI. It works from JetBrains IDEs, Air, and VS Code. Free with JetBrains AI subscription during early access.",
+          "why_it_matters": "This tackles the same problem as Graphify (covered July 27) from a different angle: giving agents pre-computed codebase understanding instead of making them re-derive it every session. JetBrains' advantage is decades of code analysis infrastructure. The fact that it's agent-agnostic (works with Claude Code, Codex, and Junie) makes it a codebase-level investment rather than a tool-specific one.",
+          "traction": "medium",
+          "traction_evidence": ["Official JetBrains blog post, part of AI for Teams and Organizations rollout", "Integrates with three major coding agents at launch", "Free during early access with JetBrains AI subscription", "Backed by JetBrains' existing code analysis engine"],
+          "use_cases": ["Improving agent output quality on enterprise-scale codebases where agents currently produce generic code", "Reducing agent ramp-up time on unfamiliar projects by pre-loading conventions and patterns", "Comparing context quality between JetBrains Context and Graphify on your own repos"],
+          "tags": ["JetBrains", "coding-agents", "context", "developer-tools"],
+          "links": [{"url": "https://blog.jetbrains.com/ai/2026/07/introducing-jetbrains-context-repository-intelligence-for-coding-agents/", "label": "JetBrains Blog"}]
+        },
+        {
+          "title": "Grok 4.5 Lands in GitHub Copilot: 500K Context Window, Parallel Tool Dispatch, Usage-Based Billing",
+          "url": "https://github.blog/changelog/2026-07-28-grok-4-5-is-now-available-in-github-copilot/",
+          "tldr": "xAI's Grok 4.5 reasoning model is now available in GitHub Copilot with a 500,000-token context window, text and image inputs, and configurable reasoning effort (low/medium/high). GitHub's internal testing found it particularly strong at parallel tool dispatch and direct action in terminal-based coding workflows.",
+          "why_it_matters": "GitHub Copilot is becoming a model marketplace. With Grok 4.5 joining Claude, GPT, and Gemini options, developers can now pick models per task within the same tool. The 500K context window and parallel tool dispatch make Grok 4.5 competitive for large codebase exploration. Usage-based billing means you only pay when you use it.",
+          "traction": "medium",
+          "traction_evidence": ["Official GitHub Changelog announcement July 28", "Available to all GitHub Copilot users with usage-based billing", "Part of GitHub's expanding multi-model strategy"],
+          "use_cases": ["Switching to Grok 4.5 for exploration and unblocking tasks where its parallel tool dispatch excels", "Benchmarking Grok 4.5 vs Claude vs GPT on your specific coding workflows within Copilot", "Using the 500K context window for large file analysis where smaller context models truncate"],
+          "tags": ["GitHub", "Copilot", "Grok", "xAI", "multi-model"],
+          "links": [{"url": "https://github.blog/changelog/2026-07-28-grok-4-5-is-now-available-in-github-copilot/", "label": "GitHub Blog"}]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Codex 0.146.0: Named Sessions, Agent Plugins, Thread Forking, and Remote Code Mode Over WebSocket",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0",
+          "tldr": "OpenAI's Codex CLI ships its largest update yet with named sessions (create, pin, and switch between side conversations), an Agent Plugins system with marketplace support for Bedrock and Claude Code, thread forking with paginated history, remote Code Mode over WebSocket, and standalone web search for custom model providers. The proxy system was also overhauled to work consistently across auth, plugins, MCP, and WebSockets.",
+          "why_it_matters": "Codex is evolving from a single-shot coding agent into a persistent development environment. Named sessions and thread forking address the biggest UX pain point of terminal agents: losing context between tasks. Agent Plugins and cross-marketplace support signal that the agent tool ecosystem is fragmenting into interoperable plugin standards rather than walled gardens.",
+          "traction": "high",
+          "traction_evidence": ["Official OpenAI release, rust-v0.146.0, published July 29", "Codex CLI is one of the most widely adopted terminal coding agents", "Plugin marketplace expansion to Bedrock and Claude Code shows cross-ecosystem adoption"],
+          "use_cases": ["Using named sessions to maintain separate contexts for different features or bugs within one Codex instance", "Installing agent plugins from the Bedrock or Claude Code marketplaces to extend Codex capabilities", "Connecting remote Code Mode hosts over WebSocket for cloud-based development workflows"],
+          "tags": ["OpenAI", "Codex", "CLI", "agent-plugins", "developer-tools"],
+          "links": [{"url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0", "label": "GitHub Release"}]
+        },
+        {
+          "title": "Remix 3 Beta Drops React for Web-Standard Primitives: Fetch API Routes, Imperative State, and Server-Rendered Frames",
+          "url": "https://www.infoq.com/news/2026/07/remix-3-beta-preview/",
+          "tldr": "Remix 3 is a ground-up rebuild that removes the React runtime entirely. Routes are Fetch API handlers returning web Response objects, state is managed imperatively with this.update() instead of hooks, and server-rendered 'frames' (independent fragments with a src attribute) replace client-side data fetching — an approach compared to HTMX. The framework bundles routing, auth, forms, uploads, database management, and testing under one umbrella.",
+          "why_it_matters": "Remix 3 is the most prominent framework to bet that the React/hooks model peaked and web-standard primitives are the next cycle. The imperative state model and server-rendered frames represent a philosophical reversal from the client-side rendering era. Whether you adopt Remix 3 or not, its approach will influence how the next generation of full-stack frameworks is designed.",
+          "traction": "high",
+          "traction_evidence": ["InfoQ coverage, multiple tech blog analyses", "Currently at v3.0.0-beta.5 with weekly releases planned", "Co-founder Michael Jackson announcement", "Divided but intense community commentary from Kent C. Dodds and others"],
+          "use_cases": ["Evaluating Remix 3 for new full-stack projects where you want to avoid React's complexity", "Understanding the imperative state and server-frames patterns for architectural decisions", "Migrating existing Remix 2 apps — the framework provides a migration path but the architecture change is fundamental"],
+          "tags": ["Remix", "web-standards", "full-stack", "frameworks"],
+          "links": [{"url": "https://www.infoq.com/news/2026/07/remix-3-beta-preview/", "label": "InfoQ"}, {"url": "https://remix.run/blog/remix-3-beta-preview", "label": "Remix Blog"}]
+        },
+        {
+          "title": "Strix: Open-Source AI Pentesting Agent With 39K Stars That Validates Every Finding With a Working Exploit",
+          "url": "https://teqvolt.com/open-source/strix-open-source-ai-pentester-writes-exploits",
+          "tldr": "Strix is an Apache 2.0 open-source AI pentesting tool at 39K GitHub stars that runs autonomous agents behaving like real penetration testers. Unlike static scanners that flag possible vulnerabilities, Strix dynamically executes your application, probes it, and proves each finding with a working proof-of-concept exploit. It covers OWASP Top 10 and beyond, including business logic flaws, JWT attacks, and API-specific issues.",
+          "why_it_matters": "The false-positive tax from traditional SAST/DAST tools is a real engineering cost — security teams spend more time triaging noise than fixing bugs. Strix's approach of validating every finding with a working exploit eliminates that tax. At 39K stars under Apache 2.0, it's the most adopted open-source tool in this category.",
+          "traction": "medium",
+          "traction_evidence": ["39,000 GitHub stars, ~4,000 forks", "Apache 2.0 license", "Combines SAST + DAST with autonomous exploit validation", "Covers OWASP Top 10 plus business logic and API-specific issues"],
+          "use_cases": ["Running Strix against staging environments to find exploitable vulnerabilities before traditional scanners generate noise", "Integrating proof-of-concept exploit validation into CI/CD pipelines for security-critical deployments", "Replacing or augmenting manual penetration testing for smaller teams without dedicated security staff"],
+          "tags": ["security", "pentesting", "open-source", "AI-agents"],
+          "links": [{"url": "https://teqvolt.com/open-source/strix-open-source-ai-pentester-writes-exploits", "label": "TeqVolt"}, {"url": "https://github.com/usestrix/strix", "label": "GitHub"}]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Modelplane Open-Sources a Crossplane-Based Control Plane for Multi-Cluster AI Inference Fleets",
+          "url": "https://modelplane.ai/blog/open-control-plane-for-inference",
+          "tldr": "Modelplane is a new open-source control plane for AI inference built on Crossplane. It manages GPU clusters as a single inference fleet: provisioning, placing models across clusters, autoscaling replicas, caching weights, and routing requests through one OpenAI-compatible gateway. It runs any model on any serving engine (vLLM, SGLang, TensorRT-LLM) on any infrastructure.",
+          "why_it_matters": "Most open-source inference tools focus on a single cluster. Modelplane solves the fleet problem — what happens when inference spans multiple clusters, providers, and regions with different compliance requirements. The Crossplane foundation means it integrates with existing Kubernetes-native workflows rather than introducing a new control plane paradigm.",
+          "traction": "emerging",
+          "traction_evidence": ["Official launch blog post with detailed architecture", "Built on Crossplane (CNCF incubating project)", "Addresses a gap no existing open-source tool fills: multi-cluster inference management", "OpenAI-compatible gateway for drop-in adoption"],
+          "use_cases": ["Managing inference across multiple cloud providers or GPU types from a single control plane", "Implementing data sovereignty by pinning specific models to specific regions while sharing a unified API", "Replacing manual Kubernetes manifests for inference workloads with declarative, Crossplane-native model placement"],
+          "tags": ["inference", "Crossplane", "Kubernetes", "infrastructure", "open-source"],
+          "links": [{"url": "https://modelplane.ai/blog/open-control-plane-for-inference", "label": "Modelplane Blog"}]
+        },
+        {
+          "title": "Open-Weight AI Is Having Its 'Kubernetes Moment' — And Regulators Are Watching",
+          "url": "https://news.ycombinator.com/item?id=49048034",
+          "tldr": "A viral Hacker News discussion (411 points, 321 comments) argues that open-weight AI is reaching the tipping point where it becomes de facto infrastructure — like Kubernetes did for containers. The debate centers on whether regulators can ban 'Chinese' open-weight models without banning all open models, with sources citing AI labs lobbying the administration every 3-5 months to restrict open-source model distribution.",
+          "why_it_matters": "If you're building on open-weight models (Kimi K3, Llama, Mistral), the regulatory environment matters as much as the technical one. The HN discussion surfaces a real tension: model weights are 'just numbers' with no country of origin, making targeted bans technically infeasible without restricting all open models. Engineering teams should evaluate their open-weight dependencies against this risk.",
+          "traction": "high",
+          "traction_evidence": ["411 HN points, 321 comments in 3 days", "Multiple references to Axios reporting on AI lab lobbying", "Directly relevant to Kimi K3 release timing and adoption decisions", "First Amendment implications drawing legal and policy analysis"],
+          "use_cases": ["Evaluating regulatory risk for production systems built on open-weight models from non-US labs", "Planning model portability strategies — can you swap providers if a specific model family is restricted?", "Understanding the policy landscape if your team is deciding between API-based and self-hosted inference"],
+          "tags": ["regulation", "open-weights", "policy", "infrastructure"],
+          "links": [{"url": "https://news.ycombinator.com/item?id=49048034", "label": "Hacker News discussion"}, {"url": "https://knaup.me", "label": "Original article"}]
+        },
+        {
+          "title": "TanStack Supply Chain Post-Mortem: 84 Malicious npm Versions in 6 Minutes With Valid SLSA Provenance",
+          "url": "https://www.stork.ai/blog/tanstacks-6-minute-nightmare",
+          "tldr": "The Mini Shai-Hulud attack compromised 42 TanStack npm packages by publishing 84 malicious versions in just 6 minutes, using chained GitHub Actions exploits (cache poisoning, pull_request_target abuse, runtime token extraction). The malicious packages carried valid SLSA provenance attestations, making them appear legitimate to security scanners. The contagion spread to OpenAI and Mistral AI projects, pushing total affected packages past 170 across npm and PyPI.",
+          "why_it_matters": "SLSA provenance was supposed to be the gold standard for supply chain trust. This attack proved that provenance attestations can be weaponized — if the build pipeline is compromised, the provenance is technically valid but the code is malicious. Every team using GitHub Actions for npm publishing should audit their workflow configurations against the specific vectors used here.",
+          "traction": "high",
+          "traction_evidence": ["170+ packages compromised across npm and PyPI", "OpenAI and Mistral AI among affected downstream projects", "Detected within 20 minutes by external researcher", "Detailed post-mortem analysis published by Stork.AI"],
+          "use_cases": ["Auditing your GitHub Actions workflows for pull_request_target abuse and cache poisoning vectors", "Re-evaluating SLSA provenance as a sole trust signal — it proves build origin, not build integrity", "Implementing additional supply chain checks: pinned dependencies, workspace-level lockfile validation, provenance + content hash verification"],
+          "tags": ["security", "supply-chain", "npm", "GitHub-Actions", "SLSA"],
+          "links": [{"url": "https://www.stork.ai/blog/tanstacks-6-minute-nightmare", "label": "Stork.AI post-mortem"}]
+        }
+      ]
+    }
+  ]
+}
