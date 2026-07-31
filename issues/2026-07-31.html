@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — July 31, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">July 31, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://github.blog/changelog/2026-07-30-stacked-pull-requests-are-now-in-public-preview/">GitHub ships Stacked PRs in public preview — break large changes into small, reviewable layers with independent CI checks and one-click merge, already adopted by Next.js and Vercel</a></li>
+      <li><a href="https://vllm-project.github.io/2026/07/27/k3.html">Kimi K3 goes open-weight: a 2.8T-parameter MoE model with 1M-token context and day-0 vLLM support — AWS, Google Cloud, and DigitalOcean all shipped hosting on launch day</a></li>
+      <li><a href="https://aiinsiders.net/article/perplexity-open-sources-numbat-to-stop-ai-agents-from">Perplexity open-sources Numbat: agent safety middleware that hooks into Claude Code, Codex, and other harnesses to catch dangerous actions before an 'accidental meltdown' happens</a></li>
+      <li><a href="https://netflixtechblog.medium.com/in-house-llm-serving-at-netflix-a5a8e799ea2c">Netflix publishes its full in-house LLM serving architecture — from Triton-based GPU inference to structured output enforcement and multi-region rollout with zero-downtime model swaps</a></li>
+      <li><a href="https://news.ycombinator.com/item?id=49063175">Vercel Labs drops Scriptc: a TypeScript-to-native compiler producing 178KB binaries with 2.4ms startup, no V8 engine — hit HN front page with 221 points on day one</a></li>
+      <li><a href="https://www.gitkraken.com/blog/kepler-is-in-public-preview-one-task-every-repo-every-agent">GitKraken launches Kepler in public preview: an agentic development environment that coordinates Claude Code, Codex, Cursor, and Copilot across multiple repos from a single task</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://vllm-project.github.io/2026/07/27/k3.html">Kimi K3 Goes Open-Weight: 2.8T-Parameter MoE With Day-0 vLLM, AWS, and Google Cloud Support</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Moonshot AI released Kimi K3, a 2.8-trillion-parameter Mixture-of-Experts model (16 of 896 experts active per token) with a 1M-token context window, native vision, and novel Kimi Delta Attention. vLLM shipped day-0 support with MXFP4 MoE kernels, prefix caching for recurrent state, and speculative decoding. AWS, Google Cloud, and DigitalOcean all launched hosted K3 on release day.</p>
+      <div class="article-meta">
+        <span class="tag">Kimi K3</span>
+        <span class="tag">MoE</span>
+        <span class="tag">vLLM</span>
+        <span class="tag">open-weight</span>
+        <span class="tag">inference</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>K3 is the largest open-weight model available and the first to combine MoE at this scale with production-grade serving infrastructure from day one. For teams evaluating self-hosted alternatives to API-only frontier models, K3 with vLLM support means you can run competitive inference on 8 B300 GPUs without waiting for third-party integrations.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosting a frontier-class reasoning model with 1M-token context for internal codebases</li>
+          <li>Running open-weight inference for enterprise workloads where API data governance is required</li>
+          <li>Benchmarking MoE inference costs vs. API pricing for high-volume coding agent workloads</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Day-0 vLLM support with production deployment recipes</li>
+          <li>AWS, Google Cloud, and DigitalOcean hosted on launch day</li>
+          <li>Reddit r/LocalLLaMA community extensively discussing deployment</li>
+          <li>DigitalOcean reports it's already one of their most popular models</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://vllm-project.github.io/2026/07/27/k3.html">vLLM Blog</a></li>
+          <li><a href="https://aws.amazon.com/blogs/machine-learning/deploying-kimi-k3-on-aws/">AWS Deployment Guide</a></li>
+          <li><a href="https://www.digitalocean.com/blog/serving-kimi-k3-inference-engine">DigitalOcean Engineering</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://aiinsiders.net/article/perplexity-open-sources-numbat-to-stop-ai-agents-from">Perplexity Open-Sources Numbat: Agent Safety Middleware That Catches Dangerous Actions Before They Execute</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Numbat hooks into coding-agent harnesses (Claude Code, Codex, Copilot CLI) to intercept and gate dangerous actions before the agent executes them. It defends against 'accidental meltdowns' — cases where an agent causes real damage not from prompt injection, but from doggedly pursuing a goal and improvising dangerous workarounds when it hits snags. Perplexity built it after the OpenAI/HuggingFace sandbox escape incident demonstrated the risk is no longer theoretical.</p>
+      <div class="article-meta">
+        <span class="tag">Perplexity</span>
+        <span class="tag">agent-safety</span>
+        <span class="tag">Numbat</span>
+        <span class="tag">open-source</span>
+        <span class="tag">security</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Agent safety on developer endpoints is an unsolved problem. Unlike cloud-sandboxed agents, CLI-based agents inherit the user's full filesystem access and credentials. Numbat is the first open-source tool specifically designed to sit inside the agent's execution environment and enforce safety policies, filling the gap between model-level safety training and endpoint security.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Adding a safety layer to Claude Code or Codex deployments that run with developer credentials</li>
+          <li>Enforcing enterprise policies on what coding agents can modify (e.g., blocking production database writes)</li>
+          <li>Building audit trails of dangerous actions agents attempted but were blocked from executing</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Multiple independent coverage (AI Insiders, Open Source For You)</li>
+          <li>Released by Perplexity, a major AI company with production agent experience</li>
+          <li>Directly motivated by the high-profile OpenAI/HuggingFace incident from earlier this month</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://aiinsiders.net/article/perplexity-open-sources-numbat-to-stop-ai-agents-from">AI Insiders</a></li>
+          <li><a href="https://www.opensourceforu.com/2026/07/perplexity-open-sources-numbat-to-secure-local-ai-coding-agents/">Open Source For You</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://venturebeat.com/technology/thinking-machines-debuts-inkling-small-open-source-ai-model-nearing-performance-of-predecessor-at-about-1-4-size">Thinking Machines Ships Inkling-Small: 1/4 the Size, Nearly Matching the Flagship on Benchmarks</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Inkling-Small is a 276B-parameter multimodal reasoning model (12B active per token) that comes within a single point of the 975B Inkling on the Artificial Analysis Intelligence Index, despite being 3.5x smaller. Apache 2.0 licensed with full weights on Hugging Face, it supports text, image, and audio inputs with a 1M-token context window. Released just two weeks after the original Inkling.</p>
+      <div class="article-meta">
+        <span class="tag">Thinking Machines</span>
+        <span class="tag">Inkling-Small</span>
+        <span class="tag">open-weight</span>
+        <span class="tag">multimodal</span>
+        <span class="tag">distillation</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Mira Murati's Thinking Machines is proving that aggressive model distillation can preserve frontier capability at a fraction of the compute. For enterprises that want to self-host a multimodal reasoning model but can't justify the GPU fleet for a 975B model, Inkling-Small hits a practical sweet spot — still too big for a laptop, but viable for teams with modest GPU infrastructure.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploying a self-hosted multimodal model for internal coding and document analysis workflows</li>
+          <li>Fine-tuning a capable base model for domain-specific tasks using Thinking Machines' Tinker platform</li>
+          <li>Evaluating whether Inkling-Small can replace API-based models for cost-sensitive inference workloads</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>VentureBeat and multiple tech outlets covered the release (July 30)</li>
+          <li>Full weights on Hugging Face under Apache 2.0</li>
+          <li>Within 1 point of flagship on independent benchmark</li>
+          <li>Backed by $2B+ funded startup led by former OpenAI CTO</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://venturebeat.com/technology/thinking-machines-debuts-inkling-small-open-source-ai-model-nearing-performance-of-predecessor-at-about-1-4-size">VentureBeat</a></li>
+          <li><a href="https://thinkingmachines.ai/news/inkling-small/">Thinking Machines Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-07-30-stacked-pull-requests-are-now-in-public-preview/">GitHub Ships Stacked Pull Requests in Public Preview: Break Large Changes Into Reviewable Layers</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">GitHub's stacked PRs let you break large changes into an ordered series of focused pull requests, each independently reviewable with its own CI checks. A CLI extension creates and manages stacks from the terminal. You can merge an entire stack in one click or land individual layers. Next.js and Vercel teams have been using it for months and report faster review cycles for large features.</p>
+      <div class="article-meta">
+        <span class="tag">GitHub</span>
+        <span class="tag">pull-requests</span>
+        <span class="tag">stacked-PRs</span>
+        <span class="tag">code-review</span>
+        <span class="tag">workflow</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Stacked PRs have been the most-requested GitHub feature for years, driving adoption of third-party tools like Graphite and gh-stack. GitHub building it natively means stacking works with existing branch protections, status checks, and review requirements out of the box — no additional tooling or workflow changes needed.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Breaking large refactors into reviewable 200-line chunks while keeping them logically connected</li>
+          <li>Shipping features incrementally through review while the full implementation spans multiple layers</li>
+          <li>Reducing review bottlenecks by enabling parallel review of independent layers in a stack</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official GitHub Changelog announcement July 30</li>
+          <li>Testimonials from Next.js lead (Tim Neutkens) and Vercel teams</li>
+          <li>Built into GitHub — works with existing protections and CI</li>
+          <li>Most-requested PR workflow feature for years</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-07-30-stacked-pull-requests-are-now-in-public-preview/">GitHub Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.gitkraken.com/blog/kepler-is-in-public-preview-one-task-every-repo-every-agent">GitKraken Kepler: An Agentic Development Environment That Coordinates Multiple Coding Agents Across Repos</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Kepler is GitKraken's new agentic development environment (ADE) for orchestrating AI-driven work across multiple repositories. It supports Claude Code, Codex, Cursor, Gemini, Copilot, OpenCode, and Augment via the Agent Client Protocol (ACP). A single task can span multiple repos with shared instructions, and agents can be started from issues (Jira, Linear, GitHub), PRs, or scratch. Available now in public preview.</p>
+      <div class="article-meta">
+        <span class="tag">GitKraken</span>
+        <span class="tag">Kepler</span>
+        <span class="tag">ADE</span>
+        <span class="tag">multi-agent</span>
+        <span class="tag">ACP</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As teams adopt multiple coding agents, the coordination overhead becomes the bottleneck — not the agents themselves. Kepler addresses this by providing a single pane of glass for multi-repo, multi-agent work. The ACP-based agent-agnostic approach means teams aren't locked into one agent vendor.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Coordinating a feature implementation that spans frontend, backend, and infrastructure repos with different agents</li>
+          <li>Using voice input to define tasks and having Kepler distribute work to the appropriate agents per repo</li>
+          <li>Reviewing and managing PR feedback across multiple agent-generated PRs from a single interface</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Public preview launched July 31 for all GitKraken users</li>
+          <li>Supports 7 major coding agents at launch via ACP</li>
+          <li>GitKraken has millions of active users as base</li>
+          <li>Preceded by a detailed engineering blog post on the problem (July 27)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.gitkraken.com/blog/kepler-is-in-public-preview-one-task-every-repo-every-agent">GitKraken Blog</a></li>
+          <li><a href="https://www.gitkraken.com/blog/why-we-built-kepler-one-engineers-frustration-with-fifteen-open-terminals">Engineering Backstory</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://news.ycombinator.com/item?id=49063175">Vercel Scriptc: TypeScript-to-Native Compiler Produces 178KB Binaries With 2.4ms Startup</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Scriptc compiles standard TypeScript to native binaries through tsc → typed IR → C → LLVM/clang, with no Node.js, V8, or any JS engine in the output. A simple CLI compiles to 178KB with 2.4ms startup (vs Node's 60-100MB / 35ms). Tier 2 mode embeds QuickJS-ng (620KB) for npm dependencies via --dynamic. Output is differentially tested to match Node.js byte-for-byte. Apache 2.0, 1.2K stars on launch day.</p>
+      <div class="article-meta">
+        <span class="tag">Vercel</span>
+        <span class="tag">Scriptc</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">compiler</span>
+        <span class="tag">native</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>If Scriptc delivers on its promise, it eliminates the runtime tax that keeps TypeScript CLI tools slower and larger than Go or Rust alternatives. The three-tier approach (static compile → dynamic fallback → rejection) is pragmatic — most CLI tools can compile fully static. This matters most for agent tooling and dev CLIs where startup latency compounds across thousands of invocations.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Compiling TypeScript CLI tools into self-contained binaries for distribution without requiring Node.js</li>
+          <li>Reducing agent tool startup latency by replacing Node-based CLIs with native binaries</li>
+          <li>Shipping internal developer tools as single binaries without Docker or runtime dependencies</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>221 points and 109 comments on Hacker News within hours of launch</li>
+          <li>1.2K GitHub stars on day one</li>
+          <li>Vercel Labs project (official Vercel exploration)</li>
+          <li>Apache 2.0 license</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://news.ycombinator.com/item?id=49063175">Hacker News</a></li>
+          <li><a href="https://byteiota.com/scriptc-vercels-typescript-compiles-to-native-in-2026/">ByteIota Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-07-30-github-copilot-in-visual-studio-code-july-2026-releases/">VS Code Copilot July Releases: Agents Window, Multi-Chat Sessions, and Worktree Isolation</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">VS Code v1.127-v1.131 (July 2026) ship a redesigned Agents window with side-by-side code review, multi-chat sessions for parallel agent conversations, Git worktree isolation for Copilot/Claude/Codex sessions, subagent tracking with model and elapsed time visibility, and in-chat PR feedback handling for failed CI checks and review comments.</p>
+      <div class="article-meta">
+        <span class="tag">VS Code</span>
+        <span class="tag">Copilot</span>
+        <span class="tag">agents</span>
+        <span class="tag">IDE</span>
+        <span class="tag">workflow</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>VS Code is becoming the default ADE (agentic development environment). The July releases address the three biggest friction points: reviewing agent changes (side-by-side diffs), managing multiple agent sessions (multi-chat), and preventing agents from stepping on each other (worktree isolation). These aren't new capabilities — they're the infrastructure that makes existing agents usable at scale.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running parallel Claude Code and Codex sessions in isolated worktrees within a single VS Code window</li>
+          <li>Reviewing agent-generated changes with inline diffs alongside the chat conversation</li>
+          <li>Handling CI failures and PR review comments from agent-created PRs without leaving the editor</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official GitHub Changelog covering 5 VS Code releases in July</li>
+          <li>Ships with Copilot for all VS Code users</li>
+          <li>Agents Window in public preview, multi-chat and worktrees are GA</li>
+          <li>Covers Copilot, Claude, and Codex sessions</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-07-30-github-copilot-in-visual-studio-code-july-2026-releases/">GitHub Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://netflixtechblog.medium.com/in-house-llm-serving-at-netflix-a5a8e799ea2c">Netflix Publishes Its Full In-House LLM Serving Architecture: From Triton to Structured Output Enforcement</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Netflix runs the full LLM stack in-house rather than using hosted APIs. Their architecture uses NVIDIA Triton Inference Server behind a Java control plane for deployment, versioning, health checking, autoscaling, and multi-region rollout. Small CPU models run in-process; large models use dedicated GPU instances. The post details their choices on engine selection, model packaging, API surface design, and structured output enforcement — with candid notes on what production revealed that design didn't anticipate.</p>
+      <div class="article-meta">
+        <span class="tag">Netflix</span>
+        <span class="tag">LLM-serving</span>
+        <span class="tag">Triton</span>
+        <span class="tag">production</span>
+        <span class="tag">architecture</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most detailed public architecture post from a major tech company about running LLMs in production at scale. Unlike vendor docs, it covers the real trade-offs: why they chose Triton over alternatives, how they handle zero-downtime model swaps, and what broke under production load. Essential reading for any team considering bringing LLM inference in-house.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Evaluating whether to bring LLM inference in-house vs. using hosted APIs for your scale</li>
+          <li>Designing a multi-model serving platform with GPU scheduling and autoscaling</li>
+          <li>Implementing structured output enforcement for LLMs in production pipelines</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Netflix TechBlog post (July 17) with extensive technical detail</li>
+          <li>Netflix is a reference architecture for ML infrastructure</li>
+          <li>Covers production-proven patterns with candid failure analysis</li>
+          <li>Part of Netflix's AI Platform team's public engineering series</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://netflixtechblog.medium.com/in-house-llm-serving-at-netflix-a5a8e799ea2c">Netflix TechBlog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://cloud.google.com/blog/products/containers-kubernetes/introducing-co-operative-time-slicing-for-rl-in-llm-d">Google Introduces Co-operative Time-Slicing for RL in llm-d: Boosting GPU Utilization From 40% to 70%</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Google's llm-d project now supports co-operative time-slicing that interleaves independent RL training and sampling jobs on shared GPU hardware. In synchronous RL setups, trainers and samplers alternate being idle; time-slicing fills those gaps by scheduling other jobs' work into the idle windows. Initial benchmarks show aggregate GPU duty cycles jump from ~40% to 70% without impacting model convergence.</p>
+      <div class="article-meta">
+        <span class="tag">Google</span>
+        <span class="tag">llm-d</span>
+        <span class="tag">RL</span>
+        <span class="tag">GPU-utilization</span>
+        <span class="tag">infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>RL post-training is how frontier labs push reasoning and coding model quality, but the synchronous train/sample loop wastes half the GPU time. This is the first open infrastructure solution that recovers that waste at the platform level. If you're running GRPO or similar RL training, this could nearly double your effective GPU utilization without changing your training code.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Reducing GPU waste in GRPO or PPO training runs by interleaving multiple RL jobs</li>
+          <li>Improving TCO for RL post-training clusters by nearly doubling effective utilization</li>
+          <li>Adopting platform-level GPU scheduling for mixed inference and training workloads</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Google Cloud blog post (July 23)</li>
+          <li>Part of the open-source llm-d project</li>
+          <li>Benchmarked with concrete utilization improvements (40% → 70%)</li>
+          <li>Targets the specific bottleneck that frontier labs face in RL post-training</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://cloud.google.com/blog/products/containers-kubernetes/introducing-co-operative-time-slicing-for-rl-in-llm-d">Google Cloud Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://traefik.io/blog/traefik-distro-zero-hardened-secure-image">Traefik Ships Distro Zero: A Hardened Gateway Image Built From Traefik's Own Source</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Traefik Distro Zero is a hardened container image built by the Traefik team from their own source code, not a third-party rebuild. It ships with minimal attack surface, FIPS-validated cryptography, and supply chain provenance that traces back to Traefik's build pipeline. The post draws a sharp distinction between vendor-built hardened images and generic hardening platforms that rebuild software they didn't write.</p>
+      <div class="article-meta">
+        <span class="tag">Traefik</span>
+        <span class="tag">security</span>
+        <span class="tag">hardened-image</span>
+        <span class="tag">gateway</span>
+        <span class="tag">FIPS</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>API gateways are the most exposed component in most architectures. Third-party hardening services can't match the supply chain assurance of a vendor building their own hardened image from source. For teams running Traefik in production (it's the most deployed ingress controller), Distro Zero eliminates the trust gap between the open-source image and what compliance requires.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replacing generic hardened Traefik images with the vendor's own supply-chain-verified build</li>
+          <li>Meeting FedRAMP or SOC 2 requirements for API gateway components without third-party rebuilds</li>
+          <li>Reducing attack surface on edge infrastructure by switching to a minimal, purpose-built gateway image</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Traefik blog post (July 30)</li>
+          <li>Traefik is the most widely deployed cloud-native ingress controller</li>
+          <li>Addresses growing enterprise demand for FIPS and supply chain compliance</li>
+          <li>Part of broader industry trend toward vendor-built hardened images</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://traefik.io/blog/traefik-distro-zero-hardened-secure-image">Traefik Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
