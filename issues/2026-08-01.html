@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 01, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 01, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://github.com/Graphify-Labs/graphify">Graphify hits 100K GitHub stars — turn any codebase into a queryable knowledge graph with deterministic AST parsing</a></li>
+      <li><a href="https://startupfortune.com/y-combinator-open-sources-qm-the-ai-agent-harness-it-uses-to-run-itself/">Y Combinator open-sources QM, the multi-agent harness it uses to run itself</a></li>
+      <li><a href="https://github.com/multica-ai/multica">Multica reaches 42K stars as the open-source managed agents platform for assigning tasks to coding agents</a></li>
+      <li><a href="https://www.docker.com/products/gordon/">Docker Gordon hits GA — AI agent that reads your containers and proposes fixes with approval at every step</a></li>
+      <li><a href="https://blog.insigh8s.io/tech-stories-how-uber-runs-30-million-ml-predictions-per-second-on-kubernetes">Uber reveals how it runs 30 million ML predictions per second on Kubernetes at KubeCon EU 2026</a></li>
+      <li><a href="https://creati.ai/ai-news/2026-08-01/liquid-ai-launches-lfm2-5-encoders-on-hugging-face-betting-cpu-first-long-context-nlp-can-underc/">Liquid AI ships LFM2.5-Encoders: CPU-first long-context NLP models that undercut larger models on cost</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://github.com/Graphify-Labs/graphify">Graphify Hits 100K GitHub Stars: Turn Any Codebase Into a Queryable Knowledge Graph</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Graphify parses codebases, docs, SQL schemas, configs, and PDFs into a queryable knowledge graph using deterministic AST parsing — no vector store needed. Ships as a /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Developer Tools</span>
+        <span class="tag">Knowledge Graph</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Codebase understanding is the bottleneck for AI agents working on large repos. Graphify gives agents a structured, explainable map of your code with every edge documented — replacing the 'grep and hope' approach with actual graph queries.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Give coding agents full codebase context without token-stuffing</li>
+          <li>Query cross-file dependencies before refactoring</li>
+          <li>Onboard new engineers with interactive codebase exploration</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>99,875 GitHub stars</li>
+          <li>9,682 forks</li>
+          <li>Skills available for all major coding agents</li>
+          <li>Active community with frequent releases</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/Graphify-Labs/graphify">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://startupfortune.com/y-combinator-open-sources-qm-the-ai-agent-harness-it-uses-to-run-itself/">Y Combinator Open-Sources QM: The Multi-Agent Harness It Uses to Run Itself</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">YC released QM under MIT license — a multi-agent harness with company scopes, cron jobs, and skills that powers its internal operations across Slack and web. Directly comparable to OpenClaw and Hermes.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>When the world's most influential accelerator open-sources its own operational AI harness, it validates the multi-agent-as-company-OS pattern. Teams can now see exactly how YC orchestrates agents for real work, not demos.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run company-wide agent workflows with Slack integration</li>
+          <li>Schedule recurring agent tasks with cron</li>
+          <li>Build scoped agent skills for different teams</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released by Y Combinator for internal use</li>
+          <li>MIT licensed</li>
+          <li>Covered by Startup Fortune and explainx.ai on launch day</li>
+          <li>Compared to OpenClaw and Hermes in initial coverage</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://startupfortune.com/y-combinator-open-sources-qm-the-ai-agent-harness-it-uses-to-run-itself/">Startup Fortune</a></li>
+          <li><a href="https://explainx.ai/blog/y-combinator-qm-open-source-multi-agent-harness-august-2026">Explainx Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://shofer.dev/">Shofer: Deterministic, Observable Multi-Agent Coding Ships for VS Code</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Shofer is a new open-source (Apache 2.0) AI coding agent for VS Code launched in June 2026, emphasizing parallel multi-agent workflows that are provable, observable, and controllable — addressing the 'black box' problem of current coding agents.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">VS Code</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most coding agents today are fire-and-forget. Shofer bets that deterministic, observable execution is what enterprises need before trusting agents with production code — you can replay and audit every decision an agent made.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run parallel agent tasks with full audit trail</li>
+          <li>Debug agent decision-making with replay</li>
+          <li>Enforce coding standards through observable workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Launched June 2026 with growing VS Code installs</li>
+          <li>Apache 2.0 open source</li>
+          <li>Featured in agentic coding discussions</li>
+          <li>Differentiated by determinism and observability claims</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://shofer.dev/">Shofer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf">Anthropic Publishes 2026 Agentic Coding Trends Report: From Assistance to Collaboration</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Anthropic's comprehensive report documents how coding agents are reshaping the software development lifecycle, covering eight key trends from the tectonic shift in how code is written to what agents can actually do in production today.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Industry Report</span>
+        <span class="tag">Coding Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most data-backed assessment of where agentic coding actually stands — cutting through the hype of '10x developer' claims with evidence of real-world 2x productivity gains and the specific workflows where agents add (and don't add) value.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Benchmark your team's AI adoption against industry trends</li>
+          <li>Identify which SDLC phases benefit most from agents</li>
+          <li>Build a business case for agentic tooling investment</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published by Anthropic (Claude maker)</li>
+          <li>Referenced in viral HN discussion '2x, not 10x'</li>
+          <li>Covers real production data, not just benchmarks</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf">Report PDF</a></li>
+          <li><a href="https://news.ycombinator.com/item?id=49047839">HN Discussion</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.com/multica-ai/multica">Multica Reaches 42K Stars: The Open-Source Platform for Managed Coding Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Multica turns coding agents into real teammates — assign tasks, track progress, and compound skills across your team. The open-source managed agents platform has grown to 42K+ GitHub stars with 5,300+ forks.</p>
+      <div class="article-meta">
+        <span class="tag">Developer Tools</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Individual coding agents are powerful; managing a fleet of them across a team is the unsolved problem. Multica provides the coordination layer — think 'Jira for agents' — that lets you assign work, track completion, and build reusable agent skills.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Assign coding tasks to agents and track completion like a project board</li>
+          <li>Build compound agent skills that chain together</li>
+          <li>Run a managed fleet of coding agents across multiple repos</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>42,660 GitHub stars</li>
+          <li>5,391 forks</li>
+          <li>1,224 open issues showing active community</li>
+          <li>Growing enterprise adoption</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/multica-ai/multica">GitHub</a></li>
+          <li><a href="https://multica.ai">Website</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/HKUDS/nanobot">Nanobot Crosses 46K Stars: Ultra-Lightweight Personal AI Agent Framework</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Nanobot is a self-hosted personal AI agent framework in Python with WebUI, tools, memory, MCP support, multi-agent workflows, automation, and chat apps — all ultra-lightweight and open source under MIT license.</p>
+      <div class="article-meta">
+        <span class="tag">Developer Tools</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Self-Hosted</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The personal AI agent space is consolidating around self-hosted, privacy-first frameworks. Nanobot's 46K stars signal massive demand for agents you can run on your own hardware with full control over data and behavior.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-host a personal AI agent with full privacy</li>
+          <li>Build custom automation workflows with MCP tool integration</li>
+          <li>Create chat-based apps with persistent memory</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>46,485 GitHub stars</li>
+          <li>8,219 forks</li>
+          <li>MIT license</li>
+          <li>Active development with 780 open issues</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/HKUDS/nanobot">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://vercel.com/changelog/latest-mcp-spec-now-supported-in-mcp-handler">Vercel Ships mcp-handler 2.0: Full Latest MCP Spec Support for Next.js</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Vercel released mcp-handler 2.0.0 with full support for the latest MCP specification, making it trivial to expose Next.js API routes as MCP-compatible tool endpoints that any AI agent can discover and call.</p>
+      <div class="article-meta">
+        <span class="tag">MCP</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Vercel</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>MCP is becoming the USB-C of AI agent tooling. Vercel's first-party support means every Next.js app can now be an MCP server out of the box — agents can call your APIs without custom integration work.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Expose Next.js routes as agent-callable MCP tools</li>
+          <li>Build AI-native APIs that agents can self-discover</li>
+          <li>Connect existing web apps to coding agents without rewrites</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published July 30 by Vercel</li>
+          <li>Supports latest MCP spec</li>
+          <li>Ships alongside Google MCP Toolbox v1.8 adding groups support</li>
+          <li>Part of broader MCP ecosystem momentum</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://vercel.com/changelog/latest-mcp-spec-now-supported-in-mcp-handler">Vercel Changelog</a></li>
+          <li><a href="https://newreleases.io/project/github/googleapis/mcp-toolbox/release/v1.8.0">Google MCP Toolbox v1.8</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://newreleases.io/project/pypi/pydantic-ai/release/2.22.0">Pydantic-AI 2.22.0: MCPToolset Gets Task Filtering and Gemini Validated Tool Mode</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Pydantic-AI 2.22.0 adds MCPToolset task filtering via prefer_tasks, defaults Gemini to VALIDATED tool mode on supported models, and includes multiple quality-of-life improvements for building type-safe AI agents in Python.</p>
+      <div class="article-meta">
+        <span class="tag">Python</span>
+        <span class="tag">AI</span>
+        <span class="tag">MCP</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Pydantic-AI is the go-to for teams that want type-safe, production-grade AI agents in Python. The MCP task filtering lets agents skip irrelevant tools, reducing latency and token cost on complex MCP servers.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build type-safe AI agents with Python dataclasses</li>
+          <li>Filter MCP tool calls to reduce agent overhead</li>
+          <li>Use Gemini models with validated structured output</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Part of Pydantic ecosystem (widely adopted)</li>
+          <li>Regular releases showing sustained momentum</li>
+          <li>MCP integration maturing</li>
+          <li>Gemini validated tool mode enabled by default</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://newreleases.io/project/pypi/pydantic-ai/release/2.22.0">Release Notes</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://blog.insigh8s.io/tech-stories-how-uber-runs-30-million-ml-predictions-per-second-on-kubernetes">Uber Reveals How It Runs 30 Million ML Predictions Per Second on Kubernetes</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">At KubeCon EU 2026 in Amsterdam, Uber detailed the Michelangelo architecture that serves 30 million ML predictions per second on Kubernetes — covering model serving, feature stores, and the infrastructure decisions that make it possible.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">ML</span>
+        <span class="tag">Kubernetes</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is a masterclass in production ML at scale. Uber's architecture choices — from custom model serving to Kubernetes scheduling — provide a concrete blueprint for any team scaling ML inference beyond toy deployments.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Design ML serving infrastructure for high-throughput workloads</li>
+          <li>Optimize Kubernetes scheduling for GPU-bound inference</li>
+          <li>Build feature stores that serve real-time predictions</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>KubeCon EU 2026 keynote-level talk</li>
+          <li>30M predictions/sec is industry-leading scale</li>
+          <li>Multiple independent writeups and analyses</li>
+          <li>Architecture publicly documented</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.insigh8s.io/tech-stories-how-uber-runs-30-million-ml-predictions-per-second-on-kubernetes">Insigh8s</a></li>
+          <li><a href="https://agdal.tech/article.php?slug=kubecon-amsterdam-2026-the-industrialization-of-ml-a-deep-dive-into-ubers-ai-platform-architecture">Agdal Tech Deep Dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.docker.com/products/gordon/">Docker Gordon Hits GA: AI Agent for Containers With Approval-Based Execution</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Docker's AI agent Gordon is now generally available. It reads your containers, proposes solutions for debugging, containerization, and deployment, and takes action with explicit user approval at every step.</p>
+      <div class="article-meta">
+        <span class="tag">Docker</span>
+        <span class="tag">DevOps</span>
+        <span class="tag">AI Agent</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Docker is embedding AI directly into the container workflow — not as a chatbot sidebar, but as an agent that understands your running infrastructure and can act on it. The approval-at-every-step model is how enterprise AI adoption actually works.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Debug container issues with agent-assisted root cause analysis</li>
+          <li>Containerize existing apps with guided Dockerfile generation</li>
+          <li>Get deployment suggestions based on actual container state</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GA release from Docker (industry standard)</li>
+          <li>Built into Docker Desktop</li>
+          <li>Approval-based execution model for enterprise trust</li>
+          <li>Covers full container lifecycle</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.docker.com/products/gordon/">Docker Gordon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://creati.ai/ai-news/2026-08-01/liquid-ai-launches-lfm2-5-encoders-on-hugging-face-betting-cpu-first-long-context-nlp-can-underc/">Liquid AI Ships LFM2.5-Encoders: CPU-First Long-Context NLP Models</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Liquid AI released LFM2.5-Encoder-230M and LFM2.5-Encoder-350M on Hugging Face — small encoder models designed to run on CPUs with long-context NLP capabilities, positioned to undercut larger GPU-bound models on cost.</p>
+      <div class="article-meta">
+        <span class="tag">ML</span>
+        <span class="tag">Embeddings</span>
+        <span class="tag">Edge</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Not every ML workload needs a GPU. Liquid AI's CPU-first encoders let you run embeddings, classification, and retrieval at a fraction of the infrastructure cost — especially relevant for teams running RAG pipelines where embedding cost dominates.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run embeddings for RAG pipelines without GPU infrastructure</li>
+          <li>Deploy NLP classification on edge devices or standard servers</li>
+          <li>Reduce inference costs for high-volume text processing</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released on Hugging Face for immediate use</li>
+          <li>Liquid AI has raised significant funding</li>
+          <li>CPU-first positioning fills a real market gap</li>
+          <li>Two model sizes for different deployment scenarios</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://creati.ai/ai-news/2026-08-01/liquid-ai-launches-lfm2-5-encoders-on-hugging-face-betting-cpu-first-long-context-nlp-can-underc/">Creati.ai</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-3">
+      <div class="article-header">
+        <h3><a href="https://forkast.news/microsofts-agentic-security-pivot-a-preview-of-the-project-perception-launch/">Microsoft Launches Project Perception: Agentic Security for the Agent Era</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Microsoft's Project Perception is a new security framework designed specifically for AI agents — addressing the unique threats that emerge when autonomous systems interact with infrastructure, APIs, and each other.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Microsoft</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As agents get more autonomous, the attack surface explodes. Microsoft is building the security layer that sits between agents and infrastructure — catch dangerous actions before they execute, not after. This is the 'firewall for agents' moment.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Add security guardrails to autonomous agent deployments</li>
+          <li>Monitor agent-to-agent interactions for anomalous behavior</li>
+          <li>Prevent agent privilege escalation in production environments</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced by Microsoft August 2026</li>
+          <li>Follows the July 2026 frontier lab agent intrusion incident</li>
+          <li>Covered by Forkast News</li>
+          <li>Addresses a gap highlighted by recent agent escape incidents</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://forkast.news/microsofts-agentic-security-pivot-a-preview-of-the-project-perception-launch/">Forkast News</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
