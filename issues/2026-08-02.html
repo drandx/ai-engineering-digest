@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 02, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 02, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://github.com/openai/symphony">OpenAI open-sources Symphony — Codex orchestration spec hits 26K GitHub stars in weeks</a></li>
+      <li><a href="https://github.com/NVIDIA-NeMo/labs-molt">NVIDIA releases Molt, a PyTorch-native agentic RL framework for training 1T-class models</a></li>
+      <li><a href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/">OpenAI slashes GPT-5.6 prices by up to 80% across Luna, Sol, and Terra variants</a></li>
+      <li><a href="https://byteiota.com/grok-build-git-repo-upload-open-source/">Grok Build caught silently uploading entire Git repos to xAI cloud — privacy toggle did nothing</a></li>
+      <li><a href="https://sealos.io/blog/sealos-public-beta-ai-assisted-deployment/">Sealos 2.0 ships AI-assisted deployment: from a GitHub repo to a running full-stack app in 20 minutes</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://github.com/openai/symphony">OpenAI Open-Sources Symphony: Turn Project Work Into Autonomous Codex Runs</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Symphony is OpenAI's open-source orchestration spec that turns project work into isolated, autonomous coding agent runs — teams manage work instead of supervising agents.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Codex</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>If you're building on Codex or any agentic coding workflow, Symphony gives you a production-tested spec for task decomposition, isolation, and agent lifecycle management. Think CI/CD but for coding agents.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Orchestrating multi-agent coding tasks across repos</li>
+          <li>Running autonomous implementation sprints with isolation guarantees</li>
+          <li>Building internal platforms that assign coding tickets to agents</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>26,347 GitHub stars</li>
+          <li>2,665 forks</li>
+          <li>Apache 2.0 license</li>
+          <li>Full documentation on Mintlify</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openai.com/index/open-source-codex-orchestration-symphony/">OpenAI announcement</a></li>
+          <li><a href="https://openai-symphony.mintlify.app/introduction">Symphony docs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/NVIDIA-NeMo/labs-molt">NVIDIA Releases Molt: PyTorch-Native Agentic Reinforcement Learning Framework</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Molt is the smallest PyTorch-native stack for 1T-class fully async, multimodal, multi-turn agentic RL — built on Ray, vLLM, and NVIDIA AutoModel.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">RL</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">PyTorch</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Training agents with RL is the next frontier after SFT. Molt gives researchers a clean, minimal framework to do agentic RL at scale without the boilerplate of building custom training loops.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Training coding agents with reinforcement learning</li>
+          <li>Multi-turn agentic RL research</li>
+          <li>Fine-tuning multimodal models with tool-use rewards</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published paper on arXiv (2607.21653)</li>
+          <li>#3 Paper of the Day on Hugging Face</li>
+          <li>Available on PyPI as molt-rl</li>
+          <li>Backed by NVIDIA NeMo team</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://arxiv.org/html/2607.21653v1">arXiv paper</a></li>
+          <li><a href="https://huggingface.co/papers/2607.21653">Hugging Face paper page</a></li>
+          <li><a href="https://pypi.org/project/molt-rl/">PyPI package</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://rocm.blogs.amd.com/artificial-intelligence/instella-moe/README.html">AMD Releases Instella-MoE-16B-A3B: Fully Open MoE LLM Trained on Instinct GPUs</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">AMD's Instella-MoE is a 16B-parameter MoE model with 2.8B active parameters per token, fully open-sourced with weights, training data, and code — all trained on AMD Instinct MI300/MI325 GPUs.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">LLM</span>
+        <span class="tag">AMD</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is AMD proving its GPU stack can train competitive LLMs end-to-end. For teams evaluating non-NVIDIA hardware or wanting a fully open MoE architecture to study and modify, Instella-MoE lowers the barrier.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running efficient inference with only 2.8B active params</li>
+          <li>Studying MoE architectures with fully open training code</li>
+          <li>Evaluating AMD ROCm stack for LLM training</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published on Hugging Face with base, pretrain, and think variants</li>
+          <li>Full training pipeline open-sourced on GitHub</li>
+          <li>Trained on AMD Instinct MI300 and MI325 GPUs</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://huggingface.co/amd/Instella-MoE-16B-A3B-Base">Hugging Face model</a></li>
+          <li><a href="https://github.com/AMD-AGI/Instella-MoE">GitHub repo</a></li>
+          <li><a href="https://www.marktechpost.com/2026/08/01/amd-instella-moe-16b-a3b-fully-open-mixture-of-experts-llm/">MarkTechPost coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/">OpenAI Slashes GPT-5.6 Prices by Up to 80% With Luna, Sol, and Terra Variants</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI announced GPT-5.6 helped make itself more efficient to run, and is passing savings to customers with up to 80% price cuts across three model tiers: Luna, Sol, and Terra.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">LLM</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Pricing</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Massive price drops on frontier models change the economics of AI-powered features. Use cases that were too expensive at GPT-5 pricing — like per-PR code review or real-time agent loops — become viable.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Switching expensive GPT-5 workloads to GPT-5.6 for 80% savings</li>
+          <li>Enabling high-volume agent loops at sustainable cost</li>
+          <li>Choosing between Luna/Sol/Terra for latency vs capability tradeoffs</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Front page of Hacker News</li>
+          <li>Covered by GIGAZINE and multiple outlets</li>
+          <li>Three model tiers available via API immediately</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://developers.openai.com/api/docs/models/gpt-5.6-luna">GPT-5.6 Luna docs</a></li>
+          <li><a href="https://gigazine.net/gsc_news/en/20260731-openai-gpt-5-6-reducing-prices/">GIGAZINE coverage</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://byteiota.com/grok-build-git-repo-upload-open-source/">Grok Build Caught Uploading Full Git Repos to xAI Cloud — Privacy Toggle Did Nothing</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">xAI's Grok Build CLI was found silently packaging developers' entire Git repositories — including commit history and deleted credentials — and uploading 5.1GB per session to cloud storage. The privacy opt-out toggle was non-functional.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">Privacy</span>
+        <span class="tag">xAI</span>
+        <span class="tag">Developer Tools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>A cautionary tale for every team evaluating AI coding tools. If your coding agent has filesystem access, verify what it sends home. Grok Build was subsequently open-sourced under Apache 2.0, but the upload code remains in the codebase.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Auditing what your AI coding tools transmit</li>
+          <li>Setting up network monitoring for agent CLI tools</li>
+          <li>Evaluating security posture before adopting new coding agents</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Wire-level analysis gist with 11 comments and 5 forks</li>
+          <li>Covered by eWeek, TechTimes, AI Weekly, byteiota</li>
+          <li>xAI responded with server-side fix and open-sourcing</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547">Wire-level analysis</a></li>
+          <li><a href="https://www.eweek.com/news/grok-build-developer-repos-cloud-upload-xai/">eWeek coverage</a></li>
+          <li><a href="https://www.techtimes.com/articles/320671/20260716/grok-build-open-sourced-after-covert-upload-code-exfiltrate-repos-stays.htm">Open-source follow-up</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/jdx/mise/releases/tag/v2026.8.0">mise v2026.8.0: 15% Faster Shims, Multi-Language Workspaces, and Precompiled Ruby</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">The polyglot dev tool manager ships a performance-focused release with 15% lower shim latency on Linux, 8-11% faster config-aware commands, multi-language workspace support, and precompiled Ruby as the default.</p>
+      <div class="article-meta">
+        <span class="tag">Developer Tools</span>
+        <span class="tag">Version Management</span>
+        <span class="tag">Performance</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>mise is becoming the de facto replacement for asdf, nvm, pyenv, and rbenv combined. This release makes it meaningfully faster for the monorepo and multi-language setups that are now standard in agent-heavy workflows.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replacing multiple version managers with one tool</li>
+          <li>Faster CI by using precompiled language runtimes</li>
+          <li>Managing polyglot monorepos with workspace-aware tooling</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Active weekly releases with detailed changelogs</li>
+          <li>Multi-language workspace support signals enterprise adoption</li>
+          <li>Precompiled Ruby becoming default shows maturity</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/jdx/mise/blob/HEAD/CHANGELOG.md">Full changelog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/vercel/eve">Vercel Ships Eve: A New Open-Source Framework for Building Agents</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Vercel launched Eve, an open-source TypeScript/Svelte framework for building AI agents, reaching 4.2K GitHub stars in six weeks since its June launch.</p>
+      <div class="article-meta">
+        <span class="tag">Agents</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Vercel</span>
+        <span class="tag">Framework</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Vercel entering the agent framework space with Eve signals that agent-building is moving from research tooling to production web infrastructure. If you're already in the Next.js/Vercel ecosystem, Eve integrates natively.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building customer-facing agents in Next.js apps</li>
+          <li>Creating agent workflows with Vercel's deployment pipeline</li>
+          <li>Prototyping multi-step agents with a web-native framework</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>4,231 GitHub stars in 6 weeks</li>
+          <li>410 forks</li>
+          <li>Apache 2.0 license</li>
+          <li>Built with TypeScript and Svelte</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://eve.dev">Eve homepage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://www.augmentcode.com/blog/intent-a-workspace-for-agent-orchestration">Augment Code Ships Intent: A Workspace for Agent Orchestration</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Augment Code launched Intent, a workspace that orchestrates coding agents across code review, test coverage, incident management, and ticket-to-PR workflows — all from a single control plane.</p>
+      <div class="article-meta">
+        <span class="tag">Agents</span>
+        <span class="tag">Developer Tools</span>
+        <span class="tag">Orchestration</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Intent represents the shift from 'coding agent as IDE feature' to 'coding agent as managed team member.' If you're running multiple agents across repos, this is the coordination layer you've been building internally.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Coordinating multiple coding agents across a large codebase</li>
+          <li>Auto-assigning tickets to agents with review gates</li>
+          <li>Running agents for incident investigation before humans arrive</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Augment Code is a funded startup with enterprise customers</li>
+          <li>Covers full SDLC: review, testing, incidents, tickets</li>
+          <li>Positions against manual agent supervision</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://sealos.io/blog/sealos-public-beta-ai-assisted-deployment/">Sealos 2.0: From a GitHub Repo to a Running Full-Stack App With AI Assistance</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Sealos 2.0 ships AI-assisted deployment that analyzes a GitHub repo, provisions databases (PostgreSQL, Redis), builds images, and deploys the full stack — demonstrated with a Formbricks deployment in 20 minutes.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Deployment</span>
+        <span class="tag">AI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the 'Vercel for self-hosted infrastructure' play. If you want the one-click deploy experience but on your own Kubernetes cluster with your own databases, Sealos 2.0 removes the YAML writing.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploying open-source apps to your own K8s cluster without writing YAML</li>
+          <li>AI-assisted database provisioning for full-stack apps</li>
+          <li>Self-hosted alternative to Vercel/Railway with more control</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Public beta launch July 28, 2026</li>
+          <li>labring/sealos is an active open-source project</li>
+          <li>AI agent for Sealos available as Claude Code skill</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/labring/sealos/">GitHub repo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://linuxiac.com/komodo-2-3-build-and-deploy-tool-released-with-faster-container-search/">Komodo 2.3: Self-Hosted Container Deployment With Faster Search and GitHub Integration</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Komodo, a self-hosted tool for building and deploying containers across multiple servers, releases 2.3 with faster container search and improved GitHub webhook integration.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Containers</span>
+        <span class="tag">Self-Hosted</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>For teams that want Portainer-like container management with built-in CI and GitHub integration but fully self-hosted, Komodo fills a gap between simple Docker Compose and full Kubernetes.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosted container deployment without Kubernetes complexity</li>
+          <li>Automated builds triggered by GitHub webhooks</li>
+          <li>Managing containers across multiple servers from one dashboard</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Active open-source project with regular releases</li>
+          <li>Positioned as Portainer alternative with CI features</li>
+          <li>GitHub webhook integration for deployment automation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://agent-se.github.io/">KDD 2026 Workshop: Agentic Software Engineering (SE 3.0) Goes Academic</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The first major academic workshop on Agentic Software Engineering runs at KDD 2026 in Jeju, Korea on August 9th, anchored by the AIDev dataset of over one million real-world development tasks.</p>
+      <div class="article-meta">
+        <span class="tag">Research</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Benchmarks</span>
+        <span class="tag">Academia</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>When ACM SIGKDD dedicates a workshop to 'AI teammates,' it signals the practice is mature enough for rigorous benchmarking. The AIDev dataset gives the community a shared baseline for evaluating coding agents.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Benchmarking your coding agent against the AIDev dataset</li>
+          <li>Publishing research on agentic SE workflows</li>
+          <li>Understanding academic consensus on agent capabilities vs. hype</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Co-located with ACM SIGKDD 2026</li>
+          <li>AIDev dataset with 1M+ real-world dev tasks</li>
+          <li>Half-day workshop at Jeju ICC, Korea</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
