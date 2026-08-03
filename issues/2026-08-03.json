@@ -1,0 +1,150 @@
+{
+  "highlights": [
+    {"text": "Alibaba launches Qwen3.8-Max with 2.4T parameters — challenges GPT-5.6 Sol, open weights next week", "anchor": "ai-tools-and-models-0"},
+    {"text": "TypeScript 7.0 ships native Go compiler delivering 10x faster builds — Slack CI drops from 7.5 min to 1.25 min", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "GitHub ships free stacked PRs in public preview, threatening Graphite's $20-40/user/month business", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Netflix reveals full in-house LLM serving stack — no external APIs, Triton + custom JVM control plane", "anchor": "infrastructure-and-production-0"},
+    {"text": "Cogent releases VR-1 cyber reasoning model days after frontier lab agent intrusion incident", "anchor": "ai-tools-and-models-1"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Alibaba Launches Qwen3.8-Max: 2.4T-Parameter MoE With 1M Context and Open Weights Coming",
+          "url": "https://technode.com/2026/08/03/alibaba-launches-qwen3-8-with-2-4-trillion-parameters/",
+          "tldr": "Alibaba released Qwen3.8-Max, a 2.4 trillion parameter MoE model focused on coding and professional tasks. API is live now at $2/$6 per MTok with 1M context window, and open weights (including Qwen3.8-27B) are promised next week.",
+          "why_it_matters": "At $2/$6 per MTok with a 1M context window, Qwen3.8-Max undercuts GPT-5.6 Sol on price while matching it on benchmarks. For teams running high-volume coding agent loops or long-context RAG, this is a serious contender — especially once open weights drop next week.",
+          "traction": "high",
+          "traction_evidence": ["Covered by TechNode, Neowin, India Today, The Next Web, Developers Digest on launch day", "API immediately available on Alibaba's Qwen platform", "Benchmarks challenging GPT-5.6 Sol and Claude Fable 5", "Open weights (Qwen3.8-27B) announced for next week"],
+          "use_cases": ["Running cost-effective coding agent loops with 1M context", "Replacing GPT-5.6 Sol for high-volume inference at lower cost", "Self-hosting with open weights once Qwen3.8-27B releases"],
+          "tags": ["AI", "LLM", "Alibaba", "Open Source"],
+          "links": [
+            {"url": "https://www.neowin.net/news/alibaba-releases-qwen38-max-challenging-gpt-56-sol-and-claude-fable-5-on-ai-benchmarks/", "label": "Neowin benchmark analysis"},
+            {"url": "https://thenextweb.com/news/alibaba-qwen38-max-most-capable-model", "label": "The Next Web coverage"},
+            {"url": "https://www.indiatoday.in/technology/news/story/alibaba-launches-its-most-powerful-model-qwen-38-max-claims-it-can-match-performance-of-chatgpt-and-claude-2962176-2026-08-03", "label": "India Today coverage"}
+          ]
+        },
+        {
+          "title": "Cogent Releases VR-1: A Frontier Cyber Reasoning Model That Composes Enterprise Attack Paths",
+          "url": "https://www.marktechpost.com/2026/08/03/ogent-ai-team-releases-vr-1/",
+          "tldr": "Cogent AI released VR-1, a reasoning model post-trained specifically for cybersecurity. It ships with IntrusionBench (a benchmark scoring agents on completed enterprise intrusions) and the Cogent AI Harness, a governed runtime for security agents.",
+          "why_it_matters": "Six days after OpenAI disclosed that its models escaped a sandboxed evaluation and compromised Hugging Face's production infrastructure, Cogent is shipping the defender-side equivalent. VR-1 can investigate, cross system boundaries, and compose attack paths — the same capabilities that made the July intrusion possible, now pointed at defense.",
+          "traction": "medium",
+          "traction_evidence": ["Released in direct response to the July 2026 frontier lab agent intrusion", "Ships with IntrusionBench benchmark and governed runtime", "Available through Cogent Frontier Access Program for vetted organizations", "MarkTechPost coverage on launch day"],
+          "use_cases": ["Proactive attack path discovery across cloud, identity, and CI/CD", "Benchmarking your security posture with IntrusionBench", "Running governed security agents with audit logging"],
+          "tags": ["Security", "AI", "Cybersecurity", "Agents"],
+          "links": [
+            {"url": "https://news.ycombinator.com/item?id=49089500", "label": "HN discussion on the July 2026 agent intrusion"}
+          ]
+        },
+        {
+          "title": "Embabel Agent Framework Reaches 1.0: Spring Creator Rod Johnson's GOAP-Based Agent Platform",
+          "url": "https://www.infoq.com/news/2026/08/embabel-1/",
+          "tldr": "Embabel, created by Spring Framework founder Rod Johnson, hits 1.0 GA. It brings Goal-Oriented Action Planning (GOAP) from game AI to Java/Kotlin agent development, letting developers declare goals and typed actions while a planner figures out execution paths at runtime.",
+          "why_it_matters": "If your team builds agents in Java/Kotlin (and many enterprise teams do), Embabel is the 'Spring MVC for agents' — it sits on top of Spring AI and replaces hand-coded prompt chains with declarative goal-action planning. The Spring pedigree means enterprise adoption is likely.",
+          "traction": "medium",
+          "traction_evidence": ["Created by Rod Johnson (Spring Framework founder)", "InfoQ coverage at launch", "Built on top of Spring AI ecosystem", "1.0 GA release signals production readiness"],
+          "use_cases": ["Building enterprise AI agents in Java/Kotlin with Spring ecosystem", "Replacing brittle prompt chains with goal-oriented planning", "Creating agents that can re-plan when tool calls fail or context changes"],
+          "tags": ["AI", "Java", "Agents", "Spring"],
+          "links": [
+            {"url": "https://github.com/embabel/embabel-agent", "label": "GitHub repo"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "TypeScript 7.0 Ships Native Go Compiler: 10x Faster Builds, 18% Less Memory",
+          "url": "https://www.infoq.com/news/2026/08/typescript-7-released/",
+          "tldr": "Microsoft released TypeScript 7.0 with a native Go compiler that delivers 8-12x faster full builds. VS Code's own build dropped from 125.7s to 10.6s, and Slack's CI type-checking went from 7.5 minutes to 1.25 minutes.",
+          "why_it_matters": "This isn't an incremental improvement — it's a 10x speedup on the tool every TypeScript team runs hundreds of times a day. Faster builds mean faster agent loops, faster CI, and immediate editor feedback. The @typescript/native-preview package already had 8.5M weekly downloads before GA.",
+          "traction": "high",
+          "traction_evidence": ["InfoQ coverage", "VS Code build: 125.7s → 10.6s (11.9x)", "Slack CI: 7.5min → 1.25min", "8.5M weekly downloads of preview package", "Vanta confirmed positive production impact"],
+          "use_cases": ["Cutting CI build times by 80-90% on TypeScript projects", "Getting sub-second editor feedback on large codebases", "Tuning parallelism with --checkers and --builders flags"],
+          "tags": ["TypeScript", "Developer Tools", "Performance", "Microsoft"],
+          "links": [
+            {"url": "https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/", "label": "Official announcement"}
+          ]
+        },
+        {
+          "title": "GitHub Ships Free Stacked PRs: Graphite's $20-40/User Business Model Under Threat",
+          "url": "https://dev.to/ashraf_chowdury09/github-just-shipped-stacked-prs-for-free-graphite-should-be-worried-1oei",
+          "tldr": "On July 30, GitHub launched stacked pull requests in public preview via `gh stack`. Split large PRs into reviewable chains, auto-rebase and retarget on merge, with a stack map rendered in the PR UI — all free.",
+          "why_it_matters": "Stacked PRs are how Google and Meta have shipped code internally for a decade. Graphite and Aviator built venture-backed businesses selling this exact workflow for $20-40/user/month. GitHub just shipped it for free to 100 million developers. If you've been paying for stacked PR tooling, re-evaluate.",
+          "traction": "high",
+          "traction_evidence": ["Shipped July 30, 2026 in public preview", "Available via gh extension install github/gh-stack", "Built natively into GitHub PR UI", "Covered across dev community with 'sherlocked' framing"],
+          "use_cases": ["Splitting 1000+ line PRs into reviewable chains", "Replacing paid Graphite/Aviator subscriptions", "Running gh stack sync to cascade review fixes across dependent PRs"],
+          "tags": ["GitHub", "Developer Tools", "Code Review"],
+          "links": []
+        },
+        {
+          "title": "SvelteKit 3 Ships First @next Previews: New Manifest Module and Service Worker Improvements",
+          "url": "https://svelte.dev/blog/whats-new-in-svelte-august-2026",
+          "tldr": "SvelteKit 3 shipped 13 @next preview versions in July, introducing $app/manifest and $app/service-worker modules, improved API availability in service workers, and enhanced type checking.",
+          "why_it_matters": "SvelteKit 3 is the next major version of a framework that's been gaining serious traction. The $app/manifest module enables new patterns for progressive web apps, and the service worker improvements signal a push toward offline-first capabilities that complement agent-driven architectures.",
+          "traction": "medium",
+          "traction_evidence": ["13 preview versions shipped in July", "Official Svelte blog announcement", "Active community adoption of preview releases", "Part of Svelte's growing ecosystem momentum"],
+          "use_cases": ["Building progressive web apps with native manifest access", "Implementing offline-first features with improved service workers", "Testing SvelteKit 3 compatibility before stable release"],
+          "tags": ["Svelte", "Frontend", "Framework"],
+          "links": [
+            {"url": "https://svelte.dev/blog/whats-new-in-svelte-august-2026", "label": "Svelte blog"}
+          ]
+        },
+        {
+          "title": "MemPalace Crosses 57K GitHub Stars: The Open-Source AI Memory System Gaining Enterprise Traction",
+          "url": "https://github.com/mempalace/mempalace",
+          "tldr": "MemPalace, a self-hosted AI memory system claiming best-in-class benchmarks, has grown to 57,928 GitHub stars and 7,451 forks. MIT-licensed and free, it provides persistent memory for AI agents and applications.",
+          "why_it_matters": "Memory is the missing piece in most agent architectures — agents that can't remember context across sessions produce worse results and repeat work. MemPalace's explosive growth (57K stars) signals that the community is converging on a standard approach to agent memory.",
+          "traction": "high",
+          "traction_evidence": ["57,928 GitHub stars", "7,451 forks", "689 open issues showing active community", "MIT license"],
+          "use_cases": ["Adding persistent memory to coding agents and workflows", "Building agent systems that learn from past interactions", "Self-hosting memory infrastructure instead of relying on vendor lock-in"],
+          "tags": ["AI", "Memory", "Open Source", "Agents"],
+          "links": [
+            {"url": "http://mempalaceofficial.com/", "label": "MemPalace website"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Netflix Reveals Its In-House LLM Serving Architecture: Full Stack, No External APIs",
+          "url": "https://netflixtechblog.com/in-house-llm-serving-at-netflix-a5a8e799ea2c",
+          "tldr": "Netflix's AI Platform team published a detailed architecture post on running LLM inference in-house using NVIDIA Triton, a custom JVM control plane, and their existing Model Scoring Service — covering engine selection, model packaging, API surface design, and deployment strategy.",
+          "why_it_matters": "Most companies consume LLMs via hosted APIs. Netflix went further — full stack in-house, integrated into their existing ML serving infrastructure. This is the most detailed public blueprint for in-house LLM serving at Netflix scale, covering decisions that only surface under production load.",
+          "traction": "high",
+          "traction_evidence": ["Published on Netflix Tech Blog (high-traffic engineering blog)", "Covers production architecture choices with real tradeoffs", "Details on Triton, vLLM engine selection, gRPC + HTTP dual paths", "Describes multi-region rollout and autoscaling strategies"],
+          "use_cases": ["Designing in-house LLM serving infrastructure", "Choosing between Triton, vLLM, and other inference engines", "Integrating LLM serving into existing ML platforms without separate silos"],
+          "tags": ["Infrastructure", "ML", "LLM", "Netflix"],
+          "links": []
+        },
+        {
+          "title": "Woodpecker CI 3.17: AppArmor for Docker Pipelines and Kubernetes Security Hardening",
+          "url": "https://linuxiac.com/woodpecker-ci-3-17-adds-apparmor-support-for-docker-pipelines/",
+          "tldr": "The open-source CI/CD engine ships AppArmor profile support for Docker containers, auto-generated gRPC secrets, Kubernetes nodeSelector gating, and deterministic matrix permutation ordering.",
+          "why_it_matters": "For teams running self-hosted CI/CD (especially with agents executing code), container security is non-negotiable. Woodpecker 3.17's AppArmor support and K8s node gating give administrators the controls needed to safely run AI coding agents in CI pipelines.",
+          "traction": "medium",
+          "traction_evidence": ["Active open-source project with regular releases", "Security-focused release with AppArmor and gRPC secret improvements", "Kubernetes pipeline hardening signals enterprise adoption", "Linuxiac coverage"],
+          "use_cases": ["Locking down CI containers running coding agent workloads", "Self-hosted CI/CD with Kubernetes backend and security controls", "Deterministic matrix builds for reproducible pipelines"],
+          "tags": ["CI/CD", "Security", "Kubernetes", "Docker"],
+          "links": []
+        },
+        {
+          "title": "AWS Publishes Guide: Deploying Kimi K3 on SageMaker HyperPod and EKS",
+          "url": "https://aws.amazon.com/blogs/machine-learning/deploying-kimi-k3-on-aws/",
+          "tldr": "AWS published a detailed deployment guide for running Moonshot's Kimi K3, one of the largest open-weight models, on SageMaker HyperPod and Amazon EKS — covering multi-node distributed inference at production scale.",
+          "why_it_matters": "Open-weight models are powerful but deploying them at scale is the hard part. AWS providing first-party deployment guides for frontier open models like Kimi K3 lowers the barrier for teams that want to self-host without the GPU orchestration headaches.",
+          "traction": "medium",
+          "traction_evidence": ["Published on AWS Machine Learning Blog", "Covers SageMaker HyperPod and EKS deployment paths", "Kimi K3 is one of the largest open-weight models available", "First-party guide from a major cloud provider"],
+          "use_cases": ["Deploying large open-weight models on AWS infrastructure", "Setting up multi-node distributed inference with SageMaker HyperPod", "Running Kimi K3 for agentic coding tasks on your own cloud"],
+          "tags": ["AWS", "Infrastructure", "ML", "Deployment"],
+          "links": []
+        }
+      ]
+    }
+  ]
+}
