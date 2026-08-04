@@ -1,0 +1,152 @@
+{
+  "highlights": [
+    {"text": "DeepSeek-V4-Flash 0731 goes GA — MIT-licensed 284B MoE beats its own Pro at $0.14/$0.28 per MTok", "anchor": "ai-tools-and-models-0"},
+    {"text": "Microsoft open-sources Orchard: 3B-active-param agents hit 69.7% on SWE-bench Verified", "anchor": "ai-tools-and-models-1"},
+    {"text": "Y Combinator open-sources QM — the multiplayer agent harness it runs internally, 7.5K stars in 3 days", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Cloudflare introduces @cloudflare/computer — an agent runtime that goes beyond containers", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Temporal ships Deputy: open-source CLI-first supply chain security with reachability-aware scanning", "anchor": "infrastructure-and-production-0"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "DeepSeek-V4-Flash 0731 Goes GA: MIT-Licensed 284B MoE That Beats Its Own Pro",
+          "url": "https://singularitybyte.com/models/deepseek-v4-flash.html",
+          "tldr": "DeepSeek promoted V4-Flash out of preview on July 31. The 0731 build keeps the same 284B MoE architecture (13B active params, 1M context) but with a full agentic retraining pass. It now beats V4-Pro-Preview on all nine agent and coding benchmarks DeepSeek published.",
+          "why_it_matters": "At $0.14 in / $0.28 out per MTok under MIT, this is the cheapest frontier-competitive agent model available. Artificial Analysis puts it one point behind GPT-5.6 Luna at ~60% lower cost per task — a serious option for high-volume coding agent loops.",
+          "traction": "high",
+          "traction_evidence": ["MIT-licensed weights on Hugging Face", "Beats V4-Pro-Preview on all published benchmarks", "Artificial Analysis ranks it one point behind GPT-5.6 Luna at 60% lower cost", "Simon Willison and HN discussion on the release"],
+          "use_cases": ["Running high-volume coding agent loops at minimal cost", "Self-hosting a frontier-class agent model under MIT", "Replacing expensive API calls for agentic workflows"],
+          "tags": ["AI", "LLM", "DeepSeek", "Open Source", "Agents"],
+          "links": [
+            {"url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731", "label": "Hugging Face weights"},
+            {"url": "https://api-docs.deepseek.com/updates/", "label": "DeepSeek changelog"},
+            {"url": "https://artificialanalysis.ai/models/deepseek-v4-flash", "label": "Artificial Analysis benchmarks"}
+          ]
+        },
+        {
+          "title": "Microsoft Open-Sources Orchard: Scalable Agentic AI Framework With 3B-Active-Param Models",
+          "url": "https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/",
+          "tldr": "Microsoft Research released Orchard, an open-source framework for training and evaluating agentic AI at scale. Its centerpiece is Orchard Env, a Kubernetes-based reusable environment service. Orchard-SWE reaches 69.7% on SWE-bench Verified (73.0% with reranking) using only ~3B active parameters.",
+          "why_it_matters": "Orchard proves you don't need 100B+ active parameters for strong agent performance. The shared infrastructure across SWE, GUI, and assistant agents means teams can reuse environments, data pipelines, and evaluation workflows — lowering the bar for agentic AI research.",
+          "traction": "high",
+          "traction_evidence": ["Published by Microsoft Research on Aug 3", "69.7% SWE-bench Verified with 3B active params approaches frontier systems 10x larger", "Supports training inside real harnesses like Codex and OpenClaw", "Full training data and evaluation methods released"],
+          "use_cases": ["Training custom SWE agents on your own codebase", "Evaluating agent capabilities with shared benchmarks", "Building multi-domain agents (code, GUI, assistant) on shared infrastructure"],
+          "tags": ["AI", "Agents", "Microsoft", "Open Source", "SWE"],
+          "links": [
+            {"url": "https://github.com/microsoft/Orchard", "label": "GitHub repo"}
+          ]
+        },
+        {
+          "title": "Cohere Ships North Mini Code: 30B Open-Weight MoE With 3B Active Params for Agentic Coding",
+          "url": "https://thetechbriefs.com/meet-north-mini-code-coheres-30b-open-weight-mixture-of-experts-model-with-3b-active-parameters-for-agentic-coding/",
+          "tldr": "Cohere released North Mini Code, a 30B-parameter MoE model with only 3B active per token, optimized for code generation, agentic software engineering, and terminal tasks. 256K context, 64K max output, Apache 2.0 license, runs on a single H100 at FP8.",
+          "why_it_matters": "A single-GPU coding model with 256K context and Apache 2.0 is the self-hosting sweet spot. Cohere's 'sovereign AI' positioning means teams can run capable coding agents entirely on-premises without large GPU clusters.",
+          "traction": "medium",
+          "traction_evidence": ["Available on Hugging Face, Cohere API, and OpenRouter", "Apache 2.0 license", "128 MoE experts with SwiGLU activation", "Runs on single H100"],
+          "use_cases": ["Self-hosted coding agent on a single GPU", "Terminal automation and agentic engineering tasks", "On-premises code generation for regulated environments"],
+          "tags": ["AI", "LLM", "Cohere", "Open Source", "Coding"],
+          "links": [
+            {"url": "https://huggingface.co/CohereLabs/North-Mini-Code-1.0", "label": "Hugging Face model"}
+          ]
+        },
+        {
+          "title": "JetBrains Releases Mellum2: A 12B MoE 'Focal Model' for Multi-Model AI Pipelines",
+          "url": "https://thetechbriefs.com/jetbrains-releases-mellum2-a-12b-moe-model-for-fast-specialized-tasks-in-multi-model-ai-pipelines/",
+          "tldr": "JetBrains open-sourced Mellum2 under Apache 2.0 — a 12B MoE model (2.5B active per token) trained on 10.6T tokens. It covers code generation, debugging, tool use, and agentic coding. Designed as a 'focal model' — a fast specialist inside larger AI systems, not a standalone replacement.",
+          "why_it_matters": "The 'focal model' concept is practical: use a tiny, fast specialist for inner-loop tasks (completions, function calls, edits) while a frontier model handles planning. At 2.5B active params with built-in speculative decoding, Mellum2 is designed for latency-sensitive pipelines.",
+          "traction": "medium",
+          "traction_evidence": ["Apache 2.0 from JetBrains", "10.6T training tokens across three-phase curriculum", "Built-in multi-token prediction for speculative decoding", "128K context window"],
+          "use_cases": ["Fast inner-loop completions in IDE agents", "Speculative decoding draft model for larger LLMs", "Lightweight function-calling in multi-model agent architectures"],
+          "tags": ["AI", "LLM", "JetBrains", "Open Source", "IDE"],
+          "links": []
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Y Combinator Open-Sources QM: The Multiplayer Agent Harness It Runs Internally",
+          "url": "https://www.marktechpost.com/2026/08/03/y-combinator-open-sources-qm-multiplayer-ai-agent-harness/",
+          "tldr": "YC open-sourced QM (Quartermaster), the multi-agent harness it uses across accounting, legal, events, and engineering. MIT licensed, deployable to Fly.io or AWS, runs in Slack and on the web. 7.5K GitHub stars in three days.",
+          "why_it_matters": "This is real production-grade agent infrastructure from the org that runs YC itself. QM handles inbox triage, PR workflows, document search, and project tracking — the exact multi-agent patterns most teams are trying to build. MIT license means you can fork and customize.",
+          "traction": "high",
+          "traction_evidence": ["7,500 GitHub stars in 3 days", "MIT license", "Used in production at Y Combinator across multiple departments", "MarkTechPost and DEV Community coverage"],
+          "use_cases": ["Multi-agent inbox triage with Slack integration", "Automated PR workflows — run tests, open PRs, monitor CI", "Internal knowledge search across notes, email, and databases"],
+          "tags": ["Agents", "Open Source", "YC", "Infrastructure"],
+          "links": [
+            {"url": "https://github.com/yc-software/qm", "label": "GitHub repo"},
+            {"url": "https://dev.to/docdavkitty/yc-open-sources-qm-the-multiplayer-agent-harness-that-runs-y-combinator-3ljp", "label": "DEV Community writeup"}
+          ]
+        },
+        {
+          "title": "Cloudflare Introduces @cloudflare/computer: An Agent Runtime Beyond Containers",
+          "url": "https://blog.cloudflare.com/cloudflare-computer/",
+          "tldr": "Cloudflare launched an early preview of @cloudflare/computer, a runtime that dynamically orchestrates between fast isolates and full Linux containers. Each agent gets its own 'computer' — filesystem, shell, tools — while the platform handles scaling.",
+          "why_it_matters": "Containers are too heavy for many agent workloads. Cloudflare's approach of mixing isolates (fast, cheap) with containers (full OS when needed) reflects where agent infrastructure is heading. If you're building agents that need sandboxed execution at scale, this is the primitives layer.",
+          "traction": "medium",
+          "traction_evidence": ["Published on Cloudflare blog Aug 3", "Early preview with GitHub repo", "Builds on Cloudflare Workers platform", "Addresses growing demand for agentic compute beyond containers"],
+          "use_cases": ["Scaling sandboxed agent execution without container overhead", "Building coding agents with filesystem and shell access", "Running browser-based agents at Cloudflare edge"],
+          "tags": ["Infrastructure", "Agents", "Cloudflare", "Serverless"],
+          "links": [
+            {"url": "https://github.com/cloudflare/workspace", "label": "GitHub repo"}
+          ]
+        },
+        {
+          "title": "DeepJack: One Click on a Cursor Deeplink Silently Installs an MCP Backdoor",
+          "url": "https://byteiota.com/deepjack-one-click-on-a-cursor-deeplink-installs-an-mcp-backdoor/",
+          "tldr": "Adversa AI disclosed DeepJack, a vulnerability in Cursor IDE's deeplink handler that bypasses the fix for the previous CursorJack (CVE-2025-54133). A crafted cursor:// link can silently deploy an attacker-controlled MCP server with one click and one dialog approval. Still works as of build 3.9.8.",
+          "why_it_matters": "MCP server installation is becoming a supply chain attack vector. If your team uses Cursor, any link in a browser, email, or Slack message could install a backdoor MCP server. This is the second deeplink exploit in months — the fix for the first one was insufficient.",
+          "traction": "high",
+          "traction_evidence": ["Disclosed by Adversa AI", "Bypasses CVE-2025-54133 fix", "Still unpatched as of Cursor 3.9.8", "Covered by byteiota with HN discussion"],
+          "use_cases": ["Audit your team's Cursor deeplink exposure immediately", "Review installed MCP servers for unexpected entries", "Consider disabling deeplink handlers until patched"],
+          "tags": ["Security", "IDE", "MCP", "Supply Chain"],
+          "links": []
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Temporal Ships Deputy: Open-Source CLI-First Supply Chain Security Toolchain",
+          "url": "https://temporal.io/blog/introducing-deputy",
+          "tldr": "Temporal's security team built Deputy, an open-source CLI-first toolchain for inventorying, scanning, triaging, and controlling dependencies across repos, containers, VM images, and SBOMs. It adds a customizable policy layer that works locally, in CI, and at download time.",
+          "why_it_matters": "Deputy tackles the false-positive nightmare that plagues dependency scanning. Built by a security engineer who got tired of thousands of red alerts that turn out to be noise. The policy layer is especially relevant now that AI agents are generating code with arbitrary dependencies.",
+          "traction": "medium",
+          "traction_evidence": ["Built and used at Temporal", "Published Aug 3 on Temporal blog", "Addresses AI-generated code dependency risks", "CLI-first with CI integration"],
+          "use_cases": ["Scanning AI-generated code for supply chain risks", "Custom policy enforcement in CI pipelines", "Reducing false positives in vulnerability management"],
+          "tags": ["Security", "Supply Chain", "Temporal", "Open Source"],
+          "links": []
+        },
+        {
+          "title": "Kubernetes Gateway API v1.6: TCPRoute and UDPRoute Graduate to Standard",
+          "url": "https://kubernetes.io/blog/2026/08/03/gateway-api-v1-6-release/",
+          "tldr": "Gateway API v1.6.0 promotes TCPRoute and UDPRoute from experimental to GA in the v1 API. Workloads that speak raw TCP/UDP — databases, DNS, VoIP, gaming, IoT — now have a portable, standard way to plug into a Gateway without implementation-specific CRDs.",
+          "why_it_matters": "Until now, Gateway API only covered HTTP and TLS. If you run databases, message brokers, or game servers on Kubernetes, you've been stuck with plain Services or vendor-specific CRDs. L4 routing going GA means one API for all your traffic routing needs.",
+          "traction": "high",
+          "traction_evidence": ["Official Kubernetes SIG Network release", "v1 GA stability — production ready", "Experimental API group separation for cleaner boundaries", "Released June 30, blog post Aug 3"],
+          "use_cases": ["Routing database traffic through Gateway API", "Unified L4+L7 traffic management in Kubernetes", "Replacing vendor-specific CRDs with standard TCPRoute/UDPRoute"],
+          "tags": ["Kubernetes", "Networking", "Infrastructure"],
+          "links": [
+            {"url": "https://gateway-api.sigs.k8s.io/guides/user-guides/tcp/", "label": "TCPRoute guide"},
+            {"url": "https://gateway-api.sigs.k8s.io/guides/user-guides/udp/", "label": "UDPRoute guide"}
+          ]
+        },
+        {
+          "title": "Kubeflow SDK Crosses 1 Million PyPI Downloads",
+          "url": "https://www.cncf.io/blog/2026/08/03/kubeflow-sdk-evolution-one-million-downloads-and-counting/",
+          "tldr": "The unified kubeflow-sdk package has officially crossed 1 million PyPI downloads. CNCF published a retrospective on the SDK's evolution from fragmented Kubeflow Pipelines and Training interfaces into a single streamlined package.",
+          "why_it_matters": "ML platform teams that standardized on Kubeflow now have a mature, unified SDK. The 1M milestone signals that the CNCF graduation path is working and the fragmentation that plagued earlier Kubeflow versions is resolved.",
+          "traction": "high",
+          "traction_evidence": ["1 million PyPI downloads", "CNCF blog post retrospective", "Unified SDK replaces fragmented interfaces", "Active CNCF project"],
+          "use_cases": ["Building ML pipelines with a single unified SDK", "Standardizing MLOps on CNCF-graduated tooling", "Migrating from fragmented Kubeflow Pipelines/Training SDKs"],
+          "tags": ["MLOps", "Kubernetes", "CNCF", "Python"],
+          "links": []
+        }
+      ]
+    }
+  ]
+}
