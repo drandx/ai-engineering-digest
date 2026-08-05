@@ -1,0 +1,168 @@
+{
+  "highlights": [
+    {"text": "ChainDrop worm hits npm: 444 packages compromised via keyv in under 4 hours, CI/CD credentials harvested at scale", "anchor": "infrastructure-and-production-0"},
+    {"text": "Cursor open-sources Mixture-of-Kittens — production MoE megakernel that powers Composer training across tens of thousands of GPUs", "anchor": "ai-tools-and-models-0"},
+    {"text": "JetBrains ships IntelliJ IDEA as an LSP server — Java/Kotlin intelligence now works in VS Code, Cursor, and agentic flows", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Microsoft publishes first production-scale study of agentic coding: 13.5M Copilot sessions, 95T tokens, 90% KV cache hit rates within turns", "anchor": "ai-tools-and-models-1"},
+    {"text": "Liquid AI releases LFM2.5-2.6B — an agentic model small enough for phones, fast enough for CPUs, trained on 34T tokens", "anchor": "ai-tools-and-models-2"},
+    {"text": "Databricks Unity AI Gateway goes GA — unified governance for AI spend, security, and access across agents, MCPs, and models", "anchor": "infrastructure-and-production-1"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Cursor Open-Sources Mixture-of-Kittens: Production MoE Megakernel for NVL72s",
+          "url": "https://cursor.com/blog/mixture-of-kittens",
+          "tldr": "Cursor released Mixture-of-Kittens (MoK), their production MoE training megakernel that fuses all MoE communication and computation into a single, fully deterministic kernel for NVL72 racks. MoK eliminates the MoE layer bottleneck that consumed over half of end-to-end training time for their Composer agentic coding model.",
+          "why_it_matters": "This is rare production ML infrastructure from a company training frontier coding models at scale. MoK addresses the exact GPU utilization problems teams hit when moving to GB300 NVL72s — CPU-GPU synchronization stalls and communication overhead. If you're training MoE models on NVLink-connected GPU clusters, this is the kernel you want.",
+          "traction": "high",
+          "traction_evidence": ["Open-sourced from Cursor's production training stack for Composer", "Powers training across tens of thousands of GPUs", "Built on top of their earlier MXFP8/NVFP4 kernel and warp-decode work", "Addresses GB300 NVL72-specific bottlenecks that all teams on this hardware face"],
+          "use_cases": ["Training MoE models on NVL72 racks with fused communication+compute", "Eliminating CPU-GPU synchronization stalls on GB300 hardware", "Deterministic MoE training for reproducibility"],
+          "tags": ["AI", "Infrastructure", "Open Source", "Cursor", "Training"],
+          "links": [
+            {"url": "https://github.com/cursor/mixture-of-kittens", "label": "GitHub repo"},
+            {"url": "https://cursor.com/blog/composer-2", "label": "Composer 2 blog post"}
+          ]
+        },
+        {
+          "title": "Microsoft Publishes First Production-Scale Study of Agentic Coding: 13.5M Copilot Sessions Analyzed",
+          "url": "https://www.microsoft.com/en-us/research/publication/agentic-coding-in-the-wild-characterizing-github-copilot-at-production-scale/",
+          "tldr": "Microsoft Research published the first production-scale characterization of agentic coding workloads using sampled GitHub Copilot traces from June 2026: 3.2M users, 13.5M sessions, 761M LLM calls, and 95 trillion tokens. Key finding: KV cache hit rates average 90% within a turn but drop to 55% across turn boundaries.",
+          "why_it_matters": "This is the most comprehensive empirical data on how coding agents actually behave in production. The cache invalidation patterns, long-tailed token distributions, and the gap between quick agent turnarounds and minutes-long user idle periods have direct implications for how you architect inference infrastructure for agentic workloads.",
+          "traction": "high",
+          "traction_evidence": ["Published by Microsoft Research with real Copilot production data", "3.2M users and 95T tokens analyzed — largest agentic workload study to date", "Covered by Developers Digest and multiple AI engineering outlets", "Includes lightweight idle-time predictor for infrastructure optimization"],
+          "use_cases": ["Optimizing KV cache strategies for agentic inference serving", "Capacity planning for coding agent infrastructure", "Understanding real-world agent loop patterns for system design"],
+          "tags": ["AI", "Research", "Microsoft", "Infrastructure", "Agents"],
+          "links": [
+            {"url": "https://www.developersdigest.tech/blog/copilot-agent-traces-production-scale-2026", "label": "Developers Digest analysis"}
+          ]
+        },
+        {
+          "title": "Liquid AI Releases LFM2.5-2.6B: An Agentic Model That Runs Entirely On-Device",
+          "url": "https://www.liquid.ai/blog/lfm2-5-2-6b",
+          "tldr": "Liquid AI released LFM2.5-2.6B, a 2.6B parameter agentic model pre-trained on 34T tokens with 128K context. It runs on phones and CPUs while supporting planning, tool calling, and multi-step tasks. Post-training includes a four-stage pipeline ending with agentic reinforcement learning.",
+          "why_it_matters": "Zero marginal token cost changes the economics of agents. When inference is free and local, you can parallelize agents massively on commodity hardware — running background tasks that burn millions of tokens with no API bill. The 128K context and agentic RL training make this more than a toy model.",
+          "traction": "medium",
+          "traction_evidence": ["Available on Hugging Face with base and post-trained variants", "34T token pre-training is substantial for a 2.6B model", "128K tokenizer expanded to 128K vocab for multilingual support", "Four-stage post-training pipeline including agentic RL"],
+          "use_cases": ["Running local coding agents with zero inference cost", "On-device tool-calling agents for mobile and edge", "Massively parallel background agent tasks on local hardware"],
+          "tags": ["AI", "LLM", "On-Device", "Agents", "Open Source"],
+          "links": [
+            {"url": "https://huggingface.co/LiquidAI/LFM2.5-2.6B", "label": "Hugging Face model"},
+            {"url": "https://docs.liquid.ai/lfm/models/lfm25-2.6b", "label": "Documentation"}
+          ]
+        },
+        {
+          "title": "Mistral Ships Shieldstral: A 3B Open-Weights Multimodal Safety Classifier",
+          "url": "https://mistral.ai/news/shieldstral/",
+          "tldr": "Mistral released Shieldstral, a 3B parameter open-weights multimodal safety classifier that outperforms models up to 7x its size. It handles both text and image moderation in a single model, released August 4.",
+          "why_it_matters": "Safety classifiers are table stakes for production AI systems, but most teams either use expensive API-based solutions or cobble together multiple models. A single 3B model that handles multimodal content and beats 21B+ competitors means you can run safety checks locally without sacrificing accuracy or adding latency.",
+          "traction": "medium",
+          "traction_evidence": ["Released by Mistral on August 4, 2026", "Open weights — can be self-hosted", "Outperforms models 7x its size on safety benchmarks", "Multimodal (text + image) in a single model"],
+          "use_cases": ["Self-hosted content moderation for AI applications", "Adding safety guardrails to agentic workflows without API costs", "Multimodal content filtering at inference time"],
+          "tags": ["AI", "Safety", "Mistral", "Open Source"],
+          "links": []
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "JetBrains Ships IntelliJ IDEA as an LSP Server: Java and Kotlin Intelligence for VS Code, Cursor, and Agents",
+          "url": "https://blog.jetbrains.com/idea/2026/08/intellij-idea-goes-lsp/",
+          "tldr": "JetBrains released a preview VS Code extension that exposes IntelliJ IDEA's Java and Kotlin language intelligence as an LSP server. It works in VS Code, Cursor, and any LSP-capable editor. Internal trials show the same LSP server significantly improves terminal-based agentic workflows like Claude Code and Codex.",
+          "why_it_matters": "This is JetBrains acknowledging that the IDE is no longer the only place code gets written. Agents using LSP servers get faster, more deterministic results with lower token consumption. If your team writes Java or Kotlin and uses coding agents, this is a direct upgrade to agent accuracy on your codebase.",
+          "traction": "high",
+          "traction_evidence": ["Official JetBrains blog post on August 4", "Preview extension available for VS Code and forks (Cursor)", "Internal trials with Claude Code and Codex show promising results", "Covers Java, Kotlin, and mixed-language projects"],
+          "use_cases": ["Getting IntelliJ-grade Java/Kotlin intelligence in VS Code and Cursor", "Improving coding agent accuracy with LSP-backed navigation and analysis", "Running refactorings and code analysis outside of IntelliJ"],
+          "tags": ["DevTools", "JetBrains", "LSP", "Java", "Kotlin", "Agents"],
+          "links": []
+        },
+        {
+          "title": "CopilotKit Open-Sources Channels SDK: Run Any AG-UI Agent Inside Slack and Microsoft Teams",
+          "url": "https://www.copilotkit.ai/blog/channels-sdk",
+          "tldr": "CopilotKit released the Channels SDK, an MIT-licensed library that brings any AG-UI protocol agent into Slack, Microsoft Teams, and other chat platforms. One agent definition, multiple delivery surfaces — the platform handles credentials, delivery, and message ordering.",
+          "why_it_matters": "The distribution problem for agents is real: you build one, then need separate integrations for every surface where people work. Channels SDK standardizes this with AG-UI as the protocol layer. If you've built an agent and need it in Slack or Teams, this saves weeks of integration work.",
+          "traction": "medium",
+          "traction_evidence": ["MIT-licensed, open source on GitHub", "Covered by MarkTechPost on launch day", "Built on AG-UI protocol standard", "Slack and Teams channels managed out of the box"],
+          "use_cases": ["Deploying your existing agent into Slack and Teams without rewriting", "Building multi-channel agent experiences with one codebase", "Adding conversational agents to enterprise chat with shared memory"],
+          "tags": ["DevTools", "Agents", "Open Source", "Slack", "Teams"],
+          "links": [
+            {"url": "https://github.com/CopilotKit/channels-sdk", "label": "GitHub repo"},
+            {"url": "https://www.marktechpost.com/2026/08/04/copilotkit-open-sources-channels-sdk/", "label": "MarkTechPost coverage"}
+          ]
+        },
+        {
+          "title": "Duolingo Reveals How They Built a Production-Ready AI Agent Platform",
+          "url": "https://blog.duolingo.com/production-ready-ai-agent-platform/",
+          "tldr": "Duolingo published their engineering approach to solving agent sprawl: a shared platform where developers define an agent once (system prompt, MCP tools, repo access), and the platform handles execution, orchestration, observability, and evaluation. Agents are defined in a registry and can be invoked from Slack, internal sites, CLI, or Temporal workflows.",
+          "why_it_matters": "This is a production blueprint for the 'every team is rebuilding agent infrastructure' problem. Duolingo's approach — declarative agent definitions, shared MCP servers, and a unified execution layer — is the pattern enterprise teams need. The Temporal integration for orchestration is particularly practical.",
+          "traction": "high",
+          "traction_evidence": ["Published on Duolingo's engineering blog August 4", "Running in production across multiple teams at Duolingo", "Uses MCP servers and Temporal for orchestration", "Solves the distribution problem with multi-surface invocation"],
+          "use_cases": ["Standardizing agent infrastructure across engineering teams", "Building reusable agent definitions with shared tooling", "Making agents invocable from Slack, CLI, and workflow engines"],
+          "tags": ["Agents", "Platform Engineering", "Duolingo", "MCP", "Temporal"],
+          "links": []
+        },
+        {
+          "title": "vlt 1.0 Ships With Hosted JavaScript Package Registries",
+          "url": "https://www.vlt.io/blog/1-0",
+          "tldr": "vlt, the next-generation JavaScript package manager from npm's original creator, hit 1.0 GA alongside hosted package registries and ecosystem mirrors. The stable client release signals production readiness after months in beta.",
+          "why_it_matters": "From the creator of npm, vlt is a ground-up rethink of JavaScript package management. The hosted registry offering is notable timing given the ChainDrop npm supply chain attack — teams looking for alternatives to the npm registry now have a production-ready option with mirrors.",
+          "traction": "medium",
+          "traction_evidence": ["1.0 GA release on August 4, 2026", "Created by npm's original author", "Includes hosted registries and ecosystem mirrors", "Stable client after extended beta period"],
+          "use_cases": ["Migrating from npm to a modern package manager", "Running private hosted registries for enterprise JavaScript", "Setting up ecosystem mirrors for supply chain security"],
+          "tags": ["DevTools", "JavaScript", "Package Management", "Open Source"],
+          "links": []
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "ChainDrop Worm Hits npm: 444 Packages Compromised in Under 4 Hours via Keyv Supply Chain Attack",
+          "url": "https://www.stepsecurity.io/blog/chaindrop-npm-worm",
+          "tldr": "A self-propagating worm called ChainDrop poisoned 444 npm packages and 2,212 versions in under four hours, starting with the popular keyv package. The worm uses Bun for fast execution, harvests CI/CD credentials, and uses an Ethereum smart contract as a dead-drop C2 channel. As of August 4, malicious versions are still reachable on the npm registry.",
+          "why_it_matters": "This is the most sophisticated npm supply chain attack to date. ChainDrop doesn't just inject malicious code — it self-propagates by stealing maintainer credentials and publishing poisoned versions of their other packages. If your project depends on keyv (used by got, cacheable-request, and thousands of other packages), you need to audit your lockfile now.",
+          "traction": "high",
+          "traction_evidence": ["444 packages and 2,212 versions compromised", "Covered by CSO Online, The Hacker News, JFrog, Socket.dev, and StepSecurity", "Live incident as of publication — worm still spreading", "Uses novel Ethereum dead-drop C2 and Bun-based execution"],
+          "use_cases": ["Auditing your npm lockfile for compromised keyv/cacheable versions", "Adding supply chain security scanning to CI/CD pipelines", "Understanding self-propagating supply chain attack patterns"],
+          "tags": ["Security", "npm", "Supply Chain", "Incident"],
+          "links": [
+            {"url": "https://www.csoonline.com/article/4205276/chaindrop-credential-stealing-worm-infects-over-400-npm-packages.html", "label": "CSO Online coverage"},
+            {"url": "https://research.jfrog.com/post/shai-hulud-is-back-august/", "label": "JFrog security research"},
+            {"url": "https://thehackernews.com/2026/08/keyv-linked-npm-worm-poisons-hundreds.html", "label": "The Hacker News coverage"},
+            {"url": "https://socket.dev/blog/popular-npm-packages-in-the-keyv-and-cacheable-namespaces-compromised-in-active-supply-chain", "label": "Socket.dev advisory"}
+          ]
+        },
+        {
+          "title": "Databricks Unity AI Gateway Goes GA: Unified Governance for AI Spend, Security, and Access",
+          "url": "https://www.databricks.com/blog/unity-ai-gateway-generally-available",
+          "tldr": "Databricks announced GA for Unity AI Gateway, a unified control plane for governing AI spend, security, and access across agents, models, MCPs, skills, and tools. Thousands of customers including Rivian, Asana, and Edmunds are already using it, with over a quadrillion tokens processed.",
+          "why_it_matters": "Agent sprawl is the new microservice sprawl. As teams deploy dozens of agents, MCPs, and external models, there's no single pane of glass for cost, security, or access control. Unity AI Gateway addresses this at the platform level — if your org is past the 'one team, one agent' stage, this is the governance layer you need.",
+          "traction": "high",
+          "traction_evidence": ["GA announcement from Databricks", "Thousands of customers including Rivian, Asana, and Edmunds", "Over a quadrillion tokens processed through the gateway", "Covers agents, MCPs, skills, tools, and models in one plane"],
+          "use_cases": ["Governing AI spend across multiple agent platforms", "Enforcing security policies for agents accessing sensitive data", "Providing unified access control for MCPs and external models"],
+          "tags": ["Infrastructure", "Databricks", "Governance", "AI Security"],
+          "links": [
+            {"url": "https://www.databricks.com/product/artificial-intelligence/unity-ai-gateway", "label": "Product page"}
+          ]
+        },
+        {
+          "title": "Snyk Secrets Goes GA: ML-Powered Secrets Detection Built for the AI-Generated Code Era",
+          "url": "https://snyk.io/blog/snyk-secrets/",
+          "tldr": "Snyk launched Snyk Secrets into GA, powered by the BitPatrol acquisition's ML engine that understands the context surrounding a secret, not just its pattern shape. It integrates into agentic workflows, PRs, and CI/CD pipelines, designed for the volume and speed of AI-generated code.",
+          "why_it_matters": "AI coding agents generate code fast enough that regex-based secret scanners can't keep up with false positives. Snyk Secrets uses ML to understand context (is this a real API key or a placeholder?), which is exactly the accuracy bar needed when agents are producing hundreds of files per session.",
+          "traction": "high",
+          "traction_evidence": ["GA launch on August 4 from Snyk", "Built on BitPatrol acquisition — production ML engine", "Integrates with agentic workflows, PRs, and CI/CD", "Part of Snyk AI Security Platform"],
+          "use_cases": ["Scanning AI-generated code for leaked secrets in CI/CD", "Adding ML-powered secret detection to agentic coding workflows", "Reducing false positives in secret scanning for high-volume codebases"],
+          "tags": ["Security", "DevSecOps", "Snyk", "AI"],
+          "links": [
+            {"url": "https://snyk.io/blog/future-snyk-secrets/", "label": "Snyk Secrets vision post"}
+          ]
+        }
+      ]
+    }
+  ]
+}

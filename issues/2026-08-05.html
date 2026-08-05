@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 05, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 05, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.stepsecurity.io/blog/chaindrop-npm-worm">ChainDrop worm hits npm: 444 packages compromised via keyv in under 4 hours, CI/CD credentials harvested at scale</a></li>
+      <li><a href="https://cursor.com/blog/mixture-of-kittens">Cursor open-sources Mixture-of-Kittens — production MoE megakernel that powers Composer training across tens of thousands of GPUs</a></li>
+      <li><a href="https://blog.jetbrains.com/idea/2026/08/intellij-idea-goes-lsp/">JetBrains ships IntelliJ IDEA as an LSP server — Java/Kotlin intelligence now works in VS Code, Cursor, and agentic flows</a></li>
+      <li><a href="https://www.microsoft.com/en-us/research/publication/agentic-coding-in-the-wild-characterizing-github-copilot-at-production-scale/">Microsoft publishes first production-scale study of agentic coding: 13.5M Copilot sessions, 95T tokens, 90% KV cache hit rates within turns</a></li>
+      <li><a href="https://www.liquid.ai/blog/lfm2-5-2-6b">Liquid AI releases LFM2.5-2.6B — an agentic model small enough for phones, fast enough for CPUs, trained on 34T tokens</a></li>
+      <li><a href="https://www.databricks.com/blog/unity-ai-gateway-generally-available">Databricks Unity AI Gateway goes GA — unified governance for AI spend, security, and access across agents, MCPs, and models</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://cursor.com/blog/mixture-of-kittens">Cursor Open-Sources Mixture-of-Kittens: Production MoE Megakernel for NVL72s</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Cursor released Mixture-of-Kittens (MoK), their production MoE training megakernel that fuses all MoE communication and computation into a single, fully deterministic kernel for NVL72 racks. MoK eliminates the MoE layer bottleneck that consumed over half of end-to-end training time for their Composer agentic coding model.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">Training</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is rare production ML infrastructure from a company training frontier coding models at scale. MoK addresses the exact GPU utilization problems teams hit when moving to GB300 NVL72s — CPU-GPU synchronization stalls and communication overhead. If you're training MoE models on NVLink-connected GPU clusters, this is the kernel you want.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Training MoE models on NVL72 racks with fused communication+compute</li>
+          <li>Eliminating CPU-GPU synchronization stalls on GB300 hardware</li>
+          <li>Deterministic MoE training for reproducibility</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Open-sourced from Cursor's production training stack for Composer</li>
+          <li>Powers training across tens of thousands of GPUs</li>
+          <li>Built on top of their earlier MXFP8/NVFP4 kernel and warp-decode work</li>
+          <li>Addresses GB300 NVL72-specific bottlenecks that all teams on this hardware face</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/cursor/mixture-of-kittens">GitHub repo</a></li>
+          <li><a href="https://cursor.com/blog/composer-2">Composer 2 blog post</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.microsoft.com/en-us/research/publication/agentic-coding-in-the-wild-characterizing-github-copilot-at-production-scale/">Microsoft Publishes First Production-Scale Study of Agentic Coding: 13.5M Copilot Sessions Analyzed</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Microsoft Research published the first production-scale characterization of agentic coding workloads using sampled GitHub Copilot traces from June 2026: 3.2M users, 13.5M sessions, 761M LLM calls, and 95 trillion tokens. Key finding: KV cache hit rates average 90% within a turn but drop to 55% across turn boundaries.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Research</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most comprehensive empirical data on how coding agents actually behave in production. The cache invalidation patterns, long-tailed token distributions, and the gap between quick agent turnarounds and minutes-long user idle periods have direct implications for how you architect inference infrastructure for agentic workloads.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Optimizing KV cache strategies for agentic inference serving</li>
+          <li>Capacity planning for coding agent infrastructure</li>
+          <li>Understanding real-world agent loop patterns for system design</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published by Microsoft Research with real Copilot production data</li>
+          <li>3.2M users and 95T tokens analyzed — largest agentic workload study to date</li>
+          <li>Covered by Developers Digest and multiple AI engineering outlets</li>
+          <li>Includes lightweight idle-time predictor for infrastructure optimization</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.developersdigest.tech/blog/copilot-agent-traces-production-scale-2026">Developers Digest analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.liquid.ai/blog/lfm2-5-2-6b">Liquid AI Releases LFM2.5-2.6B: An Agentic Model That Runs Entirely On-Device</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Liquid AI released LFM2.5-2.6B, a 2.6B parameter agentic model pre-trained on 34T tokens with 128K context. It runs on phones and CPUs while supporting planning, tool calling, and multi-step tasks. Post-training includes a four-stage pipeline ending with agentic reinforcement learning.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">LLM</span>
+        <span class="tag">On-Device</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Zero marginal token cost changes the economics of agents. When inference is free and local, you can parallelize agents massively on commodity hardware — running background tasks that burn millions of tokens with no API bill. The 128K context and agentic RL training make this more than a toy model.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running local coding agents with zero inference cost</li>
+          <li>On-device tool-calling agents for mobile and edge</li>
+          <li>Massively parallel background agent tasks on local hardware</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Available on Hugging Face with base and post-trained variants</li>
+          <li>34T token pre-training is substantial for a 2.6B model</li>
+          <li>128K tokenizer expanded to 128K vocab for multilingual support</li>
+          <li>Four-stage post-training pipeline including agentic RL</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://huggingface.co/LiquidAI/LFM2.5-2.6B">Hugging Face model</a></li>
+          <li><a href="https://docs.liquid.ai/lfm/models/lfm25-2.6b">Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://mistral.ai/news/shieldstral/">Mistral Ships Shieldstral: A 3B Open-Weights Multimodal Safety Classifier</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Mistral released Shieldstral, a 3B parameter open-weights multimodal safety classifier that outperforms models up to 7x its size. It handles both text and image moderation in a single model, released August 4.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Safety</span>
+        <span class="tag">Mistral</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Safety classifiers are table stakes for production AI systems, but most teams either use expensive API-based solutions or cobble together multiple models. A single 3B model that handles multimodal content and beats 21B+ competitors means you can run safety checks locally without sacrificing accuracy or adding latency.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosted content moderation for AI applications</li>
+          <li>Adding safety guardrails to agentic workflows without API costs</li>
+          <li>Multimodal content filtering at inference time</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released by Mistral on August 4, 2026</li>
+          <li>Open weights — can be self-hosted</li>
+          <li>Outperforms models 7x its size on safety benchmarks</li>
+          <li>Multimodal (text + image) in a single model</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/idea/2026/08/intellij-idea-goes-lsp/">JetBrains Ships IntelliJ IDEA as an LSP Server: Java and Kotlin Intelligence for VS Code, Cursor, and Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">JetBrains released a preview VS Code extension that exposes IntelliJ IDEA's Java and Kotlin language intelligence as an LSP server. It works in VS Code, Cursor, and any LSP-capable editor. Internal trials show the same LSP server significantly improves terminal-based agentic workflows like Claude Code and Codex.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">JetBrains</span>
+        <span class="tag">LSP</span>
+        <span class="tag">Java</span>
+        <span class="tag">Kotlin</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is JetBrains acknowledging that the IDE is no longer the only place code gets written. Agents using LSP servers get faster, more deterministic results with lower token consumption. If your team writes Java or Kotlin and uses coding agents, this is a direct upgrade to agent accuracy on your codebase.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Getting IntelliJ-grade Java/Kotlin intelligence in VS Code and Cursor</li>
+          <li>Improving coding agent accuracy with LSP-backed navigation and analysis</li>
+          <li>Running refactorings and code analysis outside of IntelliJ</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official JetBrains blog post on August 4</li>
+          <li>Preview extension available for VS Code and forks (Cursor)</li>
+          <li>Internal trials with Claude Code and Codex show promising results</li>
+          <li>Covers Java, Kotlin, and mixed-language projects</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.copilotkit.ai/blog/channels-sdk">CopilotKit Open-Sources Channels SDK: Run Any AG-UI Agent Inside Slack and Microsoft Teams</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">CopilotKit released the Channels SDK, an MIT-licensed library that brings any AG-UI protocol agent into Slack, Microsoft Teams, and other chat platforms. One agent definition, multiple delivery surfaces — the platform handles credentials, delivery, and message ordering.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Slack</span>
+        <span class="tag">Teams</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The distribution problem for agents is real: you build one, then need separate integrations for every surface where people work. Channels SDK standardizes this with AG-UI as the protocol layer. If you've built an agent and need it in Slack or Teams, this saves weeks of integration work.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploying your existing agent into Slack and Teams without rewriting</li>
+          <li>Building multi-channel agent experiences with one codebase</li>
+          <li>Adding conversational agents to enterprise chat with shared memory</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>MIT-licensed, open source on GitHub</li>
+          <li>Covered by MarkTechPost on launch day</li>
+          <li>Built on AG-UI protocol standard</li>
+          <li>Slack and Teams channels managed out of the box</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/CopilotKit/channels-sdk">GitHub repo</a></li>
+          <li><a href="https://www.marktechpost.com/2026/08/04/copilotkit-open-sources-channels-sdk/">MarkTechPost coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://blog.duolingo.com/production-ready-ai-agent-platform/">Duolingo Reveals How They Built a Production-Ready AI Agent Platform</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Duolingo published their engineering approach to solving agent sprawl: a shared platform where developers define an agent once (system prompt, MCP tools, repo access), and the platform handles execution, orchestration, observability, and evaluation. Agents are defined in a registry and can be invoked from Slack, internal sites, CLI, or Temporal workflows.</p>
+      <div class="article-meta">
+        <span class="tag">Agents</span>
+        <span class="tag">Platform Engineering</span>
+        <span class="tag">Duolingo</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Temporal</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is a production blueprint for the 'every team is rebuilding agent infrastructure' problem. Duolingo's approach — declarative agent definitions, shared MCP servers, and a unified execution layer — is the pattern enterprise teams need. The Temporal integration for orchestration is particularly practical.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Standardizing agent infrastructure across engineering teams</li>
+          <li>Building reusable agent definitions with shared tooling</li>
+          <li>Making agents invocable from Slack, CLI, and workflow engines</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published on Duolingo's engineering blog August 4</li>
+          <li>Running in production across multiple teams at Duolingo</li>
+          <li>Uses MCP servers and Temporal for orchestration</li>
+          <li>Solves the distribution problem with multi-surface invocation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://www.vlt.io/blog/1-0">vlt 1.0 Ships With Hosted JavaScript Package Registries</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">vlt, the next-generation JavaScript package manager from npm's original creator, hit 1.0 GA alongside hosted package registries and ecosystem mirrors. The stable client release signals production readiness after months in beta.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Package Management</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>From the creator of npm, vlt is a ground-up rethink of JavaScript package management. The hosted registry offering is notable timing given the ChainDrop npm supply chain attack — teams looking for alternatives to the npm registry now have a production-ready option with mirrors.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Migrating from npm to a modern package manager</li>
+          <li>Running private hosted registries for enterprise JavaScript</li>
+          <li>Setting up ecosystem mirrors for supply chain security</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>1.0 GA release on August 4, 2026</li>
+          <li>Created by npm's original author</li>
+          <li>Includes hosted registries and ecosystem mirrors</li>
+          <li>Stable client after extended beta period</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.stepsecurity.io/blog/chaindrop-npm-worm">ChainDrop Worm Hits npm: 444 Packages Compromised in Under 4 Hours via Keyv Supply Chain Attack</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">A self-propagating worm called ChainDrop poisoned 444 npm packages and 2,212 versions in under four hours, starting with the popular keyv package. The worm uses Bun for fast execution, harvests CI/CD credentials, and uses an Ethereum smart contract as a dead-drop C2 channel. As of August 4, malicious versions are still reachable on the npm registry.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">npm</span>
+        <span class="tag">Supply Chain</span>
+        <span class="tag">Incident</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most sophisticated npm supply chain attack to date. ChainDrop doesn't just inject malicious code — it self-propagates by stealing maintainer credentials and publishing poisoned versions of their other packages. If your project depends on keyv (used by got, cacheable-request, and thousands of other packages), you need to audit your lockfile now.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Auditing your npm lockfile for compromised keyv/cacheable versions</li>
+          <li>Adding supply chain security scanning to CI/CD pipelines</li>
+          <li>Understanding self-propagating supply chain attack patterns</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>444 packages and 2,212 versions compromised</li>
+          <li>Covered by CSO Online, The Hacker News, JFrog, Socket.dev, and StepSecurity</li>
+          <li>Live incident as of publication — worm still spreading</li>
+          <li>Uses novel Ethereum dead-drop C2 and Bun-based execution</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.csoonline.com/article/4205276/chaindrop-credential-stealing-worm-infects-over-400-npm-packages.html">CSO Online coverage</a></li>
+          <li><a href="https://research.jfrog.com/post/shai-hulud-is-back-august/">JFrog security research</a></li>
+          <li><a href="https://thehackernews.com/2026/08/keyv-linked-npm-worm-poisons-hundreds.html">The Hacker News coverage</a></li>
+          <li><a href="https://socket.dev/blog/popular-npm-packages-in-the-keyv-and-cacheable-namespaces-compromised-in-active-supply-chain">Socket.dev advisory</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.databricks.com/blog/unity-ai-gateway-generally-available">Databricks Unity AI Gateway Goes GA: Unified Governance for AI Spend, Security, and Access</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Databricks announced GA for Unity AI Gateway, a unified control plane for governing AI spend, security, and access across agents, models, MCPs, skills, and tools. Thousands of customers including Rivian, Asana, and Edmunds are already using it, with over a quadrillion tokens processed.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">Governance</span>
+        <span class="tag">AI Security</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Agent sprawl is the new microservice sprawl. As teams deploy dozens of agents, MCPs, and external models, there's no single pane of glass for cost, security, or access control. Unity AI Gateway addresses this at the platform level — if your org is past the 'one team, one agent' stage, this is the governance layer you need.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Governing AI spend across multiple agent platforms</li>
+          <li>Enforcing security policies for agents accessing sensitive data</li>
+          <li>Providing unified access control for MCPs and external models</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GA announcement from Databricks</li>
+          <li>Thousands of customers including Rivian, Asana, and Edmunds</li>
+          <li>Over a quadrillion tokens processed through the gateway</li>
+          <li>Covers agents, MCPs, skills, tools, and models in one plane</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.databricks.com/product/artificial-intelligence/unity-ai-gateway">Product page</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://snyk.io/blog/snyk-secrets/">Snyk Secrets Goes GA: ML-Powered Secrets Detection Built for the AI-Generated Code Era</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Snyk launched Snyk Secrets into GA, powered by the BitPatrol acquisition's ML engine that understands the context surrounding a secret, not just its pattern shape. It integrates into agentic workflows, PRs, and CI/CD pipelines, designed for the volume and speed of AI-generated code.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">DevSecOps</span>
+        <span class="tag">Snyk</span>
+        <span class="tag">AI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>AI coding agents generate code fast enough that regex-based secret scanners can't keep up with false positives. Snyk Secrets uses ML to understand context (is this a real API key or a placeholder?), which is exactly the accuracy bar needed when agents are producing hundreds of files per session.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Scanning AI-generated code for leaked secrets in CI/CD</li>
+          <li>Adding ML-powered secret detection to agentic coding workflows</li>
+          <li>Reducing false positives in secret scanning for high-volume codebases</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GA launch on August 4 from Snyk</li>
+          <li>Built on BitPatrol acquisition — production ML engine</li>
+          <li>Integrates with agentic workflows, PRs, and CI/CD</li>
+          <li>Part of Snyk AI Security Platform</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://snyk.io/blog/future-snyk-secrets/">Snyk Secrets vision post</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
