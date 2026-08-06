@@ -1,0 +1,152 @@
+{
+  "highlights": [
+    {"text": "Meta releases Muse Code: a terminal coding agent with persistent async background agents, powered by Muse Spark 1.2", "anchor": "ai-tools-and-models-0"},
+    {"text": "Qwen3.8-Max ships at 2.4T params (95B active) with open weights next week — ran 10+ days of autonomous coding in testing", "anchor": "ai-tools-and-models-1"},
+    {"text": "OpenAI open-sources Symphony: autonomous project orchestration that monitors Linear boards and lands PRs without supervision", "anchor": "ai-tools-and-models-2"},
+    {"text": "AWS releases Kiro Crew: open-source agent orchestration used by 39,000 Amazon builders, now available for self-hosting", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Vercel Labs ships Zero: a graph-first systems language where every error has a stable code and machine-readable repair plan", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "DuckDB hits 40,000 GitHub stars — the in-process analytics engine continues its march toward ubiquity", "anchor": "infrastructure-and-production-0"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Meta Releases Muse Code: A Terminal Coding Agent With Persistent Background Agents",
+          "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2",
+          "tldr": "Meta released Muse Code (beta), a terminal coding agent powered by their new Muse Spark 1.2 model. Unlike other CLI agents, Muse Code runs persistent async background agents that stay active throughout a session rather than spawning per-task, and uses a local event log that makes every run replay-exact and restart-safe after crashes.",
+          "why_it_matters": "The persistent background agent architecture is the interesting part. Instead of spawning and tearing down subagents per task, Muse Code keeps specialized agents running throughout the session, reducing latency and redundant context-gathering on multi-step tasks. The event log design also means long-running tasks survive crashes — a real problem with current CLI agents.",
+          "traction": "high",
+          "traction_evidence": ["Released by Meta AI Research on August 6, 2026", "Covered by The Register on launch day", "Ships with bundled skills: /plan, /grill (stress-test plans), /goal", "Powered by Muse Spark 1.2, a coding-focused model update with scaled training compute"],
+          "use_cases": ["Complex multi-step coding tasks across large repositories", "Long-running autonomous engineering sessions that survive crashes", "Coordinating multiple specialized agents in a single terminal session"],
+          "tags": ["AI", "Coding Agent", "Meta", "Terminal"],
+          "links": [
+            {"url": "https://www.theregister.com/ai-and-ml/2026/08/06/meta-wants-to-get-inside-your-terminal-with-its-new-coding-agent/5283717", "label": "The Register coverage"}
+          ]
+        },
+        {
+          "title": "Qwen3.8-Max Ships: 2.4 Trillion Parameters With Open Weights Coming Next Week",
+          "url": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "tldr": "Alibaba released Qwen3.8-Max, a 2.4T parameter model (95B active) built on Qwen 3.5 architecture. It's the first Qwen-Max-class model to get open weights (releasing next week). In testing, it completed a 10+ day autonomous coding run building a self-evolving harness that normalizes requirements into issues, claims them, and iterates through feedback loops.",
+          "why_it_matters": "The 10-day autonomous coding demo is the headline: a model that builds a project, creates its own test harness, and iterates based on feedback for over a week without human intervention. The open weights at Max-class scale (95B active) will also give teams a serious self-hostable option for long-horizon agentic workflows.",
+          "traction": "high",
+          "traction_evidence": ["Released August 3 on QwenCloud API", "Open weights announced for next week — first Max-class open release", "2.4T total parameters with 95B active via MoE", "Demonstrated 10+ day autonomous coding sessions"],
+          "use_cases": ["Self-hosted frontier-class model for agentic coding", "Long-horizon autonomous engineering workflows", "Self-evolving development harnesses that iterate without human input"],
+          "tags": ["AI", "LLM", "Qwen", "Open Source", "Agents"],
+          "links": [
+            {"url": "https://www.qwencloud.com/", "label": "QwenCloud API"}
+          ]
+        },
+        {
+          "title": "OpenAI Open-Sources Symphony: Autonomous Project Management for Coding Agents",
+          "url": "https://github.com/openai/symphony",
+          "tldr": "OpenAI released Symphony, an Apache 2.0 orchestration layer that turns project management boards into autonomous coding runs. Symphony monitors a Linear board, spawns agents to handle tasks, collects proof of work (CI status, PR reviews, complexity analysis, walkthrough videos), and lands PRs when accepted — engineers manage work, not agents.",
+          "why_it_matters": "This is the shift from 'agent as coding assistant' to 'agent as team member with a backlog.' Symphony abstracts the supervision problem: instead of watching an agent code, you review its deliverables. The proof-of-work model (CI, reviews, video walkthroughs) is how you build trust in autonomous execution. 26K stars in early preview.",
+          "traction": "high",
+          "traction_evidence": ["26,449 GitHub stars", "Apache 2.0 license", "Built on OpenAI's harness engineering philosophy", "Integrates with Linear for project management"],
+          "use_cases": ["Autonomous task execution from project management boards", "Scaling engineering output by managing work queues instead of supervising agents", "Building proof-of-work pipelines for agent-generated code"],
+          "tags": ["AI", "Agents", "OpenAI", "Project Management", "Open Source"],
+          "links": [
+            {"url": "https://openai.com/index/harness-engineering/", "label": "Harness engineering blog post"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Vercel Labs Ships Zero: A Systems Language Designed for AI Agents to Write and Repair",
+          "url": "https://www.infoq.com/news/2026/08/vercel-ships-zero-ai/",
+          "tldr": "Vercel Labs released Zero, an Apache 2.0 systems programming language where the primary consumer of compiler output is an AI agent, not a human. Every error has a stable code (e.g., NAM003), typed repair metadata, and `zero fix --plan --json` returns machine-readable repair plans. v0.3.0 made graph-first authoring the default — a binary graph store is the compiler input, .0 text files are human-readable projections.",
+          "why_it_matters": "Zero is a bet that programming languages should be redesigned for AI agents as first-class users. The stable error codes + typed repair metadata + machine-readable fix plans mean agents can handle compiler errors deterministically instead of pattern-matching on error messages. The World capability for effects is also interesting — function signatures alone reveal I/O surface area.",
+          "traction": "medium",
+          "traction_evidence": ["5,200+ GitHub stars, v0.3.4", "Apache 2.0 licensed", "InfoQ coverage on August 6", "Hello world at 16.2 KiB built in ~1ms"],
+          "use_cases": ["Building systems software with AI agents as the primary authors", "Deterministic compiler error handling in agentic coding loops", "Capability-based effect tracking for auditing agent-generated code"],
+          "tags": ["DevTools", "Programming Language", "Vercel", "Agents", "Open Source"],
+          "links": [
+            {"url": "https://github.com/vercel-labs/zerolang", "label": "GitHub repo"},
+            {"url": "https://zerolang.ai/", "label": "Zero website"}
+          ]
+        },
+        {
+          "title": "AWS Releases Kiro Crew: Open-Source Agent Orchestration Used by 39,000 Amazon Builders",
+          "url": "https://www.infoworld.com/article/4204961/awss-kiro-crew-aims-to-turn-ai-coding-agents-into-autonomous-engineering-teams.html",
+          "tldr": "AWS open-sourced Kiro Crew, an orchestration platform that turns coding agents into persistent, autonomous engineering teammates. Originally built as 'MeshClaw' inside Amazon and adopted by 39,000 builders in six months, it ships with persistent memory, multi-agent orchestration, scheduling, approval workflows, sandboxing, and signed audit logs. Deploys fully on-prem — no AWS account required.",
+          "why_it_matters": "This is Amazon's answer to the 'agent sprawl' problem that Duolingo wrote about last week. The key differentiator is production hardening: signed audit logs, sandboxing, and approval workflows are the enterprise controls that let you trust agents with long-running tasks. The 39K internal adoption number validates the architecture at scale.",
+          "traction": "high",
+          "traction_evidence": ["Adopted by 39,000+ Amazon builders internally as MeshClaw", "Open-sourced with on-prem deployment — no AWS dependency", "InfoWorld and multiple outlets covered the August 4 launch", "Ships with reference apps: DevFleets, Issue Radar, Task Runner"],
+          "use_cases": ["Running persistent autonomous agents across engineering workflows", "Agent orchestration with enterprise audit trails and approval gates", "Self-hosted agent infrastructure without cloud vendor lock-in"],
+          "tags": ["DevTools", "Agents", "AWS", "Open Source", "Orchestration"],
+          "links": []
+        },
+        {
+          "title": "Graphify Hits 103K Stars: Turn Any Codebase Into a Queryable Knowledge Graph",
+          "url": "https://github.com/Graphify-Labs/graphify",
+          "tldr": "Graphify, a YC-backed tool that converts codebases into queryable knowledge graphs using tree-sitter AST parsing, has crossed 103K GitHub stars. It works as a /graphify skill in Claude Code, Cursor, Codex, and Gemini CLI. All code parsing is local and deterministic — no LLM, no vector store. Every edge is tagged EXTRACTED or INFERRED so you know what was read from source vs. resolved.",
+          "why_it_matters": "The 'no vector store' approach is the differentiator. Instead of embedding code into vectors (lossy, non-deterministic), Graphify builds a structural graph from AST parsing. For coding agents, this means navigating a codebase through typed relationships rather than semantic similarity. At 103K stars, it's become the de facto tool for giving agents structural code understanding.",
+          "traction": "high",
+          "traction_evidence": ["103,160 GitHub stars", "YC-backed (Graphify Labs)", "Works as a skill in Claude Code, Cursor, Codex, Gemini CLI", "Deterministic AST parsing with tree-sitter — no LLM required"],
+          "use_cases": ["Giving coding agents structural understanding of large codebases", "Querying code relationships without grep or semantic search", "Onboarding to unfamiliar codebases with explained dependency graphs"],
+          "tags": ["DevTools", "Code Understanding", "Open Source", "Agents"],
+          "links": [
+            {"url": "https://app.graphify.com/login", "label": "Graphify Platform (early access)"}
+          ]
+        },
+        {
+          "title": "Cloudflare Open-Sources Its AI Triage Bot After Driving Astro's Issue Backlog Toward Zero",
+          "url": "https://thenewstack.io/cloudflare-astro-triage-bot/",
+          "tldr": "Cloudflare open-sourced the AI-powered GitHub issue triage bot that helped the Astro framework drive its issue backlog toward zero for the first time in 5 years. The bot automates classification, deduplication, and routing of GitHub issues, turning a manual bottleneck into an automated pipeline.",
+          "why_it_matters": "Issue triage is the unglamorous maintenance work that slows down every open-source project. A proven, production-tested bot from a major company that demonstrably cleared a 5-year backlog is immediately useful for any project drowning in issues. This is the kind of practical AI application that compounds over time.",
+          "traction": "medium",
+          "traction_evidence": ["Proven in production on Astro's GitHub — backlog heading to zero for first time in 5 years", "Open-sourced by Cloudflare", "Covered by The New Stack"],
+          "use_cases": ["Automated GitHub issue triage for open-source projects", "Reducing maintainer burden on high-volume repositories", "Issue deduplication and routing at scale"],
+          "tags": ["DevTools", "Open Source", "Cloudflare", "Automation"],
+          "links": []
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "DuckDB Hits 40,000 GitHub Stars: The In-Process Analytics Engine Keeps Growing",
+          "url": "https://duckdb.org/2026/08/05/github-40k-stars",
+          "tldr": "DuckDB crossed 40,000 GitHub stars, up from 30K last summer. Since the last milestone, the team shipped DuckDB 1.4.0 (their first LTS release) and continued expanding the ecosystem of extensions and integrations. The post reflects on the growth trajectory and ecosystem developments.",
+          "why_it_matters": "DuckDB has become the default answer to 'I need to query data without setting up a database.' Going from 30K to 40K stars in just over a year, with an LTS release, signals that it's moving from 'cool tool' to 'production infrastructure.' If you're building data pipelines, ETL tools, or analytics features, DuckDB is increasingly the embedded engine to reach for.",
+          "traction": "high",
+          "traction_evidence": ["40,000 GitHub stars as of August 5, 2026", "First LTS release (v1.4.0) shipped since last milestone", "10K new stars in ~13 months", "Growing extension ecosystem"],
+          "use_cases": ["Embedded analytics in applications without external database dependencies", "Local data exploration and ad-hoc querying", "Building data pipelines with an in-process SQL engine"],
+          "tags": ["Database", "Analytics", "Open Source", "DuckDB"],
+          "links": [
+            {"url": "https://github.com/duckdb/duckdb", "label": "GitHub repo"}
+          ]
+        },
+        {
+          "title": "Kubernetes Gateway API v1.6: TCPRoute and UDPRoute Graduate to Standard",
+          "url": "https://kubernetes.io/blog/2026/08/03/gateway-api-v1-6-release/",
+          "tldr": "Kubernetes SIG Network released Gateway API v1.6, promoting TCPRoute and UDPRoute from experimental to standard channel. This means L4 routing for non-HTTP protocols now has the same stability guarantees as HTTPRoute, completing a major gap in the Gateway API specification.",
+          "why_it_matters": "Gateway API is the successor to Ingress, and L4 protocol support was the biggest missing piece for teams running databases, message queues, gRPC, or game servers behind it. With TCPRoute and UDPRoute now standard, you can use one Gateway API configuration for your entire traffic stack instead of falling back to provider-specific CRDs for non-HTTP workloads.",
+          "traction": "high",
+          "traction_evidence": ["Official Kubernetes SIG Network release on August 3", "TCPRoute and UDPRoute promoted from experimental to standard", "Completes L4 support in Gateway API specification", "Backed by all major Kubernetes ingress providers"],
+          "use_cases": ["Unified L4+L7 traffic routing with a single Gateway API config", "Running databases and message queues behind standard Kubernetes routing", "Migrating from Ingress to Gateway API for non-HTTP workloads"],
+          "tags": ["Kubernetes", "Networking", "Infrastructure", "Cloud Native"],
+          "links": []
+        },
+        {
+          "title": "mise v2026.8.2 Ships Declarative System Bootstrap: Converge Files, Users, Services, and Docker Compose",
+          "url": "https://newreleases.io/project/github/jdx/mise/release/v2026.8.2",
+          "tldr": "mise (the polyglot dev tool manager) shipped v2026.8.2, turning `mise bootstrap` into a full declarative host-provisioning system. Beyond packages, mise can now converge privileged files, Linux users and groups, systemd services, and Docker Compose stacks — all from the same config file that manages your dev tool versions.",
+          "why_it_matters": "mise started as a better asdf. Now it's becoming a lightweight alternative to Ansible for developer machine provisioning. One tool that manages your language runtimes, system services, Docker stacks, and user accounts from a single config means fewer moving parts in your onboarding and CI setup. For teams that found Ansible or Nix too heavy, this is a practical middle ground.",
+          "traction": "medium",
+          "traction_evidence": ["v2026.8.2 released August 6, 2026", "Extends existing mise ecosystem used for dev tool management", "Adds file convergence, user/group management, systemd, Docker Compose", "Active community on GitHub"],
+          "use_cases": ["Declarative developer machine provisioning without Ansible", "Unified dev tools + system services management in one config", "CI environment setup with reproducible system state"],
+          "tags": ["DevOps", "Developer Tools", "Infrastructure", "Open Source"],
+          "links": [
+            {"url": "https://github.com/jdx/mise", "label": "GitHub repo"}
+          ]
+        }
+      ]
+    }
+  ]
+}
