@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 07, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 07, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/">TypeScript 7.0 ships with a native Go compiler: 10x faster builds, Slack CI drops from 7.5 min to 1.25 min</a></li>
+      <li><a href="https://aiinsiders.net/article/deepseek-ships-production-v4-flash-0731-claims-wins-over">DeepSeek V4-Flash-0731 goes production — beats its own larger Pro model on agentic benchmarks, ships built-in speculative decoding</a></li>
+      <li><a href="https://www.primeintellect.ai/blog/prime-agent">Prime Intellect open-sources Prime Agent: a self-improving RLM harness that scores 95.5% on ARC-AGI-3 with Opus 5</a></li>
+      <li><a href="https://developers.cloudflare.com/browser-run/kitesurf/">Cloudflare launches Kitesurf: an agent-first browser running in V8 isolates, 3-7x less CPU than Chromium</a></li>
+      <li><a href="https://github.com/yc-software/qm">Y Combinator open-sources QM: the MIT-licensed multiplayer agent harness it runs across accounting, legal, and engineering</a></li>
+      <li><a href="https://glonce.com/deno-ships-celld-a-self-hosted-alternative-to/">Deno ships celld: self-hosted Durable Objects with per-object SQLite and S3 replication, no Cloudflare required</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://aiinsiders.net/article/deepseek-ships-production-v4-flash-0731-claims-wins-over">DeepSeek V4-Flash-0731 Goes Production: Beats Its Own Pro Model on Agentic Benchmarks</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">DeepSeek released V4-Flash-0731 on Hugging Face as the official production version of V4-Flash. On Terminal Bench 2.1 it scores 82.7 (vs Pro Preview's 72.1), and on DeepSWE it posts 54.4 (vs Pro Preview's 12.8). Ships with DSpark, a built-in speculative decoding module that generates multiple draft tokens in parallel for faster inference.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">LLM</span>
+        <span class="tag">DeepSeek</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Inference</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>A Flash-tier model outperforming its own Pro sibling on agentic benchmarks reshuffles the cost-performance calculus for coding agents. If your agent workloads are latency-sensitive and you're paying for Pro-class models, V4-Flash-0731 delivers better agentic performance at Flash pricing. The built-in speculative decoding (DSpark) also means you get speed gains without needing custom inference infrastructure.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Cost-effective coding agent inference at Flash-tier pricing</li>
+          <li>Agentic workflows requiring high Terminal Bench and SWE performance</li>
+          <li>Faster token generation via built-in speculative decoding</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Production release on Hugging Face (July 31)</li>
+          <li>Beats DeepSeek Pro Preview on 7 of 9 agentic benchmarks</li>
+          <li>Terminal Bench 2.1: 82.7 vs Pro's 72.1</li>
+          <li>DeepSWE: 54.4 vs Pro's 12.8</li>
+          <li>Ships built-in speculative decoding module (DSpark)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://huggingface.co/deepseek-ai">Hugging Face</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.primeintellect.ai/blog/prime-agent">Prime Intellect Open-Sources Prime Agent: A Self-Improving RLM Harness Scoring 95.5% on ARC-AGI-3</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Prime Intellect released Prime Agent, an MIT-licensed self-improving coding harness built on two abstractions: the Recursive Language Model (RLM), which treats sub-agents as function calls inside a persistent IPython kernel, and the Continual Harness, which lets the agent CRUD its own prompts, skills, and memory. With Opus 5 it reports 95.5% on ARC-AGI-3, above the human expert baseline of 95.4%.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Self-Improvement</span>
+        <span class="tag">Research</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The self-improvement loop is the interesting part. /refine reads the agent's own trajectory and applies the smallest edit needed, recording what triggered the change and the outcome. This means the harness gets better at each task type over time without retraining the model. The persistent IPython kernel for tool calling also eliminates the schema-definition bottleneck of traditional function calling.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-improving coding agents that learn from their own trajectories</li>
+          <li>Sub-agent orchestration via persistent Python kernels</li>
+          <li>Research and complex reasoning tasks requiring iterative refinement</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>95.5% on ARC-AGI-3 (above 95.4% human expert baseline)</li>
+          <li>MIT-licensed, open source</li>
+          <li>Trending on Hacker News (August 5)</li>
+          <li>Covered by MarkTechPost</li>
+          <li>Two backing research papers (RLM and Continual Harness)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/earendil-works/pi">pi TUI framework</a></li>
+          <li><a href="https://www.marktechpost.com/2026/08/06/prime-intellect-releases-prime-agent/">MarkTechPost coverage</a></li>
+          <li><a href="https://news.ycombinator.com/item?id=49189075">Hacker News discussion</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m08/cisco-antares-helping-to-make-ai-secure-for-all.html">Cisco Releases Antares: Open-Weight SLMs Purpose-Built for Vulnerability Localization</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Cisco released Antares, a family of specialized small-language models (SLMs) designed for pinpointing vulnerabilities in codebases. The first two models are available as open weights on Hugging Face. Unlike using general-purpose LLMs for security scanning, Antares models are purpose-trained for vulnerability localization, making them cheaper to run and safer to deploy on-premise.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Security</span>
+        <span class="tag">Cisco</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">SLM</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Security scanning with frontier LLMs is expensive and often requires sending code to the cloud. Purpose-built SLMs that run locally change the economics: you can scan every commit, every PR, and every dependency update without API costs or data exposure. As AI-generated code volume increases, dedicated vulnerability detection becomes essential infrastructure.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>On-premise vulnerability scanning for every commit and PR</li>
+          <li>Adding security gates to agentic coding pipelines</li>
+          <li>Cost-effective continuous security analysis without API dependencies</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released by Cisco on August 4, 2026</li>
+          <li>Open weights on Hugging Face</li>
+          <li>Purpose-trained SLMs, not fine-tuned general models</li>
+          <li>Addresses growing need for AI code security scanning</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blogs.cisco.com/ai/introducing-antares-the-most-efficient-open-weight-ai-models-for-vulnerability-localization">Cisco AI blog</a></li>
+          <li><a href="https://huggingface.co/">Hugging Face models</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/">TypeScript 7.0 Ships With a Native Go Compiler: 10x Faster Builds Are Here</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Microsoft released TypeScript 7.0, shipping the native Go compiler port that's been in development since March 2025. Full builds are 8-12x faster: the VS Code codebase compiles in 10.6s (down from 125.7s), and Slack's CI type-checking dropped from 7.5 minutes to 1.25 minutes. Editor experience improves too — opening a file with an error in the VS Code codebase takes 1.3s instead of 17.5s.</p>
+      <div class="article-meta">
+        <span class="tag">TypeScript</span>
+        <span class="tag">Compiler</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Performance</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the biggest TypeScript release in years. A 10x build speedup affects every TypeScript project's CI pipeline, editor responsiveness, and developer iteration speed. The @typescript/native-preview package already had 8.5M weekly downloads, signaling massive pent-up demand. Note: the programmatic API isn't stable until 7.1, so tools like typescript-eslint and framework tooling for Vue, Svelte, and Astro need time to catch up.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Dramatically faster CI/CD pipelines for TypeScript projects</li>
+          <li>Improved editor responsiveness for large codebases</li>
+          <li>Parallel type-checking with --checkers and --builders flags</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Microsoft release</li>
+          <li>8.5M weekly downloads on the preview package</li>
+          <li>VS Code team adopted it (125.7s → 10.6s builds)</li>
+          <li>Slack: CI 7.5min → 1.25min</li>
+          <li>Vanta confirmed high-impact adoption</li>
+          <li>InfoQ coverage on August 6</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/08/typescript-7-released/">InfoQ coverage</a></li>
+          <li><a href="https://code.visualstudio.com/blogs/2026/06/26/iterating-faster-with-ts-7">VS Code adoption blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/yc-software/qm">Y Combinator Open-Sources QM: The Multiplayer Agent Harness It Runs Internally</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">YC open-sourced QM (quartermaster), the MIT-licensed multiplayer agent harness it uses across accounting, legal, events, and engineering — including building QM itself. QM deploys to your own cloud (Fly.io or AWS), runs in Slack and the web, and handles inbox triage, code repos (tests, PRs, CI), document search, and project tracking. No YC cloud dependency.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Agents</span>
+        <span class="tag">YC</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Orchestration</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This isn't a demo or a framework — it's the actual agent infrastructure a 500+ person organization uses daily. QM's design treats agents as team members with permissions, workspaces, and fleet administration, not isolated assistants. For startups and mid-sized companies (10-500 people) looking to operationalize agents, this is a production-proven starting point.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploying multiplayer agents across business functions (legal, accounting, engineering)</li>
+          <li>Inbox triage on a schedule with labels and reply drafts</li>
+          <li>Agent-assisted repo management: running tests, opening PRs, monitoring CI</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Open-sourced by Y Combinator from internal production use</li>
+          <li>MIT license</li>
+          <li>Covered by MarkTechPost and RuntimeWire on launch</li>
+          <li>Used across accounting, legal, events, and engineering at YC</li>
+          <li>Self-hostable on Fly.io or AWS — no YC dependency</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.marktechpost.com/2026/08/03/y-combinator-open-sources-qm-multiplayer-ai-agent-harness/">MarkTechPost coverage</a></li>
+          <li><a href="https://runtimewire.com/article/inside-qm-we-read-y-combinator-s-company-wide-agent-runtime">RuntimeWire deep dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://developers.cloudflare.com/browser-run/kitesurf/">Cloudflare Launches Kitesurf: An Agent-First Browser Running in V8 Isolates</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Cloudflare released Kitesurf (beta), a stateless browser built entirely on Workers that's designed for AI agents. It uses 3-7x less CPU and memory than Chromium for common agentic tasks like screenshots and HTML extraction. Existing Browser Run clients work out of the box — just add browser=kitesurf to the endpoint. Free while in beta.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Cloudflare</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Browser</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Browser automation is the bottleneck for web-interacting agents. Spinning up headless Chromium instances is expensive, slow, and hard to scale. Kitesurf runs in V8 isolates with no browser binary, which means instant cold starts and dramatically lower resource usage. For teams building agents that need to browse the web, this changes the cost model from 'expensive per-session' to 'cheap per-request'.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Scalable browser automation for AI agents without headless Chrome overhead</li>
+          <li>Low-cost web scraping and screenshot generation</li>
+          <li>Agent workflows that need to interact with web pages at scale</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released by Cloudflare on August 6, 2026</li>
+          <li>3-7x less CPU and memory than Chromium</li>
+          <li>Free during beta period</li>
+          <li>Covered by MarkTechPost</li>
+          <li>Drop-in compatible with existing Browser Run CDP clients</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.cloudflare.com/kitesurf">Blog announcement</a></li>
+          <li><a href="https://kitesurf.cloudflare.app/">Public playground</a></li>
+          <li><a href="https://www.marktechpost.com/2026/08/06/cloudflare-introduces-kitesurf-an-agent-first-web-browser-that-runs-entirely-in-v8-isolates-on-cloudflare-workers/">MarkTechPost coverage</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://glonce.com/deno-ships-celld-a-self-hosted-alternative-to/">Deno Ships celld: Self-Hosted Durable Objects With Per-Object SQLite and S3 Replication</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Deno released celld, an open-source daemon that runs Cloudflare Workers and Durable Objects on your own machines. Each Durable Object becomes its own SQLite database, continuously replicated to an S3-compatible bucket. Nodes coordinate through the bucket alone — no control plane, no consensus service. Idle cells hibernate to near-zero resource usage.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Deno</span>
+        <span class="tag">Durable Objects</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Edge Computing</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Durable Objects are one of Cloudflare's most compelling primitives, but vendor lock-in has limited adoption. celld makes them portable: run them on your own hardware with any S3-compatible storage as the durable layer. The per-object SQLite design means applications shard by construction — no shared database contention. For teams building stateful agent infrastructure, this is the self-hosted Durable Objects option that didn't exist before.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosted stateful agent infrastructure using Durable Objects patterns</li>
+          <li>Running Cloudflare Workers on-premise without Cloudflare dependency</li>
+          <li>Building per-user or per-session stateful services with automatic sharding</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released by Deno Land Inc.</li>
+          <li>Executes standard Wrangler bundles — compatible with existing Workers tooling</li>
+          <li>Container image available on ghcr.io</li>
+          <li>Binary provenance verifiable with gh attestation</li>
+          <li>Works with AWS S3 or any S3-compatible service including Cloudflare R2</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://celld.dev">celld website</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.pulumi.com/blog/bring-your-terraform-estate-into-the-agentic-era/">Pulumi Cloud Becomes a Terraform State Backend: Agentic IaC Without Ripping Out Terraform</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Pulumi announced that Pulumi Cloud now works as a Terraform state backend and module registry, with first-class HCL support as a Pulumi language. Over 40% of Pulumi users now manage infrastructure using AI agents. Teams can keep their existing Terraform/HCL estate while getting Pulumi's agentic infrastructure capabilities — no migration required.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">IaC</span>
+        <span class="tag">Pulumi</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 40% agent adoption stat is the real story here. Nearly half of Pulumi's users are managing cloud infrastructure through AI agents, not humans typing terraform apply. By making Pulumi Cloud a drop-in Terraform backend, they're letting teams enter the agentic IaC era without rewriting their existing configurations. This is the pragmatic bridge between where teams are (Terraform) and where they're going (agent-managed infrastructure).</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Adding agentic infrastructure management to existing Terraform estates</li>
+          <li>Using Pulumi Cloud as a unified state backend for both Pulumi and Terraform</li>
+          <li>Gradual migration path from Terraform to agentic IaC</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>40%+ of Pulumi users manage infra with AI agents</li>
+          <li>Pulumi Cloud as Terraform state backend — no migration needed</li>
+          <li>First-class HCL support as a Pulumi language</li>
+          <li>Official blog announcement with CEO vision alignment</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.pulumi.com/blog/all-iac-including-terraform-and-hcl/">CEO vision blog post</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ecs-fractional-gpu/">Amazon ECS Now Supports Fractional GPU Scheduling With G6f Instances</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Amazon ECS now supports fractional GPU scheduling on EC2 G6f instances, letting you run multiple AI workloads on a single GPU with hardware-level isolation. Instead of allocating an entire GPU per container, you can assign fractions — reducing waste and cost for inference workloads that don't need a full GPU.</p>
+      <div class="article-meta">
+        <span class="tag">AWS</span>
+        <span class="tag">GPU</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Cost Optimization</span>
+        <span class="tag">ECS</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most AI inference tasks — embedding generation, safety classification, small model serving — don't need a full GPU. Fractional scheduling means you can pack multiple inference workloads onto one GPU without the overhead or complexity of MIG or time-slicing hacks. For teams running many small models (like Cisco Antares for security scanning or Mistral Shieldstral for safety), this directly reduces GPU costs.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running multiple small model inference tasks on a single GPU</li>
+          <li>Cost-effective serving of embedding models, safety classifiers, and SLMs</li>
+          <li>Packing heterogeneous AI workloads onto shared GPU infrastructure</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official AWS announcement on August 6, 2026</li>
+          <li>Native ECS integration — no third-party tooling needed</li>
+          <li>Hardware-level isolation on G6f instances</li>
+          <li>Addresses the 'GPU underutilization for inference' problem at platform level</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
