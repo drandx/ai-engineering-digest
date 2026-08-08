@@ -1,0 +1,152 @@
+{
+  "highlights": [
+    {"text": "Liquid AI ships LFM2.5-2.6B: a 2.6B-param on-device agentic model with 128K context, tool calling, and 220 tok/s on M5 Max", "anchor": "ai-tools-and-models-0"},
+    {"text": "JetBrains opens IntelliJ's Java/Kotlin intelligence via LSP — now available in VS Code, Cursor, and agentic coding flows", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Microsoft publishes first production-scale study of coding agents: 3.2M users, 761M LLM calls, 95T tokens from GitHub Copilot traces", "anchor": "ai-tools-and-models-3"},
+    {"text": "Vercel ships Agent Plugins 1.0: an open standard for packaging Agent Skills and MCP servers into distributable plugins", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Duolingo open-sources how it built a shared agent platform — define once, run everywhere, observe everything", "anchor": "infrastructure-and-production-0"},
+    {"text": "Microsoft Research releases Orchard: open-source agentic AI framework where a 3B-param model hits 69.7% on SWE-bench Verified", "anchor": "ai-tools-and-models-2"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Liquid AI Ships LFM2.5-2.6B: An On-Device Agentic Model With 128K Context and Tool Calling",
+          "url": "https://www.liquid.ai/blog/lfm2-5-2-6b",
+          "tldr": "Liquid AI released LFM2.5-2.6B, a 2.69B parameter agentic model that runs entirely on-device. It has a 128K context window, native tool calling, and was pre-trained on ~34 trillion tokens. Two checkpoints shipped: a base model for fine-tuning and a post-trained model for agentic workloads. It decodes at 220 tokens/s on an M5 Max in under 2.5 GB of memory.",
+          "why_it_matters": "On-device agentic models change the economics and privacy equation for AI-powered tools. At 2.6B parameters with tool calling, LFM2.5 can run agentic workflows on phones, laptops, and edge devices with zero API costs and no data leaving the device. Day-one support in llama.cpp, vLLM, SGLang, and LM Studio means it drops into existing local inference stacks immediately.",
+          "traction": "high",
+          "traction_evidence": ["Open weights on Hugging Face in native, GGUF, MLX, and ONNX formats", "Day-one support in llama.cpp, vLLM, SGLang, and LM Studio", "220 tok/s on M5 Max, single H100 serves ~1.3B tokens/day", "Tool-use scores competitive with models 4x its size", "Covered by MarkTechPost on August 6"],
+          "use_cases": ["Privacy-preserving on-device agent workflows with zero API costs", "Edge deployment for automotive, robotics, and IoT agentic tasks", "Local coding assistants and tool-calling agents on consumer hardware"],
+          "tags": ["AI", "On-Device", "Liquid AI", "Open Source", "Agents"],
+          "links": [
+            {"url": "https://huggingface.co/LiquidAI/LFM2.5-2.6B", "label": "Hugging Face model"},
+            {"url": "https://www.marktechpost.com/2026/08/06/liquid-ai-lfm2-5-2-6b-on-device-agentic-model/", "label": "MarkTechPost coverage"}
+          ]
+        },
+        {
+          "title": "GPT-5.6 August Update: OpenAI Rolls Out Improved Sol and Luna With Effort Slider",
+          "url": "https://deploymentsafety.openai.com/gpt-5-6-august-update/introduction",
+          "tldr": "OpenAI released updated GPT-5.6 Sol and Luna models in ChatGPT, replacing GPT-5.5 Instant as the default for Free and Go users. Plus and Pro users get an effort slider to control how much reasoning ChatGPT applies per response. Both models are rated High capability in Cybersecurity and Biological/Chemical domains under OpenAI's Preparedness Framework. The July versions remain in Codex and ChatGPT Work.",
+          "why_it_matters": "The effort slider is the practical takeaway: it lets developers and power users trade latency for depth on a per-query basis, rather than switching between models. For engineers using ChatGPT as a daily tool, this means fast answers for simple questions and deep reasoning for complex debugging — without model-switching friction. The High cybersecurity capability rating also signals these models are increasingly useful for security-adjacent engineering work.",
+          "traction": "high",
+          "traction_evidence": ["Official OpenAI release replacing GPT-5.5 Instant", "Rolling out to all ChatGPT tiers (Free, Go, Plus, Pro)", "Trending on Hacker News", "Full deployment safety system card published", "First inclusion of dedicated U18 safety evaluations"],
+          "use_cases": ["Variable-effort reasoning for daily engineering workflows", "Security analysis and vulnerability assessment with High-rated cybersecurity capabilities", "Cost-effective default model for teams on Free/Go tiers"],
+          "tags": ["AI", "LLM", "OpenAI", "GPT-5.6", "ChatGPT"],
+          "links": [
+            {"url": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/", "label": "OpenAI blog post"},
+            {"url": "https://news.ycombinator.com/item?id=49112867", "label": "Hacker News discussion"}
+          ]
+        },
+        {
+          "title": "Microsoft Research Releases Orchard: Open-Source Agentic AI Where 3B Params Hits 69.7% on SWE-bench",
+          "url": "https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/",
+          "tldr": "Microsoft Research released Orchard, an open-source framework for scalable agentic AI research. Built around Orchard Env, a reusable Kubernetes environment service, it supports training and evaluating agents across software engineering, web navigation, and personal assistant domains. Orchard-SWE reaches 69.7% on SWE-bench Verified (73.0% with reranking) using only ~3B active parameters — approaching frontier systems 10x larger.",
+          "why_it_matters": "A 3B parameter model hitting 69.7% on SWE-bench Verified challenges the assumption that you need frontier-scale models for effective coding agents. The framework trains agents inside real deployment harnesses (Codex, OpenClaw), not sandboxed toy environments. For teams building custom coding agents, this provides a reproducible training pipeline with open data, open weights, and open evaluation — no proprietary infrastructure required.",
+          "traction": "high",
+          "traction_evidence": ["Released by Microsoft Research", "69.7% SWE-bench Verified with ~3B active params (73.0% with reranking)", "Open-source with training data and evaluation methods", "Supports training inside real harnesses: Codex, OpenClaw, ZeroClaw", "Covers SWE, GUI, and personal assistant agent domains"],
+          "use_cases": ["Training custom coding agents on your own data with open infrastructure", "Evaluating agentic performance across SWE, web, and assistant tasks", "Building cost-effective coding agents with small open-weight models"],
+          "tags": ["AI", "Research", "Microsoft", "Open Source", "SWE-bench"],
+          "links": [
+            {"url": "https://github.com/microsoft/Orchard", "label": "GitHub repo"}
+          ]
+        },
+        {
+          "title": "First Production-Scale Study of Coding Agents: 3.2M Users, 95 Trillion Tokens From GitHub Copilot",
+          "url": "https://arxiv.org/html/2608.00101v1",
+          "tldr": "Microsoft Research published the first production-scale characterization of agentic coding workloads using sampled GitHub Copilot traces from June 2026: 3.2M users, 13M sessions, 761M LLM calls, and 95T tokens. Key finding: KV cache hit rates average 90% within a turn but drop to 55% across turn boundaries. They built an idle-time predictor that captures 86-90% of total idle time for resource orchestration.",
+          "why_it_matters": "This paper provides the empirical foundation for building agent-native infrastructure. The finding that KV cache invalidates dramatically at turn boundaries means current LLM serving systems — designed for chatbots — are architecturally mismatched for coding agents. The 1:1 coupling of LLM calls to tool execution and the long-tailed token consumption patterns suggest we need fundamentally different serving infrastructure for agents.",
+          "traction": "high",
+          "traction_evidence": ["Published by Microsoft Research (arXiv, July 2026)", "Based on production GitHub Copilot data — 3.2M users", "First study of its kind at this scale", "761M LLM calls and 95T tokens analyzed", "Quantifies KV cache behavior and idle-time patterns"],
+          "use_cases": ["Designing LLM serving infrastructure optimized for agentic workloads", "Understanding cache behavior to reduce inference costs for coding agents", "Building idle-time predictors for GPU resource orchestration"],
+          "tags": ["AI", "Research", "Infrastructure", "GitHub Copilot", "LLM Serving"],
+          "links": [
+            {"url": "https://www.microsoft.com/en-us/research/publication/agentic-coding-in-the-wild-characterizing-github-copilot-at-production-scale/", "label": "Microsoft Research page"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "JetBrains Opens IntelliJ's Java and Kotlin Intelligence Via LSP for VS Code, Cursor, and Agents",
+          "url": "https://blog.jetbrains.com/idea/2026/08/intellij-idea-goes-lsp/",
+          "tldr": "JetBrains released a preview VS Code extension that brings IntelliJ IDEA's Java and Kotlin language intelligence to VS Code, Cursor, and other LSP-capable editors via the Language Server Protocol. The extension includes smart completion, navigation, code analysis, refactorings, and debugging. Internal trials show the same LSP functionality significantly improves terminal-based agentic workflows like Claude Code and Codex.",
+          "why_it_matters": "This is JetBrains acknowledging that developers are splitting time between IDEs and agentic flows. By exposing IntelliJ's battle-tested Java/Kotlin intelligence as an LSP server, coding agents get deterministic language understanding — type-aware navigation, refactoring, and analysis — instead of relying on LLMs to infer code structure. For Java/Kotlin teams, this means their coding agents get the same quality of code intelligence that IntelliJ users have had for years.",
+          "traction": "high",
+          "traction_evidence": ["Official JetBrains release (August 2026)", "Preview extension available for VS Code and forks (Cursor)", "Internal trials with Claude Code and Codex show 'very promising results'", "Includes debugging via DAP", "Supports mixed Java/Kotlin projects"],
+          "use_cases": ["Adding IntelliJ-grade Java/Kotlin intelligence to coding agents", "Using VS Code or Cursor with enterprise-grade Java language support", "Improving agentic coding accuracy with deterministic type information"],
+          "tags": ["DevTools", "JetBrains", "LSP", "Java", "Kotlin", "Agents"],
+          "links": []
+        },
+        {
+          "title": "Vercel Ships Agent Plugins 1.0: A Standard Format for Packaging Agent Skills and MCP Servers",
+          "url": "https://vercel.com/blog/introducing-agent-plugins",
+          "tldr": "Vercel released Agent Plugins 1.0, an open, vendor-neutral standard for packaging Agent Skills and MCP servers into distributable plugins. A plugin is a directory with a plugin.json manifest and fixed locations for skills and MCP configurations. The format is intentionally minimal — clients handle installation, distribution, and UX. Compatible clients include Claude Code, Cursor, Codex, and others.",
+          "why_it_matters": "Agent Skills and MCP servers are reusable, but every client packages and discovers them differently. Agent Plugins gives extension authors one format instead of adapting the same component for every client. This is the npm-for-agent-tools moment: a shared packaging standard means skills and MCP servers can be distributed, versioned, and discovered across the ecosystem without client-specific rewrites.",
+          "traction": "medium",
+          "traction_evidence": ["Released by Vercel on August 6, 2026", "1.0.0 specification publicly available at agent-plugins.org", "Vendor-neutral — works across Claude Code, Cursor, Codex", "Builds on existing Agent Skills and MCP standards"],
+          "use_cases": ["Publishing agent skills that work across multiple coding agents", "Distributing MCP server configurations as portable plugins", "Building an ecosystem of reusable agent extensions"],
+          "tags": ["DevTools", "Vercel", "MCP", "Agent Skills", "Standards"],
+          "links": [
+            {"url": "https://agent-plugins.org/", "label": "Agent Plugins specification"}
+          ]
+        },
+        {
+          "title": "Temporal Releases Deputy: Open-Source Supply Chain Security Toolchain Built With AI Agents",
+          "url": "https://temporal.io/blog/introducing-deputy",
+          "tldr": "Temporal released Deputy, an open-source, CLI-first security toolchain for inventorying, scanning, triaging, and controlling dependencies across repositories, container images, VM disk images, and SBOMs. It provides a shared, customizable policy layer for local use, CI, and download-time enforcement. Built using Claude Code and Codex, Deputy also puts deterministic supply chain guardrails around AI-assisted development.",
+          "why_it_matters": "Supply chain attacks are accelerating (see this week's Keyv/Shai-Hulud compromise), and existing scanners drown teams in false positives. Deputy addresses both: deterministic analysis with customizable policies, plus guardrails specifically designed for AI-generated code and dependencies. Coming from Temporal's security team — who built it for their own estate — it's production-tested, not theoretical.",
+          "traction": "medium",
+          "traction_evidence": ["Released by Temporal's Application Security team", "Open-source, CLI-first design", "Built using Claude Code and Codex", "Covers repos, container images, VM disk images, and SBOMs", "Designed to work alongside AI coding agents"],
+          "use_cases": ["Supply chain vulnerability scanning with low false-positive rates", "Adding dependency policy enforcement to CI pipelines", "Putting security guardrails around AI-generated dependency choices"],
+          "tags": ["Security", "DevTools", "Temporal", "Open Source", "Supply Chain"],
+          "links": []
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "How Duolingo Built a Production-Ready Agent Platform: Define Once, Run Everywhere",
+          "url": "https://blog.duolingo.com/production-ready-ai-agent-platform/",
+          "tldr": "Duolingo published a detailed engineering blog on how they built a shared agent platform to stop teams from repeatedly rebuilding the same infrastructure. Agents are defined in a registry (system prompt, MCP servers, repo access), and the platform handles execution, orchestration, observability, and evaluation. Agents are invokable across Slack, internal sites, CLI, and Temporal workflows without rebuilding per surface.",
+          "why_it_matters": "Every company deploying AI agents hits the same wall Duolingo did: prototyping is easy, productionizing is the problem. Their solution — a registry-based platform with shared execution, multi-surface distribution, and built-in observability — is the blueprint for how mid-to-large engineering orgs should operationalize agents. The explicit separation of agent definition from infrastructure is the key architectural decision.",
+          "traction": "high",
+          "traction_evidence": ["Published by Duolingo Engineering on August 4, 2026", "Addresses the 'agent sprawl' problem multiple companies have flagged", "Uses Temporal for orchestration — production-proven stack", "Multi-surface distribution: Slack, CLI, web, workflows", "Built-in evaluation and observability for all agents"],
+          "use_cases": ["Building a shared agent platform for engineering organizations", "Registry-based agent definitions with multi-surface distribution", "Adding observability and evaluation to production agent deployments"],
+          "tags": ["Infrastructure", "Agents", "Duolingo", "Platform Engineering", "Temporal"],
+          "links": []
+        },
+        {
+          "title": "ByteDance Deer-Flow Crosses 79K GitHub Stars: The Long-Horizon SuperAgent Harness",
+          "url": "https://github.com/bytedance/deer-flow",
+          "tldr": "ByteDance's Deer-Flow, an open-source long-horizon SuperAgent harness, has crossed 79,000 GitHub stars. It handles tasks ranging from minutes to hours using sandboxes, persistent memory, tools, skills, subagents, and a message gateway. The framework is designed for research, coding, and creative tasks that require sustained autonomous operation.",
+          "why_it_matters": "At 79K stars, Deer-Flow has quietly become one of the most popular agent frameworks on GitHub. Its focus on long-horizon tasks — the kind that take hours, not seconds — addresses the gap between quick coding assists and sustained autonomous engineering. The combination of sandboxes, persistent memory, and subagent orchestration is the infrastructure pattern that long-running agent workflows require.",
+          "traction": "high",
+          "traction_evidence": ["79,553 GitHub stars, 10,872 forks", "Open-sourced by ByteDance", "Apache 2.0 license", "Active development with 10K+ forks"],
+          "use_cases": ["Long-horizon autonomous coding and research tasks", "Multi-step agent workflows requiring persistent memory", "Orchestrating subagents with sandboxed execution for complex projects"],
+          "tags": ["Infrastructure", "Agents", "ByteDance", "Open Source", "Orchestration"],
+          "links": []
+        },
+        {
+          "title": "Kubeflow SDK Crosses 1 Million PyPI Downloads: One Import for Training, Tuning, and Registry",
+          "url": "https://www.cncf.io/blog/2026/08/03/kubeflow-sdk-evolution-one-million-downloads-and-counting/",
+          "tldr": "The unified kubeflow-sdk package crossed 1 million PyPI downloads, consolidating what used to be separate SDKs for kubeflow-training, kubeflow-katib, and model-registry into a single pip install kubeflow. The SDK abstracts Kubernetes complexity so ML engineers can go from local prototype to distributed training without rewriting code, rebuilding containers, or writing YAML.",
+          "why_it_matters": "ML infrastructure has been notoriously fragmented — different tools for training, tuning, serving, and model management. The unified SDK reaching 1M downloads signals that the community has converged on a single interface. For teams running ML workloads on Kubernetes, this eliminates the context-switching between separate SDKs and the boilerplate of translating local code to distributed training configurations.",
+          "traction": "high",
+          "traction_evidence": ["1 million PyPI downloads", "CNCF project milestone", "Unifies kubeflow-training, kubeflow-katib, and model-registry", "Built from KEP-2170 community working group", "Published August 3, 2026"],
+          "use_cases": ["Unified ML workflow from local prototype to distributed Kubernetes training", "Simplified hyperparameter tuning and model registry management", "Reducing boilerplate for teams deploying ML on Kubernetes"],
+          "tags": ["ML Infrastructure", "Kubernetes", "CNCF", "Kubeflow", "Open Source"],
+          "links": [
+            {"url": "https://clickpy.clickhouse.com/dashboard/kubeflow", "label": "Download stats"},
+            {"url": "https://github.com/kubeflow/trainer/issues/2170", "label": "KEP-2170 design document"}
+          ]
+        }
+      ]
+    }
+  ]
+}
