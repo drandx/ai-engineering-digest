@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 09, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 09, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2">Meta ships Muse Code: a terminal coding agent with persistent async background agents and a crash-safe event-log runtime</a></li>
+      <li><a href="https://github.com/openai/symphony">OpenAI open-sources Symphony (26K stars): monitors Linear/Jira, spawns autonomous Codex agents, lands PRs without supervision</a></li>
+      <li><a href="https://github.com/Graphify-Labs/graphify">Graphify hits 104K GitHub stars: turns any codebase into a queryable knowledge graph via deterministic AST parsing, no vector store</a></li>
+      <li><a href="https://github.com/vercel-labs/zerolang">Vercel Labs ships Zero: a graph-first systems language where compiler errors are machine-readable and agents write the code</a></li>
+      <li><a href="https://blog.cloudflare.com/cloudflare-computer/">Cloudflare introduces @cloudflare/computer: an agent runtime that gives each agent its own computer, mixing isolates and containers</a></li>
+      <li><a href="https://www.infoworld.com/article/4204961/awss-kiro-crew-aims-to-turn-ai-coding-agents-into-autonomous-engineering-teams.html">AWS open-sources Kiro Crew: the orchestration platform Amazon built internally for 39K+ builders to run autonomous engineering workflows</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2">Meta Ships Muse Code: A Terminal Coding Agent With Persistent Background Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Meta released Muse Code (beta), a terminal coding agent powered by Muse Spark 1.2. Unlike other coding agents, Muse Code runs persistent async background agents that stay active throughout a session rather than being spawned per-task. Its event-log runtime makes every model call, tool run, and edit replay-exact and restart-safe — after a crash, the agent resumes precisely where it stopped. Ships with bundled skills: /plan, /grill (stress-test plans), and /goal.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Meta</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">Muse Spark</span>
+        <span class="tag">Terminal</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Meta entering the terminal coding agent race with a fundamentally different runtime design is significant. The persistent background agent architecture reduces latency and redundant information gathering on multi-step tasks. The crash-safe event log is a practical innovation — long-running coding tasks failing midway is a real pain point. Muse Spark 1.2 scaled up training compute specifically on coding tasks, so this is a model purpose-built for the harness.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Terminal-based coding agent with crash recovery for long-running tasks</li>
+          <li>Multi-step debugging with persistent background agents that avoid re-scanning</li>
+          <li>Multimodal input: accepts video files for code generation tasks</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced by Mark Zuckerberg on X (August 5, 2026)</li>
+          <li>Covered by CNBC, The Register, and AI Insiders</li>
+          <li>Powered by Muse Spark 1.2, a coding-focused model update</li>
+          <li>Directly competing with Claude Code, Codex, and Gemini CLI</li>
+          <li>Open beta available on macOS and Linux</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.cnbc.com/2026/08/05/meta-debuts-muse-code-to-take-on-anthropic-and-openai-.html">CNBC coverage</a></li>
+          <li><a href="https://www.theregister.com/ai-and-ml/2026/08/06/meta-wants-to-get-inside-your-terminal-with-its-new-coding-agent/5283717">The Register coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/openai/symphony">OpenAI Open-Sources Symphony: Autonomous Implementation Runs That Replace Agent Supervision</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI released Symphony, an Apache 2.0 framework that turns project work into isolated, autonomous implementation runs. Symphony monitors a project board (Linear, Jira), spawns Codex agents to handle tasks, and provides proof of work — CI status, PR review feedback, complexity analysis, and walkthrough videos. When accepted, agents land the PR. Engineers manage work, not agents. 26.5K GitHub stars already.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Orchestration</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Symphony represents the shift from 'coding assistant' to 'engineering team member.' Instead of developers supervising an AI writing code, Symphony lets them manage work at the project level — assign a task and get back a PR with proof it works. The spec-first design (the repo IS a spec that any coding agent can implement) is a deliberate OpenAI bet on harness engineering becoming the new DevOps.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Autonomous PR generation from project board tasks</li>
+          <li>Unattended engineering workflows with CI validation and proof of work</li>
+          <li>Spec-driven agent orchestration — define the spec, let any agent implement it</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>26,491 GitHub stars, 2,691 forks</li>
+          <li>Released by OpenAI</li>
+          <li>Apache 2.0 licensed</li>
+          <li>Ships with a reference Elixir implementation</li>
+          <li>Integrates with Linear boards for task monitoring</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openai.com/index/harness-engineering/">Harness engineering blog post</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.greptile.com/blog/greptile-v5">Greptile v5: Code Review Agent Rebuilt Around Parallel Hypothesis-Testing Swarms</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Greptile released v5 of its AI code review agent, rebuilt around narrowly scoped parallel agents that each explore one hypothesis for a potential bug. A/B tested over 1M+ production PRs: median review time dropped from 5:04 to 2:25 seconds, developer-addressed comments rose from 52% to 66%, and positive replies ('nice catch', 'fixed') increased 28.6%.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Code Review</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is hard production data on how to architect AI agents effectively. The lesson: narrow scope + parallelism beats a single agent trying to do everything. The 66% comment-addressed rate means two-thirds of Greptile's findings are actionable, not noise — a meaningful bar for any code review tool. Already enabled for all users, not a beta.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Automated code review that catches bugs humans miss</li>
+          <li>Faster PR cycles with sub-3-second review times</li>
+          <li>Architecture pattern: swarm of focused agents outperforms single general agent</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>A/B tested across 1M+ production PRs</li>
+          <li>Median review time cut by more than half (5:04 → 2:25s)</li>
+          <li>66% of comments addressed by PR authors</li>
+          <li>Positive developer replies up 28.6%</li>
+          <li>GA for all Greptile users (August 5, 2026)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.com/Graphify-Labs/graphify">Graphify Hits 104K Stars: Turn Any Codebase Into a Queryable Knowledge Graph</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Graphify (YC-backed) turns any codebase — code, docs, SQL schemas, configs, PDFs — into a queryable knowledge graph using deterministic AST parsing via tree-sitter. No vector store, no embeddings: a real graph you traverse. Ships as a /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI. Code parsing is fully local with zero LLM usage; docs and PDFs use the assistant's model for a semantic pass. Every edge is tagged EXTRACTED or INFERRED.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Knowledge Graph</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">AST</span>
+        <span class="tag">Code Intelligence</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This solves the 'agent doesn't understand my codebase' problem without the lossy compression of vector embeddings. Deterministic AST parsing means the graph is reproducible and auditable — you can trace exactly how two concepts are connected. At 104K stars and YC backing, it's becoming the standard way to give coding agents structural understanding of a project rather than just text search.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Give coding agents structural codebase understanding instead of grep</li>
+          <li>Audit code dependencies and concept relationships with explained edges</li>
+          <li>Query cross-file relationships in large monorepos without vector search</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>104,432 GitHub stars, 10,145 forks</li>
+          <li>YC-backed (Graphify Labs)</li>
+          <li>Works as a skill in Claude Code, Cursor, Codex, Gemini CLI</li>
+          <li>Uses tree-sitter for deterministic parsing — no LLM for code</li>
+          <li>Early access platform at app.graphify.com</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://graphify.com">Graphify platform</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/vercel-labs/zerolang">Vercel Labs Ships Zero: A Graph-First Systems Language Built So Agents Write the Code</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Vercel Labs released Zero, an experimental systems programming language where AI agents are the primary code authors. Uses .0 file extension, compiles to native binaries (16.2 KiB hello world in 1ms). Key innovation: every compiler error includes stable codes and typed repair metadata. `zero fix --plan --json` returns machine-readable repair plans agents can accept or reject. Effects are explicit — any function touching the outside world must accept a World capability. v0.3.0 made graph-first authoring the default: a binary graph store is the compiler input, .0 files are human-readable projections.</p>
+      <div class="article-meta">
+        <span class="tag">Programming Language</span>
+        <span class="tag">Vercel</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Systems</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Zero is the first language designed from the ground up for agent-written code. Instead of making error messages human-readable, it makes them machine-actionable with stable error codes and typed repair metadata. The World capability system means agents can statically verify what side effects code has before running it. This is early (v0.3.4), but the design philosophy — languages should optimize for agents, not just humans — is likely to influence how other toolchains evolve.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Agent-authored systems code with machine-readable compiler errors</li>
+          <li>Statically verified side effects via capability-based type system</li>
+          <li>Graph-first codebase representation for deterministic agent patches</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>5,200+ GitHub stars</li>
+          <li>Released by Vercel Labs</li>
+          <li>Apache 2.0 licensed</li>
+          <li>Covered by InfoQ (August 2026)</li>
+          <li>Compiles to native binaries for Linux, macOS, Windows</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/08/vercel-ships-zero-ai/">InfoQ coverage</a></li>
+          <li><a href="https://zerolang.ai/">Zero website</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.pulumi.com/blog/bring-your-terraform-estate-into-the-agentic-era/">Pulumi Ships Terraform Interop and Agentic IaC: 40% of Users Now Manage Infra via AI Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Pulumi launched three capabilities to bring existing Terraform estates into its agentic infrastructure platform: Pulumi Cloud as a Terraform state backend (GA), first-class HCL as a Pulumi language, and full module registry support. Over 40% of Pulumi users now manage infrastructure using AI agents. Organizations can maintain existing Terraform deployment patterns while accessing Pulumi Cloud features — no rip-and-replace required.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">IaC</span>
+        <span class="tag">Pulumi</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 40% stat is the headline: nearly half of Pulumi's user base has shifted to managing infrastructure through AI agents rather than manually writing IaC. The Terraform interop play is smart — instead of asking teams to rewrite everything, Pulumi becomes the agentic layer on top of existing Terraform state. For platform engineers, this means you can introduce agent-driven infrastructure management incrementally.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Incremental migration from Terraform to agentic infrastructure management</li>
+          <li>Using AI agents to provision and manage cloud infrastructure</li>
+          <li>Running Terraform state in Pulumi Cloud without rewriting HCL</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>40% of Pulumi users managing infra via AI agents</li>
+          <li>Pulumi Cloud as Terraform state backend now GA</li>
+          <li>First-class HCL support as a Pulumi language</li>
+          <li>Joe Duffy (CEO) vision from December 2025 now shipped</li>
+          <li>Full Terraform module registry interop</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.pulumi.com/blog/the-agentic-infrastructure-era/">Agentic Infrastructure Era blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://blog.cloudflare.com/cloudflare-computer/">Cloudflare Introduces @cloudflare/computer: An Agent Runtime Beyond Containers</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Cloudflare released an early preview of @cloudflare/computer, an agent runtime package where the platform decides whether code runs in a V8 isolate, a container sandbox, or a web browser. Each agent gets a full 'computer' — filesystem, shell, tools, packages — while the runtime optimizes for efficiency and scalability. The thesis: traditional containerization won't meet the compute demand of agentic systems, so the platform needs to dynamically orchestrate between lightweight isolates and full containers.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Cloudflare</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Runtime</span>
+        <span class="tag">Containers</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The container-per-agent model doesn't scale when you're running thousands of concurrent agents. Cloudflare's approach — letting the platform choose the right execution boundary per operation — is architecturally interesting because it means agent builders don't need to think about infrastructure. The separation of 'brain' (agent loop) from 'hands' (sandboxed execution) mirrors how the best coding agents already work, but now it's a platform primitive.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running agent workloads at scale without container overhead</li>
+          <li>Building coding agents where the platform handles execution sandboxing</li>
+          <li>Dynamically mixing isolates and containers based on workload requirements</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Cloudflare release (August 3, 2026)</li>
+          <li>Open source: github.com/cloudflare/workspace</li>
+          <li>Part of Cloudflare's broader agent infrastructure push (Kitesurf, CI Workflows)</li>
+          <li>Addresses scaling bottleneck in container-per-agent architectures</li>
+          <li>Early preview with active development</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/cloudflare/workspace">GitHub repo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.infoworld.com/article/4204961/awss-kiro-crew-aims-to-turn-ai-coding-agents-into-autonomous-engineering-teams.html">AWS Open-Sources Kiro Crew: The Agent Orchestration Platform Built by 39K Amazon Engineers</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">AWS released Kiro Crew, an open-source orchestration platform that turns AI coding agents into autonomous engineering teammates. Originally built inside Amazon as 'MeshClaw' and adopted by 39,000+ internal builders, it ships with persistent memory, multi-agent orchestration, approval workflows, scheduling, sandboxing, signed audit logs, and a web/desktop dashboard. Deploys entirely on-premise — no AWS account required. Reference apps include DevFleets (worktree management), Issue Radar (triage), and Task Runner (long-running tasks).</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Agent Orchestration</span>
+        <span class="tag">Enterprise</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is Amazon's internal agent infrastructure, battle-tested by 39K engineers, now open source. The key differentiator is persistence: agents maintain memory across sessions, schedule recurring work, and provide signed audit logs for enterprise compliance. For teams building always-on engineering agents (not just interactive coding assistants), Kiro Crew provides the orchestration layer that's missing from raw model APIs.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running autonomous engineering workflows that persist across sessions</li>
+          <li>Enterprise agent orchestration with audit logs and approval gates</li>
+          <li>On-premise agent deployment with no cloud vendor lock-in</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Used by 39,000+ Amazon builders internally</li>
+          <li>Open-sourced by AWS (August 4, 2026)</li>
+          <li>Covered by InfoWorld</li>
+          <li>Deploys on-premise without AWS dependency</li>
+          <li>Ships with reference apps: DevFleets, Issue Radar, Task Runner</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/">AWS blog on AgentCore</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://developers.googleblog.com/en/scaling-ai-agent-infrastructure-with-the-mcp-stateless-updates/">Google Publishes MCP Stateless Updates: Scaling Agent Infrastructure Without Server-Side Sessions</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Google published updates to the Model Context Protocol (MCP) focused on stateless operation, removing the requirement for server-side session state. This lets MCP servers scale horizontally behind load balancers without sticky sessions or shared state stores. The update addresses a key bottleneck: as agent workloads grow, maintaining per-connection state on MCP servers becomes a scaling limitation.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Google</span>
+        <span class="tag">Scaling</span>
+        <span class="tag">Protocol</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>MCP is becoming the standard protocol for connecting agents to tools, but the original spec assumed stateful server connections. That assumption breaks at scale — you can't load-balance stateful connections without sticky sessions. Google's stateless updates make MCP servers work like regular HTTP APIs: scale out, fail over, load balance. For anyone building MCP servers for production agent workloads, this is the infrastructure fix that unblocks horizontal scaling.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Scaling MCP tool servers behind load balancers without sticky sessions</li>
+          <li>Building production-grade MCP infrastructure for enterprise agent deployments</li>
+          <li>Horizontally scaling agent-to-tool connections</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published by Google Developers Blog (August 5, 2026)</li>
+          <li>Addresses MCP protocol scaling limitation</li>
+          <li>Co-authored by Google Cloud engineers</li>
+          <li>Directly impacts production MCP server deployments</li>
+          <li>Part of broader industry MCP adoption momentum</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
