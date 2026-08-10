@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 10, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 10, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.marktechpost.com/2026/08/07/nvidia-ai-releases-nooa-an-object-oriented-python-framework/">NVIDIA open-sources NOOA — collapse an entire AI agent into a single Python class, hitting 82.2% on SWE-bench Verified</a></li>
+      <li><a href="https://www.marktechpost.com/2026/08/09/nvidia-releases-nemotronlabs-voicechat-11b-an-open-full-duplex-speech-to-speech-model-with-450-ms-turn-taking-and-live-tool-calling/">NVIDIA ships NemotronLabs VoiceChat 11B — first open full-duplex speech model with live tool calling at 450ms latency</a></li>
+      <li><a href="https://www.langchain.com/blog/managed-deep-agents-is-now-in-public-beta">LangChain launches Managed Deep Agents public beta — one command from prototype to production</a></li>
+      <li><a href="https://www.warp.dev/blog/introducing-the-warp-agent-cli-coding-agent">Warp ships a standalone Agent CLI with terminal muxing that works in any terminal emulator</a></li>
+      <li><a href="https://blog.cloudflare.com/ci-workflows/">Cloudflare releases CI Workflows SDK — store, build, test, and deploy code entirely on Cloudflare</a></li>
+      <li><a href="https://cozystack.io/blog/2026/08/blockstor-linstor-compatible-storage-for-kubernetes/">Blockstor open-sourced: a Go rewrite of LINSTOR for Kubernetes block storage, backed by CNCF Sandbox</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.marktechpost.com/2026/08/07/nvidia-ai-releases-nooa-an-object-oriented-python-framework/">NVIDIA Open-Sources NOOA: An Object-Oriented Python Framework That Turns an AI Agent Into a Single Class</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">NVIDIA Labs released NOOA (Object-Oriented Agents), a model-agnostic Python framework where methods are agent actions, fields are state, docstrings are prompts, and type annotations are runtime-enforced contracts. Methods with an ellipsis body are completed by an LLM loop; normal methods stay deterministic.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Python</span>
+        <span class="tag">NVIDIA</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Scores 82.2% on SWE-bench Verified and 85.1% on ARC-AGI-3 at roughly half the tokens of competing open harnesses. If you're building internal agents, this collapses prompt templates, tool schemas, and workflow graphs into testable, version-controlled Python — no new DSL required.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build internal coding agents with standard Python tooling</li>
+          <li>Repository issue triage and automated patching</li>
+          <li>Terminal and infrastructure automation</li>
+          <li>Vulnerability validation pipelines</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Apache 2.0 on GitHub under NVIDIA-NeMo/labs-OO-Agents</li>
+          <li>Published benchmarks: 82.2% SWE-bench Verified, 86.8% CyberGym L1, 85.1% ARC-AGI-3</li>
+          <li>PyPI v0.0.8 released July 30, 2026</li>
+          <li>Covered by MarkTechPost and multiple AI newsletters</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/NVIDIA-NeMo/labs-OO-Agents/tree/main">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.marktechpost.com/2026/08/09/nvidia-releases-nemotronlabs-voicechat-11b-an-open-full-duplex-speech-to-speech-model-with-450-ms-turn-taking-and-live-tool-calling/">NVIDIA Releases NemotronLabs VoiceChat 11B: First Open Full-Duplex Speech Model With Live Tool Calling</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">An open 11B end-to-end speech-to-speech model that listens while it speaks, handles barge-in at 480ms, and calls tools via a separate output channel — all without chaining ASR + LLM + TTS.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Voice</span>
+        <span class="tag">Speech</span>
+        <span class="tag">NVIDIA</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Eliminates the multi-model orchestration stack for voice agents. Engineers building voice interfaces get 450ms smooth turn-taking and live tool calling in a single model, with permissive weights on HuggingFace. Still research-preview quality, but it's the first open model to solve full-duplex with tool use.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Voice agents that handle barge-in naturally</li>
+          <li>Voice front-ends for internal APIs (weather, pricing, order status)</li>
+          <li>Contact center and IVR modernization prototypes</li>
+          <li>Accessibility tooling for hands-free workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Weights publicly available on HuggingFace (nvidia/NVIDIA-NemotronLabs-VoiceChat-11B)</li>
+          <li>Benchmarked on Full-Duplex-Bench 1.0 with published metrics</li>
+          <li>Covered by MarkTechPost, HN discussion</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://huggingface.co/nvidia/NVIDIA-NemotronLabs-VoiceChat-11B">HuggingFace</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.yottalabs.ai/post/qwen-3-8-max-release-date-specs-how-to-access-2026">Alibaba Launches Qwen 3.8-Max: 2.4 Trillion Parameters With Multimodal and Agentic Capabilities</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Alibaba officially launched Qwen 3.8-Max on August 3 — a 2.4T-parameter multimodal model claiming frontier-level reasoning and agentic task performance, with API pricing already published.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Alibaba</span>
+        <span class="tag">Multimodal</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The biggest model drop of the summer. Engineers using the Qwen ecosystem get a massive jump in capability with published API access. For teams routing between providers, this adds another frontier-class option with competitive pricing from Alibaba Cloud.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Multi-provider model routing with a new frontier option</li>
+          <li>Multimodal agentic workflows</li>
+          <li>Cost-optimized inference for teams already on Alibaba Cloud</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Previewed July 19, officially launched August 3 with API pricing</li>
+          <li>2.4T parameters — largest public model release this quarter</li>
+          <li>Tracked by OrcaRouter leaderboard alongside Muse Spark 1.2 and DeepSeek V4</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.orcarouter.ai/blog/k-exaone-2-0-dspark-vllm-leak">OrcaRouter Leaderboard</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://www.langchain.com/blog/managed-deep-agents-is-now-in-public-beta">LangChain Ships Managed Deep Agents in Public Beta: One Command From Prototype to Production</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Managed Deep Agents lets you author an agent in Python or TypeScript, test it locally in LangSmith Studio, and deploy to a managed runtime with `mda deploy`. LangSmith handles persistence, memory, sandbox lifecycle, and scaling.</p>
+      <div class="article-meta">
+        <span class="tag">Agents</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">DevTools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The gap between 'demo agent' and 'production agent' is mostly infrastructure: durable execution, memory mounts, sandboxing, human-in-the-loop approvals. This packages all of that behind a single deploy command while keeping agent logic (prompts, tools, middleware) in your control.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Ship internal research or support agents without building infra</li>
+          <li>Add human approval gates to sensitive agent actions</li>
+          <li>Deploy long-running agents with durable execution guarantees</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Public beta launched with Python and TypeScript SDKs</li>
+          <li>Built on LangSmith platform with existing enterprise customer base</li>
+          <li>Open-source harness (Deep Agents) with managed runtime layer</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/langchain-ai/deep-agents">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.warp.dev/blog/introducing-the-warp-agent-cli-coding-agent">Warp Ships a Standalone Agent CLI: A Terminal-Muxing Coding Agent That Works Anywhere</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The Warp Agent is now a standalone CLI that runs in any terminal — Ghostty, iTerm, VS Code, Windows Terminal. Built on Warp's terminal infrastructure, it natively muxes agent sessions, drives full-screen terminal apps (sqlite, mysql), and works over SSH without a remote binary.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">CLI</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most CLI coding agents treat the shell as a subprocess. Warp's mux architecture means the agent operates inside real terminal sessions — it can switch directories, drive interactive TUIs, and SSH into remote machines. For engineers who live in the terminal, this removes the 'agent can't do that' friction.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Terminal-heavy development workflows across SSH sessions</li>
+          <li>Drive interactive CLI tools (databases, REPLs) via agent</li>
+          <li>Multi-agent orchestration from the command line</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Ships with built-in model routing across frontier and open-weight models</li>
+          <li>Supports multi-agent orchestration and cloud agents</li>
+          <li>Builds on Warp Terminal's existing user base</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://sourcegraph.com/changelog/releases/7.6">Sourcegraph 7.6: Repository Overview and Deep Search With Structured File Exports</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Sourcegraph 7.6 adds Repository Overview for at-a-glance change tracking, Deep Search that outputs CSV/JSON files for codebase-wide audits and migrations, and AGENTS.md-style customization for organization-specific conventions.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Code Search</span>
+        <span class="tag">Enterprise</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As AI agents generate more code, keeping track of what changed across a large codebase gets harder. Repository Overview and structured Deep Search exports give platform teams the audit trail and migration tracking they need — and AGENTS.md support means the search agent follows your org's conventions.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Codebase-wide dependency audits exported as CSV</li>
+          <li>Migration checklists across hundreds of repositories</li>
+          <li>Organization-scoped agent conventions via AGENTS.md</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Sourcegraph is deployed across thousands of enterprise engineering orgs</li>
+          <li>Self-hosted 7.6 released August 6, 2026</li>
+          <li>Deep Search structured output is a direct response to agent-driven code change volume</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://sourcegraph.com/docs/deep-search">Deep Search Docs</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://blog.cloudflare.com/ci-workflows/">Cloudflare Releases CI Workflows SDK: Build, Test, and Deploy Code Entirely on Cloudflare</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Cloudflare's new CI SDK, built on Cloudflare Workflows, lets you run your entire CI pipeline — builds, linters, tests, dependency caching, and conditional deploys — on Cloudflare's edge infrastructure. It includes a self-healing AI agent that catches broken build steps and pushes fixes.</p>
+      <div class="article-meta">
+        <span class="tag">CI/CD</span>
+        <span class="tag">Cloudflare</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is Cloudflare's play to own the full developer lifecycle: Artifacts for code storage, CI SDK for builds, Workers for deployment. The self-healing CI agent is the interesting bit — it watches your build, detects failures, and commits fixes automatically.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Run CI/CD without GitHub Actions or Jenkins</li>
+          <li>Self-healing build pipelines with AI-driven fix commits</li>
+          <li>Edge-native CI for Cloudflare Workers projects</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>@cloudflare/ci published on npm</li>
+          <li>CI SDK open-sourced on github.com/cloudflare/ci</li>
+          <li>Built on existing Cloudflare Workflows and Artifacts infrastructure</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/cloudflare/ci">GitHub</a></li>
+          <li><a href="https://developers.cloudflare.com/workflows/">Cloudflare Workflows Docs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.helpnetsecurity.com/2026/08/06/cloudflare-os-open-source/">Cloudflare OS Goes Open Source: An AI Workspace With a Full Audit Trail of Everything Agents Read</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Cloudflare open-sourced Cloudflare OS, an AI workspace designed around how companies actually use agents. Every document an agent reads is logged in a tamper-evident audit trail, giving compliance teams visibility into agent data access.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Cloudflare</span>
+        <span class="tag">Compliance</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 'what did the agent read?' question is becoming a compliance blocker for enterprise AI adoption. Cloudflare OS tackles it head-on with a full provenance record. For teams deploying agents in regulated environments, this is the audit layer they've been building internally.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Enterprise agent deployment with compliance audit trails</li>
+          <li>Track which documents and data sources agents access</li>
+          <li>Regulated-industry AI workspace with provenance guarantees</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced August 4 by Cloudflare (NYSE: NET)</li>
+          <li>Open-sourced with tamper-evident audit trail</li>
+          <li>Covered by Help Net Security, The New Stack, and Cloudflare's press releases</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.cloudflare.com/pt-br/press/press-releases/2026/cloudflare-os-is-the-first-ai-workspace-built-around-how-companies-actually-work/">Press Release</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://cozystack.io/blog/2026/08/blockstor-linstor-compatible-storage-for-kubernetes/">Blockstor Open-Sourced: A Go Rewrite of LINSTOR for Kubernetes Block Storage, Backed by CNCF Sandbox</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">The Cozystack team open-sourced Blockstor, a from-scratch Go implementation of LINSTOR's REST API for Kubernetes block storage. It uses CRDs and controller-runtime reconcilers instead of LINSTOR's request-based polling model, with LVM/ZFS backends and DRBD replication.</p>
+      <div class="article-meta">
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Storage</span>
+        <span class="tag">CNCF</span>
+        <span class="tag">Go</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Existing LINSTOR client tooling (CLI, CSI driver, Piraeus operator) works unchanged — Blockstor is a drop-in backend replacement. The Kubernetes-native reconciler model means no external database, no in-memory state to lose on restart, and better failure recovery. Part of the CNCF Sandbox via Cozystack.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replace LINSTOR controller with a Kubernetes-native alternative</li>
+          <li>Block storage for stateful workloads on K8s with DRBD replication</li>
+          <li>GPU cluster storage where LINSTOR scaling limits are a concern</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Apache 2.0 under the Cozystack organization</li>
+          <li>CNCF Sandbox project (Cozystack)</li>
+          <li>LINSTOR API compatibility means existing tooling works without changes</li>
+          <li>Covered by Cozystack blog with detailed architecture comparison</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/cozystack/blockstor">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
