@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 11, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 11, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model">Meta open-sources Muse Glimmer — a 30B agentic model that runs locally on a single consumer GPU with Apache 2.0 weights</a></li>
+      <li><a href="https://github.com/PrimeIntellect-ai/prime-agent">Prime Agent hits 95.5% on ARC-AGI-3 (beating humans) and trends #1 on GitHub as an open-source self-improving coding harness</a></li>
+      <li><a href="https://blog.jetbrains.com/idea/2026/08/intellij-idea-goes-lsp/">JetBrains ships IntelliJ IDEA as an LSP server — Java and Kotlin intelligence now works in VS Code, Cursor, and agentic flows</a></li>
+      <li><a href="https://developers.googleblog.com/scaling-ai-agent-infrastructure-with-the-mcp-stateless-updates/">Google leads MCP Stateless spec: the biggest protocol change since launch removes session pinning for cloud-native scale</a></li>
+      <li><a href="https://www.pulumi.com/blog/bring-your-terraform-estate-into-the-agentic-era/">Pulumi ships Terraform state backend and HCL support — 40% of users now manage infrastructure via AI agents</a></li>
+      <li><a href="https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/">Microsoft Research open-sources Orchard: a 3B-parameter agent reaches 69.7% on SWE-bench Verified, approaching 10x-larger frontier models</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model">Meta Open-Sources Muse Glimmer: A 30B Agentic Model That Runs on Your Device</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Meta Superintelligence Labs released Muse Glimmer, a 30-billion-parameter model optimized for always-on local agent workflows. It runs on a Mac or PC with a single consumer GPU, handles function calling, local coding, and LLM-as-a-judge evaluation, and ships under Apache 2.0 on HuggingFace.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Meta</span>
+        <span class="tag">Local Models</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Agentic</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first frontier-lab model explicitly optimized for local agentic use cases. Engineers who need offline agents, on-device tool calling, or privacy-sensitive workflows get an open-weight model designed from the ground up for the compute constraints of local hardware. Integrations for llama.cpp, MLX, and ExecuTorch are coming within days.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Local coding agents that work offline</li>
+          <li>On-device personal assistants with tool calling</li>
+          <li>Privacy-sensitive agentic workflows without cloud dependency</li>
+          <li>LLM-as-a-judge evaluation running locally</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released by Meta Superintelligence Labs (August 10, 2026)</li>
+          <li>Apache 2.0 weights on HuggingFace</li>
+          <li>Covered by HuggingFace blog, multiple AI newsletters</li>
+          <li>Optimized integrations for llama.cpp, MLX, ExecuTorch announced</li>
+          <li>Follows Muse Spark 1.2 / Muse Code release by 5 days</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://huggingface.co/blog/muse-glimmer">HuggingFace blog</a></li>
+          <li><a href="https://huggingface.co/meta-models/Muse-Glimmer-30B">Model weights</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/PrimeIntellect-ai/prime-agent">Prime Agent: Open-Source Coding Harness Hits 95.5% on ARC-AGI-3, Beating Humans</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Prime Intellect released Prime Agent, an open-source self-improving coding harness that scored 95.5% on ARC-AGI-3 — surpassing the human expert baseline — and outperforms Codex and Claude Code on the benchmark while using fewer tokens. It trended #1 on GitHub with 2,300+ stars in a single day.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Coding</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Benchmarks</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The architecture is the story: programmatic tool calling (the model executes code directly instead of appending to chat), context-as-variable for flexible memory management, multi-agent messaging, and self-modifiable harness state. This is a production-ready, open-licensed alternative to closed coding agents, and the benchmark results show harness engineering matters as much as model quality.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Open-source alternative to Codex/Claude Code for autonomous coding</li>
+          <li>Long-running research and engineering tasks with self-improving loops</li>
+          <li>Token-efficient agentic workflows via programmatic tool calling</li>
+          <li>Multi-agent collaboration on complex codebases</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>95.5% on ARC-AGI-3, beating human expert baseline</li>
+          <li>Trended #1 on GitHub Trending</li>
+          <li>2,300+ stars in first day</li>
+          <li>Covered by Developers Digest, The Neural Feed, DEV Community</li>
+          <li>Open-source with permissive license</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.developersdigest.tech/blog/prime-agent-rlm-harness">Developers Digest coverage</a></li>
+          <li><a href="https://dev.to/breachprotocol/the-top-repo-on-github-today-runs-its-agent-inside-a-python-shell-43h5">DEV Community analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/">Microsoft Research Open-Sources Orchard: Small Open-Weight Agents That Rival Frontier Models</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Microsoft Research released Orchard, an open-source framework for training and evaluating agentic AI at scale. Its flagship result: Orchard-SWE, a model with only ~3B active parameters, reaches 69.7% on SWE-bench Verified (73.0% with reranking) — approaching systems 10x its size. The framework supports SWE, web navigation, and personal assistant agents.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Research</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">SWE-bench</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The gap between small open models and frontier systems is closing faster than expected for agent tasks. Orchard provides the full stack — training data, evaluation methods, Kubernetes-based environments — for researchers and teams who want to build their own specialized agents without proprietary infrastructure. It trains directly inside real harnesses like Codex and OpenClaw.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Train domain-specific coding agents with small open models</li>
+          <li>Reproducible agentic AI research without proprietary infra</li>
+          <li>Build and evaluate web navigation and personal assistant agents</li>
+          <li>RL training pipelines for agent improvement</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published by Microsoft Research</li>
+          <li>69.7% SWE-bench Verified with ~3B active params</li>
+          <li>Open-source on GitHub with training data and eval methods</li>
+          <li>Supports training inside production harnesses (Codex, OpenClaw)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/microsoft/Orchard">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://huggingface.co/blog/nvidia/magpie-tts-multilingual-voice-agents">NVIDIA Ships Magpie TTS: Open-Weight Multilingual Voice for Production Agents</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">NVIDIA released an updated Magpie TTS with open weights supporting 12 languages (now including Arabic, Korean, and Brazilian Portuguese). It's designed as the TTS layer in cascaded voice agent architectures — purpose-built for latency-sensitive production pipelines where you need full deployment control.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Voice</span>
+        <span class="tag">TTS</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Integrated speech models are convenient but lock you into one provider's latency, pricing, and data policies. Magpie gives you an open-weight TTS you can deploy on your own infrastructure, fine-tune for your domain, and independently optimize — while NVIDIA NIM provides a production-ready serving option. The 12-language coverage makes it practical for global products.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Multilingual voice agents with self-hosted TTS</li>
+          <li>Customer support and contact center voice pipelines</li>
+          <li>Healthcare and enterprise copilots with low-latency speech</li>
+          <li>Domain-specific voice fine-tuning on proprietary data</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Open weights on HuggingFace (nvidia/magpie_tts_multilingual_357m)</li>
+          <li>Production-ready NVIDIA NIM available</li>
+          <li>12 languages supported</li>
+          <li>Published August 10, 2026</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://huggingface.co/nvidia/magpie_tts_multilingual_357m">HuggingFace model</a></li>
+          <li><a href="https://build.nvidia.com/nvidia/magpie-tts-multilingual">NVIDIA NIM</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/idea/2026/08/intellij-idea-goes-lsp/">JetBrains Ships IntelliJ IDEA as an LSP Server: Java and Kotlin Intelligence for VS Code, Cursor, and Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">JetBrains released a preview VS Code extension that brings IntelliJ IDEA's Java and Kotlin intelligence to VS Code, Cursor, and other LSP-capable editors. Internal trials show the same LSP server significantly improves terminal-based agentic workflows with Claude Code and Codex — results to be published soon.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">JetBrains</span>
+        <span class="tag">LSP</span>
+        <span class="tag">Java</span>
+        <span class="tag">Kotlin</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is JetBrains acknowledging that the IDE landscape has fundamentally shifted. As coding agents take on more implementation work, developers and agents alike need language intelligence wherever they are — not just inside IntelliJ. For Java/Kotlin teams, this means getting IntelliJ-grade code completion, navigation, refactoring, and debugging in whatever editor or agent harness they use.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use IntelliJ intelligence in VS Code or Cursor for Java/Kotlin</li>
+          <li>Improve coding agent accuracy with LSP-powered code understanding</li>
+          <li>Mixed Java/Kotlin project support in lightweight editors</li>
+          <li>Reduce token consumption in agentic flows via deterministic LSP lookups</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official JetBrains release (August 2026)</li>
+          <li>Preview extension available for VS Code and forks (Cursor)</li>
+          <li>Internal trials with Claude Code and Codex showing significant improvement</li>
+          <li>Covers Java, Kotlin, and mixed-language projects</li>
+          <li>Includes DAP-based debugging</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.browserbase.com/changelog/stagehand-v4">Stagehand v4: Browserbase Ships a Browser Agent SDK That's 2x Faster Than Playwright</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Browserbase released Stagehand v4, rebuilding the browser agent SDK to run as an in-browser extension rather than an external controller. It performs 2x faster than Playwright with ~80% fewer tokens, and adds self-healing actions and iframe support.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Browser</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Automation</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Browser automation for agents has been stuck on Playwright/Puppeteer — tools designed for testing, not agent workflows. By running inside the browser, Stagehand eliminates round-trip latency and CDP race conditions that plague remote-controlled approaches. The 80% token reduction is significant for cost-sensitive agent deployments.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Browser agents that need reliable web interaction</li>
+          <li>Web scraping and data extraction with self-healing selectors</li>
+          <li>Automated workflows across sites with iframe-heavy UIs</li>
+          <li>Cost-efficient browser automation in agentic pipelines</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Benchmarked at 2x faster than Playwright</li>
+          <li>~80% more token efficient</li>
+          <li>Published August 10, 2026</li>
+          <li>Built on Browserbase's existing cloud browser infrastructure</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-08-07-copilot-code-review-effort-levels-are-generally-available/">GitHub Copilot Code Review Effort Levels Are Now GA: Match Review Depth to PR Risk</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">GitHub shipped Copilot code review effort levels (Lite and Balanced) to GA. Teams can now match review depth to the complexity and risk of each PR, and set organization-level defaults to enforce review standards across repos.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Code Review</span>
+        <span class="tag">Copilot</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Not every PR needs a deep review, and not every review should be shallow. By letting teams calibrate review depth, GitHub is solving the 'alert fatigue' problem that plagues automated code review — too many low-value comments on trivial PRs, not enough scrutiny on risky ones. Org-level defaults mean engineering leadership can set review standards at scale.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Calibrate AI code review depth per PR complexity</li>
+          <li>Set org-wide review standards for Copilot</li>
+          <li>Reduce noise on trivial PRs, increase scrutiny on risky ones</li>
+          <li>Speed up review cycles on low-risk dependency updates</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Generally available as of August 7, 2026</li>
+          <li>Available to all GitHub Copilot users</li>
+          <li>Org-level default configuration</li>
+          <li>Replaces previous Low/Medium naming with Lite/Balanced</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://github.com/bytedance/deer-flow">ByteDance DeerFlow 2.0: The 80K-Star Super Agent Harness Gets a Ground-Up Rewrite</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">ByteDance's DeerFlow 2.0 is a complete rewrite of their open-source super agent harness (79K+ stars). It orchestrates sub-agents, memory, and sandboxes with extensible skills to handle long-horizon tasks that take minutes to hours — research, coding, and content creation.</p>
+      <div class="article-meta">
+        <span class="tag">Agents</span>
+        <span class="tag">ByteDance</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Orchestration</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>DeerFlow 2.0 represents ByteDance's bet on open-source agent infrastructure. At 80K stars, it's one of the most-starred agent harnesses on GitHub. The ground-up rewrite signals that the first generation of agent frameworks has already hit its limits and the industry is rebuilding with lessons learned.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Long-horizon autonomous research tasks</li>
+          <li>Multi-agent coding workflows with sandbox isolation</li>
+          <li>Content creation pipelines with agent orchestration</li>
+          <li>Extensible skill-based agent architectures</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>79,729 GitHub stars, 10,906 forks</li>
+          <li>Hit #1 on GitHub Trending for v2 launch</li>
+          <li>Complete ground-up rewrite (shares no code with v1)</li>
+          <li>Open-source by ByteDance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://developers.googleblog.com/scaling-ai-agent-infrastructure-with-the-mcp-stateless-updates/">Google Leads MCP Stateless Spec: The Biggest Protocol Change Since Launch Removes Session Pinning</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Google led the effort to make MCP stateless, co-founding the MCP Transports Working Group with Hugging Face. The 2026-07-28 spec release candidate removes transport-level session management entirely, giving teams a stateless protocol core that scales on ordinary HTTP load-balanced infrastructure.</p>
+      <div class="article-meta">
+        <span class="tag">MCP</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Google</span>
+        <span class="tag">Protocol</span>
+        <span class="tag">Cloud-Native</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The original MCP required persistent state, handshakes, and session pinning — fundamentally incompatible with cloud-native scaling. This is the fix. If you're deploying MCP servers in production, this removes the need for sticky sessions and session-pinned infrastructure. Google needed this to scale across millions of concurrent queries on Google Cloud, and now everyone gets it.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploy MCP servers behind standard load balancers</li>
+          <li>Scale agent tool infrastructure to millions of concurrent queries</li>
+          <li>Eliminate session-pinning complexity in MCP deployments</li>
+          <li>Run MCP on serverless/ephemeral compute</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Led by Google, co-founded with Hugging Face</li>
+          <li>2026-07-28 MCP spec release candidate already being widely adopted</li>
+          <li>Published on Google Developers Blog (August 5, 2026)</li>
+          <li>Biggest spec change since MCP launch in late 2024</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2575">Spec PR</a></li>
+          <li><a href="https://aaif.io/blog/the-ecosystem-responds-to-stateless-mcp">Ecosystem adoption</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.pulumi.com/blog/bring-your-terraform-estate-into-the-agentic-era/">Pulumi Ships Terraform State Backend and HCL Support: 40% of Users Now Manage Infra via AI Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Pulumi launched three capabilities: Pulumi Cloud as a Terraform state backend (GA), full HCL language support, and Terraform-to-Pulumi conversion. Over 40% of Pulumi users now manage infrastructure using AI agents, and these features let Terraform shops enter the agentic era without ripping out existing IaC.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">IaC</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">Pulumi</span>
+        <span class="tag">Agentic</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 40% stat is the headline — nearly half of Pulumi's user base has shifted to agent-managed infrastructure. For teams with existing Terraform estates, this is a bridge: keep your Terraform code, use Pulumi Cloud as the backend, and gradually adopt agentic infrastructure management without a big-bang migration.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Migrate Terraform state to Pulumi Cloud without code changes</li>
+          <li>Enable AI agents to manage existing Terraform estates</li>
+          <li>Gradual Terraform-to-Pulumi conversion</li>
+          <li>Unified IaC management across Terraform and Pulumi stacks</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>40% of Pulumi users managing infra via AI agents</li>
+          <li>Terraform state backend is GA</li>
+          <li>Full HCL as a first-class language</li>
+          <li>Announced alongside vision from CEO Joe Duffy</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/">AWS Ships Bedrock AgentCore Runtime Instances: Persistent Compute for Production AI Agents</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">AWS launched Runtime Instances for Amazon Bedrock AgentCore — persistent compute environments that keep agents warm between invocations instead of cold-starting each time. Designed for production agents that need sub-second response times and long-running session state.</p>
+      <div class="article-meta">
+        <span class="tag">AWS</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Cloud</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Cold starts are the silent killer of production AI agents. When your agent needs to load models, reconnect to databases, and rebuild context on every invocation, latency spikes and costs balloon. Runtime Instances solve this by keeping agent infrastructure warm — the same pattern that Lambda SnapStart brought to serverless, now applied to agentic workloads.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Production agents requiring sub-second response times</li>
+          <li>Long-running agent sessions with persistent state</li>
+          <li>Cost optimization by avoiding repeated cold starts</li>
+          <li>Enterprise agentic workflows on AWS infrastructure</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published on AWS News Blog</li>
+          <li>Part of Amazon Bedrock AgentCore platform</li>
+          <li>Addresses a widely reported production pain point</li>
+          <li>Follows AWS Kiro Crew open-source release</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
