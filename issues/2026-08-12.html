@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 12, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 12, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://github.com/openai/symphony">OpenAI ships Symphony (26K stars): monitors Linear boards, spawns Codex agents, lands PRs — engineers manage work, not agents</a></li>
+      <li><a href="https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/">NVIDIA releases Nemotron 3.5 Lightning (30B/3B-active MoE) and NeMo Switchyard for intelligent model routing in long-running agents</a></li>
+      <li><a href="https://www.databricks.com/blog/open-sourcing-metals-v2-databricks-java-and-scala-language-server-multi-million-line-codebases">Databricks open-sources Metals v2 — a Java/Scala LSP that scales to multi-million-line monorepos, dropped most IntelliJ seats</a></li>
+      <li><a href="https://github.com/Graphify-Labs/graphify">Graphify hits 105K stars: turn any codebase into a queryable knowledge graph with deterministic AST parsing, no vector store</a></li>
+      <li><a href="https://www.codewithseb.com/blog/chrome-devtools-agents-mcp-browser-debugging-guide">Chrome DevTools for Agents 1.0 goes stable: MCP server, CLI, and agent skills give coding agents real browser traces and Lighthouse audits</a></li>
+      <li><a href="https://blog.duolingo.com/production-ready-ai-agent-platform/">Duolingo publishes how they built a production AI agent platform — define once, run everywhere, with shared MCP and Temporal orchestration</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://github.com/openai/symphony">OpenAI Ships Symphony: Monitor a Linear Board, Spawn Codex Agents, Land PRs Autonomously</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI released Symphony, an open-source orchestrator that monitors Linear boards for work, spawns Codex agents to implement tasks, and provides proof of work — CI status, PR reviews, complexity analysis, and walkthrough videos. When accepted, agents land the PR safely. Engineers manage work at a higher level instead of supervising coding agents.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Orchestration</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the 'harness engineering' thesis made concrete: instead of supervising a coding agent session-by-session, you define work in your project tracker and Symphony handles the implementation loop end-to-end. At 26K+ stars in days with an Apache 2.0 license, it's the fastest-growing OpenAI open-source release this quarter. The spec-as-source approach means you can implement Symphony in any language — Elixir reference implementation included.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Autonomous implementation of Linear/project tracker tickets</li>
+          <li>CI-verified, review-ready PRs from coding agents</li>
+          <li>Team-scale agent orchestration without per-session supervision</li>
+          <li>Proof-of-work workflows with video walkthroughs and complexity analysis</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>26,500+ GitHub stars</li>
+          <li>Apache 2.0 license</li>
+          <li>Integrates with Linear for work management</li>
+          <li>Built on harness engineering principles from OpenAI's Codex team</li>
+          <li>Reference implementation in Elixir with spec for any language</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openai.com/index/harness-engineering/">Harness Engineering blog post</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/">NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard: Specialized Execution Models for Long-Running Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">NVIDIA released Nemotron 3.5 Lightning, a 30B MoE model with only 3B active parameters, designed as the execution layer for always-on agents. Paired with NeMo Switchyard — a new library that intelligently routes each task to the best model — it enables a system-of-models architecture where frontier models plan and small models execute at scale.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">Models</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Long-running agents spend most of their tokens on execution, not planning. Using a frontier model for every tool call is wasteful. Lightning gives you a purpose-built execution model that's fast and cheap, while Switchyard handles the routing decisions. Together they formalize the pattern that production agent teams have been building ad-hoc: split planning from execution across different models.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Cost-efficient execution layer for always-on coding agents</li>
+          <li>Model routing in multi-model agent architectures</li>
+          <li>High-volume tool calling and result validation</li>
+          <li>Subagent delegation in long-running workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published August 11, 2026 by NVIDIA</li>
+          <li>Open weights on HuggingFace (nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4)</li>
+          <li>NeMo Switchyard open-sourced on GitHub</li>
+          <li>Designed for OpenClaw and Hermes Agent harnesses</li>
+          <li>Part of the Nemotron open model family</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/NVIDIA-NeMo/Switchyard">NeMo Switchyard GitHub</a></li>
+          <li><a href="https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4">HuggingFace weights</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.databricks.com/blog/managing-ai-coding-costs-scale">Databricks on Managing AI Coding Costs at Scale: Lessons from Stripe, Coinbase, Uber, and Ramp</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Databricks published a detailed playbook on controlling exponentially growing AI coding costs, based on their own experience and conversations with Stripe, Coinbase, Uber, and Ramp. Key techniques include model routing to an efficiency frontier, meta-harnesses (Omnigent), and AI Gateway-level controls. They report order-of-magnitude velocity gains but warn the cost curve is unsustainable without active management.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Costs</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">Best Practices</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Every company deploying AI coding tools at scale is hitting the same wall: costs growing faster than revenue. This is the first detailed, multi-company playbook with specific techniques and savings estimates. The open-sourced Omnigent meta-harness and Unity AI Gateway give you the infrastructure to implement these controls immediately.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Implement cost controls for enterprise AI coding deployments</li>
+          <li>Route coding tasks to cost-efficient models via AI Gateway</li>
+          <li>Track and cap per-user AI spending</li>
+          <li>Benchmark your AI coding ROI against industry peers</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published by Databricks with data from Stripe, Coinbase, Uber, Ramp</li>
+          <li>Order-of-magnitude velocity gains reported at Databricks</li>
+          <li>Omnigent meta-harness and Unity AI Gateway open-sourced</li>
+          <li>Directional savings numbers from informal survey of dev teams</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.databricks.com/blog/introducing-omnigent-meta-harness-combine-control-and-share-your-agents">Omnigent meta-harness</a></li>
+          <li><a href="https://www.databricks.com/blog/unity-ai-gateway-generally-available">Unity AI Gateway</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://www.databricks.com/blog/open-sourcing-metals-v2-databricks-java-and-scala-language-server-multi-million-line-codebases">Databricks Open-Sources Metals v2: Java and Scala Intelligence for Multi-Million-Line Monorepos</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Databricks extended the Metals Scala LSP with first-class Java support and monorepo-scale performance, then open-sourced it as Metals v2. They moved their entire JVM development workflow from IntelliJ to Cursor, dropping the majority of their IntelliJ seats. Available today in Cursor, VS Code, and Neovim.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Scala</span>
+        <span class="tag">Java</span>
+        <span class="tag">LSP</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the second major IDE unbundling move this week (after JetBrains' own LSP server). Databricks — one of the largest Scala shops — found that agents plus lightweight editors plus a good LSP now outperform a heavyweight IDE. If your monorepo is big enough that IntelliJ struggles, Metals v2 is the production-tested alternative that powers Databricks' internal workflow.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replace IntelliJ for large Scala/Java monorepos</li>
+          <li>Enable coding agents to navigate JVM codebases via LSP</li>
+          <li>Unify IDE tooling across frontend and backend teams</li>
+          <li>Reduce IDE licensing costs for large engineering orgs</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Databricks moved majority of JVM development from IntelliJ to Cursor</li>
+          <li>Dropped most IntelliJ seat licenses</li>
+          <li>Open-sourced in collaboration with upstream Metals team</li>
+          <li>Available in Cursor, VS Code, and Neovim</li>
+          <li>Most Databricks code is now written by agents</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://metals-lsp.org">Metals website</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/Graphify-Labs/graphify">Graphify Hits 105K Stars: Turn Any Codebase Into a Queryable Knowledge Graph With Deterministic AST Parsing</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Graphify (YC-backed) maps your entire project — code, docs, SQL schemas, configs, PDFs — into a queryable knowledge graph using tree-sitter AST parsing. No embeddings, no vector store: a real graph you traverse. Type /graphify in Claude Code, Cursor, Codex, or Gemini CLI and get an interactive HTML graph, a markdown report, and a queryable JSON store.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Knowledge Graph</span>
+        <span class="tag">Code Intelligence</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">YC</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>At 105K stars, Graphify is one of the fastest-growing developer tools of 2026. It solves a real problem: coding agents lose context in large codebases because grep and file reads are linear. A knowledge graph lets agents traverse relationships — imports, function calls, schema references — instead of searching. The deterministic AST approach means results are reproducible and auditable, unlike embedding-based search.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Give coding agents structural code understanding via knowledge graph</li>
+          <li>Codebase onboarding and architecture discovery</li>
+          <li>Cross-language dependency analysis without embeddings</li>
+          <li>Audit and trace relationships between code, docs, and schemas</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>105,465 GitHub stars, 10,279 forks</li>
+          <li>YC-backed (Graphify Labs)</li>
+          <li>Works as a skill in Claude Code, Cursor, Codex, Gemini CLI</li>
+          <li>PyPI package (graphifyy) with growing downloads</li>
+          <li>Platform early access open at app.graphify.com</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://graphify.com">Graphify platform</a></li>
+          <li><a href="https://pypi.org/project/graphifyy/">PyPI</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.codewithseb.com/blog/chrome-devtools-agents-mcp-browser-debugging-guide">Chrome DevTools for Agents 1.0: MCP Server, CLI, and Agent Skills for Real Browser Debugging</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Chrome DevTools for agents hit stable 1.0 with three interfaces: an MCP server (chrome-devtools-mcp), a token-efficient CLI for batched actions, and expert agent skills for multi-step workflows. Agents can now record performance traces, read console output, take heap snapshots, run Lighthouse audits, and debug extensions — without a human touching the browser.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Chrome</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Debugging</span>
+        <span class="tag">Frontend</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The standard agent debugging loop has been: agent writes CSS, declares victory, you open the browser, layout is broken, paste screenshot back. DevTools for Agents breaks this cycle by giving agents real runtime access. The 1.0 release with Lighthouse audits, device emulation, and heap snapshot analysis turns coding agents into full-stack debuggers, not just code writers.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Agent-driven performance profiling and memory leak detection</li>
+          <li>Automated Lighthouse accessibility and performance audits</li>
+          <li>Frontend debugging without human-in-the-loop screenshots</li>
+          <li>Cross-device testing via emulation in agentic workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Stable 1.0 release by Chrome team</li>
+          <li>Supported in Claude Code, Gemini CLI, Antigravity 2.0</li>
+          <li>Pre-bundled as browser sub-agent in Antigravity</li>
+          <li>MCP server compatible with any mcpServers-capable client</li>
+          <li>Adds Lighthouse audits, device/network emulation, heap snapshots</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://www.infoq.com/news/2026/08/vercel-ships-zero-ai/">Vercel Labs Ships Zero: A Graph-First Systems Language Designed for AI Agents</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Vercel Labs released Zero, an experimental systems language where the primary consumer of compiler output is an AI agent, not a human. It uses a graph-first internal representation, explicit World capabilities for side effects, machine-readable error codes with typed repair metadata, and a zero fix --plan --json command that returns repair plans agents can accept or reject.</p>
+      <div class="article-meta">
+        <span class="tag">Languages</span>
+        <span class="tag">Vercel</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Systems Programming</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Zero asks a provocative question: what if we designed programming languages for agents from the ground up? The --json diagnostic schema, graph-based source representation, and explicit capability system eliminate the ambiguity that causes agents to hallucinate fixes. At 5.2K stars and v0.3.4, it's early — but the design principles (machine-readable errors, explicit effects, graph-native editing) will influence how we think about agent-friendly toolchains.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Agent-native systems programming with machine-readable toolchain</li>
+          <li>Capability-based effect tracking for safe agent code generation</li>
+          <li>Graph-first code representation for structural edits</li>
+          <li>Exploring agent-friendly language design patterns</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>5,200+ GitHub stars</li>
+          <li>Apache 2.0 license</li>
+          <li>v0.3.4 with rapid iteration (v0.1 to v0.3 in weeks)</li>
+          <li>Covered by InfoQ, HN discussion</li>
+          <li>16.2 KiB hello world, sub-millisecond builds</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/vercel-labs/zerolang">GitHub</a></li>
+          <li><a href="https://zerolang.ai/">Zero website</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://blog.duolingo.com/production-ready-ai-agent-platform/">How Duolingo Built a Production-Ready AI Agent Platform: Define Once, Run Everywhere</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Duolingo published a detailed case study of their internal AI agent platform. Teams define agents in a registry (system prompt, MCP servers, repo access), and the platform handles execution, observability, orchestration via Temporal, and evaluation. Agents are invokable from Slack, internal sites, CLI, or other workflows without rebuilding infrastructure each time.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Platform Engineering</span>
+        <span class="tag">Duolingo</span>
+        <span class="tag">Case Study</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Every company building agents internally hits the same wall Duolingo describes: teams rebuild MCP setup, credential management, repo cloning, and context loading for every project. This is the first detailed public case study of how a major consumer tech company solved it at scale. The architecture — registry-based agent definition, shared MCP execution layer, Temporal orchestration — is a blueprint for any platform team building internal agent infrastructure.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Build an internal agent platform with shared infrastructure</li>
+          <li>Registry-based agent definition for cross-team reuse</li>
+          <li>Multi-surface agent distribution (Slack, CLI, web)</li>
+          <li>Production agent orchestration with Temporal workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published by Duolingo engineering (August 4, 2026)</li>
+          <li>Production system serving multiple internal teams</li>
+          <li>Built on Temporal for durable execution</li>
+          <li>MCP-based tool orchestration</li>
+          <li>Multi-surface distribution (Slack, CLI, internal sites)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://kubernetes.io/blog/2026/08/03/gateway-api-v1-6-release/">Kubernetes Gateway API v1.6: TCPRoute and UDPRoute Graduate to Standard</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Kubernetes SIG Network shipped Gateway API v1.6, graduating TCPRoute and UDPRoute from experimental to standard channel. This means non-HTTP traffic — databases, message queues, DNS, game servers — gets the same declarative routing and multi-tenancy model that HTTP traffic has had since Gateway API 1.0.</p>
+      <div class="article-meta">
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Networking</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">CNCF</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Gateway API has been HTTP-only in production for years, forcing teams to maintain separate Ingress or raw Service configs for TCP/UDP workloads. With TCPRoute and UDPRoute now standard, platform teams can unify all traffic routing under one API surface. For AI infrastructure specifically, this matters: GPU inference traffic, model serving endpoints, and agent-to-agent communication often use non-HTTP protocols.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Unified traffic routing for HTTP and non-HTTP K8s workloads</li>
+          <li>Declarative TCP routing for databases and message queues in K8s</li>
+          <li>Multi-tenant UDP routing for DNS and streaming services</li>
+          <li>Standardize AI inference traffic routing alongside web traffic</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Kubernetes SIG Network release (August 3, 2026)</li>
+          <li>TCPRoute and UDPRoute graduated from experimental to standard</li>
+          <li>Gateway API already adopted by major service mesh and ingress providers</li>
+          <li>Part of the broader Kubernetes networking convergence</li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://snyk.io/blog/snyk-secrets/">Snyk Secrets Goes GA: ML-Powered Secrets Detection With Secure-at-Commit Prevention</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Snyk Secrets reached general availability with contextual ML-based detection that identifies secrets across the full SDLC — from commit hooks to CI pipelines to production scanning. It goes beyond regex-based scanning by understanding the context around potential secrets to reduce false positives while catching novel patterns.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">DevSecOps</span>
+        <span class="tag">Snyk</span>
+        <span class="tag">Secrets Management</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As AI coding agents generate more code at higher velocity, the surface area for accidentally committed secrets expands dramatically. Agent-written code doesn't go through the same mental checklist a human developer uses. Snyk Secrets' ML-based approach catches patterns that regex rules miss — and the secure-at-commit prevention model means secrets are blocked before they ever reach the repo, not discovered after the fact.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Prevent agent-generated code from leaking secrets</li>
+          <li>Pre-commit hooks that catch novel secret patterns via ML</li>
+          <li>Unified secrets governance across dev lifecycle</li>
+          <li>Reduce false positive rates vs. regex-only secret scanners</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Generally available as of August 4, 2026</li>
+          <li>Built on ML-based contextual detection (beyond regex)</li>
+          <li>Covers full SDLC: commit hooks, CI, production</li>
+          <li>Snyk's existing enterprise customer base</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
