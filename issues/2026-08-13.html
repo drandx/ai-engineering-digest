@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 13, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 13, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://x.ai/news/grok-4-6">xAI ships Grok 4.6 — frontier agentic model focused on long-running agents and sustained multi-step work</a></li>
+      <li><a href="https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2">Meta launches Muse Code beta with persistent async background agents, powered by Muse Spark 1.2</a></li>
+      <li><a href="https://vllm.ai/blog/2026-08-12-qwen3.8">Alibaba open-sources Qwen3.8-2.4T-A95B — largest open-weight MoE model with day-0 vLLM support</a></li>
+      <li><a href="https://www.infoworld.com/article/4204961/awss-kiro-crew-aims-to-turn-ai-coding-agents-into-autonomous-engineering-teams.html">AWS open-sources Kiro Crew: persistent agent workspace used by 39K Amazon builders internally</a></li>
+      <li><a href="https://www.langchain.com/blog/managed-deep-agents-is-now-in-public-beta">LangChain ships Managed Deep Agents public beta — deploy agents to production with one command</a></li>
+      <li><a href="https://rollbar.com/blog/resolve-now-fixes-your-errors-not-just-diagnoses-them/">Rollbar Resolve launches: AI agent that reads your codebase, writes verified fixes, and opens PRs</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://x.ai/news/grok-4-6">xAI Ships Grok 4.6: Frontier Agentic Model Built for Long-Running Multi-Step Work</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Grok 4.6 targets long-horizon agent workflows — sustained coding, research, and artifact creation across many steps. It matches GPT-5.6 Sol on the Artificial Analysis Intelligence Index and is available in Cursor and Grok Build with 2x launch credits.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Coding</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Another frontier model optimized for agentic coding. If your team uses Cursor or evaluates models for autonomous workflows, Grok 4.6 is now a serious contender with dedicated RL training on kernel optimization, web dev, and CAD environments.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Long-running autonomous coding sessions in Cursor</li>
+          <li>Multi-step research and analysis workflows</li>
+          <li>Turning product ideas into working applications</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Matches GPT-5.6 Sol on composite benchmark</li>
+          <li>Available in Cursor and Grok Build day one</li>
+          <li>Trained with agentic RL across multiple domain-specific environments</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://x.ai/news/grok-4-6">xAI announcement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2">Meta Launches Muse Code Beta: Terminal Coding Agent With Persistent Async Background Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Muse Code is Meta's terminal coding agent powered by Muse Spark 1.2. It uses persistent background subagents that stay active across tasks, a replay-exact event log for crash recovery, and bundled skills like /plan and /grill for plan stress-testing.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">Meta</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The persistent subagent architecture is the key differentiator — background agents don't spin up per-task but stay warm, reducing latency and redundant context gathering. The crash-safe event log means long-running tasks survive failures without restart.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Complex multi-file refactors with persistent context</li>
+          <li>Long-running coding tasks that survive crashes</li>
+          <li>Plan-then-execute workflows with built-in stress testing</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Meta's first terminal coding agent release</li>
+          <li>Muse Spark 1.2 built with significantly scaled coding training compute</li>
+          <li>Directly competes with Claude Code and Codex</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2">Meta AI Research</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://vllm.ai/blog/2026-08-12-qwen3.8">Alibaba Open-Sources Qwen3.8-2.4T-A95B: The Largest Open-Weight MoE Model With Day-0 vLLM Support</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Qwen3.8 is a 2.4-trillion-parameter sparse MoE with 512 experts — the first Qwen-Max-class model released as open weights. vLLM supports it from day one with FP8, BF16, NVFP4, and MXFP4 quantization options across NVIDIA and AMD hardware.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Inference</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the largest open-weight model ever released. FP4 quantization means it can run on a single node instead of two, making frontier-class inference accessible to teams with their own GPU infrastructure.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosted frontier-class inference without API dependency</li>
+          <li>Multi-vendor GPU deployment (NVIDIA + AMD)</li>
+          <li>Cost-efficient serving with FP4 quantization</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>First Qwen-Max-class open-weight release</li>
+          <li>Day-0 vLLM support with multi-vendor optimization</li>
+          <li>FP4 quantized weights from Inferact match full-precision quality</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://vllm.ai/blog/2026-08-12-qwen3.8">vLLM blog</a></li>
+          <li><a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421">Alibaba Cloud</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://github.com/shepherd-agents/shepherd">Shepherd: Open-Source Runtime Substrate That Lets You Fork, Replay, and Revert Any Agent Run</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Shepherd records agent runs as Git-like traces of typed events, enabling fork-and-replay at any step. Researchers report forks 5x faster than Docker and over 95% prompt-cache reuse. MIT-licensed, pip-installable, with macOS and Linux sandbox support.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>When a coding agent makes a wrong turn at step 10, you currently restart from scratch or patch forward. Shepherd lets you jump back to step 8 with full state — files, caches, process state — intact. This is version control for agent execution.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Reverting bad agent writes before they commit</li>
+          <li>Branching exploration of multiple agent strategies</li>
+          <li>Generating RL rollouts by forking at decision points</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published research from Northeastern and Stanford</li>
+          <li>5x faster forks than Docker baseline</li>
+          <li>95%+ prompt-cache reuse on replay</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/shepherd-agents/shepherd">GitHub</a></li>
+          <li><a href="https://arxiv.org/abs/2605.10913">Paper</a></li>
+          <li><a href="https://www.marktechpost.com/2026/08/08/meet-shepherd-an-open-source-python-substrate-that-lets-meta-agents-fork-replay-and-revert-any-agent-run/">MarkTechPost</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://www.infoworld.com/article/4204961/awss-kiro-crew-aims-to-turn-ai-coding-agents-into-autonomous-engineering-teams.html">AWS Open-Sources Kiro Crew: The Persistent Agent Workspace Used by 39,000 Amazon Builders</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Kiro Crew is an open-source orchestration platform that turns AI coding agents into persistent, autonomous teammates. Originally Amazon's internal MeshClaw project, it includes multi-agent orchestration, persistent memory, scheduling, approval workflows, and sandboxed execution.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Agents</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is battle-tested internal tooling from Amazon — 39K builders in 6 months — now open-sourced. Unlike single-session tools, Kiro Crew handles multi-session work with scheduling, memory, and audit logs. Ships with reference apps for worktree management, issue triage, and task running.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Always-on agent teammates that triage issues overnight</li>
+          <li>Scheduled engineering tasks with approval gates</li>
+          <li>Multi-agent workflows across repositories</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Used by 39,000+ Amazon builders internally</li>
+          <li>Open-sourced with no AWS account required</li>
+          <li>Ships with DevFleets, Issue Radar, and Task Runner reference apps</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoworld.com/article/4204961/awss-kiro-crew-aims-to-turn-ai-coding-agents-into-autonomous-engineering-teams.html">InfoWorld</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.microsoft.com/en-us/research/publication/agentic-coding-in-the-wild-characterizing-github-copilot-at-production-scale/">Microsoft Research Publishes First Production-Scale Study of Agentic Coding: 3.2M Users, 95T Tokens</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">The largest empirical study of agentic coding to date — 3.2M GitHub Copilot users, 13M sessions, 761M LLM calls, and 95 trillion tokens from June 2026. Key finding: KV cache hits average 90% within a turn but drop to 55% at turn boundaries.</p>
+      <div class="article-meta">
+        <span class="tag">Research</span>
+        <span class="tag">AI Infrastructure</span>
+        <span class="tag">Coding Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>If you're building or optimizing agent infrastructure, this paper quantifies what actually happens in production. The cache invalidation patterns, idle-time gaps, and tool-call coupling ratios are data points you can use to tune your own serving stack.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Optimizing KV cache strategies for agentic workloads</li>
+          <li>Right-sizing GPU allocation for agent inference</li>
+          <li>Understanding real-world agent session patterns</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>First production-scale study of its kind</li>
+          <li>Data from 3.2M real users across GitHub Copilot</li>
+          <li>Published by Microsoft Research, July 2026</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.microsoft.com/en-us/research/publication/agentic-coding-in-the-wild-characterizing-github-copilot-at-production-scale/">Microsoft Research</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.langchain.com/blog/managed-deep-agents-is-now-in-public-beta">LangChain Ships Managed Deep Agents Public Beta: Deploy Agents to Production With One Command</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Deep Agents is an open-source agent harness with persistence, memory mounts, sandbox lifecycle, and subagent delegation. The new Managed tier lets you deploy with 'mda deploy' — LangSmith handles runtime, persistence, and infrastructure.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Agents</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The gap between prototyping an agent and running it in production has been the bottleneck. Deep Agents addresses this with a local-first dev experience (mda dev) that deploys unchanged to managed infrastructure, available in both Python and TypeScript.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploying research or coding agents to production without infra work</li>
+          <li>Building agents with persistent working files and long-term memory</li>
+          <li>Multi-agent delegation with managed sandbox lifecycle</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Public beta launch from LangChain/LangSmith ecosystem</li>
+          <li>Supports both Python and TypeScript agent authoring</li>
+          <li>One-command deploy from local dev to managed runtime</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.langchain.com/blog/managed-deep-agents-is-now-in-public-beta">LangChain Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://github.com/HKUDS/nanobot">Nanobot Hits 47K Stars: Ultra-Lightweight Self-Hosted Personal AI Agent Framework</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Nanobot is an open-source personal AI agent framework in Python with WebUI, terminal, and chat app interfaces. It includes tools, long-term memory, MCP integrations, model routing, multi-agent delegation, and scheduled automation in a small readable core.</p>
+      <div class="article-meta">
+        <span class="tag">Open Source</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Self-Hosted</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>At 47K GitHub stars, Nanobot has become the go-to framework for self-hosted personal AI assistants. It supports Telegram, Discord, Slack, WeChat, and email — making it practical for teams that want an AI assistant without depending on a hosted service.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosted AI assistant connected to team chat</li>
+          <li>Scheduled automation with model routing</li>
+          <li>Personal AI agent with long-term memory and MCP tools</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>46,928 GitHub stars</li>
+          <li>8,296 forks</li>
+          <li>Supports 7+ chat app integrations</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/HKUDS/nanobot">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.red-gate.com/blog/introducing-the-flyway-mcp-server-governed-database-change-now-available-to-your-ai-coding-assistant/">Flyway Ships MCP Server: Governed Database Changes for AI Coding Assistants</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Red Gate's Flyway MCP Server brings database migration governance to AI coding tools. It enforces policies, tracks migration history, and prevents drift — so AI-generated schema changes go through the same approval pipeline as human-written ones.</p>
+      <div class="article-meta">
+        <span class="tag">Database</span>
+        <span class="tag">MCP</span>
+        <span class="tag">DevOps</span>
+        <span class="tag">Governance</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>AI agents generate code fast but are blind to database history. Flyway's MCP Server closes that gap by giving agents awareness of migration state, naming policies, and drift detection. Available now in public preview for Flyway Enterprise.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>AI agents that propose schema changes with governance guardrails</li>
+          <li>Preventing migration conflicts in agentic workflows</li>
+          <li>Drift detection between AI-generated and actual database state</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Red Gate, makers of Flyway (widely adopted migration tool)</li>
+          <li>Public preview for Enterprise tier</li>
+          <li>Addresses a real gap in agentic coding workflows</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.red-gate.com/blog/introducing-the-flyway-mcp-server-governed-database-change-now-available-to-your-ai-coding-assistant/">Red Gate Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://rollbar.com/blog/resolve-now-fixes-your-errors-not-just-diagnoses-them/">Rollbar Resolve Launches: AI Agent That Reads Your Code, Writes Verified Fixes, and Opens PRs</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Rollbar Resolve goes beyond error detection — it reads your codebase, identifies root causes, writes fixes, runs tests in ephemeral environments, and opens PRs with verified results attached. Completes the detect-diagnose-fix lifecycle in one product.</p>
+      <div class="article-meta">
+        <span class="tag">DevOps</span>
+        <span class="tag">Error Monitoring</span>
+        <span class="tag">AI Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Error monitoring tools have always stopped at diagnosis. Resolve closes the loop: detect with Session Replay, diagnose with AI Root Cause Analysis, fix with Resolve. The key differentiator is that fixes are tested in isolated environments before the PR is opened.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Auto-fixing production errors with verified test results</li>
+          <li>Reducing mean time to resolution for recurring bugs</li>
+          <li>Offloading routine bug fixes from on-call engineers</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GA launch from established error monitoring platform</li>
+          <li>Verified fixes with test results, not theoretical patches</li>
+          <li>Included in existing AI credit system, no per-seat add-on</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://rollbar.com/blog/resolve-now-fixes-your-errors-not-just-diagnoses-them/">Rollbar Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://www.gitkraken.com/blog/gitkraken-desktop-12-4-see-every-agent-approve-every-change">GitKraken Desktop 12.4: See Every Agent, Approve Every Change Across Worktrees</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">GitKraken 12.4 adds first-class agent management — see which AI agents are working in which worktrees, review their changes, and approve or reject from a unified dashboard. Built for teams running multiple coding agents in parallel.</p>
+      <div class="article-meta">
+        <span class="tag">Git</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Workflows</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As teams run more autonomous agents in parallel worktrees, visibility becomes critical. GitKraken 12.4 is the first major Git client to treat agent activity as a first-class citizen alongside human commits.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Monitoring multiple coding agents working in parallel</li>
+          <li>Reviewing and approving agent changes before merge</li>
+          <li>Managing worktree lifecycle for autonomous agents</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From GitKraken, one of the most popular Git GUI clients</li>
+          <li>Addresses emerging pain point of multi-agent worktree management</li>
+          <li>Ships with approval workflow for agent-generated changes</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.gitkraken.com/blog/gitkraken-desktop-12-4-see-every-agent-approve-every-change">GitKraken Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>

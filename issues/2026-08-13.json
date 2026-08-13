@@ -1,0 +1,155 @@
+{
+  "highlights": [
+    {"text": "xAI ships Grok 4.6 — frontier agentic model focused on long-running agents and sustained multi-step work", "anchor": "ai-tools-and-models-0"},
+    {"text": "Meta launches Muse Code beta with persistent async background agents, powered by Muse Spark 1.2", "anchor": "ai-tools-and-models-1"},
+    {"text": "Alibaba open-sources Qwen3.8-2.4T-A95B — largest open-weight MoE model with day-0 vLLM support", "anchor": "ai-tools-and-models-2"},
+    {"text": "AWS open-sources Kiro Crew: persistent agent workspace used by 39K Amazon builders internally", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "LangChain ships Managed Deep Agents public beta — deploy agents to production with one command", "anchor": "developer-tools-and-frameworks-2"},
+    {"text": "Rollbar Resolve launches: AI agent that reads your codebase, writes verified fixes, and opens PRs", "anchor": "infrastructure-and-production-1"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "xAI Ships Grok 4.6: Frontier Agentic Model Built for Long-Running Multi-Step Work",
+          "url": "https://x.ai/news/grok-4-6",
+          "tldr": "Grok 4.6 targets long-horizon agent workflows — sustained coding, research, and artifact creation across many steps. It matches GPT-5.6 Sol on the Artificial Analysis Intelligence Index and is available in Cursor and Grok Build with 2x launch credits.",
+          "why_it_matters": "Another frontier model optimized for agentic coding. If your team uses Cursor or evaluates models for autonomous workflows, Grok 4.6 is now a serious contender with dedicated RL training on kernel optimization, web dev, and CAD environments.",
+          "traction": "high",
+          "traction_evidence": ["Matches GPT-5.6 Sol on composite benchmark", "Available in Cursor and Grok Build day one", "Trained with agentic RL across multiple domain-specific environments"],
+          "use_cases": ["Long-running autonomous coding sessions in Cursor", "Multi-step research and analysis workflows", "Turning product ideas into working applications"],
+          "tags": ["AI", "LLM", "Agents", "Coding"],
+          "links": [{"url": "https://x.ai/news/grok-4-6", "label": "xAI announcement"}]
+        },
+        {
+          "title": "Meta Launches Muse Code Beta: Terminal Coding Agent With Persistent Async Background Agents",
+          "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2",
+          "tldr": "Muse Code is Meta's terminal coding agent powered by Muse Spark 1.2. It uses persistent background subagents that stay active across tasks, a replay-exact event log for crash recovery, and bundled skills like /plan and /grill for plan stress-testing.",
+          "why_it_matters": "The persistent subagent architecture is the key differentiator — background agents don't spin up per-task but stay warm, reducing latency and redundant context gathering. The crash-safe event log means long-running tasks survive failures without restart.",
+          "traction": "high",
+          "traction_evidence": ["Meta's first terminal coding agent release", "Muse Spark 1.2 built with significantly scaled coding training compute", "Directly competes with Claude Code and Codex"],
+          "use_cases": ["Complex multi-file refactors with persistent context", "Long-running coding tasks that survive crashes", "Plan-then-execute workflows with built-in stress testing"],
+          "tags": ["AI", "Coding Agent", "Meta", "Open Source"],
+          "links": [{"url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2", "label": "Meta AI Research"}]
+        },
+        {
+          "title": "Alibaba Open-Sources Qwen3.8-2.4T-A95B: The Largest Open-Weight MoE Model With Day-0 vLLM Support",
+          "url": "https://vllm.ai/blog/2026-08-12-qwen3.8",
+          "tldr": "Qwen3.8 is a 2.4-trillion-parameter sparse MoE with 512 experts — the first Qwen-Max-class model released as open weights. vLLM supports it from day one with FP8, BF16, NVFP4, and MXFP4 quantization options across NVIDIA and AMD hardware.",
+          "why_it_matters": "This is the largest open-weight model ever released. FP4 quantization means it can run on a single node instead of two, making frontier-class inference accessible to teams with their own GPU infrastructure.",
+          "traction": "high",
+          "traction_evidence": ["First Qwen-Max-class open-weight release", "Day-0 vLLM support with multi-vendor optimization", "FP4 quantized weights from Inferact match full-precision quality"],
+          "use_cases": ["Self-hosted frontier-class inference without API dependency", "Multi-vendor GPU deployment (NVIDIA + AMD)", "Cost-efficient serving with FP4 quantization"],
+          "tags": ["AI", "LLM", "Open Source", "Inference"],
+          "links": [
+            {"url": "https://vllm.ai/blog/2026-08-12-qwen3.8", "label": "vLLM blog"},
+            {"url": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421", "label": "Alibaba Cloud"}
+          ]
+        },
+        {
+          "title": "Shepherd: Open-Source Runtime Substrate That Lets You Fork, Replay, and Revert Any Agent Run",
+          "url": "https://github.com/shepherd-agents/shepherd",
+          "tldr": "Shepherd records agent runs as Git-like traces of typed events, enabling fork-and-replay at any step. Researchers report forks 5x faster than Docker and over 95% prompt-cache reuse. MIT-licensed, pip-installable, with macOS and Linux sandbox support.",
+          "why_it_matters": "When a coding agent makes a wrong turn at step 10, you currently restart from scratch or patch forward. Shepherd lets you jump back to step 8 with full state — files, caches, process state — intact. This is version control for agent execution.",
+          "traction": "emerging",
+          "traction_evidence": ["Published research from Northeastern and Stanford", "5x faster forks than Docker baseline", "95%+ prompt-cache reuse on replay"],
+          "use_cases": ["Reverting bad agent writes before they commit", "Branching exploration of multiple agent strategies", "Generating RL rollouts by forking at decision points"],
+          "tags": ["AI", "Agents", "Infrastructure", "Open Source"],
+          "links": [
+            {"url": "https://github.com/shepherd-agents/shepherd", "label": "GitHub"},
+            {"url": "https://arxiv.org/abs/2605.10913", "label": "Paper"},
+            {"url": "https://www.marktechpost.com/2026/08/08/meet-shepherd-an-open-source-python-substrate-that-lets-meta-agents-fork-replay-and-revert-any-agent-run/", "label": "MarkTechPost"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "AWS Open-Sources Kiro Crew: The Persistent Agent Workspace Used by 39,000 Amazon Builders",
+          "url": "https://www.infoworld.com/article/4204961/awss-kiro-crew-aims-to-turn-ai-coding-agents-into-autonomous-engineering-teams.html",
+          "tldr": "Kiro Crew is an open-source orchestration platform that turns AI coding agents into persistent, autonomous teammates. Originally Amazon's internal MeshClaw project, it includes multi-agent orchestration, persistent memory, scheduling, approval workflows, and sandboxed execution.",
+          "why_it_matters": "This is battle-tested internal tooling from Amazon — 39K builders in 6 months — now open-sourced. Unlike single-session tools, Kiro Crew handles multi-session work with scheduling, memory, and audit logs. Ships with reference apps for worktree management, issue triage, and task running.",
+          "traction": "high",
+          "traction_evidence": ["Used by 39,000+ Amazon builders internally", "Open-sourced with no AWS account required", "Ships with DevFleets, Issue Radar, and Task Runner reference apps"],
+          "use_cases": ["Always-on agent teammates that triage issues overnight", "Scheduled engineering tasks with approval gates", "Multi-agent workflows across repositories"],
+          "tags": ["DevTools", "Agents", "AWS", "Open Source"],
+          "links": [{"url": "https://www.infoworld.com/article/4204961/awss-kiro-crew-aims-to-turn-ai-coding-agents-into-autonomous-engineering-teams.html", "label": "InfoWorld"}]
+        },
+        {
+          "title": "Microsoft Research Publishes First Production-Scale Study of Agentic Coding: 3.2M Users, 95T Tokens",
+          "url": "https://www.microsoft.com/en-us/research/publication/agentic-coding-in-the-wild-characterizing-github-copilot-at-production-scale/",
+          "tldr": "The largest empirical study of agentic coding to date — 3.2M GitHub Copilot users, 13M sessions, 761M LLM calls, and 95 trillion tokens from June 2026. Key finding: KV cache hits average 90% within a turn but drop to 55% at turn boundaries.",
+          "why_it_matters": "If you're building or optimizing agent infrastructure, this paper quantifies what actually happens in production. The cache invalidation patterns, idle-time gaps, and tool-call coupling ratios are data points you can use to tune your own serving stack.",
+          "traction": "high",
+          "traction_evidence": ["First production-scale study of its kind", "Data from 3.2M real users across GitHub Copilot", "Published by Microsoft Research, July 2026"],
+          "use_cases": ["Optimizing KV cache strategies for agentic workloads", "Right-sizing GPU allocation for agent inference", "Understanding real-world agent session patterns"],
+          "tags": ["Research", "AI Infrastructure", "Coding Agents"],
+          "links": [{"url": "https://www.microsoft.com/en-us/research/publication/agentic-coding-in-the-wild-characterizing-github-copilot-at-production-scale/", "label": "Microsoft Research"}]
+        },
+        {
+          "title": "LangChain Ships Managed Deep Agents Public Beta: Deploy Agents to Production With One Command",
+          "url": "https://www.langchain.com/blog/managed-deep-agents-is-now-in-public-beta",
+          "tldr": "Deep Agents is an open-source agent harness with persistence, memory mounts, sandbox lifecycle, and subagent delegation. The new Managed tier lets you deploy with 'mda deploy' — LangSmith handles runtime, persistence, and infrastructure.",
+          "why_it_matters": "The gap between prototyping an agent and running it in production has been the bottleneck. Deep Agents addresses this with a local-first dev experience (mda dev) that deploys unchanged to managed infrastructure, available in both Python and TypeScript.",
+          "traction": "medium",
+          "traction_evidence": ["Public beta launch from LangChain/LangSmith ecosystem", "Supports both Python and TypeScript agent authoring", "One-command deploy from local dev to managed runtime"],
+          "use_cases": ["Deploying research or coding agents to production without infra work", "Building agents with persistent working files and long-term memory", "Multi-agent delegation with managed sandbox lifecycle"],
+          "tags": ["DevTools", "Agents", "LangChain", "Infrastructure"],
+          "links": [{"url": "https://www.langchain.com/blog/managed-deep-agents-is-now-in-public-beta", "label": "LangChain Blog"}]
+        },
+        {
+          "title": "Nanobot Hits 47K Stars: Ultra-Lightweight Self-Hosted Personal AI Agent Framework",
+          "url": "https://github.com/HKUDS/nanobot",
+          "tldr": "Nanobot is an open-source personal AI agent framework in Python with WebUI, terminal, and chat app interfaces. It includes tools, long-term memory, MCP integrations, model routing, multi-agent delegation, and scheduled automation in a small readable core.",
+          "why_it_matters": "At 47K GitHub stars, Nanobot has become the go-to framework for self-hosted personal AI assistants. It supports Telegram, Discord, Slack, WeChat, and email — making it practical for teams that want an AI assistant without depending on a hosted service.",
+          "traction": "high",
+          "traction_evidence": ["46,928 GitHub stars", "8,296 forks", "Supports 7+ chat app integrations"],
+          "use_cases": ["Self-hosted AI assistant connected to team chat", "Scheduled automation with model routing", "Personal AI agent with long-term memory and MCP tools"],
+          "tags": ["Open Source", "Agents", "Self-Hosted"],
+          "links": [{"url": "https://github.com/HKUDS/nanobot", "label": "GitHub"}]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Flyway Ships MCP Server: Governed Database Changes for AI Coding Assistants",
+          "url": "https://www.red-gate.com/blog/introducing-the-flyway-mcp-server-governed-database-change-now-available-to-your-ai-coding-assistant/",
+          "tldr": "Red Gate's Flyway MCP Server brings database migration governance to AI coding tools. It enforces policies, tracks migration history, and prevents drift — so AI-generated schema changes go through the same approval pipeline as human-written ones.",
+          "why_it_matters": "AI agents generate code fast but are blind to database history. Flyway's MCP Server closes that gap by giving agents awareness of migration state, naming policies, and drift detection. Available now in public preview for Flyway Enterprise.",
+          "traction": "medium",
+          "traction_evidence": ["From Red Gate, makers of Flyway (widely adopted migration tool)", "Public preview for Enterprise tier", "Addresses a real gap in agentic coding workflows"],
+          "use_cases": ["AI agents that propose schema changes with governance guardrails", "Preventing migration conflicts in agentic workflows", "Drift detection between AI-generated and actual database state"],
+          "tags": ["Database", "MCP", "DevOps", "Governance"],
+          "links": [{"url": "https://www.red-gate.com/blog/introducing-the-flyway-mcp-server-governed-database-change-now-available-to-your-ai-coding-assistant/", "label": "Red Gate Blog"}]
+        },
+        {
+          "title": "Rollbar Resolve Launches: AI Agent That Reads Your Code, Writes Verified Fixes, and Opens PRs",
+          "url": "https://rollbar.com/blog/resolve-now-fixes-your-errors-not-just-diagnoses-them/",
+          "tldr": "Rollbar Resolve goes beyond error detection — it reads your codebase, identifies root causes, writes fixes, runs tests in ephemeral environments, and opens PRs with verified results attached. Completes the detect-diagnose-fix lifecycle in one product.",
+          "why_it_matters": "Error monitoring tools have always stopped at diagnosis. Resolve closes the loop: detect with Session Replay, diagnose with AI Root Cause Analysis, fix with Resolve. The key differentiator is that fixes are tested in isolated environments before the PR is opened.",
+          "traction": "medium",
+          "traction_evidence": ["GA launch from established error monitoring platform", "Verified fixes with test results, not theoretical patches", "Included in existing AI credit system, no per-seat add-on"],
+          "use_cases": ["Auto-fixing production errors with verified test results", "Reducing mean time to resolution for recurring bugs", "Offloading routine bug fixes from on-call engineers"],
+          "tags": ["DevOps", "Error Monitoring", "AI Agents"],
+          "links": [{"url": "https://rollbar.com/blog/resolve-now-fixes-your-errors-not-just-diagnoses-them/", "label": "Rollbar Blog"}]
+        },
+        {
+          "title": "GitKraken Desktop 12.4: See Every Agent, Approve Every Change Across Worktrees",
+          "url": "https://www.gitkraken.com/blog/gitkraken-desktop-12-4-see-every-agent-approve-every-change",
+          "tldr": "GitKraken 12.4 adds first-class agent management — see which AI agents are working in which worktrees, review their changes, and approve or reject from a unified dashboard. Built for teams running multiple coding agents in parallel.",
+          "why_it_matters": "As teams run more autonomous agents in parallel worktrees, visibility becomes critical. GitKraken 12.4 is the first major Git client to treat agent activity as a first-class citizen alongside human commits.",
+          "traction": "medium",
+          "traction_evidence": ["From GitKraken, one of the most popular Git GUI clients", "Addresses emerging pain point of multi-agent worktree management", "Ships with approval workflow for agent-generated changes"],
+          "use_cases": ["Monitoring multiple coding agents working in parallel", "Reviewing and approving agent changes before merge", "Managing worktree lifecycle for autonomous agents"],
+          "tags": ["Git", "DevTools", "Agents", "Workflows"],
+          "links": [{"url": "https://www.gitkraken.com/blog/gitkraken-desktop-12-4-see-every-agent-approve-every-change", "label": "GitKraken Blog"}]
+        }
+      ]
+    }
+  ]
+}
