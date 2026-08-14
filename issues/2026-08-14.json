@@ -1,0 +1,137 @@
+{
+  "highlights": [
+    {"text": "Google ships Gemini 3.7 Flash — half the price of 3.6 with 65.3% on DeepSWE and 43.6% on FrontierCode, three weeks after 3.6", "anchor": "ai-tools-and-models-0"},
+    {"text": "DeepSeek open-sources DeepSeek Harness: a plugin-based agent framework where everything — tools, sandboxes, models — is swappable", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Microsoft Research releases Orchard: open-source agentic AI framework where 3B-active-param models hit 69.7% on SWE-bench Verified", "anchor": "ai-tools-and-models-1"},
+    {"text": "Zed launches Delta private beta: a multiplayer app for coding with agents, built on DeltaDB CRDT version control", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Atlassian ships Code Context into the Teamwork Graph — multi-repo codebase understanding for Rovo and coding agents", "anchor": "developer-tools-and-frameworks-2"},
+    {"text": "Docker VMM enters public beta: a ground-up rebuild of Docker Desktop's virtualization layer for macOS and Windows", "anchor": "infrastructure-and-production-0"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Google Ships Gemini 3.7 Flash: Half-Price Workhorse With Major Coding and Agent Gains",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
+          "tldr": "Gemini 3.7 Flash launches three weeks after 3.6, delivering 65.3% on DeepSWE (vs 49.0%), 43.6% on FrontierCode 1.1 (vs 34.4%), and an introductory price of half the 3.6 Flash cost per million tokens. Improvements span debugging, issue resolution, web development, and document-heavy knowledge work.",
+          "why_it_matters": "Google is iterating Flash at a pace that matters for cost-sensitive production workloads. At half the price with substantially better coding benchmarks, 3.7 Flash is now a serious contender for teams running high-volume agentic workflows where per-token cost is the binding constraint.",
+          "traction": "high",
+          "traction_evidence": ["Released Aug 13, 2026 — three weeks after 3.6 Flash", "65.3% DeepSWE v1.1 (up from 49.0%)", "43.6% FrontierCode 1.1 Main (up from 34.4%)", "Elo 1588 on WebDev Arena (up from 1538)", "Introductory price at 50% of 3.6 Flash"],
+          "use_cases": ["Cost-efficient agentic coding at scale", "High-volume web development and UI generation", "Document-heavy reasoning in finance, law, biosciences", "Drop-in replacement for 3.6 Flash workflows"],
+          "tags": ["AI", "LLM", "Google", "Coding"],
+          "links": [{"url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/", "label": "Google Blog"}]
+        },
+        {
+          "title": "Microsoft Research Open-Sources Orchard: 3B Active Parameters Reaching 69.7% on SWE-bench Verified",
+          "url": "https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/",
+          "tldr": "Orchard is an open-source framework for scalable agentic AI research built around Orchard Env, a Kubernetes-based reusable environment service. Orchard-SWE reaches 69.7% on SWE-bench Verified (73.0% with reranking) using only ~3B active parameters — approaching frontier systems 10x its size. Supports software engineering, web navigation, and personal assistant agents.",
+          "why_it_matters": "A 3B-active-param model hitting near-frontier SWE-bench scores means capable coding agents can run on dramatically less hardware. Orchard's shared environment infrastructure across multiple agent types (SWE, GUI, Claw) eliminates the biggest tax in agentic research: rebuilding sandboxes, data pipelines, and eval infrastructure for each new project.",
+          "traction": "high",
+          "traction_evidence": ["Microsoft Research publication", "69.7% SWE-bench Verified with ~3B active params", "Open-source with training data and eval methods", "Supports Codex, OpenClaw, and ZeroClaw harnesses", "Covers SWE, GUI navigation, and personal assistant domains"],
+          "use_cases": ["Training efficient coding agents with open-weight models", "Reusable agentic environments across task domains", "RL training inside real deployment harnesses", "Benchmarking small models against frontier systems"],
+          "tags": ["AI", "Research", "Open Source", "Microsoft", "Agents"],
+          "links": [{"url": "https://github.com/microsoft/Orchard", "label": "GitHub"}, {"url": "https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/", "label": "Microsoft Research Blog"}]
+        },
+        {
+          "title": "Meta Releases Muse Glimmer: 30B Open-Weight Model Built for Local Agentic Workflows",
+          "url": "https://developer.meta.com/ai/resources/blog/build-with-muse-glimmer/",
+          "tldr": "Muse Glimmer is a 30B-parameter dense model with 120K+ context window, designed specifically for local agent execution. NVIDIA published a guide for running it on consumer GPUs for agentic workflows including file management, code editing, and tool orchestration.",
+          "why_it_matters": "Most coding agents require API calls to frontier models. Muse Glimmer targets the growing segment of developers who want agent capabilities running entirely on their own hardware — no API dependency, no token metering, full privacy. The NVIDIA optimization guide makes deployment practical on RTX-class hardware.",
+          "traction": "medium",
+          "traction_evidence": ["Released by Meta as part of the Muse model family", "NVIDIA published optimization guide for local deployment", "30B dense with 120K+ context — fits on consumer GPUs with quantization", "Designed for agentic workflows, not just chat"],
+          "use_cases": ["Fully local coding agent with no API dependency", "Privacy-sensitive development environments", "Offline agentic workflows on consumer hardware", "On-device tool orchestration and file management"],
+          "tags": ["AI", "LLM", "Meta", "Open Source", "Local"],
+          "links": [{"url": "https://developer.meta.com/ai/resources/blog/build-with-muse-glimmer/", "label": "Meta AI Developers"}, {"url": "https://developer.nvidia.com/blog/run-local-agentic-ai-workflows-with-metas-muse-glimmer-on-nvidia/", "label": "NVIDIA Blog"}]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "DeepSeek Open-Sources DeepSeek Harness: A Plugin-Based Agent Framework Where Everything Is Swappable",
+          "url": "https://github.com/deepseek-ai/deepseek-harness",
+          "tldr": "DeepSeek released its agent harness as open source on August 14. The architecture treats everything — tools, sandboxes, models, and execution strategies — as plugins. In testing with DeepSeek-V4-Flash (a smaller model), it generated a playable 3D game in 30 minutes with zero manual intervention, outperforming GPT-5.6 Sol on the same task.",
+          "why_it_matters": "The terminal agent harness market just got another serious competitor. DeepSeek's plugin-first architecture means you can swap the model, sandbox, and tool layer independently — the kind of modularity that lets teams pick the best component at each layer instead of buying into a monolithic stack. Released same day as DeepSeek V4 Pro.",
+          "traction": "high",
+          "traction_evidence": ["Open-sourced August 14, 2026", "Covered by The New Stack and 36Kr", "Plugin architecture for all components", "Ships alongside DeepSeek V4 Pro model release", "Demonstrated competitive results with smaller models vs GPT-5.6 Sol"],
+          "use_cases": ["Modular agent harness with swappable models and tools", "Running coding agents with DeepSeek models locally", "Plugin-based customization of agent execution strategies", "Comparing agent performance across different model backends"],
+          "tags": ["DevTools", "Agents", "DeepSeek", "Open Source"],
+          "links": [{"url": "https://github.com/deepseek-ai/deepseek-harness", "label": "GitHub"}, {"url": "https://thenewstack.io/deepseek-harness-open-source-plugins/", "label": "The New Stack"}]
+        },
+        {
+          "title": "Zed Launches Delta Private Beta: Multiplayer Agent Collaboration With CRDT Version Control",
+          "url": "https://topaiproduct.com/2026/08/12/delta-zed-is-a-brand-new-app-not-a-zed-editor-feature-and-thats-the-whole-point/",
+          "tldr": "Delta is a new standalone app from Zed — not a plugin. It provides multiplayer threads where humans and agents collaborate on code in real time. Built on DeltaDB, Zed's CRDT version control that records every operation between commits, linking each edit to the conversation that caused it. Runs native and in the browser via WebAssembly.",
+          "why_it_matters": "Git tells you what changed but not why an agent made 400 invisible edits to get there. Delta's CRDT approach preserves the full edit history linked to conversation context — a fundamentally different model for reviewing agent-generated code. The 264-point HN discussion confirms this is hitting a nerve with developers who review agent output daily.",
+          "traction": "medium",
+          "traction_evidence": ["264 points on Hacker News", "Private beta launched August 12, 2026", "Built on DeltaDB CRDT shipped earlier in 2026", "Runs native and in browser via WebAssembly/WebGL", "Supports third-party harnesses like Claude Code"],
+          "use_cases": ["Real-time multiplayer review of agent-generated code", "Full edit provenance for AI-generated changes", "Asynchronous agent task handoff between team members", "Cross-platform agent collaboration (native + browser)"],
+          "tags": ["DevTools", "Zed", "Agents", "Collaboration", "Version Control"],
+          "links": [{"url": "https://topaiproduct.com/2026/08/12/delta-zed-is-a-brand-new-app-not-a-zed-editor-feature-and-thats-the-whole-point/", "label": "Top AI Product"}]
+        },
+        {
+          "title": "Atlassian Ships Code Context: AI Context Engine That Connects Codebases to the Teamwork Graph",
+          "url": "https://www.atlassian.com/blog/development/code-context",
+          "tldr": "Atlassian Code Context indexes multi-repo codebases into the Teamwork Graph, combining lexical and semantic search so agents and developers can find code and understand the organizational context around it — architectural decisions, product strategy, and conversations explaining tradeoffs. Available in IDEs, terminals, AI coding apps, and Jira.",
+          "why_it_matters": "Coding agents are good at writing code but bad at understanding why code was written a certain way. Code Context connects code to the organizational signals that explain those decisions. For enterprises using Jira and Bitbucket, this is the first product that gives agents cross-repo, cross-team context without manual prompt engineering.",
+          "traction": "high",
+          "traction_evidence": ["Announced August 12, 2026 by Atlassian", "Integrates with the Teamwork Graph (Atlassian's knowledge platform)", "Available across IDEs, terminals, Jira, and AI coding apps", "Permission-aware: respects existing access controls", "Combines lexical and semantic search across repos"],
+          "use_cases": ["Give coding agents multi-repo organizational context", "Reduce agent hallucinations by grounding in real architectural decisions", "Cross-team code discovery without manual context loading", "Permission-aware code search for enterprise compliance"],
+          "tags": ["DevTools", "Atlassian", "Enterprise", "Code Intelligence"],
+          "links": [{"url": "https://www.atlassian.com/blog/development/code-context", "label": "Atlassian Blog"}]
+        },
+        {
+          "title": "Herdr Joins Y Combinator F26: Terminal Runtime for AI Agents Hits 25K Stars and 363K Downloads",
+          "url": "https://wpnews.pro/news/herdr-joins-y-combinator-and-the-runtime-stays-open",
+          "tldr": "Herdr, a terminal runtime for AI coding agents built by a solo developer, hit 25,000 GitHub stars and 363,000 downloads in five months and is now joining YC's F26 batch. The runtime stays open-source — YC is backing the commercial layer on top.",
+          "why_it_matters": "The agent runtime layer is becoming its own category. Herdr's growth (25K stars, 363K downloads from a solo dev) shows strong demand for agent-specific runtimes that sit between the model and the operating system. YC backing signals this is a fundable category, not just a hobby project.",
+          "traction": "high",
+          "traction_evidence": ["25,000 GitHub stars", "363,000 downloads in 5 months", "Accepted into Y Combinator F26 batch", "Built by a single developer", "Runtime stays open-source"],
+          "use_cases": ["Sandboxed terminal execution for coding agents", "Runtime layer between agent harnesses and the OS", "Self-hosted agent execution environment", "Agent security and isolation at the runtime level"],
+          "tags": ["DevTools", "Agents", "YC", "Open Source", "Runtime"],
+          "links": [{"url": "https://wpnews.pro/news/herdr-joins-y-combinator-and-the-runtime-stays-open", "label": "WPNews"}]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Docker VMM Public Beta: A Ground-Up Rebuild of Docker Desktop's Virtualization Layer",
+          "url": "https://www.docker.com/blog/docker-vmm-public-beta/",
+          "tldr": "Docker shipped the public beta of Docker VMM, a completely rebuilt first-party virtualization layer for Docker Desktop on macOS and Windows. The new VMM replaces the previous third-party hypervisor dependency with a purpose-built solution optimized for container workloads, promising better performance, stability, and governance.",
+          "why_it_matters": "Docker Desktop's macOS performance has been a persistent pain point for developers — especially for AI/ML workloads that involve large container builds. A first-party VMM means Docker controls the full stack from container to VM, which should eliminate the hypervisor-mismatch bugs that have plagued Docker for Mac for years.",
+          "traction": "high",
+          "traction_evidence": ["Public beta launched August 12, 2026", "Complete rebuild, not incremental update", "Available for both macOS and Windows", "From Docker Inc., the dominant container tooling company"],
+          "use_cases": ["Faster local container builds for ML model development", "Stable Docker Desktop for engineering teams on macOS", "Governed container environments for enterprise compliance", "Improved I/O performance for volume-mounted workloads"],
+          "tags": ["Infrastructure", "Docker", "Containers", "DevOps"],
+          "links": [{"url": "https://www.docker.com/blog/docker-vmm-public-beta/", "label": "Docker Blog"}]
+        },
+        {
+          "title": "Anthropic Publishes How Nuro, Gusto, and Garner Health Run Claude Code Auto Mode in Production",
+          "url": "https://claude.com/blog/auto-mode-in-production",
+          "tldr": "Anthropic published case studies from Nuro, Gusto, and Garner Health on running Claude Code's auto mode in production environments. The post details how these companies balance speed and safety when giving coding agents autonomous execution capabilities at production scale.",
+          "why_it_matters": "Auto mode — where agents execute without per-step human approval — is the next frontier for coding agents. These are among the first public case studies of companies actually running autonomous coding agents in production, not just prototyping. The safety/speed tradeoffs they describe are the playbook every team will need.",
+          "traction": "medium",
+          "traction_evidence": ["Published August 7, 2026 by Anthropic", "Real production case studies from Nuro, Gusto, Garner Health", "Covers the speed vs. safety tradeoff in autonomous execution", "First public documentation of auto mode production patterns"],
+          "use_cases": ["Running autonomous coding agents with production guardrails", "Balancing agent speed with safety controls", "Auto mode deployment patterns for enterprise teams", "Understanding real-world autonomous agent failure modes"],
+          "tags": ["AI", "Anthropic", "Production", "Agents", "Case Study"],
+          "links": [{"url": "https://claude.com/blog/auto-mode-in-production", "label": "Claude Blog"}]
+        },
+        {
+          "title": "GitLens 19: The Commit Graph Reimagined for Parallel Agent Development",
+          "url": "https://www.gitkraken.com/blog/gitlens-19-the-commit-graph-reimagined-for-parallel-development",
+          "tldr": "GitLens 19 reimagines the commit graph for teams running multiple coding agents in parallel. New features include AI-powered review, agent activity tracking, and conflict resolution designed for the branching patterns created by autonomous agents working concurrently across worktrees.",
+          "why_it_matters": "When multiple agents work in parallel, the commit graph becomes unreadable with traditional tooling. GitLens 19 is the first VS Code extension to specifically design for agent-heavy workflows — AI review, agent-aware conflict resolution, and a commit graph that makes sense when half your contributors are autonomous.",
+          "traction": "medium",
+          "traction_evidence": ["Major release from GitKraken (makers of GitLens)", "GitLens has 30M+ VS Code installs", "Specifically redesigned for parallel agent workflows", "Includes AI-powered code review and conflict resolution"],
+          "use_cases": ["Visualizing commit history from parallel coding agents", "AI-assisted code review in VS Code", "Resolving conflicts from concurrent agent worktrees", "Tracking which agent made which changes across branches"],
+          "tags": ["DevTools", "Git", "VS Code", "Agents"],
+          "links": [{"url": "https://www.gitkraken.com/blog/gitlens-19-the-commit-graph-reimagined-for-parallel-development", "label": "GitKraken Blog"}]
+        }
+      ]
+    }
+  ]
+}
