@@ -1,0 +1,163 @@
+{
+  "highlights": [
+    {"text": "OpenAI ships Symphony: 26.7K-star framework that monitors Linear boards and spawns autonomous agents to land PRs with proof of work", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Spotify open-sources Xirp: vendor-neutral agentic dev environment used by 1,300+ engineers across 36K+ agent sessions", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "JetBrains ships IntelliJ IDEA LSP: Java and Kotlin intelligence now available in VS Code, Cursor, and agentic terminal flows", "anchor": "developer-tools-and-frameworks-2"},
+    {"text": "NVIDIA releases Nemotron 3.5 Lightning (30B MoE) and NeMo Switchyard for intelligent model routing in multi-agent systems", "anchor": "ai-tools-and-models-0"},
+    {"text": "Graphify hits 106K GitHub stars: turn any codebase into a queryable knowledge graph with deterministic AST parsing, no vector store", "anchor": "ai-tools-and-models-1"},
+    {"text": "Pulumi ships full Terraform interop — Pulumi Cloud as Terraform backend, HCL as first-class language, 40%+ users now using agents for IaC", "anchor": "infrastructure-and-production-0"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "NVIDIA Releases Nemotron 3.5 Lightning and NeMo Switchyard: Open Models Meet Intelligent Agent Routing",
+          "url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
+          "tldr": "NVIDIA ships Nemotron 3.5 Lightning, a 30B-parameter mixture-of-experts model optimized for high-volume agentic tasks within multi-agent systems, alongside NeMo Switchyard, an open-source library that intelligently routes each request to the best model. Thoughtworks validated post-training for legal and healthcare domains in hours.",
+          "why_it_matters": "Multi-agent systems need a mix of frontier and specialized models, but routing between them is manual and brittle. NeMo Switchyard makes that routing automatic, while Lightning gives you a cheap, capable workhorse for the subtasks that don't need a frontier model. Together, they make the 'system of models' pattern practical.",
+          "traction": "high",
+          "traction_evidence": ["Released by NVIDIA as part of Nemotron 3 family expansion", "NeMo Switchyard is open-source, integrates with popular agent frameworks", "Thoughtworks published validation: post-trained for legal and healthcare in hours", "30B MoE runs on RTX-class hardware"],
+          "use_cases": ["Intelligent model routing in multi-agent coding pipelines", "Cost-efficient specialized agents for code review, testing, docs", "Domain-specific fine-tuning for enterprise workflows", "Running capable local agents alongside frontier API calls"],
+          "tags": ["AI", "NVIDIA", "Open Source", "Agents", "Infrastructure"],
+          "links": [
+            {"url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/", "label": "NVIDIA Blog"},
+            {"url": "https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/", "label": "NeMo Switchyard Technical Blog"},
+            {"url": "https://www.thoughtworks.com/en-us/insights/blog/generative-ai/putting-nvidia-nemotron-3-5-lightning-test", "label": "Thoughtworks Validation"}
+          ]
+        },
+        {
+          "title": "Graphify Hits 106K GitHub Stars: Turn Any Codebase Into a Queryable Knowledge Graph",
+          "url": "https://github.com/Graphify-Labs/graphify",
+          "tldr": "Graphify is a /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI that maps your entire codebase — code, docs, SQL schemas, configs, PDFs — into a real knowledge graph using deterministic tree-sitter AST parsing. No embeddings, no vector store. Every edge is tagged EXTRACTED or INFERRED so you can trace provenance.",
+          "why_it_matters": "Vector search gives you 'similar' results. Graphify gives you 'connected' results — traverse from a function to its callers to the doc that explains the business rule. At 106K stars, it's become the default way developers give their agents structural understanding of codebases instead of just grep-and-hope.",
+          "traction": "high",
+          "traction_evidence": ["106,466 GitHub stars, 10,362 forks", "YC-backed (Graphify Labs)", "Works as a skill across Claude Code, Cursor, Codex, and Gemini CLI", "Fully local code parsing — no LLM needed for code"],
+          "use_cases": ["Giving coding agents structural codebase understanding", "Tracing dependencies and impact analysis across repos", "Onboarding to unfamiliar codebases via graph queries", "Connecting code to docs, schemas, and configs in one graph"],
+          "tags": ["DevTools", "Open Source", "Code Intelligence", "Knowledge Graph"],
+          "links": [
+            {"url": "https://github.com/Graphify-Labs/graphify", "label": "GitHub"},
+            {"url": "https://graphify.com", "label": "Graphify Platform"}
+          ]
+        },
+        {
+          "title": "TencentDB Agent Memory Ships Team Memory: 20K Stars in 90 Days, Now Shared Across Agents",
+          "url": "https://www.prnewswire.com/apac/news-releases/tencentdb-agent-memory-tops-20-000-github-stars-in-90-days-launches-team-memory-for-multi-agent-collaboration-302850576.html",
+          "tldr": "TencentDB Agent Memory adds Team Memory — turning conversations, documents, code repos, and operational workflows into four types of structured memory assets (Chat Memory, LLM-Wiki, Code Memory, Skill Memory) that any agent across platforms like CodeBuddy, OpenClaw, or Claude Code can query. Hit 20K GitHub stars and GitHub Trending #1 multiple times since its May 2026 open-source launch.",
+          "why_it_matters": "Every team running agents rediscovers the same problem: agent memory is per-session and per-user. Team Memory makes institutional knowledge — past solutions, architectural decisions, operational patterns — available to any agent on the team. It's the difference between each agent starting cold and each agent inheriting team context.",
+          "traction": "high",
+          "traction_evidence": ["20,000+ GitHub stars in 90 days", "Hit GitHub Trending #1 multiple times", "Team Memory launch expands from individual to team use", "Integrates with CodeBuddy, OpenClaw, Claude Code"],
+          "use_cases": ["Shared memory across multiple coding agents on a team", "Preserving institutional knowledge for agent workflows", "Cross-platform agent memory (works across agent harnesses)", "Converting docs and conversations into queryable agent context"],
+          "tags": ["AI", "Memory", "Open Source", "Tencent", "Agents"],
+          "links": [
+            {"url": "https://www.prnewswire.com/apac/news-releases/tencentdb-agent-memory-tops-20-000-github-stars-in-90-days-launches-team-memory-for-multi-agent-collaboration-302850576.html", "label": "PR Newswire"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "OpenAI Ships Symphony: Manage Work, Not Agents — 26.7K Stars on Day One",
+          "url": "https://github.com/openai/symphony",
+          "tldr": "Symphony monitors project boards (starting with Linear), spawns isolated autonomous Codex agents for each task, and provides proof of work — CI status, PR review feedback, complexity analysis, and walkthrough videos. When accepted, agents land the PR safely. Engineers manage the work at a higher level instead of supervising individual agent sessions.",
+          "why_it_matters": "This is the shift from 'use a coding agent' to 'manage a team of coding agents.' Symphony treats agent runs as isolated implementation units with built-in accountability (proof of work). At 26.7K stars on launch, it's the strongest signal yet that the industry is moving past single-session agent interactions.",
+          "traction": "high",
+          "traction_evidence": ["26,681 GitHub stars on day one", "2,718 forks", "Apache 2.0 license", "From OpenAI, integrates with Codex", "Works with Linear for task management"],
+          "use_cases": ["Autonomous task execution from project boards", "Proof-of-work verification for agent-generated PRs", "Scaling from one agent to a fleet of parallel agents", "Integrating coding agents into existing PM workflows"],
+          "tags": ["DevTools", "OpenAI", "Agents", "Orchestration", "Open Source"],
+          "links": [
+            {"url": "https://github.com/openai/symphony", "label": "GitHub"},
+            {"url": "https://openai.com/index/harness-engineering/", "label": "Harness Engineering Guide"}
+          ]
+        },
+        {
+          "title": "Spotify Open-Sources Xirp: Vendor-Neutral Agentic Dev Environment Used by 1,300+ Engineers",
+          "url": "https://saascity.io/blog/spotify-xirp-vendor-neutral-agentic-development-environment-2026",
+          "tldr": "Xirp is Spotify's vendor-neutral surface for managing agent sessions across Claude Code, OpenAI Codex, and Gemini CLI. Used internally by 1,300+ engineers across 36,000+ sessions, it solves the organizational problem of running dozens of agents: context fragmentation, duplicated CLAUDE.md files, and institutional knowledge locked in individual configurations.",
+          "why_it_matters": "Spotify built Backstage for microservice sprawl. Now they're building Xirp for agent session sprawl — and the pattern is the same: when 40 agents run across repos and branches, the problem isn't the agents, it's the context management. The 1.2M-view launch post and 36K internal sessions validate this is a real pain point at scale.",
+          "traction": "high",
+          "traction_evidence": ["1,300+ Spotify engineers using it internally", "36,000+ agent sessions handled", "1.2M views on launch post in one day", "Public beta opened August 10, 2026", "From Spotify Engineering (makers of Backstage)"],
+          "use_cases": ["Unified agent management across multiple AI providers", "Sharing institutional context across agent sessions", "Onboarding non-engineers to coding agent workflows", "Tracking and auditing agent activity across teams"],
+          "tags": ["DevTools", "Spotify", "Agents", "Open Source", "Orchestration"],
+          "links": [
+            {"url": "https://saascity.io/blog/spotify-xirp-vendor-neutral-agentic-development-environment-2026", "label": "SaaSCity Analysis"},
+            {"url": "https://xirp.spotify.com/", "label": "Xirp"}
+          ]
+        },
+        {
+          "title": "JetBrains Ships IntelliJ IDEA LSP: Java and Kotlin Intelligence Comes to VS Code, Cursor, and Agentic Flows",
+          "url": "https://blog.jetbrains.com/idea/2026/08/intellij-idea-goes-lsp/",
+          "tldr": "JetBrains is offering IntelliJ IDEA's Java and Kotlin language intelligence as an LSP server, available as a VS Code extension (and for Cursor). Internal trials show the same LSP significantly improves terminal-based agentic workflows like Claude Code and Codex — faster, more deterministic results with reduced token consumption.",
+          "why_it_matters": "Coding agents navigating Java/Kotlin codebases have relied on grep and file reading. An LSP server gives agents go-to-definition, find-references, and smart completion — the same tools humans use. JetBrains claims this leads to 'very promising' reductions in token usage for agentic workflows, which directly cuts cost.",
+          "traction": "high",
+          "traction_evidence": ["From JetBrains, makers of IntelliJ IDEA (dominant Java/Kotlin IDE)", "Preview extension available for VS Code and Cursor", "Internal trials with Claude Code and Codex show improved results", "Includes debugging, refactoring, and smart completion"],
+          "use_cases": ["Giving Java/Kotlin agents IDE-quality code intelligence", "Reducing agent token consumption via deterministic navigation", "Java/Kotlin development in VS Code and Cursor with IntelliJ-grade tooling", "Mixed-language Java+Kotlin project support outside IntelliJ"],
+          "tags": ["DevTools", "JetBrains", "LSP", "Java", "Kotlin", "Agents"],
+          "links": [
+            {"url": "https://blog.jetbrains.com/idea/2026/08/intellij-idea-goes-lsp/", "label": "JetBrains Blog"}
+          ]
+        },
+        {
+          "title": "Arcee AI Ships NAC: Open-Source Harness Built for Long-Running Agent Work",
+          "url": "https://www.arcee.ai/blog/nac",
+          "tldr": "NAC (from Arcee AI) is an Apache-2.0 agent harness that separates temporary execution context from persistent workstream state, specifically addressing context rot in long-horizon tasks. It coordinates parallel agent workers across sessions that can extend hours or days, with each worker getting clean context while the orchestrator maintains the bigger picture.",
+          "why_it_matters": "Context rot — where agent performance degrades as the context window fills with tool output and false starts — is the biggest unsolved problem in long-running agent work. NAC's architecture treats context as a resource to be managed, not a log to be accumulated, which is a fundamentally different design than most agent harnesses.",
+          "traction": "medium",
+          "traction_evidence": ["From Arcee AI, established open-source AI company", "Apache 2.0 license", "Addresses context rot (validated by Chroma research)", "Demonstrated multi-hour and multi-day agent sessions"],
+          "use_cases": ["Multi-day agent tasks without context degradation", "Parallel agent coordination with shared persistent state", "Long-running refactoring and migration projects", "Agent sessions that survive context window limits"],
+          "tags": ["DevTools", "Agents", "Open Source", "Arcee AI", "Runtime"],
+          "links": [
+            {"url": "https://www.arcee.ai/blog/nac", "label": "Arcee AI Blog"},
+            {"url": "https://github.com/arcee-ai/nac", "label": "GitHub"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Pulumi Ships Full Terraform Interop: Bring Your IaC Estate Into the Agentic Era",
+          "url": "https://www.pulumi.com/blog/bring-your-terraform-estate-into-the-agentic-era/",
+          "tldr": "Pulumi launches three capabilities: Pulumi Cloud as a Terraform state backend (GA), cross-language modules that work across Terraform/OpenTofu and Pulumi, and HCL as a first-class language in Pulumi. Over 40% of Pulumi users now manage infrastructure using AI agents — this release means they don't have to rip out Terraform to do it.",
+          "why_it_matters": "The biggest barrier to agentic infrastructure hasn't been the agents — it's the existing Terraform estate that can't be abandoned overnight. Pulumi's interop layer means teams can start using agents for new infra while their existing Terraform state, modules, and workflows continue unchanged. The 40% agent adoption stat shows this isn't theoretical.",
+          "traction": "high",
+          "traction_evidence": ["GA release from Pulumi", "40%+ of Pulumi users managing infra with AI agents", "Full Terraform/OpenTofu state backend support", "HCL as first-class language alongside TypeScript, Python, Go, etc."],
+          "use_cases": ["Migrating Terraform estates to agent-managed infrastructure without rip-and-replace", "Running Terraform and Pulumi side by side with shared state", "Using coding agents to manage cloud infrastructure changes", "Cross-language IaC modules that work in both ecosystems"],
+          "tags": ["Infrastructure", "IaC", "Pulumi", "Terraform", "Agents"],
+          "links": [
+            {"url": "https://www.pulumi.com/blog/bring-your-terraform-estate-into-the-agentic-era/", "label": "Pulumi Blog"}
+          ]
+        },
+        {
+          "title": "PostgreSQL 19 Beta 3 Released: Continued Progress Toward the Next Major Version",
+          "url": "https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/",
+          "tldr": "The PostgreSQL Global Development Group released PostgreSQL 19 Beta 3 alongside security updates for all supported versions (18.6, 17.11, 16.15, 15.19, 14.24). PostgreSQL 19 continues adding features for modern workloads as the database heads toward GA later this year.",
+          "why_it_matters": "PostgreSQL remains the default database for new projects and AI-powered applications. Beta 3 is the last testing milestone before RC — if you're building on Postgres, now is the time to test your application against 19 and report issues before the GA freeze.",
+          "traction": "high",
+          "traction_evidence": ["Released August 13, 2026", "From the PostgreSQL Global Development Group", "Covers all supported versions (14-19)", "PostgreSQL is the most popular database for new projects"],
+          "use_cases": ["Testing applications against PostgreSQL 19 before GA", "Applying security patches across PostgreSQL versions", "Planning upgrades for production PostgreSQL deployments"],
+          "tags": ["Database", "PostgreSQL", "Infrastructure", "Open Source"],
+          "links": [
+            {"url": "https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/", "label": "PostgreSQL Announcement"}
+          ]
+        },
+        {
+          "title": "Databricks Open-Sources Metals v2: Language Server for Multi-Million Line Java and Scala Codebases",
+          "url": "https://www.databricks.com/blog/open-sourcing-metals-v2-databricks-java-and-scala-language-server-multi-million-line-codebases",
+          "tldr": "Databricks open-sourced Metals v2, a complete rethink of the Scala language server built for monorepos with millions of lines of code. Metals has been the official Scala language server since 2018, and v2 extends it to Java — designed to handle the scale that conventional JVM language servers can't.",
+          "why_it_matters": "JVM monorepos at Databricks-scale break standard language servers. Metals v2 is both a practical tool for large Scala/Java codebases and another data point in the trend of companies open-sourcing their internal developer tools — specifically the ones that make coding agents work better on large codebases.",
+          "traction": "medium",
+          "traction_evidence": ["Open-sourced by Databricks", "Metals has been the official Scala language server since 2018", "Designed for multi-million line monorepos", "Adds Java support alongside Scala"],
+          "use_cases": ["Code intelligence for large JVM monorepos", "Scala and Java development in VS Code and agent flows", "LSP server for coding agents navigating JVM codebases"],
+          "tags": ["DevTools", "Scala", "Java", "Databricks", "Open Source", "LSP"],
+          "links": [
+            {"url": "https://www.databricks.com/blog/open-sourcing-metals-v2-databricks-java-and-scala-language-server-multi-million-line-codebases", "label": "Databricks Blog"}
+          ]
+        }
+      ]
+    }
+  ]
+}
