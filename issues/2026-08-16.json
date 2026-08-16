@@ -1,0 +1,161 @@
+{
+  "highlights": [
+    {"text": "xAI ships Grok 4.6: frontier model built for long-running agents, matches GPT-5.6 Sol on the AI Intelligence Index, available in Cursor and Grok Build", "anchor": "ai-tools-and-models-0"},
+    {"text": "Qwen 3.8 goes open-weight at 2.4T parameters: first Qwen-Max-class model released with day-0 vLLM and SGLang support", "anchor": "ai-tools-and-models-1"},
+    {"text": "Augment Code rebuilds Auggie CLI harness: 53% cheaper than Claude Code on SWE-bench Pro at the same pass rate", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Microsoft/GitHub publishes first production-scale study of agentic coding: 3.2M users, 761M LLM calls, 95T tokens from Copilot traces", "anchor": "infrastructure-and-production-0"},
+    {"text": "DeepSeek V4 Pro 0813 ships as 1.7T-param open frontier model under MIT license with day-0 inference APIs", "anchor": "infrastructure-and-production-1"},
+    {"text": "GLM-5.3 from Z.ai gains advanced cyber capabilities from post-training alone — reportedly found a serious vulnerability in Cursor", "anchor": "ai-tools-and-models-2"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "xAI Ships Grok 4.6: Frontier Intelligence Built for Long-Running Agents",
+          "url": "https://x.ai/news/grok-4-6",
+          "tldr": "Grok 4.6 builds on Grok 4.5 with a focus on long-running agents and ambitious multi-step tasks. It matches GPT-5.6 Sol on the Artificial Analysis Intelligence Index (a composite of nine benchmarks) and is available immediately in Cursor and Grok Build with 2x included usage for the first week.",
+          "why_it_matters": "The frontier model race now explicitly optimizes for agent endurance, not just single-turn quality. Grok 4.6's training included agentic RL across coding, web development, CAD, and kernel optimization — meaning it was specifically shaped for the multi-step workflows that burn through most models' coherence. Available in Cursor on day one means engineers can test it immediately.",
+          "traction": "high",
+          "traction_evidence": ["Matches GPT-5.6 Sol on Artificial Analysis Intelligence Index", "Available in Cursor and Grok Build on launch day", "Trained with agentic RL across multiple domain-specific environments", "From xAI, released August 12, 2026"],
+          "use_cases": ["Long-running coding agent sessions across large codebases", "Multi-step research and analysis workflows", "Turning product ideas into working applications end-to-end", "Agentic kernel optimization and CAD tasks"],
+          "tags": ["AI", "LLM", "xAI", "Agents", "Frontier"],
+          "links": [
+            {"url": "https://x.ai/news/grok-4-6", "label": "xAI Announcement"}
+          ]
+        },
+        {
+          "title": "Qwen 3.8 Goes Open-Weight: 2.4T-Parameter Qwen-Max-Class Model With Day-0 Serving Support",
+          "url": "https://vllm.ai/blog/2026-08-12-qwen3.8",
+          "tldr": "Qwen 3.8 is a 2.4-trillion-parameter sparse MoE model with 512 experts and a 92-layer hybrid backbone mixing full attention and linear attention. It's the first Qwen-Max-class model released as open weights. vLLM and SGLang both shipped day-0 support, and Inferact released MXFP4 and NVFP4 quantized weights that match full-precision quality.",
+          "why_it_matters": "This is the largest open-weight model to ship with production-ready serving infrastructure on day one. The FP4 quantization means it can run on a single node instead of two, and the hybrid attention architecture (full attention every 4th layer, linear attention elsewhere) is a new approach to balancing quality and inference cost at this scale.",
+          "traction": "high",
+          "traction_evidence": ["First Qwen-Max-class open-weight release", "Day-0 vLLM and SGLang support", "2.4T parameters with FP4 quantization for single-node deployment", "Validated across NVIDIA and AMD hardware", "Viral discussion on Reddit r/LocalLLaMA"],
+          "use_cases": ["Self-hosted frontier-class model for enterprise teams", "Running Qwen-Max-quality inference without API dependency", "FP4 quantized deployment on single multi-GPU nodes", "Hybrid attention research and benchmarking"],
+          "tags": ["AI", "LLM", "Open Source", "Qwen", "Infrastructure"],
+          "links": [
+            {"url": "https://vllm.ai/blog/2026-08-12-qwen3.8", "label": "vLLM Blog"},
+            {"url": "https://www.lmsys.org/blog/2026-08-12-qwen3-8-day0-support/", "label": "SGLang Day-0 Support"}
+          ]
+        },
+        {
+          "title": "GLM-5.3 Ships With Advanced Cyber Capabilities — and Reportedly Found a Vulnerability in Cursor",
+          "url": "https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor",
+          "tldr": "Z.ai released GLM-5.3 with major gains in long-horizon coding and cybersecurity capabilities, achieved entirely through scaled post-training on the same GLM-5.2 base model. A Z.ai developer advocate reported GLM-5.3 found a 'potentially serious vulnerability' in Cursor. The model is initially available only through ZCode; open weights are planned after safety evaluation.",
+          "why_it_matters": "Two things matter here: first, the gains came purely from scaling post-training, not a new pretraining run — validating that post-training compute has significant unexplored headroom. Second, the cyber capabilities improved faster than Z.ai anticipated, prompting them to delay open-weight release for safety hardening. This is the first major model where the developer explicitly pumped the brakes on open release due to emergent offensive capabilities.",
+          "traction": "medium",
+          "traction_evidence": ["VentureBeat coverage on August 14, 2026", "Reported vulnerability found in Cursor", "Z.ai delaying open weights for safety evaluation", "Reuters reported Z.ai introducing 'trusted access' controls", "Gains from post-training only — same base as GLM-5.2"],
+          "use_cases": ["Automated security auditing of codebases", "Long-horizon agentic coding tasks", "Post-training scaling research", "Responsible disclosure workflows with AI assistance"],
+          "tags": ["AI", "LLM", "Security", "Z.ai", "Open Source"],
+          "links": [
+            {"url": "https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor", "label": "VentureBeat"},
+            {"url": "https://z.ai/blog/glm-5.3", "label": "Z.ai Blog"}
+          ]
+        },
+        {
+          "title": "Meta Launches Muse Code: Terminal Coding Agent With Persistent Background Agents",
+          "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2",
+          "tldr": "Meta releases Muse Code (beta), a terminal coding agent powered by Muse Spark 1.2. Its architecture uses persistent async background agents that stay active throughout a session, an event-log runtime that makes every session replay-exact and restart-safe, and bundled skills like /plan and /grill for stress-testing plans.",
+          "why_it_matters": "Meta is now directly competing in the terminal agent harness space alongside Claude Code, Codex, and DeepSeek Harness. The persistent background agent architecture is a different bet than one-shot subagent spawning — keeping specialists warm reduces latency on multi-step tasks. The event-log runtime means crashed sessions resume exactly where they stopped.",
+          "traction": "medium",
+          "traction_evidence": ["Released by Meta AI Research", "Powered by new Muse Spark 1.2 model", "Persistent background agent architecture (novel approach)", "Replay-exact event-log runtime for crash recovery"],
+          "use_cases": ["Complex multi-file coding tasks with persistent agent context", "Crash-safe long-running agent sessions", "Stress-testing implementation plans before execution", "Multimodal input (video to code) workflows"],
+          "tags": ["AI", "Meta", "Agents", "DevTools", "Open Source"],
+          "links": [
+            {"url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2", "label": "Meta AI Research"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Augment Code Rebuilds Auggie CLI: 53% Cheaper Than Claude Code at the Same Quality",
+          "url": "https://www.augmentcode.com/blog/auggie-cli-harness-rebuild-53-percent-cheaper",
+          "tldr": "Augment Code rebuilt their Auggie CLI harness from the ground up, forking the open-source Pi harness and integrating their context engine. On SWE-bench Pro, Auggie v2 completes tasks for $1.27 where Claude Code spends $2.70 — 53% cheaper at the same pass rate. The key insight: fewer tools means less overhead per call, and one good retrieval saves ten turns of exploration.",
+          "why_it_matters": "The harness layer — the agent loop, tool surface, and session management — is now a measurable competitive dimension. Augment's result shows that harness design can roughly halve the cost of identical model capability. The 'subtraction' principle (fewer, better tools) challenges the trend of shipping agents with ever-larger tool surfaces.",
+          "traction": "high",
+          "traction_evidence": ["53% cheaper than Claude Code on SWE-bench Pro (same pass rate)", "Built on Pi, an open-source minimal harness", "Doubled the efficiency gap from v1 (was 27% cheaper)", "Three months of deliberate prototyping"],
+          "use_cases": ["Cost-efficient agentic coding for teams with high token budgets", "Benchmarking harness efficiency across agent platforms", "Understanding tool surface tax on agent performance", "Enterprise agent deployment cost optimization"],
+          "tags": ["DevTools", "Agents", "Augment Code", "Cost Optimization"],
+          "links": [
+            {"url": "https://www.augmentcode.com/blog/auggie-cli-harness-rebuild-53-percent-cheaper", "label": "Augment Code Blog"}
+          ]
+        },
+        {
+          "title": "LangChain Ships Managed Deep Agents: From Agent Prototype to Production With One Command",
+          "url": "https://www.langchain.com/blog/managed-deep-agents-is-now-in-public-beta",
+          "tldr": "Managed Deep Agents enters public beta, providing a managed runtime for LangChain's open-source Deep Agents harness. Write an agent in Python or TypeScript, test locally with 'mda dev', and deploy to LangSmith with 'mda deploy'. LangSmith handles persistence, memory, sandbox lifecycle, and deployment while you control the model, tools, and business logic.",
+          "why_it_matters": "The gap between 'I built an agent that works on my laptop' and 'this agent runs in production' is mostly infrastructure: durable execution, memory management, sandbox lifecycle, deployment. Managed Deep Agents is LangChain's bet that this infrastructure should be a managed service, not something every team rebuilds. The open-source harness + managed runtime split lets teams own their agent logic without owning the infra.",
+          "traction": "medium",
+          "traction_evidence": ["Public beta from LangChain/LangSmith", "Open-source Deep Agents harness (MIT)", "One-command deploy from local to production", "Model-agnostic: bring your own model and tools"],
+          "use_cases": ["Deploying custom agents to production without infrastructure work", "Transitioning agent prototypes to managed production environments", "Building agents with durable execution and memory management", "Standardizing agent deployment across teams"],
+          "tags": ["DevTools", "LangChain", "Agents", "Production", "Open Source"],
+          "links": [
+            {"url": "https://www.langchain.com/blog/managed-deep-agents-is-now-in-public-beta", "label": "LangChain Blog"}
+          ]
+        },
+        {
+          "title": "Shepherd: Open-Source Runtime That Lets You Fork, Replay, and Revert Any Agent Run",
+          "url": "https://www.marktechpost.com/2026/08/08/meet-shepherd-an-open-source-python-substrate-that-lets-meta-agents-fork-replay-and-revert-any-agent-run/",
+          "tldr": "Shepherd, from researchers at Northeastern and Stanford, is a Python runtime substrate that records agent runs as Git-like traces of typed events. Any past state can be forked and replayed — forks are 5x faster than Docker snapshots with over 95% prompt-cache reuse on replay. MIT-licensed and installable via pip.",
+          "why_it_matters": "When a coding agent makes a wrong turn at step 8, you currently have two bad options: patch forward (growing context and cost) or restart from scratch (re-paying every token). Shepherd adds the third option engineers actually want: jump back to step 8 and fork. The 95% prompt-cache reuse means the replay is nearly free. This is version control for agent execution, not just for files.",
+          "traction": "emerging",
+          "traction_evidence": ["MIT-licensed, from Northeastern and Stanford researchers", "Published on arxiv with reproducible benchmarks", "5x faster forks than Docker snapshots", "95%+ prompt-cache reuse on replay", "Covered by MarkTechPost"],
+          "use_cases": ["Reverting agent mistakes without full restarts", "Branching exploration across candidate agent strategies", "Live supervision with meta-agent rollback on bad writes", "RL rollout generation with forking at decision points"],
+          "tags": ["DevTools", "Research", "Agents", "Open Source", "Runtime"],
+          "links": [
+            {"url": "https://github.com/shepherd-agents/shepherd", "label": "GitHub"},
+            {"url": "https://arxiv.org/abs/2605.10913", "label": "arXiv Paper"},
+            {"url": "https://www.marktechpost.com/2026/08/08/meet-shepherd-an-open-source-python-substrate-that-lets-meta-agents-fork-replay-and-revert-any-agent-run/", "label": "MarkTechPost"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "First Production-Scale Study of Agentic Coding: 3.2M Users, 761M LLM Calls, 95T Tokens From GitHub Copilot",
+          "url": "https://arxiv.org/html/2608.00101v1",
+          "tldr": "Microsoft Azure Research published the first production-scale characterization of agentic coding workloads using sampled GitHub Copilot traces from June 2026: 3.2M users, 13M sessions, 761M LLM calls, and 95 trillion tokens. Key findings: KV cache hits average 90% within a turn but drop to 55% across turn boundaries, and a lightweight idle-time predictor captures 86-90% of total idle time for resource optimization.",
+          "why_it_matters": "Every LLM serving system was designed for chatbot workloads. This paper shows agentic coding is a fundamentally different workload: sparse user turns that trigger autonomous agent loops, KV cache invalidation patterns that break standard serving assumptions, and minutes-long idle periods between turns that waste GPU resources. These findings will reshape how inference infrastructure is built.",
+          "traction": "high",
+          "traction_evidence": ["From Microsoft Azure Research, published on arXiv", "Based on real GitHub Copilot production traces", "3.2M users, 13M sessions, 761M LLM calls, 95T tokens", "Covers June 2026 production data"],
+          "use_cases": ["Designing agent-native LLM serving infrastructure", "Optimizing KV cache strategies for agentic workloads", "Predicting GPU idle time for resource scheduling", "Understanding real-world agentic coding patterns at scale"],
+          "tags": ["Infrastructure", "Research", "Microsoft", "GitHub", "Agents"],
+          "links": [
+            {"url": "https://arxiv.org/html/2608.00101v1", "label": "arXiv Paper"}
+          ]
+        },
+        {
+          "title": "DeepSeek V4 Pro 0813: 1.7T-Parameter Open Frontier Model Ships Under MIT License",
+          "url": "https://www.baseten.co/blog/inference-engineering-for-deepseek-v4-pro-0813/",
+          "tldr": "DeepSeek open-sourced V4 Pro 0813, a 1.7-trillion-parameter frontier model under the MIT license with zero-restriction fine-tuning. It's an update of V4 Pro Preview with additional post-training for code generation and agentic behavior. Baseten published day-0 inference engineering details: MXFP4 weights on their proprietary engine with production-ready APIs.",
+          "why_it_matters": "A 1.7T-param model under MIT license means any enterprise can run and fine-tune frontier-class intelligence without restrictions. Baseten's day-0 inference engineering post reveals the practical challenges: longer sequences, different cache hit patterns, and traffic shapes that have evolved materially since the preview model. This is the playbook for deploying open frontier models.",
+          "traction": "high",
+          "traction_evidence": ["1.7T parameters, MIT license, open weights", "Baseten day-0 production API", "Sits alongside GLM-5.2 on Artificial Analysis intelligence index", "Released alongside DeepSeek's open-source coding harness"],
+          "use_cases": ["Self-hosted frontier model for enterprises with data sovereignty requirements", "Fine-tuning a frontier-class model for domain-specific tasks", "Cost-efficient alternative to proprietary API-only models", "Inference engineering research at trillion-parameter scale"],
+          "tags": ["Infrastructure", "AI", "DeepSeek", "Open Source", "Inference"],
+          "links": [
+            {"url": "https://www.baseten.co/blog/inference-engineering-for-deepseek-v4-pro-0813/", "label": "Baseten Blog"}
+          ]
+        },
+        {
+          "title": "Ryan Dahl's celld: Durable Objects Liberated From Cloudflare, Run on Your Own Infrastructure",
+          "url": "https://www.theregister.com/devops/2026/08/12/nodejs-creator-liberates-durable-objects-from-cloudflare-with-celld/5286954",
+          "tldr": "Ryan Dahl (creator of Node.js and Deno) released celld, an open-source implementation of the Durable Objects pattern that runs on your own infrastructure instead of Cloudflare. It provides the same stateful, single-threaded, globally addressable compute model without vendor lock-in.",
+          "why_it_matters": "Durable Objects are one of the most powerful primitives for stateful agent orchestration — each object has a single-threaded execution context with persistent storage, perfect for agent state machines. But they've been Cloudflare-only. celld makes this pattern available on any infrastructure, which matters for teams building agent runtimes that need stateful coordination without cloud vendor lock-in.",
+          "traction": "medium",
+          "traction_evidence": ["From Ryan Dahl, creator of Node.js and Deno", "Covered by The Register", "Open-source, self-hosted alternative to Cloudflare Durable Objects", "Released August 12, 2026"],
+          "use_cases": ["Self-hosted stateful agent orchestration", "Durable Objects pattern without Cloudflare dependency", "Stateful coordination for multi-agent systems", "Building agent runtimes with persistent per-object state"],
+          "tags": ["Infrastructure", "Open Source", "Deno", "Stateful Compute", "Agents"],
+          "links": [
+            {"url": "https://www.theregister.com/devops/2026/08/12/nodejs-creator-liberates-durable-objects-from-cloudflare-with-celld/5286954", "label": "The Register"}
+          ]
+        }
+      ]
+    }
+  ]
+}
