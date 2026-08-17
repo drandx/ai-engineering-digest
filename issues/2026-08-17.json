@@ -1,0 +1,150 @@
+{
+  "highlights": [
+    {"text": "Qwen 3.8-27B drops today: dense 27B model matches Qwen3.7-plus (10x its size), runs on a laptop with quantization, top 5 most-liked on HuggingFace in 48 hours", "anchor": "ai-tools-and-models-0"},
+    {"text": "DeepSeek open-sources dsh agent harness: 31.2K stars on day one, 'everything is a plugin' architecture challenges Claude Code and Codex runtimes", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Microsoft Research ships Orchard: open framework where a 3B-active-param model hits 69.7% on SWE-bench Verified, approaching systems 10x larger", "anchor": "ai-tools-and-models-1"},
+    {"text": "npm 12 turns install scripts off by default — the biggest supply chain security shift in the Node.js ecosystem since lockfiles", "anchor": "infrastructure-and-production-0"},
+    {"text": "Rails Foundation launches 'Agents on Rails': first systematic benchmark of coding agents on real Rails apps, built by Evil Martians", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Atlassian ships Code Context: multi-repo codebase understanding piped into the Teamwork Graph so Rovo and external agents start with organizational context", "anchor": "developer-tools-and-frameworks-2"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Qwen 3.8-27B Drops Today: Dense Model That Matches Models 10x Its Size, Runs on a Laptop",
+          "url": "https://www.alibabacloud.com/blog/alibaba-unveils-qwen3-8-27b-and-releases-weights-of-qwen3-8-flagship-model_603463",
+          "tldr": "Alibaba releases Qwen3.8-27B, a native multimodal dense model under Apache 2.0 with a 262K-token context window (extendable to 1M). Despite being a single 27B-parameter model, it matches Qwen3.7-plus — an MoE model ten times its size — on coding, research, and agentic tasks. With quantization, it runs on consumer hardware including laptops.",
+          "why_it_matters": "The dense-vs-MoE efficiency gap is closing fast. A 27B dense model matching a 270B+ MoE means local inference just got dramatically more capable — you can run frontier-competitive intelligence on a single GPU or even a laptop. For teams running agents locally to avoid API costs, this changes the math overnight.",
+          "traction": "high",
+          "traction_evidence": ["Top 5 most-liked model on HuggingFace within 48 hours of release", "Alibaba has 460+ open-sourced models with 3B+ global downloads", "Released alongside Qwen3.8-2.4T flagship weights", "Apache 2.0 license, native 262K context"],
+          "use_cases": ["Local agentic coding on consumer hardware", "Cost-free inference for prototyping and development", "Multimodal vision-language tasks without API calls", "Long-context document processing on a single GPU"],
+          "tags": ["AI", "LLM", "Open Source", "Qwen", "Local Inference"],
+          "links": [
+            {"url": "https://www.alibabacloud.com/blog/alibaba-unveils-qwen3-8-27b-and-releases-weights-of-qwen3-8-flagship-model_603463", "label": "Alibaba Cloud Blog"},
+            {"url": "https://huggingface.co/Qwen/Qwen3.8-27B", "label": "HuggingFace Model"}
+          ]
+        },
+        {
+          "title": "Microsoft Research Ships Orchard: Open Framework Where 3B-Active-Param Agents Hit 69.7% on SWE-bench",
+          "url": "https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/",
+          "tldr": "Orchard is an open-source framework for scalable agentic AI built around Orchard Env, a reusable Kubernetes environment service for training and evaluating agents. Orchard-SWE reaches 69.7% on SWE-bench Verified (73.0% with value-model reranking) using only ~3B active parameters — approaching frontier systems using 10x larger models. It trains agents directly inside real deployment harnesses like Codex and OpenClaw.",
+          "why_it_matters": "This decouples agentic AI research from proprietary infrastructure. The 69.7% SWE-bench result with 3B active params proves that smart agent architectures matter more than raw model size. The fact that it trains inside real harnesses (Codex, OpenClaw) means the gap between research agents and production agents shrinks — you train where you deploy.",
+          "traction": "high",
+          "traction_evidence": ["From Microsoft Research, open-sourced on GitHub", "69.7% SWE-bench Verified with ~3B active parameters", "Supports SWE, GUI, and personal-assistant agent domains", "Releases training data and evaluation methods"],
+          "use_cases": ["Training custom coding agents on your own infrastructure", "Benchmarking small agentic models against frontier systems", "Building domain-specific agents with reusable environment services", "Academic research into agentic RL without proprietary tooling"],
+          "tags": ["AI", "Microsoft", "Open Source", "Agents", "Research"],
+          "links": [
+            {"url": "https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/", "label": "Microsoft Research Blog"},
+            {"url": "https://github.com/microsoft/Orchard", "label": "GitHub"}
+          ]
+        },
+        {
+          "title": "Arcee Ships NAC: An Open-Source Harness That Separates Agent Context From Agent State",
+          "url": "https://www.arcee.ai/blog/nac",
+          "tldr": "NAC (from Arcee AI) is an open-source agent harness built around a key architectural insight: temporary context needed to perform an action and persistent state needed to continue a workstream should be separate. It coordinates parallel agent workers with persistent state across long-running tasks, combating 'context rot' — the measurable degradation in model performance as context fills up.",
+          "why_it_matters": "Context rot is the silent killer of long agent sessions. NAC's architecture treats it as a first-class problem: workers get clean, focused context for each subtask while the orchestrator maintains durable state. Sessions can run for hours or days without the quality degradation that plagues single-transcript harnesses.",
+          "traction": "medium",
+          "traction_evidence": ["From Arcee AI, a known open-source AI company", "Apache 2.0 license", "References published research on context rot from Chroma", "Demonstrated on multi-hour sessions including video production"],
+          "use_cases": ["Multi-hour coding sessions without context degradation", "Parallel agent coordination on complex features", "Long-running automated workflows (CI/CD, migrations)", "Research into context management for agent systems"],
+          "tags": ["AI", "Agents", "Open Source", "Infrastructure"],
+          "links": [
+            {"url": "https://www.arcee.ai/blog/nac", "label": "Arcee AI Blog"},
+            {"url": "https://github.com/arcee-ai/nac", "label": "GitHub"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "DeepSeek Open-Sources dsh Agent Harness: 31.2K Stars on Day One, Everything Is a Plugin",
+          "url": "https://github.com/deepseek-ai/dsh",
+          "tldr": "DeepSeek open-sourced its own agent harness (dsh) under MIT license, hitting 31.2K stars and 2.3K forks on day one. Built on Cordis, DeepSeek's 'spatiotemporal composability framework,' everything is a plugin — the model adapter, tool registry, session log, sandbox, UI, and agent loop itself. Run npx @deepseek-ai/dsh web and you have a local agent runtime.",
+          "why_it_matters": "A Chinese frontier lab stopped shipping only weights and started shipping the runtime layer. This is the same layer Anthropic (Claude Code) and OpenAI (Codex) have been competing over. The plugin-everything architecture means you can swap any component — including the agent loop — from a config file, making it the most composable harness yet.",
+          "traction": "high",
+          "traction_evidence": ["31,200 GitHub stars on day one", "2,300 forks", "309 points on HN front page", "MIT license, 12,293 commits in repo", "From DeepSeek, a frontier AI lab"],
+          "use_cases": ["Running DeepSeek models in a first-party agent harness", "Swapping agent components (model, tools, loop) via plugins", "Building custom agent runtimes on top of Cordis", "Local-first agent development without API dependency"],
+          "tags": ["DevTools", "DeepSeek", "Open Source", "Agents"],
+          "links": [
+            {"url": "https://github.com/deepseek-ai/dsh", "label": "GitHub"},
+            {"url": "https://thenewstack.io/deepseek-harness-open-source-plugins/", "label": "The New Stack"}
+          ]
+        },
+        {
+          "title": "Rails Foundation Launches 'Agents on Rails': First Systematic Benchmark of Coding Agents on Real Rails Apps",
+          "url": "https://rubyonrails.org/2026/8/12/llm-benchmarking-project",
+          "tldr": "The Rails Foundation commissioned Evil Martians to build 'Agents on Rails,' an ongoing benchmark that measures how well frontier and open-weight coding agents perform on real Ruby on Rails codebases. Stage 1 (atomic tasks) launched this week with a public leaderboard. The project tests which models write good Rails code, how many tokens each costs, and whether frontier models are worth the premium over open-weight alternatives.",
+          "why_it_matters": "Framework-specific agent benchmarks are the next frontier after generic SWE-bench. Rails is the first major framework to build its own, and the results will directly inform which models teams should use for Rails projects. The token cost analysis is especially valuable — knowing that a cheaper model writes equally good Rails code saves real money.",
+          "traction": "medium",
+          "traction_evidence": ["Commissioned by Rails Foundation", "Built by Evil Martians", "Public leaderboard at rubyonrails.org/ai", "Tests both frontier and open-weight models", "Rails has 60K+ GitHub stars"],
+          "use_cases": ["Choosing the right coding agent for Rails projects", "Comparing token costs across models for framework-specific work", "Understanding where open-weight models match frontier for Rails", "Benchmarking your own model on standardized Rails tasks"],
+          "tags": ["DevTools", "Rails", "Benchmarks", "Open Source"],
+          "links": [
+            {"url": "https://rubyonrails.org/2026/8/12/llm-benchmarking-project", "label": "Rails Blog"},
+            {"url": "https://rubyonrails.org/ai", "label": "Leaderboard"}
+          ]
+        },
+        {
+          "title": "Atlassian Ships Code Context: Multi-Repo Codebase Understanding for Agents via the Teamwork Graph",
+          "url": "https://www.atlassian.com/blog/development/code-context",
+          "tldr": "Atlassian Code Context indexes your entire codebase into the Teamwork Graph and makes it available to Rovo and external coding agents across IDEs, terminals, and AI apps. It combines lexical and semantic search across multiple repositories, and connects code to organizational context — architectural decisions, product strategy, and team conversations that explain why tradeoffs were made.",
+          "why_it_matters": "The 'agent context problem' is shifting from single-repo to organization-wide. Atlassian is betting that agents need to understand not just the code but the work around it — who owns what, why decisions were made, what's planned next. For enterprises running agents across dozens of repos, this is the missing organizational layer.",
+          "traction": "high",
+          "traction_evidence": ["From Atlassian, serving 300K+ enterprise customers", "Integrates with Teamwork Graph (company-wide knowledge layer)", "Available across IDEs, terminals, and third-party AI apps", "Permission-aware, respects existing access controls"],
+          "use_cases": ["Giving coding agents organizational context across repos", "Reducing agent token waste from exploration in unfamiliar code", "Cross-team impact analysis for PRs and refactors", "Enterprise agent deployments with permission-aware code search"],
+          "tags": ["DevTools", "Atlassian", "Enterprise", "Code Intelligence"],
+          "links": [
+            {"url": "https://www.atlassian.com/blog/development/code-context", "label": "Atlassian Blog"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "npm 12 Turns Install Scripts Off by Default: The Biggest Supply Chain Security Shift Since Lockfiles",
+          "url": "https://www.infoq.com/news/2026/08/npm-12-released/",
+          "tldr": "npm 12 ships three security defaults that flip the Node.js supply chain model from implicit trust to explicit approval. The headline change: dependency install scripts (preinstall, install, postinstall) no longer run unless explicitly allowed in package.json. Git dependency overrides and remote tarball dependencies are also blocked by default. Migration recipes cover native modules, Cypress, Playwright, Puppeteer, Electron, and Husky.",
+          "why_it_matters": "After years of npm supply chain attacks, the default just flipped. Every team upgrading to npm 12 must consciously approve which packages can execute code during install — no more silent node-gyp builds or hidden postinstall scripts. This is a one-time migration cost that permanently reduces the attack surface of every Node.js project.",
+          "traction": "high",
+          "traction_evidence": ["Ships with Node.js, affects millions of developers", "Announced in June, available behind warnings since npm 11.16.0", "GitHub published detailed migration discussion and recipes", "Covers edge cases: native modules, test frameworks, git deps"],
+          "use_cases": ["Auditing which dependencies execute code during install", "Hardening CI/CD pipelines against supply chain attacks", "Migrating existing projects to explicit script approval", "Enforcing security policies across monorepo workspaces"],
+          "tags": ["Security", "Node.js", "npm", "Supply Chain"],
+          "links": [
+            {"url": "https://www.infoq.com/news/2026/08/npm-12-released/", "label": "InfoQ"},
+            {"url": "https://github.blog/changelog/2026-07-08-npm-install-time-security-and-gat-bypass2fa-deprecation/", "label": "GitHub Changelog"}
+          ]
+        },
+        {
+          "title": "AWS Ships Bedrock AgentCore Runtime Instances: Persistent Compute for Production AI Agents",
+          "url": "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/",
+          "tldr": "Amazon Bedrock AgentCore now offers Runtime Instances — persistent compute environments that stay warm between agent invocations. Unlike Lambda-style cold starts, these instances maintain loaded models, cached state, and pre-warmed connections, eliminating the startup tax that makes production agent deployments unpredictable.",
+          "why_it_matters": "Cold starts kill agent latency in production. When your agent needs to load tools, restore context, and warm up connections on every invocation, response times spike and costs balloon. Runtime Instances give production agents the same 'always warm' experience that developers get locally — a necessary step for agents that serve real users.",
+          "traction": "high",
+          "traction_evidence": ["From AWS, the largest cloud provider", "Extends Bedrock AgentCore (GA'd at re:Invent 2025)", "Addresses a known production pain point for agent deployments", "Integrates with SageMaker AI for model serving"],
+          "use_cases": ["Low-latency production agent deployments", "Maintaining agent state across invocations", "Reducing cold-start costs for high-frequency agent calls", "Enterprise agent infrastructure with AWS-managed scaling"],
+          "tags": ["AWS", "Infrastructure", "Agents", "Cloud"],
+          "links": [
+            {"url": "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/", "label": "AWS Blog"}
+          ]
+        },
+        {
+          "title": "Ryan Dahl Ships celld: Open-Source Durable Objects You Run on Your Own Infrastructure",
+          "url": "https://www.theregister.com/devops/2026/08/12/nodejs-creator-liberates-durable-objects-from-cloudflare-with-celld/5286954",
+          "tldr": "Ryan Dahl, creator of Node.js and Deno, releases celld — an open-source implementation of the Durable Objects pattern that runs on your own infrastructure instead of Cloudflare Workers. It provides the same stateful, single-threaded, location-pinned compute model but without cloud lock-in.",
+          "why_it_matters": "Durable Objects are one of the most powerful primitives for stateful agent backends — each object is a single-threaded actor with persistent storage, perfect for maintaining agent sessions, conversation state, and tool registries. Until now, that pattern required Cloudflare. celld makes it portable, which matters for teams building agent infrastructure they control.",
+          "traction": "medium",
+          "traction_evidence": ["From Ryan Dahl (Node.js creator, Deno creator)", "Covered by The Register", "Addresses known Cloudflare vendor lock-in concern", "Open source, self-hostable"],
+          "use_cases": ["Self-hosted stateful agent backends", "Persistent conversation state without cloud lock-in", "Actor-model services for multi-agent coordination", "Edge computing with durable state on your own hardware"],
+          "tags": ["Infrastructure", "Open Source", "Deno", "Stateful Computing"],
+          "links": [
+            {"url": "https://www.theregister.com/devops/2026/08/12/nodejs-creator-liberates-durable-objects-from-cloudflare-with-celld/5286954", "label": "The Register"}
+          ]
+        }
+      ]
+    }
+  ]
+}
