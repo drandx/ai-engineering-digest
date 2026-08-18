@@ -1,0 +1,149 @@
+{
+  "highlights": [
+    {"text": "Cursor launches Origin code hosting platform — coincides with a 6-hour GitHub outage, igniting the 'where should AI agents host code?' debate", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Tencent open-sources UI-Mate-27B: a 27B computer-use agent scoring 77.0 on OSWorld-Verified, beating Kimi-2.6's 1T-param model", "anchor": "ai-tools-and-models-0"},
+    {"text": "Graphify hits 107K GitHub stars: turns any codebase into a queryable knowledge graph with deterministic AST parsing, no vector store", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "CNCF graduates Kubeflow — the first cloud-native AI/ML platform to reach graduated status, now the operational backbone for enterprise AI on Kubernetes", "anchor": "infrastructure-and-production-0"},
+    {"text": "Preregistered study finds prompt design causes 2.4–18x cost swings in coding agents — 'prompt engineering is work design, not wording optimization'", "anchor": "ai-tools-and-models-1"},
+    {"text": "NVIDIA ships NeMo Switchyard: a model router that sends each agent step to the right model based on cost, quality, and latency signals", "anchor": "ai-tools-and-models-2"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Tencent Open-Sources UI-Mate-27B: A 27B Computer-Use Agent That Beats Models 40x Its Size",
+          "url": "https://datanorth.ai/news/tencent-releases-ui-mate-27b",
+          "tldr": "Tencent released UI-Mate-27B on August 17, an Apache 2.0 open-weight agent that operates desktops from screenshots and scores 77.0 on OSWorld-Verified — above Kimi-2.6 (73.1), a 1T-param model with 32B active. Post-trained from Qwen3.6-27B, it returns pyautogui-compatible actions across Ubuntu, Windows, and macOS. A smaller UI-Mate-9B (66.2 on OSWorld) ships alongside it.",
+          "why_it_matters": "Computer use is the next frontier after coding agents, and Tencent just made it open-weight. A 27B model beating a 1T-param model on the standard benchmark means you can run desktop automation locally. The in-context demonstration feature (strict success jumps from 17.2% to 35.4% with one example) suggests few-shot learning is the practical path for custom workflows.",
+          "traction": "medium",
+          "traction_evidence": ["77.0 on OSWorld-Verified (above Kimi-2.6 at 73.1)", "66.2 on WindowsAgentArena", "Apache 2.0, open weights, no hosted API", "Released August 17, 2026", "From Tencent, one of the largest tech companies globally"],
+          "use_cases": ["Local desktop automation without API dependency", "Few-shot task automation with recorded demonstrations", "Cross-platform GUI testing and QA", "Building custom computer-use agents on open weights"],
+          "tags": ["AI", "Computer Use", "Open Source", "Tencent", "Agents"],
+          "links": [
+            {"url": "https://datanorth.ai/news/tencent-releases-ui-mate-27b", "label": "DataNorth"},
+            {"url": "https://huggingface.co/Tencent/UI-Mate-27B", "label": "HuggingFace"}
+          ]
+        },
+        {
+          "title": "Preregistered Study: Prompt Design Causes 2.4–18x Cost Swings in Coding Agents",
+          "url": "https://arxiv.org/html/2608.01347v3",
+          "tldr": "A preregistered benchmark spanning 4,644 runs, 6 open-weight models, Kimi-K3, and Claude Sonnet 5 finds that two prompts requesting the same code change can cause radically different amounts of work. Asking agents to 'develop and compare approaches' multiplies reasoning 2.4–7.4x without improving success. Certainty language triggers verification loops costing up to 18x the clean-run median. Harness design amplifies both: Claude Code carries a 12–15x larger static prefix than PI.DEV.",
+          "why_it_matters": "This is the first rigorous study showing that prompt engineering for coding agents is work design, not wording optimization. Two concrete findings every team can act on: (1) 'explore multiple approaches' instructions waste tokens without improving outcomes, and (2) certainty language triggers redundant verification loops. The harness comparison data (Claude Code vs PI.DEV costs) gives teams real numbers for platform selection.",
+          "traction": "high",
+          "traction_evidence": ["Preregistered study with 4,644 valid runs", "Published on arXiv August 2026 (v3)", "Tests across 6 open-weight models plus Kimi-K3 and Claude Sonnet 5", "Reproducible with frozen holdout, paraphrase tests", "Covered by multiple AI research aggregators"],
+          "use_cases": ["Optimizing prompts for coding agent cost efficiency", "Designing bounded-efficiency instructions for agent workflows", "Platform cost comparison between agent harnesses", "Understanding token vs tool cost tradeoffs in agents"],
+          "tags": ["AI", "Research", "Agents", "Prompt Engineering", "Cost Optimization"],
+          "links": [
+            {"url": "https://arxiv.org/html/2608.01347v3", "label": "arXiv Paper"}
+          ]
+        },
+        {
+          "title": "NVIDIA Ships NeMo Switchyard: Route Agent Workloads Across Models by Cost, Quality, and Latency",
+          "url": "https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/",
+          "tldr": "NeMo Switchyard is NVIDIA's model routing library for agent workloads. At runtime, a router evaluates each request against available context, then sends it to the model best suited for that step's requirements and constraints. Instead of sending everything to the largest model (expensive) or smallest (quality loss), each agent step uses the right model. Demonstrated on Terminal-Bench Hard where a system-of-models approach outperforms any single model.",
+          "why_it_matters": "Every production agent system hits the same problem: frontier models are expensive, small models miss edge cases, and the right choice changes per step. NeMo Switchyard makes multi-model routing a library call instead of custom infrastructure. The Terminal-Bench Hard demo shows a system-of-models beating any single model — the implication is that model routing is not just cost optimization but quality optimization.",
+          "traction": "high",
+          "traction_evidence": ["From NVIDIA, integrated into NeMo ecosystem", "Demonstrated on Terminal-Bench Hard benchmark", "Addresses proven production pain point (model cost/quality tradeoff)", "Part of NVIDIA's broader NeMo AI platform"],
+          "use_cases": ["Routing agent subtasks to cost-appropriate models", "Balancing quality and latency across multi-step agent workflows", "Building system-of-models architectures for production agents", "Reducing inference costs without sacrificing quality on complex tasks"],
+          "tags": ["AI", "NVIDIA", "Infrastructure", "Model Routing", "Agents"],
+          "links": [
+            {"url": "https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/", "label": "NVIDIA Blog"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Cursor Launches Origin Code Hosting — Then GitHub Goes Down for 6 Hours",
+          "url": "https://venturebeat.com/infrastructure/cursor-launches-origin-code-hosting-platform-as-github-outage-exposes-opening-in-ai-coding-race",
+          "tldr": "Cursor rolled out Origin, its own code hosting platform, to paid users on Monday. Three and a half hours later, GitHub went down for 6 hours and 42 minutes — error rates near 20% on PRs and issues, 50% on archive downloads, with SAML/OIDC/SCIM and Copilot all failing. Origin lives in a new Codebase tab inside Cursor and syncs bi-directionally with GitHub. The pitch: AI agents need tighter integration with code hosting than GitHub's API layer provides.",
+          "why_it_matters": "For eighteen years, code hosting has been the least interesting infrastructure decision. Cursor is betting AI agents just made it interesting again. The argument: agents that understand your full codebase, review history, and deployment context need deeper integration than a Git API. The GitHub outage — coincidental, not planned — dramatized the single-vendor risk. The real question for CTOs: is 'agent-native code hosting' a real category, or a land grab?",
+          "traction": "high",
+          "traction_evidence": ["VentureBeat, The Next Web, RuntimeWire coverage", "Launched during 6h42m GitHub global outage", "Vercel CEO posted about it on X", "Origin on by default for paid Cursor users", "GitHub incident affected SAML, OIDC, SCIM, Copilot"],
+          "use_cases": ["Agent-native code hosting with deeper codebase understanding", "Reducing single-vendor risk for code hosting infrastructure", "Tighter agent-to-repo integration for AI coding workflows", "Bi-directional GitHub sync during platform evaluation"],
+          "tags": ["DevTools", "Cursor", "Code Hosting", "GitHub", "Agents"],
+          "links": [
+            {"url": "https://venturebeat.com/infrastructure/cursor-launches-origin-code-hosting-platform-as-github-outage-exposes-opening-in-ai-coding-race", "label": "VentureBeat"},
+            {"url": "https://cursor.com/changelog/origin-code-hosting", "label": "Cursor Changelog"},
+            {"url": "https://thenextweb.com/news/cursor-origin-opt-out-data-terms-spacex-github-outage", "label": "The Next Web"}
+          ]
+        },
+        {
+          "title": "Graphify Hits 107K Stars: Turn Any Codebase Into a Queryable Knowledge Graph",
+          "url": "https://github.com/Graphify-Labs/graphify",
+          "tldr": "Graphify turns any codebase — including docs, SQL schemas, configs, and PDFs — into a queryable knowledge graph using deterministic AST parsing via tree-sitter. No LLM, no vector store, nothing leaves your machine for code. It ships as a /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI. Every graph edge is tagged EXTRACTED (explicit in source) or INFERRED (resolved by graphify). Install with 'uv tool install graphifyy' and run '/graphify .' in any agent.",
+          "why_it_matters": "Agent context is the bottleneck. Graphify takes a different approach than embeddings or RAG: a real, traversable graph where you can trace the path between any two concepts. The deterministic AST parsing means results are reproducible and auditable — no LLM hallucination in the mapping step. At 107K stars and YC-backed, it's becoming the default way agents understand codebases before they start working.",
+          "traction": "high",
+          "traction_evidence": ["107,671 GitHub stars, 10,456 forks", "YC-backed (Graphify Labs)", "Works with Claude Code, Cursor, Codex, Gemini CLI", "Deterministic tree-sitter AST parsing, fully local for code", "Early access platform at app.graphify.com"],
+          "use_cases": ["Giving agents structured codebase understanding before modifications", "Navigating unfamiliar codebases by querying relationships", "Auditing code dependencies with explained graph edges", "Cross-referencing code with documentation and SQL schemas"],
+          "tags": ["DevTools", "Open Source", "Code Intelligence", "Knowledge Graph", "Agents"],
+          "links": [
+            {"url": "https://github.com/Graphify-Labs/graphify", "label": "GitHub"},
+            {"url": "https://graphify.com", "label": "Graphify Platform"}
+          ]
+        },
+        {
+          "title": "Databricks Open-Sources Metals v2: A Language Server Built for Multi-Million Line Codebases",
+          "url": "https://www.databricks.com/blog/open-sourcing-metals-v2-databricks-java-and-scala-language-server-multi-million-line-codebases",
+          "tldr": "Databricks rebuilt Metals, the official Scala language server, from the ground up to handle multi-million line monorepos that have outgrown conventional JVM language servers. Metals v2 adds first-class Java support alongside Scala, rethinking code intelligence for the scale of codebases like Databricks' own. Open-sourced for the community.",
+          "why_it_matters": "LSPs are the invisible infrastructure that coding agents depend on for navigation, completions, and refactoring. When they break at scale, agents break too. Databricks investing in a ground-up rebuild for million-line repos signals that enterprise-scale code intelligence is a prerequisite for enterprise-scale agent deployment. If your monorepo is too big for standard tooling, this is the fix.",
+          "traction": "medium",
+          "traction_evidence": ["From Databricks, open-sourced", "Metals has been the official Scala language server since 2018", "Rebuilt for multi-million line monorepo scale", "Adds first-class Java support"],
+          "use_cases": ["Code intelligence in large JVM monorepos", "Powering coding agents with reliable navigation in million-line codebases", "Scala and Java development in enterprise environments", "Replacing conventional LSPs that choke on large repos"],
+          "tags": ["DevTools", "Databricks", "Open Source", "LSP", "Scala", "Java"],
+          "links": [
+            {"url": "https://www.databricks.com/blog/open-sourcing-metals-v2-databricks-java-and-scala-language-server-multi-million-line-codebases", "label": "Databricks Blog"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "CNCF Graduates Kubeflow: The First Cloud-Native AI/ML Platform to Reach Graduated Status",
+          "url": "https://www.cncf.io/announcements/2026/08/17/cncf-announces-kubeflows-graduation-solidifying-the-standard-for-cloud-native-ai-operations/",
+          "tldr": "CNCF graduated Kubeflow on August 17, recognizing it as a mature, production-ready platform for cloud-native AI/ML on Kubernetes. It standardizes the full AI lifecycle — data processing, interactive development, distributed training, fine-tuning, inference, and model serving — across public, private, and hybrid clouds. The roadmap now targets LLM orchestration, post-training, and agentic workloads.",
+          "why_it_matters": "CNCF graduation is the gold standard for production readiness in cloud-native infrastructure. Kubeflow reaching it means the Kubernetes-native AI/ML stack is no longer experimental — it's the expected default for enterprises. The roadmap pivot toward LLM orchestration and agentic workloads signals that Kubeflow is positioning itself as the operational layer for the agent infrastructure wave.",
+          "traction": "high",
+          "traction_evidence": ["CNCF Graduated project (highest maturity level)", "Announced August 17, 2026", "Standardizes AI lifecycle across public/private/hybrid clouds", "Roadmap includes LLM orchestration and agentic workloads", "Backed by Google, AWS, Microsoft, Red Hat contributors"],
+          "use_cases": ["Running production AI/ML workloads on Kubernetes", "Standardizing model training and serving across cloud environments", "Enterprise AI platform with vendor-neutral infrastructure", "Building agentic AI infrastructure on Kubernetes"],
+          "tags": ["Infrastructure", "CNCF", "Kubernetes", "AI/ML", "Open Source"],
+          "links": [
+            {"url": "https://www.cncf.io/announcements/2026/08/17/cncf-announces-kubeflows-graduation-solidifying-the-standard-for-cloud-native-ai-operations/", "label": "CNCF Announcement"},
+            {"url": "https://www.kubeflow.org/", "label": "Kubeflow"}
+          ]
+        },
+        {
+          "title": "Kubeflow MCP: An Agent Interface for Cloud-Native AI at Scale",
+          "url": "https://blog.kubeflow.org/introducing-kubeflow-mcp/",
+          "tldr": "Kubeflow MCP exposes the Kubeflow platform as an MCP (Model Context Protocol) server, letting coding agents interact with Kubernetes-native AI infrastructure through natural language. Engineers can use their existing agent harnesses — Claude Code, Cursor, Codex — to manage training jobs, model serving, and GPU resources without writing kubectl commands or navigating dashboards.",
+          "why_it_matters": "The gap between 'I can code with an agent' and 'I can operate AI infrastructure with an agent' just closed. Kubeflow MCP means the same Claude Code session that writes your model code can also deploy it, scale it, and monitor it on Kubernetes. For platform teams, this is the pattern: expose your infrastructure as an MCP server and let agents operate it.",
+          "traction": "medium",
+          "traction_evidence": ["From the Kubeflow project (newly CNCF Graduated)", "Ships alongside Kubeflow's graduation milestone", "Implements the MCP standard for agent interoperability", "Addresses a known workflow gap for ML engineers"],
+          "use_cases": ["Managing Kubernetes AI workloads from coding agents", "Deploying and scaling model serving without kubectl", "Agent-driven GPU resource management", "Bridging coding agents and ML infrastructure operations"],
+          "tags": ["Infrastructure", "Kubeflow", "MCP", "Kubernetes", "Agents"],
+          "links": [
+            {"url": "https://blog.kubeflow.org/introducing-kubeflow-mcp/", "label": "Kubeflow Blog"}
+          ]
+        },
+        {
+          "title": "Flux Ships Mirror: Declarative Image Mirroring With Signature Verification and Provenance Policies",
+          "url": "https://fluxcd.io/blog/2026/08/flux-mirror/",
+          "tldr": "Flux Mirror adds declarative mirroring for container images, Helm charts, and OCI artifacts to the Flux GitOps toolkit. It includes signature verification, provenance policies, and minimum artifact age — meaning teams can automatically mirror vetted images to their own registries with supply chain verification built in.",
+          "why_it_matters": "After npm 12's supply chain security defaults (covered yesterday), Flux Mirror extends the same philosophy to container images. Teams running air-gapped or regulated environments can now declaratively mirror only verified, signed artifacts with configurable age gates. The supply chain security shift is happening across every package format simultaneously.",
+          "traction": "medium",
+          "traction_evidence": ["From FluxCD, a CNCF Graduated project", "Ships signature verification and provenance policies", "Supports container images, Helm charts, and OCI artifacts", "Released August 12, 2026"],
+          "use_cases": ["Air-gapped Kubernetes deployments with verified images", "Supply chain security for container registries", "Automated mirroring with signature and provenance gates", "Compliance-ready artifact management in regulated environments"],
+          "tags": ["Infrastructure", "FluxCD", "Security", "Supply Chain", "GitOps"],
+          "links": [
+            {"url": "https://fluxcd.io/blog/2026/08/flux-mirror/", "label": "Flux Blog"}
+          ]
+        }
+      ]
+    }
+  ]
+}
