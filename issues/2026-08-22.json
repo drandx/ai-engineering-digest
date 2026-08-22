@@ -1,0 +1,174 @@
+{
+  "highlights": [
+    {"text": "JetBrains survey: 90% of devs use AI coding agents weekly — Claude Code at 39% globally (47% in US), now 2x GitHub Copilot's adoption", "anchor": "ai-tools-and-models-0"},
+    {"text": "DeepSeek V4 Pro 0813: 1.7T-param open frontier model drops under MIT license with code/agent-focused post-training", "anchor": "ai-tools-and-models-1"},
+    {"text": "Meta releases Muse Code: terminal coding agent with persistent background agents and a crash-safe event log architecture", "anchor": "ai-tools-and-models-2"},
+    {"text": "OpenAI Symphony hits 26.7K stars: autonomous agents monitor Linear boards, spawn Codex runs, and land PRs without supervision", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Spotify open-sources Xirp: a vendor-neutral agentic dev environment managing thousands of agent sessions across hundreds of teams", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Flux Mirror launches: declarative artifact mirroring with signature verification and provenance policies for supply chain security", "anchor": "infrastructure-and-production-0"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "JetBrains Survey: 90% of Developers Now Use AI Coding Agents Weekly, Claude Code Dominates at 2x Copilot",
+          "url": "https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/",
+          "tldr": "The JetBrains Developer Ecosystem Survey 2026 — their tenth edition with 15,000+ professional developers worldwide — finds that 90% use AI coding agents at work at least weekly and 68% use them daily. Claude Code is now the most widely adopted tool at 39% globally (47% in the US), doubling GitHub Copilot and growing from 18% in January 2026. Claude Code is the primary tool for 31% of developers, an 80% increase from the prior measurement.",
+          "why_it_matters": "This is the most comprehensive independent data point on coding agent adoption. The headline number — 90% weekly usage — signals that agents are no longer early-adopter territory; they're table stakes. The Claude Code dominance over GitHub Copilot is a significant market shift. For engineering leaders, this data makes the case that agent infrastructure investment is a baseline expectation, not a competitive advantage.",
+          "traction": "high",
+          "traction_evidence": ["15,000+ developers surveyed globally, tenth annual edition", "Claude Code at 39% global adoption, 47% in US", "90% weekly agent usage, 68% daily", "Published August 2026 by JetBrains Research"],
+          "use_cases": ["Benchmarking your team's AI tool adoption against industry data", "Justifying investment in agent infrastructure and tooling", "Understanding which tools to standardize on for engineering orgs"],
+          "tags": ["AI", "Survey", "Adoption", "Claude Code", "Developer Productivity"],
+          "links": [
+            {"url": "https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/", "label": "JetBrains Blog"}
+          ]
+        },
+        {
+          "title": "DeepSeek V4 Pro 0813: 1.7T-Parameter Open Frontier Model Under MIT License",
+          "url": "https://www.baseten.co/blog/inference-engineering-for-deepseek-v4-pro-0813/",
+          "tldr": "DeepSeek open-sourced V4 Pro 0813 today — a 1.7T-parameter model under the MIT license with additional post-training for code generation and agentic behavior. It matches GLM-5.2 on Artificial Analysis' intelligence index at lower cost per task. The release coincides with DeepSeek's open-source coding harness, which uses a plugin-first architecture. Baseten published same-day inference engineering work showing production-ready serving with MXFP4 native weights.",
+          "why_it_matters": "A 1.7T frontier model under MIT with no restrictions on fine-tuning or commercial use is a landmark for enterprise AI. Teams can now self-host a model competitive with the best closed offerings. The post-training focus on code and agent behavior means this isn't just a general model — it's optimized for exactly the workloads engineering teams run. The day-zero inference availability from providers like Baseten means you can deploy it today.",
+          "traction": "high",
+          "traction_evidence": ["MIT license, no restrictions on commercial use or fine-tuning", "Matches GLM-5.2 on Artificial Analysis intelligence index", "Same-day inference availability from Baseten", "Post-training update to proven V4 Pro architecture", "DeepSeek Harness at 135K+ GitHub stars"],
+          "use_cases": ["Self-hosting a frontier model for sensitive codebases", "Enterprise code generation without API dependency", "Fine-tuning a frontier model for domain-specific agent workflows", "Cost-effective alternative to closed API providers"],
+          "tags": ["AI", "LLM", "Open Source", "DeepSeek", "Infrastructure"],
+          "links": [
+            {"url": "https://www.baseten.co/blog/inference-engineering-for-deepseek-v4-pro-0813/", "label": "Baseten Blog"},
+            {"url": "https://www.baseten.co/library/deepseek-v4-pro-0813/", "label": "Baseten Model API"}
+          ]
+        },
+        {
+          "title": "Meta Releases Muse Code: Terminal Coding Agent With Persistent Background Agents and Crash-Safe Event Log",
+          "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2",
+          "tldr": "Meta released Muse Code (beta), a terminal coding agent powered by Muse Spark 1.2. Its key architectural differentiator is persistent async background agents that remain active throughout a session rather than spawning per-task, reducing latency and redundant context gathering. The runtime uses a local event log — every model call, tool run, and edit is appended — making sessions replay-exact and restart-safe. It ships with built-in skills: /plan for approval-gated planning, /grill for stress-testing plans, and /goal for objective tracking.",
+          "why_it_matters": "Meta entering the terminal agent space validates the category. The persistent background agent architecture is a meaningful design choice — instead of spawning and destroying agents per subtask, they maintain state across the session, which should reduce the context reconstruction overhead that plagues long sessions. The event-log-based runtime that survives crashes is exactly what production engineering needs: agents that can run for hours without losing progress.",
+          "traction": "medium",
+          "traction_evidence": ["From Meta AI Research, powers internal Meta engineering workflows", "Muse Spark 1.2 model with scaled coding task training", "Released as public beta with macOS and Linux support", "Builds on Meta's Llama ecosystem"],
+          "use_cases": ["Long-running coding sessions that survive crashes and restarts", "Multi-step tasks with persistent context across background agents", "Approval-gated planning workflows for team-based development", "Multimodal coding tasks (video-to-code demonstrations)"],
+          "tags": ["AI", "Meta", "Agents", "Developer Tools", "Open Source"],
+          "links": [
+            {"url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2", "label": "Meta AI Research"}
+          ]
+        },
+        {
+          "title": "First Production-Scale Study of Agentic Coding: 3.2M Users, 761M LLM Calls, 95T Tokens From GitHub Copilot",
+          "url": "https://arxiv.org/html/2608.00101v1",
+          "tldr": "Microsoft Azure Research published the first production-scale characterization of agentic coding workloads using sampled GitHub Copilot traces from June 2026. The dataset spans 3.2M users, 13M sessions, 761M LLM calls, and 95T tokens. Key findings: agent sessions consist of sparse user turns that trigger autonomous loops with near 1:1 LLM-to-tool-call coupling; KV cache hit rates average 90% within a turn but drop to 55% across turn boundaries, revealing a key optimization target for inference infrastructure.",
+          "why_it_matters": "This paper gives every infrastructure team concrete numbers to optimize against. The 90% → 55% KV cache hit rate drop between turns is a specific, actionable finding: inference systems that can maintain cross-turn context will see massive efficiency gains. The 1:1 LLM-to-tool coupling ratio means agent workloads are fundamentally different from chatbot workloads — infrastructure designed for chat is suboptimal for agents.",
+          "traction": "high",
+          "traction_evidence": ["3.2M users, 13M sessions, 761M LLM calls, 95T tokens", "Published on arXiv August 2026 by Microsoft Azure Research", "First paper to characterize production agentic coding at this scale", "Based on real GitHub Copilot production traces"],
+          "use_cases": ["Optimizing inference infrastructure for agentic workloads", "Designing KV cache strategies for cross-turn context retention", "Capacity planning for agent-scale LLM serving", "Understanding real-world agent behavior patterns at scale"],
+          "tags": ["AI", "Research", "Infrastructure", "GitHub Copilot", "Production"],
+          "links": [
+            {"url": "https://arxiv.org/html/2608.00101v1", "label": "arXiv Paper"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "OpenAI Symphony: Autonomous Agents That Monitor Linear, Spawn Codex Runs, and Land PRs Without Supervision",
+          "url": "https://github.com/openai/symphony",
+          "tldr": "OpenAI released Symphony (26.7K GitHub stars), a framework that turns project work into isolated, autonomous implementation runs. Symphony monitors a Linear board for tasks, spawns Codex agents to handle each one, and provides proof of work: CI status, PR review feedback, complexity analysis, and walkthrough videos. When accepted, agents land the PR safely. It's an engineering preview under Apache 2.0 that works best in codebases with established harness engineering.",
+          "why_it_matters": "Symphony represents a shift from 'agent as pair programmer' to 'agent as team member with a task queue.' Instead of developers supervising each agent session, they manage work at the project level — reviewing outputs rather than steering inputs. At 26.7K stars in its preview phase, it's the fastest-adopted project management tool for agents. The integration with Linear and Codex shows OpenAI building the full stack from model to workflow.",
+          "traction": "high",
+          "traction_evidence": ["26,787 GitHub stars, 2,734 forks", "Apache 2.0 license from OpenAI", "Integrates with Linear and Codex", "Demonstrated with end-to-end CI and PR workflow"],
+          "use_cases": ["Autonomous task execution from project management tools", "Scaling coding agent work across multiple parallel tasks", "Proof-of-work workflows for agent-generated PRs", "Managing engineering backlogs with minimal human supervision"],
+          "tags": ["AI", "OpenAI", "Agents", "Project Management", "Automation"],
+          "links": [
+            {"url": "https://github.com/openai/symphony", "label": "GitHub"}
+          ]
+        },
+        {
+          "title": "Spotify Open-Sources Xirp: Vendor-Neutral Agentic Development Environment for Thousands of Engineers",
+          "url": "https://portal.spotify.com/blog/introducing-xirp",
+          "tldr": "Spotify built and open-sourced Xirp, a vendor-neutral agentic development environment born from scaling AI coding agents across thousands of engineers in hundreds of teams. Xirp solves the fragmentation problem: context accumulated in one session but needed in another, institutional knowledge locked in individual CLAUDE.md files and MCP configs, and agents spending cycles rediscovering what other sessions had already resolved. Paired with Spotify's Portal, organizational context becomes a multiplier for every agent session.",
+          "why_it_matters": "Spotify is the first major tech company to open-source their internal agent orchestration layer. Their diagnosis — agents are individually productive but organizationally wasteful — matches what every company scaling past 50 agent-using engineers discovers. Xirp's vendor-neutral design means you're not locked into any model or harness. The pairing with Portal for organizational context solves the 'every agent session starts from zero' problem.",
+          "traction": "high",
+          "traction_evidence": ["Built for thousands of engineers across hundreds of teams at Spotify", "Published August 10, 2026 on Spotify Portal", "Addresses proven pain point at enterprise scale", "Vendor-neutral — works with any model or agent harness"],
+          "use_cases": ["Enterprise-scale agent session management and context sharing", "Reducing token waste from redundant context reconstruction", "Standardizing agent configurations across large engineering orgs", "Vendor-neutral agent orchestration across multiple model providers"],
+          "tags": ["DevTools", "Spotify", "Agents", "Enterprise", "Open Source"],
+          "links": [
+            {"url": "https://portal.spotify.com/blog/introducing-xirp", "label": "Spotify Portal Blog"}
+          ]
+        },
+        {
+          "title": "Go 1.27 Ships Generic Methods and Promoted Field Names in Struct Literals",
+          "url": "https://blog.jetbrains.com/go/2026/08/20/ready-for-go-1-27-on-day-one/",
+          "tldr": "Go 1.27 landed on August 20 with generic methods — the most requested language feature since generics were introduced in 1.18. Methods on generic types can now be parameterized independently of their receiver, eliminating the workaround patterns (top-level functions, interface wrapper types) that made generic Go code awkward. The release also adds promoted field names in struct composite literals, reducing boilerplate in nested struct construction.",
+          "why_it_matters": "Generic methods close the biggest gap in Go's type system since generics shipped in 2022. If you've been writing top-level helper functions or wrapping types in interfaces just to work around the limitation, Go 1.27 lets you express those patterns naturally. This is a language-level change that affects how you design APIs and libraries — not just syntax sugar.",
+          "traction": "high",
+          "traction_evidence": ["Most requested feature since Go 1.18 generics", "Day-one support from JetBrains GoLand and other IDEs", "Released August 20, 2026 by the Go team", "Discussed extensively on HN and Reddit"],
+          "use_cases": ["Writing cleaner generic APIs without workaround patterns", "Reducing boilerplate in struct-heavy Go codebases", "Updating Go libraries to use idiomatic generic methods", "Simplifying embedded struct initialization"],
+          "tags": ["Go", "Language", "Generics", "Release"],
+          "links": [
+            {"url": "https://blog.jetbrains.com/go/2026/08/20/ready-for-go-1-27-on-day-one/", "label": "JetBrains Blog"},
+            {"url": "https://blog.rust-lang.org/2026/08/20/Rust-1.98.0/", "label": "Rust 1.98 (also released Aug 20)"}
+          ]
+        },
+        {
+          "title": "Databricks Open-Sources Metals v2: Java and Scala Language Server for Multi-Million-Line Monorepos",
+          "url": "https://www.databricks.com/blog/open-sourcing-metals-v2-databricks-java-and-scala-language-server-multi-million-line-codebases",
+          "tldr": "Databricks open-sourced Metals v2, a rethink of the Scala language server (the official one since 2018) that now also supports Java and handles multi-million-line monorepos. Conventional JVM language servers buckle under codebases at this scale; Metals v2 was built specifically for the internal demands of Databricks' own monorepo and is now available for any team hitting the same ceiling.",
+          "why_it_matters": "If you run a large JVM codebase, language server performance is a daily friction point — and it gets worse as agents generate more code. Metals v2 is the first language server designed from the ground up for the scale of modern monorepos. Coming from Databricks, it's battle-tested on one of the largest JVM codebases in the industry. The addition of Java support alongside Scala makes it relevant far beyond the Scala community.",
+          "traction": "medium",
+          "traction_evidence": ["From Databricks, battle-tested on their internal monorepo", "Metals has been the official Scala language server since 2018", "Open-sourced for community adoption", "Addresses scaling limits hit by large engineering orgs"],
+          "use_cases": ["IDE code intelligence for multi-million-line JVM projects", "Agent-friendly language server that handles monorepo scale", "Unified Java + Scala development in large codebases", "Replacing IntelliJ's built-in Scala support for massive projects"],
+          "tags": ["DevTools", "Databricks", "Scala", "Java", "Open Source"],
+          "links": [
+            {"url": "https://www.databricks.com/blog/open-sourcing-metals-v2-databricks-java-and-scala-language-server-multi-million-line-codebases", "label": "Databricks Blog"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Flux Mirror: Declarative Artifact Mirroring With Signature Verification and Provenance Policies",
+          "url": "https://fluxcd.io/blog/2026/08/flux-mirror/",
+          "tldr": "The Flux project released Flux Mirror, a new CLI plugin that declaratively mirrors container images, Helm charts, and OCI artifacts between registries with signature verification, provenance policies, and minimum artifact age enforcement. Instead of depending on external registries at runtime — risking outages, rate limits, and supply chain attacks — teams maintain verified copies in their own registries from a single config file.",
+          "why_it_matters": "Supply chain security is the area where most Kubernetes teams know they should do better but haven't prioritized. Flux Mirror makes it a declarative config rather than a custom scripting project. The signature verification and provenance policies at mirror-time mean you catch issues before they reach your clusters, not after. The minimum artifact age feature is clever — it prevents you from automatically pulling day-zero releases that haven't been vetted.",
+          "traction": "high",
+          "traction_evidence": ["From the Flux project (CNCF Graduated)", "Addresses one of the oldest Kubernetes usability issues", "Builds on Flux's 10-year track record in GitOps", "Covered by InfoQ and multiple K8s-focused outlets"],
+          "use_cases": ["Declarative mirroring of container images to private registries", "Enforcing signature verification on all third-party artifacts", "Protecting against upstream registry outages and rate limits", "Implementing minimum artifact age policies for production stability"],
+          "tags": ["Kubernetes", "Supply Chain", "GitOps", "Security", "CNCF"],
+          "links": [
+            {"url": "https://fluxcd.io/blog/2026/08/flux-mirror/", "label": "Flux Blog"},
+            {"url": "https://www.infoq.com/news/2026/08/flux-mirror-gitless-gitops/", "label": "InfoQ Coverage"}
+          ]
+        },
+        {
+          "title": "Kubeflow MCP: An Agent Interface for Cloud-Native AI Infrastructure With 23 Tools and Two-Phase Confirmation",
+          "url": "https://blog.kubeflow.org/introducing-kubeflow-mcp/",
+          "tldr": "The Kubeflow project shipped Kubeflow MCP, an MCP server that gives AI agents a structured interface to cloud-native AI infrastructure. It exposes 23 tools covering the ML lifecycle — submitting training jobs, managing GPU resources, monitoring distributed workloads — with a two-phase confirmation model for destructive operations. It supports role-based personas, token-efficient modes, and built-in observability.",
+          "why_it_matters": "Agents can write code, but they can't easily manage ML infrastructure — that gap means engineers still context-switch to dashboards and CLIs for training jobs, GPU allocation, and experiment tracking. Kubeflow MCP bridges this by giving agents native access to the full ML platform. The two-phase confirmation for destructive ops (don't just delete the training job — ask first) is the right safety model for agent-driven infrastructure.",
+          "traction": "medium",
+          "traction_evidence": ["From the Kubeflow project (CNCF Graduated)", "23 tools covering the full ML lifecycle", "Built-in safety with two-phase confirmation", "Supports Claude Code, OpenClaw, and other MCP-compatible agents"],
+          "use_cases": ["Managing training jobs and GPU resources through coding agents", "Agent-driven ML experiment tracking and monitoring", "Automated infrastructure operations with safety guardrails", "Integrating ML platform operations into agent workflows"],
+          "tags": ["Infrastructure", "Kubeflow", "MCP", "AI/ML", "Kubernetes"],
+          "links": [
+            {"url": "https://blog.kubeflow.org/introducing-kubeflow-mcp/", "label": "Kubeflow Blog"}
+          ]
+        },
+        {
+          "title": "Upbound V3: Unified API for Cloud and AI Infrastructure on Crossplane",
+          "url": "https://www.globenewswire.com/news-release/2026/08/19/3347812/0/en/upbound-launches-platform-to-unify-cloud-and-ai-infrastructure-operations.html",
+          "tldr": "Upbound, the company behind CNCF Graduated project Crossplane, launched V3 — a major expansion that unifies cloud infrastructure and AI infrastructure operations under a single API and governance model. Instead of managing cloud resources with one set of tools and AI/GPU infrastructure with another, V3 provides a unified control plane. The platform includes governance policies that span both domains.",
+          "why_it_matters": "The split between cloud ops and AI ops is a real pain point: teams use Terraform or Crossplane for cloud resources but resort to separate tooling for GPU clusters, training infrastructure, and model serving. Upbound V3 is the first platform to put both under one API. For organizations scaling AI workloads, this means consistent governance, fewer tools, and the ability to manage GPU infrastructure with the same Crossplane abstractions they already use for cloud.",
+          "traction": "medium",
+          "traction_evidence": ["From Upbound, stewards of CNCF Graduated Crossplane", "Announced August 19, 2026", "Addresses the cloud/AI infrastructure split seen across enterprise", "Crossplane has widespread enterprise adoption"],
+          "use_cases": ["Unified management of cloud and AI/GPU infrastructure", "Applying consistent governance across cloud and ML resources", "Extending Crossplane abstractions to AI infrastructure", "Reducing tool sprawl for platform engineering teams"],
+          "tags": ["Infrastructure", "Crossplane", "Kubernetes", "AI/ML", "Platform Engineering"],
+          "links": [
+            {"url": "https://www.globenewswire.com/news-release/2026/08/19/3347812/0/en/upbound-launches-platform-to-unify-cloud-and-ai-infrastructure-operations.html", "label": "Press Release"},
+            {"url": "https://www.efficientlyconnected.com/upbound-v3-unified-infrastructure-governance-ai-agents/", "label": "Analysis"}
+          ]
+        }
+      ]
+    }
+  ]
+}
