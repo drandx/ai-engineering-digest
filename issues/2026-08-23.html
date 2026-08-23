@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 23, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 23, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://github.com/deepseek-ai/DeepSeek-Harness">DeepSeek Harness explodes to 180K stars in 10 days — the 'everything is a plugin' architecture makes even the agent loop swappable at runtime</a></li>
+      <li><a href="https://vllm.ai/blog/2026-08-12-qwen3.8">Alibaba drops Qwen3.8-2.4T: a 2.4-trillion-parameter open-weight MoE model with day-0 vLLM and SGLang support</a></li>
+      <li><a href="https://slack.com/blog/news/slack-code-channels-for-agents">Slack Code launches: code channels where teams and coding agents (Claude, Codex, Devin) build together in the open</a></li>
+      <li><a href="https://www.infoq.com/news/2026/08/vite-plus-beta/">VoidZero releases Vite+ Beta: one 'vp' command unifies Vite 8, Vitest, Rolldown, Oxlint, and Oxfmt into a single tested stack</a></li>
+      <li><a href="https://blog.jetbrains.com/dotnet/2026/08/19/rider-refactoring-code-skill/">JetBrains gives agents access to Rider's refactoring engine — 83% faster and 64% cheaper than text-based refactoring via sed/regex</a></li>
+      <li><a href="https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/">Microsoft open-sources Orchard: 3B active-parameter agents hit 69.7% on SWE-bench Verified, approaching frontier systems 10x their size</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://github.com/deepseek-ai/DeepSeek-Harness">DeepSeek Harness Hits 180K Stars: The Agent Runtime Where Everything Is a Plugin</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">DeepSeek released deepseek-harness on August 13 under MIT license — an agent harness where the model, tool registry, sandbox, session log, web interface, and even the agent loop itself are swappable plugins. It hit 50K stars in 12 hours, 95K in 48 hours, and now sits at 180K+ stars with 19.7K forks, making it one of the fastest-adopted developer tools in GitHub history.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">DeepSeek</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Harness</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This isn't just another Claude Code alternative — it's a fundamentally different architecture. By making the agent loop itself a plugin, DeepSeek is proposing that agent runtimes should be reconfigurable without restarts and eventually support agents that modify their own execution. The MIT license and plugin-first design lower the barrier to building custom agent workflows. At 180K stars, it's already the second most-starred agent harness after OpenClaw.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building custom agent workflows with swappable components</li>
+          <li>Running different agent loops for different task types</li>
+          <li>Self-hosted agent infrastructure with full control</li>
+          <li>Experimenting with agent architectures without framework lock-in</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>180,388 GitHub stars, 19,695 forks in 10 days</li>
+          <li>50K stars in first 12 hours, fastest adoption for a dev tool</li>
+          <li>MIT license, fully open source</li>
+          <li>Shipped alongside DeepSeek V4 Pro 0813 model</li>
+          <li>Covered by The New Stack, DEV Community, ArceApps, multiple outlets</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/deepseek-ai/DeepSeek-Harness">GitHub</a></li>
+          <li><a href="https://arceapps.com/blog/deepseek-harness-everything-plugin/">ArceApps Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://vllm.ai/blog/2026-08-12-qwen3.8">Qwen3.8-2.4T: Alibaba's First Qwen-Max-Class Open-Weight Model With Day-0 Inference Support</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Alibaba released Qwen3.8-2.4T-A95B, a 2.4-trillion-parameter sparse MoE model with 512 experts and 95B active parameters, as an open-weight release. It's built on the Qwen 3.5 architecture with a hybrid backbone mixing full attention (every 4th layer) with linear attention. vLLM, SGLang, and LMSYS Miles all shipped day-0 support. FP4-quantized versions from Inferact run on a single node.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Alibaba</span>
+        <span class="tag">Inference</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first Qwen-Max-class model available as open weights. The hybrid attention architecture — full attention at every 4th layer, linear attention elsewhere — is a production-relevant design choice that trades quality for throughput in a measurable way. The day-0 support from vLLM and SGLang means you can self-host it today. FP4 quantization fitting on a single node makes this accessible to teams without multi-node GPU clusters.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosting a frontier-class MoE model for code and reasoning</li>
+          <li>Running quantized inference on single-node GPU setups</li>
+          <li>Fine-tuning a 2.4T model for domain-specific agent workloads</li>
+          <li>Comparing open-weight frontier models against closed APIs</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>First Qwen-Max-class open-weight release</li>
+          <li>Day-0 support from vLLM, SGLang, and LMSYS Miles</li>
+          <li>FP4/FP8/BF16 checkpoints available from Inferact</li>
+          <li>HN discussion with community benchmarking</li>
+          <li>Reddit benchmark frenzy comparing to frontier models</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://vllm.ai/blog/2026-08-12-qwen3.8">vLLM Blog</a></li>
+          <li><a href="https://www.lmsys.org/blog/2026-08-12-qwen3-8-day0-support/">SGLang/Miles Support</a></li>
+          <li><a href="https://miraflow.ai/blog/qwen3-8-27b-open-weight-dense-model-local-2026">Qwen3.8-27B Dense Variant</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/">Microsoft Open-Sources Orchard: 3B Active-Parameter Agents Hit 69.7% on SWE-bench Verified</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Microsoft Research released Orchard, an open-source framework for scalable agentic AI built around Orchard Env, a reusable Kubernetes environment service. Orchard-SWE achieves 69.7% on SWE-bench Verified (73.0% with value-model reranking) using only ~3B active parameters — approaching frontier systems using 10x larger models. The framework supports software engineering, web navigation, and personal assistant agents, and can train inside real harnesses like Codex and OpenClaw.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Research</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">SWE-bench</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>A 3B active-parameter model hitting 69.7% on SWE-bench Verified is a remarkable efficiency result — it shows that small, well-trained models can compete with frontier systems on real engineering tasks. The open release of training data, evaluation methods, and the Kubernetes-based environment service addresses the biggest bottleneck in agentic AI research: the inability to reproduce results without proprietary infrastructure.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Training efficient coding agents on open infrastructure</li>
+          <li>Reproducing and extending state-of-the-art agentic AI research</li>
+          <li>Building domain-specific agents with small, efficient models</li>
+          <li>Evaluating agents across SWE, web navigation, and assistant tasks</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>69.7% on SWE-bench Verified with ~3B active parameters</li>
+          <li>73.0% with value-model reranking</li>
+          <li>From Microsoft Research, open-sourced with training data</li>
+          <li>Supports training inside Codex, OpenClaw, and ZeroClaw harnesses</li>
+          <li>Covers SWE, GUI, and assistant agent domains</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/">Microsoft Research Blog</a></li>
+          <li><a href="https://github.com/microsoft/Orchard">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://www.arcee.ai/blog/nac">Arcee AI Ships NAC: An Open-Source Harness That Separates Agent Context From Persistent State</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Arcee AI released NAC (Apache-2.0), an agent harness designed for long-running engineering work that separates temporary execution context from persistent workstream state. Instead of accumulating everything in one transcript — where context rot degrades model performance — NAC coordinates parallel agent workers with independent contexts while maintaining shared persistent state across sessions that can span hours or days.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Harness</span>
+        <span class="tag">Context Management</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Context rot is a proven failure mode for long agent sessions: model performance degrades as irrelevant context accumulates. NAC's architectural separation of 'context needed to perform an action' from 'state needed to continue a workstream' is a principled response. If you've hit the wall where agent sessions become unreliable past 30 minutes, NAC's approach of parallel workers with independent contexts is worth evaluating.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Long-running engineering tasks that span hours or days</li>
+          <li>Multi-step agent workflows where context rot causes failures</li>
+          <li>Parallel agent coordination on complex implementation tasks</li>
+          <li>Persistent workstreams that survive session boundaries</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Arcee AI, a well-known open-weight model company</li>
+          <li>Apache-2.0 license</li>
+          <li>Addresses context rot — a documented failure mode</li>
+          <li>Sessions demonstrated spanning hours to days</li>
+          <li>Parallel worker architecture with shared persistent state</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.arcee.ai/blog/nac">Arcee Blog</a></li>
+          <li><a href="https://github.com/arcee-ai/nac">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://slack.com/blog/news/slack-code-channels-for-agents">Slack Code Launches: Code Channels Where Teams and Agents Build Together</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Slack launched Slack Code, a new feature that creates dedicated 'code channels' where teams and AI coding agents collaborate in the open. Mention an agent on a complex project and it spins up a channel with code diffs, planning docs, and live HTML previews. Channels auto-archive when work completes but remain as audit logs. Launch partners include Anthropic, Cognition, GitHub, OpenAI, and Vercel.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Slack</span>
+        <span class="tag">Collaboration</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Enterprise</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Coding agents have been single-player: one developer, one private tab, no visibility for the team. Slack Code turns agent-assisted development into a team sport. The collaboration model — where teammates can weigh in, catch wrong assumptions, and add context while an agent is working — addresses a real gap. With Anthropic, GitHub, OpenAI, and Vercel as launch partners, this has the ecosystem support to become the default way teams interact with coding agents.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Team visibility into agent-assisted development work</li>
+          <li>Collaborative code review with agents in Slack channels</li>
+          <li>Audit trails for agent-generated code changes</li>
+          <li>Multi-stakeholder input during agent coding sessions</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Slack (Salesforce), launched August 22, 2026</li>
+          <li>Launch partners: Anthropic, Cognition, GitHub, OpenAI, Vercel</li>
+          <li>Built on GitHub's broader agent-native platform strategy</li>
+          <li>Addresses the 'single-player agent' problem at enterprise scale</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://slack.com/blog/news/slack-code-channels-for-agents">Slack Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.infoq.com/news/2026/08/vite-plus-beta/">VoidZero Releases Vite+ Beta: One Command Unifies Vite 8, Vitest, Rolldown, Oxlint, and Oxfmt</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">VoidZero, founded by Vite/Vue creator Evan You, released the Vite+ beta — a unified web toolchain that puts Vite 8, Vitest, Rolldown, tsdown, Oxlint, and Oxfmt behind a single 'vp' command. Since the alpha, over 500 PRs have been merged across a dozen releases. More than 1,300 public repositories depend on it, including Dify, BlockNote, and Cloudflare's vinext. MIT licensed and framework-agnostic.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Vite</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Toolchain</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>JavaScript toolchain fragmentation has been the running joke of web development for a decade. Vite+ is the most credible attempt to end it: one command for dev server, formatting, linting, type checking, testing, and building. The fact that Evan You controls both the bundler (Rolldown) and the linter/formatter (Oxc) means these tools are designed to work together, not bolted on. At 1,300+ repos in beta, adoption is real.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replacing fragmented JS toolchains with a single unified stack</li>
+          <li>Standardizing dev/build/test/lint workflows across monorepos</li>
+          <li>Faster CI with cache-aware, dependency-aware task runner</li>
+          <li>Migrating existing Vite projects to the unified toolchain</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Evan You (creator of Vite and Vue)</li>
+          <li>1,300+ public repositories using it in beta</li>
+          <li>500+ PRs merged since alpha</li>
+          <li>223 points on Hacker News</li>
+          <li>Adopted by Dify, BlockNote, Cloudflare vinext</li>
+          <li>MIT license, framework-agnostic</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/08/vite-plus-beta/">InfoQ Coverage</a></li>
+          <li><a href="https://viteplus.dev">Vite+ Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/dotnet/2026/08/19/rider-refactoring-code-skill/">JetBrains Rider Gives AI Agents Access to Its Refactoring Engine: 83% Faster, 64% Cheaper</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">JetBrains shipped a bundled 'refactoring-code' skill in Rider 2026.2.1 that gives AI agents direct access to the IDE's structural refactoring engine. In benchmarks across 15 C# refactoring tasks, agents with the skill were 83% faster (157.9s → 26.6s median), 64% cheaper ($0.52 → $0.19 per task), and used 63% fewer tool calls (17 → 6.2). Without it, agents were calling sed 392 times and git 422 times to approximate refactorings that the IDE does structurally.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">JetBrains</span>
+        <span class="tag">Rider</span>
+        <span class="tag">Refactoring</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first major IDE to expose its refactoring engine as a tool agents can call directly. The numbers are striking: agents without IDE refactoring were calling dotnet build 163 times just to check if their text edits were correct — using the compiler as an oracle. Rider's resolved syntax tree eliminates the guess-and-check loop entirely. This pattern — IDE-as-tool-server for agents — will likely spread to every major IDE.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Agent-driven C# refactoring with structural correctness guarantees</li>
+          <li>Reducing agent token costs on refactoring-heavy tasks</li>
+          <li>Eliminating guess-and-check loops in agent code modifications</li>
+          <li>Extending the IDE-as-tool-server pattern to other languages</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>83% faster, 64% cheaper, 63% fewer tool calls in benchmarks</li>
+          <li>Bundled in Rider 2026.2.1 (ships by default, nothing to enable)</li>
+          <li>Powered by ReSharper's structural refactoring engine</li>
+          <li>First major IDE to expose refactoring as an agent-callable skill</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.jetbrains.com/dotnet/2026/08/19/rider-refactoring-code-skill/">JetBrains Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://github.com/vercel/fx">fx by Vercel Labs: A 7.8MiB Zig Coding Agent With 10µs Cold Starts</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Vercel Labs open-sourced fx (Apache-2.0), a native coding agent written in Zig that ships as a single 7.8MiB binary with 10-microsecond cold starts and single-digit megabytes of memory. Originally an internal Vercel tool, it's designed as an embeddable harness for CI pipelines, agent sandboxes, and resource-constrained environments. It includes a WebAssembly SDK, Agent Client Protocol support, and MCP integration.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Vercel</span>
+        <span class="tag">Zig</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Performance</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Claude Code burns ~33K tokens on startup and carries a full Node runtime. fx bets on the opposite extreme: a coding agent that's small enough to pack hundreds of instances per machine. The Zig binary approach means no runtime dependencies. If you're running agents in CI, sandboxes, or anywhere density matters, this is the SQLite of coding agents. The catch: inference currently routes through Vercel AI Gateway, though more providers are promised.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>High-density agent deployments in CI/CD pipelines</li>
+          <li>Embedding a coding agent in resource-constrained sandboxes</li>
+          <li>Running hundreds of agent instances on a single machine</li>
+          <li>Lightweight agent harness with no Node/Python runtime</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>1,200+ GitHub stars in days</li>
+          <li>199 points on Hacker News</li>
+          <li>From Vercel Labs, Apache-2.0 license</li>
+          <li>7.8MiB binary, 10µs cold start, no runtime dependency</li>
+          <li>WebAssembly SDK for embedding</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/vercel/fx">GitHub</a></li>
+          <li><a href="https://topaiproduct.com/2026/08/19/fx-by-vercel-labs-tiny-native-coding-agent-written-in-zig-ships-as-a-7-8mib-binary-with-10%c2%b5s-cold-starts/">Top AI Product Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.zenml.io/blog/introducing-the-new-kitaru">ZenML Rebuilds Kitaru: Turn Production Agent Traces Into Repeatable Test Suites</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">ZenML rebuilt Kitaru around a single premise: production is already generating your best test cases. The new Kitaru provides a structured pipeline to capture agent traces from production, attach expert judgments, turn them into replayable scenarios with tool-call sandboxing (so replays don't send real emails or issue refunds), and run the same cases against every future change. It replaces the ad-hoc spreadsheet-and-script approach most teams use today.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">ZenML</span>
+        <span class="tag">Testing</span>
+        <span class="tag">Agents</span>
+        <span class="tag">MLOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Every team running agents in production hits the same eval problem: traces live in one tool, expert judgments in another, regression cases are collected manually, and replays are custom scripts. Kitaru provides the structured path from 'this went wrong in production' to 'this is now a repeatable test we run against every change.' The tool-call sandboxing for replays solves the real blocker — you can't replay an agent session that issues refunds in production.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building regression test suites from production agent failures</li>
+          <li>Safe replay of agent sessions with side-effect sandboxing</li>
+          <li>Structured expert evaluation of agent behavior</li>
+          <li>Continuous evaluation against every model or prompt change</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From ZenML, established MLOps platform</li>
+          <li>Published August 18, 2026</li>
+          <li>Addresses a universal pain point for production agent teams</li>
+          <li>Includes tool-call sandboxing for safe replay</li>
+          <li>Structured pipeline from traces to evaluators</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.zenml.io/blog/introducing-the-new-kitaru">ZenML Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://jirareleases.atlassian.com/announcements/bring-code-context-to-rovo-and-ai-coding-agents">Atlassian Code Context: Large-Scale Codebase Understanding for Rovo and AI Coding Agents</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Atlassian launched Code Context (beta), a feature that brings large-scale, multi-repo codebase understanding to Rovo and external AI coding agents via Jira. Instead of agents working with limited file-level context, Code Context provides repository-wide understanding — code structure, dependencies, and project context — directly in the Jira workflow where tasks originate.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Atlassian</span>
+        <span class="tag">Jira</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Enterprise</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The gap between 'where work is planned' (Jira) and 'where agents understand code' has been a manual bridge. Atlassian Code Context closes it by giving agents codebase understanding at the point of task assignment. For enterprises already on Jira, this means coding agents can start with full project context instead of discovering it through expensive exploration. It's the Atlassian answer to Spotify's Xirp and GitHub's Spec Kit.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Giving coding agents full project context from Jira tasks</li>
+          <li>Multi-repo code understanding for enterprise agent workflows</li>
+          <li>Reducing agent exploration time by providing upfront codebase structure</li>
+          <li>Bridging project management and AI coding agent workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Atlassian, launched August 18, 2026 (beta)</li>
+          <li>Integrates with Jira and Rovo AI</li>
+          <li>Supports multi-repo codebase understanding</li>
+          <li>Addresses the context gap between project management and coding agents</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://jirareleases.atlassian.com/announcements/bring-code-context-to-rovo-and-ai-coding-agents">Jira Launch Notes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://www.pulumi.com/blog/bring-your-terraform-estate-into-the-agentic-era/">Pulumi Ships Full Terraform State Support: Bring Your Terraform Estate Into the Agentic Era</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Pulumi released full support for Terraform state, cross-language modules, and HCL as a first-class language. The pitch: instead of rewriting your Terraform, import your existing state and start using agents to manage infrastructure. Pulumi's IaC approach — real programming languages with type systems — gives agents structural understanding that HCL's declarative syntax makes harder to work with programmatically.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Pulumi</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">IaC</span>
+        <span class="tag">DevOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most enterprises have years of Terraform state they can't abandon. Pulumi's Terraform state import gives them a migration path that doesn't require rewriting everything. The agentic angle is real: agents working with typed Python/TypeScript/Go code can leverage IDE tooling, type checking, and refactoring — capabilities that are limited with HCL. This positions Pulumi as the IaC layer most compatible with the agent-driven infrastructure management wave.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Migrating Terraform estates to agent-friendly IaC</li>
+          <li>Managing infrastructure with coding agents using typed languages</li>
+          <li>Importing existing Terraform state without rewriting</li>
+          <li>Using cross-language modules across Python, TypeScript, and Go</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Pulumi, a major IaC platform</li>
+          <li>Full Terraform state import support</li>
+          <li>HCL as first-class language (not just import)</li>
+          <li>Cross-language module support</li>
+          <li>Addresses enterprise Terraform migration pain point</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.pulumi.com/blog/bring-your-terraform-estate-into-the-agentic-era/">Pulumi Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
