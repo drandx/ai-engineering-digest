@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 24, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 24, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://z.ai/blog/glm-5.3">GLM-5.3 drops with 'emergent cyber capabilities' — 537 HN comments as developers debate whether Chinese models are eating US frontier labs' lunch on security work</a></li>
+      <li><a href="https://x.ai/news/grok-4-6">Grok 4.6 matches GPT-5.6 Sol on the AI Intelligence Index with a focus on long-running agents — available day-0 in Cursor and Grok Build</a></li>
+      <li><a href="https://venturebeat.com/infrastructure/cursor-launches-origin-code-hosting-platform-as-github-outage-exposes-opening-in-ai-coding-race">Cursor launches Origin, its own code hosting platform — timed (accidentally) with a 6h42m GitHub global outage</a></li>
+      <li><a href="https://bun.com/blog/bun-v1.4">Bun 1.4 rewrites itself from Zig to Rust, adds 1,517 Node.js tests, cuts idle CPU 5x, and ships Bun.WebView, Bun.Image, and Bun.cron()</a></li>
+      <li><a href="https://blog.duolingo.com/production-ready-ai-agent-platform/">Duolingo open-sources how they built a shared agent platform: define once, run everywhere, evaluate continuously</a></li>
+      <li><a href="https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/">NVIDIA ships Nemotron 3.5 Lightning (30B MoE) and NeMo Switchyard — open-source smart routing for multi-model agent systems</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://z.ai/blog/glm-5.3">GLM-5.3: Z.ai's 730B MoE Model With 'Emergent Cyber Capabilities' Ignites a 537-Comment HN Debate</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Z.ai released GLM-5.3, a 730B-parameter MoE model focused on frontier coding and security capabilities, on August 14. The model achieves strong SWE-bench scores and is available via a $80/month plan that includes security research capabilities. The HN thread (537 comments) became less about the model itself and more about developers reporting that Chinese models like GLM-5.3, Kimi K3, and DeepSeek V4 Flash simply do legitimate security work that Anthropic's Fable and OpenAI's models refuse.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Security</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Z.ai</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The technical story is a competitive open-weight model. The real story is the guardrails debate: developers doing legitimate penetration testing, vulnerability research, and security monitoring report that US frontier models refuse their work while Chinese models don't. Multiple HN commenters described switching their $200-500/month AI budgets away from Claude and GPT for security-related engineering tasks. Whether you agree with strict guardrails or not, the competitive dynamic is real and reshaping tool choices.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Security research and vulnerability analysis without model refusals</li>
+          <li>Self-hosted frontier coding with an open-weight MoE model</li>
+          <li>Penetration testing workflows with AI assistance</li>
+          <li>Comparing frontier model capabilities across providers</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>537 HN comments on the launch post</li>
+          <li>730B MoE model, competitive SWE-bench scores</li>
+          <li>Multiple developers reporting switching from Claude/GPT for security work</li>
+          <li>$80/month plan including cyber capabilities</li>
+          <li>Day-0 availability in Cursor and via Z.ai API</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://z.ai/blog/glm-5.3">Z.ai Blog</a></li>
+          <li><a href="https://terminalblog.com/blog/what-developers-think-glm53-chinese-models-hn/">TerminalBlog HN Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://x.ai/news/grok-4-6">Grok 4.6: xAI's Long-Running Agent Model Matches GPT-5.6 Sol on the Intelligence Index</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">xAI released Grok 4.6 on August 12, building on Grok 4.5 with a focus on long-running agents and multi-step tasks. It matches GPT-5.6 Sol on the Artificial Analysis Intelligence Index (a composite of nine benchmarks). Key improvements come from extended supplemental training, curated model-generated data for reasoning, and agentic RL across coding, knowledge work, and domain-specific environments including kernel optimization and CAD.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">LLM</span>
+        <span class="tag">xAI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Cursor</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Grok 4.6 is xAI's bid for the agent workload: the model is specifically optimized for tasks that span many steps — codebase-wide changes, research tasks, and turning ideas into working applications. The day-0 availability in Cursor matters because it means engineers can evaluate it in their existing workflow immediately. The agentic RL training across specialized domains (kernel optimization, CAD) suggests xAI is targeting the long-tail of engineering tasks where general models struggle.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Long-running agent sessions across large codebases</li>
+          <li>Multi-step engineering tasks requiring sustained context</li>
+          <li>Domain-specific work in kernel optimization and CAD</li>
+          <li>Evaluating frontier alternatives to Claude and GPT for agentic workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Matches GPT-5.6 Sol on Artificial Analysis Intelligence Index</li>
+          <li>Available day-0 in Cursor and Grok Build</li>
+          <li>2x included usage promo for first week</li>
+          <li>Trained with agentic RL across coding, knowledge work, and domain-specific tasks</li>
+          <li>HN coverage with benchmark comparisons</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://x.ai/news/grok-4-6">xAI Blog</a></li>
+          <li><a href="https://cursor.com/blog/grok-4-6">Cursor Integration</a></li>
+          <li><a href="https://signalreads.com/articles/grok-46/">Signal Reads Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/">NVIDIA Ships Nemotron 3.5 Lightning and NeMo Switchyard: Open Models and Smart Routing for Multi-Agent Systems</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">NVIDIA released Nemotron 3.5 Lightning, a 30B-parameter MoE model optimized for high-volume agentic workloads within multi-agent systems, plus NeMo Switchyard, an open-source library for intelligently routing requests to the best model for each task. The pair is designed for the 'system of models' architecture where a frontier reasoning model orchestrates while smaller specialized models handle targeted tasks like code review, summarization, or tool calling.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Inference</span>
+        <span class="tag">Multi-Agent</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most production agent systems are converging on multi-model architectures — a big model plans, smaller models execute. NVIDIA's bet is that this pattern needs two things: a high-efficiency specialist model (Nemotron 3.5 Lightning) and a routing layer (NeMo Switchyard) that directs each request to the right model without rewriting your app. If you're running agents at scale, the routing layer alone is worth evaluating — it works across your mix of open, proprietary, and NVIDIA models.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Multi-model agent systems with intelligent request routing</li>
+          <li>High-volume agentic workloads at lower cost than frontier models</li>
+          <li>Building custom routing strategies across model providers</li>
+          <li>Running specialized agent tasks on smaller, efficient models</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From NVIDIA, part of the Nemotron 3 model family</li>
+          <li>NeMo Switchyard is open-source</li>
+          <li>Designed for the multi-model agent architecture pattern</li>
+          <li>Runs across RTX, DGX, workstations, data centers, and cloud</li>
+          <li>Follows Nemotron 3 Nano in NVIDIA's open model strategy</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/">NVIDIA Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://venturebeat.com/infrastructure/cursor-launches-origin-code-hosting-platform-as-github-outage-exposes-opening-in-ai-coding-race">Cursor Launches Origin: Its Own Code Hosting Platform, Timed Perfectly With a 6h42m GitHub Outage</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Cursor rolled out Origin, its own code hosting platform, to paid users on August 17. Three and a half hours later, GitHub went down for 6 hours and 42 minutes — error rates near 20% across PRs, issues, and API, with enterprise SSO (SAML, OIDC, SCIM) failing entirely. Origin lives in a new Codebase tab inside Cursor, giving the AI editor native access to repository structure, history, and context without depending on GitHub's API.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">Code Hosting</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Enterprise</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>For 18 years, code hosting has been a boring decision. Cursor is betting that AI agents make it interesting again: an editor that owns the repository can give agents deeper context, faster indexing, and tighter integration than one that fetches through GitHub's API. The timing with the GitHub outage was coincidental but effective — it dramatized the single-point-of-failure argument. For engineering leaders, this raises a real procurement question: do you want your AI coding tool to also be your code host?</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>AI-native code hosting with deep editor integration</li>
+          <li>Reducing dependency on GitHub for agent-driven workflows</li>
+          <li>Faster repository indexing for AI coding agents</li>
+          <li>Enterprise teams evaluating code hosting alternatives</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Cursor, the most popular AI-native editor</li>
+          <li>Launched August 17 to paid users</li>
+          <li>GitHub outage same day: 6h42m, 20% error rates, SSO down</li>
+          <li>Covered by VentureBeat, multiple outlets</li>
+          <li>Integration with Vercel deployment pipeline</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://venturebeat.com/infrastructure/cursor-launches-origin-code-hosting-platform-as-github-outage-exposes-opening-in-ai-coding-race">VentureBeat</a></li>
+          <li><a href="https://cursor.com/changelog/origin-code-hosting">Cursor Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://bun.com/blog/bun-v1.4">Bun 1.4: Rewritten From Zig to Rust, 1,517 New Node.js Tests, and a Kitchen Sink of New APIs</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Bun 1.4 is the biggest release since 1.0. The headline: Bun is now rewritten from Zig to Rust. The release adds 1,517 passing Node.js test suite tests (node:http, node:fs, node:cluster, node:stream at 97%+), fixes 2,900+ issues, reduces idle CPU by 5x, cuts memory by 35%, and starts 50% faster on Linux. New APIs include Bun.Image (image processing), Bun.WebView (native webview), Bun.cron() (job scheduling), Bun.Terminal, bun run --parallel, bun test --parallel, bun audit fix, and bun prune.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Bun</span>
+        <span class="tag">Rust</span>
+        <span class="tag">Runtime</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The Zig-to-Rust rewrite is the most consequential decision. Zig gave Bun its initial speed advantage but limited the contributor pool; Rust opens Bun to a much larger ecosystem of contributors and libraries while maintaining performance. The Node.js compatibility jump — 97%+ on core modules — makes Bun a credible drop-in replacement for most Node projects. The new APIs (WebView, Image, cron) signal Bun's ambition to be a complete runtime, not just a fast Node alternative.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replacing Node.js with a faster, more compatible runtime</li>
+          <li>Building full-stack apps with built-in image processing and webview</li>
+          <li>Running parallel tests and scripts in CI pipelines</li>
+          <li>Job scheduling with built-in cron support</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>1,517 new Node.js test suite tests passing</li>
+          <li>2,900+ issues fixed</li>
+          <li>5x idle CPU reduction, 35% memory reduction, 50% faster Linux startup</li>
+          <li>Zig-to-Rust rewrite — fundamental architecture change</li>
+          <li>Bun is the second-most-used JS runtime after Node</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://bun.com/blog/bun-v1.4">Bun Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.prnewswire.com/news-releases/gitkraken-introduces-gitlens-19-bringing-human-and-ai-workflows-together-in-one-workbench-302851472.html">GitLens 19: The Commit Graph Rebuilt for the Code Flow Era Where Agents Are Teammates</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">GitKraken released GitLens 19, the biggest evolution of the popular VS Code extension. The reimagined Commit Graph gives developers a single view to understand, coordinate, review, and ship work across both human developers and AI coding agents. GitKraken's 2026 State of AI in Engineering survey (554 developers) found that 96.4% of engineering orgs use AI coding tools, and the percentage of developers whose primary mode is autonomous AI nearly quadrupled from 7.6% to 28% in nine months.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">GitKraken</span>
+        <span class="tag">Git</span>
+        <span class="tag">VS Code</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>GitKraken's thesis: the bottleneck has moved from code generation to code understanding and merging. When agents generate more code in a day than a developer wrote in a week, the commit graph becomes the coordination point. GitLens 19 is the first major git visualization tool to explicitly design for agent-generated branches and PRs alongside human ones. The survey data — 28% of developers now primarily working autonomously with AI — suggests this shift is happening faster than most teams are prepared for.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Visualizing and coordinating agent-generated branches alongside human work</li>
+          <li>Reviewing and merging AI-generated PRs with full context</li>
+          <li>Understanding parallel development streams across agents and humans</li>
+          <li>Tracking which code was agent-generated vs. human-written</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From GitKraken, GitLens has millions of VS Code installs</li>
+          <li>96.4% of engineering orgs use AI coding tools (survey of 554)</li>
+          <li>28% of developers now work primarily with autonomous AI (up from 7.6%)</li>
+          <li>Addresses the 'Code Flow' bottleneck as agents generate more code</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.prnewswire.com/news-releases/gitkraken-introduces-gitlens-19-bringing-human-and-ai-workflows-together-in-one-workbench-302851472.html">Press Release</a></li>
+          <li><a href="https://www.gitkraken.com/reports/state-of-ai">State of AI in Engineering Report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://sourcegraph.com/changelog/code-finder-ga">Sourcegraph Code Finder Hits GA: An MCP Tool That Gives Coding Agents Fast, Focused Code Search</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Sourcegraph's Code Finder is now generally available through the Sourcegraph MCP server. Code Finder is an agent optimized for code search — it helps coding agents quickly locate relevant implementations, configuration, tests, or documentation within a repository and returns concise summaries with links and line ranges. It went from beta to GA after validation across enterprise codebases.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Sourcegraph</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Code Search</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The biggest time sink for coding agents is context gathering — finding the right files, understanding where things are defined, locating related tests. Code Finder turns Sourcegraph's code intelligence into an MCP tool that any agent can call. Instead of agents doing expensive grep-and-read loops, they get focused results they can immediately use. For teams already on Sourcegraph, this is a force multiplier for every coding agent session.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Giving coding agents fast code search without expensive file exploration</li>
+          <li>Finding implementations, configs, tests, and docs in large repos</li>
+          <li>Reducing agent token usage on context gathering</li>
+          <li>Integrating enterprise code search into agent workflows via MCP</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Sourcegraph, the leading code search platform</li>
+          <li>GA release after beta validation period</li>
+          <li>Available via Sourcegraph MCP server</li>
+          <li>Credits-based usage model for enterprise</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://sourcegraph.com/changelog/code-finder-ga">Sourcegraph Changelog</a></li>
+          <li><a href="https://sourcegraph.com/docs/api/mcp#code-finder">Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://blog.duolingo.com/production-ready-ai-agent-platform/">How Duolingo Built a Production-Ready AI Agent Platform: Define Once, Run Everywhere</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Duolingo published a detailed engineering blog on how they built a shared agent platform after teams kept rebuilding the same infrastructure. The platform lets developers define an agent once — system prompt, MCP servers, repo access — while the platform handles execution, observability, orchestration, and evaluation. Agents are defined in a registry and can be invoked from Slack, internal sites, CLI, or Temporal workflows without rebuilding.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Duolingo</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Production</span>
+        <span class="tag">Platform</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most practical case study yet of a consumer tech company productionizing AI agents at scale. Duolingo's pain point — every team rebuilding MCP setup, credential management, repo cloning, and context loading — is universal. Their solution — a centralized platform with a registry, shared execution layer, and multi-surface distribution — is the pattern every company running more than a handful of agents will converge on. The Temporal integration for workflow-based agent invocation is particularly noteworthy.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Centralizing agent infrastructure instead of per-team rebuilds</li>
+          <li>Multi-surface agent invocation from Slack, CLI, and workflows</li>
+          <li>Standardized agent evaluation and observability</li>
+          <li>Production agent platforms with shared MCP and credential management</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Duolingo, a public company running agents in production</li>
+          <li>Published August 4, 2026 with detailed architecture</li>
+          <li>Addresses the universal 'every team rebuilds agent infra' problem</li>
+          <li>Uses Temporal for workflow-based agent orchestration</li>
+          <li>Agents invokable from Slack, CLI, internal sites, and workflows</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.duolingo.com/production-ready-ai-agent-platform/">Duolingo Engineering Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.truefoundry.com/blog/engineering/trueforge-open-source-agent-harness/">TrueForge: Open-Source Agent Harness That Benchmarks at 75% Cheaper Than Claude Managed Agents</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">TrueFoundry open-sourced TrueForge, an MIT-licensed agent harness they run in production. It's a single-command install (npx @truefoundry/trueforge) that handles the agent loop, tool execution, context management with subagents and compaction, human approval for sensitive actions, and session persistence across reconnects. Benchmarked against Claude Managed Agents on identical tasks, TrueForge matched quality at ~75% lower cost with open models, and 30% cheaper even using the same model.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">TrueFoundry</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Cost Optimization</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>TrueForge makes the argument that the harness layer should be decoupled from the model provider. When TrueFoundry benchmarks show an open model through TrueForge matching Opus quality at 75% less, the implication is clear: the model-plus-harness bundle is an upsell, and teams can get equivalent results by choosing the harness and model independently. The HTTP API and TypeScript SDK mean you can integrate it into existing infrastructure rather than adopting a whole new workflow.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running production agents at lower cost than vendor-bundled solutions</li>
+          <li>Vendor-neutral agent harness with model flexibility</li>
+          <li>Self-hosted agent infrastructure with human approval workflows</li>
+          <li>Integrating agent capabilities into existing apps via HTTP API/SDK</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>MIT license, production-tested at TrueFoundry</li>
+          <li>75% cheaper than Claude Managed Agents with open models</li>
+          <li>30% cheaper using the same model</li>
+          <li>Single-command install via npx</li>
+          <li>Covered by AI Weekly and multiple outlets</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.truefoundry.com/blog/engineering/trueforge-open-source-agent-harness/">TrueFoundry Blog</a></li>
+          <li><a href="https://github.com/truefoundry/trueforge">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/tinyhumansai/openhuman">OpenHuman Tops GitHub Trending for 9 Straight Days: A Local AI Agent That Builds Memory From Your Life</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">tinyhumansai's OpenHuman hit #1 on GitHub's trending repositories for 9 consecutive days within a week of its latest release (August 7). It's a local-first personal AI that gathers emails, documents, and messages every 20 minutes into a compressed 'memory tree,' uses Signal protocol encryption for agent-to-agent communication, and orchestrates a fleet of agents. It integrates with Claude Code, Cursor, Codex, and OpenCode as an agentmemory backend.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Personal AI</span>
+        <span class="tag">Memory</span>
+        <span class="tag">Privacy</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>OpenHuman represents the next frontier in personal AI: instead of agents that start from zero every session, it builds persistent memory from your digital life and makes that context available to every tool you use. The architecture — local-first storage, Signal protocol encryption, 20-minute sync loops, Obsidian-style wiki format — is designed for privacy-conscious engineers who want the benefits of AI memory without sending their data to a cloud provider. The 9-day trending streak suggests real demand for this pattern.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building persistent AI memory from personal data without cloud dependency</li>
+          <li>Giving coding agents context from your broader digital life</li>
+          <li>Privacy-preserving personal AI with end-to-end encryption</li>
+          <li>Orchestrating multiple AI agents with shared memory</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>#1 on GitHub Trending for 9 consecutive days</li>
+          <li>Released August 7, 2026 (latest version)</li>
+          <li>Integrates with Claude Code, Cursor, Codex, and OpenCode</li>
+          <li>Signal protocol encryption for agent communication</li>
+          <li>Local-first architecture with Obsidian-style storage</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/tinyhumansai/openhuman">GitHub</a></li>
+          <li><a href="https://metallab.ai/en/2026/8/tinyhumansai-openhuman-your-personal-ai-super-intelligence-a-brain-that">MetalLab Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
