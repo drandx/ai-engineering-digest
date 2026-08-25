@@ -1,0 +1,153 @@
+{
+  "highlights": [
+    {"text": "Meta open-sources Muse Glimmer, a 30B agentic model under Apache 2.0 that runs on a single consumer GPU — optimized for always-on local agents, function calling, and LLM-as-a-judge", "anchor": "ai-tools-and-models-0"},
+    {"text": "JetBrains survey of 15,000 devs: 90% use AI coding agents weekly, Claude Code hits 39% adoption globally (47% in the US), now 2x GitHub Copilot", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "DeepReinforce ships Ornith-1.5: a 397B MoE model scoring 85.1 on Terminal-Bench 2.1, on par with Opus 4.8, with a self-curriculum training loop that proposes its own tasks", "anchor": "ai-tools-and-models-1"},
+    {"text": "Graphify hits 110K GitHub stars: turn any codebase into a queryable knowledge graph with deterministic AST parsing — no embeddings, no vector store", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Kubeflow graduates CNCF and ships an MCP server — AI agents can now submit training jobs, manage GPU resources, and stream logs directly from the cluster", "anchor": "infrastructure-and-production-0"},
+    {"text": "NVIDIA Vera Rubin Groq 3 LPX enters full production: 3,400 output tokens/sec on 100K-context agentic workloads, 4x faster than the nearest alternative", "anchor": "infrastructure-and-production-1"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Meta Open-Sources Muse Glimmer: A 30B Agentic Model That Runs on Your Device",
+          "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+          "tldr": "Meta Superintelligence Labs released Muse Glimmer, a 30-billion-parameter model optimized for always-on local agent workflows, under the Apache 2.0 license. It's designed to run on a Mac or PC with a single consumer GPU, targeting use cases like local coding agents, function calling, and LLM-as-a-judge evaluation. Integrations with llama.cpp, MLX, and ExecuTorch are shipping in the coming days.",
+          "why_it_matters": "The always-on local agent is the next frontier: a model that manages your schedule, drafts messages, organizes files, and learns how you work — without cloud dependency. Meta is betting that 30B is the sweet spot for consumer hardware: small enough to run locally, large enough for sustained agentic workflows. The Apache 2.0 license means you can embed it in commercial products. For engineers building personal AI tools or privacy-sensitive agent workflows, this is the first production-quality open model purpose-built for the local agent use case.",
+          "traction": "high",
+          "traction_evidence": ["From Meta Superintelligence Labs, Apache 2.0 license", "#1 on Hacker News trending", "Day-0 integrations with llama.cpp, MLX, ExecuTorch", "30B parameters — runs on a single consumer GPU", "Strong benchmark performance in its size category on agentic tasks"],
+          "use_cases": ["Running always-on local coding agents without cloud dependency", "Privacy-preserving personal AI agents on consumer hardware", "LLM-as-a-judge evaluation running locally", "Function calling and tool use in offline environments"],
+          "tags": ["AI", "Meta", "Open Source", "Local AI", "Agents"],
+          "links": [
+            {"url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model", "label": "Meta AI Research Blog"},
+            {"url": "https://huggingface.co/meta-models/Muse-Glimmer-30B", "label": "Hugging Face"},
+            {"url": "https://explore.n1n.ai/blog/meta-muse-glimmer-30b-local-agents-hacker-news-2026-08-11", "label": "n1n.ai Coverage"}
+          ]
+        },
+        {
+          "title": "DeepReinforce Ships Ornith-1.5: A Self-Improving 397B MoE Model That Scores on Par With Opus 4.8",
+          "url": "https://huggingface.co/collections/ornith-ai/ornith-15",
+          "tldr": "DeepReinforce released Ornith-1.5 on Hugging Face in three sizes: a 397B MoE flagship, a 35B MoE activating 3B parameters per token, and a 9B dense model with a quantized mobile build. The 397B scores 85.1 on Terminal-Bench 2.1 and 56.0 on DeepSWE — on par with Claude Opus 4.8 at 85.0 and 59.0. The training pipeline is the standout: it proposes its own progressively harder tasks, generates task-specific scaffolds, and produces rollouts, all optimized with GRPO targeting a 0.2 success rate.",
+          "why_it_matters": "The self-curriculum training loop is more interesting than the benchmark numbers. Ornith-1.5's training system proposes its own tasks, calibrated to keep the model at the edge of its competence — no human-curated task set required. This is a meaningful step toward models that improve themselves on targeted capabilities. The MIT license and three size tiers (397B, 35B, 9B with mobile quantization) mean you can deploy this from phones to data centers. If the Terminal-Bench numbers hold up in third-party reruns, this is the strongest open-weight coding model available.",
+          "traction": "high",
+          "traction_evidence": ["85.1 on Terminal-Bench 2.1, on par with Opus 4.8", "56.0 on DeepSWE, 92.8 on GPQA Diamond", "MIT license, three model sizes including mobile", "Self-curriculum training with GRPO optimization", "Covered by AI Weekly and TestingCatalog"],
+          "use_cases": ["Self-hosted frontier-class coding agent with open weights", "Mobile deployment with the 9B quantized build", "Research into self-curriculum and autonomous training loops", "Cost-effective alternative to closed frontier models for coding tasks"],
+          "tags": ["AI", "LLM", "Open Source", "Training", "Coding"],
+          "links": [
+            {"url": "https://huggingface.co/collections/ornith-ai/ornith-15", "label": "Hugging Face Collection"},
+            {"url": "https://aiweekly.co/alerts/deepreinforce-releases-ornith-15-in-397b-35b-and-9b-sizes", "label": "AI Weekly Coverage"},
+            {"url": "https://www.testingcatalog.com/ornith-1-5-open-models-launch-in-397b-35b-and-9-b-sizes/", "label": "TestingCatalog Analysis"}
+          ]
+        },
+        {
+          "title": "OpenAI Brings GPT-5.6 to AWS Kiro: Spec-Driven Development Cuts Task Costs by 82%",
+          "url": "https://www.unite.ai/openai-brings-gpt-5-6-model-family-to-awss-kiro/",
+          "tldr": "OpenAI's GPT-5.6 model family (Sol, Terra, Luna) is now available inside Kiro, AWS's spec-driven development environment. Joint testing on Terminal-Bench 2.1 showed that GPT-5.6 Terra running in Kiro completed tasks at roughly 82% lower cost than bare prompting. The integration covers the full Kiro workflow: converting product requirements into structured plans, executing multi-step coding tasks, reviewing at checkpoints, and property-based testing.",
+          "why_it_matters": "The 82% cost reduction isn't about the model — it's about what you feed the model before it starts. Kiro's spec-driven approach gives GPT-5.6 requirements documents, technical designs, and task context upfront, so it reaches working solutions in fewer iterations. This is the strongest evidence yet that the harness matters as much as the model: the same model costs 82% less when given structured context versus a bare prompt. For engineering leaders evaluating agent costs, this makes the case that investing in spec-driven workflows pays for itself in reduced token spend.",
+          "traction": "high",
+          "traction_evidence": ["From OpenAI + AWS, announced August 24, 2026", "82% cost reduction on Terminal-Bench 2.1 tasks", "Full GPT-5.6 family (Sol, Terra, Luna) available in Kiro", "Integration covers requirements → design → coding → testing workflow", "Covered by Unite.AI and multiple outlets"],
+          "use_cases": ["Reducing agent token costs with spec-driven development", "End-to-end AI-assisted development from requirements to tested code", "Evaluating spec-driven vs. prompt-and-iterate approaches", "Enterprise teams standardizing on structured agent workflows"],
+          "tags": ["AI", "OpenAI", "AWS", "Kiro", "Cost Optimization"],
+          "links": [
+            {"url": "https://www.unite.ai/openai-brings-gpt-5-6-model-family-to-awss-kiro/", "label": "Unite.AI Coverage"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "JetBrains Survey: 90% of Developers Use AI Coding Agents Weekly, Claude Code Now 2x GitHub Copilot",
+          "url": "https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/",
+          "tldr": "JetBrains' Developer Ecosystem Survey 2026, surveying 15,000+ professional developers worldwide (May-July 2026), found that 90% use AI coding agents at work at least weekly, with 68% using them daily. Claude Code has become the most widely adopted tool at 39% global adoption (47% in the US), doubling from 18% in January 2026. It is now used twice as often as GitHub Copilot, the former long-standing market leader.",
+          "why_it_matters": "This is the most comprehensive adoption data we have on AI coding agents, and the shift is staggering. Claude Code went from 18% to 39% in six months — in the US, nearly half of all developers use it at work. The inversion with GitHub Copilot is the bigger story: the tool that defined AI-assisted coding in 2023 is now second place, suggesting that terminal-first, agentic workflows have overtaken inline autocomplete as the primary AI coding paradigm. For engineering leaders, 90% weekly usage means AI coding agents are no longer optional infrastructure — they're as universal as version control.",
+          "traction": "high",
+          "traction_evidence": ["15,000+ developers surveyed globally, tenth edition", "90% weekly AI agent usage, 68% daily", "Claude Code at 39% globally, 47% in US", "2x GitHub Copilot adoption", "From JetBrains, one of the most respected developer surveys"],
+          "use_cases": ["Benchmarking your team's AI coding agent adoption against industry averages", "Making the business case for AI coding infrastructure investment", "Understanding the shift from autocomplete to agentic coding workflows", "Planning tooling strategy around the dominant agent platforms"],
+          "tags": ["DevTools", "JetBrains", "Survey", "Claude Code", "Adoption"],
+          "links": [
+            {"url": "https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/", "label": "JetBrains Blog"}
+          ]
+        },
+        {
+          "title": "Graphify Hits 110K Stars: Turn Any Codebase Into a Queryable Knowledge Graph Without Embeddings",
+          "url": "https://github.com/Graphify-Labs/graphify",
+          "tldr": "Graphify-Labs' graphify has reached 110,267 GitHub stars with 10,727 forks. It's a CLI tool and AI coding skill that maps any codebase — including docs, SQL schemas, configs, and PDFs — into a queryable knowledge graph using deterministic tree-sitter AST parsing. No embeddings, no vector store: it builds a real graph you traverse. Every edge is tagged EXTRACTED (explicit in source) or INFERRED (resolved by graphify). Install with `uv tool install graphifyy`, type `/graphify .` in your agent.",
+          "why_it_matters": "The semantic code search problem has been dominated by vector embeddings and RAG pipelines. Graphify takes the opposite approach: deterministic parsing into a real graph where every connection is explained and traceable. This matters because when a coding agent asks 'where is this used?' or 'what depends on this?', a graph traversal gives a complete, verifiable answer that an embedding similarity search cannot. The 110K stars in short order suggest developers have been waiting for this approach. The YC backing and forthcoming cloud platform signal this is more than a weekend project.",
+          "traction": "high",
+          "traction_evidence": ["110,267 GitHub stars, 10,727 forks", "YC-backed (Graphify Labs)", "Integrates with Claude Code, Cursor, Codex, Gemini CLI", "Deterministic AST parsing — no LLM needed for code", "Early access platform at app.graphify.com"],
+          "use_cases": ["Giving coding agents structural codebase understanding via graph queries", "Navigating unfamiliar codebases by traversing dependency graphs", "Auditing code relationships and dependencies without embeddings", "Understanding cross-file relationships in large monorepos"],
+          "tags": ["DevTools", "Open Source", "Code Search", "Knowledge Graph", "AST"],
+          "links": [
+            {"url": "https://github.com/Graphify-Labs/graphify", "label": "GitHub"},
+            {"url": "https://graphify.com", "label": "Graphify Platform"}
+          ]
+        },
+        {
+          "title": "Kubeflow MCP Server: Let AI Agents Manage Your GPU Clusters Directly",
+          "url": "https://blog.kubeflow.org/introducing-kubeflow-mcp/",
+          "tldr": "The Kubeflow project shipped an MCP (Model Context Protocol) server that exposes Kubeflow operations as 23 structured tools AI agents can call directly. Instead of the old workflow — describe what you want, agent generates a script, you run it, paste errors back — agents now check your cluster, estimate resources, preview job specs, submit training jobs, and stream logs, all within the same conversation. Features include two-phase confirmation for destructive operations, persona-based access control, and token-efficient modes.",
+          "why_it_matters": "This is the first major ML platform to ship a native MCP interface, and it changes the human's role from 'message bus between the agent and the cluster' to 'approval authority.' The two-phase confirmation pattern — where the agent previews what it's about to do and waits for your OK — is the right security model for infrastructure agents. If you're running training jobs on Kubernetes, this means your coding agent can now manage the full lifecycle: submit jobs, monitor GPU utilization, debug failures, and stream logs without you copy-pasting between terminals.",
+          "traction": "high",
+          "traction_evidence": ["From Kubeflow, freshly graduated CNCF project", "23 structured MCP tools for agent interaction", "Two-phase confirmation for safe agent-driven infrastructure", "Supports Claude Code, Cursor, and other MCP-compatible agents", "Part of Kubeflow's post-graduation agentic AI roadmap"],
+          "use_cases": ["Agent-driven ML training job submission and monitoring", "Conversational GPU cluster management with safety guardrails", "Automating distributed training workflows via natural language", "Integrating ML infrastructure operations into coding agent sessions"],
+          "tags": ["DevTools", "Kubeflow", "MCP", "Kubernetes", "ML Infrastructure"],
+          "links": [
+            {"url": "https://blog.kubeflow.org/introducing-kubeflow-mcp/", "label": "Kubeflow Blog"},
+            {"url": "https://www.cncf.io/announcements/2026/08/17/cncf-announces-kubeflows-graduation-solidifying-the-standard-for-cloud-native-ai-operations/", "label": "CNCF Graduation Announcement"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Kubeflow Graduates CNCF: The Standard for Cloud Native AI Operations Is Now Production-Certified",
+          "url": "https://www.cncf.io/announcements/2026/08/17/cncf-announces-kubeflows-graduation-solidifying-the-standard-for-cloud-native-ai-operations/",
+          "tldr": "CNCF graduated Kubeflow on August 17, recognizing it as a mature, production-ready platform for cloud native AI and ML operations on Kubernetes. Kubeflow standardizes the full AI/ML lifecycle — data processing, interactive development, distributed training, fine-tuning, inference, and model serving — across public, private, and hybrid cloud environments. The roadmap now focuses on LLM orchestration, post-training capabilities, and agentic workloads.",
+          "why_it_matters": "CNCF graduation is the highest signal of production readiness in the cloud native ecosystem — it means the project has proven governance, security practices, and widespread enterprise adoption. For platform engineering teams, this settles the 'should we build or buy ML infrastructure?' question: Kubeflow is now the Kubernetes-native standard. The roadmap pivot toward LLM orchestration and agentic workloads means the project is adapting to where ML infrastructure is headed, not just where it's been.",
+          "traction": "high",
+          "traction_evidence": ["CNCF graduation — highest maturity level", "Covers full AI/ML lifecycle on Kubernetes", "Widespread enterprise adoption cited", "Roadmap includes LLM orchestration and agentic workloads", "Backed by Google, AWS, Apple, Red Hat, and other contributors"],
+          "use_cases": ["Standardizing ML infrastructure on Kubernetes", "Enterprise-grade model training, fine-tuning, and serving", "Building portable AI platforms across cloud providers", "Running agentic AI workloads on Kubernetes-native infrastructure"],
+          "tags": ["Infrastructure", "Kubeflow", "CNCF", "Kubernetes", "MLOps"],
+          "links": [
+            {"url": "https://www.cncf.io/announcements/2026/08/17/cncf-announces-kubeflows-graduation-solidifying-the-standard-for-cloud-native-ai-operations/", "label": "CNCF Announcement"},
+            {"url": "https://www.kubeflow.org/", "label": "Kubeflow.org"}
+          ]
+        },
+        {
+          "title": "NVIDIA Vera Rubin Groq 3 LPX Enters Full Production: 3,400 Tokens/Sec for Agentic AI at Scale",
+          "url": "https://blogs.nvidia.com/blog/vera-rubin-lpx-spectrum-x-nvlink-fusion/",
+          "tldr": "NVIDIA announced that its Vera Rubin rack-scale system Groq 3 LPX is in full production. Running Gemma 4 31B on an Artificial Analysis benchmark, it delivered 3,400 output tokens per second for 100,000-token long-context agentic workloads — 4x faster than the nearest alternative platform. SpaceXAI will use Vera CPUs for next-gen agentic AI, CoreWeave has deployed Spectrum-X Multiplane into production, and Nebius is the first AI cloud to adopt Groq 3 LPX.",
+          "why_it_matters": "Agentic AI workloads are fundamentally different from chatbot inference: they generate more tokens, process larger context windows, and require sustained throughput across multi-step operations. The 3,400 tokens/sec at 100K context is the first production benchmark that directly measures what agent infrastructure needs. For teams running agents at scale, this sets a new baseline for what inference infrastructure should deliver. The Hot Chips announcement timing signals that NVIDIA sees agent inference as the next major infrastructure market.",
+          "traction": "high",
+          "traction_evidence": ["In full production — not a preview or announcement", "3,400 tokens/sec at 100K context, 4x faster than alternatives", "Adopted by SpaceXAI, CoreWeave, Nebius", "Announced at Hot Chips conference", "Artificial Analysis benchmark with Gemma 4 31B"],
+          "use_cases": ["High-throughput inference for multi-agent systems", "Long-context agentic workloads requiring sustained token generation", "Building inference infrastructure optimized for agent economics", "Deploying rack-scale AI for enterprise agent platforms"],
+          "tags": ["Infrastructure", "NVIDIA", "Inference", "Hardware", "Agents"],
+          "links": [
+            {"url": "https://blogs.nvidia.com/blog/vera-rubin-lpx-spectrum-x-nvlink-fusion/", "label": "NVIDIA Blog"}
+          ]
+        },
+        {
+          "title": "Flux Mirror: Declarative Artifact Mirroring With Signature Verification for Supply Chain Security",
+          "url": "https://fluxcd.io/blog/2026/08/flux-mirror/",
+          "tldr": "The Flux project released Flux Mirror, a new CLI plugin that declaratively mirrors container images, Helm charts, and OCI artifacts between registries with signature verification, provenance policies, and minimum artifact age enforcement. It solves the decade-old problem of Kubernetes clusters depending on external registries you don't control — one upstream disappearance, rate limit change, or license shift (like Bitnami's 2025 freeze) can break your production.",
+          "why_it_matters": "Every production Kubernetes cluster has this vulnerability: images from Docker Hub, charts from random HTTP servers, OCI artifacts from third parties. When Bitnami froze its free catalog in 2025, teams scrambled. Flux Mirror turns this into a solved, declarative problem: define what you mirror, where it goes, and what verification policies apply. The provenance and signature checks mean you're not just mirroring — you're validating supply chain integrity at sync time. For platform teams, this is the missing piece between 'we should mirror our dependencies' and actually doing it reliably.",
+          "traction": "medium",
+          "traction_evidence": ["From the Flux project (CNCF Graduated)", "Covered by InfoQ", "Addresses Docker Hub rate limits (2020, 2025) and Bitnami freeze (2025)", "Declarative configuration with verification policies", "Supports images, Helm charts, and OCI artifacts"],
+          "use_cases": ["Mirroring container images and charts to private registries", "Enforcing supply chain security policies on Kubernetes dependencies", "Protecting production from upstream registry outages or license changes", "Declarative artifact management with signature verification"],
+          "tags": ["Infrastructure", "Flux", "Kubernetes", "Supply Chain", "Security"],
+          "links": [
+            {"url": "https://fluxcd.io/blog/2026/08/flux-mirror/", "label": "Flux Blog"},
+            {"url": "https://www.infoq.com/news/2026/08/flux-mirror-gitless-gitops/", "label": "InfoQ Coverage"},
+            {"url": "https://github.com/fluxcd/flux-mirror", "label": "GitHub"}
+          ]
+        }
+      ]
+    }
+  ]
+}
