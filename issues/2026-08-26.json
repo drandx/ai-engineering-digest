@@ -1,0 +1,153 @@
+{
+  "highlights": [
+    {"text": "DeepSeek open-sources DeepSeek Harness (dsh): an MIT-licensed agent runtime with a micro-kernel architecture where everything is a plugin — 170K GitHub stars in one week", "anchor": "ai-tools-and-models-0"},
+    {"text": "Slack launches Slack Code: dedicated code channels where teams and AI agents plan, write, and review together — launches with Anthropic, GitHub, OpenAI, and Vercel", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Ox Alpha, a free anonymous 'stealth model,' appears on OpenRouter and processes 26T tokens in 4 days — benchmarks near GPT-5.6 Sol on DeepSWE, nobody knows who built it", "anchor": "ai-tools-and-models-1"},
+    {"text": "Ray 2.58 ships native sandboxing with gVisor: 100,000 isolated environments in 20 seconds for agentic RL workloads — built by Anyscale and Google", "anchor": "infrastructure-and-production-0"},
+    {"text": "IBM releases Granite 4.2 under Apache 2.0: reasoning models trained with RL inside live terminals, code repos, and web search — switchable thinking mode in 3B/8B/30B sizes", "anchor": "ai-tools-and-models-2"},
+    {"text": "Cloudflare open-sources Cloudflare OS: a capability-based AI platform where every user runs their own sandboxed copy of the app — vibe coding with enterprise security", "anchor": "infrastructure-and-production-1"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "DeepSeek Harness: The 'Everything Is a Plugin' Agent Runtime That Hit 170K GitHub Stars in a Week",
+          "url": "https://github.com/deepseek-ai/deepseek-harness",
+          "tldr": "DeepSeek open-sourced DeepSeek Harness (dsh), an MIT-licensed agent runtime built on a TypeScript micro-kernel called Cordis. Every moving part — models, tools, sandboxes, memory, even the UI — is a swappable plugin configured in YAML or JSON. The developer preview went from zero to roughly 170,000 GitHub stars in a week, signaling that developers want the agent loop unbundled from any single model provider.",
+          "why_it_matters": "For two years, agent tooling has been dominated by opinionated monoliths where the model, tool surface, memory, and loop are tightly coupled. DeepSeek Harness is an explicit bet that this era is ending. The micro-kernel architecture means you can swap models, sandboxes, and UIs independently — change one component without forking the whole project. The 170K stars suggest massive pent-up demand for a vendor-neutral agent runtime. For engineering teams, this is the first credible open-source alternative to building your own agent harness from scratch.",
+          "traction": "high",
+          "traction_evidence": ["170,000 GitHub stars in approximately one week", "MIT license, TypeScript micro-kernel architecture", "Covered by InfoQ, The Agent Report, and multiple outlets", "Plugin system for models, tools, sandboxes, memory, and UI", "Built on Cordis micro-kernel with spatiotemporal composability"],
+          "use_cases": ["Vendor-neutral agent runtime with swappable model backends", "Building custom agent workflows without forking a monolith", "Embedding agent capabilities into existing applications", "Standardizing agent infrastructure across teams with shared plugins"],
+          "tags": ["AI", "DeepSeek", "Open Source", "Agent Runtime", "Agents"],
+          "links": [
+            {"url": "https://github.com/deepseek-ai/deepseek-harness", "label": "GitHub"},
+            {"url": "https://the-agent-report.com/2026/08/deepseek-harness-dsh-open-source-agent-runtime/", "label": "The Agent Report"},
+            {"url": "https://www.infoq.com/news/2026/08/deep-seek-harness/", "label": "InfoQ"}
+          ]
+        },
+        {
+          "title": "Ox Alpha: A Free Anonymous Model Processes 26T Tokens in 4 Days — And Nobody Knows Who Built It",
+          "url": "https://openrouter.ai/stealth/ox-alpha",
+          "tldr": "A model called Ox Alpha appeared on OpenRouter on August 20 with no company name attached, described as 'a reasoning model designed for coding, sustained agentic work, and production workloads.' An initial 10-task DeepSWE sample scored 80% (vs. Fable 5 at 65% and GPT-5.6 Sol at 52%), though full 113-task runs landed near 63%, roughly level with Sol. OpenCode users burned through 26 trillion tokens in four days. Google, Xiaomi, DeepSeek, and Zhipu AI have all been floated as the maker.",
+          "why_it_matters": "The Ox Alpha phenomenon reveals two things about the current market. First, coding-agent distribution platforms like OpenRouter and OpenCode can manufacture model-scale demand almost overnight — the model reached OpenCode's #2 usage slot without a known developer or price. Second, the gap between 'viral benchmark claim' and 'verified full-run score' is the recurring story of 2026: the 80% claim that went viral was a 10-task sample; the verified 63% is competitive but not dominant. For engineers evaluating models, this is a reminder to wait for full benchmark runs.",
+          "traction": "high",
+          "traction_evidence": ["26 trillion tokens processed in 4 days on OpenCode", "Available free on OpenRouter, OpenCode, Cline, and Nous Research", "Viral 80% DeepSWE claim (10-task sample); verified ~63% (full 113-task)", "Covered by Decrypt, AI Insiders, RuntimeWire", "OpenRouter's launch record broken"],
+          "use_cases": ["Free frontier-class coding agent for evaluation and prototyping", "Benchmarking anonymous models against established frontiers", "Understanding how distribution platforms shape model adoption", "Evaluating coding models with proper full-benchmark methodology"],
+          "tags": ["AI", "LLM", "Coding", "Benchmarks", "Mystery"],
+          "links": [
+            {"url": "https://openrouter.ai/stealth/ox-alpha", "label": "OpenRouter Listing"},
+            {"url": "https://decrypt.co/376396/mysterious-ai-model-ox-alpha", "label": "Decrypt"},
+            {"url": "https://aiinsiders.net/article/anonymous-ox-alpha-model-logs-26-trillion-tokens-in-four", "label": "AI Insiders"}
+          ]
+        },
+        {
+          "title": "IBM Granite 4.2: Reasoning Models Trained With RL Inside Live Terminals, Code Repos, and Web Search",
+          "url": "https://www.unite.ai/ibms-granite-4-2-models-learn-to-think-and-act-inside-environments/",
+          "tldr": "IBM released Granite 4.2, its first family of dense reasoning language models, in 3B, 8B, and 30B sizes under the Apache 2.0 license. Pre-trained on 15 trillion tokens with context up to 512K, the models go through multi-stage reinforcement learning where each stage targets a specific capability. The 8B and 30B models are trained with agentic RL inside live environments: editing real repositories via OpenHands, operating in a live terminal shell (up to 64 turns per rollout), and answering questions through live web search. Every model ships with switchable thinking modes.",
+          "why_it_matters": "The agentic RL pipeline is the standout: instead of just training on static benchmarks, IBM trains the 8B and 30B models by having them actually act inside live environments and getting rewarded only when the task is solved. The software-engineering stage uses OpenHands to edit real repos and pass hidden test suites. This is RL-from-environment-interaction, not RL-from-human-feedback, and it produces models that are better at the actual thing you want them to do. The Apache 2.0 license and three sizes (including a 3B) make this accessible from edge to data center.",
+          "traction": "medium",
+          "traction_evidence": ["From IBM, announced August 25, 2026", "Apache 2.0 license, three model sizes (3B/8B/30B)", "Multi-stage agentic RL in live terminals, repos, and web search", "512K context window, switchable thinking modes", "Covered by Unite.AI, weights on Hugging Face"],
+          "use_cases": ["Self-hosted reasoning model with agentic capabilities", "On-device AI with the 3B model for edge deployments", "Research into environment-grounded reinforcement learning", "Enterprise deployments requiring Apache 2.0 licensing"],
+          "tags": ["AI", "IBM", "Open Source", "Reasoning", "Agentic RL"],
+          "links": [
+            {"url": "https://www.unite.ai/ibms-granite-4-2-models-learn-to-think-and-act-inside-environments/", "label": "Unite.AI"},
+            {"url": "https://huggingface.co/blog/ibm-granite/granite-4-2", "label": "Hugging Face Technical Walkthrough"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Slack Code: Where Your Team and Agents Build Together in Code Channels",
+          "url": "https://slack.com/blog/news/slack-code-channels-for-agents",
+          "tldr": "Slack launched Slack Code on August 25, introducing 'code channels' — dedicated spaces where teams and AI agents plan, write, and review code together in the open. Mention a coding agent on a project, and it spins up a channel with code diffs, planning docs, and live HTML previews. When the work is done, the channel archives itself as an audit log. Launching alongside Anthropic, Cognition, GitHub, OpenAI, and Vercel.",
+          "why_it_matters": "Slack's thesis is that agent-assisted coding has become a single-player game — someone opens a private tab, prompts an agent, and the team finds out after the fact. Code channels bring this work into the open where teammates can catch wrong assumptions, add context, and review in real time. This matters because the biggest failure mode for AI-assisted coding isn't the code quality — it's the lack of team visibility into what the agent is building. For engineering managers, this is the first major collaboration platform to explicitly design for agent+human development workflows.",
+          "traction": "high",
+          "traction_evidence": ["From Slack (Salesforce), launched August 25, 2026", "Launch partners: Anthropic, Cognition, GitHub, OpenAI, Vercel", "Part of GitHub's broader human+agent development strategy", "Code channels with diffs, planning docs, live previews", "Auto-archiving channels serve as audit logs"],
+          "use_cases": ["Team-visible AI coding sessions instead of private agent tabs", "Code review workflows where agents and humans collaborate in Slack", "Audit trails for agent-generated code changes", "Integrating AI coding agents into existing Slack-based team workflows"],
+          "tags": ["DevTools", "Slack", "Collaboration", "Agents", "Enterprise"],
+          "links": [
+            {"url": "https://slack.com/blog/news/slack-code-channels-for-agents", "label": "Slack Blog"}
+          ]
+        },
+        {
+          "title": "Vercel Run SDK: Secure Eval for Agent-Generated Code With Human-in-the-Loop Approval",
+          "url": "https://vercel.com/blog/introducing-run",
+          "tldr": "Vercel released the Run SDK, an open-source package for executing untrusted JavaScript and TypeScript without giving it access to your application or system. It evaluates code in a fresh QuickJS context inside a worker thread, with no route to Node.js or the network. Applications expose narrow host functions, and execution can be interrupted for authentication or human approval, then resumed without repeating completed work. Install with `pnpm add run`.",
+          "why_it_matters": "As agents write more code that runs in production, the gap between 'agent generated it' and 'it's safe to execute' is a real security problem. Run SDK solves the sandboxing piece that every agent-driven workflow eventually needs: execute generated code in isolation, expose only the functions you choose, and pause for human approval at trust boundaries. The QuickJS approach means zero Node.js surface area — no filesystem, no network, no process access. For teams building agent-driven backends, this is the missing security primitive.",
+          "traction": "medium",
+          "traction_evidence": ["From Vercel, published August 25, 2026", "Open source on GitHub (vercel-labs/run)", "QuickJS sandbox with worker thread isolation", "Supports human-in-the-loop approval with execution resumption", "Integrates with Vercel's agent ecosystem"],
+          "use_cases": ["Sandboxing agent-generated code in production applications", "Human-in-the-loop approval for sensitive agent operations", "Secure tool execution for AI coding agents", "Building agent backends that execute untrusted TypeScript safely"],
+          "tags": ["DevTools", "Vercel", "Security", "Sandbox", "Agents"],
+          "links": [
+            {"url": "https://vercel.com/blog/introducing-run", "label": "Vercel Blog"},
+            {"url": "https://github.com/vercel-labs/run", "label": "GitHub"}
+          ]
+        },
+        {
+          "title": "Cloudflare OS: Open-Source Corporate AI Platform Where Every User Runs Their Own Sandboxed App",
+          "url": "https://blog.cloudflare.com/cloudflare-os/",
+          "tldr": "Cloudflare open-sourced Cloudflare OS, its internal corporate AI platform built on a capability-based security model. Each document or app instance runs in its own sandbox ('Gadget'), so the platform manages all access control by controlling who can access each Gadget. The key innovation: since everyone runs their own copy of the code, anyone can freely modify their copy — including prompting an agent to add features. Lead architect Kenton Varda (creator of Cap'n Proto and Cloudflare Workers) designed it for enterprise security teams to let non-technical users vibe-code safely.",
+          "why_it_matters": "This is the first major cloud company to ship an answer to the 'vibe coding in the enterprise' problem. The capability-based model means each app instance is isolated — even an attacker with access to one Gadget can't reach others. The bigger insight is architectural: by giving every user their own copy of the code, you unlock agent-driven customization without the SaaS tradeoff of everyone sharing one codebase. For platform engineers, this is a production-proven pattern for letting agents modify enterprise software safely.",
+          "traction": "high",
+          "traction_evidence": ["From Cloudflare, open-sourced on GitHub", "Designed by Kenton Varda (Cap'n Proto, Cloudflare Workers)", "Capability-based security model with per-instance isolation", "Covered by InfoQ", "Production-tested internally at Cloudflare"],
+          "use_cases": ["Enterprise vibe coding with security team approval", "Per-user app customization via AI agents in sandboxed environments", "Building internal tools where agents can safely modify code", "Capability-based access control for corporate AI platforms"],
+          "tags": ["DevTools", "Cloudflare", "Open Source", "Security", "Enterprise"],
+          "links": [
+            {"url": "https://blog.cloudflare.com/cloudflare-os/", "label": "Cloudflare Blog"},
+            {"url": "https://github.com/cloudflare/cloudflare-os", "label": "GitHub"},
+            {"url": "https://www.infoq.com/news/2026/08/cloudflare-os-ai-platform-secure/", "label": "InfoQ"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Ray 2.58 Ships Native Sandboxing With gVisor: 100K Environments in 20 Seconds for Agentic RL",
+          "url": "https://www.anyscale.com/blog/announcing-native-sandboxing-in-ray",
+          "tldr": "Starting with Ray 2.58, Anyscale and Google are shipping native sandboxing built on gVisor as an experimental feature. It lets you create isolated environments from OCI container images, execute commands inside them, move files in and out, control network access, and schedule them using standard Ray primitives. On Google Kubernetes Engine, they scaled to 100,000 sandboxes in 20 seconds across thousands of nodes. Ray handles orchestration and scaling; gVisor handles isolation.",
+          "why_it_matters": "Agentic RL — where models write and execute code during training — requires massive numbers of isolated environments. Until now, teams either used hosted sandbox providers or built and operated separate sandboxing systems alongside their Ray cluster. Native sandboxing eliminates that operational burden: sandboxes are first-class Ray primitives that participate in the same resource management, autoscaling, and fault tolerance as the rest of your workload. The 100K-in-20-seconds benchmark on GKE sets the performance standard for what training infrastructure should deliver.",
+          "traction": "high",
+          "traction_evidence": ["From Anyscale and Google, published August 25, 2026", "100,000 sandboxes in 20 seconds on GKE", "Integrated with veRL, NeMo-RL, SLIME, MILES, SkyRL frameworks", "Uses gVisor for kernel-level isolation", "Companion post from Google Cloud Blog"],
+          "use_cases": ["Scaling agentic RL training with isolated code execution environments", "Running model-generated code safely during post-training", "Building custom sandbox services on Ray's distributed control plane", "Replacing external sandbox providers with native Ray primitives"],
+          "tags": ["Infrastructure", "Ray", "Anyscale", "Google", "Agentic RL"],
+          "links": [
+            {"url": "https://www.anyscale.com/blog/announcing-native-sandboxing-in-ray", "label": "Anyscale Blog"},
+            {"url": "https://cloud.google.com/blog/products/containers-kubernetes/gvisor-sandboxes-for-ray-clusters-on-gke", "label": "Google Cloud Blog"}
+          ]
+        },
+        {
+          "title": "MetaRoCE: Meta Open-Sources a Clean-Sheet RDMA Transport Built for Million-GPU AI Clusters",
+          "url": "https://engineering.fb.com/2026/08/24/networking-traffic/metaroce-rdma-transport-ai-ethernet/",
+          "tldr": "Meta designed MetaRoCE, a new RDMA transport protocol purpose-built for AI workloads on commodity Ethernet at million-GPU scale. Unlike standard RoCE which expects the network to deliver every frame in order, MetaRoCE is built for high throughput, low tail latency, and operational simplicity as networks grow. Meta is releasing the full specification, a reference software implementation, and a compliance test suite through the Open Compute Project (OCP) to enable industry-wide adoption.",
+          "why_it_matters": "The networking layer is one of the last bottlenecks in large-scale AI training and inference. Collective operations like all-reduce synchronize thousands of accelerators, and the slowest transfer sets the pace for the entire job. MetaRoCE addresses this at the protocol level — it doesn't need the in-order delivery guarantees that make standard RoCE fragile at scale, enabling packet spraying across multiplane networks. Releasing through OCP means this becomes an open standard that NIC vendors and cloud providers can implement, not a Meta-proprietary advantage.",
+          "traction": "high",
+          "traction_evidence": ["From Meta, published August 24, 2026", "Running on clusters of hundreds of thousands of GPUs", "Released via Open Compute Project (OCP) with specification, reference implementation, and compliance tests", "Builds on Meta's prior RoCE work for distributed AI training", "Designed for million-GPU scale on commodity Ethernet"],
+          "use_cases": ["High-performance GPU networking for large-scale AI training", "Reducing tail latency in distributed model training collectives", "Building Ethernet-based AI infrastructure at scale", "Implementing open RDMA standards for AI cluster networking"],
+          "tags": ["Infrastructure", "Meta", "Networking", "AI Training", "Open Source"],
+          "links": [
+            {"url": "https://engineering.fb.com/2026/08/24/networking-traffic/metaroce-rdma-transport-ai-ethernet/", "label": "Meta Engineering Blog"}
+          ]
+        },
+        {
+          "title": "GitHub Copilot at Production Scale: First Analysis of Agentic Coding Traces Reveals What Actually Happens",
+          "url": "https://arxiv.deeppaper.ai/papers/2608.00101v1",
+          "tldr": "Researchers published the first production-scale analysis of agentic coding workloads, studying GitHub Copilot traces to characterize how coding agents actually behave in real-world usage. The paper identifies patterns in how agents explore codebases, retry failed operations, and consume tokens across multi-step coding sessions, providing the first empirical data on what agentic coding looks like at scale versus what benchmarks suggest.",
+          "why_it_matters": "Most of what we know about coding agents comes from benchmarks — controlled tasks with known answers. This paper looks at what happens in the wild: how agents actually explore code, how often they retry, where they get stuck, and how token consumption scales with task complexity. For teams optimizing agent infrastructure costs or building custom harnesses, this is the first production dataset to calibrate your assumptions against. The gap between benchmark performance and real-world behavior is the most important thing to understand about shipping agents.",
+          "traction": "medium",
+          "traction_evidence": ["First production-scale analysis of agentic coding workloads", "Based on GitHub Copilot traces", "Published as academic paper (arXiv)", "Covered by DeepPaper", "Characterizes real-world vs. benchmark agent behavior"],
+          "use_cases": ["Calibrating agent infrastructure costs against real-world usage patterns", "Understanding how coding agents behave differently in production vs. benchmarks", "Optimizing token consumption in multi-step agent sessions", "Building better agent harnesses based on empirical trace data"],
+          "tags": ["Infrastructure", "GitHub", "Research", "Agents", "Observability"],
+          "links": [
+            {"url": "https://arxiv.deeppaper.ai/papers/2608.00101v1", "label": "DeepPaper / arXiv"}
+          ]
+        }
+      ]
+    }
+  ]
+}
