@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 29, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 29, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.basenor.com/blogs/news/openai-cuts-off-cursor-after-spacex-acquisition-heres-what-happened">OpenAI cuts off Cursor after SpaceX's $60B acquisition of Anysphere — severing model access to one of the fastest-growing dev tools in history</a></li>
+      <li><a href="https://slack.com/blog/news/slack-code-channels-for-agents">Slack Code launches: dedicated code channels where teams and AI agents plan, write, and review together, with Anthropic, GitHub, OpenAI, and Vercel as launch partners</a></li>
+      <li><a href="https://the-agent-report.com/2026/08/deepseek-harness-dsh-open-source-agent-runtime/">DeepSeek open-sources DeepSeek Harness (dsh): an MIT-licensed 'everything is a plugin' agent runtime that hit 170K GitHub stars in a week</a></li>
+      <li><a href="https://byteiota.com/gpt-5-6-kiro-spec-driven-agents/">GPT-5.6 model family (Sol, Terra, Luna) lands in AWS Kiro with an 82% token reduction claim per completed agentic task on Terminal-Bench 2.1</a></li>
+      <li><a href="https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/">Tencent ships Hy4 Preview: 770B-parameter open-source MoE model with 49B active params and 1M-token context, ranking among top-tier open models</a></li>
+      <li><a href="https://fluxcd.io/blog/2026/08/flux-mirror/">Flux Mirror brings declarative mirroring for container images, Helm charts, and OCI artifacts with signature verification and provenance policies</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.basenor.com/blogs/news/openai-cuts-off-cursor-after-spacex-acquisition-heres-what-happened">OpenAI Cuts Off Cursor After SpaceX's $60 Billion Acquisition of Anysphere</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI announced it is ending its partnership with Cursor following SpaceX's $60 billion all-stock acquisition of Anysphere, Cursor's parent company. OpenAI stated it 'cannot be confident that SpaceX will use our technology within our terms of service.' The deal, which closed August 14, makes Cursor a wholly owned subsidiary of SpaceXAI. Cursor's annualized revenue had reached roughly $3 billion by late April 2026 with projections of $6 billion by year-end. The move forces Cursor to rapidly diversify its model providers.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">SpaceX</span>
+        <span class="tag">Vendor Lock-in</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most consequential vendor lock-in event in AI coding tools to date. Cursor — arguably the most popular AI-first code editor — just lost access to OpenAI models because of a corporate acquisition its users had no part in. For engineering teams that standardized on Cursor + GPT, this is a forced migration event. The broader lesson: if your AI coding workflow depends on a single model provider, a corporate transaction you don't control can break it overnight. Cursor will likely pivot to Anthropic, DeepSeek, or its own models, but the transition period creates real disruption for enterprise teams.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Evaluating multi-model strategies for AI coding tools</li>
+          <li>Understanding vendor lock-in risks in AI-dependent workflows</li>
+          <li>Planning migration paths for Cursor-dependent teams</li>
+          <li>Assessing the competitive landscape shift in AI coding editors</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Breaking news August 28-29, 2026</li>
+          <li>$60B acquisition (SpaceX/Anysphere)</li>
+          <li>Cursor had ~$3B ARR</li>
+          <li>OpenAI publicly severed the partnership</li>
+          <li>Covered by multiple outlets, widespread developer discussion</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.basenor.com/blogs/news/openai-cuts-off-cursor-after-spacex-acquisition-heres-what-happened">Basenor</a></li>
+          <li><a href="https://x.com/SawyerMerritt/status/2093529412410941644">Original Report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://byteiota.com/gpt-5-6-kiro-spec-driven-agents/">GPT-5.6 Lands in Kiro: Sol, Terra, and Luna Models With 82% Token Reduction in Spec-Driven Agent Sessions</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI's full GPT-5.6 model family — Sol, Terra, and Luna — landed inside Kiro, AWS's spec-driven coding agent IDE, on August 24. The headline claim: 82% fewer tokens per completed agentic task on Terminal-Bench 2.1 when running inside Kiro's structured workflow versus unstructured agent sessions. Luna ($0.20/M tokens) targets high-volume routing and voice agents; Terra ($0.50/$5/M) is the workhorse tier with reduced credit multipliers for Kiro; Sol ($3/$10/M through November) scored 88.8% on Terminal-Bench 2.1 (91.9% with Ultra reranking).</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Kiro</span>
+        <span class="tag">Coding Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 82% number is not a price cut — it measures token consumption reduction when a model gets structured context (requirements docs, technical designs, task lists) before generation. This validates what many teams have discovered empirically: giving agents structured specs before coding dramatically reduces wasted iterations. For teams evaluating agent costs, the three-tier pricing (Luna/Terra/Sol) makes model routing a first-class concern — use Luna for extraction, Terra for daily coding, Sol for architecture-level reasoning. The Kiro integration also demonstrates that IDE-level scaffolding can be more impactful than model improvements alone.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Model routing strategies: Luna for volume, Terra for daily work, Sol for complex reasoning</li>
+          <li>Reducing agent token consumption with spec-driven workflows</li>
+          <li>Evaluating Kiro as a spec-first coding environment</li>
+          <li>Comparing GPT-5.6 Sol against Claude Mythos 5 for frontier agent tasks</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From OpenAI + AWS, joint announcement August 24</li>
+          <li>Terminal-Bench 2.1 benchmarks with independent verification</li>
+          <li>Three-tier pricing structure live</li>
+          <li>Sol scored 88.8% (91.9% with Ultra)</li>
+          <li>Covered by ByteIota, TechsCurrent, and developer community</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://byteiota.com/gpt-5-6-kiro-spec-driven-agents/">ByteIota Deep Dive</a></li>
+          <li><a href="https://techscurrent.com/2026/08/gpt-5-6-kiro-ai-coding-model-routing/">TechsCurrent</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/">Tencent Ships Hy4 Preview: 770B-Parameter Open-Source MoE With 49B Active and 1M-Token Context</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Tencent released and open-sourced Hy4 Preview, a next-generation LLM with 770B total parameters, 49B active parameters per token, and a context window exceeding 1 million tokens. In a blind evaluation by 163 Tencent experts across 203 engineering tasks, Hy4 Preview scored 2.99/4.00, slightly ahead of GLM-5.3 (2.92) and Kimi K3 (2.94). The model is available on Hugging Face, OpenRouter, and through Tencent's CodeBuddy and WorkBuddy products, with two weeks of free access.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Tencent</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">MoE</span>
+        <span class="tag">Coding</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The Chinese open-weight model race just added another serious contender. Hy4 Preview's 770B/49B MoE ratio gives it the representational capacity to compete with frontier closed models while keeping inference costs manageable. The internal blind evaluation against GLM-5.3 and Kimi K3 on real engineering tasks — not just benchmarks — is more credible than leaderboard scores. For teams evaluating open-weight alternatives, Hy4 joins GLM-5.3-Flash, DeepSeek V4-Pro, and Kimi K2.6 in a generation of Chinese models that are genuinely competitive for production coding workloads. The 1M context window addresses the same agent stamina use case that every major model is now targeting.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Open-weight alternative for production coding agents</li>
+          <li>Long-context agent workloads with 1M-token window</li>
+          <li>Self-hosted enterprise deployment under open license</li>
+          <li>Evaluating against GLM-5.3, DeepSeek V4-Pro, and Kimi K2.6</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Tencent, official release and open-source</li>
+          <li>770B total / 49B active parameters</li>
+          <li>1M-token context window</li>
+          <li>Blind evaluation by 163 experts on 203 engineering tasks</li>
+          <li>Available on Hugging Face, OpenRouter, CodeBuddy, WorkBuddy</li>
+          <li>Covered by MindStudio, multiple tech outlets</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/">Tencent Official</a></li>
+          <li><a href="https://www.mindstudio.ai/blog/tencent-hy4-preview-open-weight-model">MindStudio Deep Dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://www.marktechpost.com/2026/08/25/ibm-releases-granite-4-2-bringing-native-reasoning-and-agentic-rl-to-open-enterprise-models/">IBM Granite 4.2: Open Reasoning Models With Agentic RL in 3B, 8B, and 30B Sizes Under Apache 2.0</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">IBM released Granite 4.2, a family of open reasoning language models in 3B, 8B, and 30B parameter sizes, all under Apache 2.0. Unlike earlier Granite releases, 4.2 is built around explicit chain-of-thought reasoning with a thinking/non-thinking toggle and a low-effort mode for easy questions. The 8B and 30B models include an agentic RL training stage where models learn to edit code, drive terminals, and run web searches inside real sandboxed environments. Pre-trained on ~15 trillion tokens with multi-stage reinforcement learning. GGUF quants available for local deployment via Ollama and LM Studio.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">IBM</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Reasoning</span>
+        <span class="tag">Enterprise</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Granite 4.2 fills a specific gap: Apache 2.0 licensed reasoning models with native agentic capabilities at sizes that run on a single GPU. The agentic RL training — where models learn tool use inside real sandboxed environments rather than from synthetic data — is the same approach that produced Microsoft Orchard's strong SWE-bench results. The thinking/non-thinking toggle is practical: use chain-of-thought for complex debugging, skip it for simple completions, reducing latency and cost. For regulated industries (finance, healthcare, public sector) that need on-premises deployment with no licensing gates, Granite 4.2 is the most capable option in this weight class.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>On-premises reasoning models for regulated industries</li>
+          <li>Agentic coding with Apache 2.0 licensed models</li>
+          <li>Local deployment via Ollama/LM Studio for solo developers</li>
+          <li>Enterprise agent workflows with thinking/non-thinking toggle</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From IBM, released August 25, 2026</li>
+          <li>Apache 2.0 license, no commercial restrictions</li>
+          <li>3B/8B/30B sizes with GGUF quants</li>
+          <li>Agentic RL training in sandboxed environments</li>
+          <li>Available on Hugging Face, Ollama, LM Studio, vLLM</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.marktechpost.com/2026/08/25/ibm-releases-granite-4-2-bringing-native-reasoning-and-agentic-rl-to-open-enterprise-models/">MarkTechPost</a></li>
+          <li><a href="https://huggingface.co/collections/ibm-granite/granite-42-language-models">Hugging Face Collection</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://slack.com/blog/news/slack-code-channels-for-agents">Slack Code: Dedicated Code Channels Where Teams and AI Agents Plan, Write, and Review Together</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Slack launched Slack Code on August 28, bringing software development into dedicated 'code channels' where teams and AI agents collaborate in the open. Mention a coding agent on a complex project and one spins up, pulls in relevant team members, and builds the workspace around what's needed — code diffs, planning docs, live HTML previews. Channels auto-archive when work completes but remain as audit logs. Launching with Anthropic, Cognition, GitHub, OpenAI, and Vercel as integration partners.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Slack</span>
+        <span class="tag">Collaboration</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Enterprise</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Slack's thesis is that AI coding has become a single-player game — one person, one agent, one private tab — and that's exactly the isolation that kills team alignment. Code channels make agent-assisted development visible: the whole team sees what's being built, can catch wrong assumptions in real time, and has an audit trail. This is architecturally different from Cursor Origin (which redesigns git hosting) or Harness (which redesigns code review) — Slack is redesigning the collaboration layer around agents. For engineering leaders, the launch partners (Anthropic, GitHub, OpenAI, Vercel) signal that this isn't an experiment; it's the first serious attempt to make agent work a team sport.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Collaborative AI coding with team visibility and review</li>
+          <li>Agent-assisted development with built-in audit trails</li>
+          <li>Connecting coding agents to existing Slack-based team workflows</li>
+          <li>Making agent work visible for engineering leadership and compliance</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Slack (Salesforce), launched August 28, 2026</li>
+          <li>Launch partners: Anthropic, Cognition, GitHub, OpenAI, Vercel</li>
+          <li>Part of broader GitHub strategy</li>
+          <li>Addresses documented pain point of isolated agent work</li>
+          <li>Enterprise-ready with audit logging</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://slack.com/blog/news/slack-code-channels-for-agents">Slack Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://the-agent-report.com/2026/08/deepseek-harness-dsh-open-source-agent-runtime/">DeepSeek Harness: The 'Everything Is a Plugin' Agent Runtime That Hit 170K GitHub Stars in a Week</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">DeepSeek open-sourced DeepSeek Harness (dsh), an MIT-licensed agent runtime built on a TypeScript micro-kernel called Cordis where every component — models, tools, sandboxes, memory, UI — is a swappable plugin. The developer preview went from zero to ~170,000 GitHub stars in about a week. The architecture uses spatiotemporal composability: components are assembled declaratively via YAML/JSON rather than wired through class inheritance. Model adapters, tool registries, sandboxing, session state, and event dispatchers are all independently replaceable.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">DeepSeek</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Agent Runtime</span>
+        <span class="tag">TypeScript</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>For two years, agent tooling has been dominated by opinionated monoliths (Claude Code, Cursor, Cline) where the model, tools, memory, and loop are tightly coupled. DeepSeek Harness explicitly unbundles the agent loop from the model, the way an OS is unbundled from any single application. The 170K-star reception in a week — faster than any previous developer tool — validates the demand for a composable runtime. For teams that want to mix models (GLM-5.3 for coding, Claude for review, local Granite for sensitive work), swap sandboxes, or build custom tool surfaces without forking an entire product, dsh is the first production-grade option.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building multi-model agent workflows with swappable providers</li>
+          <li>Custom agent runtimes without forking monolithic tools</li>
+          <li>Enterprise agent deployments with plugin-based sandboxing</li>
+          <li>Composable developer tooling with declarative configuration</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From DeepSeek, MIT-licensed, developer preview August 13</li>
+          <li>~170K GitHub stars in approximately one week</li>
+          <li>Covered by InfoQ, The Agent Report, RankLLMs</li>
+          <li>TypeScript micro-kernel with plugin architecture</li>
+          <li>Broad developer community adoption</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://the-agent-report.com/2026/08/deepseek-harness-dsh-open-source-agent-runtime/">The Agent Report</a></li>
+          <li><a href="https://github.com/deepseek-ai/deepseek-harness">GitHub</a></li>
+          <li><a href="https://www.infoq.com/news/2026/08/deep-seek-harness/">InfoQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.daily.co/blog/announcing-pipecat-phonellm-alpha-1/">Pipecat PhoneLLM Alpha 1: Open-Weights Voice Agent Model That's 94% Cheaper Than GPT-5.6 Terra</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The Pipecat team released PhoneLLM Alpha 1, an open-weights model purpose-built for voice agent use cases. It's a full-parameter fine-tune of NVIDIA's Nemotron 3 Nano 30B-A3B model with 3.5B active parameters. PhoneLLM performs on par with GPT-5.6 Terra on phone agent tasks but at 94% lower cost and 1,300ms faster P95 time-to-first-token. Released under BSD license with no commercial restrictions. Alongside it, Pipecat published PhoneBench v1, a benchmark evaluating LLMs on phone-specific criteria including accuracy, speaking style, latency, and per-minute runtime cost.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Pipecat</span>
+        <span class="tag">Voice AI</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Inference</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Voice agents have been paying a massive tax by using general-purpose models for a narrow task. PhoneLLM proves that a purpose-trained 3.5B-active model can match GPT-5.6 Terra's quality for phone calls while being 94% cheaper and over a second faster on P95 latency. The BSD license means you can run it on your own infrastructure — critical for industries (healthcare, finance) where call data can't leave the building. PhoneBench is equally important: it's the first benchmark that measures what actually matters for voice agents (latency, cost per minute, speaking style) rather than generic LLM metrics. For teams building IVR replacements or outbound calling agents, this changes the economics entirely.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building cost-effective voice agents for customer service</li>
+          <li>On-premises voice agent deployment for regulated industries</li>
+          <li>Replacing IVR systems with conversational AI at scale</li>
+          <li>Benchmarking voice agent models with PhoneBench v1</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Pipecat/Daily.co, released August 27, 2026</li>
+          <li>Open weights under BSD license</li>
+          <li>94% cheaper than GPT-5.6 Terra with comparable quality</li>
+          <li>1,300ms faster P95 TTFT</li>
+          <li>PhoneBench v1 benchmark published alongside</li>
+          <li>Built on NVIDIA Nemotron 3 Nano architecture</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.daily.co/blog/announcing-pipecat-phonellm-alpha-1/">Daily.co Blog</a></li>
+          <li><a href="https://huggingface.co/pipecat-ai/phonellm-alpha-1">Hugging Face</a></li>
+          <li><a href="https://www.pipecat.ai/benchmarks/phonebench-alpha-1">PhoneBench v1</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://fluxcd.io/blog/2026/08/flux-mirror/">Flux Mirror: Declarative Mirroring for Container Images, Helm Charts, and OCI Artifacts With Supply Chain Verification</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The Flux project shipped Flux Mirror on August 12, a new CLI plugin that declaratively mirrors container images, Helm charts, and OCI artifacts between registries with signature verification, provenance policies, and minimum artifact age enforcement. Born from a decade of Flux users struggling with upstream registry outages (Docker Hub rate limits in 2020 and 2025, Broadcom freezing the Bitnami catalog in August 2025), Flux Mirror turns artifact relocation from an ad-hoc script into a GitOps-native, policy-driven operation.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Flux</span>
+        <span class="tag">CNCF</span>
+        <span class="tag">Supply Chain</span>
+        <span class="tag">Kubernetes</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Every Kubernetes team eventually learns this lesson the hard way: putting an image from a registry you don't operate into your Deployment makes that registry's uptime part of your production architecture. Flux Mirror solves the problem declaratively — you define what to mirror, where, and what verification policies to enforce, and the tool handles continuous sync. The signature verification and provenance policies are the differentiator: you're not just caching images, you're building a verified supply chain. For teams that have been burned by Docker Hub rate limits, Bitnami's licensing changes, or upstream image deletions, this replaces fragile mirroring scripts with production-grade tooling.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Declarative container image and Helm chart mirroring</li>
+          <li>Supply chain security with signature verification policies</li>
+          <li>Protecting against upstream registry outages and rate limits</li>
+          <li>GitOps-native artifact management across environments</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From the Flux project (CNCF graduated), released August 12, 2026</li>
+          <li>Covered by InfoQ</li>
+          <li>Addresses documented pain points from Docker Hub and Bitnami incidents</li>
+          <li>Signature verification and provenance policies built-in</li>
+          <li>Part of the GitOps ecosystem with 10 years of Flux history</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://fluxcd.io/blog/2026/08/flux-mirror/">Flux Blog</a></li>
+          <li><a href="https://github.com/fluxcd/flux-mirror">GitHub</a></li>
+          <li><a href="https://www.infoq.com/news/2026/08/flux-mirror-gitless-gitops/">InfoQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://cloud.google.com/blog/products/containers-kubernetes/gvisor-sandboxes-for-ray-clusters-on-gke">gVisor Sandboxes for Ray Clusters on GKE: Google and Anyscale Bring Kernel-Level Isolation to Distributed AI</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Google and Anyscale announced gVisor sandbox support for Ray clusters running on Google Kubernetes Engine (GKE) on August 25. The integration brings kernel-level container isolation to distributed AI workloads, addressing the security gap when agent-generated code executes across Ray worker nodes. gVisor intercepts system calls at the kernel boundary, preventing container escapes without the performance overhead of full VMs. This complements Ray 2.58's native sandboxing capabilities and AWS's SageMaker HyperPod Ray integration announced this week.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Google Cloud</span>
+        <span class="tag">Anyscale</span>
+        <span class="tag">Ray</span>
+        <span class="tag">Security</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Distributed AI workloads are the fastest-growing attack surface in cloud infrastructure. When an agent generates and executes code across dozens of Ray workers, each worker is a potential escape point. gVisor's kernel-level interception is a fundamentally stronger isolation boundary than namespace-based containers, and doing it at the GKE platform level means teams don't need to build their own sandboxing infrastructure. Combined with this week's Ray on SageMaker HyperPod announcement, the message from both major clouds is clear: sandboxed execution for AI workloads is becoming a platform primitive, not an afterthought.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Sandboxing agent-generated code in distributed Ray clusters</li>
+          <li>Kernel-level container isolation for AI/ML workloads on GKE</li>
+          <li>Securing multi-tenant AI training and inference environments</li>
+          <li>Building defense-in-depth for agent execution infrastructure</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Google Cloud + Anyscale, announced August 25, 2026</li>
+          <li>gVisor is production-proven at Google scale</li>
+          <li>Complements Ray 2.58 sandboxing and AWS HyperPod Ray integration</li>
+          <li>Addresses critical security gap for agent-generated code execution</li>
+          <li>Part of GKE platform, not a bolt-on</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://cloud.google.com/blog/products/containers-kubernetes/gvisor-sandboxes-for-ray-clusters-on-gke">Google Cloud Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://www.cncf.io/blog/2026/08/27/building-an-ai-factory-on-kubernetes/">Building an AI Factory on Kubernetes: CNCF's Reference Architecture for Multi-Team GPU Sharing</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The CNCF published a reference architecture blog on August 27 for building 'AI factories' on Kubernetes — shared GPU pools where multiple teams simultaneously fine-tune, serve inference, and run evaluations on the same accelerators. The architecture leverages Kubernetes v1.37's graduated DRA (Dynamic Resource Allocation), Kubeflow's pipeline orchestration, and emerging scheduling primitives to manage GPU time-slicing and preemption across workloads. NVIDIA frames this as 'infrastructure for the age of AI,' and the CNCF piece provides the concrete Kubernetes implementation.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">CNCF</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">GPU</span>
+        <span class="tag">Platform Engineering</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most organizations running AI workloads still allocate dedicated GPU clusters per team — expensive and underutilized. The 'AI factory' pattern treats GPUs as a shared pool with workload-aware scheduling: training jobs get guaranteed capacity during scheduled windows, inference gets burst capacity during peak, and evaluation jobs fill gaps. This only became practical with Kubernetes v1.37's DRA graduation (covered in Wednesday's digest) and Kubeflow's CNCF graduation (covered Thursday). This reference architecture connects those primitives into an end-to-end pattern that platform engineering teams can actually implement.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Implementing multi-team GPU sharing on Kubernetes</li>
+          <li>Building shared AI infrastructure with workload-aware scheduling</li>
+          <li>Platform engineering for AI/ML teams with DRA and Kubeflow</li>
+          <li>Reducing GPU costs through pool-based allocation</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From CNCF, published August 27, 2026</li>
+          <li>Builds on K8s v1.37 DRA graduation and Kubeflow graduation</li>
+          <li>NVIDIA-aligned 'AI factory' framing</li>
+          <li>Reference architecture with concrete implementation guidance</li>
+          <li>Addresses documented GPU utilization inefficiency</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.cncf.io/blog/2026/08/27/building-an-ai-factory-on-kubernetes/">CNCF Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
