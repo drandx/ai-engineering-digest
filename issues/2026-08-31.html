@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — August 31, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">August 31, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/">NVIDIA agrees to acquire Hugging Face for ~$13B — gaining control of the open-source AI model ecosystem's central hub, with implications for every team that depends on HF for model hosting and libraries</a></li>
+      <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/">Google ships Gemini 3.7 Flash: 65.3% on DeepSWE (vs 49% for 3.6 Flash), half the price per million tokens, and three weeks after the previous release</a></li>
+      <li><a href="https://techcrunch.com/2026/08/25/openais-jalapeno-chip-is-built-for-fast-inference-at-scale-benchmarks-show/">OpenAI reveals Jalapeño, its first custom inference ASIC — benchmarks at Hot Chips 2026 reportedly beat NVIDIA Blackwell and Rubin on inference throughput</a></li>
+      <li><a href="https://www.marktechpost.com/2026/08/30/openclaw-releases-openclaw-2-0-guided-model-setup-575-ms-control-ui-startup-and-one-trust-boundary-per-gateway/">OpenClaw 2.0 ships after 7-week pause: rebuilt Control UI (575ms startup), SQLite-backed sessions, guided model setup, and shared cloud sessions</a></li>
+      <li><a href="https://www.sonarsource.com/blog/hunter-agent-detects-logical-flaws/">SonarQube Hunter Agent reaches GA: an AI agent that finds broken access control and business logic flaws that traditional SAST misses entirely</a></li>
+      <li><a href="https://kubernetes.io/blog/2026/08/26/kubernetes-v1-37-release/">Kubernetes v1.37 Garhwal drops legacy kube-dns, IPVS proxy mode, and cgroup v1 — the biggest deprecation cleanup in years</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/">NVIDIA Agrees to Acquire Hugging Face for ~$13 Billion</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">NVIDIA has agreed to acquire Hugging Face for approximately $12.9-13 billion, according to reports from Business Insider, TechCrunch, Forbes, and Fortune. The deal gives NVIDIA control of the platform that hosts over 1 million open-source AI models, 300,000+ datasets, and the libraries (Transformers, Diffusers, PEFT) that most ML teams depend on daily. Hugging Face was last valued at $4.5 billion in August 2023. The acquisition is subject to regulatory approval. Community reaction on Hacker News is divided: some see it as a strategic win for open-source AI (NVIDIA has incentive to grow the open model ecosystem), while others worry about vendor lock-in on what has been a neutral platform.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">Hugging Face</span>
+        <span class="tag">Acquisition</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Hugging Face is the de facto app store and package registry for AI models — if your team downloads model weights, uses Transformers, or browses model cards, you interact with HF infrastructure. NVIDIA acquiring it changes the neutrality equation. On the positive side, NVIDIA benefits from a massive open model ecosystem (more models = more GPU demand), and the founders' potential reinvestment into a European frontier AI lab could strengthen sovereign AI. On the risk side, NVIDIA could subtly favor its own hardware ecosystem in model optimization, serving infrastructure, and library defaults. For engineering teams, the immediate action is to evaluate how tightly your ML pipeline is coupled to Hugging Face infrastructure and whether you have fallback options.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Evaluating dependency on Hugging Face infrastructure for model hosting</li>
+          <li>Assessing neutrality risks for open-source AI model distribution</li>
+          <li>Understanding NVIDIA's strategic play for the AI ecosystem</li>
+          <li>Planning contingencies for ML pipeline infrastructure</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Reported by TechCrunch, Forbes, Business Insider, Fortune — Aug 26-27, 2026</li>
+          <li>~$13B deal, up from $4.5B valuation in 2023</li>
+          <li>Top Hacker News story with hundreds of comments</li>
+          <li>HF hosts 1M+ models, 300K+ datasets</li>
+          <li>Regulatory review pending</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/">TechCrunch</a></li>
+          <li><a href="https://www.forbes.com/sites/siladityaray/2026/08/27/nvidia-has-reportedly-agreed-to-buy-ai-model-hosting-platform-hugging-face-for-13-billion/">Forbes</a></li>
+          <li><a href="https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8">Business Insider</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/">Gemini 3.7 Flash: Google's Most Intelligent Workhorse Model for Coding and Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Google released Gemini 3.7 Flash on August 13, just three weeks after 3.6 Flash, at half the per-million-token price. The model shows substantial gains in software engineering: 65.3% on DeepSWE v1.1 (vs 49.0% for 3.6 Flash), 43.6% on FrontierCode 1.1 Main (vs 34.4%), and Elo 1588 on WebDev Arena (vs 1538). It also improves on knowledge-dense tasks like document processing (34.0% vs 22.0% on GDP.pdf) and automation benchmarks. Google credits algorithmic innovations and developer feedback for the rapid improvement cycle.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Google</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Coding</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The pace is the story. Three weeks between major Flash releases, with a 33% improvement on DeepSWE and a 50% price cut, signals that Google is iterating on its workhorse tier faster than competitors can respond. For teams using Flash-tier models for high-volume agent workloads, 3.7 Flash offers meaningfully better code generation accuracy at lower cost. The DeepSWE and FrontierCode gains are particularly relevant for coding agent workflows — these benchmarks test real issue resolution and production code quality, not just completions. Combined with the WebDev Arena improvements, 3.7 Flash is making a credible bid as the default model for volume coding work.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>High-volume coding agent workloads at reduced cost</li>
+          <li>Web development with improved UI generation fidelity</li>
+          <li>Document processing and knowledge-dense reasoning tasks</li>
+          <li>Model routing: 3.7 Flash for volume work, frontier models for complex reasoning</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Google DeepMind, released August 13, 2026</li>
+          <li>65.3% DeepSWE v1.1 (up from 49.0%)</li>
+          <li>43.6% FrontierCode 1.1 Main (up from 34.4%)</li>
+          <li>Half the price of 3.6 Flash</li>
+          <li>Three weeks after previous release</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/">Google Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://techcrunch.com/2026/08/25/openais-jalapeno-chip-is-built-for-fast-inference-at-scale-benchmarks-show/">OpenAI Reveals Jalapeño: Its First Custom Inference ASIC, Benchmarked Against NVIDIA Blackwell</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">At Hot Chips 2026 on August 25, OpenAI shared detailed benchmarks for Jalapeño, its first custom AI inference ASIC. The chip is purpose-built for fast inference at scale, and OpenAI claims it outperforms NVIDIA's Blackwell and upcoming Rubin GPUs on inference throughput benchmarks. Designed in-house with TSMC fabrication, Jalapeño focuses on the specific compute patterns of transformer inference rather than general-purpose GPU workloads. Coverage from TechCrunch, The Register, ServeTheHome, and Bloomberg confirms the benchmarks were presented publicly, though independent verification is still pending.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Hardware</span>
+        <span class="tag">Inference</span>
+        <span class="tag">ASIC</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>OpenAI building custom silicon for inference is the clearest signal yet that the largest AI companies see GPU dependence as a strategic liability. If Jalapeño delivers on its benchmarks at scale, it could fundamentally change the inference economics that determine API pricing for every developer building on OpenAI models. For the broader industry, this validates the custom ASIC approach that Google (TPU) pioneered and Amazon (Trainium/Inferentia) followed — inference-optimized silicon can beat general-purpose GPUs when you control the full stack from model to chip. The NVIDIA acquisition of Hugging Face, announced the same week, adds ironic context: NVIDIA is buying the AI ecosystem hub while its biggest customer is building chips to replace NVIDIA hardware.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Understanding how custom silicon will affect AI API pricing</li>
+          <li>Evaluating the GPU vs ASIC trajectory for inference workloads</li>
+          <li>Strategic planning around NVIDIA dependency for AI infrastructure</li>
+          <li>Tracking the vertical integration trend in AI companies</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Presented at Hot Chips 2026 (Aug 25)</li>
+          <li>Covered by TechCrunch, The Register, Bloomberg, ServeTheHome</li>
+          <li>Claims to outperform Blackwell and Rubin on inference</li>
+          <li>Top Hacker News story</li>
+          <li>TSMC-fabricated custom ASIC</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://techcrunch.com/2026/08/25/openais-jalapeno-chip-is-built-for-fast-inference-at-scale-benchmarks-show/">TechCrunch</a></li>
+          <li><a href="https://www.theregister.com/systems/2026/08/25/openais-upcoming-jalapeno-chip-looks-like-itll-be-an-inference-beast/5292052">The Register</a></li>
+          <li><a href="https://www.servethehome.com/openai-jalapeno-asic-at-hot-chips-2026/">ServeTheHome</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://www.marktechpost.com/2026/08/30/openclaw-releases-openclaw-2-0-guided-model-setup-575-ms-control-ui-startup-and-one-trust-boundary-per-gateway/">OpenClaw 2.0: Rebuilt Control UI, SQLite Sessions, and Guided Model Setup After a 7-Week Pause</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">After 106 releases in 230 days and then nearly seven weeks of silence, the OpenClaw team shipped OpenClaw 2.0 on August 30. The release rewrites installation with guided setup that detects existing AI credentials (Codex, ChatGPT, Claude CLI sign-ins, API keys, local Ollama/LM Studio models) and verifies the model can respond before saving. The browser Control UI was rebuilt as the primary surface — JavaScript requests dropped from 140 to 45 and startup fell from 1.6s to 575ms. Sessions and transcripts moved to SQLite. New docked panels add a workspace file editor, git-backed Changes panel with PR status and CI summaries, a browser panel with element inspection, and a web terminal. Shared cloud sessions enable cross-device collaboration.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">OpenClaw</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Agent Runtime</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>OpenClaw's 7-week gap after shipping 106 releases was conspicuous. The 2.0 release explains why: they rewrote the foundation rather than adding features. The guided setup addresses one of the biggest adoption barriers — new users no longer need to manually configure model providers. The Control UI rebuild making the browser app the primary surface (rather than CLI-first) signals OpenClaw's bet that agent interfaces are moving toward visual collaboration, not just terminal chat. The SQLite migration for sessions is a durability improvement that matters for teams running agents on long tasks. For the 388K-star community, this is the first release that feels like a platform rather than a fast-moving experiment.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Easier onboarding for new OpenClaw users with guided model setup</li>
+          <li>Browser-based agent collaboration with docked panels</li>
+          <li>Cross-device agent sessions via shared cloud sessions</li>
+          <li>Enterprise agent deployments with SQLite-backed session durability</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>OpenClaw 2.0, released August 30, 2026</li>
+          <li>388K GitHub stars, largest open-source agent project</li>
+          <li>Covered by MarkTechPost</li>
+          <li>575ms Control UI startup (down from 1.6s)</li>
+          <li>7-week development pause for foundation rewrite</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.marktechpost.com/2026/08/30/openclaw-releases-openclaw-2-0-guided-model-setup-575-ms-control-ui-startup-and-one-trust-boundary-per-gateway/">MarkTechPost</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.sonarsource.com/blog/hunter-agent-detects-logical-flaws/">SonarQube Hunter Agent Reaches GA: AI Agent for Broken Access Control and Business Logic Flaws</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">SonarSource announced the general availability of SonarQube Hunter Agent on August 27, an AI agent that detects broken access control and business logic vulnerabilities that traditional SAST tools fundamentally cannot find. The tool uses multi-step agentic analysis to understand authorization logic across code paths rather than just tracing tainted data flows. The motivation is concrete: broken access control has been OWASP Top 10's #1 risk since 2021, with 100% of tested applications showing some form of it in OWASP's 2025 study. A cited example is Meta's $78,000 bug bounty for an IDOR flaw where authentication worked perfectly but authorization was missing. Available now on SonarQube Cloud, with SonarQube Server support coming soon.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Security</span>
+        <span class="tag">SonarQube</span>
+        <span class="tag">SAST</span>
+        <span class="tag">AI Agent</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first GA product that applies AI agents to the specific class of vulnerabilities that static analysis was never designed to catch. SAST tools trace data flows — they find SQL injection and XSS by following tainted input to dangerous sinks. But broken access control isn't a data flow problem; it's a logic problem where the code runs exactly as written but fails to check whether the authenticated user should see that specific resource. With AI coding agents now authoring over 42% of committed enterprise code (per SonarSource's data), access control logic is being generated faster than human review can validate. Hunter Agent addresses the gap by reasoning about authorization semantics, not just syntax. For security-conscious teams, this is a meaningful new capability in the CI pipeline.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Detecting broken access control in CI/CD pipelines</li>
+          <li>Finding business logic flaws that SAST tools miss</li>
+          <li>Validating authorization logic in AI-generated code</li>
+          <li>Addressing OWASP Top 10 #1 risk with agentic analysis</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From SonarSource, GA on August 27, 2026</li>
+          <li>Broken access control is OWASP Top 10 #1 since 2021</li>
+          <li>100% of apps showed broken access control in OWASP 2025 testing</li>
+          <li>References Meta's $78K bug bounty for IDOR flaw</li>
+          <li>Available on SonarQube Cloud, Server support coming</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.sonarsource.com/blog/hunter-agent-detects-logical-flaws/">SonarSource Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.pulumi.com/blog/pulumi-context-api/">Pulumi Context API: Query Your Infrastructure as a Graph, Designed Agent-First</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Pulumi launched the Context API on August 26, a read-only API that connects Pulumi-managed resources, discovered resources, stacks, and their relationships into a queryable graph. Queries use JSON documents with anchor, traverse, and return clauses to follow infrastructure relationships — answering questions like 'which stacks break if we upgrade this provider?' or 'how much infrastructure lives outside IaC?' The API is designed agent-first: Pulumi Neo (their infrastructure agent) uses it natively, and other agents can fetch the graph vocabulary and query guidance on demand. Available in public preview for Enterprise and Business Critical editions.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Pulumi</span>
+        <span class="tag">IaC</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Every platform team fields the same questions — what's running, what depends on what, what can we safely delete — and the answers are scattered across state files, cloud consoles, and tribal knowledge. The Context API turns infrastructure state into a queryable graph with relationship traversal, which is exactly what AI agents need to reason about infrastructure impact. The agent-first design is the differentiator: rather than building a dashboard that humans read, Pulumi built an API that agents can query programmatically to understand blast radius before making changes. For teams where AI agents are starting to provision and modify infrastructure, this graph API provides the missing context layer that prevents agents from breaking things they don't understand.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Querying infrastructure impact before making changes</li>
+          <li>Giving AI agents contextual awareness of infrastructure relationships</li>
+          <li>Identifying infrastructure outside IaC for coverage analysis</li>
+          <li>Finding stacks with no dependents for cleanup and retirement</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Pulumi, launched August 26, 2026</li>
+          <li>Public preview for Enterprise and Business Critical</li>
+          <li>Agent-first design with Pulumi Neo integration</li>
+          <li>Addresses documented pain point of scattered infrastructure knowledge</li>
+          <li>Part of broader Pulumi platform (IaC market leader alongside Terraform)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.pulumi.com/blog/pulumi-context-api/">Pulumi Blog</a></li>
+          <li><a href="https://www.pulumi.com/releases/changelog/2026-08-26-context-api/">Pulumi Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://nirmata.com/2026/08/26/introducing-ottoflow-ai-workflows-for-kubernetes/">OttoFlow: Declarative AI Workflows for Kubernetes From the Nirmata Team</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Nirmata open-sourced OttoFlow on August 26, a framework for building declarative, deterministic AI workflows on Kubernetes. OttoFlow addresses the gap between rigid runbooks (deterministic but limited to anticipated failures) and freeform AI agents (flexible but non-reproducible and unauditable). The framework lets teams define AI-powered operational workflows declaratively — the AI reasons about evidence within defined boundaries, but the workflow structure is reviewable, diffable, and GitOps-friendly. OttoFlow combines the pattern recognition of LLMs with the auditability that platform engineering teams require.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">AI Operations</span>
+        <span class="tag">GitOps</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The operational AI space has been stuck between two bad options: runbooks that handle only the failures you anticipated, and autonomous agents that burn tokens re-deriving context and produce non-reproducible results. OttoFlow's thesis is that you can get AI reasoning inside a deterministic, auditable structure. This matters for any team running Kubernetes in production: incident response, capacity planning, and remediation all benefit from AI reasoning, but platform teams can't adopt tools they can't code-review or diff. From Nirmata (the team behind Kyverno, the CNCF policy engine), this has credibility in the Kubernetes ecosystem. OttoFlow is the first serious attempt to make AI-powered operations GitOps-compatible.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>AI-powered incident response with auditable workflow structure</li>
+          <li>Declarative operational workflows that combine AI reasoning with determinism</li>
+          <li>GitOps-compatible AI operations for Kubernetes</li>
+          <li>Replacing rigid runbooks with adaptive but reviewable automation</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Nirmata (Kyverno creators), open-sourced August 26, 2026</li>
+          <li>Addresses documented gap between runbooks and freeform agents</li>
+          <li>Declarative workflows that are diffable and GitOps-friendly</li>
+          <li>Built for Kubernetes-native operations</li>
+          <li>Appeared in multiple search results across infrastructure queries</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://nirmata.com/2026/08/26/introducing-ottoflow-ai-workflows-for-kubernetes/">Nirmata Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://kubernetes.io/blog/2026/08/26/kubernetes-v1-37-release/">Kubernetes v1.37 Garhwal: The Biggest Deprecation Cleanup in Years Drops kube-dns, IPVS, and cgroup v1</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Kubernetes v1.37 'Garhwal' shipped on August 26 with what The Register called the biggest deprecation cleanup in years. The release removes legacy kube-dns, IPVS proxy mode, and cgroup v1 support — three components that have been deprecated for multiple release cycles but that many clusters still depend on. On the positive side, the Metrics API finally graduates to stable after nine years in beta, and the declarative validation system drove record-breaking API reviews. DRA (Dynamic Resource Allocation) graduation enables GPU and accelerator sharing patterns that the CNCF AI Factory reference architecture depends on.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Deprecation</span>
+        <span class="tag">DRA</span>
+        <span class="tag">GPU</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The deprecation removals are the headline for most teams. If your clusters still run kube-dns (rather than CoreDNS), use IPVS proxy mode, or depend on cgroup v1, upgrading to 1.37 will break things. These removals were announced well in advance, but many organizations defer cleanup until forced. The DRA graduation is equally significant for AI teams: it's the primitive that makes GPU time-slicing, multi-team accelerator sharing, and the 'AI factory' pattern (covered in Friday's digest) actually work at the Kubernetes API level. The Metrics API stabilizing after nine years in beta is a running joke finally resolved — it powers kubectl top and the Horizontal Pod Autoscaler.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Planning cluster upgrades with breaking deprecation removals</li>
+          <li>Enabling GPU sharing with graduated DRA support</li>
+          <li>Migrating from kube-dns to CoreDNS before forced removal</li>
+          <li>Building autoscaling on the now-stable Metrics API</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Kubernetes v1.37, released August 26, 2026</li>
+          <li>Removes legacy kube-dns, IPVS proxy mode, cgroup v1</li>
+          <li>Metrics API graduates to stable after 9 years in beta</li>
+          <li>DRA graduation enables GPU sharing patterns</li>
+          <li>Covered by The Register, Kubernetes blog, kubernetes.dev</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://kubernetes.io/blog/2026/08/26/kubernetes-v1-37-release/">Kubernetes Blog</a></li>
+          <li><a href="https://www.theregister.com/devops/2026/08/26/kubernetes-cleans-house-bins-legacy-kube-dns-ipvs-and-cgroup-v1/5292717">The Register</a></li>
+          <li><a href="https://www.kubernetes.dev/blog/2026/08/27/kubernetes-v1-37-declarative-validation/">Declarative Validation Deep Dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://miraflow.ai/blog/deepseek-v4-pro-0813-architecture-benchmarks-2026">DeepSeek V4-Pro 0813: Hybrid Attention Architecture and 1M-Token Context in a Quiet GA Launch</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">DeepSeek quietly shipped V4-Pro 0813 on August 13, a substantial update to its flagship model with a new hybrid attention architecture combining dense and strided attention patterns, a stability mechanism for deep residual stacks, and a 1 million token context window. The update was initially described as 'significantly enhanced agent capabilities' in a statement that was reportedly pulled from DeepSeek's own site shortly after. Independent benchmarks show mixed results: strong gains on agentic and cybersecurity tasks, with the hybrid attention architecture delivering meaningful inference cost reductions for long-context workloads compared to the previous generation.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">DeepSeek</span>
+        <span class="tag">Inference</span>
+        <span class="tag">Architecture</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>DeepSeek's quiet approach to this launch is itself a signal — the company usually announces aggressively. The hybrid attention architecture is the technical story worth following: by mixing dense attention (high fidelity for nearby tokens) with strided attention (efficient coverage of distant context), V4-Pro 0813 gets a 1M context window at a fraction of the cost of full dense attention. This is the same kind of architectural innovation that made DeepSeek V3 competitive last year. For teams running self-hosted inference or evaluating open-weight alternatives for long-context agent workloads, the architecture paper (arxiv:2606.19348) provides implementation details that are already being adapted by the vLLM and SGLang communities.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Long-context agent workloads with reduced inference cost</li>
+          <li>Self-hosted inference with hybrid attention for cost efficiency</li>
+          <li>Evaluating DeepSeek V4-Pro against GPT-5.6 and Claude for agent tasks</li>
+          <li>Adapting hybrid attention patterns for custom model serving</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From DeepSeek, GA on August 13, 2026</li>
+          <li>Hybrid attention architecture with research paper</li>
+          <li>1M-token context window</li>
+          <li>Available via DeepSeek app, web, and API</li>
+          <li>Covered by Miraflow, SCMP, picked up in Reddit ML discussions</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://miraflow.ai/blog/deepseek-v4-pro-0813-architecture-benchmarks-2026">Miraflow Deep Dive</a></li>
+          <li><a href="https://arxiv.org/abs/2606.19348">Architecture Paper</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
