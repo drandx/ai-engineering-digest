@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — September 01, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">September 01, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/antigravity-teamwork-multi-agent/">Google Antigravity ships /boost and /teamwork-preview: multi-agent reasoning pipelines that dispatch parallel subagents to tackle concurrency bugs, algorithmic optimization, and multi-file refactors that stump single-agent systems</a></li>
+      <li><a href="https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/">Google Research releases TimesFM-3: a 330M-parameter zero-shot foundation model for multivariate time series forecasting — open-source on GitHub (28.5K stars) and Hugging Face</a></li>
+      <li><a href="https://slack.com/blog/news/slack-code-channels-for-agents">Slack Code launches: dedicated channels where teams and AI agents build together — covered by The Verge as 'collaborative vibe-coding channels'</a></li>
+      <li><a href="https://blog.jetbrains.com/junie/2026/08/from-leaderboards-to-profiles/">JetBrains publishes 'From Leaderboards to Model Profiles' — revealing that Claude Opus 4.7 and Gemini 3.5 Flash tie on resolve rate but differ wildly in cost ($2.79 vs $1.24) and step count (184 vs 271)</a></li>
+      <li><a href="https://arxiv.org/html/2608.00101v1">Microsoft Research publishes the first large-scale production characterization of agentic coding: 'Agentic Coding in the Wild' analyzes GitHub Copilot at scale across real enterprise workflows</a></li>
+      <li><a href="https://cloud.google.com/blog/products/data-analytics/build-data-pipelines-in-less-time-with-data-agent-kit">Google Cloud launches Data Agent Kit: agentic data pipeline construction that takes pipeline creation 'from weeks to minutes'</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/antigravity-teamwork-multi-agent/">Google Antigravity Ships /boost and /teamwork: Multi-Agent Reasoning for Complex Software Bugs</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Google Antigravity rolled out two multi-agent capabilities this week. The /boost command deploys parallel AI subagents through a three-phase pipeline: an orchestrator breaks problems into subtasks, dispatches them to isolated subagents (some writing code, others tracing execution paths), then validates combined solutions against full test suites before presenting results. The /teamwork-preview command goes further, running collaborative multi-agent teams for large software projects, complex simulations, and deep research. Google's blog highlights that pairing Antigravity with Gemini 3.7 Flash solves notable multi-agent math and engineering problems.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Google</span>
+        <span class="tag">Antigravity</span>
+        <span class="tag">Multi-Agent</span>
+        <span class="tag">Coding</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first time a major coding agent platform has shipped production multi-agent reasoning as a built-in feature rather than a research demo. The three-phase pipeline (decompose → parallel solve → validate) addresses a real gap: single-agent systems struggle with concurrency bugs, algorithmic optimization, and multi-file refactors because they can't simultaneously explore multiple solution paths and cross-check results. The four documented target use cases — concurrency bugs, algorithmic problem solving, non-trivial refactoring, and deep debugging — are precisely the tasks where senior engineers currently spend the most time. For teams evaluating coding agents, multi-agent orchestration is becoming a differentiator.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Debugging concurrency bugs with parallel trace analysis</li>
+          <li>Algorithmic optimization via parallel exploration and boundary testing</li>
+          <li>Multi-file refactoring with coordinated cross-agent changes</li>
+          <li>Deep debugging of tightly coupled legacy systems</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Google, shipped September 1, 2026</li>
+          <li>Built into Google Antigravity (Google's coding agent platform)</li>
+          <li>Covered by LavX News, Google Blog</li>
+          <li>Integrates with Gemini 3.7 Flash for multi-agent math/engineering</li>
+          <li>Documentation live at antigravity.google/docs/boost/</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/antigravity-teamwork-multi-agent/">Google Blog</a></li>
+          <li><a href="https://antigravity.google/docs/boost/">Antigravity Docs</a></li>
+          <li><a href="https://news.lavx.hu/article/google-antigravity-adds-multi-agent-reasoning-to-fight-complex-software-bugs">LavX News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/">Google TimesFM-3: A 330M-Parameter Zero-Shot Foundation Model for Multivariate Time Series Forecasting</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Google Research released TimesFM-3 on August 31, a state-of-the-art time series foundation model that handles multivariate forecasting out of the box — no fine-tuning required. The 330M-parameter model is available on PyPI (timesfm v3.0.0), Hugging Face (google/timesfm-3.0-pytorch), and GitHub (28.5K stars). Unlike its predecessors which handled univariate forecasting, TimesFM-3 captures cross-variable dependencies, making it applicable to real-world scenarios where multiple correlated time series must be forecasted simultaneously.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Google</span>
+        <span class="tag">Time Series</span>
+        <span class="tag">Foundation Model</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Time series forecasting is one of the most broadly applicable ML tasks in production engineering — capacity planning, anomaly detection, demand forecasting, resource allocation. Most teams either train custom models (expensive, requires ML expertise) or use statistical methods (limited accuracy). TimesFM-3's zero-shot multivariate capability means engineers can get state-of-the-art forecasts by installing a pip package and calling an API, without training data or ML infrastructure. The jump from univariate to multivariate is the real unlock: production systems have correlated metrics (CPU, memory, request rate, error rate) that must be forecasted together, not independently. At 330M parameters, the model is small enough to run on a single GPU.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Zero-shot capacity planning and demand forecasting</li>
+          <li>Anomaly detection across correlated infrastructure metrics</li>
+          <li>Production resource allocation without custom ML training</li>
+          <li>Drop-in replacement for statistical forecasting methods</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Google Research, released August 31, 2026</li>
+          <li>28.5K GitHub stars for the timesfm repository</li>
+          <li>Available on PyPI, Hugging Face, and GitHub</li>
+          <li>Covered by MarkTechPost, Google Research Blog</li>
+          <li>Apache 2.0 license</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/">Google Research Blog</a></li>
+          <li><a href="https://huggingface.co/google/timesfm-3.0-pytorch">Hugging Face</a></li>
+          <li><a href="https://github.com/google-research/timesfm">GitHub</a></li>
+          <li><a href="https://www.marktechpost.com/2026/08/31/google-ai-releases-timesfm-3-a-330m-parameter-zero-shot-foundation-model-for-multivariate-time-series-forecasting/">MarkTechPost</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://runway.com/news/research/introducing-solaris">Runway Solaris: The First Interface World Model That Generates Software in Real Time</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Runway introduced Solaris on August 31, the first model in a new family called Interface World Models. Solaris generates interactive app interfaces and websites frame by frame in real time as you use them — the operating system itself generates software dynamically rather than running pre-built applications. The model understands interaction patterns and responds to user input by generating the next interface state, blending generative video techniques with software execution. Covered by The Indian Express, RuntimeWire, and demonstrated in a YouTube video.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Runway</span>
+        <span class="tag">Generative AI</span>
+        <span class="tag">Interface</span>
+        <span class="tag">Research</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Solaris represents a conceptual leap from 'AI generates code that builds interfaces' to 'AI generates the interface directly, frame by frame.' This matters for software engineers because it challenges the fundamental assumption that software must be written, compiled, and executed. If Solaris-style models mature, prototyping and user testing could happen without any code at all — the AI generates the experience directly from intent. The practical obstacles are significant (latency, consistency, accessibility, state management), but the research direction signals where Runway thinks generative AI meets software interaction. For frontend engineers and product teams, this is worth watching as a leading indicator of how AI-native interfaces might work.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Rapid prototyping without writing code</li>
+          <li>User experience exploration through generated interfaces</li>
+          <li>Research into AI-native software interaction paradigms</li>
+          <li>Understanding the future of generative AI beyond media</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Runway, announced August 31, 2026</li>
+          <li>Covered by The Indian Express, RuntimeWire, YouTube demo</li>
+          <li>First in a new 'Interface World Models' family</li>
+          <li>Generates interfaces frame by frame in real time</li>
+          <li>Extends Runway's generative video into software execution</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://runway.com/news/research/introducing-solaris">Runway Blog</a></li>
+          <li><a href="https://runtimewire.com/article/runway-solaris-interface-world-model-real-time">RuntimeWire</a></li>
+          <li><a href="https://indianexpress.com/article/technology/artificial-intelligence/runway-solaris-ai-interactive-apps-10858038/">Indian Express</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://slack.com/blog/news/slack-code-channels-for-agents">Slack Code Launches: Dedicated Channels Where Teams and AI Agents Build Together</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Slack launched Slack Code on August 20-28, introducing dedicated channels designed for teams and AI agents to collaborate on coding tasks. The Verge describes them as 'collaborative vibe-coding channels.' Slack Code provides an open space where coding agents can implement changes, share prototypes, and iterate — going beyond single-question thread responses to sustained multi-step agent work. The feature includes a canvas view for comparing branches and reviewing commits. Available as part of the Slack platform, with developer documentation on slack.dev.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Slack</span>
+        <span class="tag">Salesforce</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Collaboration</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Slack is where most engineering teams already communicate. By creating dedicated spaces for agent-assisted coding, Slack is positioning itself as the collaboration layer for the agentic coding era — not just chat where agents respond, but persistent workspaces where agents work alongside humans. This matters because the biggest friction in coding agent adoption isn't the agent's capability, it's the workflow integration. Teams don't want to switch between Slack (for discussion), their IDE (for the agent), and GitHub (for review). Slack Code collapses that into one surface. For engineering managers, this also creates visibility into what agents are doing — something most CLI-based coding agents lack entirely.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Team-visible agent coding with persistent conversation context</li>
+          <li>Multi-step agent workflows beyond single-thread responses</li>
+          <li>Collaborative prototyping with agents and teammates in one channel</li>
+          <li>Engineering visibility into agent work for managers and leads</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Slack/Salesforce, launched August 20-28, 2026</li>
+          <li>Covered by The Verge ('collaborative vibe-coding channels')</li>
+          <li>Developer docs on slack.dev and docs.slack.dev</li>
+          <li>Part of the broader Slack platform (used by millions of developers)</li>
+          <li>Salesforce blog feature</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://slack.com/blog/news/slack-code-channels-for-agents">Slack Blog</a></li>
+          <li><a href="https://www.theverge.com/tech/982628/slack-code-vibe-coding-channels-launch">The Verge</a></li>
+          <li><a href="https://slack.dev/slack-code-a-dedicated-place-for-agent-work/">Slack Dev Blog</a></li>
+          <li><a href="https://www.salesforce.com/introducing-slack-code/">Salesforce</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/junie/2026/08/from-leaderboards-to-profiles/">JetBrains Publishes 'From Leaderboards to Model Profiles': Why Resolve Rate Alone Is Misleading for Agentic Coding</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">JetBrains' Junie team published a deep evaluation methodology on August 31 arguing that resolve rate — the metric most coding agent benchmarks use — hides critical differences between models. Their key finding: Claude Opus 4.7 and Gemini 3.5 Flash solve the same number of tasks on their private benchmarks, but Opus uses 184 steps at $2.79/run while Gemini takes 271 steps at $1.24/run. The paper introduces 'model profiles' that capture trajectory analysis (how many steps, what tool calls, at what cost) alongside task completion, giving teams the data they need to make informed model selection decisions for production agent deployments.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">JetBrains</span>
+        <span class="tag">Junie</span>
+        <span class="tag">Evaluation</span>
+        <span class="tag">Benchmarks</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Every coding agent vendor leads with resolve rate because it's a single number that's easy to compare. But JetBrains' analysis proves what many practitioners suspect: two models with identical resolve rates can have completely different cost, latency, and reliability profiles. For teams running agents in production (where cost and speed matter as much as accuracy), model selection based solely on resolve rate is like choosing a database based only on whether it returns correct results. The model profiles approach — examining step count, tool call patterns, cost per run, and trajectory analysis — gives engineering leads the data they actually need. This is particularly relevant as agent hosting costs become a significant line item.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Data-driven model selection for production coding agents</li>
+          <li>Understanding the cost-speed-accuracy tradeoff between frontier models</li>
+          <li>Building evaluation pipelines that capture trajectory, not just outcomes</li>
+          <li>Budgeting and cost planning for enterprise agent deployments</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From JetBrains (Junie team), published August 31, 2026</li>
+          <li>Concrete data: Opus 4.7 = 184 steps/$2.79 vs Gemini 3.5 Flash = 271 steps/$1.24</li>
+          <li>New evaluation methodology: 'model profiles' beyond resolve rate</li>
+          <li>Part of JetBrains' broader Junie evaluation pipeline work</li>
+          <li>Follows their Kotlin Benchmark and Junie Local launches</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.jetbrains.com/junie/2026/08/from-leaderboards-to-profiles/">JetBrains Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://resources.anthropic.com/2026-agentic-coding-trends-report">Anthropic's 2026 Agentic Coding Trends Report: 8 Predictions on How Coding Agents Reshape Development</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Anthropic published a comprehensive trends report documenting the shift from engineers writing code to engineers orchestrating agents that write code. The report identifies eight key trends spanning foundation shifts, capability evolution, and organizational impact. It includes case studies from TELUS and Rakuten showing how enterprises are adopting agentic coding at scale. The core thesis: the software development lifecycle is changing dramatically — from assistance to collaboration to delegation — and engineering organizations need to restructure roles, review processes, and quality assurance around agent-generated code.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Trends</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">Agentic Coding</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first major industry report that treats agentic coding as an organizational transformation rather than a developer productivity tool. The eight trends provide a framework for engineering leaders to plan their adoption strategy. The TELUS and Rakuten case studies are particularly valuable because they show what enterprise adoption actually looks like — not demos or pilot projects, but production workflows. For individual engineers, the report's trajectory from 'assistance' to 'collaboration' to 'delegation' maps a career evolution: the most valuable skill is shifting from writing code to orchestrating agents and reviewing their output. The report is free and available as a PDF.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Strategic planning for engineering organization adoption of coding agents</li>
+          <li>Understanding the 'assistance → collaboration → delegation' trajectory</li>
+          <li>Enterprise case studies for agentic coding ROI justification</li>
+          <li>Career planning for engineers in the agent era</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Anthropic, published 2026</li>
+          <li>Enterprise case studies: TELUS and Rakuten</li>
+          <li>8 detailed trends with data and analysis</li>
+          <li>Covered by Hands-on AI Playbook, PaperClipped</li>
+          <li>Free PDF download</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://resources.anthropic.com/2026-agentic-coding-trends-report">Anthropic</a></li>
+          <li><a href="https://www.paperclipped.de/en/blog/anthropic-agentic-coding-trends-report-2026/">PaperClipped Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://arxiv.org/html/2608.00101v1">'Agentic Coding in the Wild': Microsoft Research Publishes First Large-Scale Production Characterization of GitHub Copilot</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Microsoft Azure Research published 'Agentic Coding in the Wild,' the first large-scale empirical study characterizing how AI coding agents (GitHub Copilot, Claude Code, Codex) actually behave in production. The paper analyzes how agents interleave multi-step LLM inference with tool use at enterprise scale, examining real-world patterns rather than benchmark performance. Published on arXiv in July 2026, it provides data on agent trajectories, failure modes, and the gap between benchmark scores and production behavior.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Research</span>
+        <span class="tag">GitHub Copilot</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Until now, everything we knew about coding agent performance came from benchmarks (SWE-bench, Terminal-Bench) or vendor claims. This is the first study that looks at what agents actually do in production at scale. The findings matter because production behavior diverges significantly from benchmark behavior — agents in the wild encounter ambiguous requirements, messy codebases, flaky tests, and partial context that benchmarks don't capture. For teams deploying agents, this paper provides the first empirical foundation for understanding failure modes, expected iteration counts, and the real cost profile of agentic coding. The companion study on Microsoft's internal rollout of Claude Code and GitHub Copilot CLI adds organizational adoption data.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Understanding production vs benchmark performance gaps for coding agents</li>
+          <li>Planning agent deployment with empirical failure mode data</li>
+          <li>Setting realistic expectations for agentic coding ROI</li>
+          <li>Designing monitoring and observability for production agent systems</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Microsoft Azure Research, published July 2026</li>
+          <li>First large-scale production characterization</li>
+          <li>Published on arXiv (2608.00101)</li>
+          <li>Companion study on Microsoft internal adoption (2607.01418)</li>
+          <li>Covers GitHub Copilot, Claude Code, and Codex</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://arxiv.org/html/2608.00101v1">arXiv Paper</a></li>
+          <li><a href="https://www.microsoft.com/en-us/research/publication/agentic-coding-in-the-wild-characterizing-github-copilot-at-production-scale/">Microsoft Research</a></li>
+          <li><a href="https://doi.org/10.48550/arxiv.2607.01418">Companion Study: Microsoft Internal Adoption</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://cloud.google.com/blog/products/data-analytics/build-data-pipelines-in-less-time-with-data-agent-kit">Google Cloud Data Agent Kit: From Weeks to Minutes for Data Pipeline Construction</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Google Cloud announced the Data Agent Kit on August 31, an agentic framework for building data pipelines that reduces pipeline creation from weeks to minutes. The kit uses AI agents that understand data sources, transformations, and destinations to automatically construct and validate data pipelines. Rather than manually writing ETL/ELT code, engineers describe what data they need and where it should go, and the agent assembles the pipeline, tests it, and deploys it.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Google Cloud</span>
+        <span class="tag">Data Engineering</span>
+        <span class="tag">Agents</span>
+        <span class="tag">ETL</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Data pipeline construction is one of the most time-consuming and error-prone tasks in data engineering — teams routinely spend weeks wiring up sources, writing transformations, handling schema drift, and debugging failures. Google Cloud's agentic approach is significant because it targets the entire pipeline lifecycle (discovery, construction, validation, deployment) rather than just code generation. For data teams already on GCP, this directly reduces the time from 'business stakeholder requests data' to 'data is flowing.' The 'from weeks to minutes' claim is ambitious, but even 'from weeks to days' would be transformative for most data engineering teams.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Rapid data pipeline construction without manual ETL coding</li>
+          <li>Automated schema discovery and transformation generation</li>
+          <li>Self-service data access for non-engineering teams</li>
+          <li>Reducing data engineering backlog with agent-built pipelines</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Google Cloud, published August 31, 2026</li>
+          <li>Part of Google Cloud's data analytics platform</li>
+          <li>Agentic approach to full pipeline lifecycle</li>
+          <li>Blog post with technical details and architecture</li>
+          <li>Ties into Gemini Enterprise integration</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://cloud.google.com/blog/products/data-analytics/build-data-pipelines-in-less-time-with-data-agent-kit">Google Cloud Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://aws.amazon.com/blogs/machine-learning/introducing-new-ray-capabilities-on-sagemaker-hyperpod/">AWS Launches New Ray Capabilities on SageMaker HyperPod for Unified ML Infrastructure</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">AWS announced new Ray capabilities integrated into SageMaker HyperPod, combining Ray's distributed computing framework with HyperPod's managed GPU infrastructure. The integration lets ML teams run Ray workloads (training, serving, data processing) on HyperPod clusters with automatic fault recovery, health monitoring, and cluster management. This eliminates the operational burden of managing Ray clusters on raw EC2 while keeping the flexibility of the Ray ecosystem.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Ray</span>
+        <span class="tag">SageMaker</span>
+        <span class="tag">ML Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Ray has become the de facto framework for distributed ML workloads — it powers training and serving at companies from Uber to OpenAI. But running Ray in production requires significant infrastructure expertise: cluster management, node health monitoring, fault recovery, and GPU allocation. The SageMaker HyperPod integration means teams get managed Ray infrastructure with enterprise-grade reliability. For ML platform teams, this reduces the 'undifferentiated heavy lifting' of running Ray clusters and lets them focus on the actual ML workloads. Combined with last week's Salesforce Multi-AZ case study and the llm-d CNCF announcement, this signals that production ML infrastructure is rapidly maturing from artisanal setups to managed platforms.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running distributed ML training on managed GPU infrastructure</li>
+          <li>Production Ray serving without cluster management overhead</li>
+          <li>Fault-tolerant distributed inference for LLM workloads</li>
+          <li>Unified ML platform combining Ray's flexibility with AWS management</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From AWS, published August/September 2026</li>
+          <li>Ray is the leading distributed ML framework</li>
+          <li>SageMaker HyperPod is AWS's managed GPU infrastructure</li>
+          <li>Addresses documented operational pain of production Ray clusters</li>
+          <li>Part of broader AWS ML infrastructure investment</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://aws.amazon.com/blogs/machine-learning/introducing-new-ray-capabilities-on-sagemaker-hyperpod/">AWS ML Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
