@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — September 03, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">September 03, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/">Google ships Gemini 3.8 Flash and 3.8 Flash Cyber — third Flash release in six weeks, with frontier-level coding at Flash pricing and a dedicated cybersecurity model for vulnerability detection and automated patching</a></li>
+      <li><a href="https://artificialanalysis.ai/articles/muse-spark-1-3">Meta releases Muse Spark 1.3 claiming frontier parity — scores 62 on the Artificial Analysis Intelligence Index (max variant), ties with GPT-5.6 Sol, at the lowest cost per task of any model scoring 59+</a></li>
+      <li><a href="https://github.blog/changelog/2026-09-02-content-exclusions-generally-available-in-copilot-app-and-cli/">GitHub Copilot content exclusions reach GA in the Copilot app and CLI — agentic workflows now respect admin-configured file exclusion policies, protecting sensitive code from context leakage</a></li>
+      <li><a href="https://blog.kilo.ai/p/kilo-for-jetbrains-a-multi-agent-control-room">Kilo Code turns JetBrains into a multi-agent control room — run parallel coding agents in isolated git worktrees, test via Run Configurations, and track diffs and PRs from one IDE frame</a></li>
+      <li><a href="https://www.infoq.com/news/2026/09/hcp-terraform-ai-driven-control/">HashiCorp positions HCP Terraform as the control plane for AI-driven infrastructure — agents propose changes, Terraform governs them with policy-as-code, scoped identities, and full audit trails</a></li>
+      <li><a href="https://nirmata.com/2026/08/26/introducing-ottoflow-ai-workflows-for-kubernetes/">Nirmata open-sources OttoFlow: declarative AI workflows for Kubernetes that combine deterministic runbook steps with LLM reasoning, bridging the gap between static pipelines and uncontrolled agent autonomy</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/">Google Ships Gemini 3.8 Flash and 3.8 Flash Cyber: Frontier Coding at Flash Pricing, Plus a Dedicated Cybersecurity Model</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Google released Gemini 3.8 Flash and 3.8 Flash Cyber on September 2, marking the third Flash model in six weeks. 3.8 Flash delivers significant improvements over 3.7 Flash in software engineering, agentic tasks, and multi-step reasoning — often approaching frontier model performance at $0.75/M input and $3.75/M output tokens. 3.8 Flash Cyber is Google's first dedicated cybersecurity model, offering frontier-level vulnerability detection and automated patching, available to trusted defenders through the new Fairwind Program.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Google</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Coding</span>
+        <span class="tag">Cybersecurity</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Google's Flash cadence is now faster than most teams' sprint cycles. The 3.8 Flash release matters because it narrows the gap between Flash-tier pricing and frontier-tier performance specifically for the tasks engineers care about: long-horizon coding (DeepSWE v1.1) and autonomous agent loops. For teams running agents at scale, this is a direct cost reduction — you get near-frontier coding performance without paying frontier prices. The Cyber variant is more strategic: it's the first major model release purpose-built for security engineering, not just benchmarked on it. For security teams, having a model optimized for vulnerability detection and automated patching — distributed through a vetted program rather than open API — changes what automated security tooling can accomplish.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Long-horizon autonomous coding tasks at Flash-tier pricing</li>
+          <li>Cost-efficient agent loops that need near-frontier reasoning</li>
+          <li>Automated vulnerability detection and patching with Flash Cyber</li>
+          <li>Enterprise agentic workflows requiring dependable multi-step execution</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Google DeepMind, released September 2, 2026</li>
+          <li>Third Flash model in six weeks (3.6, 3.7, 3.8)</li>
+          <li>Outperforms most larger frontier models on DeepSWE v1.1</li>
+          <li>Covered by Ars Technica, SiliconANGLE, Google Blog</li>
+          <li>Flash Cyber distributed through Fairwind Program for trusted defenders</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/">Google Blog</a></li>
+          <li><a href="https://deepmind.google/models/gemini/flash/">DeepMind Model Page</a></li>
+          <li><a href="https://arstechnica.com/ai/2026/09/google-releases-gemini-3-8-flash-its-third-flash-model-in-six-weeks/">Ars Technica</a></li>
+          <li><a href="https://siliconangle.com/2026/09/02/google-launches-two-gemini-3-8-models-with-cutting-edge-reasoning-capabilities/">SiliconANGLE</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://artificialanalysis.ai/articles/muse-spark-1-3">Meta Muse Spark 1.3 Claims Frontier Parity: Lowest Cost Per Task for Any Model Scoring 59+</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Meta released Muse Spark 1.3 on September 2, their fourth Muse Spark model in five months. The max variant scores 62 on the Artificial Analysis Intelligence Index — behind only Claude Fable 5.1 and Claude Opus 5 — while the xhigh variant ties with GPT-5.6 Sol and Grok 4.6 at 61. Key gains come from agentic work: a 12-point jump on Tau3-Bench Banking (35% to 47% for xhigh, 52% for max — the #1 score among all models) and Terminal-Bench 2.1 rising from 80% to 85%. Meta claims the lowest cost per task for any model scoring 59+ on the index, with open weights release announced as coming 'soon.'</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Meta</span>
+        <span class="tag">Muse Spark</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Frontier</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The frontier model race now has four serious contenders (Anthropic, OpenAI, Google, Meta), and Meta's trajectory is the steepest — gaining 8 points on the AA Intelligence Index in two months. For engineering teams, the practical impact is the cost-performance ratio: Muse Spark 1.3 delivers frontier-level agentic task performance at Meta's characteristically aggressive pricing. The #1 Tau3-Bench Banking score matters because banking tasks are proxy for complex, multi-step agentic work with real-world constraints. The pending open-weights release could be transformative — a frontier-class model that teams can self-host would fundamentally change the build-vs-buy calculus for agent infrastructure. For now, the available xhigh variant already competes with GPT-5.6 Sol and Grok 4.6 at lower cost per task.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Cost-efficient frontier-level agentic coding and knowledge work</li>
+          <li>Multi-step autonomous task execution at competitive pricing</li>
+          <li>Self-hosted frontier inference once open weights drop</li>
+          <li>Benchmarking and model selection for production agent deployments</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Meta, released September 2, 2026</li>
+          <li>Scores 62 (max) / 61 (xhigh) on AA Intelligence Index</li>
+          <li>#1 score on Tau3-Bench Banking among all models</li>
+          <li>Covered by Artificial Analysis, SiliconANGLE, The Register, CellCog</li>
+          <li>Open weights release announced as 'soon'</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://artificialanalysis.ai/articles/muse-spark-1-3">Artificial Analysis</a></li>
+          <li><a href="https://siliconangle.com/2026/09/02/meta-says-it-has-caught-up-with-anthropic-and-openai-after-releasing-muse-spark-1-3-its-most-powerful-llm-so-far/">SiliconANGLE</a></li>
+          <li><a href="https://www.theregister.com/ai-and-ml/2026/09/02/zucks-muse-to-spark-joy-with-open-weights-release-soon/5294093">The Register</a></li>
+          <li><a href="https://cellcog.ai/blog/muse-spark-1-3/">CellCog Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/openai/symphony">OpenAI Symphony: Autonomous Implementation Runs That Let Teams Manage Work Instead of Supervising Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI's Symphony framework (26.8K GitHub stars, Apache 2.0) turns project work into isolated, autonomous implementation runs. Rather than developers supervising coding agents step-by-step, Symphony lets teams define work items and hand them off to agents that execute independently — complete with isolation, testing, and result delivery. The framework abstracts the agent supervision overhead, allowing teams to manage a portfolio of agent-driven implementation tasks the way they manage human engineering work.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Framework</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The shift from 'supervise the agent' to 'manage the work' is the next organizational leap for teams using coding agents. Symphony addresses the scaling bottleneck that emerges when teams try to run multiple coding agents: someone has to watch each one, review intermediate steps, and intervene on errors. By structuring agent work as isolated runs with defined inputs and outputs, Symphony makes agent-driven development look more like project management than pair programming. At 26.8K stars, the framework has real community adoption. For engineering leads running agent-heavy teams, this is the difference between one engineer supervising one agent and one engineer managing a portfolio of autonomous implementations.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running multiple autonomous coding tasks without per-agent supervision</li>
+          <li>Structuring agent work as manageable project items</li>
+          <li>Isolating agent implementations to prevent interference</li>
+          <li>Scaling engineering output by managing agent portfolios</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From OpenAI, open-source Apache 2.0</li>
+          <li>26,878 GitHub stars, 2,756 forks</li>
+          <li>Active development with 8 open issues</li>
+          <li>Addresses the documented agent supervision bottleneck</li>
+          <li>Part of OpenAI's broader agent infrastructure ecosystem</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/openai/symphony">GitHub Repository</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-09-02-content-exclusions-generally-available-in-copilot-app-and-cli/">GitHub Copilot Content Exclusions GA in App and CLI: Agentic Workflows Now Respect Sensitive File Policies</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">GitHub shipped content exclusions to GA in the Copilot app and Copilot CLI on September 2. Enterprise, organization, and repository administrators can now configure policies that prevent Copilot from using specified files as context — and these policies are now enforced across agentic workflows, not just inline completions. Available for Copilot Business and Enterprise customers.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Copilot</span>
+        <span class="tag">Security</span>
+        <span class="tag">Enterprise</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is a quiet but critical enterprise security feature. As coding agents gain more autonomy — reading files, generating context, executing multi-step workflows — the risk of sensitive code leaking into model context increases. Content exclusions ensure that .env files, credential stores, proprietary algorithms, or compliance-sensitive code never become agent context, even when the agent is autonomously exploring a repository. The GA across both the Copilot app and CLI means this protection extends to terminal-based agentic workflows, not just IDE usage. For security and compliance teams evaluating coding agents, this is the kind of policy enforcement that moves agents from 'developer toy' to 'enterprise-approved tool.'</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Preventing sensitive files from leaking into AI model context</li>
+          <li>Enterprise compliance enforcement for coding agent workflows</li>
+          <li>Protecting proprietary code from agent context across CLI and app</li>
+          <li>Configuring organization-wide coding agent security policies</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From GitHub, GA release September 2, 2026</li>
+          <li>Available for Copilot Business and Enterprise customers</li>
+          <li>Enforced across agentic workflows, not just inline completions</li>
+          <li>Covered by Undercode News as 'strengthening enterprise code security'</li>
+          <li>Addresses documented compliance concern with coding agent adoption</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-09-02-content-exclusions-generally-available-in-copilot-app-and-cli/">GitHub Changelog</a></li>
+          <li><a href="https://undercodenews.com/github-copilot-finally-respects-content-exclusions-across-agentic-workflows-strengthening-enterprise-code-security-video/">Undercode News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://blog.kilo.ai/p/kilo-for-jetbrains-a-multi-agent-control-room">Kilo Code Turns JetBrains Into a Multi-Agent Control Room: Parallel Agents, Isolated Worktrees, One IDE Frame</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Kilo Code shipped a major update to its native JetBrains plugin, transforming it into a multi-agent control room. Developers can now run multiple coding agents on different tasks simultaneously, each in its own isolated git worktree with its own branch and uncommitted changes. The Agent Manager lets you create worktrees from branches, import GitHub PRs by URL, test changes using existing JetBrains Run Configurations, and track diffs — all from a single IDE frame. The plugin supports 600+ models and avoids the typical multi-agent coordination problem by giving each agent complete filesystem isolation.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">JetBrains</span>
+        <span class="tag">Multi-Agent</span>
+        <span class="tag">IDE</span>
+        <span class="tag">Git</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The multi-agent coding workflow has a UX problem: three parallel tasks quickly become three IDE windows, three terminal sessions, and constant context switching. Kilo's approach — one IDE frame as a control room for multiple isolated agents — is the first JetBrains-native answer to this. The git worktree isolation is the key design decision: it eliminates the coordination overhead that plagues multi-agent setups where agents share a working directory. For teams already on JetBrains IDEs, this brings the multi-agent workflow that CLI tools like Claude Code offer, but integrated into the IDE's existing testing, debugging, and review infrastructure. The 600+ model support means teams aren't locked into a single provider.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running parallel coding agents without context switching between IDE windows</li>
+          <li>Isolated multi-agent development with per-task git worktrees</li>
+          <li>Testing agent-generated changes using existing JetBrains Run Configurations</li>
+          <li>Managing multiple agent-driven PRs from a single IDE frame</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Kilo Code, native JetBrains plugin</li>
+          <li>Git worktree isolation for each agent task</li>
+          <li>600+ model support across providers</li>
+          <li>JetBrains Run Configuration integration for testing</li>
+          <li>Built on native Kotlin architecture for JetBrains split mode</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.kilo.ai/p/kilo-for-jetbrains-a-multi-agent-control-room">Kilo Blog</a></li>
+          <li><a href="https://kilo.ai/jetbrains">Kilo for JetBrains</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://keyholesoftware.com/agentic-ai-in-the-software-development-lifecycle-2026-adoption-and-impact-data/">Keyhole Software Publishes 2026 Agentic AI SDLC Report: Adoption Data Across Code, Test, Deploy, and Operations</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Keyhole Software published a comprehensive report on September 2 analyzing agentic AI adoption across every stage of the software development lifecycle in 2026. The report covers adoption rates by SDLC stage (2024-2026 trends), adoption by team size, productivity impact data, ROI by use case, share of code written or reviewed by AI, top agentic use cases by adoption maturity, and the autonomous vs. human-in-the-loop split. It includes market sizing data for AI SDLC/coding tools and a vendor landscape analysis with build-vs-buy splits.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Research</span>
+        <span class="tag">Adoption</span>
+        <span class="tag">SDLC</span>
+        <span class="tag">Data</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most agentic AI adoption data focuses on code generation because that's where adoption is highest. This report fills a critical gap by analyzing adoption across the entire SDLC — testing, deployment, operations, not just writing code. The year-over-year trend data (2024-2026) reveals which stages are accelerating and which are stalling. For engineering leaders making investment decisions, the ROI-by-use-case data and the autonomous-vs-human-in-the-loop split provide concrete inputs for planning where to apply agents next. The build-vs-buy analysis is particularly timely as teams decide between commercial agent platforms and internal tooling.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Data-driven planning for where to deploy coding agents in your SDLC</li>
+          <li>Benchmarking your team's AI adoption against industry data</li>
+          <li>Build-vs-buy analysis for agent tooling investments</li>
+          <li>Understanding which SDLC stages benefit most from autonomous vs. supervised AI</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Keyhole Software, published September 2, 2026</li>
+          <li>Covers 2024-2026 trend data across all SDLC stages</li>
+          <li>Includes market sizing and vendor landscape analysis</li>
+          <li>ROI data by use case with productivity metrics</li>
+          <li>Addresses the full SDLC, not just code generation</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://keyholesoftware.com/agentic-ai-in-the-software-development-lifecycle-2026-adoption-and-impact-data/">Keyhole Software</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.infoq.com/news/2026/09/hcp-terraform-ai-driven-control/">HCP Terraform Positions Itself as the Control Plane for AI-Driven Infrastructure: Agents Propose, Terraform Governs</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">HashiCorp is positioning HCP Terraform as the governance and control plane for AI-driven infrastructure, arguing that as coding agents generate Terraform at machine speed, the biggest challenge shifts from writing configuration to verifying and safely executing it. The model: agents author Terraform, open changes, and trigger runs autonomously, while HCP Terraform enforces policy-as-code evaluation, project-scoped identities that restrict agent access, workspace isolation to limit blast radius, and full audit trails preserving plans, policy decisions, and execution records. Covered by InfoQ on September 1.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">HashiCorp</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">Governance</span>
+        <span class="tag">IaC</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>AI agents writing infrastructure code is already happening — Pulumi Neo, Terraform agent integrations, and IaC copilots are shipping. But nobody has answered the governance question: who reviews agent-generated infrastructure changes, and how do you prevent an autonomous agent from accidentally provisioning resources it shouldn't? HashiCorp's answer — 'the agent proposes, Terraform governs' — is the first coherent operating model for this. The multi-layer control (approved modules as context, policy-as-code for evaluation, scoped identities for access, workspace isolation for blast radius) turns HCP Terraform into the infrastructure equivalent of what branch protection rules do for code. For platform engineering teams, this is the governance framework that makes AI-driven infrastructure provisioning enterprise-acceptable.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Governing AI-generated infrastructure changes with policy-as-code</li>
+          <li>Scoping agent access to specific infrastructure projects and workspaces</li>
+          <li>Auditing autonomous infrastructure provisioning with full run history</li>
+          <li>Enabling AI agents to propose Terraform changes without uncontrolled access</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From HashiCorp, covered by InfoQ September 1, 2026</li>
+          <li>Detailed by CloudNinjas and LavX News</li>
+          <li>Builds on HCP Terraform's existing enterprise adoption</li>
+          <li>Addresses the documented governance gap in AI-driven IaC</li>
+          <li>Policy-as-code, scoped identities, workspace isolation</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/09/hcp-terraform-ai-driven-control/">InfoQ</a></li>
+          <li><a href="https://cloudninjas.ca/terraform/treating-hcp-terraform-as-the-control-plane-for-ai-generated-infrastructure-practical-implications-for-engineers/">CloudNinjas Analysis</a></li>
+          <li><a href="https://news.lavx.hu/article/hcp-terraform-positions-itself-as-the-control-plane-for-ai-driven-infrastructure">LavX News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://nirmata.com/2026/08/26/introducing-ottoflow-ai-workflows-for-kubernetes/">Nirmata Open-Sources OttoFlow: Declarative AI Workflows for Kubernetes That Bridge Runbooks and Agent Autonomy</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Nirmata open-sourced OttoFlow on August 26, a framework for building production-grade AI workflows on Kubernetes. OttoFlow occupies the middle ground between static runbooks (deterministic but rigid) and unconstrained AI agents (flexible but unauditable). Workflows are declarative and GitOps-friendly — each step can be a deterministic API call or an LLM reasoning step — with the AI confined to specific decision points rather than given free rein over the cluster. The framework reduces token waste by injecting only relevant context into LLM steps rather than letting the model explore the entire cluster state.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">AI Ops</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">GitOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The operations world has been stuck between two bad options: runbooks that handle only anticipated failures, and AI agents that are powerful but impossible to audit or predict. OttoFlow's design is pragmatic — keep the deterministic, reviewable structure of runbooks but inject AI reasoning at specific decision points where human-written logic runs out. The token efficiency angle matters in production: giving an LLM full cluster access burns tokens re-deriving information that a single API call already knows. By scoping the AI's context to what's relevant for each decision, OttoFlow keeps costs predictable. For platform engineering teams, the GitOps-friendly declarative format means AI-enhanced workflows go through the same review and versioning process as everything else on the cluster.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>AI-enhanced Kubernetes operations with auditable, reviewable workflows</li>
+          <li>Incident response that combines deterministic steps with LLM reasoning</li>
+          <li>Token-efficient AI operations by scoping context to relevant cluster state</li>
+          <li>GitOps-friendly AI workflows that go through standard review processes</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Nirmata, open-sourced August 26, 2026</li>
+          <li>Declarative, GitOps-friendly workflow format</li>
+          <li>Designed for production Kubernetes environments</li>
+          <li>Addresses documented limitations of both runbooks and unconstrained agents</li>
+          <li>Token-efficient by scoping LLM context to relevant data</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://nirmata.com/2026/08/26/introducing-ottoflow-ai-workflows-for-kubernetes/">Nirmata Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://www.cncf.io/blog/2026/08/27/building-an-ai-factory-on-kubernetes/">CNCF Guide: Building an AI Factory on Kubernetes — Multi-Tenant GPU Pools for Training, Serving, and Evaluation</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The CNCF published a comprehensive guide on August 27 for building AI factories on Kubernetes — shared GPU pools that multiple teams draw from simultaneously for fine-tuning, inference serving, and model evaluation. The guide covers GPU scheduling, multi-tenancy with resource quotas and priority classes, NVIDIA's GPU operator and MIG partitioning, and patterns for running heterogeneous AI workloads (training, serving, evals) on the same accelerator pool. It frames the AI factory not as a single model or cluster, but as shared infrastructure that the entire organization consumes.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">CNCF</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">GPU</span>
+        <span class="tag">MLOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most organizations running AI workloads have fragmented GPU infrastructure: one cluster for training, another for inference, separate instances for evaluation. The CNCF's AI factory pattern consolidates this into a shared pool with multi-tenant scheduling — the same approach that Kubernetes brought to CPU/memory workloads, now applied to GPUs. The practical value is utilization: GPU clusters are expensive, and dedicated per-team allocation leads to massive waste. Multi-tenant scheduling with priority classes lets batch training jobs use capacity that inference workloads don't need at 3 AM. For platform engineering teams, this guide provides the reference architecture for GPU infrastructure that scales with the organization rather than per-team.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Consolidating fragmented GPU infrastructure into shared Kubernetes pools</li>
+          <li>Multi-tenant GPU scheduling with priority classes for training vs. serving</li>
+          <li>Running heterogeneous AI workloads on shared accelerator infrastructure</li>
+          <li>Reducing GPU waste through shared pool utilization patterns</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From CNCF, published August 27, 2026</li>
+          <li>References NVIDIA AI factory framing and GPU operator</li>
+          <li>Covers MIG partitioning, priority classes, multi-tenancy</li>
+          <li>Part of CNCF's broader AI/ML on Kubernetes initiative</li>
+          <li>Companion to KubeCon Europe 2026 ML infrastructure talks</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.cncf.io/blog/2026/08/27/building-an-ai-factory-on-kubernetes/">CNCF Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
