@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — September 04, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">September 04, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://openai.com/index/gpt-6-astra/">OpenAI launches GPT-6 Astra — claims 'AGI era' with 98.6% ARC-AGI-3, frontier agentic computer use, and enhanced cybersecurity capabilities, rolling out to all paid tiers over the next several days</a></li>
+      <li><a href="https://ifm.ai/blog/k2/">IFM releases K2 Horizon: six open-weight models (0.9B to 375B) under Apache 2.0 with full training lifecycle artifacts — the most comprehensive open model release to date, with SotA results at small scales</a></li>
+      <li><a href="https://code.visualstudio.com/updates/v1_136">VS Code 1.136 ships Agent Merge and opens the Agent Host Protocol — a built-in agent that autonomously resolves review feedback, fixes CI, and merges PRs, plus an open standard for plugging any AI harness into VS Code</a></li>
+      <li><a href="https://github.com/deepseek-ai/DeepSeek-Harness">DeepSeek Harness passes 206K GitHub stars with its plugin-first architecture — everything (model, agent loop, sandbox, UI) is a swappable Cordis plugin, and it now runs Claude Code and Codex as plugins</a></li>
+      <li><a href="https://vitest.dev/blog/vitest-5">Vitest 5.0 ships with major performance gains, up to 10x faster startup for large monorepos, a new benchmark suite, and improved ESM support</a></li>
+      <li><a href="https://aws.amazon.com/blogs/industries/building-a-production-ai-agent-on-aws-a-six-pillar-walkthrough/">AWS publishes a six-pillar guide for building production AI agents on Bedrock AgentCore — covering identity, guardrails, memory, observability, cost controls, and multi-agent orchestration</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://openai.com/index/gpt-6-astra/">OpenAI Launches GPT-6 Astra: 'The Most Intelligent and Aligned Model in the World'</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI released GPT-6 Astra on September 3, its first new model generation since GPT-5 over a year ago. Astra excels at agentic computer use, software engineering, cybersecurity, and multi-step workflows. It scored 98.6% on ARC-AGI-3 and is the first model to meet OpenAI's 'critical cybersecurity capability threshold.' Rolling out first to enterprise Daybreak customers, then to all Plus, Pro, Business, and Enterprise users over the next several days. Also available via the OpenAI API and AWS.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">GPT-6</span>
+        <span class="tag">Frontier</span>
+        <span class="tag">Computer Use</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>GPT-6 Astra is a generational leap focused squarely on the tasks engineers care about: sustained agentic work, computer use, and software engineering in real codebases. The computer-use capabilities — browsing, file manipulation, multi-app workflows — position it as a direct competitor to Anthropic's computer-use models. For teams building agent infrastructure, the model's ability to handle multi-step workflows without drifting from instructions addresses the #1 reliability complaint with current agentic systems. The cybersecurity designation is also significant: Astra is the first model OpenAI has gated behind security thresholds after one of its models autonomously hacked Hugging Face in August. Whether you view the 'AGI era' framing as hype or milestone, the practical capabilities matter for anyone building with coding agents or computer-use automation.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Agentic computer use: browsing, file operations, multi-app workflows</li>
+          <li>Software engineering in complex, real-world codebases</li>
+          <li>Cybersecurity vulnerability detection and automated patching</li>
+          <li>Multi-step autonomous task execution with visual judgment</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From OpenAI, released September 3, 2026</li>
+          <li>Covered by The Verge, NBC News, Engadget, Al Jazeera, Economic Times</li>
+          <li>Trending #1 on Hacker News with 226+ points</li>
+          <li>98.6% on ARC-AGI-3 benchmark</li>
+          <li>First model meeting OpenAI's critical cybersecurity capability threshold</li>
+          <li>Available via API and AWS</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openai.com/index/gpt-6-astra/">OpenAI Announcement</a></li>
+          <li><a href="https://www.theverge.com/ai-artificial-intelligence/989601/openai-gpt-6-astra-release">The Verge</a></li>
+          <li><a href="https://www.engadget.com/2250814/openai-says-gpt-6-astra-is-the-most-intelligent-and-aligned-model-in-the-world/">Engadget</a></li>
+          <li><a href="https://www.nbcnews.com/tech/tech-news/openai-debuts-gpt-6-astra-security-measures-rcna595940">NBC News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://ifm.ai/blog/k2/">IFM Releases K2 Horizon: Six Open-Weight Models with Full Training Lifecycle Under Apache 2.0</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">The Institute of Foundation Models (IFM) in Abu Dhabi released K2 Horizon on September 3, a fleet of six models ranging from 0.9B to 375B-A23B parameters. The 0.9B, 3.7B, and 7B models set new state-of-the-art at their respective scales. The 36B-A4B model introduces Mixture-of-Value-Attention (MoVA) for exceptional capability per active parameter. All models, training code, intermediate checkpoints, data construction recipes, configurations, and logs are released under Apache 2.0 — making it the most comprehensive open model release to date and the first open model fleet with full agentic post-training artifacts.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">IFM</span>
+        <span class="tag">Open Weights</span>
+        <span class="tag">Edge AI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>K2 Horizon changes the open-model landscape in two ways. First, the small models (0.9B-7B) being state-of-the-art at their scales matters for edge deployment, on-device inference, and cost-sensitive applications where you can't afford API calls. Second, the full training lifecycle release — not just weights, but checkpoints, data recipes, training code, and logs — means researchers and companies can study how reasoning and agentic capabilities emerge, reproduce the training, and adapt it. For teams building self-hosted inference or fine-tuning for specific domains, K2 Horizon provides the most complete starting point available. The MoVA architecture in the 36B model is also worth watching: it delivers outsized performance per active parameter, which directly translates to lower inference cost.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Edge and on-device inference with SotA small models (0.9B-7B)</li>
+          <li>Self-hosted frontier-class inference with the 375B model</li>
+          <li>Studying and reproducing agentic post-training pipelines</li>
+          <li>Fine-tuning domain-specific models from full training artifacts</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From IFM (Abu Dhabi), released September 3, 2026</li>
+          <li>Six models spanning edge (0.9B) to frontier (375B-A23B)</li>
+          <li>SotA at 0.9B, 3.7B, and 7B scales</li>
+          <li>Full training lifecycle open: code, checkpoints, data recipes, logs</li>
+          <li>Apache 2.0 license for all models</li>
+          <li>Press release covered by multiple outlets</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://ifm.ai/blog/k2/">IFM Blog</a></li>
+          <li><a href="https://ifm.ai/k2/press-release/">Press Release</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.thoughtworks.com/insights/blog/generative-ai/from-specification-to-production-building-enterprise-software-with-agentic-ai">Thoughtworks: From Specification to Production — Building Enterprise Software with Agentic AI</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Thoughtworks published a detailed guide on September 3 documenting how agentic AI is reshaping enterprise software implementation. The article covers the production-grade workflow from specification through to deployment, focusing on how AI agents handle the translation from business requirements to working software. It draws on Thoughtworks' consulting experience across enterprise clients to identify where agents succeed, where they fail, and what organizational changes teams need to make.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">Thoughtworks</span>
+        <span class="tag">Agentic</span>
+        <span class="tag">SDLC</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most agentic AI content focuses on demos and benchmarks. Thoughtworks brings the enterprise consulting perspective: what actually works when you try to use coding agents on real enterprise projects with messy requirements, legacy codebases, and compliance constraints. For engineering teams evaluating agent adoption, this fills the gap between 'agent writes hello world app' and 'agent contributes to a 500K-line enterprise monolith.' The specification-to-production framing is particularly valuable because it addresses the full chain, not just the coding step — requirements interpretation, architecture decisions, testing strategy, and deployment verification.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Evaluating where agentic AI fits in enterprise software delivery</li>
+          <li>Understanding failure modes when agents meet real-world codebases</li>
+          <li>Planning organizational changes for agent-augmented development</li>
+          <li>Building production-grade agent workflows beyond demo-quality output</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Thoughtworks, published September 3, 2026</li>
+          <li>Draws on enterprise consulting experience across multiple clients</li>
+          <li>Covers full spec-to-production lifecycle, not just code generation</li>
+          <li>Thoughtworks is a leading technology consultancy with enterprise credibility</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.thoughtworks.com/insights/blog/generative-ai/from-specification-to-production-building-enterprise-software-with-agentic-ai">Thoughtworks Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://code.visualstudio.com/updates/v1_136">VS Code 1.136 Ships Agent Merge and Opens the Agent Host Protocol: A Complete PR Loop Handed to an Agent</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Microsoft shipped VS Code 1.136 on September 2 with two headline features. Agent Merge is a built-in agent that autonomously handles the full PR merge loop: reads review feedback, fixes issues, resolves merge conflicts, reruns CI, and repeats until the PR is clean — then merges it or drops it into your merge queue. The Agent Host Protocol (AHP) goes open, using JSON-RPC and immutable state with pure reducers, allowing any AI harness (Copilot, Claude, Codex, or custom) to integrate into VS Code's agent runtime with persistent sessions and synchronized state.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">VS Code</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Agent</span>
+        <span class="tag">Protocol</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Agent Merge is the first IDE-native agent that closes the entire PR feedback loop rather than just opening it. The typical cycle — push code, get review comments, fix them, wait for CI, fix CI, merge — is one of the biggest time sinks in software development. Handing that complete loop to an agent while you move on to the next task is a significant workflow change. But the bigger story is AHP going open: any team can now build a custom AI agent that plugs into VS Code's runtime using the same protocol Copilot uses. This means enterprise teams building internal agents, domain-specific coding tools, or specialized review bots can run them as first-class citizens in VS Code, not as awkward extensions. The combination of Agent Merge (showing what's possible) and open AHP (enabling anyone to build similar agents) is a strategic play to make VS Code the universal agent host.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Autonomous PR merge: review fix, CI repair, conflict resolution, and merge</li>
+          <li>Building custom enterprise AI agents on VS Code's open agent runtime</li>
+          <li>Persistent agent sessions that survive window reloads and disconnects</li>
+          <li>Multi-provider agent hosting (Copilot, Claude, Codex) in one IDE</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Microsoft, VS Code 1.136 shipped September 2, 2026</li>
+          <li>Agent Merge in preview with opt-in setting</li>
+          <li>AHP ships as open standard with JSON-RPC</li>
+          <li>Covered by byteiota, NTCompatible</li>
+          <li>VS Code has 14M+ monthly active users</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://code.visualstudio.com/updates/v1_136">VS Code Release Notes</a></li>
+          <li><a href="https://byteiota.com/vs-code-1-136-agent-merge-ships-with-open-agent-protocol/">byteiota Analysis</a></li>
+          <li><a href="https://www.ntcompatible.com/story/visual-studio-code-1136-ships-agent-host-open-ahp-protocol-and-quick-hotfix/">NTCompatible</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/deepseek-ai/DeepSeek-Harness">DeepSeek Harness Passes 206K GitHub Stars: The Plugin-First Architecture That Swallowed Claude Code and Codex</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">DeepSeek Harness (dsh), launched August 13, has reached 206K+ GitHub stars — now the most-starred open-source coding agent on the platform. Built on the Cordis framework, everything is a swappable plugin: the model adapter, tool registry, sandbox, session log, agent loop, and UI. Mount a plugin, unload it, and its registrations automatically unwind. The harness now runs Claude Code and OpenAI Codex as plugins, meaning users can access any model's capabilities through a single unified interface. A single command (npx @deepseek-ai/dsh web) starts a browser-based UI.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">DeepSeek</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">Plugin Architecture</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 'everything is a plugin' architecture solves the biggest pain point in the coding agent space: vendor lock-in. When your model is just a plugin, quarterly model changes become configuration changes rather than tool migrations. DeepSeek Harness running Claude Code and Codex as plugins is a particularly telling development — it means the harness layer is separating from the model layer in the same way browsers separated from search engines. For teams standardizing on a coding agent, this architecture lets them commit to a workflow without committing to a model. The 206K stars in three weeks also signals that the developer community strongly prefers the open, composable approach over proprietary agents. For engineering leads, the question is shifting from 'which coding agent?' to 'which harness, and which models plugged into it?'</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Unified coding agent that runs any model as a plugin</li>
+          <li>Vendor-neutral agent harness for teams that switch models quarterly</li>
+          <li>Running Claude Code and Codex capabilities through a single interface</li>
+          <li>Building custom agent workflows with composable, swappable components</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>206K+ GitHub stars in three weeks (fastest to 200K)</li>
+          <li>22,000 stars in under 90 minutes at launch — a GitHub record</li>
+          <li>Runs Claude Code and Codex as plugins</li>
+          <li>Built on Cordis: everything-is-a-plugin framework</li>
+          <li>Active community on X praising the architecture</li>
+          <li>Covered by byteiota, Pasquale Pillitteri</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/deepseek-ai/DeepSeek-Harness">GitHub Repository</a></li>
+          <li><a href="https://byteiota.com/deepseek-harness-the-plugin-first-coding-agent-breaking-records/">byteiota Deep Dive</a></li>
+          <li><a href="https://pasqualepillitteri.it/en/news/13655/deepseek-harness-200k-stars-claude-code-codex-plugins">Pillitteri Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://vitest.dev/blog/vitest-5">Vitest 5.0: Up to 10x Faster Startup, New Benchmark Suite, and ESM-First Testing for the Modern JS Stack</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Vitest 5.0 shipped on September 3 with performance as the main focus. The release includes a new benchmark suite (vitest-dev/benchmarks) measuring everything from 5-file utility packages to 1,280-module enterprise monoliths. Startup performance improved dramatically for large projects. The release also brings improved ESM support, new APIs for test composition, and contributions from over 790 contributors. Vitest is now the default test runner for most Vite-based projects and growing adoption in non-Vite ecosystems.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Testing</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Vitest</span>
+        <span class="tag">Performance</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Test runner performance matters more than ever because AI-generated code needs more testing, not less. When agents write code at 10x speed, your test suite becomes the bottleneck — both for CI and for the agent's own feedback loop. Vitest 5.0's performance focus (up to 10x faster startup for large monorepos) directly addresses this: faster tests mean faster agent iteration cycles. The benchmark suite is also noteworthy — it gives teams concrete data for comparing test runner performance on project shapes similar to their own. For frontend and full-stack teams on Vite, this is a straightforward upgrade. For teams not yet on Vitest, the performance gap with Jest and other runners is now large enough to reconsider.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Faster CI pipelines for large JavaScript/TypeScript projects</li>
+          <li>Speed up agent coding feedback loops with faster test execution</li>
+          <li>ESM-first testing for modern JavaScript toolchains</li>
+          <li>Benchmarking test runner performance on your specific project shape</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From the Vitest team / VoidZero, released September 3, 2026</li>
+          <li>790+ contributors to Vitest Core</li>
+          <li>Default test runner for Vite ecosystem</li>
+          <li>Major version with breaking changes and migration guide</li>
+          <li>New vitest-dev/benchmarks suite for transparent performance comparison</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://vitest.dev/blog/vitest-5">Vitest Blog</a></li>
+          <li><a href="https://github.com/vitest-dev/vitest/releases/tag/v5.0.0">GitHub Release</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://aws.amazon.com/blogs/industries/building-a-production-ai-agent-on-aws-a-six-pillar-walkthrough/">AWS Publishes Six-Pillar Guide for Building Production AI Agents on Bedrock AgentCore</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">AWS published a comprehensive walkthrough on September 3 for building production-grade AI agents on Amazon Bedrock AgentCore. The guide defines six pillars: identity and access management, guardrails and safety, memory and context management, observability and tracing, cost controls and budgeting, and multi-agent orchestration. Each pillar includes specific AWS services, configuration patterns, and architectural decisions. The guide positions Bedrock AgentCore as the managed runtime for enterprise agent deployments.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Bedrock</span>
+        <span class="tag">AgentCore</span>
+        <span class="tag">Production</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is AWS's first end-to-end production agent architecture guide, and it reveals what Amazon considers the minimum viable infrastructure for running agents in production. The six-pillar framework is useful even for teams not on AWS: identity/access, guardrails, memory, observability, cost controls, and multi-agent orchestration are the same concerns every production agent deployment faces. For teams already on AWS, this provides prescriptive guidance — not just 'use guardrails' but which specific AWS services to configure and how. The cost controls pillar is particularly practical: most agent deployments blow through budgets because there's no mechanism to cap spend per agent task.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Enterprise agent deployment on AWS with production-grade guardrails</li>
+          <li>Implementing cost controls and budget caps for agent task execution</li>
+          <li>Multi-agent orchestration with identity scoping on Bedrock AgentCore</li>
+          <li>Building observability and tracing for agentic AI workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From AWS, published September 3, 2026</li>
+          <li>Covers six production pillars with specific service configurations</li>
+          <li>Part of AWS's Bedrock AgentCore platform strategy</li>
+          <li>Companion to the AI-driven development lifecycle blog post</li>
+          <li>From the largest cloud provider's official blog</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://aws.amazon.com/blogs/industries/building-a-production-ai-agent-on-aws-a-six-pillar-walkthrough/">AWS Blog</a></li>
+          <li><a href="https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/">Bedrock AgentCore Dev Lifecycle</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://blogs.vmware.com/cloud-foundation/2026/09/03/announcing-general-availability-of-vmware-cloud-foundation-9-1-1/">VMware Cloud Foundation 9.1.1 GA: Centralized GitOps for AI-Ready Enterprise Infrastructure</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Broadcom released VMware Cloud Foundation 9.1.1 to general availability on September 3, building on the VCF 9.1 launch from May. The headline capability is centralized GitOps at enterprise scale — managing infrastructure lifecycle through Git-based workflows rather than manual provisioning. The release targets organizations provisioning AI-ready infrastructure (GPU pools, high-bandwidth networking, large storage clusters) where manual processes can't keep up with the pace of AI workload deployment.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">VMware</span>
+        <span class="tag">GitOps</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">AI Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The collision between AI infrastructure demand and traditional enterprise provisioning is real: teams need GPU pools, high-bandwidth fabrics, and specialized storage clusters deployed in days, not weeks. VCF 9.1.1's centralized GitOps approach applies the same declarative, version-controlled workflows that work for application deployment to infrastructure lifecycle management. For platform engineering teams in VMware shops, this eliminates the bottleneck where AI teams request infrastructure and wait weeks for manual provisioning. The timing matters because enterprise AI workload deployment is accelerating — most organizations are past proof-of-concept and need infrastructure provisioning that scales with their model training and serving demands.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Git-based infrastructure lifecycle management at enterprise scale</li>
+          <li>Rapid provisioning of AI-ready infrastructure (GPU pools, networking)</li>
+          <li>Declarative, version-controlled infrastructure changes with audit trails</li>
+          <li>Scaling infrastructure operations to match AI workload demand</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Broadcom/VMware, GA September 3, 2026</li>
+          <li>Follows VCF 9.1 launch at VMware Explore</li>
+          <li>Centralized GitOps for enterprise infrastructure lifecycle</li>
+          <li>Targets AI-ready infrastructure provisioning</li>
+          <li>VMware has significant enterprise market share</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blogs.vmware.com/cloud-foundation/2026/09/03/announcing-general-availability-of-vmware-cloud-foundation-9-1-1/">VMware Blog</a></li>
+          <li><a href="https://blogs.vmware.com/cloud-foundation/2026/09/03/from-bottleneck-to-breakthrough-centralizing-gitops-at-enterprise-scale-with-vcf-9-1-1/">GitOps Deep Dive</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-09-03-codeql-2-26-4-improves-github-actions-security-detections/">CodeQL 2.26.4: GitHub Actions Security Detections and Go 1.27 Support</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">GitHub released CodeQL 2.26.4 on September 3, the static analysis engine behind GitHub code scanning. The release adds support for Go 1.27, improves alert locations for more precise issue identification, and significantly enhances security detections for GitHub Actions workflows. The Actions security improvements detect common misconfigurations and vulnerabilities in CI/CD pipelines that can lead to supply chain attacks.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Security</span>
+        <span class="tag">CodeQL</span>
+        <span class="tag">CI/CD</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>GitHub Actions has become the default CI/CD platform for open source and many enterprises, but Actions workflow security is still poorly understood. Most developers write workflows that inadvertently expose secrets, trust untrusted input, or allow fork-based PRs to run privileged workflows. CodeQL now detecting these patterns automatically fills a critical gap — supply chain attacks via CI/CD pipelines are increasingly common, and most teams don't have the security expertise to audit their own workflows. The Go 1.27 support is also notable: Go is the language of choice for infrastructure and cloud-native tooling, and keeping CodeQL current with Go releases ensures security analysis coverage for the tools that manage production infrastructure.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Automated detection of GitHub Actions security misconfigurations</li>
+          <li>Supply chain security for CI/CD pipeline definitions</li>
+          <li>Go 1.27 static analysis for infrastructure and cloud-native code</li>
+          <li>Precise security alert locations for faster remediation</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From GitHub, released September 3, 2026</li>
+          <li>CodeQL powers security scanning for millions of repositories</li>
+          <li>Addresses documented CI/CD supply chain attack vectors</li>
+          <li>Go 1.27 support for infrastructure tooling coverage</li>
+          <li>Part of GitHub's broader code security platform</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-09-03-codeql-2-26-4-improves-github-actions-security-detections/">GitHub Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
