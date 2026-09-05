@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — September 05, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">September 05, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Anthropic ships Claude Fable 5.1 and Mythos 5.1 — 25% cheaper for typical workloads (up to 45% for agentic), with Enterprise Frontier Safeguards for complete customer-controlled privacy and 60% fewer false positives in cybersecurity</a></li>
+      <li><a href="https://www.deeplearning.ai/the-batch/ox-alpha-revealed-as-glm-5-3-flash">Z.ai reveals Ox Alpha as GLM-5.3-Flash — a 320B-parameter vision-language model served anonymously on Chinese-made chips for a week before anyone knew what it was, now open-weight under MIT</a></li>
+      <li><a href="https://byteiota.com/gitspawn-ai-coding-agents-hit-by-git-config-rce-flaw/">GitSpawn disclosure: 8 RCE vulnerabilities across 7 coding agents (Claude Code, Codex, Cursor, Goose, Hermes, Qwen Code, Grok Build) via malicious git config — 4 still unpatched</a></li>
+      <li><a href="https://byteiota.com/opencode-hits-165k-stars-the-open-source-terminal-coding-agent-that-beat-claude-code/">OpenCode crosses 165K GitHub stars to become the most-starred open-source coding agent, surpassing Claude Code's 122K — MIT-licensed, provider-agnostic, terminal-native</a></li>
+      <li><a href="https://techcrunch.com/2026/09/01/sequoia-incubated-empirik-launches-with-21m-to-predict-outages-before-they-happen/">Sequoia-incubated Empirik launches with $21M to build the autonomous infrastructure engineer — tracks system changes and predicts outage ripple effects before they happen</a></li>
+      <li><a href="https://llm-d.ai/blog/llm-d-v0.9-hardened-for-scale">llm-d v0.9 ships production-hardened inference control plane: HA router, GPU utilization-aware routing, KEDA autoscaling, and support for GB200, GB300, Intel XPU, ROCm, and TPU v7</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Anthropic Ships Claude Fable 5.1 and Mythos 5.1: 25% Cheaper, Enterprise-Grade Privacy, and Fewer False Positives</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Anthropic released Claude Fable 5.1 and Claude Mythos 5.1 in September 2026. Fable 5.1 is generally available; Mythos 5.1 is restricted to trusted access programs for cybersecurity and life sciences. Key improvements: 25% cost reduction for typical workloads (up to 45% for agentic work) via cheaper cache reads, Enterprise Frontier Safeguards (EFS) that store data in customer-controlled cloud infrastructure for complete privacy, and 60% fewer false positives in cybersecurity safeguards. Fable 5.1 can now discover software vulnerabilities (though not develop exploits). Mythos 5.1's biology capabilities will be available through a US government partnership program.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">Security</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The cost reduction specifically targets agentic workflows — up to 45% cheaper for the cache-heavy, multi-step patterns that coding agents generate. This directly lowers the cost ceiling for teams running Claude in autonomous loops. The Enterprise Frontier Safeguards are architecturally significant: instead of Anthropic promising not to retain data, customers control the infrastructure where data lives. For enterprises that couldn't adopt frontier models due to data residency requirements, this removes the blocker. The cybersecurity improvements (fewer false positives, vulnerability discovery) address the #1 enterprise complaint about safety-tuned models: they block too much legitimate security work.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Cost-efficient agentic coding workflows with up to 45% savings on cache-heavy patterns</li>
+          <li>Enterprise deployment with customer-controlled data residency via EFS</li>
+          <li>Software vulnerability discovery without exploit generation</li>
+          <li>Cybersecurity research with reduced false positive friction</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Anthropic, released September 2026</li>
+          <li>Fable 5.1 and Mythos 5.1 are described as world's most advanced models for coding and knowledge work</li>
+          <li>Enterprise Frontier Safeguards launching later this fall</li>
+          <li>US government partnership for biology access program</li>
+          <li>25-45% cost reduction for existing customers</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Anthropic Announcement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.deeplearning.ai/the-batch/ox-alpha-revealed-as-glm-5-3-flash">Z.ai Reveals Ox Alpha as GLM-5.3-Flash: A Frontier Vision-Language Model Served Anonymously on Chinese-Made Chips</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Z.ai revealed that Ox Alpha — the anonymous model that became the most-used on OpenRouter for over a week — is actually GLM-5.3-Flash, a 320B-parameter (18B active) vision-language model. The model uses a hybrid mixture-of-experts architecture combining linear and sparse attention, handles up to 1M token context, and scored 57 on the Artificial Analysis Intelligence Index. In a notable geopolitical detail, Z.ai served the entire free preview exclusively on Chinese-made chips. Weights are now available under MIT license at $0.15/$0.03/$0.50 per million input/cached/output tokens.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Z.ai</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Vision-Language</span>
+        <span class="tag">China</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Two stories in one. First, the technical: GLM-5.3-Flash is a genuinely competitive open-weight vision-language model — scoring third among all models on real-world knowledge work tasks, with a 1M token context window and MIT license. For teams building multimodal agents or needing self-hosted vision capabilities, this is immediately practical. Second, the geopolitical: Z.ai proved it could serve a frontier-competitive model at massive scale using only Chinese-manufactured chips, challenging the assumption that US export controls have meaningfully constrained Chinese AI capabilities. For engineering leaders making infrastructure decisions, the chip independence story raises questions about supply chain assumptions.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosted frontier-class vision-language inference under MIT license</li>
+          <li>Multimodal agent workflows with text, image, and video input</li>
+          <li>Cost-efficient API access at $0.15/M input tokens with reasoning levels</li>
+          <li>Long-context document and video understanding with 1M token window</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Most-used model on OpenRouter for over a week while anonymous</li>
+          <li>57 on Artificial Analysis Intelligence Index — third among all models</li>
+          <li>Best open-weight model on GDPval-AA v2</li>
+          <li>320B total / 18B active parameters with 1M context</li>
+          <li>MIT license, weights freely available</li>
+          <li>Covered by DeepLearning.ai The Batch, published September 4</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.deeplearning.ai/the-batch/ox-alpha-revealed-as-glm-5-3-flash">DeepLearning.ai The Batch</a></li>
+          <li><a href="https://z.ai/blog/glm-5.3-flash">Z.ai Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.databricks.com/blog/announcing-databricks-big-book-agentops">Databricks Publishes the Big Book of AgentOps: The Operating Discipline for Production AI Agents</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Databricks published the Big Book of AgentOps on September 2, defining AgentOps as the operating discipline for building, deploying, and improving AI agents in production. The guide covers architecture, evaluation, observability, governance, security, and cost management as a repeatable process. It positions AgentOps as the successor to MLOps and LLMOps — extending operational discipline to systems that reason, use tools, and take autonomous action. The book addresses the specific operational questions teams face: result correctness, action traceability, data access control, multi-call cost management, and production readiness decisions.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">AgentOps</span>
+        <span class="tag">Production</span>
+        <span class="tag">Enterprise</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Every team deploying AI agents hits the same wall: the model works in demos but breaks in production because there's no operational framework around it. Databricks' AgentOps guide fills this gap by codifying what 'production-grade' means for agents — not just the model, but the tools, permissions, cost controls, and observability around it. The MLOps → LLMOps → AgentOps progression is useful framing: each layer adds complexity (tool calls, multi-step reasoning, autonomous action) that the previous discipline didn't address. For platform engineering teams building agent infrastructure, this provides a checklist of what 'done' looks like beyond 'the agent produces correct output.'</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building production-grade agent deployment pipelines with observability</li>
+          <li>Implementing cost controls and budget management for multi-call agent workflows</li>
+          <li>Establishing governance frameworks for autonomous AI agents</li>
+          <li>Evaluating agent correctness beyond model accuracy</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Databricks, published September 2, 2026</li>
+          <li>Comprehensive guide covering architecture through governance</li>
+          <li>Positions AgentOps as successor to MLOps and LLMOps</li>
+          <li>From the leading data and AI platform company</li>
+          <li>Addresses documented enterprise agent deployment challenges</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.databricks.com/blog/announcing-databricks-big-book-agentops">Databricks Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://byteiota.com/gitspawn-ai-coding-agents-hit-by-git-config-rce-flaw/">GitSpawn: 8 RCE Vulnerabilities Across 7 AI Coding Agents via Malicious Git Config — 4 Still Unpatched</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Security researchers at Manifold Security disclosed GitSpawn, a class of 8 vulnerabilities across 7 AI coding agents that allow remote code execution the moment you open a malicious repository — no prompt, no approval click. Claude Code, OpenAI Codex, Cursor, Goose, Hermes, Qwen Code, and Grok Build are all affected. The attack exploits Git's core.fsmonitor setting, a legitimate performance feature that executes a shell command on every git status/diff. Since coding agents run these commands on startup to gather context, a malicious .git/config executes attacker code as the user before any sandbox or approval prompt activates. Four of eight vulnerabilities remained unpatched as of September 1.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">DevTools</span>
+        <span class="tag">Vulnerability</span>
+        <span class="tag">Git</span>
+        <span class="tag">Coding Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the most significant security disclosure in the coding agent space to date. The attack surface is fundamental: every coding agent needs to run git commands for context, and Git's trust model assumes the repository is trusted. The fix is simple (git config --global core.fsmonitor false), but the vulnerability reveals a systemic blind spot — agent developers treated their sandboxes as security boundaries while spawning unsandboxed subprocesses that inherit full user privileges. VS Code fixed this exact class of bug in 2021, meaning the prior art existed but wasn't consulted. For any team using coding agents on untrusted repositories (open-source contributions, code review, CI/CD), this is an immediate action item.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Immediate mitigation: git config --global core.fsmonitor false</li>
+          <li>Auditing coding agent security for untrusted repository workflows</li>
+          <li>Reviewing CI/CD pipelines that use coding agents on external PRs</li>
+          <li>Understanding the gap between agent sandboxes and OS-level subprocess trust</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Disclosed by Manifold Security, September 2026</li>
+          <li>Affects 7 major coding agents: Claude Code, Codex, Cursor, Goose, Hermes, Qwen Code, Grok Build</li>
+          <li>4 of 8 vulnerabilities still unpatched as of September 1</li>
+          <li>Covered by byteiota, The Hacker News, CySecurity News</li>
+          <li>VS Code fixed the same class of bug in 2021 — documented prior art</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://byteiota.com/gitspawn-ai-coding-agents-hit-by-git-config-rce-flaw/">byteiota</a></li>
+          <li><a href="https://thehackernews.com/2026/09/malicious-git-configs-can-make-claude.html">The Hacker News</a></li>
+          <li><a href="https://www.cysecurity.news/2026/09/1-folder-was-all-it-took-security.html">CySecurity News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://byteiota.com/opencode-hits-165k-stars-the-open-source-terminal-coding-agent-that-beat-claude-code/">OpenCode Crosses 165K GitHub Stars: The Open-Source Terminal Coding Agent That Surpassed Claude Code</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenCode, the MIT-licensed terminal coding agent built by the SST team (now rebranded as Anomaly), crossed 165,000 GitHub stars — surpassing Claude Code's 122,000 to become the most-starred open-source coding agent. It features Plan/Build mode (plan implementation without touching files, then execute), LSP integration for real compiler feedback, support for 75+ providers with bring-your-own-key, and a fully terminal-native architecture. The project bet on terminal-first design in 2025 and won as remote development environments, multi-machine setups, and CLI workflows became the default in 2026.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">Terminal</span>
+        <span class="tag">SST</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>OpenCode's trajectory validates the terminal-first thesis for coding agents. IDE extensions made sense when AI was autocomplete; they don't hold up for long-running autonomous work across dozens of files on remote machines. The Plan/Build mode separation is a practical UX innovation — it addresses the 'agent rewrote 47 files without asking' problem by making the plan reviewable before execution. The 75+ provider support with bring-your-own-key means teams aren't locked to any vendor. For engineering teams standardizing on a coding agent, OpenCode's MIT license and provider agnosticism make it the default choice for teams that want ownership of their tooling.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Terminal-native autonomous coding on remote development environments</li>
+          <li>Plan/Build workflow for reviewable agent-generated implementations</li>
+          <li>Provider-agnostic coding agent for teams that switch models</li>
+          <li>Multi-machine development with a tool that runs anywhere there's a shell</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>165,000 GitHub stars — most-starred open-source coding agent</li>
+          <li>Surpassed Claude Code (122K stars)</li>
+          <li>MIT licensed, from SST/Anomaly team</li>
+          <li>75+ provider support with BYOK</li>
+          <li>Covered by byteiota as 'the agent that beat Claude Code'</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://byteiota.com/opencode-hits-165k-stars-the-open-source-terminal-coding-agent-that-beat-claude-code/">byteiota</a></li>
+          <li><a href="https://github.com/sst/opencode">GitHub Repository</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.infoq.com/news/2026/09/blume-docs-ai/">Blume: Zero-Config Docs Framework That Turns Markdown into an AI-Ready Website with llms.txt, MCP, and Doc Eval</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Blume, released as open source by Hayden Bleasel, is a zero-config documentation framework that renders a folder of Markdown into a complete docs site. Built on Astro and Vite, it requires Node.js 22.12+ and one Markdown file to start. The standout features are AI-native: sites automatically emit llms.txt and llms-full.txt, serve raw Markdown at any .md URL, can expose a hosted MCP server, and include 'blume eval' — a command that turns docs into a test suite where an agent answers questions using only the documentation and a judge grades the answers. The project has passed 1,300 GitHub stars and reached #7 on GitHub's TypeScript trending list.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Documentation</span>
+        <span class="tag">AI-Ready</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">MCP</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Documentation is the context window for coding agents, and most doc frameworks weren't designed for AI consumption. Blume's llms.txt output, raw Markdown URLs, and MCP server integration mean your docs are machine-readable by default — not an afterthought. The 'blume eval' feature is particularly clever: it converts your documentation into an automated test suite that fails in CI when the docs can't answer user questions. This inverts the usual docs quality problem — instead of hoping someone notices stale docs, the pipeline catches it. For any team using coding agents that need project context, having docs that are both human-readable and agent-consumable is increasingly table stakes.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Zero-config documentation sites that are AI-agent-ready out of the box</li>
+          <li>Automated doc quality testing via blume eval in CI pipelines</li>
+          <li>Exposing project documentation via MCP server for coding agents</li>
+          <li>llms.txt generation for LLM-friendly project context</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released by Hayden Bleasel, open source under MIT</li>
+          <li>1,300+ GitHub stars</li>
+          <li>#7 on GitHub TypeScript trending</li>
+          <li>Covered by InfoQ on September 5, 2026</li>
+          <li>Built on Astro and Vite — established ecosystem</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/09/blume-docs-ai/">InfoQ</a></li>
+          <li><a href="https://github.com/haydenbleasel/blume">GitHub Repository</a></li>
+          <li><a href="https://useblume.dev/docs/quickstart">Quickstart</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://techcrunch.com/2026/09/01/sequoia-incubated-empirik-launches-with-21m-to-predict-outages-before-they-happen/">Sequoia-Incubated Empirik Launches with $21M: The Autonomous Infrastructure Engineer That Predicts Outages</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Empirik emerged from stealth on September 1 with $21M in seed funding from Sequoia Capital, S32, Canapi, and Alumni Ventures. Founded by former Sequoia CDIO Avon Puri and IT leader Sudheer Dhurjati, with former Quantum Metric CPO and Salesforce observability VP Kartik Chandrayana as CEO, Empirik builds an autonomous infrastructure engineer that tracks system changes and infers their potential ripple effects across the entire infrastructure. It acts as an autonomous traffic cop — permitting low-risk changes, setting guardrails on larger ones, and flagging dangerous updates for human review.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Observability</span>
+        <span class="tag">AI</span>
+        <span class="tag">Startup</span>
+        <span class="tag">SRE</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most observability tools tell you what broke after it broke. Empirik's bet is that by tracking the graph of system changes and their dependencies, you can predict which changes will cause cascading failures before they propagate. The Sequoia incubation pedigree and the founding team's infrastructure experience (Salesforce, VMware, Rubrik) give this credibility beyond a typical seed-stage startup. For SRE and DevOps teams, the 'autonomous traffic cop' model — auto-approving low-risk, guardrailing medium-risk, escalating high-risk changes — maps directly to how experienced infrastructure engineers already think. The question is whether the change-graph approach can model real system dependencies accurately enough to be trusted.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Predicting infrastructure outages by tracking change dependency graphs</li>
+          <li>Autonomous change risk assessment for DevOps pipelines</li>
+          <li>Reducing SRE toil by auto-approving low-risk infrastructure changes</li>
+          <li>Preventing cascading failures from configuration and deployment changes</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>$21M seed from Sequoia Capital, S32, Canapi, Alumni Ventures</li>
+          <li>Incubated at Sequoia since 2023</li>
+          <li>CEO is former Quantum Metric CPO and Salesforce observability VP</li>
+          <li>Covered by TechCrunch, Yahoo Finance</li>
+          <li>Already deployed with early customers</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://techcrunch.com/2026/09/01/sequoia-incubated-empirik-launches-with-21m-to-predict-outages-before-they-happen/">TechCrunch</a></li>
+          <li><a href="https://empirik.ai/blog/introducing-empirik-the-autonomous-infrastructure-engineer">Empirik Blog</a></li>
+          <li><a href="https://sg.finance.yahoo.com/news/empirik-ai-emerges-stealth-21-165100888.html">Yahoo Finance</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://llm-d.ai/blog/llm-d-v0.9-hardened-for-scale">llm-d v0.9: Production-Hardened Inference Control Plane with HA Router, GPU-Aware Routing, and Multi-Accelerator Support</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">llm-d v0.9 shipped on August 28, moving the Kubernetes-native inference control plane from 'declared control plane' (v0.8) to 'proven at production scale.' The release adds router high availability with multi-EPP topology (standby replicas route traffic instead of returning 503), GPU utilization-aware routing that scores endpoints by actual compute usage rather than queue depth, graceful shutdown with --drain-timeout, a formal plugin stability lifecycle (Alpha/Beta/Stable), KEDA-based autoscaling replacing Prometheus Adapter, and new hardware support for GB200, GB300, Intel XPU, ROCm, and TPU v7. Diffusion model routing extends the control plane to image generation workloads.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Inference</span>
+        <span class="tag">GPU</span>
+        <span class="tag">MLOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Running LLM inference at scale on Kubernetes requires solving routing, autoscaling, and hardware abstraction — problems that vLLM and TGI don't address because they're serving engines, not control planes. llm-d fills this gap: it sits above the serving layer and handles the operational complexity of routing requests to the right endpoint based on actual GPU utilization, scaling capacity with KEDA, and surviving component failures without dropping traffic. The multi-accelerator support (NVIDIA, Intel, AMD, TPU) is practical for organizations with heterogeneous GPU fleets. The plugin stability lifecycle is a sign of maturity — distinguishing experimental extensions from production-ready features prevents the 'demo worked, production broke' cycle.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Production-grade LLM inference routing on Kubernetes with HA</li>
+          <li>GPU utilization-aware request distribution across heterogeneous fleets</li>
+          <li>Kubernetes-native autoscaling for LLM serving workloads via KEDA</li>
+          <li>Extending inference control plane to diffusion/image generation models</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From the llm-d project, v0.9 released August 28, 2026</li>
+          <li>Kubernetes-native inference control plane</li>
+          <li>Multi-accelerator: GB200, GB300, Intel XPU, ROCm, TPU v7</li>
+          <li>KEDA integration for Kubernetes-native autoscaling</li>
+          <li>Formal plugin stability lifecycle (Alpha/Beta/Stable)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://llm-d.ai/blog/llm-d-v0.9-hardened-for-scale">llm-d Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://ciq.com/press/fuzzball-4-2-gives-enterprises-one-platform-to-build-train-and-serve-their-own">Fuzzball 4.2: One Platform for Build, Train, and Serve with MCP Server for AI Agent Control</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">CIQ released Fuzzball 4.2 on September 3, positioning it as a single platform for enterprises to build, train, and serve their own AI models. The headline feature is a new MCP (Model Context Protocol) server that lets AI agents operate Fuzzball under explicit policy guardrails — agents can provision GPU clusters, launch training jobs, and manage serving endpoints while the MCP server enforces what the agent is allowed to do. The platform handles the full AI lifecycle from data preparation through model serving on enterprise infrastructure.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">MCP</span>
+        <span class="tag">AI Platform</span>
+        <span class="tag">GPU</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The MCP server integration is the interesting piece: it turns Fuzzball into infrastructure that AI agents can operate, not just infrastructure that humans manage through a UI. As organizations deploy more autonomous agents for infrastructure operations, having a policy-controlled interface between the agent and the platform prevents the 'agent provisioned 100 GPUs at 3 AM' scenario. The build-train-serve consolidation reduces the number of tools teams need to manage, and the explicit policy guardrails on agent actions address the governance concern that blocks most enterprises from giving agents infrastructure access.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>AI agent-controlled GPU cluster provisioning with policy guardrails</li>
+          <li>Consolidated build-train-serve pipeline on enterprise infrastructure</li>
+          <li>MCP-based infrastructure automation with explicit agent permissions</li>
+          <li>Enterprise AI model lifecycle management without multi-tool sprawl</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From CIQ, released September 3, 2026</li>
+          <li>MCP server for AI agent-controlled infrastructure operations</li>
+          <li>Full AI lifecycle: build, train, serve on enterprise infrastructure</li>
+          <li>Explicit policy guardrails for agent actions</li>
+          <li>Press release distribution across enterprise tech outlets</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://ciq.com/press/fuzzball-4-2-gives-enterprises-one-platform-to-build-train-and-serve-their-own">CIQ Press Release</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
