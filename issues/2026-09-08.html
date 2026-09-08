@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — September 08, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">September 08, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.xix.ai/ainews/mistral-small-4-launches-a-powerful-efficient-threeinone-open-source-model.html">Mistral open-sources Small 4: a 128-expert MoE (119B total, 60B active) that merges reasoning, vision, and coding into one Apache 2.0 model with 256K context and configurable reasoning intensity</a></li>
+      <li><a href="https://byteiota.com/opencode-hits-165k-stars-the-open-source-terminal-coding-agent-that-beat-claude-code/">OpenCode crosses 165K GitHub stars, surpassing Claude Code — the MIT-licensed terminal coding agent from SST/Anomaly is now the most-starred open-source coding agent</a></li>
+      <li><a href="https://tech-insider.org/grok-4-5-launch-coding-ai-agents-openai-anthropic-2026/">Grok 4.5 re-enters the spotlight: xAI's coding-focused model cuts per-task costs by up to 80% vs GPT-6 Astra and Claude, trading peak benchmark scores for speed and price</a></li>
+      <li><a href="https://www.infoq.com/news/2026/09/blume-docs-ai/">Blume ships as an AI-native docs framework: zero-config Markdown to website with llms.txt, hosted MCP server, and blume eval that turns docs into a test suite — 1,300+ GitHub stars, InfoQ coverage</a></li>
+      <li><a href="https://llm-d.ai/blog/llm-d-v0.9-hardened-for-scale">llm-d v0.9 hardens the Kubernetes-native LLM inference control plane: HA router, GPU utilization-aware routing, and support for GB200, GB300, Intel XPU, ROCm, and TPU v7</a></li>
+      <li><a href="https://sg.finance.yahoo.com/news/empirik-ai-emerges-stealth-21-165100888.html">empirik.ai emerges from stealth with $21M from Sequoia to build the autonomous infrastructure engineer — an AI agent that handles infrastructure changes end-to-end</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.xix.ai/ainews/mistral-small-4-launches-a-powerful-efficient-threeinone-open-source-model.html">Mistral Open-Sources Small 4: 128-Expert MoE That Merges Reasoning, Vision, and Coding into One Model</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Mistral AI open-sourced Mistral Small 4 under Apache 2.0 on September 7, a 128-expert mixture-of-experts model with 119B total parameters (60B active per token) and a 256K context window. Small 4 is the first model to unify three previously separate Mistral capabilities: Magistral (advanced reasoning), Pixtral (native multimodal/image understanding), and Devstral (coding and agent workflows). It features configurable reasoning intensity — toggle between low-latency responses (40% faster end-to-end) and deep-thinking mode (3x throughput improvement). Mistral is also a founding member of NVIDIA's newly launched Nemotron alliance.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Mistral</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">MoE</span>
+        <span class="tag">Multimodal</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Open-source models have forced developers to choose: do you want reasoning, vision, or coding? Mistral Small 4 eliminates that choice by shipping all three in one model under Apache 2.0. The 128-expert MoE architecture activates only 4 experts per token, keeping inference costs low while maintaining frontier-class capabilities across modalities. The configurable reasoning intensity is particularly practical for production: use low-latency mode for agent tool calls, switch to deep-thinking for complex multi-step problems. For teams self-hosting models, this replaces three separate deployments with one, simplifying infrastructure and reducing GPU costs. The Nemotron alliance membership signals Mistral's push into enterprise GPU optimization.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Unified multimodal + reasoning + coding deployment on a single self-hosted model</li>
+          <li>Configurable reasoning intensity for latency-sensitive vs. accuracy-critical workloads</li>
+          <li>Open-source alternative to proprietary multimodal models for enterprise data residency</li>
+          <li>Agent workflows combining vision, code generation, and complex reasoning</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Mistral AI, released September 7, 2026</li>
+          <li>Apache 2.0 open-source license</li>
+          <li>128-expert MoE: 119B total, 60B active per token</li>
+          <li>256K context window</li>
+          <li>Founding member of NVIDIA Nemotron alliance</li>
+          <li>Covered by xix.ai, multiple AI news outlets</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.xix.ai/ainews/mistral-small-4-launches-a-powerful-efficient-threeinone-open-source-model.html">xix.ai Coverage</a></li>
+          <li><a href="https://mistral.ai/news/mistral-small-4">Mistral Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://byteiota.com/opencode-hits-165k-stars-the-open-source-terminal-coding-agent-that-beat-claude-code/">OpenCode Crosses 165K GitHub Stars: The Open-Source Terminal Coding Agent That Surpassed Claude Code</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenCode, the MIT-licensed terminal coding agent built by SST (now rebranded as Anomaly), crossed 165,000 GitHub stars — surpassing Claude Code's 122,000 — making it the most-starred open-source coding agent. It is provider-agnostic (75+ providers), supports Plan/Build mode (generate a plan without touching files, then execute), and uses Language Server Protocol diagnostics as feedback loops. The agent reads, writes, edits files, and executes shell commands with real compiler error feedback rather than relying on pasted text.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">Terminal</span>
+        <span class="tag">MIT</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>OpenCode's star count reflects a structural shift: terminal-based coding agents beat IDE plugins for the workflows that matter in 2026. Remote development, multi-machine setups, and SSH sessions all favor a tool that runs anywhere you have a shell. The Plan/Build mode addresses the biggest developer complaint about coding agents — surprise rewrites. You review the plan before any file is touched. Provider-agnostic architecture means teams aren't locked into a single model vendor, and the MIT license means no usage restrictions. For developers who want the power of Claude Code with the freedom to choose their own model and modify the agent itself, OpenCode is the leading option.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Provider-agnostic terminal coding agent for remote development</li>
+          <li>Controlled code generation with Plan/Build review workflow</li>
+          <li>Self-hosted coding agent with no vendor lock-in</li>
+          <li>LSP-integrated agent that uses real compiler diagnostics</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>165,000 GitHub stars, surpassing Claude Code's 122K</li>
+          <li>From SST/Anomaly, MIT license</li>
+          <li>Provider-agnostic: 75+ model providers supported</li>
+          <li>byteiota coverage published September 8</li>
+          <li>Plan/Build mode for controlled agent execution</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://byteiota.com/opencode-hits-165k-stars-the-open-source-terminal-coding-agent-that-beat-claude-code/">byteiota Analysis</a></li>
+          <li><a href="https://github.com/anomaly-ai/opencode">GitHub Repository</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://tech-insider.org/grok-4-5-launch-coding-ai-agents-openai-anthropic-2026/">Grok 4.5 Re-Enters the Spotlight: xAI's Coding Model Cuts Per-Task Costs by 80% vs Rivals</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">xAI's Grok 4.5, a coding-focused model that shipped two months ago, is back in headlines as IBTimes and tech-insider.org report on independent benchmark data showing it cuts per-task coding costs by up to 80% compared to GPT-6 Astra and Claude models. The model trades peak benchmark scores for speed and price — it trails GPT-6 Astra and Claude Fable on absolute accuracy but completes tasks faster and cheaper. A $2.49 task on Grok 4.5 costs $11.80 on competing models. Available on xAI's API, it is positioned for enterprise teams where 'good enough and cheap' beats 'best but expensive' for routine coding work.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">xAI</span>
+        <span class="tag">Grok</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">Cost Optimization</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Not every coding task needs a frontier model. Grok 4.5 makes the explicit case that for day-to-day engineering work — refactoring, test writing, boilerplate generation — a model that is 80% cheaper and completes faster is the better choice even if it trails on peak benchmarks. The renewed coverage two months post-launch, based on independent benchmark data rather than launch-day hype, provides the kind of sustained validation that matters for enterprise procurement decisions. For teams running high-volume agentic workflows where cost scales linearly with task count, Grok 4.5 represents a fundamentally different price-performance point than GPT-6 Astra or Claude Fable.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>High-volume agentic coding workflows where cost matters more than peak accuracy</li>
+          <li>Routine engineering tasks: refactoring, test generation, boilerplate</li>
+          <li>Enterprise coding agent deployments optimizing for cost-per-task</li>
+          <li>Budget-constrained teams running continuous agent loops</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From xAI, launched July 2026, renewed coverage September 6-7</li>
+          <li>IBTimes coverage September 6</li>
+          <li>tech-insider.org 12-minute deep analysis September 7</li>
+          <li>80% cost reduction on comparable tasks vs rivals</li>
+          <li>Two months of independent benchmark data</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://tech-insider.org/grok-4-5-launch-coding-ai-agents-openai-anthropic-2026/">Tech Insider Analysis</a></li>
+          <li><a href="https://www.ibtimes.com/grok-45-launches-focus-coding-ai-agents-intensifying-race-openai-anthropic-3805120">IBTimes Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://www.infoq.com/news/2026/09/blume-docs-ai/">Blume: Zero-Config AI-Native Docs Framework with llms.txt, MCP Server, and Docs-as-Tests</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Blume, an MIT-licensed docs framework by Hayden Bleasel, turns a folder of Markdown into a complete documentation website with zero configuration. Built on Astro and Vite, it auto-generates llms.txt and llms-full.txt for AI consumption, can expose a hosted MCP server so coding agents can query your docs programmatically, and ships blume eval — a command that turns documentation into a test suite by having an agent answer user questions using only the docs, with a judge grading the answers. CI fails when the docs can't answer. The project has 1,300+ GitHub stars and reached #7 on GitHub's TypeScript trending list.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Documentation</span>
+        <span class="tag">AI</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Documentation has a new consumer: AI agents. Blume is the first docs framework designed around this reality. The llms.txt output means any LLM can ingest your docs without scraping. The MCP server means coding agents like Claude Code and Cursor can query your documentation as a tool. And blume eval flips documentation from a write-and-forget activity into a tested artifact — if your docs can't answer a realistic user question, your CI pipeline catches it. For teams whose documentation is consumed more by AI agents than by humans (which is increasingly common for API docs and SDK references), Blume treats AI-readability as a first-class output format, not an afterthought.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>AI-ready documentation that serves llms.txt and MCP endpoints</li>
+          <li>Docs-as-tests via blume eval to catch documentation gaps in CI</li>
+          <li>Zero-config Markdown-to-website for API and SDK documentation</li>
+          <li>MCP-queryable docs for coding agent workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>1,300+ GitHub stars, MIT license</li>
+          <li>#7 on GitHub TypeScript trending</li>
+          <li>InfoQ coverage September 5</li>
+          <li>Built on Astro and Vite</li>
+          <li>30+ built-in components</li>
+          <li>MCP server and llms.txt for AI consumption</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/09/blume-docs-ai/">InfoQ Coverage</a></li>
+          <li><a href="https://github.com/haydenbleasel/blume">GitHub Repository</a></li>
+          <li><a href="https://useblume.dev/docs/quickstart">Quickstart Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://blog.kilo.ai/p/kilo-for-jetbrains-a-multi-agent-control-room">Kilo Code Turns JetBrains into a Multi-Agent Control Room with Isolated Worktrees</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Kilo Code released a major update to its JetBrains plugin that turns the IDE into a multi-agent control room. Developers can now run multiple coding agents on different tasks simultaneously, with each agent getting its own isolated git worktree (separate branch, working directory, and uncommitted changes). The Agent Manager shows all running tasks in one IDE frame — no need for multiple windows. Agents can be started from a base branch, an existing branch, or by importing a GitHub PR URL directly. Results can be run using existing JetBrains Run Configurations, with diffs and PRs tracked inline. The plugin supports 600+ models.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">JetBrains</span>
+        <span class="tag">Coding Agent</span>
+        <span class="tag">Multi-Agent</span>
+        <span class="tag">IDE</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The multi-agent workflow has a coordination problem: two agents working on the same checkout will conflict. Kilo solves this at the git level by giving each agent its own worktree, which is the correct abstraction — it's how experienced developers already manage parallel work streams. The single-frame overview in JetBrains eliminates the context-switching tax of multiple IDE windows. For teams that prefer IDE-based workflows over terminal agents (and JetBrains has a large enterprise user base), this is the first tool to make parallel coding agents practical without leaving the IDE. The 600+ model support means teams aren't locked into a single provider.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running parallel coding agents on separate tasks in one JetBrains window</li>
+          <li>Isolated agent workspaces via git worktrees to prevent file conflicts</li>
+          <li>Importing and working on GitHub PRs with agent assistance in JetBrains</li>
+          <li>Multi-model agent workflows from within a single IDE</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Kilo AI, native Kotlin JetBrains plugin</li>
+          <li>Isolated git worktree per agent task</li>
+          <li>600+ model support</li>
+          <li>GitHub PR import and tracking</li>
+          <li>Follows native JetBrains split-mode architecture</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.kilo.ai/p/kilo-for-jetbrains-a-multi-agent-control-room">Kilo Blog</a></li>
+          <li><a href="https://kilo.ai/jetbrains">JetBrains Plugin</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://shipsafe.sh/blog/ship-safe-investigation-layer">Ship Safe 9.8 Adds an Evidence-Based Investigation Layer to Security Scanning</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Ship Safe 9.8 adds an investigation layer on top of its deterministic security scanner. After detection, the new layer runs bounded, cited passes to answer the developer's actual question: 'Is this finding real in this application?' Each finding now carries structured claims with verdicts (confirmed, likely, unresolved, refuted), rationale, and file-level citations. A fixed precedence system ranks evidence: reproduction outranks pattern matching, dataflow traces outrank model interpretation, and equal-rank disagreement resolves to unresolved rather than choosing the scarier answer. Citations that can't be resolved to actual files decide nothing.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">Security</span>
+        <span class="tag">Static Analysis</span>
+        <span class="tag">CI/CD</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Security scanners generate noise. The industry norm is to sort by severity and hope developers triage correctly. Ship Safe 9.8 takes a different approach: instead of just reporting what a rule matched, it investigates whether the finding is real in your specific codebase. The fixed precedence system is the key innovation — a reproduction proof outranks a pattern match, which outranks a model's interpretation. This means findings come with evidence chains, not just severity labels. For security teams drowning in false positives (which is most of them), this turns the scanner from a list of problems into a list of investigated conclusions. The 'citations must resolve' rule prevents the investigation layer from confabulating evidence.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Reducing security scanner false positives with evidence-based investigation</li>
+          <li>CI integration with findings that carry proof rather than just severity</li>
+          <li>Security review workflows with reproducible, citable evidence chains</li>
+          <li>Developer-friendly security scanning that answers 'is this real?'</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Ship Safe, released September 1, 2026</li>
+          <li>Evidence-based verdict system with fixed precedence</li>
+          <li>Structured claims with file-level citations</li>
+          <li>Deterministic scanner + investigation layer architecture</li>
+          <li>Published technical blog with detailed architecture</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://shipsafe.sh/blog/ship-safe-investigation-layer">Ship Safe Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://llm-d.ai/blog/llm-d-v0.9-hardened-for-scale">llm-d v0.9: Kubernetes-Native LLM Inference Control Plane Hardens for Production Scale</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">llm-d v0.9 ships production hardening for its Kubernetes-native LLM inference control plane. The router gains high availability with multi-EPP topology where standby replicas route traffic instead of returning 503. A formal plugin lifecycle (Alpha/Beta/Stable) gates experimental extensions behind --allow-experimental-plugins. GPU utilization-aware routing scores endpoints by actual compute usage, not just queue depth. KEDA replaces Prometheus Adapter as the autoscaling foundation. New hardware support lands for NVIDIA GB200/GB300, Intel XPU, AMD ROCm, and Google TPU v7. DisaggregatedSet revision routing makes prefill/decode rolling updates safe for the first time.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">LLM Inference</span>
+        <span class="tag">GPU</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Running LLM inference at scale on Kubernetes is an unsolved operational problem for most teams. llm-d v0.9 addresses the hardest parts: what happens when routers fail (HA topology), how to route based on actual GPU utilization rather than proxy metrics (utilization-aware routing), and how to update a disaggregated prefill/decode setup without dropping requests (revision routing). The multi-accelerator support (GB200, GB300, Intel XPU, ROCm, TPU v7) means teams aren't locked into one GPU vendor. The KEDA-based autoscaling aligns with Kubernetes-native patterns instead of requiring a custom Prometheus Adapter setup. For platform engineering teams running LLM inference in production, this is the open-source control plane moving from 'it works' to 'it works when things go wrong.'</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Production-grade LLM inference routing on Kubernetes with HA</li>
+          <li>Multi-accelerator inference deployments across NVIDIA, Intel, AMD, and Google hardware</li>
+          <li>GPU utilization-aware load balancing for inference endpoints</li>
+          <li>Safe rolling updates for disaggregated prefill/decode architectures</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>llm-d project, released August 28, 2026</li>
+          <li>HA router with multi-EPP topology</li>
+          <li>Support for 5 accelerator families: GB200, GB300, Intel XPU, ROCm, TPU v7</li>
+          <li>KEDA-based autoscaling</li>
+          <li>Formal plugin lifecycle with stability levels</li>
+          <li>Detailed technical blog post</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://llm-d.ai/blog/llm-d-v0.9-hardened-for-scale">llm-d Blog</a></li>
+          <li><a href="https://github.com/llm-d/llm-d">GitHub Repository</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://sg.finance.yahoo.com/news/empirik-ai-emerges-stealth-21-165100888.html">empirik.ai Emerges from Stealth with $21M from Sequoia to Build the Autonomous Infrastructure Engineer</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">empirik.ai emerged from stealth on September 1 with $21M in funding from Sequoia Capital, S32, Canapi, and Alumni Ventures. Founded by a former Salesforce infrastructure engineer, empirik is building an AI agent that handles infrastructure changes end-to-end — not just generating Terraform or Kubernetes configs, but understanding the full lifecycle of infrastructure changes including rollback, validation, and drift detection. The company positions itself as the 'autonomous infrastructure engineer' that sits between what coding agents can generate and what production infrastructure actually needs.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">AI Agent</span>
+        <span class="tag">Startup</span>
+        <span class="tag">DevOps</span>
+        <span class="tag">IaC</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Coding agents can generate Terraform. That was never the hard part. The hard part is everything around it: understanding the blast radius of a change, validating it against the current state, rolling it back when it breaks, and detecting drift after deployment. empirik is betting that infrastructure changes need a specialized agent, not a general-purpose coding agent with infrastructure tools bolted on. The Sequoia backing and $21M raise signal serious conviction in this thesis. For platform engineering teams evaluating how AI agents fit into their infrastructure workflows, empirik represents the 'vertical agent' approach — purpose-built for infrastructure rather than adapted from code generation.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Autonomous infrastructure change management with built-in rollback</li>
+          <li>End-to-end infrastructure lifecycle: generate, validate, deploy, monitor, drift-detect</li>
+          <li>Specialized infrastructure agent for platform engineering teams</li>
+          <li>Reducing the gap between code-generated infrastructure and production-safe deployment</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>$21M funding from Sequoia Capital, S32, Canapi, Alumni Ventures</li>
+          <li>Emerged from stealth September 1, 2026</li>
+          <li>Founded by former Salesforce infrastructure engineer</li>
+          <li>Covered by Yahoo Finance</li>
+          <li>Focused on end-to-end infrastructure change lifecycle</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://sg.finance.yahoo.com/news/empirik-ai-emerges-stealth-21-165100888.html">Yahoo Finance</a></li>
+          <li><a href="https://empirik.ai/blog/introducing-empirik-the-autonomous-infrastructure-engineer">empirik Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://edera.dev/stories/edera-1-12-workload-identity-azure-aks-bottlerocket">Edera 1.12: SPIFFE Workload Identity, Halved Image Storage, and Azure AKS Support for Container Isolation</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Edera 1.12 ships SPIFFE/SPIRE workload identity (Early Access), shared node image blobstore that cuts container image storage by roughly half, Azure AKS support (completing the three major managed Kubernetes services), and Bottlerocket support (Early Access). The SPIFFE integration gives workloads cryptographic, short-lived identities via an Edera workload attestor plugin. The shared blobstore eliminates the double-storage problem where Edera maintained its own image cache — images already on the node are never pulled twice, reducing registry egress and speeding up workload starts. A new capability model tightens privilege inside the platform itself.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Security</span>
+        <span class="tag">Containers</span>
+        <span class="tag">Identity</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Container isolation has always traded operational simplicity for security. Edera 1.12 attacks the friction that stops teams from adopting it. Shared image storage means you don't pay double the disk for security. Azure AKS support means it runs on all three major cloud Kubernetes services. SPIFFE workload identity means isolated workloads can participate in zero-trust architectures without workarounds. For AI and data teams running large container images on GPU nodes — where storage costs and startup latency are magnified — the shared blobstore improvement directly reduces infrastructure spend. The theme of the release is making strong isolation invisible enough that teams stop treating it as optional.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Strong container isolation on all three major managed Kubernetes services</li>
+          <li>Reducing image storage costs and startup latency for GPU workloads</li>
+          <li>Cryptographic workload identity for zero-trust container environments</li>
+          <li>Secure multi-tenant Kubernetes clusters for AI training and inference</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Edera, released September 4, 2026</li>
+          <li>Completes support for AWS EKS, GKE, and Azure AKS</li>
+          <li>SPIFFE/SPIRE workload identity in Early Access</li>
+          <li>~50% reduction in container image storage</li>
+          <li>Bottlerocket support in Early Access</li>
+          <li>Detailed technical blog with architecture explanation</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://edera.dev/stories/edera-1-12-workload-identity-azure-aks-bottlerocket">Edera Blog</a></li>
+          <li><a href="https://docs.edera.dev/reference/release-notes/">Release Notes</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
