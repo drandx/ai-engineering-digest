@@ -1,0 +1,169 @@
+{
+  "highlights": [
+    {"text": "Mercury 2.5 ships at 1,107 tokens/sec — diffusion LLMs go production-grade", "anchor": "ai-tools-and-models-0"},
+    {"text": "OpenHands 1.0 hits GA with Software-Agent-SDK and 77K GitHub stars", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Nex-AGI launches N2.5 Pro: a 397B computer-use agentic model, API-first", "anchor": "ai-tools-and-models-1"},
+    {"text": "context-mode crosses 20K stars by cutting AI agent context bloat 98%", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Karmada graduates from CNCF as enterprises scale multi-cluster AI workloads", "anchor": "infrastructure-and-production-0"},
+    {"text": "HyperFrames by HeyGen passes 42K stars: HTML-to-video for AI agents", "anchor": "developer-tools-and-frameworks-2"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "Mercury 2.5: Inception's Diffusion LLM Hits 1,107 Tokens/Sec with GPT-5.6 Luna-Class Quality",
+          "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-2-5",
+          "tldr": "Inception shipped Mercury 2.5, a diffusion-based LLM that generates 1,107 tokens/sec by producing and refining multiple tokens in parallel rather than sequentially — at roughly $0.80/M output tokens.",
+          "why_it_matters": "If your latency budget is the bottleneck (streaming chat, real-time code completion, agent inner loops), Mercury 2.5 is the first reasoning model that can keep up with human reading speed at frontier quality. Already live on OpenRouter.",
+          "traction": "high",
+          "traction_evidence": ["Available on OpenRouter API today", "Covered by BusinessWire, Gigazine, Shattered, and multiple AI outlets within 24h", "Benchmarks comparable to GPT-5.6 Luna at a fraction of the cost"],
+          "use_cases": ["Ultra-low-latency streaming chat and code completion", "Agent inner-loop reasoning where round-trip time compounds", "Cost-sensitive batch inference at production scale"],
+          "tags": ["LLM", "Diffusion", "Inference"],
+          "links": [
+            {"url": "https://openrouter.ai/inception/mercury-2.5", "label": "OpenRouter"},
+            {"url": "https://www.businesswire.com/news/home/20260908593295/en/Inception-Launches-Mercury-2.5-the-Next-Tier-of-Intelligence-for-Diffusion-LLMs", "label": "BusinessWire"},
+            {"url": "https://shattered.io/inception-mercury-2-5-diffusion-llm-2026/", "label": "Shattered"}
+          ]
+        },
+        {
+          "title": "Nex-AGI Ships N2.5 Pro: 397B Computer-Use Agentic Model, Live on APIs While Weights Stay Pending",
+          "url": "https://www.orcarouter.ai/blog/nex-n2-5-pro-launch",
+          "tldr": "Nex-AGI launched the N2.5 family — a 397B Pro model, a 35B Mini, and a 1.6T Max — built for agentic coding inside a visual feedback loop. Pro and Mini are live on OpenRouter; open weights under Apache 2.0 are promised but not yet released.",
+          "why_it_matters": "Computer-use models that can explore codebases, implement changes, and verify results visually are the next frontier for autonomous agents. N2.5 Pro competes directly with GPT-6 Astra's computer-use mode at a fraction of the cost.",
+          "traction": "medium",
+          "traction_evidence": ["Live on OpenRouter with free tier available", "HuggingFace model card published with 'weights coming soon'", "Covered by RuntimeWire and OrcaRouter on launch day"],
+          "use_cases": ["Autonomous coding with browser/IDE visual verification", "Computer-use agents for QA and integration testing", "Multi-modal agentic workflows combining code and screenshots"],
+          "tags": ["LLM", "Agents", "Computer Use"],
+          "links": [
+            {"url": "https://openrouter.ai/nex-agi/nex-n2.5-pro:free", "label": "OpenRouter (free)"},
+            {"url": "https://huggingface.co/nex-agi/Nex-N2.5-Pro", "label": "HuggingFace"},
+            {"url": "https://runtimewire.com/article/nex-n2-5-open-agent-models-35b-1-6t", "label": "RuntimeWire"}
+          ]
+        },
+        {
+          "title": "OUI-1: The First Diffusion Model Purpose-Built for Generative UI",
+          "url": "https://www.openui.com/blog/oui-1",
+          "tldr": "Thesys released OUI-1, a finetune of DiffusionGemma 26B that writes UI screens in openui-lang — a declarative format for agent-rendered interfaces. It scores 71.7% on their Generative UI Benchmark, 5.5x its base model, with only 4B active parameters.",
+          "why_it_matters": "AI agents responding with rich UI instead of plain text is a growing pattern. OUI-1 makes it runnable locally with a small model, giving frontend teams an alternative to prompt-engineering general-purpose LLMs for layout generation.",
+          "traction": "emerging",
+          "traction_evidence": ["Open weights on HuggingFace under thesysdev/OUI-1", "OpenUI repo at 8.4K GitHub stars", "First purpose-built model for this task category"],
+          "use_cases": ["AI agents that respond with interactive UI components", "Rapid prototyping of app screens from natural language", "Declarative UI generation in agentic workflows"],
+          "tags": ["AI", "Generative UI", "Open Weights"],
+          "links": [
+            {"url": "https://huggingface.co/thesysdev/OUI-1", "label": "HuggingFace"},
+            {"url": "https://github.com/thesysdev/openui", "label": "GitHub"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "OpenHands 1.0 Ships with Software-Agent-SDK: The 77K-Star AI Coding Agent Goes GA",
+          "url": "https://dev.to/jamilxt/openhands-just-hit-10-heres-how-to-run-it-on-your-own-machine-without-handing-over-the-keys-5666",
+          "tldr": "OpenHands, the open-source AI coding agent formerly known as OpenDevin, reached 1.0 with a new Software-Agent-SDK for building custom agents on top of its runtime. Fully self-hostable with 77K GitHub stars.",
+          "why_it_matters": "1.0 marks the shift from experimental to production-ready. The Agent-SDK means teams can extend OpenHands with custom tools, evaluations, and sandboxing — making it a viable Copilot alternative for orgs that need to keep code on-prem.",
+          "traction": "high",
+          "traction_evidence": ["77,312 GitHub stars", "159 commits between 0.62.0 and 1.0.0 touching 300 files", "Active community with self-hosting guides and enterprise adoption"],
+          "use_cases": ["Self-hosted AI coding agent for regulated environments", "Building custom agent workflows with the SDK", "Alternative to cloud-hosted coding assistants"],
+          "tags": ["AI Agents", "Open Source", "Coding"],
+          "links": [
+            {"url": "https://github.com/OpenHands/OpenHands", "label": "GitHub"},
+            {"url": "https://aidevsetup.com/insider/openhands-1-0-0-software-agent-sdk-marks-maturation-point", "label": "AI Dev Setup"}
+          ]
+        },
+        {
+          "title": "context-mode Crosses 20K Stars: Cut AI Coding Agent Context Bloat by 98% Across 17 Platforms",
+          "url": "https://github.com/mksglu/context-mode",
+          "tldr": "context-mode is a TypeScript tool that sandboxes tool output from AI coding agents, reducing context window consumption by 98%. It persists session memory and enforces routing via MCP and hooks across Claude Code, Cursor, Copilot, and 14 more platforms.",
+          "why_it_matters": "Context window waste is the hidden tax on every AI coding session. At 20K stars in weeks, this solves a universal pain point: Claude Code alone eats 33K tokens on startup. Cutting that lets you work on larger codebases without hitting limits.",
+          "traction": "high",
+          "traction_evidence": ["20,331 GitHub stars with 1,475 forks", "Works across 17 AI coding platforms", "Benchmarked against real tool invocations from popular MCP servers"],
+          "use_cases": ["Reducing token costs for Claude Code, Cursor, and similar tools", "Enabling AI agents to work on larger repos without context overflow", "Session memory persistence across coding sessions"],
+          "tags": ["Developer Tools", "Context Engineering", "MCP"],
+          "links": [
+            {"url": "https://topaiproduct.com/2026/09/07/context-mode-hits-20900-stars-by-cutting-ai-coding-agent-context-bloat-98/", "label": "Top AI Product"}
+          ]
+        },
+        {
+          "title": "HyperFrames by HeyGen Passes 42K Stars: Write HTML, Render Video, Built for Agents",
+          "url": "https://github.com/heygen-com/hyperframes",
+          "tldr": "HeyGen's open-source framework turns HTML, CSS, and media into rendered video — designed so AI agents can create video content using web technologies they already know, without touching video editing software.",
+          "why_it_matters": "AI agents can write HTML in their sleep but can't click around Premiere. HyperFrames bridges that gap, making programmatic video creation accessible to any agent or developer who can write a web page.",
+          "traction": "high",
+          "traction_evidence": ["42,610 GitHub stars, 4,094 forks", "855 branches and 404 tags showing active development", "Apache 2.0 licensed with dedicated docs and playground"],
+          "use_cases": ["AI agents generating marketing/demo videos programmatically", "Automated video content pipelines from structured data", "Prototyping video layouts using familiar web technologies"],
+          "tags": ["Video", "AI Agents", "Open Source"],
+          "links": [
+            {"url": "https://hyperframes.heygen.com/introduction", "label": "Docs"},
+            {"url": "https://developers.heygen.com/hyperframes-overview", "label": "HeyGen Developer Docs"}
+          ]
+        },
+        {
+          "title": "Eclipse Enclave: Open-Source Sandbox for Running AI Coding Agents at Full Autonomy",
+          "url": "https://eclipsesource.com/blogs/2026/09/08/eclipse-enclave-sandbox-for-ai-coding-agents/",
+          "tldr": "Eclipse Foundation launched Enclave, an MIT-licensed sandbox that runs Claude, Codex, OpenCode, and other coding agents in isolated containers with controlled file and network access — so you can grant full autonomy without risking your host machine.",
+          "why_it_matters": "The biggest friction with autonomous coding agents is trust: you want them to run freely, but not on your actual machine. Enclave is the first Eclipse Foundation project addressing this, with institutional backing and a vendor-neutral approach.",
+          "traction": "emerging",
+          "traction_evidence": ["Official Eclipse Foundation project (approved May 2026)", "MIT licensed, supports Claude/Codex/OpenCode", "Detailed 9-minute technical writeup from the team"],
+          "use_cases": ["Running autonomous coding agents without host-machine risk", "CI/CD pipelines with sandboxed AI agent steps", "Enterprise agent deployment with controlled network policies"],
+          "tags": ["Security", "AI Agents", "Sandboxing"],
+          "links": [
+            {"url": "https://github.com/eclipse-enclave/enclave", "label": "GitHub"},
+            {"url": "https://enclave.eclipse.dev/", "label": "Project Site"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Karmada Graduates from CNCF: Multi-Cluster Kubernetes Orchestration Reaches Production Maturity",
+          "url": "https://www.cncf.io/announcements/2026/09/07/cloud-native-computing-foundation-announces-karmada-graduation/",
+          "tldr": "Karmada — the open-source multi-cluster, multi-cloud Kubernetes orchestration project — graduated from CNCF on September 3, completing its journey from sandbox (2021) through incubating (2023) to graduated status.",
+          "why_it_matters": "Enterprises running AI training and inference across hybrid infrastructure need multi-cluster orchestration that actually works. CNCF graduation means Karmada has passed production maturity review — it's now the default answer for cross-cluster K8s.",
+          "traction": "high",
+          "traction_evidence": ["CNCF Graduated project (highest maturity level)", "Covered by CNCF, PRNewswire, HPCwire, and heise on announcement", "Used by global enterprises for AI training at scale"],
+          "use_cases": ["Orchestrating AI workloads across multi-cloud GPU clusters", "Federating Kubernetes resources across regions for compliance", "Scaling inference deployments across hybrid on-prem/cloud infrastructure"],
+          "tags": ["Kubernetes", "CNCF", "Multi-Cluster"],
+          "links": [
+            {"url": "https://www.cncf.io/projects/karmada/", "label": "CNCF Project Page"},
+            {"url": "https://www.prnewswire.com/news-releases/cloud-native-computing-foundation-announces-karmada-graduation-302871945.html", "label": "PRNewswire"},
+            {"url": "https://www.heise.de/en/news/Kubernetes-orchestration-for-AI-model-training-with-Karmada-11445708.html", "label": "heise"}
+          ]
+        },
+        {
+          "title": "Eraser Open-Sources Its AI-Native Diagram Format: A Mermaid Replacement Built for LLMs",
+          "url": "https://www.eraser.io/blog/open-sourcing-eraser-diagrams",
+          "tldr": "Eraser open-sourced its coordinate-aware diagram format under MIT — a spec, reference renderer, and gallery designed for LLMs that outgrew Mermaid's limitations. Published as @eraserlabs/diagrams on npm.",
+          "why_it_matters": "Every AI coding agent that generates architecture diagrams hits Mermaid's walls. Eraser Diagrams is purpose-built for LLM output: coordinate-aware, visually consistent, and designed for the agentic workflow where a model describes and a renderer draws.",
+          "traction": "emerging",
+          "traction_evidence": ["MIT licensed with npm package published", "Eraser platform has established user base", "Addresses a documented pain point in AI-generated diagrams"],
+          "use_cases": ["AI agents generating architecture diagrams from code analysis", "Replacing Mermaid in documentation pipelines where LLMs author diagrams", "Building diagram-as-code workflows that render consistently"],
+          "tags": ["Diagrams", "Open Source", "AI"],
+          "links": [
+            {"url": "https://github.com/eraserlabs/eraser-diagrams", "label": "GitHub"},
+            {"url": "https://libraries.io/npm/@eraserlabs%2Fdiagrams", "label": "npm"}
+          ]
+        },
+        {
+          "title": "Dagster+ Hybrid Ships Full Kubernetes and Azure Support for Enterprise Data Plane Ownership",
+          "url": "https://dagster.io/blog/the-data-plane-is-yours-dagster-hybrid-on-kubernetes-and-azure",
+          "tldr": "Dagster published a detailed guide for deploying Dagster+ Hybrid on Kubernetes and Azure at enterprise scale — keeping the orchestration control plane in Dagster's cloud while all data processing runs in your own AKS cluster.",
+          "why_it_matters": "Data teams at regulated enterprises need orchestration that doesn't require sending data to a third party. Dagster+ Hybrid gives you managed scheduling and UI while your pipelines, secrets, and data stay in your own Azure VNet.",
+          "traction": "medium",
+          "traction_evidence": ["Dagster is a CNCF-adjacent project with strong enterprise adoption", "Detailed production deployment guide based on 'very large enterprise' deployment", "Helm chart and AKS agent documentation fully available"],
+          "use_cases": ["Enterprise data pipelines that must keep data in-VNet", "Hybrid orchestration where control plane is managed but execution is on-prem", "AI/ML training pipelines with data residency requirements"],
+          "tags": ["Data Engineering", "Kubernetes", "Azure"],
+          "links": [
+            {"url": "https://docs.dagster.io/deployment/dagster-plus/hybrid/azure", "label": "Azure Deployment Docs"},
+            {"url": "https://docs.dagster.io/deployment/dagster-plus/hybrid", "label": "Hybrid Overview"}
+          ]
+        }
+      ]
+    }
+  ]
+}

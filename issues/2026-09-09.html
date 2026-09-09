@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — September 09, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">September 09, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.inceptionlabs.ai/blog/introducing-mercury-2-5">Mercury 2.5 ships at 1,107 tokens/sec — diffusion LLMs go production-grade</a></li>
+      <li><a href="https://dev.to/jamilxt/openhands-just-hit-10-heres-how-to-run-it-on-your-own-machine-without-handing-over-the-keys-5666">OpenHands 1.0 hits GA with Software-Agent-SDK and 77K GitHub stars</a></li>
+      <li><a href="https://www.orcarouter.ai/blog/nex-n2-5-pro-launch">Nex-AGI launches N2.5 Pro: a 397B computer-use agentic model, API-first</a></li>
+      <li><a href="https://github.com/mksglu/context-mode">context-mode crosses 20K stars by cutting AI agent context bloat 98%</a></li>
+      <li><a href="https://www.cncf.io/announcements/2026/09/07/cloud-native-computing-foundation-announces-karmada-graduation/">Karmada graduates from CNCF as enterprises scale multi-cluster AI workloads</a></li>
+      <li><a href="https://github.com/heygen-com/hyperframes">HyperFrames by HeyGen passes 42K stars: HTML-to-video for AI agents</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.inceptionlabs.ai/blog/introducing-mercury-2-5">Mercury 2.5: Inception's Diffusion LLM Hits 1,107 Tokens/Sec with GPT-5.6 Luna-Class Quality</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Inception shipped Mercury 2.5, a diffusion-based LLM that generates 1,107 tokens/sec by producing and refining multiple tokens in parallel rather than sequentially — at roughly $0.80/M output tokens.</p>
+      <div class="article-meta">
+        <span class="tag">LLM</span>
+        <span class="tag">Diffusion</span>
+        <span class="tag">Inference</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>If your latency budget is the bottleneck (streaming chat, real-time code completion, agent inner loops), Mercury 2.5 is the first reasoning model that can keep up with human reading speed at frontier quality. Already live on OpenRouter.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Ultra-low-latency streaming chat and code completion</li>
+          <li>Agent inner-loop reasoning where round-trip time compounds</li>
+          <li>Cost-sensitive batch inference at production scale</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Available on OpenRouter API today</li>
+          <li>Covered by BusinessWire, Gigazine, Shattered, and multiple AI outlets within 24h</li>
+          <li>Benchmarks comparable to GPT-5.6 Luna at a fraction of the cost</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openrouter.ai/inception/mercury-2.5">OpenRouter</a></li>
+          <li><a href="https://www.businesswire.com/news/home/20260908593295/en/Inception-Launches-Mercury-2.5-the-Next-Tier-of-Intelligence-for-Diffusion-LLMs">BusinessWire</a></li>
+          <li><a href="https://shattered.io/inception-mercury-2-5-diffusion-llm-2026/">Shattered</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.orcarouter.ai/blog/nex-n2-5-pro-launch">Nex-AGI Ships N2.5 Pro: 397B Computer-Use Agentic Model, Live on APIs While Weights Stay Pending</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Nex-AGI launched the N2.5 family — a 397B Pro model, a 35B Mini, and a 1.6T Max — built for agentic coding inside a visual feedback loop. Pro and Mini are live on OpenRouter; open weights under Apache 2.0 are promised but not yet released.</p>
+      <div class="article-meta">
+        <span class="tag">LLM</span>
+        <span class="tag">Agents</span>
+        <span class="tag">Computer Use</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Computer-use models that can explore codebases, implement changes, and verify results visually are the next frontier for autonomous agents. N2.5 Pro competes directly with GPT-6 Astra's computer-use mode at a fraction of the cost.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Autonomous coding with browser/IDE visual verification</li>
+          <li>Computer-use agents for QA and integration testing</li>
+          <li>Multi-modal agentic workflows combining code and screenshots</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Live on OpenRouter with free tier available</li>
+          <li>HuggingFace model card published with 'weights coming soon'</li>
+          <li>Covered by RuntimeWire and OrcaRouter on launch day</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openrouter.ai/nex-agi/nex-n2.5-pro:free">OpenRouter (free)</a></li>
+          <li><a href="https://huggingface.co/nex-agi/Nex-N2.5-Pro">HuggingFace</a></li>
+          <li><a href="https://runtimewire.com/article/nex-n2-5-open-agent-models-35b-1-6t">RuntimeWire</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.openui.com/blog/oui-1">OUI-1: The First Diffusion Model Purpose-Built for Generative UI</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Thesys released OUI-1, a finetune of DiffusionGemma 26B that writes UI screens in openui-lang — a declarative format for agent-rendered interfaces. It scores 71.7% on their Generative UI Benchmark, 5.5x its base model, with only 4B active parameters.</p>
+      <div class="article-meta">
+        <span class="tag">AI</span>
+        <span class="tag">Generative UI</span>
+        <span class="tag">Open Weights</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>AI agents responding with rich UI instead of plain text is a growing pattern. OUI-1 makes it runnable locally with a small model, giving frontend teams an alternative to prompt-engineering general-purpose LLMs for layout generation.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>AI agents that respond with interactive UI components</li>
+          <li>Rapid prototyping of app screens from natural language</li>
+          <li>Declarative UI generation in agentic workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Open weights on HuggingFace under thesysdev/OUI-1</li>
+          <li>OpenUI repo at 8.4K GitHub stars</li>
+          <li>First purpose-built model for this task category</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://huggingface.co/thesysdev/OUI-1">HuggingFace</a></li>
+          <li><a href="https://github.com/thesysdev/openui">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://dev.to/jamilxt/openhands-just-hit-10-heres-how-to-run-it-on-your-own-machine-without-handing-over-the-keys-5666">OpenHands 1.0 Ships with Software-Agent-SDK: The 77K-Star AI Coding Agent Goes GA</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenHands, the open-source AI coding agent formerly known as OpenDevin, reached 1.0 with a new Software-Agent-SDK for building custom agents on top of its runtime. Fully self-hostable with 77K GitHub stars.</p>
+      <div class="article-meta">
+        <span class="tag">AI Agents</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Coding</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>1.0 marks the shift from experimental to production-ready. The Agent-SDK means teams can extend OpenHands with custom tools, evaluations, and sandboxing — making it a viable Copilot alternative for orgs that need to keep code on-prem.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosted AI coding agent for regulated environments</li>
+          <li>Building custom agent workflows with the SDK</li>
+          <li>Alternative to cloud-hosted coding assistants</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>77,312 GitHub stars</li>
+          <li>159 commits between 0.62.0 and 1.0.0 touching 300 files</li>
+          <li>Active community with self-hosting guides and enterprise adoption</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/OpenHands/OpenHands">GitHub</a></li>
+          <li><a href="https://aidevsetup.com/insider/openhands-1-0-0-software-agent-sdk-marks-maturation-point">AI Dev Setup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://github.com/mksglu/context-mode">context-mode Crosses 20K Stars: Cut AI Coding Agent Context Bloat by 98% Across 17 Platforms</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">context-mode is a TypeScript tool that sandboxes tool output from AI coding agents, reducing context window consumption by 98%. It persists session memory and enforces routing via MCP and hooks across Claude Code, Cursor, Copilot, and 14 more platforms.</p>
+      <div class="article-meta">
+        <span class="tag">Developer Tools</span>
+        <span class="tag">Context Engineering</span>
+        <span class="tag">MCP</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Context window waste is the hidden tax on every AI coding session. At 20K stars in weeks, this solves a universal pain point: Claude Code alone eats 33K tokens on startup. Cutting that lets you work on larger codebases without hitting limits.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Reducing token costs for Claude Code, Cursor, and similar tools</li>
+          <li>Enabling AI agents to work on larger repos without context overflow</li>
+          <li>Session memory persistence across coding sessions</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>20,331 GitHub stars with 1,475 forks</li>
+          <li>Works across 17 AI coding platforms</li>
+          <li>Benchmarked against real tool invocations from popular MCP servers</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://topaiproduct.com/2026/09/07/context-mode-hits-20900-stars-by-cutting-ai-coding-agent-context-bloat-98/">Top AI Product</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/heygen-com/hyperframes">HyperFrames by HeyGen Passes 42K Stars: Write HTML, Render Video, Built for Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">HeyGen's open-source framework turns HTML, CSS, and media into rendered video — designed so AI agents can create video content using web technologies they already know, without touching video editing software.</p>
+      <div class="article-meta">
+        <span class="tag">Video</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>AI agents can write HTML in their sleep but can't click around Premiere. HyperFrames bridges that gap, making programmatic video creation accessible to any agent or developer who can write a web page.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>AI agents generating marketing/demo videos programmatically</li>
+          <li>Automated video content pipelines from structured data</li>
+          <li>Prototyping video layouts using familiar web technologies</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>42,610 GitHub stars, 4,094 forks</li>
+          <li>855 branches and 404 tags showing active development</li>
+          <li>Apache 2.0 licensed with dedicated docs and playground</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://hyperframes.heygen.com/introduction">Docs</a></li>
+          <li><a href="https://developers.heygen.com/hyperframes-overview">HeyGen Developer Docs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://eclipsesource.com/blogs/2026/09/08/eclipse-enclave-sandbox-for-ai-coding-agents/">Eclipse Enclave: Open-Source Sandbox for Running AI Coding Agents at Full Autonomy</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Eclipse Foundation launched Enclave, an MIT-licensed sandbox that runs Claude, Codex, OpenCode, and other coding agents in isolated containers with controlled file and network access — so you can grant full autonomy without risking your host machine.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">Sandboxing</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The biggest friction with autonomous coding agents is trust: you want them to run freely, but not on your actual machine. Enclave is the first Eclipse Foundation project addressing this, with institutional backing and a vendor-neutral approach.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running autonomous coding agents without host-machine risk</li>
+          <li>CI/CD pipelines with sandboxed AI agent steps</li>
+          <li>Enterprise agent deployment with controlled network policies</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Eclipse Foundation project (approved May 2026)</li>
+          <li>MIT licensed, supports Claude/Codex/OpenCode</li>
+          <li>Detailed 9-minute technical writeup from the team</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/eclipse-enclave/enclave">GitHub</a></li>
+          <li><a href="https://enclave.eclipse.dev/">Project Site</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.cncf.io/announcements/2026/09/07/cloud-native-computing-foundation-announces-karmada-graduation/">Karmada Graduates from CNCF: Multi-Cluster Kubernetes Orchestration Reaches Production Maturity</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Karmada — the open-source multi-cluster, multi-cloud Kubernetes orchestration project — graduated from CNCF on September 3, completing its journey from sandbox (2021) through incubating (2023) to graduated status.</p>
+      <div class="article-meta">
+        <span class="tag">Kubernetes</span>
+        <span class="tag">CNCF</span>
+        <span class="tag">Multi-Cluster</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Enterprises running AI training and inference across hybrid infrastructure need multi-cluster orchestration that actually works. CNCF graduation means Karmada has passed production maturity review — it's now the default answer for cross-cluster K8s.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Orchestrating AI workloads across multi-cloud GPU clusters</li>
+          <li>Federating Kubernetes resources across regions for compliance</li>
+          <li>Scaling inference deployments across hybrid on-prem/cloud infrastructure</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>CNCF Graduated project (highest maturity level)</li>
+          <li>Covered by CNCF, PRNewswire, HPCwire, and heise on announcement</li>
+          <li>Used by global enterprises for AI training at scale</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.cncf.io/projects/karmada/">CNCF Project Page</a></li>
+          <li><a href="https://www.prnewswire.com/news-releases/cloud-native-computing-foundation-announces-karmada-graduation-302871945.html">PRNewswire</a></li>
+          <li><a href="https://www.heise.de/en/news/Kubernetes-orchestration-for-AI-model-training-with-Karmada-11445708.html">heise</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.eraser.io/blog/open-sourcing-eraser-diagrams">Eraser Open-Sources Its AI-Native Diagram Format: A Mermaid Replacement Built for LLMs</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Eraser open-sourced its coordinate-aware diagram format under MIT — a spec, reference renderer, and gallery designed for LLMs that outgrew Mermaid's limitations. Published as @eraserlabs/diagrams on npm.</p>
+      <div class="article-meta">
+        <span class="tag">Diagrams</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">AI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Every AI coding agent that generates architecture diagrams hits Mermaid's walls. Eraser Diagrams is purpose-built for LLM output: coordinate-aware, visually consistent, and designed for the agentic workflow where a model describes and a renderer draws.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>AI agents generating architecture diagrams from code analysis</li>
+          <li>Replacing Mermaid in documentation pipelines where LLMs author diagrams</li>
+          <li>Building diagram-as-code workflows that render consistently</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>MIT licensed with npm package published</li>
+          <li>Eraser platform has established user base</li>
+          <li>Addresses a documented pain point in AI-generated diagrams</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/eraserlabs/eraser-diagrams">GitHub</a></li>
+          <li><a href="https://libraries.io/npm/@eraserlabs%2Fdiagrams">npm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://dagster.io/blog/the-data-plane-is-yours-dagster-hybrid-on-kubernetes-and-azure">Dagster+ Hybrid Ships Full Kubernetes and Azure Support for Enterprise Data Plane Ownership</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Dagster published a detailed guide for deploying Dagster+ Hybrid on Kubernetes and Azure at enterprise scale — keeping the orchestration control plane in Dagster's cloud while all data processing runs in your own AKS cluster.</p>
+      <div class="article-meta">
+        <span class="tag">Data Engineering</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Azure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Data teams at regulated enterprises need orchestration that doesn't require sending data to a third party. Dagster+ Hybrid gives you managed scheduling and UI while your pipelines, secrets, and data stay in your own Azure VNet.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Enterprise data pipelines that must keep data in-VNet</li>
+          <li>Hybrid orchestration where control plane is managed but execution is on-prem</li>
+          <li>AI/ML training pipelines with data residency requirements</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Dagster is a CNCF-adjacent project with strong enterprise adoption</li>
+          <li>Detailed production deployment guide based on 'very large enterprise' deployment</li>
+          <li>Helm chart and AKS agent documentation fully available</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://docs.dagster.io/deployment/dagster-plus/hybrid/azure">Azure Deployment Docs</a></li>
+          <li><a href="https://docs.dagster.io/deployment/dagster-plus/hybrid">Hybrid Overview</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
