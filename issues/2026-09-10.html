@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — September 10, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">September 10, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://openai.com/index/gpt-6-astra/">GPT-6 Astra launches: saturates FrontierMath Tier 4 (98%), ARC-AGI-3 (99.9%), and ExploitBench (100%) — OpenAI's most aligned frontier model</a></li>
+      <li><a href="https://news.aibase.com/news/30957">DeepSeek V4.1 Flash ships a 552B MoE with Causal-Encoder-Decoder architecture — 8B input activation, KV Cache compressed 437x, surpasses V4 Pro</a></li>
+      <li><a href="https://react.dev/blog/2026/09/09/react-19-3">React 19.3 stabilizes View Transitions, Fragment Refs, and browser() — the biggest React feature drop since Server Components</a></li>
+      <li><a href="https://sesamedisk.com/shopify-acquires-tailwind-collaboration/">Shopify acquires Tailwind CSS after AI agents collapsed Tailwind Labs' revenue by 80% — MIT stays, commercial products wind down</a></li>
+      <li><a href="https://github.com/openai/symphony?tab=readme-ov-file">OpenAI open-sources Symphony (27K stars): autonomous project orchestration that monitors Linear and spawns coding agents per task</a></li>
+      <li><a href="https://blockaireport.com/google-open-sources-mantis-a-modular-skills-toolkit-that-lets-coding-agents-find-reproduce-and-patch-vulnerabilities/">Google open-sources Mantis: a modular security skills toolkit that lets coding agents find, reproduce, and patch vulnerabilities end-to-end</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://openai.com/index/gpt-6-astra/">GPT-6 Astra Launches: OpenAI's Most Intelligent and Aligned Model Saturates Frontier Benchmarks</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI launched GPT-6 Astra on September 10, a model that saturates FrontierMath Tier 4 at 98%, ARC-AGI-3 at 99.9%, and ExploitBench at 100%. It sets a new frontier in computer use — handling forms, CRM updates, research, QA checks, and software installation autonomously. Astra also scores 0% on scope-creep evaluations where GPT-5.6 Sol scored 48%, making it the most aligned model OpenAI has shipped.</p>
+      <div class="article-meta">
+        <span class="tag">LLM</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Computer Use</span>
+        <span class="tag">Frontier</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>GPT-6 Astra redefines what 'frontier' means for engineers. The computer-use capabilities are production-grade — it fills forms, navigates CRMs, runs frontend QA, and installs software without human supervision. The alignment improvements are equally significant: the 0% scope-creep score (vs 48% for Sol) means you can delegate complex multi-step tasks with less risk of the model going off-script. Available via API, Azure, and Bedrock, Astra immediately becomes the benchmark every other model is measured against.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Autonomous computer-use agents for enterprise workflows</li>
+          <li>Complex multi-step coding tasks requiring high alignment</li>
+          <li>Frontend QA automation with browser-based verification</li>
+          <li>Research and analysis tasks with delegated judgment</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published September 10, 2026 — launch day</li>
+          <li>629 points on Hacker News within hours</li>
+          <li>278 points on separate HN thread about benchmarks</li>
+          <li>Available on OpenAI API, Azure, and AWS Bedrock</li>
+          <li>Saturates FrontierMath Tier 4 (98%), ARC-AGI-3 (99.9%), ExploitBench (100%)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openai.com/index/gpt-6-astra/">OpenAI Announcement</a></li>
+          <li><a href="https://news.ycombinator.com/item?id=49554643">Hacker News (629 pts)</a></li>
+          <li><a href="https://thenewstack.io/openai-gpt6-astra-benchmarks/">The New Stack Benchmarks</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://news.aibase.com/news/30957">DeepSeek V4.1 Flash: 552B MoE with Causal-Encoder-Decoder Architecture Surpasses V4 Pro at a Fraction of the Cost</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">DeepSeek released V4.1 Flash on September 10, a 552B parameter MoE model using a new Causal-Encoder-Decoder structure with asymmetric activation — only 8B on input, 16B on output. The KV Cache is compressed to 1/437 of the original model, reducing HBM requirements to 1/4 and SSD to 1/8. V4.1 Flash surpasses V4 Pro across all benchmarks, and DeepSeek will route V4 Pro requests to V4.1 Flash starting September 14.</p>
+      <div class="article-meta">
+        <span class="tag">LLM</span>
+        <span class="tag">DeepSeek</span>
+        <span class="tag">MoE</span>
+        <span class="tag">Inference Cost</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The architecture innovation here is the asymmetric input/output activation — 8B for input processing, 16B for generation. This makes agent workflows dramatically cheaper since cache-hit costs (which dominate agentic usage) drop by orders of magnitude. The 437x KV Cache compression is not incremental; it fundamentally changes the economics of long-context agent loops. DeepSeek discontinuing V4 Pro in favor of Flash signals that the cost-performance crossover has happened — the cheaper model is now simply better.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Cost-efficient agentic coding workflows with massive KV Cache savings</li>
+          <li>Long-context agent sessions where cache dominates cost</li>
+          <li>Multimodal AI applications with native vision support</li>
+          <li>Drop-in replacement for V4 Pro at lower cost</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released September 10, 2026 by DeepSeek</li>
+          <li>Already live on DeepSeek API</li>
+          <li>V4 Pro being routed to V4.1 Flash on September 14</li>
+          <li>Native multimodal support</li>
+          <li>Covered by aibase, xix.ai on launch day</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://news.aibase.com/news/30957">AIBase Coverage</a></li>
+          <li><a href="https://xix.ai/live/7232">xix.ai Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://ifm.ai/blog/k2/">K2 Horizon: IFM Ships a Fleet of Six Open Models from 0.9B to 375B Under 'Radically Open' Licensing</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">The Institute of Foundation Models (IFM) released K2 Horizon on September 3 — a connected fleet of six models spanning 375B-A23B, 36B-A4B, 32B, 7B, 3.7B, and 0.9B parameters. Positioned as 'radically open,' the models are designed to cover every deployment scenario from edge devices to datacenter-scale inference.</p>
+      <div class="article-meta">
+        <span class="tag">LLM</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Model Fleet</span>
+        <span class="tag">Edge AI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 'fleet' approach is what matters here — instead of one model you adapt, K2 gives you a family of models designed to work together across the full compute spectrum. The 0.9B model runs on phones, the 375B competes at frontier. For teams building products that need to serve different hardware tiers (edge, mobile, server), a single model family with consistent behavior across sizes simplifies the development and evaluation pipeline.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Multi-tier AI deployment from edge to datacenter with one model family</li>
+          <li>On-device inference with the 0.9B-7B models</li>
+          <li>Frontier reasoning and coding with the 375B model</li>
+          <li>Consistent evaluation across model sizes</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Institute of Foundation Models, released September 3</li>
+          <li>Six-model fleet from 0.9B to 375B parameters</li>
+          <li>'Radically open' licensing</li>
+          <li>Frontier performance claimed for the 375B model</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://ifm.ai/blog/k2/">IFM Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://react.dev/blog/2026/09/09/react-19-3">React 19.3 Stabilizes View Transitions, Fragment Refs, and browser() — The Biggest Feature Drop Since Server Components</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">React 19.3 shipped on September 9 with View Transitions and Fragment Refs promoted from experimental to stable. The new <ViewTransition> component lets you animate enter, exit, update, and layout changes using the browser's View Transition API, triggered automatically during React Transitions. Fragment Refs allow attaching refs to <></> fragments. The release also adds browser() for client-only rendering and Trusted Types support.</p>
+      <div class="article-meta">
+        <span class="tag">React</span>
+        <span class="tag">Frontend</span>
+        <span class="tag">View Transitions</span>
+        <span class="tag">JavaScript</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>View Transitions eliminate the biggest gap between React apps and native-feeling navigation. Until now, animating route changes or list reorders required third-party libraries and brittle CSS. With <ViewTransition> as a stable primitive, React apps get smooth, declarative animations that work with Suspense and useTransition out of the box. Fragment Refs solve a long-standing pain point for component library authors who need refs without wrapper divs. For AI-generated UIs, having transitions as a first-class primitive means agents can produce polished interfaces without needing animation library knowledge.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Declarative page and route transitions without third-party libraries</li>
+          <li>Component library development with Fragment Refs instead of wrapper divs</li>
+          <li>AI-generated UIs with built-in polish via ViewTransition</li>
+          <li>Client-only rendering with browser() for SSR-incompatible components</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official React team release, September 9, 2026</li>
+          <li>View Transitions promoted from experimental to stable</li>
+          <li>Fragment Refs promoted from experimental to stable</li>
+          <li>ReasonCore and multiple dev outlets covered within hours</li>
+          <li>React is the most-used UI framework globally</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://react.dev/blog/2026/09/09/react-19-3">React Blog</a></li>
+          <li><a href="https://reasoncore.dev/post/react-193-makes-view-transitions-a-stable-react-primitive">ReasonCore Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://sesamedisk.com/shopify-acquires-tailwind-collaboration/">Shopify Acquires Tailwind CSS After AI Agents Collapsed Revenue by 80%</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Shopify acquired Tailwind Labs on September 9 after AI coding agents bypassed Tailwind's documentation site, cutting revenue by nearly 80%. The deal follows a January 2026 crisis in which Tailwind Labs cut three of four engineers. Tailwind CSS stays MIT-licensed, but commercial products Tailwind Plus and ui.sh are closing to new signups. Founder Adam Wathan says the roadmap shifts toward Shopify's 'agentic commerce' work.</p>
+      <div class="article-meta">
+        <span class="tag">Acquisition</span>
+        <span class="tag">CSS</span>
+        <span class="tag">AI Impact</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is the first major acquisition directly caused by AI agents disrupting a developer tools business model. AI coding agents generate Tailwind classes without visiting the docs site, destroying the documentation-to-upsell pipeline that funded the project. The lesson for every developer tools company: if your revenue depends on developers reading documentation, AI agents have already obsoleted that funnel. The Shopify acquisition keeps Tailwind alive and MIT-licensed, but the shift toward 'agentic commerce' raises questions about general-purpose frontend investment. Shopify's second framework acquisition (after Remix in 2022) signals a repeatable playbook.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Understanding AI's impact on developer tools business models</li>
+          <li>Framework governance under corporate stewardship</li>
+          <li>Agentic commerce frontend development at Shopify</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced September 9, 2026</li>
+          <li>Tailwind CSS installed 110M+ times per week</li>
+          <li>Used by ChatGPT, X, Cloudflare, Reddit</li>
+          <li>Revenue collapsed ~80% due to AI agent bypassing docs</li>
+          <li>Shopify's second framework acquisition after Remix</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://sesamedisk.com/shopify-acquires-tailwind-collaboration/">Sesame Disk Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/openai/symphony?tab=readme-ov-file">OpenAI Open-Sources Symphony: Autonomous Project Orchestration That Spawns Coding Agents Per Task</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI released Symphony under Apache 2.0, a system that monitors project management boards (Linear) and spawns isolated coding agents for each task. Agents complete work autonomously and provide proof: CI status, PR review feedback, complexity analysis, and walkthrough videos. When accepted, agents land PRs safely. The project has 26,878 GitHub stars and positions itself as the shift from 'managing coding agents' to 'managing work.'</p>
+      <div class="article-meta">
+        <span class="tag">AI Agents</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Project Management</span>
+        <span class="tag">Orchestration</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Symphony represents the next layer above coding agents: project orchestration. Instead of a developer spawning an agent for each task, Symphony watches the issue tracker and does it automatically. The proof-of-work outputs (CI checks, review feedback, walkthrough videos) address the trust problem — you can evaluate results without reading every line of generated code. For engineering teams already using Codex or similar agents, Symphony turns the workflow from 'supervise the agent' to 'review the PR.' The Apache 2.0 license means teams can adapt it to any project management tool.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Autonomous issue-to-PR pipeline with Linear integration</li>
+          <li>Multi-agent project orchestration without developer supervision</li>
+          <li>Proof-of-work verification for AI-generated PRs</li>
+          <li>Adapting to custom project management tools via Apache 2.0 source</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>26,878 GitHub stars, 2,756 forks</li>
+          <li>From OpenAI, Apache 2.0 license</li>
+          <li>Linear integration with proof-of-work outputs</li>
+          <li>Engineering preview status with active development</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/openai/symphony">GitHub</a></li>
+          <li><a href="https://openai.com/index/harness-engineering/">Harness Engineering Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://developers.googleblog.com/en/announcing-adk-for-kotlin-10-building-production-ready-ai-agents-in-kotlin-android-and-beyond/">Google ADK for Kotlin 1.0: Production-Ready AI Agents on Android with On-Device Inference</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Google shipped ADK for Kotlin 1.0 on September 9, reaching full feature parity with ADK Core while adding Android-first extensions. The SDK supports on-device agents via LiteRT-LM and ML Kit (beta), hybrid cloud workflows through Firebase AI Logic, and persistent agent state via Room and AppSearch. Built on Kotlin Multiplatform (KMP), it works for both Android and server-side Kotlin.</p>
+      <div class="article-meta">
+        <span class="tag">Google</span>
+        <span class="tag">Kotlin</span>
+        <span class="tag">Android</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">On-Device</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>On-device AI agents are the missing piece for mobile apps that need privacy, offline capability, and low latency. ADK for Kotlin 1.0 gives Android developers the same multi-agent orchestration patterns available in Python — hierarchical agents, human-in-the-loop flows, context compaction — running natively on device. The Firebase AI Logic integration means you can start with cloud models and move to on-device as models shrink, without rewriting agent logic. For the massive Kotlin/Android developer ecosystem, this is their entry point into production AI agents.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>On-device AI agents for privacy-sensitive Android apps</li>
+          <li>Hybrid cloud/on-device agent workflows with Firebase AI Logic</li>
+          <li>Multi-agent orchestration in Kotlin server applications</li>
+          <li>Persistent agent state across Android process restarts</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Google, released September 9, 2026</li>
+          <li>1.0 GA with full ADK Core parity</li>
+          <li>On-device agents via LiteRT-LM and ML Kit</li>
+          <li>Kotlin Multiplatform for Android + server-side</li>
+          <li>Official Google Developers Blog announcement</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://developers.googleblog.com/en/announcing-adk-for-kotlin-10-building-production-ready-ai-agents-in-kotlin-android-and-beyond/">Google Developers Blog</a></li>
+          <li><a href="https://github.com/google/adk-kotlin">GitHub</a></li>
+          <li><a href="https://adk.dev/get-started/kotlin/">Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://blockaireport.com/google-open-sources-mantis-a-modular-skills-toolkit-that-lets-coding-agents-find-reproduce-and-patch-vulnerabilities/">Google Open-Sources Mantis: A Security Skills Toolkit That Lets Coding Agents Find, Reproduce, and Patch Vulnerabilities</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Google open-sourced Mantis, a modular toolkit of security review skills for AI coding agents. Mantis chains slash commands through the full vulnerability lifecycle: /mantis-history mines past fixes, /mantis-architecture builds threat models, /mantis-researcher finds issues, /mantis-reproduce proves them in sandboxed gVisor/VM environments, /mantis-patch writes and verifies fixes, and /mantis-calibrate scores residual risk. A meta-agent skill drives the entire loop autonomously.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">Google</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">DevSecOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Security scanning has always been a separate workflow from coding. Mantis collapses it into the coding agent itself — the same agent that writes your code can also find, reproduce, and patch its own security flaws. The sandbox-first approach (gVisor or VM with networking disabled) means exploit reproduction is safe. The slash-command architecture means it plugs into Gemini CLI, Antigravity, or any agent framework. For security teams, this shifts vulnerability management from 'scan and file tickets' to 'find, prove, and fix in one pass.'</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Automated security review integrated into coding agent workflows</li>
+          <li>Sandboxed vulnerability reproduction without manual triage</li>
+          <li>Continuous security scanning that patches as it finds</li>
+          <li>Threat modeling from version control history</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Google, open-sourced September 2026</li>
+          <li>Works with Gemini CLI, Antigravity CLI, Google ADK</li>
+          <li>Full vulnerability lifecycle: find → reproduce → patch → verify</li>
+          <li>Sandboxed execution via gVisor or VM</li>
+          <li>Block AI Report detailed coverage</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blockaireport.com/google-open-sources-mantis-a-modular-skills-toolkit-that-lets-coding-agents-find-reproduce-and-patch-vulnerabilities/">Block AI Report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://spacelift.io/blog/spacelift-flows-is-live">Spacelift Flows: Visual Day 2 Operations with MCP Server for AI Agent Integration</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Spacelift launched Flows on September 8, a visual canvas for Day 2 infrastructure operations. You wire blocks together — HTTP calls, data transforms, conditions, schedules — into auditable flows with step-by-step execution trails. Flows ships with 40+ templates (incident enrichment, drift alerts, environment vending, cert monitoring) and includes an MCP server so AI agents can call flows as tools with approval gates and audit trails.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">IaC</span>
+        <span class="tag">Day 2 Ops</span>
+        <span class="tag">MCP</span>
+        <span class="tag">DevOps</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Day 2 operations — what happens after terraform apply — is where most infrastructure teams drown. The automation exists, but it's scattered across Lambda functions and Slack bots nobody can audit. Spacelift Flows centralizes this into a visual, auditable canvas. The MCP server integration is the forward-looking piece: AI agents get a governed path into infrastructure operations instead of using shared credentials or personal logins. For platform teams connecting coding agents to infrastructure, Flows provides the audit trail and approval gates that make autonomous operations acceptable to security teams.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Auditable Day 2 infrastructure automation on a visual canvas</li>
+          <li>AI agent access to infrastructure operations via MCP with approval gates</li>
+          <li>Self-service environment provisioning with guardrails</li>
+          <li>Incident enrichment and drift detection workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Spacelift, launched September 8, 2026</li>
+          <li>40+ pre-built templates for common Day 2 operations</li>
+          <li>MCP server for AI agent integration</li>
+          <li>Visual canvas with step-by-step audit trail</li>
+          <li>AI assistant for flow creation</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://spacelift.io/blog/spacelift-flows-is-live">Spacelift Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://www.databricks.com/blog/introducing-consort-test-driven-development-branching-database">Databricks Consort: Open-Source Spec-First Agent Framework for Test-Driven Development on Branching Databases</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Databricks Field Engineering open-sourced Consort on September 9, an agentic framework for test-driven development on live database branches. Built on Lakebase Postgres's branching capability, Consort lets agents write and test database changes against real branched databases instead of mocks — branches are created, tested, and merged like git branches but for the actual database.</p>
+      <div class="article-meta">
+        <span class="tag">Database</span>
+        <span class="tag">TDD</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Database testing has always been the weakest link in TDD. Mocks diverge from production, shared staging boxes create contention, and schema changes are treated as ceremonies. Lakebase Postgres branching eliminates these workarounds by giving every test run its own real database branch. Consort extends this to AI agents — instead of generating SQL and hoping it works, the agent branches the database, runs the migration, validates it against tests, and only then merges. For data engineering teams, this turns database changes from careful ceremonies into confident, agent-driven workflows.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>AI agents testing database migrations against real branched databases</li>
+          <li>Spec-driven database development with enforced test-first workflow</li>
+          <li>Eliminating mock/production divergence in database testing</li>
+          <li>Safe schema evolution with branch-and-merge for databases</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>From Databricks Field Engineering, open-sourced September 9</li>
+          <li>ArXiv paper published (2609.09671)</li>
+          <li>Built on Lakebase Postgres branching</li>
+          <li>Databricks Blog detailed technical writeup</li>
+          <li>Spec-first approach with enforced TDD</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.databricks.com/blog/introducing-consort-test-driven-development-branching-database">Databricks Blog</a></li>
+          <li><a href="https://arxiv.org/abs/2609.09671">ArXiv Paper</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
