@@ -1,0 +1,165 @@
+{
+  "highlights": [
+    {"text": "OpenAI launches Agents API: build cloud agents with the Codex harness via a single API call, with 9+ sandbox partners", "anchor": "ai-tools-and-models-0"},
+    {"text": "Cognition ships SWE-2: 50% on FrontierCode 1.1, within 1 point of Fable 5.1 at 64% lower cost — multi-trillion-param RL at scale", "anchor": "ai-tools-and-models-1"},
+    {"text": "Cursor launches Projects: persistent coordinators that direct thousands of subagents — users merge 6x more PRs", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "Atlassian ships governed agent loops for Jira: Code Context, Agent Context Controls, and autonomous ticket-to-PR pipelines", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Zod 4.6 adds .validate() — up to 35x faster schema checks by short-circuiting on first error", "anchor": "developer-tools-and-frameworks-2"},
+    {"text": "Red Hat AI 3.5 brings model safety verification, multi-tenant agent governance, and EvalHub to production OpenShift", "anchor": "infrastructure-and-production-0"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "OpenAI Launches the Agents API: Build Cloud Agents with the Codex Harness via a Single API Call",
+          "url": "https://openai.com/index/introducing-the-agents-api/",
+          "tldr": "OpenAI released the Agents API in public beta on September 10, letting developers build production-ready cloud agents with a single API call. The API exposes the same harness and infrastructure behind Codex — managing context, tools, and subagent coordination. Agents can run in OpenAI-managed sandboxes or on your own infrastructure through 9+ partners including Cloudflare, Vercel, E2B, Modal, and DigitalOcean.",
+          "why_it_matters": "Until now, building reliable long-running agents meant rolling your own harness for context management, tool orchestration, and subagent coordination. OpenAI is commoditizing that entire layer — the same infrastructure that makes Codex work is now available via API. The multi-sandbox architecture is the practical differentiator: you pick the compute environment (GPU configs, VPC isolation, cold-start profiles) while OpenAI handles the orchestration. For teams building autonomous coding or ops agents, this removes months of infrastructure work.",
+          "traction": "high",
+          "traction_evidence": ["Published September 10, 2026 by OpenAI", "Public beta with immediate API access", "9+ sandbox partners: Cloudflare, Vercel, E2B, Modal, DigitalOcean, Blaxel, Daytona, Oracle, Runloop", "Powers same infrastructure as Codex", "Multiple enterprise testimonials at launch"],
+          "use_cases": ["Building autonomous coding agents without custom harness infrastructure", "Multi-agent orchestration with managed subagent coordination", "Deploying long-running agents in VPC-isolated sandbox environments", "Migrating from custom agent frameworks to managed infrastructure"],
+          "tags": ["OpenAI", "Agents", "API", "Infrastructure"],
+          "links": [
+            {"url": "https://openai.com/index/introducing-the-agents-api/", "label": "OpenAI Announcement"},
+            {"url": "https://developers.openai.com/api/docs/guides/agents-api/overview", "label": "API Documentation"}
+          ]
+        },
+        {
+          "title": "Cognition Ships SWE-2: Multi-Trillion-Parameter RL Pushes the Coding Model Pareto Frontier",
+          "url": "https://cognition.com/blog/swe-2",
+          "tldr": "Cognition released SWE-2 on September 10, achieving 50.0% on FrontierCode 1.1 Main — within one point of Fable 5.1 while being 64% cheaper. SWE-2 is post-trained from Kimi K3 (2.8T parameters) using a novel RL algorithm that trains all reasoning-effort levels in a single run, advancing the entire cost-performance frontier simultaneously. It also scores 73% on DeepSWE 1.1 and 92.8% on Terminal-Bench 2.1.",
+          "why_it_matters": "SWE-2 demonstrates that RL post-training can extract substantial gains even from already-optimized base models — adding 5-6 points on benchmarks over Kimi K3. The key innovation is training multiple effort levels in a single RL run with cost penalties tuned to the frontier slope, which means you get a family of cost-performance tradeoffs from one training pass. At 64% cheaper than Fable 5.1 for near-equal performance, SWE-2 makes frontier coding capability accessible to teams that can't afford top-tier model pricing.",
+          "traction": "high",
+          "traction_evidence": ["Published September 10, 2026 by Cognition (makers of Devin)", "50.0% on FrontierCode 1.1 Main", "64% cheaper than Fable 5.1 at near-parity performance", "First multi-trillion-parameter RL training for coding", "Builds on SWE-1.7 infrastructure with proven track record"],
+          "use_cases": ["Cost-efficient autonomous coding at near-frontier quality", "Flexible reasoning effort for different task complexities", "Drop-in replacement for expensive frontier models in coding workflows", "Research into RL scaling for specialized coding tasks"],
+          "tags": ["LLM", "Coding", "RL", "Cognition"],
+          "links": [
+            {"url": "https://cognition.com/blog/swe-2", "label": "Cognition Blog"},
+            {"url": "https://cognition.com/frontiercode", "label": "FrontierCode Leaderboard"}
+          ]
+        },
+        {
+          "title": "Google Ships Gemini 3.8 Flash and 3.8 Flash Cyber: Purpose-Built Models for Agentic Workflows and Cybersecurity",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+          "tldr": "Google released Gemini 3.8 Flash on September 2, optimized for agentic workflows with improved tool calling and multi-step reasoning. Alongside it, 3.8 Flash Cyber is the first Gemini model purpose-built for cybersecurity — trained to analyze vulnerabilities, generate security patches, and assist with incident response. Both models are available through the Gemini API.",
+          "why_it_matters": "Google splitting the Flash line into general-purpose and domain-specific variants signals a shift in how frontier labs think about model deployment. Instead of one model for everything, you get a Flash optimized for agent tool-calling loops and a Cyber variant trained specifically on security tasks. For security teams, a purpose-built model means fewer false positives in vulnerability scanning and more accurate patch generation. For agent builders, the agentic-optimized Flash should reduce tool-call failures that plague general-purpose models.",
+          "traction": "high",
+          "traction_evidence": ["Released September 2, 2026 by Google", "Official Google AI blog announcement", "Purpose-built cybersecurity model — first from a frontier lab", "Available via Gemini API", "Builds on established Flash model family"],
+          "use_cases": ["Agentic workflows requiring reliable multi-step tool calling", "Automated vulnerability analysis and security patch generation", "Security incident response with domain-specialized reasoning", "Cost-effective agent inner loops with Flash-tier pricing"],
+          "tags": ["Google", "Gemini", "Cybersecurity", "Agents"],
+          "links": [
+            {"url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/", "label": "Google AI Blog"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Cursor Launches Projects: A Persistent Coordinator That Directs Thousands of Coding Agents",
+          "url": "https://cursor.com/blog/projects",
+          "tldr": "Cursor shipped Projects on September 10, a persistent coordinator that manages fleets of coding agents for large bodies of work — features, migrations, full apps. Projects run in the cloud by default, maintain shared context across agents, and perform recurring work without prompting. Early data shows users who primarily use Projects merge 6x more PRs than before.",
+          "why_it_matters": "Projects concretizes Cursor's 'third era' thesis: developers stop managing agents and start managing work. The coordinator delegates to thousands of subagents, maintains context over months, and keeps running when your laptop closes. The 6x PR merge rate isn't vaporware — Cursor has been using it internally for months, running migrations of hundreds of PRs and maintaining design system consistency. The shared context layer (where one agent's learnings propagate to all future agents) is the architectural insight that makes multi-agent coding actually scale.",
+          "traction": "high",
+          "traction_evidence": ["Shipped September 10, 2026 by Cursor", "Covered by RuntimeWire and multiple outlets on launch day", "Internal dogfooding for months before launch", "30% more PRs for new users, 6x for heavy users", "Implements February 2026 'third era' thesis"],
+          "use_cases": ["Large-scale codebase migrations with hundreds of PRs", "Multi-agent feature development with persistent context", "Design system consistency enforcement across a codebase", "Delegating work that runs overnight or over weekends"],
+          "tags": ["Cursor", "AI Agents", "Developer Tools", "Productivity"],
+          "links": [
+            {"url": "https://cursor.com/blog/projects", "label": "Cursor Blog"},
+            {"url": "https://runtimewire.com/article/cursor-projects-persistent-coordinator-coding-agents", "label": "RuntimeWire Coverage"},
+            {"url": "https://cursor.com/blog/third-era", "label": "Third Era Vision Post"}
+          ]
+        },
+        {
+          "title": "Atlassian Ships Governed Agent Loops: Code Context, Agent Controls, and Autonomous SDLC Pipelines in Jira",
+          "url": "https://www.atlassian.com/blog/jira/governed-agent-loops",
+          "tldr": "Atlassian launched governed agent loops on September 10, bringing three capabilities to Jira and the broader Atlassian platform: Code Context (grounding agents in multi-repo codebase intelligence via the Teamwork Graph), Agent Context Controls (governing which agents can operate in a space and what they can see), and autonomous ticket-to-PR agent pipelines. Their data shows 94% of engineering leaders use AI but only 6% can scale it — these features target the gap.",
+          "why_it_matters": "When Atlassian — the platform 250K+ organizations use for project management — adds governed agent loops, it signals that autonomous coding agents are now mainstream enough to need enterprise governance. Code Context is the key: agents grounded in Atlassian's Teamwork Graph shipped 64% more per developer than context-free agents (per DX analysis). Agent Context Controls solve the trust problem for platform teams — you can let agents operate without giving them access to everything. This is how agents go from individual tools to team-scale infrastructure.",
+          "traction": "high",
+          "traction_evidence": ["Shipped September 10, 2026 by Atlassian", "94% of engineering leaders using AI per Atlassian's 2026 AI SDLC study", "DX analysis shows 64% productivity gain with Teamwork Graph context", "Jira/Confluence/Bitbucket integration across 250K+ organizations", "Official Atlassian blog announcement"],
+          "use_cases": ["Enterprise-governed agent loops across multi-repo codebases", "Platform teams controlling agent permissions and context access", "Autonomous ticket-to-PR pipelines with audit trails", "Grounding coding agents in organizational context for better results"],
+          "tags": ["Atlassian", "Jira", "Enterprise", "AI Governance", "SDLC"],
+          "links": [
+            {"url": "https://www.atlassian.com/blog/jira/governed-agent-loops", "label": "Atlassian Blog"},
+            {"url": "https://www.atlassian.com/blog/development/code-context", "label": "Code Context Announcement"},
+            {"url": "https://www.atlassian.com/blog/company-news/the-agentic-pivot", "label": "2026 AI SDLC Study"}
+          ]
+        },
+        {
+          "title": "Zod 4.6 Ships .validate() — Up to 35x Faster Schema Validation by Short-Circuiting on First Error",
+          "url": "https://zod.dev/blog/zod-4-6",
+          "tldr": "Zod 4.6 shipped on September 9 with .validate(), a new method that checks input validity without constructing a ZodError — up to 35x faster than .safeParse().success on compiled schemas with invalid input. The release also adds fromJSONSchema() improvements (six new validation keywords), z.instanceof().properties() for class validation, z.iban() for IBAN validation, faster CommonJS loading (~3x), and a fix for a 4.5 out-of-memory regression in recursive schemas.",
+          "why_it_matters": "Zod is the de facto schema validation library in the TypeScript ecosystem, used everywhere from API endpoints to AI structured output parsing. The 35x speedup on .validate() matters most for hot paths: API middleware that rejects bad requests, form validation in tight loops, and — increasingly — validating AI model outputs at high throughput. The memory fix for recursive schemas unblocks anyone who hit OOM errors after upgrading to 4.5. The fromJSONSchema() improvements matter for interop with OpenAPI specs and AI tool definitions.",
+          "traction": "high",
+          "traction_evidence": ["Released September 9, 2026", "Zod has 40K+ GitHub stars and millions of weekly npm downloads", "Performance benchmarks published with reproducible scripts", "Fixes critical OOM regression from 4.5", "z.compile() integration for maximum performance"],
+          "use_cases": ["High-throughput API request validation with 35x faster rejection", "Validating AI structured outputs at scale", "OpenAPI/JSON Schema interop with improved fromJSONSchema()", "Class instance validation without prototype destruction"],
+          "tags": ["TypeScript", "Validation", "Performance", "Zod"],
+          "links": [
+            {"url": "https://zod.dev/blog/zod-4-6", "label": "Zod Blog"},
+            {"url": "https://github.com/colinhacks/zod/pull/6547", "label": "validate() PR"}
+          ]
+        },
+        {
+          "title": "OpenCode Crosses 165K GitHub Stars: The Open-Source Terminal Coding Agent Challenging Claude Code",
+          "url": "https://byteiota.com/opencode-hits-165k-stars-the-open-source-terminal-coding-agent-that-beat-claude-code/",
+          "tldr": "OpenCode, the open-source terminal-based coding agent, has crossed 165,000 GitHub stars, making it one of the most-starred developer tools projects on GitHub. The agent runs entirely in the terminal and supports multiple LLM backends, offering a self-hostable alternative to cloud-based coding assistants.",
+          "why_it_matters": "165K stars puts OpenCode in rarefied territory — beyond viral novelty and into genuine infrastructure status. The project validates the terminal-first, model-agnostic approach to AI coding: developers want agents that work in their existing workflow (the terminal), connect to their preferred model provider, and don't require sending code to a third party. For teams evaluating coding agents, OpenCode is the open-source baseline everything else gets compared against.",
+          "traction": "high",
+          "traction_evidence": ["165,000+ GitHub stars", "Active community with regular releases", "Multi-LLM backend support", "Self-hostable with no vendor lock-in", "Coverage by ByteIota and multiple developer outlets"],
+          "use_cases": ["Self-hosted terminal coding agent for regulated environments", "Model-agnostic coding assistance with provider flexibility", "Open-source alternative to cloud coding agents", "Terminal-native development workflow integration"],
+          "tags": ["Open Source", "Coding Agent", "Terminal", "Developer Tools"],
+          "links": [
+            {"url": "https://byteiota.com/opencode-hits-165k-stars-the-open-source-terminal-coding-agent-that-beat-claude-code/", "label": "ByteIota Coverage"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Red Hat AI 3.5: Model Safety Verification, Multi-Tenant Agent Governance, and EvalHub for Production OpenShift",
+          "url": "https://www.redhat.com/en/blog/red-hat-ai-35-scaling-and-governing-ai-agents-production",
+          "tldr": "Red Hat shipped AI 3.5 on September 9, adding four capabilities for production agent operations: a validated AI Model Catalog with Garak safety benchmarks and tool-calling reliability scores, EvalHub for agent evaluation, multi-tenant GPU governance for shared AI infrastructure, and end-to-end observability for cost and performance transparency. The release answers the four questions platform teams ask before scaling: trust, control, composability, and measurement.",
+          "why_it_matters": "Enterprise teams that got agents working in pilots are now hitting the 'how do we run this for real' wall. Red Hat AI 3.5 addresses the four blockers: model safety verification (Garak benchmarks before deployment), operational controls (multi-tenant GPU quotas), composability (data-to-agent pipeline), and observability (cost transparency). The Model Catalog with pre-computed safety scores is particularly useful — instead of teams independently running safety evaluations, Red Hat delivers validated models with security and toxicity benchmarks already done.",
+          "traction": "high",
+          "traction_evidence": ["Released September 9, 2026 by Red Hat", "Built on OpenShift, the enterprise Kubernetes platform", "Garak safety benchmarks integrated into Model Catalog", "EvalHub for systematic agent evaluation", "Official Red Hat blog with detailed technical writeup"],
+          "use_cases": ["Enterprise AI agent deployment with pre-verified model safety", "Multi-tenant GPU infrastructure governance on OpenShift", "Agent evaluation pipelines with EvalHub", "Cost and performance observability for AI workloads"],
+          "tags": ["Red Hat", "Enterprise", "AI Governance", "Kubernetes", "OpenShift"],
+          "links": [
+            {"url": "https://www.redhat.com/en/blog/red-hat-ai-35-scaling-and-governing-ai-agents-production", "label": "Red Hat Blog"},
+            {"url": "https://www.redhat.com/en/products/ai", "label": "Red Hat AI Product Page"}
+          ]
+        },
+        {
+          "title": "Palo Alto Networks Publishes Secure AI Coding Framework: Governing Every Agent, Artifact, and Identity",
+          "url": "https://www.paloaltonetworks.com/blog/2026/09/secure-ai-coding-governing-every-agent-artifact-and-identity/",
+          "tldr": "Palo Alto Networks published a comprehensive security framework on September 10 for governing AI coding agents in production — covering agent identity, artifact provenance, code signing for AI-generated commits, and runtime guardrails. The framework addresses the new attack surface created when autonomous agents write, commit, and deploy code without direct human oversight.",
+          "why_it_matters": "AI coding agents introduce a fundamentally new security surface: non-human identities that write code, access secrets, create PRs, and trigger deployments. Palo Alto's framework is the first from a major security vendor to systematically address this. The key insight is that traditional code review and access controls assume human developers — agent-generated code needs different provenance tracking, identity management, and runtime monitoring. As teams adopt tools like Codex, Cursor Projects, and Symphony, this framework becomes the security baseline.",
+          "traction": "medium",
+          "traction_evidence": ["Published September 10, 2026 by Palo Alto Networks", "From the VP of Network Security (Anand Oswal)", "First major security vendor framework for AI coding governance", "Addresses emerging attack surface documented by multiple incidents"],
+          "use_cases": ["Establishing identity and access controls for AI coding agents", "Code provenance tracking for AI-generated commits", "Runtime guardrails for autonomous agent deployments", "Security compliance frameworks for agentic SDLC adoption"],
+          "tags": ["Security", "AI Governance", "DevSecOps", "Palo Alto Networks"],
+          "links": [
+            {"url": "https://www.paloaltonetworks.com/blog/2026/09/secure-ai-coding-governing-every-agent-artifact-and-identity/", "label": "Palo Alto Networks Blog"}
+          ]
+        },
+        {
+          "title": "Empirik Raises $21M from Sequoia to Build the Autonomous Infrastructure Engineer",
+          "url": "https://empirik.ai/blog/introducing-empirik-the-autonomous-infrastructure-engineer",
+          "tldr": "Empirik announced $21M in funding from Sequoia, S32, Canapi, and Alumni Ventures on September 1 to build an autonomous infrastructure engineer — an AI agent that handles infrastructure provisioning, troubleshooting, and operations without human intervention. Founded by a former Salesforce infrastructure lead, Empirik aims to bring the same autonomous agent paradigm that's transforming coding to infrastructure operations.",
+          "why_it_matters": "Coding agents are mainstream, but infrastructure remains a manual bottleneck. Empirik is betting that the same agent patterns (autonomous execution, tool use, verification loops) can work for Terraform, Kubernetes, and cloud operations. The Sequoia backing signals serious conviction that infrastructure automation is the next frontier for AI agents. For platform teams drowning in toil, an agent that can provision environments, diagnose outages, and apply fixes changes the economics of DevOps.",
+          "traction": "emerging",
+          "traction_evidence": ["$21M funding from Sequoia Capital", "Additional investors: S32, Canapi, Alumni Ventures", "Founded by former Salesforce infrastructure lead", "Announced September 1, 2026", "Addresses identified gap in AI agent coverage"],
+          "use_cases": ["Autonomous infrastructure provisioning and configuration", "AI-driven incident diagnosis and remediation", "Reducing DevOps toil through agent-driven operations", "Infrastructure troubleshooting without oncall engineer intervention"],
+          "tags": ["Infrastructure", "AI Agents", "Startup", "Sequoia"],
+          "links": [
+            {"url": "https://empirik.ai/blog/introducing-empirik-the-autonomous-infrastructure-engineer", "label": "Empirik Blog"}
+          ]
+        }
+      ]
+    }
+  ]
+}
