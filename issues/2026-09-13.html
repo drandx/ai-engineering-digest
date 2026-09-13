@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — September 13, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">September 13, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.infoq.com/news/2026/09/github-hydrafusion/">GitHub ships Project HydraFusion: multi-model routing for Copilot with Single, Cascade, and Critique execution patterns</a></li>
+      <li><a href="https://research.meta.ai/blog/introducing-muse-spark-1-3">Meta releases Muse Spark 1.3: improved agentic workflows with better interruption handling, multitasking, and long-horizon collaboration</a></li>
+      <li><a href="https://openai.com/index/introducing-gpt-live-1-in-the-api/">OpenAI launches GPT-Live-1 API: full-duplex voice model with reasoning delegation, cutting interruptions by 80%</a></li>
+      <li><a href="https://code.visualstudio.com/updates/v1_136">VS Code 1.136 ships Agent Merge: autonomous PR finisher that resolves review feedback, failed checks, and merge conflicts</a></li>
+      <li><a href="https://www.copilotkit.ai/blog/inspector-upgrades">CopilotKit Inspector launches DevTools for AI agents with automatic self-learning from user interactions via AG-UI protocol</a></li>
+      <li><a href="https://www.cncf.io/announcements/2026/09/07/cloud-native-computing-foundation-announces-karmada-graduation/">Karmada graduates from CNCF: multi-cluster Kubernetes orchestration reaches production maturity for distributed AI training</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.infoq.com/news/2026/09/github-hydrafusion/">GitHub Ships Project HydraFusion: Frontier-Level Coding via Multi-Model Routing in Copilot</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">GitHub introduced Project HydraFusion on September 13, a research preview that delivers frontier-level coding intelligence in GitHub Copilot through runtime model orchestration. Instead of using a single model, HydraFusion dynamically routes requests across three execution patterns: Single (one model, optimized for speed), Cascade (draft with efficient model, escalate to stronger model if quality gate fails), and Critique (draft model + independent read-only critic from a different model family + structured revision). The system includes complete token cost accounting, bounded execution with timeouts, and isolated review steps.</p>
+      <div class="article-meta">
+        <span class="tag">GitHub</span>
+        <span class="tag">Copilot</span>
+        <span class="tag">Multi-Model</span>
+        <span class="tag">AI Routing</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>HydraFusion represents a fundamental shift in how coding assistants use models: instead of picking one model and hoping it's good enough, the system treats each request as an optimization problem across cost, latency, and quality. The Critique pattern — where a separate model family reviews the draft without tool access — mirrors how senior engineers do code review and catches failure modes that self-review misses. For teams paying for Copilot, this means frontier-quality results without frontier-cost on every request. The cascade pattern alone could cut costs significantly by only escalating to expensive models when cheaper ones fail quality gates.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Cost-optimized coding assistance with automatic model escalation</li>
+          <li>Higher-quality code generation via cross-model critique patterns</li>
+          <li>Enterprise Copilot deployments with token cost accounting</li>
+          <li>Complex multi-step reasoning tasks with bounded execution guarantees</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published September 13, 2026 by GitHub</li>
+          <li>Covered by InfoQ on launch day</li>
+          <li>Research preview available for GitHub Copilot users</li>
+          <li>Builds on GitHub's existing automatic model selection</li>
+          <li>Multi-provider model routing across distinct families</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/09/github-hydrafusion/">InfoQ Coverage</a></li>
+          <li><a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/">GitHub Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://research.meta.ai/blog/introducing-muse-spark-1-3">Meta Releases Muse Spark 1.3: Smarter Agentic Workflows with Better Collaboration and Multitasking</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Meta released Muse Spark 1.3 on September 2, delivering improved performance across agentic and coding tasks. The model is trained to sustain longer-horizon work, proactively correct gaps in its plans, and collaborate more actively with users — asking clarifying questions when prompts are ambiguous and confirming before taking consequential actions. Key improvements include better multitasking (correctly mapping prompts to tasks in messy single-threaded contexts), more reliable long-form instruction following, and improved awareness of its own capabilities and limitations. Available on Muse Code and Meta Model API.</p>
+      <div class="article-meta">
+        <span class="tag">Meta</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Agentic</span>
+        <span class="tag">Coding</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Muse Spark 1.3 addresses the practical pain points that make agents frustrating in real workflows: dropping constraints mid-task, failing to ask for help when stuck, and losing context in long sessions. The multitasking improvement is particularly relevant for developers who use a single chat thread for multiple tasks — the model now maps incoming prompts to the right context instead of confusing them. The active collaboration features (asking clarifying questions, confirming before consequential actions) make it safer for autonomous use. For teams using Meta's stack, this is a meaningful upgrade for agentic coding workflows.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Long-horizon agentic coding with plan correction and user collaboration</li>
+          <li>Multi-task development workflows in single-threaded contexts</li>
+          <li>Autonomous coding with built-in safety guardrails (confirmation before consequential actions)</li>
+          <li>Complex instruction following across multi-step development tasks</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released September 2, 2026 by Meta AI Research</li>
+          <li>Available on Muse Code and Meta Model API</li>
+          <li>Builds on months of adoption data from Muse Code</li>
+          <li>Detailed multimodal evaluation methodology published</li>
+          <li>Advances Meta's 'personal superintelligence' roadmap</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://research.meta.ai/blog/introducing-muse-spark-1-3">Meta AI Research Blog</a></li>
+          <li><a href="https://dev.meta.ai/">Meta Model API</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://openai.com/index/introducing-gpt-live-1-in-the-api/">OpenAI Launches GPT-Live-1 API: Full-Duplex Voice for Developers with Reasoning Delegation</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI released GPT-Live-1 in the API on September 10, bringing ChatGPT's natural full-duplex voice capabilities to developers. Unlike chained STT-LLM-TTS architectures, GPT-Live-1 is a single model that reasons over incoming and outgoing audio simultaneously. Key capabilities include smooth interruption handling (Speak reported 80% fewer interruptions vs. turn-based systems), reasoning and tool-call delegation to backend models like GPT-6 Astra, developer control over tone/pace/style via system prompts, better background noise handling, long-session reliability, and telephony support for full-duplex phone agents.</p>
+      <div class="article-meta">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Voice AI</span>
+        <span class="tag">API</span>
+        <span class="tag">Real-time</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most voice AI today uses a chain of separate models (speech-to-text, LLM, text-to-speech), which creates latency and brittle handoffs — especially around interruptions. GPT-Live-1 collapses this into a single model that handles bidirectional audio natively. The reasoning delegation pattern is the practical breakthrough: the voice model handles the conversation while delegating complex reasoning to a backend model like Astra. This means you can build a voice agent that sounds natural AND solves hard problems. For product teams building voice-enabled apps, customer support bots, or developer tools, this removes the biggest technical hurdle.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Voice-enabled developer tools with reasoning delegation</li>
+          <li>Customer support agents with natural interruption handling</li>
+          <li>Telephony-grade voice agents for reservations and support</li>
+          <li>Voice interfaces for AI coding assistants</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released September 10, 2026 by OpenAI</li>
+          <li>Speak reports 80% fewer interruptions in early evaluation</li>
+          <li>Powers ChatGPT voice and Codex voice features</li>
+          <li>Telephony support for phone-based deployment</li>
+          <li>Available via OpenAI API</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openai.com/index/introducing-gpt-live-1-in-the-api/">OpenAI Announcement</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://code.visualstudio.com/updates/v1_136">VS Code 1.136 Ships Agent Merge: An Autonomous PR Finisher That Resolves Feedback, Failed Checks, and Conflicts</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Visual Studio Code 1.136 shipped on September 2 with Agent Merge (preview), a feature that autonomously resolves review feedback, failed CI checks, and merge conflicts until a PR is ready to merge. The release also adds multi-root workspace support for agent sessions (experimental), chat backgrounds for the Agents window, and improved navigation between related chats and sessions. Agent Merge represents VS Code's shift from 'help write code' to 'help ship code.'</p>
+      <div class="article-meta">
+        <span class="tag">VS Code</span>
+        <span class="tag">Developer Tools</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">PR Workflow</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The gap between 'code written' and 'PR merged' is where most agent-assisted development stalls. Agent Merge addresses the entire post-creation lifecycle: it reads review comments, applies fixes, re-runs checks, and resolves conflicts — the tedious work that makes developers context-switch away from their next task. Multi-root workspace support for agents is equally significant for monorepo teams — agents can now work across all folders in a workspace instead of being limited to a single root. For teams using VS Code with Copilot or Claude, this release turns the editor into a full PR-lifecycle tool.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Autonomous PR finalization: review feedback resolution and CI fix loops</li>
+          <li>Multi-root monorepo development with cross-folder agent sessions</li>
+          <li>Reducing context-switching between coding and PR maintenance</li>
+          <li>Merge conflict resolution without manual intervention</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released September 2, 2026 by Microsoft</li>
+          <li>VS Code has 15M+ monthly active users</li>
+          <li>Agent Merge in preview with growing adoption</li>
+          <li>Multi-root workspace agent support in experimental</li>
+          <li>Official VS Code release notes</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://code.visualstudio.com/updates/v1_136">VS Code Release Notes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.copilotkit.ai/blog/inspector-upgrades">CopilotKit Ships Inspector: DevTools for AI Agents with Automatic Self-Learning via AG-UI Protocol</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">CopilotKit launched a redesigned Inspector on September 10 — developer tools for AI agents that show every event between agent and frontend in real time, with failure-linked events and an isolated Playground to fork any conversation and try different paths. The Inspector connects to CopilotKit Intelligence for automatic self-learning: insights from agent-user interactions become SKILL.md files you review and ship. Everything flows through AG-UI (Agent-User Interaction Protocol), and works across React, Vue, and Angular. It's on by default in development and never loads in production.</p>
+      <div class="article-meta">
+        <span class="tag">DevTools</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">CopilotKit</span>
+        <span class="tag">Observability</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Debugging AI agents is fundamentally different from debugging traditional software — agents stream tokens, call tools mid-response, and delegate to subagents. The Inspector makes this observable. The self-learning feature is the standout: instead of manually tuning agent prompts, the system watches agent-user interactions, identifies patterns, and generates SKILL.md files you can review and ship. This closes the loop between 'agent failed' and 'agent learned.' For teams building agent-powered apps with CopilotKit, this turns debugging from guesswork into systematic observation and improvement.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Real-time debugging of agent-user interactions in production apps</li>
+          <li>Automatic agent improvement through self-learning from user sessions</li>
+          <li>Forking and replaying agent conversations for systematic testing</li>
+          <li>Cross-framework agent observability (React, Vue, Angular)</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released September 10, 2026 by CopilotKit</li>
+          <li>Works across React, Vue, and Angular</li>
+          <li>Built on AG-UI open protocol</li>
+          <li>Automatic learning via CopilotKit Intelligence</li>
+          <li>On by default in development</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.copilotkit.ai/blog/inspector-upgrades">CopilotKit Blog</a></li>
+          <li><a href="https://github.com/ag-ui-protocol/ag-ui">AG-UI Protocol</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra">OpenAI Publishes Best Practices for Agent Prompts and Skills with GPT-6 Astra</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI published a guide on September 11 for rethinking how developers structure skills, AGENTS.md files, and task prompts for GPT-6 Astra. Key insights: skill descriptions should be as short as possible (long descriptions get truncated when many skills are loaded), contradictory descriptions cause wrong skill selection, and more capable models need less scaffolding than developers think. The post also updates the $skill-creator guidance to mitigate common failure modes seen in practice.</p>
+      <div class="article-meta">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">Best Practices</span>
+        <span class="tag">Codex</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As coding agents get more capable, the prompt engineering that worked for earlier models becomes counterproductive. Over-specified instructions cause context bloat, and too many verbose skill descriptions lead to truncation and wrong skill selection. This guide is essential reading for anyone maintaining AGENTS.md files or skill libraries — the key insight is that GPT-6 Astra needs less handholding, and the scaffolding you built for earlier models may now be actively hurting performance. For teams migrating from earlier Codex models, this is the reference for cutting context overhead while improving results.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Optimizing AGENTS.md and skill descriptions for modern frontier models</li>
+          <li>Reducing context bloat in coding agent workflows</li>
+          <li>Migrating prompt patterns from older to newer model generations</li>
+          <li>Improving skill selection accuracy in multi-skill agent environments</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published September 11, 2026 by OpenAI Developers</li>
+          <li>Official best practices from the Codex team</li>
+          <li>Addresses real failure modes observed across users</li>
+          <li>Updated $skill-creator guidance</li>
+          <li>Directly applicable to the largest coding agent ecosystem</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra">OpenAI Developers Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.cncf.io/announcements/2026/09/07/cloud-native-computing-foundation-announces-karmada-graduation/">Karmada Graduates from CNCF: Multi-Cluster Kubernetes Orchestration Reaches Production Maturity for AI Workloads</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">The Cloud Native Computing Foundation announced Karmada's graduation on September 7 at KubeCon China 2026. Karmada is an open-source engine for orchestrating applications across multiple Kubernetes clusters, clouds, and regions without modifying the applications. The v1.19 release advances multi-component scheduling for distributed AI training jobs and promotes priority-based scheduling to Beta. Production adopters include Bloomberg, Wellhub, Alibaba Cloud, Huawei, and Trip.com for hybrid cloud capacity and multi-cluster AI infrastructure.</p>
+      <div class="article-meta">
+        <span class="tag">CNCF</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Multi-Cluster</span>
+        <span class="tag">AI Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As AI training and inference workloads grow, they inevitably span multiple clusters and clouds — whether for GPU availability, data locality, or resilience. Karmada graduating from CNCF means it's now a vetted, production-grade solution for this exact problem. The v1.19 multi-component scheduling for AI training is the headline feature: distributed training jobs have multiple components (parameter servers, workers, data loaders) that need coordinated placement across clusters. For platform teams running GPU-constrained AI infrastructure, Karmada provides the orchestration layer without requiring application changes.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Multi-cluster GPU workload scheduling for distributed AI training</li>
+          <li>Hybrid cloud AI infrastructure across regions and providers</li>
+          <li>Priority-based scheduling for critical AI workloads</li>
+          <li>Application deployment across Kubernetes clusters without code changes</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>CNCF Graduation — highest maturity level</li>
+          <li>Announced September 7, 2026 at KubeCon China</li>
+          <li>Adopted by Bloomberg, Wellhub, Alibaba Cloud, Huawei, Trip.com</li>
+          <li>v1.19 with AI training-specific scheduling features</li>
+          <li>Multi-cloud, multi-cluster production deployments</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.cncf.io/announcements/2026/09/07/cloud-native-computing-foundation-announces-karmada-graduation/">CNCF Announcement</a></li>
+          <li><a href="https://github.com/karmada-io/karmada/releases/tag/v1.19.0">Karmada v1.19 Release</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://developer.nvidia.com/blog/cuda-toolkit-13-4-adds-windows-on-arm-support-and-greater-control-over-shared-gpus/">CUDA Toolkit 13.4: Windows on Arm, NVIDIA Rubin Preview, and MPS V3 for Shared GPU Management</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">NVIDIA released CUDA Toolkit 13.4 on September 9 with three major additions: Windows on Arm support (extending CUDA's Arm reach beyond Linux), early developer access to the NVIDIA Rubin GPU architecture (compute capability 107) as a preview, and Multi-Process Service V3 with a modernized control layer for shared GPU resources — including scriptable CLI, named server instances, TOML configuration, SM partition controls, and cgroup-integrated GPU memory limits.</p>
+      <div class="article-meta">
+        <span class="tag">NVIDIA</span>
+        <span class="tag">CUDA</span>
+        <span class="tag">GPU</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>MPS V3 is the sleeper feature here. As AI workloads increasingly share GPU resources (multiple inference services on one GPU, dev/staging environments sharing hardware), fine-grained GPU partitioning becomes critical. MPS V3 lets you define compute, memory, and priority boundaries programmatically — essential for containerized AI deployments. Windows on Arm extends CUDA to a growing device category, and the Rubin preview lets developers start porting before the next-generation architecture ships. For AI infrastructure teams, MPS V3 directly addresses the 'GPU utilization is 40% but we're out of GPUs' problem.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Fine-grained GPU sharing for containerized AI inference workloads</li>
+          <li>Porting CUDA applications to Windows on Arm devices</li>
+          <li>Preparing applications for NVIDIA Rubin architecture</li>
+          <li>Programmatic GPU resource partitioning in multi-tenant environments</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released September 9, 2026 by NVIDIA</li>
+          <li>CUDA is the dominant GPU computing platform</li>
+          <li>First CUDA support for Windows on Arm</li>
+          <li>Rubin architecture preview for next-gen GPUs</li>
+          <li>Official NVIDIA Developer Blog</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://developer.nvidia.com/blog/cuda-toolkit-13-4-adds-windows-on-arm-support-and-greater-control-over-shared-gpus/">NVIDIA Developer Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://medium.com/pinterest-engineering/building-pinterests-vlm-serving-stack-on-nvidia-dynamo-0dce6e93d0f3">Pinterest Engineering: Building a Production VLM Serving Stack on NVIDIA Dynamo</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Pinterest Engineering published a detailed technical post in September 2026 on building their Vision-Language Model (VLM) serving stack using NVIDIA Dynamo. The post covers the architecture decisions, performance optimizations, and production lessons learned from serving VLMs at Pinterest's scale for visual understanding tasks across the platform.</p>
+      <div class="article-meta">
+        <span class="tag">MLOps</span>
+        <span class="tag">VLM</span>
+        <span class="tag">NVIDIA Dynamo</span>
+        <span class="tag">Pinterest</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As companies move from text-only LLMs to multimodal models, the serving infrastructure becomes significantly more complex — VLMs need to handle both image and text inputs with different latency profiles. Pinterest is one of the largest visual platforms, making their production VLM serving architecture a relevant reference for anyone deploying multimodal AI at scale. The NVIDIA Dynamo integration shows the emerging stack for production VLM inference. For ML infrastructure teams evaluating how to serve multimodal models, this is a battle-tested reference architecture.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Production VLM serving architecture for visual understanding</li>
+          <li>NVIDIA Dynamo integration for multimodal model inference</li>
+          <li>Scaling vision-language models for consumer-grade latency</li>
+          <li>Reference architecture for multimodal AI deployment</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published September 2026 by Pinterest Engineering</li>
+          <li>Production deployment at Pinterest scale</li>
+          <li>Uses NVIDIA Dynamo for VLM serving</li>
+          <li>Pinterest Engineering Blog on Medium</li>
+          <li>Real-world multimodal inference architecture</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://medium.com/pinterest-engineering/building-pinterests-vlm-serving-stack-on-nvidia-dynamo-0dce6e93d0f3">Pinterest Engineering Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
