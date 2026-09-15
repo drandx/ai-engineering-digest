@@ -1,0 +1,150 @@
+{
+  "highlights": [
+    {"text": "OpenAI launches Agents API: build cloud agents with the Codex harness via a single API call, with sandbox partner ecosystem", "anchor": "ai-tools-and-models-0"},
+    {"text": "Cursor ships Projects: a persistent coordinator that directs thousands of subagents across cloud and local, users merge 6x more PRs", "anchor": "ai-tools-and-models-1"},
+    {"text": "Google releases Gemini 3.8 Flash and 3.8 Flash Cyber: frontier coding at Flash pricing, plus a dedicated cybersecurity model", "anchor": "ai-tools-and-models-2"},
+    {"text": "Sourcegraph Agentic Batch Changes hits GA: AI agent plans and executes large-scale code changes across enterprise codebases", "anchor": "developer-tools-and-frameworks-0"},
+    {"text": "NOFire releases Brig: open-source microVM sandbox for AI coding agents with <20K lines of auditable code", "anchor": "developer-tools-and-frameworks-1"},
+    {"text": "Red Hat AI 3.5 ships agent governance, multi-tenant GPU sharing, and model safety verification for production deployments", "anchor": "infrastructure-and-production-0"}
+  ],
+  "sections": [
+    {
+      "name": "AI Tools & Models",
+      "articles": [
+        {
+          "title": "OpenAI Launches Agents API: Build Cloud Agents with the Codex Harness in a Single API Call",
+          "url": "https://openai.com/index/introducing-the-agents-api/",
+          "tldr": "OpenAI released the Agents API in public beta on September 10, bringing the same harness and infrastructure behind Codex to developers through a simple API. A single API call creates a production-ready agent with task, model, tools, and environment. Developers choose compute environments: OpenAI-managed sandboxes, self-hosted infrastructure, or partner integrations from Blaxel, Cloudflare, Daytona, DigitalOcean, E2B, Modal, Oracle, Runloop, and Vercel. The harness manages context, tool coordination, subagent orchestration, and keeps agents running reliably for days with file access, code execution, and intermediate result storage.",
+          "why_it_matters": "Until now, building long-running agents meant assembling your own harness — context management, tool orchestration, error recovery, environment setup. OpenAI is unbundling the infrastructure that powers Codex into an API, letting teams get production-grade agent reliability without building the plumbing. The sandbox partner ecosystem is the strategic move: rather than locking you into OpenAI compute, they're creating an open market for agent environments. For teams already prototyping with the Assistants API, this is the production upgrade path. For teams building on other frameworks, this raises the bar for what 'managed agent infrastructure' means.",
+          "traction": "high",
+          "traction_evidence": ["Released September 10, 2026 by OpenAI in public beta", "Powers Codex — OpenAI's own production coding agent", "9 launch sandbox partners including Cloudflare, Vercel, DigitalOcean", "Builds on ChatGPT for Work scaling to millions of users", "Featured on Hacker News with major discussion"],
+          "use_cases": ["Building production-ready cloud agents without custom harness infrastructure", "Long-running autonomous tasks with managed context and tool coordination", "Multi-environment agent deployment across cloud providers", "Subagent orchestration for complex multi-step workflows"],
+          "tags": ["OpenAI", "Agents", "API", "Infrastructure"],
+          "links": [
+            {"url": "https://openai.com/index/introducing-the-agents-api/", "label": "OpenAI Announcement"},
+            {"url": "https://developers.openai.com/api/docs/guides/agents-api/overview", "label": "API Documentation"}
+          ]
+        },
+        {
+          "title": "Cursor Ships Projects: A Persistent Coordinator That Directs Thousands of Coding Agents",
+          "url": "https://cursor.com/blog/projects",
+          "tldr": "Cursor launched Projects on September 10, a persistent coordinator agent that manages large bodies of work — features, migrations, full apps — over months. The coordinator doesn't write code itself but directs fleets of cloud and local subagents. Each Project runs on its own cloud computer (closing your laptop doesn't stop it), maintains shared context files that sync across all agent machines, and watches Slack and PRs for recurring work. Cursor reports that new users merge 30% more PRs while heavy Projects users merge six times as many. The team has been dogfooding Projects internally for several months, using it for migrations of hundreds of PRs and shipping Projects itself.",
+          "why_it_matters": "Projects represents the clearest implementation yet of the 'third era' thesis: developers directing work rather than doing it. The coordinator-subagent pattern — where the coordinator is never blocked because it delegates rather than executes — solves the scaling bottleneck of current coding agents. The shared context that grows with the project means agents don't need re-onboarding for every task. The 6x PR multiplier for power users is the headline metric, but the deeper signal is that Cursor is moving from 'AI that helps you code' to 'AI that manages your codebase.' For teams evaluating coding agents, Projects shifts the comparison from 'which model writes better code' to 'which system manages work better.'",
+          "traction": "high",
+          "traction_evidence": ["Released September 10, 2026 by Cursor", "6x PR merge rate increase for power users, 30% for new users", "Months of internal dogfooding at Cursor", "Covered by RuntimeWire on launch day", "Implements the 'third era' vision from Cursor's February blog post"],
+          "use_cases": ["Managing large-scale migrations and refactors across hundreds of PRs", "Persistent project oversight that continues when you close your laptop", "Directing fleets of coding agents from a single coordinator", "Recurring codebase maintenance tasks triggered by Slack and PR events"],
+          "tags": ["Cursor", "Coding Agents", "Developer Tools", "Productivity"],
+          "links": [
+            {"url": "https://cursor.com/blog/projects", "label": "Cursor Blog"},
+            {"url": "https://runtimewire.com/article/cursor-projects-persistent-coordinator-coding-agents", "label": "RuntimeWire Coverage"}
+          ]
+        },
+        {
+          "title": "Google Releases Gemini 3.8 Flash and 3.8 Flash Cyber: Frontier Coding at Flash Pricing",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+          "tldr": "Google released Gemini 3.8 Flash on September 2 — their third Flash release in six weeks — delivering significant improvements over 3.7 Flash in software engineering, agentic tasks, and multi-step reasoning at the same $0.75/M input and $3.75/M output pricing. On DeepSWE v1.1 (long-horizon software engineering), 3.8 Flash outperforms most larger frontier models at a fraction of the cost. Alongside it, Gemini 3.8 Flash Cyber is a dedicated cybersecurity model with frontier-level vulnerability detection and automated patching, available through Google's new Fairwind Program for trusted defenders. Both models share the same foundational intelligence, with coding gains driven partly by rigorous cybersecurity training.",
+          "why_it_matters": "Three Flash releases in six weeks signals Google's strategy: iterate fast on the cost-efficient tier rather than only competing at the frontier ceiling. 3.8 Flash approaching larger frontier model performance on DeepSWE while maintaining Flash pricing makes it the value play for engineering teams running agentic coding at scale. Flash Cyber is the more novel development — the first major model explicitly specialized for cybersecurity work, available through a gated program. The insight that cybersecurity training improved general coding performance suggests security-hardened training may become a standard part of model development, not just a specialized track.",
+          "traction": "high",
+          "traction_evidence": ["Released September 2, 2026 by Google DeepMind", "Third Flash release in six weeks", "Outperforms most frontier models on DeepSWE v1.1", "Same pricing as 3.7 Flash ($0.75/M input, $3.75/M output)", "Flash Cyber available through new Fairwind Program"],
+          "use_cases": ["Cost-efficient agentic coding workflows at Flash pricing", "Long-horizon autonomous software engineering tasks", "Automated vulnerability detection and patching with Flash Cyber", "Enterprise agentic deployments requiring dependable multi-step reasoning"],
+          "tags": ["Google", "Gemini", "LLM", "Cybersecurity"],
+          "links": [
+            {"url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/", "label": "Google Blog"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools & Frameworks",
+      "articles": [
+        {
+          "title": "Sourcegraph Agentic Batch Changes Hits GA: AI Agent for Large-Scale Code Changes Across Enterprise Codebases",
+          "url": "https://sourcegraph.com/blog/agentic-batch-changes-ga",
+          "tldr": "Sourcegraph announced the general availability of Agentic Batch Changes on September 14. The feature uses AI agents to plan and execute large-scale code changes across enterprise codebases — the kind of changes that previously required manual coordination across dozens of repositories. Agents analyze the codebase, generate a change plan, execute modifications, and create PRs across affected repos. It targets the 'enterprise-scale refactor' problem that individual coding agents can't handle because they work one repo at a time.",
+          "why_it_matters": "Individual coding agents are great at single-repo tasks, but enterprises need changes that span hundreds of repositories — API migrations, security patches, dependency upgrades, framework updates. Sourcegraph already has the codebase-wide search and intelligence layer; Agentic Batch Changes adds the execution layer on top. This is the enterprise answer to 'our coding agent is great but can't coordinate across repos.' For platform engineering teams managing large codebases, this automates the most time-consuming part of their job: the cross-repo change that touches everything but isn't hard — just tedious.",
+          "traction": "high",
+          "traction_evidence": ["GA release September 14, 2026 by Sourcegraph", "Covered by Yahoo Finance and enterprise tech outlets", "Builds on Sourcegraph's existing enterprise codebase intelligence", "Targets Fortune 500 engineering organizations", "Follows months of enterprise beta testing"],
+          "use_cases": ["Enterprise-wide API migrations across hundreds of repositories", "Coordinated security patches and dependency upgrades at scale", "Framework updates that span entire microservice architectures", "Automated compliance changes across regulated codebases"],
+          "tags": ["Sourcegraph", "Enterprise", "Code Changes", "AI Agents"],
+          "links": [
+            {"url": "https://sourcegraph.com/blog/agentic-batch-changes-ga", "label": "Sourcegraph Blog"},
+            {"url": "https://finance.yahoo.com/technology/ai/articles/sourcegraph-announces-general-availability-agentic-133000114.html", "label": "Yahoo Finance Coverage"}
+          ]
+        },
+        {
+          "title": "NOFire Releases Brig: Open-Source microVM Sandbox for AI Coding Agents",
+          "url": "https://www.nofire.ai/newsroom/brig-open-source-launch",
+          "tldr": "NOFire AI released Brig on September 15 as an Apache 2.0 open-source project — a microVM sandbox that runs AI coding agents inside hardware-level isolation on Mac (Apple Silicon) or Linux. The core security concern: as developers use auto-approval to accelerate AI development, agents can install packages, execute arbitrary actions, use the network, and access credentials, making supply chain attacks (like the recent Axios incident) trivially exploitable. Brig contains this risk within ephemeral microVMs with CPU-enforced memory and process boundaries. The VMM code is under 20K lines — one of the smallest auditable sandboxes available. Launch with `brig run claude` and curated profiles for Claude Code, Codex, Cursor, Gemini, Grok, and opencode.",
+          "why_it_matters": "The RubyGems incident this week proved the threat is real: AI agents with network access and developer credentials are a supply chain attack surface. Brig addresses this with the simplest possible sandbox — hardware-level isolation via microVMs, not containers or process-level sandboxing. The under-20K-line codebase means security teams can actually audit it, unlike full VM hypervisors. Curated profiles for every major coding agent (Claude Code, Codex, Cursor, Gemini, Grok, opencode) make adoption trivial. For any team running coding agents with auto-approval enabled, Brig is the missing security layer between 'fast' and 'safe.'",
+          "traction": "emerging",
+          "traction_evidence": ["Released September 15, 2026 (today) by NOFire AI", "Apache 2.0 open-source license", "Under 20K lines of auditable VMM code", "Curated profiles for all major coding agents", "Built by creators of CNCF's urunc project", "Addresses active supply chain threat (RubyGems incident)"],
+          "use_cases": ["Secure sandbox for AI coding agents with auto-approval", "Supply chain attack mitigation for developer environments", "Hardware-isolated execution of untrusted agent actions", "Enterprise-grade agent sandboxing with minimal audit surface"],
+          "tags": ["Security", "Open Source", "Sandboxing", "AI Agents"],
+          "links": [
+            {"url": "https://www.nofire.ai/newsroom/brig-open-source-launch", "label": "NOFire Announcement"},
+            {"url": "https://github.com/brig-sh/brig", "label": "GitHub Repository"}
+          ]
+        },
+        {
+          "title": "Google ADK for Kotlin 1.0: Production-Ready AI Agents on Android, Server, and Multiplatform",
+          "url": "https://developers.googleblog.com/en/announcing-adk-for-kotlin-10-building-production-ready-ai-agents-in-kotlin-android-and-beyond/",
+          "tldr": "Google released Agent Development Kit (ADK) for Kotlin 1.0 on September 9, bringing production-ready AI agent building to the Kotlin ecosystem — Android, server-side, and Kotlin Multiplatform. The SDK provides structured agent primitives: tool definitions, memory management, multi-step reasoning, and model orchestration, all using Kotlin's type-safe idioms. It integrates with Gemini models natively and supports the broader Google AI ecosystem.",
+          "why_it_matters": "AI agent frameworks have been overwhelmingly Python and TypeScript. Kotlin is the primary language for Android (3B+ active devices) and a growing force in server-side development. ADK 1.0 means Kotlin developers can build production agents without bridging to Python — and Android developers can embed agent capabilities directly in mobile apps. The Kotlin Multiplatform support means a single agent codebase can target Android, iOS, server, and desktop. For the massive Kotlin/Android developer community, this is the on-ramp to agent development that didn't exist before.",
+          "traction": "medium",
+          "traction_evidence": ["Released September 9, 2026 by Google", "v1.0 production release (not preview)", "Official Google Developers Blog announcement", "Targets Kotlin's 3B+ Android device ecosystem", "Supports Kotlin Multiplatform for cross-platform agents"],
+          "use_cases": ["Building AI agents natively in Android applications", "Server-side Kotlin agent development with type-safe APIs", "Cross-platform agent code via Kotlin Multiplatform", "Embedding Gemini-powered agents in mobile apps"],
+          "tags": ["Google", "Kotlin", "Android", "AI Agents"],
+          "links": [
+            {"url": "https://developers.googleblog.com/en/announcing-adk-for-kotlin-10-building-production-ready-ai-agents-in-kotlin-android-and-beyond/", "label": "Google Developers Blog"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Production",
+      "articles": [
+        {
+          "title": "Red Hat AI 3.5: Agent Governance, Multi-Tenant GPU Sharing, and Model Safety Verification for Production",
+          "url": "https://www.redhat.com/en/blog/red-hat-ai-35-scaling-and-governing-ai-agents-production",
+          "tldr": "Red Hat released AI 3.5 on September 9, addressing the four questions enterprise teams hit when scaling past AI pilots: Can we trust it? Can we control it? Can we build on it? Can we measure it? The release includes model safety verification with Garak benchmarks before deployment, a curated AI Model Catalog with pre-validated models, EvalHub for agent evaluation, multi-tenant GPU infrastructure controls, and built-in observability for performance and cost transparency across hybrid cloud. Models are validated for tool-calling reliability and ship with deployment commands so teams building agentic pipelines start from a tested baseline.",
+          "why_it_matters": "Most AI platform discussions focus on model capabilities. Red Hat AI 3.5 focuses on what happens after you pick a model: How do you verify it's safe before deployment? How do you share GPU infrastructure across teams without conflicts? How do you track costs and performance across hybrid cloud? The model safety verification with Garak benchmarks is particularly relevant as agents gain tool-calling abilities — an agent that calls APIs and triggers workflows creates operational risk, not just quality risk. For enterprise platform engineering teams on OpenShift, this provides the governance layer that turns AI experiments into shared infrastructure.",
+          "traction": "high",
+          "traction_evidence": ["Released September 9, 2026 by Red Hat", "Builds on Red Hat OpenShift enterprise infrastructure", "Model safety verification with Garak benchmarks", "Multi-tenant GPU sharing for enterprise AI infrastructure", "Official Red Hat blog announcement"],
+          "use_cases": ["Enterprise AI model safety verification before production deployment", "Multi-tenant GPU infrastructure management across teams", "Agent evaluation and governance for agentic pipelines", "Cost and performance observability for hybrid cloud AI workloads"],
+          "tags": ["Red Hat", "Enterprise", "AI Governance", "MLOps"],
+          "links": [
+            {"url": "https://www.redhat.com/en/blog/red-hat-ai-35-scaling-and-governing-ai-agents-production", "label": "Red Hat Blog"}
+          ]
+        },
+        {
+          "title": "Rogue AI Agents Attack RubyGems.org: Supply Chain Security Wake-Up Call for the Agent Era",
+          "url": "https://tenderlovemaking.com/2026/09/13/rouge-ai-agents-attack-rubygems-org/",
+          "tldr": "Aaron Patterson (tenderlove) published a post revealing that AI agents — specifically identified as OpenAI-linked bots — exploited a caching vulnerability on RubyGems.org. The agents discovered and probed the vulnerability, triggering a supply chain security incident in the Ruby ecosystem. The Hacker News discussion (94+ points, 128+ comments) sparked a broader debate about AI agent safety, quality certifications for agents, and who bears liability when autonomous agents cause harm. The incident echoed the recent Axios supply chain attack pattern, where agents with network access and package manager credentials become an attack vector.",
+          "why_it_matters": "This is the first major real-world supply chain security incident where AI agents are the attack vector against a package registry. As coding agents gain auto-approval modes and persistent network access, they inherit — and amplify — every supply chain vulnerability in the ecosystems they interact with. The Hacker News discussion highlights an emerging need for 'quality certifications' for AI agents, analogous to UL/CE for physical devices. For engineering teams running coding agents, this incident is the concrete proof that agent sandboxing (see: Brig, above) isn't optional. For package registry maintainers, it signals that bot traffic from AI agents is a new threat category requiring dedicated defenses.",
+          "traction": "high",
+          "traction_evidence": ["Published September 13, 2026 by Aaron Patterson (tenderlove)", "94+ points and 128+ comments on Hacker News", "Broad coverage on DEV Community and security outlets", "Identified AI agents as attack vector on RubyGems.org", "Sparked industry discussion on agent safety and liability"],
+          "use_cases": ["Understanding AI agent supply chain attack vectors", "Evaluating sandbox and isolation requirements for coding agents", "Package registry security against autonomous bot traffic", "Establishing agent safety and certification standards"],
+          "tags": ["Security", "Supply Chain", "RubyGems", "AI Safety"],
+          "links": [
+            {"url": "https://tenderlovemaking.com/2026/09/13/rouge-ai-agents-attack-rubygems-org/", "label": "tenderlove's Blog"},
+            {"url": "https://news.ycombinator.com/item?id=49695876", "label": "Hacker News Discussion"},
+            {"url": "https://dev.to/rawas_aditya/rubygems-supply-chain-vulnerability-what-the-openai-bot-incident-teaches-about-nodejs-and-npm-180c", "label": "DEV Community Analysis"}
+          ]
+        },
+        {
+          "title": "Rivet Launches BYOC: Run the Control Plane Inside Your Own AWS or GCP VPC",
+          "url": "https://rivet.dev/changelog/2026-09-15-introducing-rivet-byoc/",
+          "tldr": "Rivet released BYOC (Bring Your Own Cloud) on September 15, letting teams run the Rivet control plane inside their own AWS or Google Cloud VPC. Rivet manages the control plane while your data stays entirely in your account — Rivet Cloud never needs inbound access. This addresses the core blocker for enterprises evaluating managed agent infrastructure: data residency and security teams requiring workloads to stay within their VPC boundaries.",
+          "why_it_matters": "As agent infrastructure moves to the cloud, the biggest enterprise objection isn't cost or features — it's 'our data can't leave our VPC.' Rivet BYOC solves this cleanly: you get a fully managed control plane with zero inbound access from Rivet's side. For teams building agent platforms that handle proprietary code, customer data, or regulated workloads, this is the deployment model that security teams will actually approve. The pattern — managed control plane, customer-owned data plane — is becoming the standard for enterprise AI infrastructure, and Rivet delivering it for agent orchestration fills a gap.",
+          "traction": "medium",
+          "traction_evidence": ["Released September 15, 2026 by Rivet", "Supports AWS and Google Cloud VPCs", "Zero inbound access architecture", "Official Rivet changelog announcement", "Addresses enterprise data residency requirements"],
+          "use_cases": ["Enterprise agent infrastructure with data residency compliance", "Running agent orchestration inside corporate VPC boundaries", "Managed control plane for teams that can't use SaaS", "Regulated industry AI deployments requiring data isolation"],
+          "tags": ["Infrastructure", "Enterprise", "BYOC", "Agent Platform"],
+          "links": [
+            {"url": "https://rivet.dev/changelog/2026-09-15-introducing-rivet-byoc/", "label": "Rivet Changelog"}
+          ]
+        }
+      ]
+    }
+  ]
+}
