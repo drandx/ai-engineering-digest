@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — September 17, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">September 17, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://www.infoq.com/news/2026/09/gpt-6-astra-critical-cyber/">GPT-6 Astra is the first model OpenAI classifies as Critical for cybersecurity — it discovered unknown zero-days and built working exploit chains autonomously</a></li>
+      <li><a href="https://zed.dev/blog/delta-public-beta">Zed launches Delta public beta: a multiplayer coding environment that replaces pull requests with shared agent threads</a></li>
+      <li><a href="https://shattered.io/gitspawn-ai-coding-agent-vulnerability-2026/">GitSpawn vulnerability hits 7 AI coding agents including Claude Code, Codex, and Cursor — 4 still unpatched</a></li>
+      <li><a href="https://byteiota.com/deepseek-harness-open-source-agent-runtime-155k-stars/">DeepSeek ships open-source agent runtime Harness with 155K GitHub stars and fully swappable plugin architecture</a></li>
+      <li><a href="https://lambda.ai/blog/mlperf-inference-v6.1">MLPerf Inference v6.1 introduces first agentic workload benchmark on datacenter hardware, first trillion-parameter model submission</a></li>
+      <li><a href="https://www.infoq.com/news/2026/09/microsoft-taugrid-open-source/">Microsoft open-sources TauGrid: single Helm install for managing AI training, fine-tuning, and inference on GPU Kubernetes clusters</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://www.infoq.com/news/2026/09/gpt-6-astra-critical-cyber/">GPT-6 Astra Is the First Model OpenAI Classifies as Critical for Cybersecurity</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI classified GPT-6 Astra at the Critical level for cybersecurity under its Preparedness Framework — the first model to reach that threshold. In expert-supervised testing, Astra discovered previously unknown vulnerabilities in a browser and an OS kernel, then built working exploit chains autonomously: unsandboxed code execution in the browser after 29 hours, adapted to a stable release in 12 more hours, and local privilege escalation in the kernel within 12 hours. Microsoft made the model generally available in Foundry Models the same day, with availability also through ChatGPT, the OpenAI API, and AWS.</p>
+      <div class="article-meta">
+        <span class="tag">OpenAI</span>
+        <span class="tag">GPT-6</span>
+        <span class="tag">Cybersecurity</span>
+        <span class="tag">Zero-Day</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is a watershed moment for AI security capabilities. A model that can autonomously discover zero-days and build working exploit chains against hardened targets changes the threat model for every production system. For defensive teams, GPT-6 Astra's capabilities preview what attackers will have access to — the 29-hour browser exploit chain and 12-hour kernel privilege escalation set concrete timelines for how fast AI-assisted attacks can move. For engineering teams, this raises the bar for security testing: if a model can find zero-days in browsers and kernels, it can certainly find vulnerabilities in your application. The dual-use nature — available through public APIs while classified as Critical — means both defenders and attackers have access.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Automated security auditing and penetration testing at scale</li>
+          <li>Defensive vulnerability discovery before attackers find them</li>
+          <li>Evaluating security posture of production systems with AI-assisted testing</li>
+          <li>Understanding the new threat model for AI-capable adversaries</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published September 17, 2026 by InfoQ</li>
+          <li>First model classified Critical under OpenAI's Preparedness Framework</li>
+          <li>Generally available through Microsoft Foundry, ChatGPT, OpenAI API, and AWS</li>
+          <li>Major Hacker News discussion</li>
+          <li>System card published with detailed evaluation methodology</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/09/gpt-6-astra-critical-cyber/">InfoQ Coverage</a></li>
+          <li><a href="https://azure.microsoft.com/en-us/blog/gpt-6-astra-frontier-intelligence-for-work-now-generally-available-in-microsoft-foundry/">Microsoft Foundry Announcement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://byteiota.com/deepseek-harness-open-source-agent-runtime-155k-stars/">DeepSeek Ships Open-Source Agent Runtime 'Harness' with 155K GitHub Stars</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">DeepSeek released a developer preview of Harness, an open-source agent runtime with a modular plugin architecture where every component is swappable. The project has already accumulated 155K GitHub stars, making it one of the fastest-growing open-source AI projects. Harness provides the runtime layer for building and running AI agents with pluggable components for memory, tool execution, context management, and orchestration.</p>
+      <div class="article-meta">
+        <span class="tag">DeepSeek</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Agent Runtime</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>At 155K stars, DeepSeek Harness is signaling massive developer interest in open-source agent runtimes that aren't locked to a specific model provider. The fully swappable plugin architecture means teams can use DeepSeek models, OpenAI, Anthropic, or any other provider as the reasoning engine while keeping the same runtime infrastructure. For teams evaluating whether to build or buy their agent runtime, Harness offers a third option: adopt an open standard that's backed by one of the most active AI labs. The star count alone suggests this will become a gravitational center for the open-source agent ecosystem.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building model-agnostic agent runtimes with pluggable components</li>
+          <li>Self-hosted agent infrastructure with full control over the stack</li>
+          <li>Replacing proprietary agent frameworks with open-source alternatives</li>
+          <li>Enterprise agent deployments requiring vendor-neutral runtime</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>155,000 GitHub stars</li>
+          <li>Developer preview released by DeepSeek</li>
+          <li>Modular plugin architecture with swappable components</li>
+          <li>Covered by byteiota and developer community outlets</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://byteiota.com/deepseek-harness-open-source-agent-runtime-155k-stars/">byteiota Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one">GitHub Copilot Reveals the Architecture Behind Its New Inline Suggestions Model</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">The VS Code team published a deep technical blog on September 16 detailing how they built the new GitHub Copilot inline suggestions model. The post covers how completion-style ghost text, next-edit suggestions near the cursor, and edits farther away were unified into a single model architecture. This is the first time GitHub has publicly detailed the model architecture powering Copilot's real-time code suggestions, moving beyond simple autocomplete to context-aware multi-location edits.</p>
+      <div class="article-meta">
+        <span class="tag">GitHub</span>
+        <span class="tag">Copilot</span>
+        <span class="tag">Code Suggestions</span>
+        <span class="tag">Architecture</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is rare transparency into how the most widely-used coding AI actually works under the hood. The unification of ghost text, near-cursor edits, and far-away edits into a single model explains why recent Copilot suggestions feel more contextually aware. For teams building their own code suggestion systems or evaluating Copilot alternatives, this architecture deep-dive provides a blueprint. The multi-location edit capability — suggesting changes in places you're not currently looking — represents the next evolution beyond simple autocomplete.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Understanding the architecture behind AI-powered code suggestions</li>
+          <li>Building custom code suggestion models with multi-location awareness</li>
+          <li>Evaluating Copilot's technical approach against alternatives</li>
+          <li>Informing internal AI coding tool development</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published September 16, 2026 on the VS Code blog</li>
+          <li>GitHub Copilot has tens of millions of users</li>
+          <li>First public architecture disclosure for the inline suggestions model</li>
+          <li>Authors are core Copilot engineering team members</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one">VS Code Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://zed.dev/blog/delta-public-beta">Zed Launches Delta Public Beta: Replacing Pull Requests with Multiplayer Agent Threads</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Zed launched the public beta of Delta on September 16 — a multiplayer environment for coding with agents and reviewing what they build. Delta replaces pull requests with shared threads where teammates join your conversations with agents, see the same worktrees, and can continue working when you log off. Zed has already disabled PRs on Delta's own repository, building Delta entirely within Delta. Available for macOS, Linux, Windows, and the web.</p>
+      <div class="article-meta">
+        <span class="tag">Zed</span>
+        <span class="tag">Delta</span>
+        <span class="tag">Code Review</span>
+        <span class="tag">Multiplayer</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Pull requests were designed for human-written code reviewed by humans. When agents generate large diffs, traditional code review breaks down — splitting across branch stacks doesn't help because the decisions behind the code still need review, and smaller diffs strip that context. Delta's approach is fundamentally different: instead of reviewing a snapshot of changes, reviewers join the conversation that produced those changes. They see the agent's reasoning, can ask the same agent follow-up questions, and review decisions rather than diffs. If this model works at scale, it could reshape how teams collaborate in an agent-heavy workflow. Zed dogfooding Delta on itself is the strongest possible signal of confidence.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Multiplayer code review for agent-generated changes</li>
+          <li>Shared context between teammates and coding agents</li>
+          <li>Replacing PR-based workflows in agent-heavy teams</li>
+          <li>Asynchronous agent collaboration across time zones</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Public beta launched September 16, 2026</li>
+          <li>Zed disabled PRs on Delta's own repository</li>
+          <li>Available on macOS, Linux, Windows, and web</li>
+          <li>Multiple appearances across search results</li>
+          <li>Nathan Sobo (Zed founder) authored the announcement</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://zed.dev/blog/delta-public-beta">Zed Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://shattered.io/gitspawn-ai-coding-agent-vulnerability-2026/">GitSpawn Vulnerability Hits 7 AI Coding Agents: Claude Code, Codex, Cursor, and 4 Others Exposed</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Security firm Manifold Security disclosed GitSpawn on September 1-2: a vulnerability class where a single line in a Git configuration file can hijack AI coding agents. Eight distinct flaws across seven agents — Anthropic's Claude Code, OpenAI's Codex, Cursor, Cognition's Goose, Hermes Agent, Alibaba's Qwen Code, and xAI's Grok Build — were found, with four still unpatched at publication. The attack exploits how agents process repository Git configs, turning a repository's own configuration into a remote code execution path that bypasses sandboxes and approval prompts.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">CVE</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">Git</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>GitSpawn is the most significant security finding against AI coding agents to date, both in breadth (7 agents) and severity (RCE that bypasses sandboxes). The attack vector is elegant and terrifying: a malicious .gitconfig in a repository you clone is enough. This isn't a prompt injection that requires social engineering — it's a configuration-level exploit that fires before the agent even starts reasoning about code. Combined with last week's RubyGems incident and the Vite CVE exploitation, September is establishing a clear pattern: the infrastructure around AI coding agents is the new attack surface. Every team running coding agents needs to audit their Git config handling immediately.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Immediate audit of Git config handling in AI coding agent deployments</li>
+          <li>Enterprise security review of coding agent attack surface</li>
+          <li>Understanding supply chain risks from repository-level exploits</li>
+          <li>Evaluating agent sandboxing effectiveness against config-level attacks</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>8 CVEs across 7 major AI coding agents</li>
+          <li>Published September 16, 2026 by Manifold Security</li>
+          <li>4 of 8 findings still unpatched at publication</li>
+          <li>Covered by The Hacker News and Cloud Security Alliance</li>
+          <li>Affects the most widely-used coding agents in the industry</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://shattered.io/gitspawn-ai-coding-agent-vulnerability-2026/">Shattered.io Analysis</a></li>
+          <li><a href="https://news.ycombinator.com/item?id=49731282">Hacker News Discussion</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.atlassian.com/blog/jira/introducing-bearq-for-jira">Atlassian Launches BearQ for Jira: An Assignable AI Testing Agent in Your Delivery Workflow</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Atlassian released BearQ for Jira on September 16 — an assignable testing agent that embeds directly into Jira work items. Assign a ticket to BearQ or @mention it in Rovo Chat, and it parses acceptance criteria, technical requirements, and comment threads to generate test cases, explore browser behavior, and catch defects. BearQ adapts tests as features evolve, eliminating brittle static test scripts. It closes the loop between agent-written code and the quality teams ship.</p>
+      <div class="article-meta">
+        <span class="tag">Atlassian</span>
+        <span class="tag">Jira</span>
+        <span class="tag">Testing</span>
+        <span class="tag">AI Agent</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Testing is the bottleneck in agent-driven development: coding agents ship PRs fast, but someone still needs to verify they work. BearQ makes testing a first-class citizen in the Jira workflow by treating it as an assignable task — the same way you'd assign a developer or QA engineer. The key insight is grounding tests in delivery context (acceptance criteria, comment threads, PR state) rather than running generic test suites. For the massive Jira user base, this means testing becomes part of the ticket lifecycle, not a separate process. This is Atlassian's clearest move yet into AI-native development workflows.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Automated testing grounded in Jira acceptance criteria</li>
+          <li>Closing the quality loop in agent-driven development workflows</li>
+          <li>Replacing brittle static test scripts with adaptive AI-generated tests</li>
+          <li>QA automation that evolves with feature iterations</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released September 16, 2026 by Atlassian</li>
+          <li>Official Atlassian blog and Jira release notes</li>
+          <li>Jira has millions of active users across enterprise teams</li>
+          <li>Integrates with Rovo Chat (Atlassian's AI platform)</li>
+          <li>Covered by WebProNews</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.atlassian.com/blog/jira/introducing-bearq-for-jira">Atlassian Blog</a></li>
+          <li><a href="https://jirareleases.atlassian.com/announcements/bearq-for-jira-is-now-available">Jira Release Notes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://www.infoq.com/news/2026/09/tanstack-charts-alpha-introduced/">TanStack Charts Enters Alpha: Framework-Agnostic Grammar of Graphics for TypeScript</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Tanner Linsley's TanStack team released TanStack Charts in alpha on September 17 — a framework-agnostic charting library based on the Grammar of Graphics, built entirely in TypeScript. Like other TanStack libraries (Router, Query, Table), Charts works across React, Vue, Solid, Svelte, and Angular with a single core API. It brings the composable, declarative approach of ggplot2 to the TypeScript ecosystem.</p>
+      <div class="article-meta">
+        <span class="tag">TanStack</span>
+        <span class="tag">Charts</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Data Visualization</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Charting libraries are one of the last holdouts of framework-specific code. D3 is framework-agnostic but low-level; Recharts is React-only; Chart.js requires wrapper libraries. TanStack Charts brings the same 'write once, run everywhere' philosophy that made TanStack Query and Router successful. The Grammar of Graphics foundation means charts are composable from primitives (scales, marks, coordinates) rather than picked from a menu of chart types. For teams running multiple frameworks or migrating between them, a single charting library that follows the TanStack pattern is a significant DX win.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Framework-agnostic data visualization across React, Vue, Solid, Svelte</li>
+          <li>Composable chart building with Grammar of Graphics primitives</li>
+          <li>Replacing framework-specific charting libraries with a single solution</li>
+          <li>TypeScript-native charting with full type safety</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Alpha released September 17, 2026</li>
+          <li>Covered by InfoQ and LavX News on launch day</li>
+          <li>TanStack ecosystem has 100K+ combined GitHub stars across libraries</li>
+          <li>Framework-agnostic approach matches proven TanStack pattern</li>
+          <li>Built by Tanner Linsley, creator of TanStack Query/Router/Table</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/09/tanstack-charts-alpha-introduced/">InfoQ Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://lambda.ai/blog/mlperf-inference-v6.1">MLPerf Inference v6.1: First Agentic Workload Benchmark and First Trillion-Parameter Model on Datacenter Hardware</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">MLPerf Inference v6.1 results published September 16 introduce two firsts: the first agentic inference workload run on datacenter hardware, and the first model over a trillion parameters (Kimi K2.6 replacing the Qwen3.6-27B backbone). Lambda's 4 NVIDIA Blackwell Ultra GPU system delivered leading Offline throughput on GPT-OSS 120B, with 8.85% Server and 8.79% Offline throughput improvements over v6.0 on identical hardware — a direct measure of software stack optimization. NVIDIA's Vera Rubin NVL72 also debuted with leading performance.</p>
+      <div class="article-meta">
+        <span class="tag">MLPerf</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">Inference</span>
+        <span class="tag">Benchmarks</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>MLPerf is the industry's standard benchmark for inference performance, and v6.1 adding agentic workloads signals that agent inference is now a first-class production workload category. The 8.85% throughput gain on identical hardware means pure software optimization is still delivering meaningful improvements — teams don't need new GPUs to get faster. The trillion-parameter model submission shows the infrastructure is ready for models at that scale. For platform teams planning GPU infrastructure, these results provide the concrete performance data needed to make procurement decisions and capacity plans.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Benchmarking GPU infrastructure for agentic inference workloads</li>
+          <li>Capacity planning based on standardized performance data</li>
+          <li>Evaluating software stack optimizations without hardware upgrades</li>
+          <li>Comparing inference platforms for large-model deployments</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published September 16, 2026 by MLCommons</li>
+          <li>Lambda, NVIDIA, and major cloud providers submitted results</li>
+          <li>First agentic workload in MLPerf history</li>
+          <li>First trillion-parameter model submission</li>
+          <li>NVIDIA Vera Rubin NVL72 debut</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://lambda.ai/blog/mlperf-inference-v6.1">Lambda Blog</a></li>
+          <li><a href="https://blogs.nvidia.com/blog/vera-rubin-nvl72-mlperf-inference/">NVIDIA Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.infoq.com/news/2026/09/microsoft-taugrid-open-source/">Microsoft Open-Sources TauGrid: Single Helm Install for AI Workloads on GPU Kubernetes</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Microsoft open-sourced TauGrid, a cloud-native platform that manages, schedules, and monitors AI workloads on GPU-enabled Kubernetes clusters. TauGrid replaces the typical patchwork of submission scripts, queue wrappers, health checks, and custom tooling with a single Helm install. It includes Kueue for workload queuing, KubeRay for orchestration, GPU-node health monitoring, and a tau CLI for submitting workloads via YAML configs. Researchers submit workloads without learning Kubernetes; platform teams get workspaces, compute profiles, storage, and observability out of the box.</p>
+      <div class="article-meta">
+        <span class="tag">Microsoft</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">AI Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Running AI workloads on Kubernetes today means assembling 5-10 open-source projects plus custom glue. TauGrid collapses this into one install with clear ownership boundaries. The two-persona design is key: researchers get a simple CLI (`tau run`), while platform teams get enterprise controls. Microsoft open-sourcing their internal AI workload platform levels the playing field — smaller teams can now run the same infrastructure that powers Azure AI without building it from scratch. For any organization training or fine-tuning models on Kubernetes, TauGrid eliminates months of platform engineering work.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Unified AI workload management on GPU Kubernetes clusters</li>
+          <li>Simplified researcher experience for submitting training jobs</li>
+          <li>Platform engineering for multi-tenant AI training infrastructure</li>
+          <li>Replacing custom GPU scheduling scripts with a managed solution</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Open-sourced September 2026 by Microsoft</li>
+          <li>Covered by InfoQ on September 16</li>
+          <li>Built on proven CNCF components (Kueue, KubeRay)</li>
+          <li>Consolidates Microsoft's internal AI workload infrastructure</li>
+          <li>Available as a single Helm install</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/09/microsoft-taugrid-open-source/">InfoQ Coverage</a></li>
+          <li><a href="https://azure.github.io/taugrid/docs/overview/what-is-tau/">TauGrid Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://planetscale.com/blog/introducing-tin">PlanetScale Introduces TIN: Full-Text Search for Postgres That Eliminates Elasticsearch</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">PlanetScale introduced TIN, a full-text search engine built directly into their sharded Postgres offering (Neki). TIN brings real-time, production-grade text search to Postgres without requiring a separate Elasticsearch cluster, external sync pipelines, or additional infrastructure. The blog includes detailed performance benchmarks covering index build time, mixed queries, ranked results, and conjunction/disjunction patterns.</p>
+      <div class="article-meta">
+        <span class="tag">PlanetScale</span>
+        <span class="tag">Postgres</span>
+        <span class="tag">Search</span>
+        <span class="tag">Database</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The Elasticsearch sidecar is one of the most common sources of operational complexity in production systems — maintaining sync pipelines, managing a separate cluster, handling index drift, and debugging search quality issues in a system that's architecturally disconnected from your primary database. TIN eliminates this entire category of infrastructure by embedding search directly in Postgres. For teams on PlanetScale's Neki (sharded Postgres), this means full-text search with zero additional infrastructure. The broader signal: the database-is-the-search-engine trend is accelerating, and the days of running a separate search cluster for basic text search are numbered.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replacing Elasticsearch with in-database full-text search</li>
+          <li>Simplifying search infrastructure on sharded Postgres</li>
+          <li>Real-time text search without external sync pipelines</li>
+          <li>Reducing operational complexity for teams running search workloads</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published September 2026 by PlanetScale</li>
+          <li>Part of PlanetScale's Neki sharded Postgres offering</li>
+          <li>Detailed performance benchmarks published</li>
+          <li>PlanetScale is a leading database infrastructure company</li>
+          <li>Addresses universal pain point of Elasticsearch operational overhead</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://planetscale.com/blog/introducing-tin">PlanetScale Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
