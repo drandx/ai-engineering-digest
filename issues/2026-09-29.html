@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — September 29, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">September 29, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://blog.jetbrains.com/air/2026/09/introducing-air-teams/">JetBrains Air Teams ships: share agentic workflows across your whole team with reusable templates and automated repeatable work</a></li>
+      <li><a href="https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/">Docker launches Cloud Sandboxes and submits Sandbox Kit spec to CNCF — agent permissions become portable and standardized</a></li>
+      <li><a href="https://blog.cloudflare.com/forge-open-source-generation-pipeline/">Cloudflare open-sources Forge for SDK generation after Anthropic acquires and shuts down Stainless</a></li>
+      <li><a href="https://dev.meta.ai/models/muse-glimmer">Meta releases Muse Glimmer 30B: an Apache 2.0 model built for always-on local agents on a single GPU</a></li>
+      <li><a href="https://voidzero.dev/posts/announcing-vite-plus-1-0">Vite+ 1.0 goes stable — Evan You's unified JS toolchain from VoidZero (now at Cloudflare) hits 2M weekly downloads</a></li>
+      <li><a href="https://www.infoq.com/news/2026/09/google-ax-orchestrator/">Google open-sources AX, a Kubernetes-style declarative orchestrator for autonomous AI agents, hits #1 on Hacker News</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/air/2026/09/introducing-air-teams/">JetBrains Air Teams: Share Agentic Workflows Across Your Whole Engineering Team</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">JetBrains launched Air Teams on September 28 as part of the broader JetBrains Air platform for agentic software development. Air Teams lets you create reusable agentic workflow templates that the whole team can use, automating repeatable work like code reviews, test generation, and migration patterns. The platform integrates with JetBrains IDEs and supports custom agent instructions that encode team-specific coding standards and architectural decisions.</p>
+      <div class="article-meta">
+        <span class="tag">JetBrains</span>
+        <span class="tag">Air Teams</span>
+        <span class="tag">Agentic Workflows</span>
+        <span class="tag">Team Productivity</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most AI coding tools are still individual productivity boosters — one developer, one agent session. JetBrains Air Teams tackles the harder problem: making agent-assisted workflows a team capability rather than a personal one. When one senior engineer figures out the right prompt and workflow for, say, migrating a service to a new API version, Air Teams lets them package that as a reusable template anyone on the team can run. This is the difference between 'we use AI' and 'AI is part of our engineering process.' For teams already deep in the JetBrains ecosystem (IntelliJ, WebStorm, PyCharm), this is the most friction-free path to team-wide agentic adoption.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Packaging proven agent workflows as reusable team templates</li>
+          <li>Automating repeatable engineering tasks (reviews, migrations, test generation)</li>
+          <li>Enforcing team coding standards through agent instructions</li>
+          <li>Onboarding new team members with pre-built agentic workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Launched September 28 by JetBrains, one of the largest IDE companies</li>
+          <li>Covered by InfoWorld, JetBrains Blog, and developer community</li>
+          <li>Part of the broader JetBrains Air platform announced September 22</li>
+          <li>JetBrains has millions of active IDE users</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.jetbrains.com/air/2026/09/introducing-air-teams/">JetBrains Blog</a></li>
+          <li><a href="https://blog.jetbrains.com/blog/2026/09/22/introducing-jetbrains-air/">JetBrains Air Overview</a></li>
+          <li><a href="https://www.infoworld.com/article/4225681/jetbrains-unveils-jetbrains-air-for-agentic-software-development.html">InfoWorld Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://dev.meta.ai/models/muse-glimmer">Meta Releases Muse Glimmer 30B: An Open Model Built for Always-On Local Agents</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Meta released Muse Glimmer 30B, an Apache 2.0 open-weight model purpose-built for autonomous agentic tasks on consumer hardware. Distilled from the larger Muse Spark, the 30B-parameter model runs on a single GPU and is tuned specifically for tool use, long-running tasks, and failure recovery. It includes a dedicated perception encoder for multimodal capabilities. The model targets the 'always-on agent' use case — agents that persist, recover from errors, and manage state over extended sessions.</p>
+      <div class="article-meta">
+        <span class="tag">Meta</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Local AI</span>
+        <span class="tag">Agent Model</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The open-weight agent model space just got its strongest contender for local deployment. While most frontier models require cloud APIs, Muse Glimmer is explicitly designed to run on a single consumer GPU — making it practical for developers who want agent capabilities without API costs or data leaving their machine. The focus on failure recovery and long tasks addresses the real pain point with local agents: they crash, lose context, and can't handle multi-step workflows. Apache 2.0 licensing means you can embed it in commercial products without restrictions. For anyone building agent infrastructure that needs to work offline or in air-gapped environments, this is the model to evaluate.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosted coding agents without cloud API dependencies</li>
+          <li>Local agent deployment in air-gapped or privacy-sensitive environments</li>
+          <li>Building always-on agents that survive crashes and recover state</li>
+          <li>Embedding agent capabilities in commercial products (Apache 2.0)</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released by Meta Superintelligence Lab, Apache 2.0 licensed</li>
+          <li>Available on Hugging Face and Meta's developer portal</li>
+          <li>30B parameters runs on single consumer GPU</li>
+          <li>Distilled from Muse Spark with dedicated perception encoder</li>
+          <li>Covered by CtrlMag and developer community</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://dev.meta.ai/models/muse-glimmer">Meta Developer Portal</a></li>
+          <li><a href="https://huggingface.co/meta-models/Muse-Glimmer-30B">Hugging Face Model Card</a></li>
+          <li><a href="https://ctrlmag.com/blog/meta-releases-muse-glimmer-30b-an-open-weight-model-built-for-local-hardware">CtrlMag Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://openai.com/index/introducing-the-agents-api/">OpenAI Ships Agents API: Build Cloud Agents with the Managed Codex Harness</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenAI launched the Agents API on September 10, giving developers programmatic access to the Codex harness — the same infrastructure that powers Codex and ChatGPT for Work. The API manages sessions, orchestration, context compaction, and recovery while your application provides the tools and environment. Agents run in sandboxed cloud environments and can execute code, browse the web, and use custom tools. Cloudflare immediately announced integration with Cloudflare Containers for running Codex agents.</p>
+      <div class="article-meta">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Agents API</span>
+        <span class="tag">Codex</span>
+        <span class="tag">Cloud Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is OpenAI taking the infrastructure that makes Codex work and packaging it as a platform service. The key differentiator is the managed harness — session management, context compaction, and crash recovery are handled by OpenAI, so you focus on defining tools and business logic rather than building agent infrastructure from scratch. The Cloudflare Containers integration on day one signals that this is designed for production use, not just prototyping. For teams that have been building bespoke agent runtimes, this is the 'just use the managed service' option from the company that has the most experience running agents at scale.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building production agent applications without managing agent infrastructure</li>
+          <li>Running long-lived coding agents in sandboxed cloud environments</li>
+          <li>Integrating agent capabilities into existing applications via API</li>
+          <li>Deploying agents to Cloudflare edge infrastructure</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Launched September 10 by OpenAI</li>
+          <li>Built on the Codex harness powering millions of users</li>
+          <li>Day-one Cloudflare Containers integration</li>
+          <li>Full API documentation available at developers.openai.com</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://openai.com/index/introducing-the-agents-api/">OpenAI Announcement</a></li>
+          <li><a href="https://developers.openai.com/api/docs/guides/agents-api/overview">API Documentation</a></li>
+          <li><a href="https://developers.cloudflare.com/changelog/post/2026-09-10-using-openai-agents-api-with-cloudflare-containers/">Cloudflare Integration</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://cursor.com/blog/rollouts-and-security-reviewer">Cursor Ships Rollouts and Security Review: Bots for the Last Mile of Shipping Code</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Cursor launched two new bots on September 23 that extend AI assistance beyond code writing into deployment and security. Rollouts watches every change as it deploys and reports health per environment, built on technology from the Firetiger acquisition. Security Review scans every PR for exploitable bugs before merge. Together, they cover the gap between 'code written' and 'code safely in production' — the last mile that most AI coding tools ignore.</p>
+      <div class="article-meta">
+        <span class="tag">Cursor</span>
+        <span class="tag">DevOps</span>
+        <span class="tag">Security</span>
+        <span class="tag">Deployment</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Cursor is making a strategic bet that the value of AI in software development extends well past writing code. Rollouts is particularly interesting: it connects the code change to its production behavior, so when a deploy goes sideways, the bot can correlate it back to the specific diff that caused it. This is the kind of closed-loop feedback that makes AI coding assistants actually trustworthy — not just 'it wrote the code' but 'it verified the code works in production.' The Firetiger acquisition-to-product pipeline (acquired, then shipped a month later) shows Cursor executing fast on its vision of end-to-end agent coverage.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Automated deployment health monitoring per environment</li>
+          <li>Pre-merge security scanning for exploitable vulnerabilities</li>
+          <li>Correlating production issues back to specific code changes</li>
+          <li>Closing the loop between code generation and production verification</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Launched September 23 by Cursor</li>
+          <li>Built on Firetiger acquisition (one month from acquisition to product)</li>
+          <li>Covered by The New Stack, Cursor blog</li>
+          <li>Cursor is one of the most-used AI coding editors</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://cursor.com/blog/rollouts-and-security-reviewer">Cursor Blog</a></li>
+          <li><a href="https://cursor.com/changelog/rollouts-and-security-reviewer">Changelog</a></li>
+          <li><a href="https://thenewstack.io/cursor-rollouts-firetiger-production/">The New Stack Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://blog.cloudflare.com/forge-open-source-generation-pipeline/">Cloudflare Open-Sources Forge for SDK Generation After Anthropic Acquires and Shutters Stainless</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">After Anthropic acquired Stainless and shut down its SDK generation service, Cloudflare open-sourced Forge — a pipeline for generating SDKs, CLIs, docs, and libraries from API specifications. This was part of a massive Cloudflare developer week that also included the launch of the agentic `cf` CLI (covering the entire Cloudflare API), EmDash 1.0 CMS with a secure plugin registry, and VoidZero/Vite+ integration. Google also released a competing open-source SDK generator in response to the Stainless shutdown.</p>
+      <div class="article-meta">
+        <span class="tag">Cloudflare</span>
+        <span class="tag">Forge</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">SDK Generation</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Stainless was the de facto standard for generating typed SDK clients from OpenAPI specs — used by OpenAI, Anthropic, and Cloudflare themselves. When Anthropic acquired it and stopped offering the service to others, it left dozens of API companies scrambling. Cloudflare's response was to build and open-source an alternative within weeks, which is both impressive execution and a reminder of the risks of depending on proprietary tooling. For any team that generates client SDKs from API specs, Forge is now the open-source option that won't get acquired out from under you.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Generating typed SDK clients from API specifications</li>
+          <li>Replacing Stainless in existing SDK generation pipelines</li>
+          <li>Maintaining multi-language client libraries from a single API spec</li>
+          <li>Building agentic CLI tools that cover entire API surfaces</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released September 28 by Cloudflare as open source</li>
+          <li>Direct response to Stainless shutdown affecting multiple companies</li>
+          <li>Covered by The New Stack and developer community</li>
+          <li>Cloudflare and Google both released alternatives simultaneously</li>
+          <li>Part of a major Cloudflare developer week</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.cloudflare.com/forge-open-source-generation-pipeline/">Cloudflare Blog</a></li>
+          <li><a href="https://thenewstack.io/cloudflare-forge-anthropic-stainless/">The New Stack Coverage</a></li>
+          <li><a href="https://blog.cloudflare.com/cloudflare-cf-cli-launch/">cf CLI Launch</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://voidzero.dev/posts/announcing-vite-plus-1-0">Vite+ 1.0 Goes Stable: Evan You's Unified JS Toolchain Hits 2M Weekly Downloads</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">VoidZero released Vite+ 1.0, the stable version of their unified JavaScript toolchain that manages Node.js runtime, package manager, and frontend build in a single `vp` command. The tool is approaching two million weekly downloads, MIT licensed, and now backed by Cloudflare (VoidZero was acquired earlier in 2026). Cloudflare published a companion post on making the open-source JavaScript toolchain faster for both human developers and AI coding agents.</p>
+      <div class="article-meta">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Vite+</span>
+        <span class="tag">VoidZero</span>
+        <span class="tag">Toolchain</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Evan You (creator of Vue and Vite) has been building toward a unified JavaScript toolchain for years, and Vite+ 1.0 represents the stable culmination of that vision. The Cloudflare backing is significant — it means this isn't just a community project but has enterprise-grade investment in performance and reliability. The explicit mention of optimizing for 'agents' alongside humans is telling: as AI coding agents become primary consumers of build tools, toolchain performance and predictability matter more than ever. At 2M weekly downloads, this is already a mainstream choice, and the 1.0 stability guarantee removes the last adoption barrier.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replacing fragmented JS toolchain (nvm + npm/yarn/pnpm + vite) with one tool</li>
+          <li>Faster builds for AI coding agent workflows</li>
+          <li>Standardized frontend build pipeline for teams</li>
+          <li>Edge-optimized JavaScript development with Cloudflare integration</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Approaching 2 million weekly downloads</li>
+          <li>1.0 stable release on September 28</li>
+          <li>Backed by Cloudflare (acquired VoidZero)</li>
+          <li>Created by Evan You (Vue, Vite)</li>
+          <li>MIT licensed</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://voidzero.dev/posts/announcing-vite-plus-1-0">VoidZero Announcement</a></li>
+          <li><a href="https://blog.cloudflare.com/voidzero-update/">Cloudflare + VoidZero Update</a></li>
+          <li><a href="https://newreleases.io/project/github/voidzero-dev/vite-plus/release/v1.0.0">GitHub Release</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://builders.cortex.io/blog/introducing-engrams/">Cortex Engrams: Open-Source Software Factory for Running Claude Code, Codex, or Custom Agents in Your Cloud</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Cortex open-sourced Engrams on September 24, a platform for running coding agents (Claude Code, Codex, or your own) in your own cloud infrastructure. Engrams provides the orchestration layer — workspace provisioning, agent lifecycle management, and result collection — while keeping everything in your environment. It's designed for teams that want agent automation but need code and data to stay within their security boundary.</p>
+      <div class="article-meta">
+        <span class="tag">Open Source</span>
+        <span class="tag">Agent Orchestration</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">Self-Hosted</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The 'where does the agent run' question is becoming as important as 'which agent to use.' Engrams addresses the enterprise objection to cloud-hosted coding agents: code and context leaving the security boundary. By providing open-source orchestration that runs in your own cloud, it lets teams adopt agents from any provider while maintaining control over their data. For platform engineering teams evaluating how to roll out AI coding agents to hundreds of developers, this is the self-hosted alternative to managed agent platforms.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Self-hosted agent orchestration in enterprise cloud environments</li>
+          <li>Running coding agents without code leaving the security boundary</li>
+          <li>Multi-agent workflows with centralized workspace management</li>
+          <li>Platform engineering for large-scale developer AI adoption</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Open-sourced September 24 by Cortex (builders.cortex.io)</li>
+          <li>Supports Claude Code, Codex, and custom agents</li>
+          <li>Addresses enterprise security requirements for agent deployment</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://builders.cortex.io/blog/introducing-engrams/">Cortex Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://www.langchain.com/blog/langsmith-engine-v2-redteam">LangSmith Engine v2: Red Teaming and Fine-Tuning from Agent Trajectories</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">LangChain shipped two major LangSmith updates on September 24. Engine v2 adds automated red teaming that proactively discovers agent failure modes before they appear in production. Separately, LangSmith Fine-Tuning (via the `smithtune` CLI) lets you take agent trajectories stored in LangSmith and produce a fine-tuned model in one command — turning your production agent data into a smaller, cheaper, custom model.</p>
+      <div class="article-meta">
+        <span class="tag">LangChain</span>
+        <span class="tag">LangSmith</span>
+        <span class="tag">Red Teaming</span>
+        <span class="tag">Fine-Tuning</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Two underserved needs in one release. Red teaming agents is still mostly manual — someone has to think of adversarial inputs and edge cases. Engine v2 automates this, which matters because agents fail in surprising ways that are hard to predict upfront. The fine-tuning pipeline is equally important: most teams accumulate thousands of successful agent trajectories in LangSmith but have no easy way to distill that into a cheaper model. One CLI command to go from production traces to a fine-tuned model closes the loop on the 'start with a frontier model, then optimize costs' strategy that every serious agent deployment eventually needs.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Automated adversarial testing of agent behaviors before production</li>
+          <li>Fine-tuning smaller models from production agent trajectories</li>
+          <li>Reducing inference costs by distilling frontier model behavior</li>
+          <li>Continuous agent quality improvement from production data</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released September 24 by LangChain</li>
+          <li>LangSmith is one of the most-used agent observability platforms</li>
+          <li>Two-pronged release: red teaming + fine-tuning</li>
+          <li>CLI-based fine-tuning from existing trajectories</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.langchain.com/blog/langsmith-engine-v2-redteam">Red Teaming Announcement</a></li>
+          <li><a href="https://www.langchain.com/blog/langsmith-fine-tuning">Fine-Tuning Announcement</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/">Docker Launches Cloud Sandboxes and Submits Sandbox Kit Spec to CNCF</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Docker shipped two complementary announcements on September 24. Cloud Sandboxes lets developers start agent workloads on their laptop and burst to elastic cloud environments when complexity scales up. Separately, Docker submitted the Sandbox Kit specification to the CNCF — an open standard for defining what an AI agent is allowed to do (file access, network, exec permissions) in a portable, declarative format. The spec is described as 'authority as code' — the OCI of agent permissions.</p>
+      <div class="article-meta">
+        <span class="tag">Docker</span>
+        <span class="tag">CNCF</span>
+        <span class="tag">Agent Security</span>
+        <span class="tag">Sandbox</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Docker is trying to do for agent permissions what they did for container images: create a portable standard. Right now, every agent platform defines permissions differently — Claude Code has CLAUDE.md, Cursor has its own rules, Codex has yet another format. Sandbox Kit proposes a single spec that travels with the agent regardless of where it runs. The CNCF submission is the power move: if this gets adopted as a CNCF standard, every Kubernetes-based platform will need to support it. Combined with Cloud Sandboxes (the runtime), Docker is positioning itself as the platform layer between agents and infrastructure. For platform engineers, this is the spec to watch — if it gains traction, it becomes the 'Dockerfile for agents.'</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Defining portable agent permissions that work across platforms</li>
+          <li>Bursting agent workloads from laptop to cloud seamlessly</li>
+          <li>Standardizing agent security policies across engineering organizations</li>
+          <li>Building compliant agent infrastructure on Kubernetes</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Launched September 24 by Docker</li>
+          <li>Submitted to CNCF as an open specification</li>
+          <li>Described as 'authority as code'</li>
+          <li>Cloud Sandboxes provides companion runtime</li>
+          <li>Press release and multiple blog posts from Docker</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/">Cloud Sandboxes Blog</a></li>
+          <li><a href="https://www.docker.com/blog/docker-sandbox-kit-spec-cncf/">Sandbox Kit CNCF Announcement</a></li>
+          <li><a href="https://www.docker.com/blog/docker-sandbox-kit-spec/">Sandbox Kit Spec Details</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.infoq.com/news/2026/09/google-ax-orchestrator/">Google Open-Sources AX: Kubernetes-Style Orchestrator for Autonomous AI Agents</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Google open-sourced AX (Agent Executor) on September 22 under Apache 2.0. AX applies Kubernetes-style declarative manifests to agent workloads — you define Task, Workspace, Gateway, and Model resources in YAML, and AX handles sandbox provisioning, workspace wiring, and agent lifecycle. Built in Go, it hit #1 on Hacker News. Underneath AX sits Agent Substrate, Google's internal infrastructure play for agent execution at scale. The project has ~2K GitHub stars and 116 forks, but Google warns it's pre-stable with expected breaking changes.</p>
+      <div class="article-meta">
+        <span class="tag">Google</span>
+        <span class="tag">AX</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Agent Orchestration</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Google is applying the exact pattern that made Kubernetes successful to agent orchestration: declarative resource definitions, a control plane that reconciles desired vs. actual state, and pluggable backends. If you know kubectl, you already know the AX mental model. The separation of AX (the interface) from Agent Substrate (the infrastructure) mirrors the Kubernetes/cloud-provider split — platform-agnostic on top, cloud-optimized underneath. For teams already running Kubernetes, AX fits naturally into existing workflows. The #1 Hacker News ranking and 2K stars in the first week signal strong community interest, even with the pre-stability warning.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Declarative agent workload orchestration on Kubernetes</li>
+          <li>Standardizing agent sandbox and workspace provisioning</li>
+          <li>Multi-agent fleet management with Kubernetes-native tooling</li>
+          <li>Building internal developer platforms for agent deployment</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Open-sourced September 22 by Google under Apache 2.0</li>
+          <li>#1 on Hacker News</li>
+          <li>~2K GitHub stars, 116 forks in first week</li>
+          <li>Covered by InfoQ and Forkast</li>
+          <li>Built in Go with Kubernetes-style architecture</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/09/google-ax-orchestrator/">InfoQ Coverage</a></li>
+          <li><a href="https://github.com/google/ax/">GitHub Repository</a></li>
+          <li><a href="https://forkast.news/googles-open-agentic-orchestrator-hit-1-on-hacker-news-the-real-story-is-whats-running-underneath/">Forkast Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-inference-gateway/">AWS SageMaker HyperPod Inference Gateway: Eliminate GPU Waste in Multi-Model Serving</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">AWS launched SageMaker HyperPod Inference Gateway on September 24 — a service that routes inference requests across multiple LLM deployments to maximize GPU utilization. Instead of each model getting dedicated GPU allocation (and wasting capacity during low-traffic periods), the Inference Gateway pools GPU resources and routes dynamically based on load, latency requirements, and model priority. It supports mixed model deployments on the same GPU cluster.</p>
+      <div class="article-meta">
+        <span class="tag">AWS</span>
+        <span class="tag">SageMaker</span>
+        <span class="tag">GPU</span>
+        <span class="tag">Inference</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>GPU costs are the biggest line item for teams running multiple LLMs in production, and most of those GPUs sit idle most of the time. HyperPod Inference Gateway tackles the same problem that Kubernetes solved for CPU workloads: bin-packing multiple workloads onto shared infrastructure to eliminate waste. For teams running different models for different use cases (a fast model for classification, a large model for generation, a code model for development), this means one GPU cluster instead of three. The dynamic routing based on load and latency is the key feature — it's not just load balancing, it's workload-aware scheduling for inference.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Consolidating multiple LLM deployments onto shared GPU clusters</li>
+          <li>Dynamic routing of inference requests based on load and latency</li>
+          <li>Reducing GPU waste in production AI infrastructure</li>
+          <li>Mixed-model serving with workload-aware scheduling</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Launched September 24 by AWS</li>
+          <li>Part of the SageMaker HyperPod platform</li>
+          <li>Addresses the #1 cost concern for multi-model deployments</li>
+          <li>Multiple AWS blog posts and documentation</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-inference-gateway/">AWS Blog</a></li>
+          <li><a href="https://aws.amazon.com/about-aws/whats-new/2026/09/sagemaker-hyperpod-inference-gateway/">AWS Announcement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-3">
+      <div class="article-header">
+        <h3><a href="https://huggingface.co/blog/huggingface/relore-repository-memory">Hugging Face Relore: Repository Memory That Makes Coding Agents Understand Your Codebase History</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Hugging Face published Relore on September 21 — a system that gives coding agents memory of a repository's history, patterns, and prior decisions. Instead of treating each coding session as a fresh start, Relore indexes past commits, PR discussions, issue resolutions, and code review feedback into a queryable memory that agents can consult. The project emerged from real Transformers repo maintenance where an agent used repository memory to correctly fix a GPTNeoXJapanese RoPE bug within a day.</p>
+      <div class="article-meta">
+        <span class="tag">Hugging Face</span>
+        <span class="tag">Repository Memory</span>
+        <span class="tag">Coding Agents</span>
+        <span class="tag">Context</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Coding agents are amnesiacs — every session starts from scratch, ignoring months of context about why code is structured a certain way. Relore addresses this by building persistent repository memory from the artifacts developers already produce (commits, PRs, reviews). The GPTNeoXJapanese fix is a compelling proof point: a contributor opened an issue about a RoPE bug, and an agent with repository memory found the fix by understanding how similar issues were resolved before. For large repositories with years of history, this kind of institutional memory could be the difference between an agent that proposes naive fixes and one that understands the codebase's actual conventions.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Giving coding agents persistent memory of repository history</li>
+          <li>Enabling context-aware bug fixes that respect existing patterns</li>
+          <li>Building institutional knowledge into automated code maintenance</li>
+          <li>Improving agent performance on large, long-lived codebases</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published September 21 by Hugging Face</li>
+          <li>Demonstrated on the Transformers repository (one of the most active OSS ML repos)</li>
+          <li>Real-world proof: agent fixed GPTNeoXJapanese RoPE bug using repo memory</li>
+          <li>Built by Tarek Ziadé at Hugging Face</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://huggingface.co/blog/huggingface/relore-repository-memory">Hugging Face Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
