@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — September 30, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">September 30, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://openai.com/index/introducing-gpt-6-1-sol">OpenAI ships GPT-6.1 Sol — near-Astra coding at 1/5 the price, already live in GitHub Copilot and Vercel AI Gateway</a></li>
+      <li><a href="https://www.voltropy.com/blog/vast-10m/">Voltropy introduces Vast-10M, the first frontier LLM with 10 million tokens of native context</a></li>
+      <li><a href="https://openclaw.ai/blog/openclaw-enterprise">OpenClaw Enterprise launches as open-source agent control plane, backed by OpenAI, Red Hat, and Nvidia</a></li>
+      <li><a href="https://www.envzero.com/blog/env-zero-launches-ez-control-the-autonomous-cloud-control-plane-for-the-ai-era">env zero unveils EZ Control with Mitchell Hashimoto — autonomous cloud control plane for the AI era</a></li>
+      <li><a href="https://www.prnewswire.com/news-releases/mongodb-launches-mongodb-9-0--the-best-version-ever-built-and-atlas-infinite-for-ai-scale-demand-302892831.html">MongoDB 9.0 goes GA with 2x performance gains and Atlas Infinite for AI-scale workloads</a></li>
+      <li><a href="https://www.glow.io/blogs/how-ai-agents-exposed-developer-screenshots-from-leading-tech-companies">PixelLeak disclosure shows AI agents silently exfiltrating developer screenshots from major tech companies</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://openai.com/index/introducing-gpt-6-1-sol">OpenAI Ships GPT-6.1 Sol: Near-Astra Coding at One-Fifth the Price</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">GPT-6.1 Sol delivers near-Astra-level intelligence for coding, computer use, and professional work at 20% of Astra's API pricing. It rolled out to GitHub Copilot and Vercel AI Gateway within hours of launch.</p>
+      <div class="article-meta">
+        <span class="tag">LLM</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Coding</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>A frontier-tier coding model at commodity pricing changes the economics of AI-assisted development. If you're paying for Astra-class models in production pipelines, this is an immediate cost cut with minimal quality tradeoff.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Drop-in replacement for Astra in coding agent pipelines</li>
+          <li>Agentic terminal workflows in Copilot</li>
+          <li>Cost-optimized document processing and computer use tasks</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Generally available in GitHub Copilot (Sep 29)</li>
+          <li>Live on Vercel AI Gateway same day</li>
+          <li>Multiple platform integrations within 24 hours of announcement</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot/">GitHub Copilot changelog</a></li>
+          <li><a href="https://vercel.com/changelog/gpt-6-1-sol-now-available-on-ai-gateway">Vercel AI Gateway</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://www.voltropy.com/blog/vast-10m/">Voltropy Introduces Vast-10M: First Frontier LLM with 10 Million Tokens of Context</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Voltropy's Vast-10M uses a new attention mechanism called VSA to achieve 10x the native context window of OpenAI or Anthropic models. Technical report and early access are available now.</p>
+      <div class="article-meta">
+        <span class="tag">LLM</span>
+        <span class="tag">Context Window</span>
+        <span class="tag">Research</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>10M-token context unlocks use cases that were previously impossible without RAG — entire codebases, full legal discovery sets, or months of conversation history in a single prompt. If RAG complexity is your bottleneck, this changes the calculus.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Whole-codebase understanding without chunking</li>
+          <li>Long-form document analysis without retrieval pipelines</li>
+          <li>Multi-session agent memory in a single context</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Technical report published Sep 29</li>
+          <li>Early access program open</li>
+          <li>Novel VSA attention mechanism (not just sliding window)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.voltropy.com/blog/vast-10m/">Voltropy blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://github.com/openai/symphony">OpenAI Symphony: Autonomous Implementation Runs Hit 26K GitHub Stars</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Symphony turns project work into isolated, autonomous implementation runs so teams manage work instead of supervising coding agents. It has rapidly accumulated 26,878 GitHub stars since launch.</p>
+      <div class="article-meta">
+        <span class="tag">Agent Framework</span>
+        <span class="tag">OpenAI</span>
+        <span class="tag">Coding Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is OpenAI's answer to the 'agent supervision tax' — instead of babysitting a coding agent, you define work units and let Symphony handle isolation, execution, and reporting. The star velocity signals real developer interest.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Parallelize feature implementation across isolated agent runs</li>
+          <li>Reduce developer time spent supervising coding agents</li>
+          <li>Integrate autonomous coding into existing project management workflows</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>26,878 GitHub stars</li>
+          <li>2,756 forks</li>
+          <li>Apache 2.0 license</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/openai/symphony">GitHub repo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://engineering.legalzoom.com/tsindex-code-index-for-coding-agents">tsindex: LegalZoom's Tree-Sitter Code Index Gives Coding Agents Structure Instead of File Dumps</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">LegalZoom open-sourced tsindex, a tree-sitter-based code index that lets coding agents navigate codebases by structure (functions, classes, imports) rather than grepping through raw files. Benchmarks show gains in speed and accuracy.</p>
+      <div class="article-meta">
+        <span class="tag">Developer Tools</span>
+        <span class="tag">Coding Agents</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Every coding agent wastes tokens reading irrelevant code. A structural index means agents find what they need faster and with less context burn — directly reducing cost and improving accuracy for enterprise codebases.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replace file-dump context for Claude Code, Codex, or custom agents</li>
+          <li>Build smarter code navigation tools for large monorepos</li>
+          <li>Reduce token costs in agent-driven code review pipelines</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published benchmarks showing measurable speed/accuracy gains</li>
+          <li>Battle-tested on LegalZoom's production codebase</li>
+          <li>Addresses a widely-discussed pain point in agent tooling</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://engineering.legalzoom.com/tsindex-code-index-for-coding-agents">LegalZoom Engineering blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://devblogs.microsoft.com/visualstudio/visual-studio-september-update-power-your-workflow-with-your-model/">Visual Studio September Update: Bring Your Own Model to AI-Assisted Coding</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Visual Studio's September update lets developers choose any LLM for AI-assisted coding — not just Copilot's default. The message: the best model in your IDE is the one you pick.</p>
+      <div class="article-meta">
+        <span class="tag">IDE</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Developer Tools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Model lock-in in IDEs has been a growing friction point. This gives enterprise teams the freedom to use internal models, route through cost-optimized providers, or switch between models per task — a meaningful shift in how IDE AI integrations work.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Use Claude, GPT-6.1 Sol, or internal models in Visual Studio workflows</li>
+          <li>Route different coding tasks to different models based on cost/quality</li>
+          <li>Enterprise compliance with approved model lists</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Microsoft announcement (Sep 29)</li>
+          <li>Visual Studio's massive installed base</li>
+          <li>Follows industry trend toward model-agnostic tooling</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://devblogs.microsoft.com/visualstudio/visual-studio-september-update-power-your-workflow-with-your-model/">Visual Studio Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://www.sonarsource.com/blog/sonarqube-server-2026-5-lta/">SonarQube Server 2026.5 LTA: Ship AI-Generated Code Inside Your Perimeter with Confidence</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">SonarQube's new Long-Term Active release adds dedicated analysis for AI-generated code, helping teams catch quality and security issues that agents introduce before they reach production.</p>
+      <div class="article-meta">
+        <span class="tag">Code Quality</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">Security</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As agents write more production code, the quality gate becomes critical. SonarQube's LTA release directly addresses the 'AI code trust gap' — the growing concern that agent-generated code passes tests but introduces subtle issues.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Gate AI-generated PRs with automated quality analysis</li>
+          <li>Track AI vs. human code quality metrics over time</li>
+          <li>On-premise deployment for regulated industries</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>LTA (Long-Term Active) designation signals enterprise stability commitment</li>
+          <li>SonarQube's massive enterprise adoption base</li>
+          <li>Directly addresses the AI code quality problem every engineering org is facing</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.sonarsource.com/blog/sonarqube-server-2026-5-lta/">Sonar blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://openclaw.ai/blog/openclaw-enterprise">OpenClaw Enterprise: Open-Source Agent Control Plane Backed by OpenAI, Red Hat, and Nvidia</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">OpenClaw launched its enterprise control plane — an open-source, vendor-neutral platform for managing persistent AI agents in sensitive environments. Backed by OpenAI, Red Hat, and Nvidia.</p>
+      <div class="article-meta">
+        <span class="tag">Agent Platform</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Running persistent AI agents in production requires governance, audit trails, and multi-vendor flexibility that consumer tools don't provide. OpenClaw Enterprise fills this gap with an open-source approach that avoids vendor lock-in.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploy and govern persistent coding agents across teams</li>
+          <li>Audit agent actions in regulated environments</li>
+          <li>Multi-vendor agent orchestration without lock-in</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>VentureBeat coverage citing OpenAI, Red Hat, Nvidia backing</li>
+          <li>Free tier available</li>
+          <li>Addresses enterprise governance gap for persistent agents</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://venturebeat.com/orchestration/openclaw-launches-free-enterprise-control-plane-for-persistent-ai-agents-backed-by-openai-red-hat-and-nvidia">VentureBeat</a></li>
+          <li><a href="https://openclaw.ai/blog/openclaw-enterprise">OpenClaw blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-3">
+      <div class="article-header">
+        <h3><a href="https://blog.cloudflare.com/emdash-cms-plugin-registry/">Cloudflare EmDash 1.0: The 'WordPress Successor' CMS Goes Stable with a Secure Plugin Registry</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">EmDash, Cloudflare's CMS pitched as a spiritual successor to WordPress, hits 1.0 with a secure plugin registry. It runs on Cloudflare's edge network with built-in security and performance.</p>
+      <div class="article-meta">
+        <span class="tag">CMS</span>
+        <span class="tag">Cloudflare</span>
+        <span class="tag">Web Development</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>WordPress powers 40%+ of the web but its plugin ecosystem is a persistent security liability. EmDash's secure plugin registry with Cloudflare's edge infrastructure is a credible alternative for teams that need CMS functionality without the attack surface.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replace WordPress for content-heavy sites that need edge performance</li>
+          <li>Build plugin-extensible sites without WordPress's security baggage</li>
+          <li>Deploy CMS workloads on Cloudflare's global network</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>1.0 stable release (Sep 28)</li>
+          <li>Cloudflare's distribution and infrastructure backing</li>
+          <li>Secure plugin registry addresses WordPress's biggest weakness</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.cloudflare.com/emdash-cms-plugin-registry/">Cloudflare blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://www.envzero.com/blog/env-zero-launches-ez-control-the-autonomous-cloud-control-plane-for-the-ai-era">env zero Launches EZ Control: Autonomous Cloud Control Plane with Mitchell Hashimoto</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">env zero launched EZ Control, an autonomous cloud control plane for the AI era, with Mitchell Hashimoto (HashiCorp co-founder) as special guest. It aims to make cloud infrastructure self-managing for agent-driven workloads.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Cloud</span>
+        <span class="tag">Autonomous Ops</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>When the co-founder of Terraform backs a new infrastructure product, pay attention. EZ Control targets the gap between 'agents can write code' and 'agents can safely manage infrastructure' — the next frontier for autonomous engineering.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Let agents provision and manage cloud resources autonomously</li>
+          <li>Reduce ops toil for AI-heavy workloads</li>
+          <li>Bridge the gap between coding agents and infrastructure agents</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Mitchell Hashimoto involvement (Sep 29)</li>
+          <li>$21M+ in industry investment in autonomous infra tools this month</li>
+          <li>Addresses the infrastructure management gap for AI agents</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.envzero.com/blog/env-zero-launches-ez-control-the-autonomous-cloud-control-plane-for-the-ai-era">env zero blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://www.prnewswire.com/news-releases/mongodb-launches-mongodb-9-0--the-best-version-ever-built-and-atlas-infinite-for-ai-scale-demand-302892831.html">MongoDB 9.0 Goes GA with 2x Performance and Atlas Infinite for AI-Scale Demand</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">MongoDB 9.0 is generally available with up to 2x higher throughput. Atlas Infinite, a new tier designed for AI-scale workloads, launches alongside it to handle vector search and embedding storage at massive scale.</p>
+      <div class="article-meta">
+        <span class="tag">Database</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">AI Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>If you're building AI applications on MongoDB, the 2x throughput improvement directly reduces infrastructure costs. Atlas Infinite signals MongoDB's bet that AI workloads (embeddings, vector search, agent memory) will be a primary use case.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Store and query embeddings alongside application data</li>
+          <li>Scale vector search for RAG pipelines without a separate vector DB</li>
+          <li>Reduce MongoDB infrastructure costs with 2x throughput gains</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GA release (Sep 29)</li>
+          <li>MongoDB's massive enterprise customer base</li>
+          <li>Atlas Infinite specifically targets AI workload patterns</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.prnewswire.com/news-releases/mongodb-launches-mongodb-9-0--the-best-version-ever-built-and-atlas-infinite-for-ai-scale-demand-302892831.html">MongoDB press release</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://huggingface.co/blog/quao627/your-inference-server-is-secretly-a-learner-reef">Reef: Open-Source Infrastructure That Turns Your Inference Server into a Continual Learner</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Reef is an Apache-2.0 framework that adds continual self-improvement to AI agents by collecting feedback receipts, evolving weights and harness configurations, and gating versioned releases — all from your existing inference server.</p>
+      <div class="article-meta">
+        <span class="tag">MLOps</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Continual Learning</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most production AI systems are static after deployment. Reef makes the inference server itself a learning system — agents get better from production feedback without manual retraining cycles. This is the missing piece between 'deploy a model' and 'improve a model.'</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Add continual learning to production agent deployments</li>
+          <li>Automate model improvement from user feedback</li>
+          <li>Version and gate model updates with production safety checks</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Open-source on GitHub (Apache 2.0)</li>
+          <li>Published on Hugging Face blog (Sep 15)</li>
+          <li>Independent review coverage confirms real functionality</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.com/Human-Agent-Society/reef">GitHub repo</a></li>
+          <li><a href="https://andrew.ooo/posts/reef-review-open-source-continual-learning-self-improving-agents/">Independent review</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-3">
+      <div class="article-header">
+        <h3><a href="https://www.glow.io/blogs/how-ai-agents-exposed-developer-screenshots-from-leading-tech-companies">PixelLeak: AI Agents Caught Silently Exfiltrating Developer Screenshots from Major Tech Companies</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Security researchers at Glow discovered 'PixelLeak' — a vulnerability where AI coding agents with screen access silently captured and transmitted developer screenshots containing source code, credentials, and internal dashboards from multiple tech companies.</p>
+      <div class="article-meta">
+        <span class="tag">Security</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">Vulnerability</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>If you're giving AI agents screen access (computer use, screenshot tools), this is a wake-up call. The attack surface of agent permissions is larger than most teams realize, and screenshot exfiltration bypasses traditional code-level security controls.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Audit agent permissions for screenshot/screen capture access</li>
+          <li>Implement data loss prevention for agent-accessible visual data</li>
+          <li>Review computer-use agent sandboxing in your org</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Disclosure from Glow security researchers (Sep 29)</li>
+          <li>Affected multiple 'leading tech companies'</li>
+          <li>Viral discussion across developer security communities</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.glow.io/blogs/how-ai-agents-exposed-developer-screenshots-from-leading-tech-companies">Glow disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
