@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — October 01, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">October 01, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">Google launches Gemini 4 Argon — frontier model with 1M output tokens, $2/M input, rolling out to cyber defenders first before broader API access</a></li>
+      <li><a href="https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app/">GitHub ships HydraFusion to VS Code and Copilot app — multi-model orchestration that matches Opus 5 quality at lower cost</a></li>
+      <li><a href="https://www.infoq.com/news/2026/10/typesafe-ai-jev-released/">TypeSafe AI releases Jev, the first 'System One Model' — returns typed probabilities instead of text at $0.042/M tokens and 70ms latency</a></li>
+      <li><a href="https://effect.website/blog/releases/effect/40">Effect 4.0 ships with 5x smaller bundles, 6.4x throughput, zero dependencies — rebuilt from the ground up</a></li>
+      <li><a href="https://modal.com/blog/modal-clusters-generally-available">Modal Clusters go GA — multi-node GPU training and serving with InfiniBand, billed by the second, via one decorator</a></li>
+      <li><a href="https://konghq.com/company/press-room/press-release/kong-announces-volcano-agentic-infrastructure-for-the-ai-era">Kong launches Volcano: batteries-included agentic infrastructure platform with durable compute, branchable databases, and auth</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">Google Launches Gemini 4 Argon: Frontier Model Rolling Out to Cyber Defenders First</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Google announced Gemini 4 Argon, its next-generation frontier model built for sustained deep reasoning across long-horizon workflows. It generates up to 1M output tokens, prices at $2/M input and $10/M output (with 95% cached discount), and leads in 13 of 19 benchmarks vs GPT-6 Astra and Claude.</p>
+      <div class="article-meta">
+        <span class="tag">Google</span>
+        <span class="tag">LLM</span>
+        <span class="tag">Frontier Model</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Argon's phased rollout — cyber defenders first via the Fairwind Program, then developers — signals Google's new safety-first release strategy. For engineers, the 1M output token generation and aggressive cached pricing change the economics of code generation, long-form analysis, and multi-step agent workflows. The benchmark numbers suggest a real competitor to Astra-class models at a compelling price point.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Long-horizon coding agent workflows with 1M output tokens</li>
+          <li>Cost-effective alternative to GPT-6 Astra for production AI pipelines</li>
+          <li>Cybersecurity defense and vulnerability analysis</li>
+          <li>Enterprise knowledge work: legal, finance, compliance</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Google launch (Sep 30)</li>
+          <li>Trending #1 on Hacker News with benchmark analysis</li>
+          <li>Coverage from Engadget, SiliconANGLE, The Hacker News, DataCamp, Economic Times</li>
+          <li>Already used internally by thousands of Googlers</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">Google Blog</a></li>
+          <li><a href="https://siliconangle.com/2026/09/30/googles-new-frontier-ai-model-gemini-4-argon-goes-to-cybersecurity-defenders-first/">SiliconANGLE</a></li>
+          <li><a href="https://szymonpaluch.com/blog/posts/gemini-4-vs-gpt-6-vs-claude">Benchmark Comparison</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app/">GitHub Ships HydraFusion to VS Code: Multi-Model Orchestration That Matches Opus 5 at Lower Cost</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">HydraFusion, GitHub's multi-model orchestration research preview, is now available in VS Code and the Copilot app. Instead of using a single model, it routes prompts through one of three workflows — Single, Cascade (draft + quality gate), or Critique (draft + independent reviewer) — to match Opus 5 quality while reducing cost.</p>
+      <div class="article-meta">
+        <span class="tag">GitHub</span>
+        <span class="tag">Copilot</span>
+        <span class="tag">Multi-Model</span>
+        <span class="tag">Developer Tools</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This is GitHub's answer to the 'which model should I use?' question: don't choose, let the system decide. The Cascade workflow is particularly clever — it drafts with a cheaper model and only escalates to expensive models when the quality gate fails. For teams paying for Copilot, this means frontier-quality completions without frontier-model pricing on every request.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Automatic model selection for coding tasks based on complexity</li>
+          <li>Reducing Copilot costs while maintaining quality bar</li>
+          <li>Cross-model critique workflows for higher-stakes code generation</li>
+          <li>Enterprise Copilot deployments with cost optimization</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official GitHub changelog (Sep 30)</li>
+          <li>Available to all VS Code and Copilot app users</li>
+          <li>Research preview expanded from CLI to IDE</li>
+          <li>Multiple independent coverage including CloudNinjas, NerdLevelTech</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app/">GitHub Changelog</a></li>
+          <li><a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/">HydraFusion Deep Dive</a></li>
+          <li><a href="https://nerdleveltech.com/github-hydrafusion-multi-model-copilot-routing">NerdLevelTech Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://www.infoq.com/news/2026/10/typesafe-ai-jev-released/">TypeSafe AI Releases Jev: A Decision-Only Model That Returns Typed Probabilities Instead of Text</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">TypeSafe AI (founded by former OpenAI researcher Diogo Almeida) released Jev, the first 'System One Model.' Jev doesn't generate text — it evaluates a state and a set of typed questions, returning Choice, Score, and Noul answers with probability distributions and confidence values. Input costs $0.042/M tokens, output is free, latency is 70-500ms.</p>
+      <div class="article-meta">
+        <span class="tag">TypeSafe AI</span>
+        <span class="tag">Decision Model</span>
+        <span class="tag">Inference</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Most LLM integrations parse text output into structured decisions — a lossy, expensive, high-latency process. Jev skips text generation entirely and returns typed probabilities that software can act on directly. At $0.042/M tokens with free output, it's orders of magnitude cheaper than using a general-purpose LLM for classification, routing, and scoring tasks. Already integrated into Vercel AI Gateway.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Agent routing decisions without LLM text generation overhead</li>
+          <li>High-throughput classification and scoring pipelines</li>
+          <li>Confidence-gated escalation: act above threshold, escalate below</li>
+          <li>Replacing regex/text-parsing of LLM outputs with native typed responses</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>InfoQ coverage (Oct 1)</li>
+          <li>Founded by former OpenAI researcher</li>
+          <li>Vercel AI Gateway integration on launch day</li>
+          <li>Novel 'System One Model' category — no text generation</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.infoq.com/news/2026/10/typesafe-ai-jev-released/">InfoQ Coverage</a></li>
+          <li><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://replit.com/blog/free-the-models">Replit Argues the Harness Beats the Model Router: 'Free the Models' Blog Post</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Replit published a deep technical post arguing that model routers have a fundamental limitation: they optimize which model to call, not how to call it. Replit's approach is 'harness design at the frontier' — engineering the context, tools, and execution loop around the model matters more than picking the right model.</p>
+      <div class="article-meta">
+        <span class="tag">Replit</span>
+        <span class="tag">Agent Architecture</span>
+        <span class="tag">Harness Design</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As HydraFusion and model routers proliferate, Replit's counterargument is important: the harness (prompt engineering, tool design, execution recovery) is the real multiplier, not the model. This shifts the optimization target from 'which model' to 'what wraps the model' — a framework-level insight for anyone building agent systems.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Rethinking agent architecture: invest in harness design over model selection</li>
+          <li>Improving agent reliability through execution context engineering</li>
+          <li>Building model-agnostic agent systems that work well with any frontier model</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Published Sep 29 by Replit's AI team</li>
+          <li>Technical depth from Replit's frontier experience</li>
+          <li>Directly engages the model-routing trend with a contrarian view</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://replit.com/blog/free-the-models">Replit Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://effect.website/blog/releases/effect/40">Effect 4.0: Rebuilt from the Ground Up with 5x Smaller Bundles and Zero Dependencies</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Effect 4.0 shipped on Sep 30 with a complete rewrite: 5x smaller bundles (35.6kB → 7.1kB), 6.4x concurrent task throughput (0.71M → 4.57M tasks/sec), 86% less memory per fiber, and zero runtime dependencies. Previously separate packages are now unified in a single versioned ecosystem.</p>
+      <div class="article-meta">
+        <span class="tag">TypeScript</span>
+        <span class="tag">Effect</span>
+        <span class="tag">Concurrency</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Effect has quietly become the serious TypeScript concurrency framework. The 4.0 numbers are dramatic — sub-10kB bundles make it viable for frontend, and 4.57M tasks/sec puts it in systems-language territory. Zero dependencies eliminates supply chain risk. For TypeScript teams building agent runtimes, message queues, or concurrent pipelines, this is the most capable option in the ecosystem.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building high-throughput TypeScript agent runtimes</li>
+          <li>Concurrent pipeline orchestration with typed error handling</li>
+          <li>Replacing ad-hoc async patterns with structured concurrency</li>
+          <li>Supply-chain-safe TypeScript infrastructure (zero deps)</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>4.0 stable release (Sep 30)</li>
+          <li>Quantified benchmarks: 5x bundle, 6.4x throughput, 86% memory reduction</li>
+          <li>Complete ecosystem rewrite with lockstep versioning</li>
+          <li>Active Effect community and conference</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://effect.website/blog/releases/effect/40">Effect Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://developers.cloudflare.com/changelog/post/2026-09-30-sandbox-sdk-1-0/">Cloudflare Sandbox SDK 1.0: Full Control of Agent Sandboxes from Your Own Durable Object</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Cloudflare released Sandbox SDK 1.0, which replaces the opaque Sandbox class with your own Durable Object class. You now control the full sandbox lifecycle — startup, request routing, state management, and teardown — while Cloudflare handles container provisioning and isolation.</p>
+      <div class="article-meta">
+        <span class="tag">Cloudflare</span>
+        <span class="tag">Sandbox</span>
+        <span class="tag">Agent Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>In 0.x, Cloudflare's Sandbox was a black box you configured. In 1.0, it's a primitive you compose. This is the shift from 'use our sandbox' to 'build your sandbox runtime' — critical for teams building custom agent platforms on Cloudflare Workers. Combined with Docker's Sandbox Kit spec (submitted to CNCF last week), agent sandboxing is rapidly standardizing.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building custom agent runtimes on Cloudflare Workers</li>
+          <li>Fine-grained sandbox lifecycle management for multi-tenant agent platforms</li>
+          <li>Composing sandboxes with Durable Objects for stateful agent sessions</li>
+          <li>Migrating from opaque sandbox configs to programmable sandbox control</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>1.0 stable release (Sep 30)</li>
+          <li>Part of Cloudflare's broader developer week</li>
+          <li>Migration guide and full documentation available</li>
+          <li>Follows Docker Sandbox Kit CNCF submission by one week</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://developers.cloudflare.com/changelog/post/2026-09-30-sandbox-sdk-1-0/">Cloudflare Changelog</a></li>
+          <li><a href="https://developers.cloudflare.com/sandbox/sdk/migrate/changes-in-1-0/">Migration Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.siderolabs.com/blog/introducing-talos-director">Talos Director: A VMware Alternative for Data Center Resource Management</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Sidero Labs announced Talos Director on Sep 30 — a data center resource management platform that handles VMs, Kubernetes clusters, storage, and networking on one OS and one API. Positioned as a direct VMware alternative for teams looking to consolidate infrastructure management.</p>
+      <div class="article-meta">
+        <span class="tag">Infrastructure</span>
+        <span class="tag">VMware</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Data Center</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The VMware exodus continues post-Broadcom acquisition, and Talos Director is the most opinionated alternative yet: one immutable OS, one API, everything from VMs to K8s. For platform engineering teams managing mixed workloads (VMs for legacy, K8s for new), this eliminates the two-platform tax that most VMware-to-K8s migrations create.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Replacing VMware vSphere for mixed VM/K8s environments</li>
+          <li>Unified data center management with a single API</li>
+          <li>Running GPU workloads alongside traditional VMs</li>
+          <li>Reducing infrastructure licensing costs post-Broadcom</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Launched Sep 30 by Sidero Labs</li>
+          <li>PR Newswire press release</li>
+          <li>Talos Linux has established Kubernetes community traction</li>
+          <li>Directly targets VMware migration market</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.siderolabs.com/blog/introducing-talos-director">Sidero Labs Blog</a></li>
+          <li><a href="https://www.prnewswire.com/news-releases/sidero-labs-launches-talos-director-a-resource-management-platform-for-data-centers-302893616.html">Press Release</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://modal.com/blog/modal-clusters-generally-available">Modal Clusters Go GA: Multi-Node GPU Training and Serving via One Decorator</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Modal Clusters are generally available as of Oct 1. A single @modal.clustered decorator provisions multi-node GPU clusters with InfiniBand networking at up to 6.4 Tbps, billed by the second. Clusters integrate with Modal Volumes, Cloud Bucket Mounts, and Queues, and include automated GPU health monitoring and RDMA remediation.</p>
+      <div class="article-meta">
+        <span class="tag">Modal</span>
+        <span class="tag">GPU</span>
+        <span class="tag">Training</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Training or serving large models typically means managing Kubernetes, Slurm, or cloud-specific orchestration. Modal reduces this to a Python decorator. The per-second billing with automatic cluster teardown means you pay for compute time, not idle infrastructure. For teams that need multi-node GPU but don't want to run infrastructure, this is the most developer-friendly option available.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Multi-node model training without infrastructure management</li>
+          <li>Serving trillion-parameter models across coordinated GPU clusters</li>
+          <li>Per-second-billed GPU compute for burst training workloads</li>
+          <li>Research teams needing petaFLOP/s compute without ops overhead</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GA release (Oct 1)</li>
+          <li>1.5 years of battle testing before GA</li>
+          <li>InfiniBand at 6.4 Tbps</li>
+          <li>Integrates with full Modal ecosystem (Volumes, Queues, etc.)</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://modal.com/blog/modal-clusters-generally-available">Modal Blog</a></li>
+          <li><a href="https://modal.com/docs/guide/multi-node-clusters.md">Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://konghq.com/company/press-room/press-release/kong-announces-volcano-agentic-infrastructure-for-the-ai-era">Kong Launches Volcano: Batteries-Included Agentic Infrastructure Platform</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Kong announced Volcano on Sep 30 — an AI-native platform that bundles durable compute, branchable databases, file storage, user authentication, and real-time messaging services into one developer-friendly platform for building and deploying AI agents and web applications.</p>
+      <div class="article-meta">
+        <span class="tag">Kong</span>
+        <span class="tag">Agent Platform</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Building production agent applications currently requires stitching together 5-7 services (compute, database, auth, storage, messaging, etc.). Volcano bundles these into one platform — the 'Heroku for agents' pitch. Kong's existing API infrastructure customer base gives this immediate enterprise distribution. For teams prototyping agents that need to go to production, this reduces the infrastructure surface area dramatically.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Deploying agent applications without assembling infrastructure</li>
+          <li>Branchable databases for agent testing and staging</li>
+          <li>Real-time agent-to-agent and agent-to-user messaging</li>
+          <li>Enterprise agent platforms with built-in auth and storage</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Announced Sep 30 by Kong Inc.</li>
+          <li>Press release via PR Newswire</li>
+          <li>Coverage by Unite.AI and AI Brief</li>
+          <li>Built on Kong's existing Volcano SDK (open-sourced Oct 2025)</li>
+          <li>Kong has a large enterprise API management customer base</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://konghq.com/company/press-room/press-release/kong-announces-volcano-agentic-infrastructure-for-the-ai-era">Kong Press Release</a></li>
+          <li><a href="https://www.unite.ai/kong-unveils-volcano-platform-for-building-and-running-ai-agents/">Unite.AI Coverage</a></li>
+          <li><a href="https://konghq.com/blog/product-releases/volcano">Volcano SDK Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://news.ycombinator.com/item?id=49911995">Magnitude: YC S25's Self-Optimizing Inference Engine for Agents Launches on Hacker News</a></h3>
+        <span class="traction-badge traction-emerging">Emerging</span>
+      </div>
+      <p class="tldr">Magnitude, a YC S25 startup, launched on Hacker News with a self-optimizing inference engine for agents. Instead of manually tuning inference parameters, Magnitude automatically optimizes model serving based on agent workload patterns — adjusting batch sizes, caching strategies, and routing in real time.</p>
+      <div class="article-meta">
+        <span class="tag">YC</span>
+        <span class="tag">Inference</span>
+        <span class="tag">Agent Infrastructure</span>
+        <span class="tag">Open Source</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Agent inference workloads have different patterns than chat — bursty, tool-heavy, with variable context lengths. Generic inference engines waste GPU on these patterns. A self-optimizing engine that learns from agent-specific workloads could meaningfully reduce the cost of running agents in production, which remains the top barrier to scaling agent deployments.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Optimizing inference costs for production agent deployments</li>
+          <li>Auto-tuning batch sizes and caching for agent workloads</li>
+          <li>Reducing GPU waste from generic inference serving of agent traffic</li>
+          <li>Self-hosted inference optimization for enterprise agent platforms</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>YC S25 batch (strong signal)</li>
+          <li>83 points on Hacker News within 2 hours of launch</li>
+          <li>42 comments with active technical discussion</li>
+          <li>Open-source on GitHub</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://news.ycombinator.com/item?id=49911995">Hacker News Launch</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
