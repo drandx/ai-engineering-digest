@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Digest — October 02, 2026</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Engineering <span>Digest</span></h1>
+    <p class="tagline">Validated trends for engineers who ship</p>
+    <p class="date">October 02, 2026</p>
+  </header>
+
+  <section class="summary">
+    <h2>Today's Highlights</h2>
+    <ul>
+      <li><a href="https://blog.cloudflare.com/clef-decision-models/">Cloudflare launches Clef, open-source decision models that top the Jev Decision Index, plus an RL fine-tuning platform for custom decision models on Workers AI</a></li>
+      <li><a href="https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/">GitHub Copilot gains computer use in public preview — agents can now click, type, and navigate desktop apps without APIs</a></li>
+      <li><a href="https://blog.jetbrains.com/ai/2026/10/air-in-ides-eap/">JetBrains opens EAP for Air in IDEs — a new agentic experience built for orchestrating multiple coding agents in parallel</a></li>
+      <li><a href="https://earendil.com/posts/pi-1-0/">Earendil ships Pi 1.0, the minimal agent harness that hit #1 on Hacker News, now with MCP support and deferred tool loading</a></li>
+      <li><a href="https://modal.com/blog/vm-sandboxes-agent-computers">Modal VM Sandboxes go GA — full Linux VMs for agents with sub-second cold starts and hundreds of thousands of concurrent instances</a></li>
+      <li><a href="https://blog.cloudflare.com/cloudflare-k2-streams/">Cloudflare K2 launches in public beta: serverless event streams built on R2 for decoupled, durable log pipelines at the edge</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">AI Tools & Models</h2>
+    <div class="article" id="ai-tools-&-models-0">
+      <div class="article-header">
+        <h3><a href="https://blog.cloudflare.com/clef-decision-models/">Cloudflare Launches Clef: Open-Source Decision Models That Beat Jev on Benchmarks</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Cloudflare released Clef and Clef-flash, open-source decision models hosted on Workers AI. Clef currently leads the Jev Decision Index benchmark. Alongside the models, Cloudflare launched an RL fine-tuning platform that lets developers train custom decision models using their own data.</p>
+      <div class="article-meta">
+        <span class="tag">Cloudflare</span>
+        <span class="tag">Decision Models</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Workers AI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Decision models are becoming a critical layer in agentic architectures — cheap, fast, deterministic routing that skips text generation entirely. Cloudflare entering this space with open-source models that beat Jev on benchmarks, hosted on Workers AI with a fine-tuning platform, makes decision models accessible to anyone already on Cloudflare's stack. The RL fine-tuning angle lets teams build domain-specific classifiers without training from scratch.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Agent routing decisions with sub-100ms latency on Workers AI</li>
+          <li>Fine-tuning domain-specific classifiers with RL on your own data</li>
+          <li>Replacing LLM text-parsing for classification tasks in agentic pipelines</li>
+          <li>Content moderation and policy enforcement at the edge</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official Cloudflare launch (Oct 1)</li>
+          <li>Leads Jev Decision Index benchmark</li>
+          <li>Open-source with Workers AI hosting</li>
+          <li>RL fine-tuning platform included</li>
+          <li>Part of Cloudflare's broader Developer Week announcements</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.cloudflare.com/clef-decision-models/">Cloudflare Blog</a></li>
+          <li><a href="https://developers.cloudflare.com/changelog/post/2026-10-01-clef-workers-ai/">Workers AI Changelog</a></li>
+          <li><a href="https://developers.cloudflare.com/workers-ai/models/clef">Clef Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-1">
+      <div class="article-header">
+        <h3><a href="https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/">GitHub Copilot Gains Computer Use: Agents Can Now Control Desktop Apps</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Computer use is now in public preview in GitHub Copilot CLI and the Copilot macOS/Windows app. Copilot can read app content, click controls, enter text, scroll, and navigate workflows across desktop applications — including legacy and GUI-only software without APIs.</p>
+      <div class="article-meta">
+        <span class="tag">GitHub</span>
+        <span class="tag">Copilot</span>
+        <span class="tag">Computer Use</span>
+        <span class="tag">Desktop Automation</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>This bridges the gap between code-level automation and GUI-level automation. Legacy enterprise software that only has a GUI can now be automated through Copilot, not just apps with APIs or CLIs. The permission model (approval before controlling an app, org-level disable) addresses the obvious security concerns. Combined with the PixelLeak disclosure from last week, the timing is notable.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Automating workflows in legacy GUI-only enterprise software</li>
+          <li>Cross-application task automation without building API integrations</li>
+          <li>Testing GUI applications through agent-driven interaction</li>
+          <li>Bridging developer workflows across CLI and GUI tools</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official GitHub changelog (Oct 1)</li>
+          <li>Available in Copilot CLI and Copilot app</li>
+          <li>Public preview across macOS and Windows</li>
+          <li>Org-managed settings for enterprise control</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/">GitHub Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-2">
+      <div class="article-header">
+        <h3><a href="https://blog.jetbrains.com/ai/2026/10/air-in-ides-eap/">JetBrains Opens EAP for Air in IDEs: A New Agentic Development Experience</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">JetBrains launched the Early Access Program for Air, a new agentic experience in JetBrains IDEs. Air is designed for orchestrating multiple agents working in parallel — a fundamentally different interaction model from AI chat. It ships as a plugin on JetBrains Marketplace and natively in 2026.3 EAP builds.</p>
+      <div class="article-meta">
+        <span class="tag">JetBrains</span>
+        <span class="tag">IDE</span>
+        <span class="tag">Agentic Development</span>
+        <span class="tag">Air</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>JetBrains is making an explicit bet: agentic development is becoming the norm, and IDEs need to be redesigned around agent orchestration, not just chat. Air is not an AI provider — it's a conduit for agents and subscriptions, meaning it's model-agnostic by design. The free Junie Lite runs lower the barrier to trying agentic workflows. This is the clearest signal yet that the IDE war is now an agent orchestration war.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Orchestrating multiple coding agents on parallel tasks in a single IDE</li>
+          <li>Model-agnostic agentic development without vendor lock-in</li>
+          <li>Verifying and owning agent-generated code with full IDE tooling</li>
+          <li>Delegating larger development tasks while maintaining oversight</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Official JetBrains EAP launch (Oct 1)</li>
+          <li>Available as plugin and in 2026.3 EAP builds</li>
+          <li>JetBrains' massive IDE install base</li>
+          <li>Free Junie Lite runs included</li>
+          <li>Follows JetBrains' agentic development vision post from last week</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.jetbrains.com/ai/2026/10/air-in-ides-eap/">JetBrains Blog</a></li>
+          <li><a href="https://www.jetbrains.com/air/">JetBrains Air</a></li>
+          <li><a href="https://plugins.jetbrains.com/plugin/33314-air-alpha">Air Plugin</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="ai-tools-&-models-3">
+      <div class="article-header">
+        <h3><a href="https://www.marktechpost.com/2026/10/01/aws-strands-labs-releases-strands-decider-2b/">AWS Strands Decider 2B: Open-Source Decision Model That Picks Options in 115ms</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">AWS Strands Labs released Strands Decider 2B, an open-source decision model that selects from a set of options in approximately 115ms. It's designed for agent routing, classification, and structured decision-making without text generation overhead.</p>
+      <div class="article-meta">
+        <span class="tag">AWS</span>
+        <span class="tag">Decision Models</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">Inference</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>The decision model space just went from one player (TypeSafe Jev) to three in a week (Jev, Cloudflare Clef, AWS Strands Decider). AWS entering validates the category. An open-source 2B parameter model that runs locally at 115ms means you can add decision layers to agent pipelines without API costs or latency.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Local agent routing without API calls</li>
+          <li>High-throughput classification in CI/CD pipelines</li>
+          <li>Self-hosted decision layers for enterprise agent platforms</li>
+          <li>Cost-free decision-making for resource-constrained deployments</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Released Oct 1 by AWS Strands Labs</li>
+          <li>Open-source availability</li>
+          <li>MarkTechPost coverage</li>
+          <li>Third decision model release in one week validates category</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.marktechpost.com/2026/10/01/aws-strands-labs-releases-strands-decider-2b/">MarkTechPost Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Developer Tools & Frameworks</h2>
+    <div class="article" id="developer-tools-&-frameworks-0">
+      <div class="article-header">
+        <h3><a href="https://earendil.com/posts/pi-1-0/">Earendil Ships Pi 1.0: The Minimal Agent Harness Hits #1 on Hacker News</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Earendil shipped Pi 1.0, a hardened, minimal, extensible agent harness used by hundreds of thousands of people weekly. Pi 1.0 adds Codemode (native MCP support), extension support for virtual models, deferred tool loading, cache warming for Anthropic models, and mid-conversation system messages.</p>
+      <div class="article-meta">
+        <span class="tag">Agent Harness</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">MCP</span>
+        <span class="tag">Pi</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Pi represents the 'wait until it's proven, then adopt' philosophy in agentic tooling. While every framework races to add features, Pi's 1.0 is defined as much by what it rejected as what it shipped. The Codemode addition — native MCP support plus non-LLM models like Jev — is the practical bridge between chat-based coding and structured agentic workflows. Hitting #1 on HN signals real developer resonance.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Minimal, extensible coding agent that doesn't force framework lock-in</li>
+          <li>Native MCP integration for tool-use workflows</li>
+          <li>Building custom agentic applications on a stable substrate</li>
+          <li>Mid-conversation prompt and tool changes for adaptive agent sessions</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>#1 on Hacker News (Oct 1-2)</li>
+          <li>Hundreds of thousands of weekly users</li>
+          <li>1.0 stable release after months of hardening</li>
+          <li>Coverage in Trending Topics EU</li>
+          <li>Active contributor community with PRs and issues</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://earendil.com/posts/pi-1-0/">Earendil Blog</a></li>
+          <li><a href="https://www.trendingtopics.eu/pi-1-0-earendil-en/">Trending Topics Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-1">
+      <div class="article-header">
+        <h3><a href="https://svelte.dev/blog/sveltekit-3-is-here">SvelteKit 3: More Type Safety, Less Junk, Same Framework</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">SvelteKit 3.0 shipped on Oct 1 with configuration moved to vite.config.ts, standard subpath imports (#lib instead of $lib), improved environment variables and service workers, and better error handling. Migration is automated via `npx sv migrate sveltekit-3`.</p>
+      <div class="article-meta">
+        <span class="tag">Svelte</span>
+        <span class="tag">SvelteKit</span>
+        <span class="tag">Web Framework</span>
+        <span class="tag">JavaScript</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>SvelteKit 3 is the anti-hype major release — no paradigm shifts, just quality-of-life improvements that reduce friction. Moving config to vite.config.ts aligns with the Vite ecosystem. The automated migration command means teams can upgrade without a rewrite sprint. For teams building AI-powered web apps, SvelteKit remains the lightest path from idea to production.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building lightweight web frontends for AI-powered applications</li>
+          <li>Upgrading existing SvelteKit apps with one-command migration</li>
+          <li>Type-safe full-stack development with Vite ecosystem alignment</li>
+          <li>Rapid prototyping of agent UIs and dashboards</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>3.0 stable release (Oct 1)</li>
+          <li>Svelte's growing adoption and community</li>
+          <li>Automated migration path minimizes upgrade friction</li>
+          <li>Follows Svelte 5 release cycle</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://svelte.dev/blog/sveltekit-3-is-here">Svelte Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="developer-tools-&-frameworks-2">
+      <div class="article-header">
+        <h3><a href="https://www.qodo.ai/blog/introducing-qodo-3-0/">Qodo 3.0: Quality and Governance for the Agentic Software Factory</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Qodo 3.0 extends code quality and governance to agents in the enterprise software factory. It brings team standards into agent tools, organizes agent output into work packages, maps cross-repo impact of changes, and gives leaders visibility into quality across the entire pipeline.</p>
+      <div class="article-meta">
+        <span class="tag">Code Quality</span>
+        <span class="tag">Governance</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">Agents</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>As agents write more code, governance becomes the bottleneck. Qodo 3.0 addresses this by embedding quality standards into the tools agents use — not just reviewing their output after the fact. The cross-repo impact mapping is particularly valuable: when an agent changes code in one repo, you can see what it affects elsewhere before it ships.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Embedding quality standards into agent coding workflows</li>
+          <li>Cross-repo impact analysis for agent-generated changes</li>
+          <li>Enterprise governance dashboards for AI-generated code metrics</li>
+          <li>Organizing agent output into coherent work packages for review</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>3.0 release (Oct 1)</li>
+          <li>Qodo's existing enterprise customer base (formerly CodiumAI)</li>
+          <li>Directly addresses the agent governance gap every enterprise is facing</li>
+          <li>CEO Itamar Friedman's accompanying vision post</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.qodo.ai/blog/introducing-qodo-3-0/">Qodo Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 class="section-title">Infrastructure & Production</h2>
+    <div class="article" id="infrastructure-&-production-0">
+      <div class="article-header">
+        <h3><a href="https://modal.com/blog/vm-sandboxes-agent-computers">Modal VM Sandboxes Go GA: Full Computers for Agents with Sub-Second Cold Starts</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Modal made VM Sandboxes generally available — full Linux VMs for agents that support Docker stacks, local databases, dev servers, graphical environments, and even kernel-level access. They maintain Modal's ergonomics: same APIs, modal.Images, sub-second cold starts, CPU/memory bursting, and support for hundreds of thousands of concurrent sandboxes.</p>
+      <div class="article-meta">
+        <span class="tag">Modal</span>
+        <span class="tag">VM Sandboxes</span>
+        <span class="tag">Agent Infrastructure</span>
+        <span class="tag">Compute</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Container sandboxes worked for simple agent tasks, but real-world agent workloads need full VMs — Docker-in-Docker, graphical UIs for computer use, kernel access for systems testing. Modal solved the hard engineering problem of keeping VM ergonomics as good as container ergonomics (sub-second cold starts, burstable resources). This, combined with Cloudflare Sandbox SDK 1.0 from last week, means agent sandboxing is now a solved infrastructure problem.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Running coding agents in full VM environments with Docker and dev servers</li>
+          <li>Computer use agents that need graphical environments and browsers</li>
+          <li>Agent evaluation harnesses requiring kernel-level isolation</li>
+          <li>Scaling agent-driven CI/CD with per-second billed VMs</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>GA release (Oct 1)</li>
+          <li>Built after watching Ramp's production agent deployment on Modal</li>
+          <li>Supports hundreds of thousands of concurrent sandboxes</li>
+          <li>Custom runtime engineering for VM-level API parity with containers</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://modal.com/blog/vm-sandboxes-agent-computers">Modal Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-1">
+      <div class="article-header">
+        <h3><a href="https://blog.cloudflare.com/cloudflare-k2-streams/">Cloudflare K2: Serverless Event Streams Built on R2 for Edge Data Pipelines</a></h3>
+        <span class="traction-badge traction-high">High Traction</span>
+      </div>
+      <p class="tldr">Cloudflare K2 is a serverless event streaming service built on R2 object storage, now in public beta. It decouples producers and consumers at the edge with durable, ordered log streams — no broker clusters to manage. Designed for high-scale data movement with long-term retention.</p>
+      <div class="article-meta">
+        <span class="tag">Cloudflare</span>
+        <span class="tag">Event Streaming</span>
+        <span class="tag">Serverless</span>
+        <span class="tag">Infrastructure</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Event streaming has always required managing broker clusters (Kafka, Pulsar, etc.) — expensive and operationally heavy. K2 eliminates that by building streams directly on R2 object storage at the edge. For teams building agent pipelines that need durable event logs (agent actions, audit trails, multi-step workflow state), this is Kafka-class functionality with zero operational overhead. The R2 foundation means retention is essentially unlimited at object storage pricing.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Durable audit logs for agent actions and decisions</li>
+          <li>Decoupled event pipelines for multi-agent orchestration</li>
+          <li>Real-time data streaming at the edge without managing Kafka clusters</li>
+          <li>Long-term retention of workflow events at object storage pricing</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>Public beta launch (Oct 1)</li>
+          <li>Part of Cloudflare's Developer Week</li>
+          <li>Built on proven R2 object storage infrastructure</li>
+          <li>Addresses a major pain point in serverless architectures</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.cloudflare.com/cloudflare-k2-streams/">Cloudflare Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="article" id="infrastructure-&-production-2">
+      <div class="article-header">
+        <h3><a href="https://blog.crossplane.io/introducing-the-new-crossplane-cli-developer-experience/">Crossplane Gets a New CLI: Developer Experience Overhaul for Platform Builders</a></h3>
+        <span class="traction-badge traction-medium">Growing</span>
+      </div>
+      <p class="tldr">Crossplane launched a completely redesigned CLI on Oct 1 that makes building platforms on top of Crossplane significantly easier. The new CLI focuses on developer ergonomics — reducing the friction of defining, testing, and deploying Crossplane compositions.</p>
+      <div class="article-meta">
+        <span class="tag">Crossplane</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Platform Engineering</span>
+        <span class="tag">CLI</span>
+        <button class="toggle-btn">More ▼</button>
+      </div>
+      <div class="details">
+        <h4>Why it matters</h4>
+        <p>Crossplane is the CNCF's answer to infrastructure-as-code for Kubernetes, but adoption has been held back by developer experience friction. A redesigned CLI that simplifies composition authoring and testing lowers the barrier to building internal developer platforms. For teams using Crossplane to manage multi-cloud infrastructure, this is the DX upgrade they've been waiting for.</p>
+        <h4>Use cases</h4>
+        <ul>
+          <li>Building internal developer platforms with simplified Crossplane authoring</li>
+          <li>Multi-cloud infrastructure management from a single CLI</li>
+          <li>Testing and iterating on Crossplane compositions locally</li>
+          <li>Platform engineering teams reducing cognitive load for infrastructure consumers</li>
+        </ul>
+        <h4>Traction</h4>
+        <ul>
+          <li>New CLI release (Oct 1)</li>
+          <li>CNCF graduated project with established enterprise adoption</li>
+          <li>Directly addresses the #1 friction point in Crossplane adoption</li>
+          <li>Part of broader platform engineering trend</li>
+        </ul>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://blog.crossplane.io/introducing-the-new-crossplane-cli-developer-experience/">Crossplane Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>AI Engineering Digest &middot; Curated by Pepe &middot; <a href="../index.html" style="color:var(--accent)">Archive</a></p>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const details = btn.closest('.article').querySelector('.details');
+    details.classList.toggle('open');
+    btn.textContent = details.classList.contains('open') ? 'Less ▲' : 'More ▼';
+  });
+});
+</script>
+</body>
+</html>
